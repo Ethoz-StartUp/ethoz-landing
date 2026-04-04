@@ -152,6 +152,47 @@
   <meta name="twitter:title" content="Ethoz — Gestión y cumplimiento para colegios" />
   <meta name="twitter:description" content="Plataforma de gestión y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
   <link rel="canonical" href="https://ethoz.cl/" />
+  <script type="application/ld+json">
+  {JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Ethoz",
+      "url": "https://ethoz.cl",
+      "logo": "https://ethoz.cl/favicon.svg",
+      "description": "Plataforma de gestión y protección de datos escolares para colegios de Chile",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CL"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contacto@ethoz.cl",
+        "contactType": "sales"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ethoz",
+      "url": "https://ethoz.cl"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Ethoz",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Plataforma de gestión y protección de datos escolares para colegios de Chile. Cumplimiento Ley 21.719.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CLP",
+        "description": "Demo gratuita"
+      }
+    }
+  ])}
+  </script>
 </svelte:head>
 
 <main>
