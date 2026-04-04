@@ -4,19 +4,33 @@
   import { slide } from 'svelte/transition';
   let { children } = $props();
   const feedbackEnabled = env.PUBLIC_FEEDBACK_MODE === 'true';
+  const clarityId = env.PUBLIC_CLARITY_PROJECT_ID ?? '';
 
   let cookieConsent = $state<boolean | null>(null);
+
+  // Load Clarity after cookie consent
+  function loadClarity() {
+    if (!clarityId || typeof window === 'undefined') return;
+    if ((window as any).clarity) return;
+    (function(c: any, l: any, a: string, r: string, i: string) {
+      c[a] = c[a] || function(...args: any[]) { (c[a].q = c[a].q || []).push(args); };
+      const t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+      const y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', clarityId);
+  }
 
   $effect(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('cookie-consent');
       cookieConsent = stored === null ? false : true;
+      if (stored === 'accepted') loadClarity();
     }
   });
 
   function acceptCookies() {
     localStorage.setItem('cookie-consent', 'accepted');
     cookieConsent = true;
+    loadClarity();
     if (typeof window !== 'undefined' && 'gtag' in window) {
       (window as any).gtag('consent', 'update', {
         analytics_storage: 'granted',

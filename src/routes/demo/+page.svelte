@@ -7,10 +7,9 @@
   import { t } from '$lib/i18n/index.svelte';
   import { schoolStore, type School } from '$lib/stores/schools.svelte';
   import { trackEvent } from '$lib/utils/analytics';
-  import { executeRecaptcha } from '$lib/utils/recaptcha';
   import { normalize } from '$lib/utils/text';
   import { saveLead } from '$lib/supabase';
-  import { PUBLIC_RECAPTCHA_SITE_KEY } from '$env/static/public';
+  import { executeRecaptcha } from '$lib/utils/recaptcha';
   import {
     Search,
     Building,
@@ -159,7 +158,6 @@
     submitting = true;
 
     await executeRecaptcha('submit_demo');
-
     const school = schoolStore.selectedSchool;
 
     // Save lead to Supabase (fire and forget — don't block the user)
@@ -198,7 +196,6 @@
 <svelte:head>
   <title>Ethoz — {t('nav.cta')}</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://www.google.com/recaptcha/api.js?render={PUBLIC_RECAPTCHA_SITE_KEY}" async defer></script>
   <meta property="og:url" content="https://ethoz.cl/demo" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Demo — Ethoz" />
@@ -409,11 +406,11 @@
               </div>
             {/if}
 
-            <!-- Map -->
+            <!-- Map — desktop only -->
             {#if schoolStore.selectedSchool && schoolStore.selectedSchool.lat !== 0}
               <div
                 bind:this={mapContainer}
-                class="h-64 w-full overflow-hidden rounded-xl border border-border"
+                class="hidden h-64 w-full overflow-hidden rounded-xl border border-border lg:block"
               ></div>
             {/if}
           </div>
@@ -483,7 +480,7 @@
                   type="tel"
                   bind:value={contactPhone}
                   placeholder="+56 9 1234 5678"
-                  autocomplete="off"
+                  autocomplete="tel"
                   class="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
               </div>

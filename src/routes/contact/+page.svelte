@@ -4,8 +4,6 @@
   import { Button } from '$lib/components/ui/button';
   import { t } from '$lib/i18n/index.svelte';
   import { Mail, CalendarDays, Loader2 } from '@lucide/svelte';
-  import { executeRecaptcha } from '$lib/utils/recaptcha';
-  import { PUBLIC_RECAPTCHA_SITE_KEY } from '$env/static/public';
   import { CONTACT } from '$lib/config';
 
   // ── State ──
@@ -19,8 +17,6 @@
     e.preventDefault();
     submitting = true;
 
-    await executeRecaptcha('submit_contact');
-
     setTimeout(() => {
       submitting = false;
       name = '';
@@ -32,7 +28,6 @@
 
 <svelte:head>
   <title>{t('contact.meta.title')}</title>
-  <script src="https://www.google.com/recaptcha/api.js?render={PUBLIC_RECAPTCHA_SITE_KEY}" async defer></script>
   <meta property="og:url" content="https://ethoz.cl/contact" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Contacto — Ethoz" />
@@ -171,9 +166,6 @@
           {/if}
         </Button>
 
-        <p class="text-center text-[10px] text-muted-foreground">
-          {t('contact.recaptcha')}
-        </p>
       </form>
     </div>
 

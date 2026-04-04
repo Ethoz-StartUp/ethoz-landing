@@ -772,9 +772,14 @@
   }
 
   @media (max-width: 500px) {
-    .sc { padding: 1rem; gap: 1rem; }
-    .subtitle-bar { bottom: 7.5rem; }
-    .close-btn { top: 0.5rem; right: 0.5rem; }
-    .callout { flex-wrap: wrap; justify-content: center; text-align: center; }
+    .sc { padding: 0.75rem; gap: 0.75rem; }
+    .subtitle-bar { bottom: 7rem; left: 0; transform: none; width: 100%; padding: 0 0.5rem; }
+    .subtitle { font-size: 0.7rem; padding: 0.5rem 0.75rem; line-height: 1.5; }
+    .close-btn { top: 0.5rem; right: 0.5rem; width: 2rem; height: 2rem; }
+    .callout { flex-wrap: wrap; justify-content: center; text-align: center; font-size: 0.65rem; }
+    .heading { font-size: clamp(1rem, 5vw, 1.5rem); }
+    .sub { font-size: 0.8rem; }
+    .icon-box { width: 2.5rem; height: 2.5rem; }
+    .icon-label { font-size: 0.6rem; }
   }
 </style>

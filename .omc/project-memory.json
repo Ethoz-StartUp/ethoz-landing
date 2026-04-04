@@ -115,8 +115,8 @@
   "hotPaths": [
     {
       "path": "src/routes/+page.svelte",
-      "accessCount": 379,
-      "lastAccessed": 1775332072025,
+      "accessCount": 382,
+      "lastAccessed": 1775342050896,
       "type": "file"
     },
     {
@@ -127,8 +127,8 @@
     },
     {
       "path": "src/routes/demo/+page.svelte",
-      "accessCount": 104,
-      "lastAccessed": 1775332837622,
+      "accessCount": 121,
+      "lastAccessed": 1775342347772,
       "type": "file"
     },
     {
@@ -151,8 +151,8 @@
     },
     {
       "path": "src/app.css",
-      "accessCount": 39,
-      "lastAccessed": 1775329102779,
+      "accessCount": 41,
+      "lastAccessed": 1775342360836,
       "type": "file"
     },
     {
@@ -180,6 +180,12 @@
       "type": "file"
     },
     {
+      "path": "src/routes/+layout.svelte",
+      "accessCount": 22,
+      "lastAccessed": 1775341946545,
+      "type": "file"
+    },
+    {
       "path": "src/routes/terms/+page.svelte",
       "accessCount": 21,
       "lastAccessed": 1775323411577,
@@ -189,12 +195,6 @@
       "path": ".impeccable.md",
       "accessCount": 20,
       "lastAccessed": 1775329331212,
-      "type": "file"
-    },
-    {
-      "path": "src/routes/+layout.svelte",
-      "accessCount": 17,
-      "lastAccessed": 1775331282021,
       "type": "file"
     },
     {
@@ -210,15 +210,15 @@
       "type": "directory"
     },
     {
-      "path": "svelte.config.js",
-      "accessCount": 13,
-      "lastAccessed": 1775325500734,
+      "path": "src/app.html",
+      "accessCount": 15,
+      "lastAccessed": 1775341906842,
       "type": "file"
     },
     {
-      "path": "src/app.html",
+      "path": "svelte.config.js",
       "accessCount": 13,
-      "lastAccessed": 1775340979360,
+      "lastAccessed": 1775325500734,
       "type": "file"
     },
     {
