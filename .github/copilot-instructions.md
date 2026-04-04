@@ -36,7 +36,7 @@ Emotional goals:
 |-------|-------|---------|
 | Background | `oklch(1 0 0)` | Pure white canvas |
 | Foreground | `oklch(0.145 0.005 286)` | Near-black text |
-| Primary | `oklch(0.52 0.21 264)` | System blue — ALL interactive elements |
+| Primary | `oklch(0.546 0.213 264)` | System blue — ALL interactive elements |
 | Secondary | `oklch(0.94 0.003 264)` | Cool-tinted gray — section alternation |
 | Accent | `oklch(0.94 0.003 264)` | Subtle hover tint (NOT same as primary) |
 | Muted | `oklch(0.93 0 0)` | Visible neutral gray for backgrounds |

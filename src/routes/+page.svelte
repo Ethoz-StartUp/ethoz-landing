@@ -1,11 +1,14 @@
 <script lang="ts">
   import { Button } from '$lib/components/ui/button';
   import Footer from '$lib/components/Footer.svelte';
+  import NavBar from '$lib/components/NavBar.svelte';
   import { Badge } from '$lib/components/ui/badge';
-  import { t, toggleLocale, getLocale } from '$lib/i18n/index.svelte';
+  import { t } from '$lib/i18n/index.svelte';
   import { trackEvent } from '$lib/utils/analytics';
+  import { CONTACT } from '$lib/config';
   import { slide } from 'svelte/transition';
   import { env } from '$env/dynamic/public';
+  import PitchModal from '$lib/components/PitchModal.svelte';
   import {
     Shield,
     Users,
@@ -15,9 +18,6 @@
     ArrowRight,
     Check,
     ChevronRight,
-    Menu,
-    X,
-    Globe,
     Lock,
     Zap,
     Building,
@@ -31,13 +31,12 @@
     ChevronDown,
     Plus,
     Minus,
-    BarChart3
+    Play
   } from '@lucide/svelte';
 
   // ── Reactive state ──
-  let scrolled = $state(false);
-  let mobileOpen = $state(false);
   let showStickyCta = $state(false);
+  let showPitch = $state(false);
 
   // ── FAQ accordion state ──
   let openFaq = $state<number | null>(null);
@@ -71,15 +70,7 @@
     return () => clearInterval(interval);
   });
 
-  // ── Smooth scroll helper ──
-  function scrollTo(id: string) {
-    mobileOpen = false;
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-      trackEvent('scroll_to_section', { section: id });
-    }
-  }
+
 
   // ── Student carousel for hero mockup ──
   const heroStudents = [
@@ -146,10 +137,7 @@
 
 <!-- Scroll listener (guarded to avoid no-op reactivity writes) -->
 <svelte:window onscroll={() => {
-  const y = window.scrollY;
-  const s = y > 20;
-  const c = y > 300;
-  if (s !== scrolled) scrolled = s;
+  const c = window.scrollY > 300;
   if (c !== showStickyCta) showStickyCta = c;
 }} />
 
@@ -167,160 +155,51 @@
 </svelte:head>
 
 <main>
-  <!-- ═══════════════════════════════════════════
-       SECTION 1: NAVBAR
-       ═══════════════════════════════════════════ -->
-  <nav
-    class="fixed top-0 right-0 left-0 z-50 transition-all duration-300 {scrolled
-      ? 'bg-background/80 backdrop-blur-lg border-b border-border shadow-sm'
-      : 'bg-transparent'}"
-  >
-    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-      <!-- Logo -->
-      <a href="/" class="text-xl font-bold tracking-tight text-foreground">
-        Ethoz
-      </a>
-
-      <!-- Desktop nav links -->
-      <div class="hidden items-center gap-8 md:flex">
-        <button onclick={() => scrollTo('features')} class="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-          {t('nav.features')}
-        </button>
-        <button onclick={() => scrollTo('compliance')} class="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-          {t('nav.compliance')}
-        </button>
-        <button onclick={() => scrollTo('faq')} class="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-          {t('nav.faq')}
-        </button>
-        <a href="/blog" class="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-          Blog
-        </a>
-      </div>
-
-      <!-- Desktop right actions -->
-      <div class="hidden items-center gap-3 md:flex">
-        <a href={env.PUBLIC_APP_URL ?? 'http://localhost:5174/'} class="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-          {t('nav.login')}
-        </a>
-        <Button
-          variant="ghost"
-          size="sm"
-          onclick={toggleLocale}
-          class="gap-1.5 text-muted-foreground"
-        >
-          <Globe class="size-4" />
-          {getLocale() === 'es' ? 'EN' : 'ES'}
-        </Button>
-        <Button size="sm" href="/demo">
-          {t('nav.cta')}
-        </Button>
-      </div>
-
-      <!-- Mobile hamburger -->
-      <button
-        class="flex items-center justify-center rounded-md p-2 text-foreground md:hidden"
-        onclick={() => { mobileOpen = !mobileOpen; }}
-        aria-label="Toggle menu"
-      >
-        {#if mobileOpen}
-          <X class="size-5" />
-        {:else}
-          <Menu class="size-5" />
-        {/if}
-      </button>
-    </div>
-
-    <!-- Mobile menu panel -->
-    {#if mobileOpen}
-      <div class="border-b border-border bg-background/95 backdrop-blur-lg md:hidden">
-        <div class="flex flex-col gap-1 px-4 pb-4 pt-2">
-          <button
-            onclick={() => scrollTo('features')}
-            class="rounded-md px-3 py-2.5 text-left text-sm font-medium text-foreground transition-colors hover:bg-muted"
-          >
-            {t('nav.features')}
-          </button>
-          <button
-            onclick={() => scrollTo('compliance')}
-            class="rounded-md px-3 py-2.5 text-left text-sm font-medium text-foreground transition-colors hover:bg-muted"
-          >
-            {t('nav.compliance')}
-          </button>
-          <button
-            onclick={() => scrollTo('faq')}
-            class="rounded-md px-3 py-2.5 text-left text-sm font-medium text-foreground transition-colors hover:bg-muted"
-          >
-            {t('nav.faq')}
-          </button>
-          <a
-            href="/blog"
-            class="rounded-md px-3 py-2.5 text-left text-sm font-medium text-foreground transition-colors hover:bg-muted"
-          >
-            Blog
-          </a>
-          <div class="mt-2 flex items-center gap-3 border-t border-border pt-3">
-            <a href={env.PUBLIC_APP_URL ?? 'http://localhost:5174/'} class="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-              {t('nav.login')}
-            </a>
-            <Button
-              variant="ghost"
-              size="sm"
-              onclick={toggleLocale}
-              class="gap-1.5 text-muted-foreground"
-            >
-              <Globe class="size-4" />
-              {getLocale() === 'es' ? 'EN' : 'ES'}
-            </Button>
-            <Button size="sm" href="/demo" class="flex-1">
-              {t('nav.cta')}
-            </Button>
-          </div>
-        </div>
-      </div>
-    {/if}
-  </nav>
+  <NavBar />
 
   <!-- ═══════════════════════════════════════════
        SECTION 2: HERO — split layout
        ═══════════════════════════════════════════ -->
-  <section class="relative overflow-hidden pt-16">
+  <section class="relative overflow-hidden pt-28 sm:pt-32">
     <!-- Background gradient -->
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-transparent to-transparent"></div>
 
-    <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
+    <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-14 lg:px-8">
 
       <!-- Left column: headline + CTAs -->
-      <div class="flex flex-col items-start">
+      <div class="flex flex-col items-center text-center sm:items-start sm:text-left">
         <!-- Badge -->
-        <Badge variant="secondary" class="mb-6 gap-1.5 px-3 py-1 text-xs font-medium">
+        <Badge variant="secondary" class="animate-fade-in-up mb-4 gap-1.5 px-3 py-1 text-xs font-medium">
           <Shield class="size-3.5" />
           {t('hero.badge')}
         </Badge>
 
         <!-- Headline -->
-        <h1 class="text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+        <h1 class="animate-fade-in-up animate-delay-100 text-balance text-5xl font-extrabold tracking-tighter text-foreground sm:text-6xl lg:text-7xl">
           {t('hero.title')}
         </h1>
 
         <!-- Subtitle -->
-        <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+        <p class="animate-fade-in-up animate-delay-200 mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
           {t('hero.subtitle')}
         </p>
 
         <!-- CTAs -->
-        <div class="mt-10 flex flex-wrap gap-4">
-          <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30">
+        <div class="animate-fade-in-up animate-delay-300 mt-8 flex items-center justify-center gap-3 sm:justify-start sm:gap-4">
+          <Button size="lg" href="/demo" class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 sm:size-xl">
             {t('hero.cta.primary')}
             <ArrowRight class="size-4" />
           </Button>
-          <Button variant="outline" size="xl" href="/pricing">
-            {t('hero.cta.secondary')}
+          <Button variant="outline" size="lg" onclick={() => showPitch = true} class="border-foreground/20 hover:border-foreground/40 hover:bg-muted sm:size-xl">
+            <Play class="size-4" />
+            <span class="hidden sm:inline">Conoce Ethoz en 2 min</span>
+            <span class="sm:hidden">Ver presentación</span>
           </Button>
         </div>
       </div>
 
       <!-- Right column: dashboard mockup -->
-      <div class="w-full">
+      <div class="animate-fade-in-up animate-delay-400 w-full">
         <div class="rounded-xl border border-border bg-card shadow-2xl">
           <!-- macOS-style title bar -->
           <div class="flex items-center gap-2 border-b border-border px-4 py-3">
@@ -442,10 +321,10 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-primary">
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('problem.overline')}
         </p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('problem.title')}
         </h2>
         <p class="mt-4 text-lg text-muted-foreground">
@@ -453,39 +332,36 @@
         </p>
       </div>
 
-      <!-- Problem items — stacked narrative -->
-      <div class="mx-auto mt-12 max-w-3xl space-y-6">
-        <!-- Item 1: Scattered data -->
-        <div class="flex items-start gap-4 rounded-xl border border-border bg-card p-6">
-          <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-warning/15">
-            <AlertTriangle class="size-5 text-warning-foreground" />
-          </div>
-          <div>
+      <!-- Problem items — 3 columns -->
+      <div class="mx-auto mt-10 grid gap-6 sm:grid-cols-3">
+        <div class="rounded-xl border border-border border-l-4 border-l-warning bg-card p-6">
+          <div class="flex items-center gap-3">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-warning/15">
+              <AlertTriangle class="size-5 text-warning-foreground" />
+            </div>
             <h3 class="text-base font-semibold text-foreground">{t('problem.card1.title')}</h3>
-            <p class="mt-1 text-sm leading-relaxed text-muted-foreground">{t('problem.card1.desc')}</p>
           </div>
+          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card1.desc')}</p>
         </div>
 
-        <!-- Item 2: Security risks -->
-        <div class="flex items-start gap-4 rounded-xl border border-border bg-card p-6">
-          <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-destructive/10">
-            <Shield class="size-5 text-destructive" />
-          </div>
-          <div>
+        <div class="rounded-xl border border-border border-l-4 border-l-destructive bg-card p-6">
+          <div class="flex items-center gap-3">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-destructive/10">
+              <Shield class="size-5 text-destructive" />
+            </div>
             <h3 class="text-base font-semibold text-foreground">{t('problem.card2.title')}</h3>
-            <p class="mt-1 text-sm leading-relaxed text-muted-foreground">{t('problem.card2.desc')}</p>
           </div>
+          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card2.desc')}</p>
         </div>
 
-        <!-- Item 3: No compliance -->
-        <div class="flex items-start gap-4 rounded-xl border border-border bg-card p-6">
-          <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-            <FileCheck class="size-5 text-primary" />
-          </div>
-          <div>
+        <div class="rounded-xl border border-border border-l-4 border-l-primary bg-card p-6">
+          <div class="flex items-center gap-3">
+            <div class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+              <FileCheck class="size-5 text-primary" />
+            </div>
             <h3 class="text-base font-semibold text-foreground">{t('problem.card3.title')}</h3>
-            <p class="mt-1 text-sm leading-relaxed text-muted-foreground">{t('problem.card3.desc')}</p>
           </div>
+          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card3.desc')}</p>
         </div>
       </div>
     </div>
@@ -498,10 +374,10 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-primary">
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('solution.overline')}
         </p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('solution.title')}
         </h2>
         <p class="mt-4 text-lg text-muted-foreground">
@@ -509,10 +385,10 @@
         </p>
       </div>
 
-      <!-- Feature cards — compact grid -->
-      <div class="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Feature cards — 2×2 grid (products only, compliance is separate) -->
+      <div class="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2">
         <!-- Feature 1: Ficha 360° -->
-        <a href="/features/student-profile" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-l-2 hover:border-l-primary hover:shadow-md">
+        <a href="/features/student-profile" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-l-2 hover:border-l-primary hover:shadow-md hover:-translate-y-0.5">
           <div class="flex items-center gap-3">
             <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
               <ClipboardList class="size-5 text-primary" />
@@ -526,7 +402,7 @@
         </a>
 
         <!-- Feature 2: Retiros Seguros -->
-        <a href="/features/safe-pickups" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-l-2 hover:border-l-primary hover:shadow-md">
+        <a href="/features/safe-pickups" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-l-2 hover:border-l-primary hover:shadow-md hover:-translate-y-0.5">
           <div class="flex items-center gap-3">
             <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-destructive/10">
               <Bell class="size-5 text-destructive" />
@@ -539,22 +415,8 @@
           </span>
         </a>
 
-        <!-- Feature 3: Privacidad y Cumplimiento -->
-        <a href="/features/privacy-compliance" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-l-2 hover:border-l-primary hover:shadow-md">
-          <div class="flex items-center gap-3">
-            <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-success/10">
-              <Shield class="size-5 text-success" />
-            </div>
-            <h3 class="text-base font-semibold text-foreground">{t('features.privacy.title')}</h3>
-          </div>
-          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('features.privacy.desc')}</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
-            {t('features.learn_more')} <ChevronRight class="size-3.5" />
-          </span>
-        </a>
-
-        <!-- Feature 4: RBAC -->
-        <a href="/features/access-control" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-l-2 hover:border-l-primary hover:shadow-md">
+        <!-- Feature 3: Permisos por Cargo -->
+        <a href="/features/access-control" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-l-2 hover:border-l-primary hover:shadow-md hover:-translate-y-0.5">
           <div class="flex items-center gap-3">
             <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-warning/15">
               <Fingerprint class="size-5 text-warning-foreground" />
@@ -567,8 +429,8 @@
           </span>
         </a>
 
-        <!-- Feature 5: Búsqueda y Dashboard -->
-        <a href="/features/smart-search" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-l-2 hover:border-l-primary hover:shadow-md">
+        <!-- Feature 4: Búsqueda Instantánea -->
+        <a href="/features/smart-search" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-l-2 hover:border-l-primary hover:shadow-md hover:-translate-y-0.5">
           <div class="flex items-center gap-3">
             <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
               <Search class="size-5 text-primary" />
@@ -580,19 +442,19 @@
             {t('features.learn_more')} <ChevronRight class="size-3.5" />
           </span>
         </a>
+      </div>
 
-        <!-- Feature 6: Dashboard de Cumplimiento -->
-        <a href="/compliance" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-l-2 hover:border-l-primary hover:shadow-md">
-          <div class="flex items-center gap-3">
-            <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-              <BarChart3 class="size-5 text-primary" />
-            </div>
-            <h3 class="text-base font-semibold text-foreground">{t('features.dashboard.title')}</h3>
+      <!-- Cross-cutting: privacy is not a product, it's how everything works -->
+      <div class="mx-auto mt-8 max-w-4xl">
+        <a href="/compliance" class="group flex items-center gap-4 rounded-xl border border-border bg-secondary/50 px-6 py-4 transition-all hover:border-primary/20 hover:shadow-sm">
+          <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-success/10">
+            <Shield class="size-5 text-success" />
           </div>
-          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('features.dashboard.desc')}</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
-            {t('features.learn_more')} <ChevronRight class="size-3.5" />
-          </span>
+          <div class="flex-1">
+            <p class="text-sm font-semibold text-foreground">Todo Ethoz cumple la Ley 21.719 por diseño</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">Cifrado, auditoría, consentimiento parental y aislamiento de datos no son un módulo aparte — están integrados en cada función.</p>
+          </div>
+          <ChevronRight class="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
         </a>
       </div>
     </div>
@@ -605,10 +467,10 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-primary">
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('compliance.overline')}
         </p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('compliance.title')}
         </h2>
         <p class="mt-4 text-lg text-muted-foreground">
@@ -671,16 +533,75 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
+       SECTION 7.5: ROLES — cada cargo ve lo que necesita
+       ═══════════════════════════════════════════ -->
+  <section class="bg-secondary py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">Para cada cargo</p>
+        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          Cada persona ve exactamente lo que necesita
+        </h2>
+      </div>
+
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+          <img src="/images/people/director-mujer.webp" alt="" class="size-10 shrink-0 rounded-full object-cover" loading="lazy" />
+          <div>
+            <p class="text-sm font-semibold text-foreground">Directora</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">Indicadores, métricas, informes y exportación de datos.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+          <img src="/images/people/inspector-hombre.webp" alt="" class="size-10 shrink-0 rounded-full object-cover" loading="lazy" />
+          <div>
+            <p class="text-sm font-semibold text-foreground">Inspector</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">Alertas activas, observaciones conductuales y retiros.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+          <img src="/images/people/docente-mujer.webp" alt="" class="size-10 shrink-0 rounded-full object-cover" loading="lazy" />
+          <div>
+            <p class="text-sm font-semibold text-foreground">Docente</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">Perfil del alumno, observaciones académicas y alertas de su curso.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+          <img src="/images/people/orientadora-mujer.webp" alt="" class="size-10 shrink-0 rounded-full object-cover" loading="lazy" />
+          <div>
+            <p class="text-sm font-semibold text-foreground">Orientadora</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">Perfil completo incluyendo observaciones emocionales y derivaciones.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+          <img src="/images/people/portero-hombre.webp" alt="" class="size-10 shrink-0 rounded-full object-cover" loading="lazy" />
+          <div>
+            <p class="text-sm font-semibold text-foreground">Portero</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">Solo foto, nombre, alertas críticas y registro de retiros.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+          <img src="/images/people/apoderado-madre.webp" alt="" class="size-10 shrink-0 rounded-full object-cover" loading="lazy" />
+          <div>
+            <p class="text-sm font-semibold text-foreground">Apoderado</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">Estado de su hijo, retiros registrados y comunicaciones del colegio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
        SECTION 8: HOW IT WORKS
        ═══════════════════════════════════════════ -->
   <section class="py-16 sm:py-20" id="how">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-primary">
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('how.overline')}
         </p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('how.title')}
         </h2>
       </div>
@@ -712,34 +633,35 @@
   <section class="bg-secondary py-16 sm:py-20" id="faq">
     <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-primary">
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('faq.overline')}
         </p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('faq.title')}
         </h2>
       </div>
 
-      <div class="mt-12 flex flex-col divide-y divide-border">
-        {#each [1, 2, 3, 4, 5] as n, i}
-          <div class="py-6">
+      <div class="mt-10 divide-y divide-border rounded-2xl border border-border bg-card shadow-sm">
+        {#each [1, 2, 11, 3, 15, 4, 12] as n, i}
+          <div>
             <button
               onclick={() => toggleFaq(i)}
-              class="flex w-full items-center justify-between text-left"
+              class="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-muted/50"
+              aria-expanded={openFaq === i}
             >
-              <span class="pr-8 text-base font-medium text-foreground">{t(`faq.q${n}`)}</span>
-              <span class="shrink-0 rounded-full p-1 text-muted-foreground transition-colors hover:bg-muted">
-                {#if openFaq === i}
-                  <Minus class="size-5" />
-                {:else}
-                  <Plus class="size-5" />
-                {/if}
-              </span>
+              <span class="pr-8 text-sm font-semibold text-foreground">{t(`faq.q${n}`)}</span>
+              {#if openFaq === i}
+                <Minus class="size-4 shrink-0 text-muted-foreground" />
+              {:else}
+                <Plus class="size-4 shrink-0 text-muted-foreground" />
+              {/if}
             </button>
             {#if openFaq === i}
-              <p transition:slide={{ duration: 200 }} class="mt-4 pr-12 text-sm leading-relaxed text-muted-foreground">
-                {t(`faq.a${n}`)}
-              </p>
+              <div transition:slide={{ duration: 200 }} class="px-6 pb-5">
+                <p class="text-sm leading-relaxed text-muted-foreground">
+                  {t(`faq.a${n}`)}
+                </p>
+              </div>
             {/if}
           </div>
         {/each}
@@ -773,10 +695,11 @@
         <Button
           variant="outline"
           size="xl"
-          href="https://wa.me/56912345678?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Ethoz"
-          class="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+          onclick={() => showPitch = true}
+          class="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/15 hover:text-primary-foreground"
         >
-          {t('cta.secondary')}
+          <Play class="size-4" />
+          Ver presentación
         </Button>
       </div>
     </div>
@@ -794,6 +717,10 @@
     </div>
   {/if}
 </main>
+
+{#if showPitch}
+  <PitchModal onclose={() => showPitch = false} />
+{/if}
 
 <style>
   .carousel-fade {

@@ -9,7 +9,7 @@ export const post: BlogPost = {
 	author: 'Ignacio Araya',
 	readTime: '6 min',
 	tags: ['Seguridad', 'Retiros', 'Tecnología'],
-	coverImage: '/images/blog/retiros-escolares-seguros-tecnologia.png',
+	coverImage: '/images/blog/retiros-escolares-seguros-tecnologia.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
@@ -28,6 +28,11 @@ export const post: BlogPost = {
 	<li><strong>Ausencia de trazabilidad.</strong> Cuando ocurre un incidente, es imposible determinar quién sabía qué y cuándo. No hay log. No hay evidencia de que el protocolo se siguió o se omitió.</li>
 </ul>
 <p>Un estudio interno de colegios con más de 500 alumnos muestra que el 34% de los retiros en horario de almuerzo se registran de forma incompleta. En ese margen vive el riesgo.</p>
+
+<figure>
+  <img src="/images/blog/inline-retiros-verificacion.webp" alt="Verificación digital de retiro escolar: persona autorizada aprobada, persona no autorizada bloqueada" />
+  <figcaption>Verificación digital: cada retiro se valida contra la lista de personas autorizadas en tiempo real</figcaption>
+</figure>
 
 <h2>El concepto de validación cruzada en tiempo real</h2>
 <p>La solución no es digitalizar el cuaderno. Es cambiar la arquitectura del proceso.</p>

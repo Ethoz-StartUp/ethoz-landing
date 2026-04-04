@@ -9,7 +9,7 @@ export const post: BlogPost = {
 	author: 'Ignacio Araya',
 	readTime: '5 min',
 	tags: ['Control de Acceso', 'RBAC', 'Seguridad'],
-	coverImage: '/images/blog/control-acceso-roles-seguridad-escolar.png',
+	coverImage: '/images/blog/control-acceso-roles-seguridad-escolar.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
@@ -68,7 +68,7 @@ export const post: BlogPost = {
 </table>
 
 <figure>
-  <img src="/images/blog/inline-rbac-roles-hierarchy.png" alt="Diagrama de jerarquía de roles: cada nivel del establecimiento accede solo a los datos necesarios para su función" />
+  <img src="/images/blog/inline-rbac-roles-hierarchy.webp" alt="Diagrama de jerarquía de roles: cada nivel del establecimiento accede solo a los datos necesarios para su función" />
   <figcaption>Jerarquía de acceso: cada rol ve exclusivamente la información necesaria para su función</figcaption>
 </figure>
 

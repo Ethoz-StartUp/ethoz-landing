@@ -9,7 +9,7 @@ export const post: BlogPost = {
 	author: 'Ignacio Araya',
 	readTime: '5 min',
 	tags: ['Gestión Escolar', 'Historial', 'Continuidad'],
-	coverImage: '/images/blog/reinicio-de-marzo-seguridad-escolar.png',
+	coverImage: '/images/blog/reinicio-de-marzo-seguridad-escolar.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
@@ -42,6 +42,11 @@ export const post: BlogPost = {
 	<p>"Aplicar la Ley Aula Segura sin historial longitudinal es como juzgar un caso penal sin antecedentes. La decisión puede ser correcta, pero la defensa procesal es débil."</p>
 </blockquote>
 <p>Sin un registro continuo y accesible, el director que aplica una sanción severa queda expuesto a impugnaciones del apoderado que señalan ausencia de proporcionalidad o de proceso previo documentado. El historial es la evidencia. Sin historial, no hay defensa institucional.</p>
+
+<figure>
+  <img src="/images/blog/inline-reinicio-marzo-perdida.webp" alt="El reinicio de marzo: registros escolares que desaparecen al cambiar de año" />
+  <figcaption>Cada marzo, el historial del año anterior se pierde en cuadernos que nadie consulta</figcaption>
+</figure>
 
 <h2>La Ficha 360°: el estudiante como sujeto continuo</h2>
 <p>La solución al reinicio de marzo no es digitalizar el cuaderno de incidentes. Es cambiar el modelo mental: pasar de registros anuales por curso a un expediente digital que pertenece al estudiante y lo acompaña durante toda su trayectoria en la institución.</p>

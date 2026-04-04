@@ -212,9 +212,6 @@
 			}
 		};
 
-		// Log for now — no backend yet
-		console.log('[DemoModal] Form submitted:', formData);
-
 		// Simulate brief processing, then show success
 		setTimeout(() => {
 			submitting = false;

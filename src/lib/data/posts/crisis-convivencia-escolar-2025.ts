@@ -9,7 +9,7 @@ export const post: BlogPost = {
 	author: 'Ignacio Araya',
 	readTime: '7 min',
 	tags: ['Convivencia Escolar', 'Seguridad', 'Datos 2025'],
-	coverImage: '/images/blog/crisis-convivencia-escolar-2025.png',
+	coverImage: '/images/blog/crisis-convivencia-escolar-2025.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
@@ -70,7 +70,7 @@ export const post: BlogPost = {
 <p>El problema del "reinicio de marzo" no es solo operacional. Es un problema de seguridad: un estudiante que acumuló 8 incidentes el año anterior llega en marzo como si fuera nuevo, porque el sistema no tiene memoria institucional efectiva. Los problemas de gestión de datos acumulados tienen raíces en las herramientas utilizadas —un fenómeno que se examina en detalle en <a href="/blog/multas-proteccion-datos-sostenedores">Multas de hasta 20.000 UTM: Guía de cumplimiento para sostenedores</a>.</p>
 
 <figure>
-  <img src="/images/blog/inline-reactive-vs-preventive.png" alt="Comparación visual: sistema reactivo con registros dispersos versus sistema preventivo con dashboard de alertas tempranas" />
+  <img src="/images/blog/inline-reactive-vs-preventive.webp" alt="Comparación visual: sistema reactivo con registros dispersos versus sistema preventivo con dashboard de alertas tempranas" />
   <figcaption>Sistema reactivo vs. preventivo: la diferencia está en la infraestructura de información</figcaption>
 </figure>
 

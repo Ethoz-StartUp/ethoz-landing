@@ -1,13 +1,15 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import Footer from '$lib/components/Footer.svelte';
+  import NavBar from '$lib/components/NavBar.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
-  import { t, toggleLocale, getLocale } from '$lib/i18n/index.svelte';
+  import { t } from '$lib/i18n/index.svelte';
   import { schoolStore, type School } from '$lib/stores/schools.svelte';
   import { trackEvent } from '$lib/utils/analytics';
   import { executeRecaptcha } from '$lib/utils/recaptcha';
   import { normalize } from '$lib/utils/text';
+  import { saveLead } from '$lib/supabase';
   import { PUBLIC_RECAPTCHA_SITE_KEY } from '$env/static/public';
   import {
     Search,
@@ -16,8 +18,6 @@
     ChevronRight,
     Loader2,
     GraduationCap,
-    Globe,
-    ArrowLeft,
     ChevronDown,
     Users
   } from '@lucide/svelte';
@@ -32,6 +32,7 @@
   let contactRole = $state('');
   let contactEmail = $state('');
   let contactPhone = $state('');
+  let contactSource = $state('');
   let submitting = $state(false);
 
   let searchInputEl = $state<HTMLInputElement | null>(null);
@@ -160,29 +161,35 @@
     await executeRecaptcha('submit_demo');
 
     const school = schoolStore.selectedSchool;
-    if (import.meta.env.DEV) {
-      console.log('[Demo] Submitted:', {
-        school,
-        contact: { name: contactName, role: contactRole, email: contactEmail, phone: contactPhone }
-      });
-    }
 
-    setTimeout(() => {
-      submitting = false;
-      // Redirect to scheduling page with pre-filled data
-      const params = new URLSearchParams();
-      if (school) {
-        params.set('school', school.name);
-        params.set('commune', school.commune);
-        // Look up region name
-        const region = schoolStore.regions.find(r => r.code === school.regionCode);
-        if (region) params.set('region', region.name);
-      }
-      params.set('name', contactName);
-      params.set('email', contactEmail);
-      trackEvent('demo_form_submitted', { school: school?.name ?? '', email: contactEmail });
-      goto(`/schedule?${params.toString()}`);
-    }, 600);
+    // Save lead to Supabase (fire and forget — don't block the user)
+    saveLead({
+      school_name: school?.name ?? '',
+      school_rbd: school?.rbd,
+      school_commune: school?.commune ?? '',
+      contact_name: contactName,
+      contact_role: contactRole,
+      contact_email: contactEmail,
+      contact_phone: contactPhone || undefined,
+      contact_source: contactSource || undefined,
+      status: 'new',
+    });
+
+    trackEvent('demo_form_submitted', { school: school?.name ?? '', email: contactEmail });
+
+    // Redirect to scheduling page with pre-filled data
+    const params = new URLSearchParams();
+    if (school) {
+      params.set('school', school.name);
+      params.set('commune', school.commune);
+      const region = schoolStore.regions.find(r => r.code === school.regionCode);
+      if (region) params.set('region', region.name);
+    }
+    params.set('name', contactName);
+    params.set('email', contactEmail);
+
+    submitting = false;
+    goto(`/schedule?${params.toString()}`);
   }
 </script>
 
@@ -203,26 +210,7 @@
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-secondary pt-16">
-  <!-- Nav -->
-  <nav class="fixed top-0 right-0 left-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg shadow-sm">
-    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-      <a href="/" class="text-xl font-bold tracking-tight text-foreground">Ethoz</a>
-
-      <div class="flex items-center gap-3">
-        <Button variant="ghost" size="sm" onclick={toggleLocale} class="gap-1.5 text-muted-foreground">
-          <Globe class="size-4" />
-          {getLocale() === 'es' ? 'EN' : 'ES'}
-        </Button>
-        <a
-          href="/"
-          class="flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeft class="size-4" />
-          {t('demo.back')}
-        </a>
-      </div>
-    </div>
-  </nav>
+  <NavBar />
 
   <!-- Step indicator -->
   <div class="border-b border-border bg-background py-4">
@@ -498,6 +486,28 @@
                   autocomplete="off"
                   class="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
+              </div>
+
+              <div class="space-y-1.5">
+                <label for="contact-source" class="block text-sm font-medium text-foreground">
+                  {t('demo.form.source')}
+                </label>
+                <div class="relative">
+                  <select
+                    id="contact-source"
+                    bind:value={contactSource}
+                    class="w-full cursor-pointer appearance-none rounded-lg border border-border bg-background py-3 pl-4 pr-10 text-sm text-foreground outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  >
+                    <option value="">{t('demo.form.source.placeholder')}</option>
+                    <option value="google">{t('demo.form.source.google')}</option>
+                    <option value="referido">{t('demo.form.source.referral')}</option>
+                    <option value="redes-sociales">{t('demo.form.source.social')}</option>
+                    <option value="evento">{t('demo.form.source.event')}</option>
+                    <option value="mineduc">{t('demo.form.source.mineduc')}</option>
+                    <option value="otro">{t('demo.form.source.other')}</option>
+                  </select>
+                  <ChevronDown class="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+                </div>
               </div>
 
               <Button

@@ -1,8 +1,29 @@
 <script lang="ts">
   import '../app.css';
   import { env } from '$env/dynamic/public';
+  import { slide } from 'svelte/transition';
   let { children } = $props();
   const feedbackEnabled = env.PUBLIC_FEEDBACK_MODE === 'true';
+
+  let cookieConsent = $state<boolean | null>(null);
+
+  $effect(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('cookie-consent');
+      cookieConsent = stored === null ? false : true;
+    }
+  });
+
+  function acceptCookies() {
+    localStorage.setItem('cookie-consent', 'accepted');
+    cookieConsent = true;
+    if (typeof window !== 'undefined' && 'gtag' in window) {
+      (window as any).gtag('consent', 'update', {
+        analytics_storage: 'granted',
+        ad_storage: 'granted',
+      });
+    }
+  }
 </script>
 
 <div class="min-h-screen bg-background text-foreground antialiased">
@@ -11,5 +32,25 @@
     {#await import('$lib/components/FeedbackOverlay.svelte') then { default: FeedbackOverlay }}
       <FeedbackOverlay />
     {/await}
+  {/if}
+
+  {#if cookieConsent === false}
+    <div
+      transition:slide={{ duration: 300 }}
+      class="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background/95 backdrop-blur-md"
+    >
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+        <p class="text-xs text-muted-foreground">
+          Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra
+          <a href="/privacy" class="underline underline-offset-2 hover:text-foreground">política de privacidad</a>.
+        </p>
+        <button
+          onclick={acceptCookies}
+          class="shrink-0 rounded-md bg-primary px-4 py-1.5 text-xs font-medium text-white transition-all hover:bg-primary/90 active:scale-[0.98]"
+        >
+          Aceptar
+        </button>
+      </div>
+    </div>
   {/if}
 </div>

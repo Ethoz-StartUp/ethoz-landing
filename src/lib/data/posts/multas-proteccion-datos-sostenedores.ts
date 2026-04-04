@@ -9,7 +9,7 @@ export const post: BlogPost = {
 	author: 'Ignacio Araya',
 	readTime: '7 min',
 	tags: ['Ley 21.719', 'Multas', 'Sostenedores'],
-	coverImage: '/images/blog/multas-proteccion-datos-sostenedores.png',
+	coverImage: '/images/blog/multas-proteccion-datos-sostenedores.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
@@ -57,6 +57,11 @@ export const post: BlogPost = {
 
 <h2>Ley 21.719: el 4% de los ingresos globales</h2>
 <p>En paralelo, la Ley 21.719 introduce una escala alternativa basada en los ingresos del responsable: hasta el <strong>4% de los ingresos anuales globales</strong> por infracciones graves o gravísimas. Para sostenedores con múltiples colegios o ingresos consolidados significativos, este techo puede superar ampliamente las multas en UTM. La Agencia aplicará el criterio que resulte mayor.</p>
+
+<figure>
+  <img src="/images/blog/inline-multas-escala.webp" alt="Balanza de multas: el costo de no cumplir puede superar los mil millones de pesos" />
+  <figcaption>La escala de multas es desproporcionada al tamaño de un colegio — hasta 20.000 UTM</figcaption>
+</figure>
 
 <h2>Qué constituye infracción en un colegio</h2>
 <p>Los sostenedores operan como <em>responsables del tratamiento</em> de datos de menores de edad, categoría que merece protección reforzada bajo la ley. Las siguientes prácticas comunes en colegios chilenos configuran infracciones hoy:</p>
@@ -106,5 +111,11 @@ export const post: BlogPost = {
 <p>El costo de cumplir hoy es una fracción del costo de remediar una brecha mañana. Los sostenedores que adopten plataformas con cumplimiento integrado —audit log nativo, control de acceso por roles, gestión de consentimiento y cifrado por defecto— no solo reducen su exposición legal: construyen una ventaja competitiva real frente a establecimientos que siguen operando con planillas y sistemas sin gobierno de datos.</p>
 
 <p>Para entender cómo la inteligencia artificial puede ayudar a identificar patrones de riesgo en sus datos antes de que se conviertan en infracciones, lea <a href="/blog/inteligencia-artificial-desercion-escolar">cómo los algoritmos predictivos están cambiando la gestión escolar</a>.</p>
+
+<div style="margin-top: 2.5rem; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem 1.5rem; background: var(--secondary);">
+  <p style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted-foreground); margin-bottom: 0.5rem;">Referencia normativa</p>
+  <p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Las multas y sanciones descritas en este artículo están establecidas en la Ley 21.719 — Protección y tratamiento de datos personales.</p>
+  <p style="margin-top: 0.75rem; margin-bottom: 0;"><a href="https://www.bcn.cl/leychile/navegar?idNorma=1209272" target="_blank" rel="noopener noreferrer" style="font-size: 0.875rem; font-weight: 600; color: var(--primary); text-decoration: underline; text-underline-offset: 3px;">Consultar texto oficial en BCN →</a></p>
+</div>
 `
 };

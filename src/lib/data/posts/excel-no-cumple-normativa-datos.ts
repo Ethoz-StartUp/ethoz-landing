@@ -9,7 +9,7 @@ export const post: BlogPost = {
 	author: 'Ignacio Araya',
 	readTime: '6 min',
 	tags: ['Cumplimiento', 'Gestión de Datos', 'Circular N°30'],
-	coverImage: '/images/blog/excel-no-cumple-normativa-datos.png',
+	coverImage: '/images/blog/excel-no-cumple-normativa-datos.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
@@ -54,6 +54,11 @@ export const post: BlogPost = {
   <li>Si se ha compartido con terceros y bajo qué condiciones.</li>
 </ul>
 <p>Con datos dispersos en múltiples hojas de cálculo, carpetas de correo electrónico y documentos físicos, responder estas preguntas en 30 días hábiles requiere un esfuerzo manual que en muchos casos es inviable. El riesgo no es solo operacional: responder de forma incompleta o fuera de plazo es una infracción leve bajo la ley, con multas de hasta 1.000 UTM.</p>
+
+<figure>
+  <img src="/images/blog/inline-excel-vs-plataforma.webp" alt="Comparación: Excel sin seguridad versus plataforma con cifrado, roles y auditoría" />
+  <figcaption>Excel vs. plataforma conforme: la diferencia es estructural, no cosmética</figcaption>
+</figure>
 
 <h2>Tabla comparativa: Excel vs. sistema de gestión conforme</h2>
 <table>

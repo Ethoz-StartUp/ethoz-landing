@@ -44,7 +44,7 @@
         {/each}
       </div>
 
-      <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+      <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         {post.title}
       </h1>
 
@@ -66,12 +66,14 @@
 
       <!-- Hero image -->
       {#if post.coverImage}
-        <div class="mt-8 overflow-hidden rounded-xl">
-          <img
-            src={post.coverImage}
-            alt=""
-            class="w-full object-cover"
-          />
+        <div class="mt-8 flex justify-center">
+          <div class="w-full max-w-sm overflow-hidden rounded-xl">
+            <img
+              src={post.coverImage}
+              alt=""
+              class="h-auto w-full object-cover"
+            />
+          </div>
         </div>
       {/if}
     </header>
@@ -82,7 +84,7 @@
     </div>
 
     <!-- CTA -->
-    <div class="mt-16 rounded-xl border border-primary/20 bg-primary/5 p-8 text-center">
+    <div class="mt-16 rounded-xl border border-primary/20 bg-primary/5 p-6 text-center">
       <h3 class="text-xl font-bold text-foreground">
         {t('cta.title')}
       </h3>
@@ -100,6 +102,7 @@
 
 <style>
   :global(.prose h2) {
+    clear: both;
     font-size: 1.5rem;
     font-weight: 700;
     margin-top: 2.5rem;
@@ -171,22 +174,35 @@
     color: oklch(var(--muted-foreground));
   }
 
+  :global(.prose figure) {
+    margin: 1.5rem 0;
+  }
+
+  @media (min-width: 640px) {
+    :global(.prose figure) {
+      float: right;
+      margin: 0.5rem 0 1rem 1.5rem;
+      max-width: 280px;
+    }
+  }
+
+  :global(.prose figure::after) {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
   :global(.prose img) {
     border-radius: 0.75rem;
-    margin: 2rem 0;
     width: 100%;
     height: auto;
   }
 
-  :global(.prose figure) {
-    margin: 2rem 0;
-  }
-
   :global(.prose figcaption) {
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: oklch(var(--muted-foreground));
-    margin-top: 0.5rem;
+    margin-top: 0.375rem;
     font-style: italic;
   }
 

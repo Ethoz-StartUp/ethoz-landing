@@ -9,7 +9,7 @@ export const post: BlogPost = {
 	author: 'Ignacio Araya',
 	readTime: '8 min',
 	tags: ['Inteligencia Artificial', 'Deserción', 'EdTech'],
-	coverImage: '/images/blog/inteligencia-artificial-desercion-escolar.png',
+	coverImage: '/images/blog/inteligencia-artificial-desercion-escolar.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
@@ -34,7 +34,7 @@ export const post: BlogPost = {
 <p>El resultado más relevante para la gestión escolar no es cuál algoritmo gana, sino cuándo puede predecir: <strong>con solo los primeros 14 días de interacción</strong>, el modelo identifica con alta confianza quién tiene riesgo de abandonar el curso o el establecimiento.</p>
 
 <figure>
-  <img src="/images/blog/inline-ai-prediction-pipeline.png" alt="Diagrama del pipeline de predicción: datos de interacción del alumno alimentan un modelo de IA que genera niveles de riesgo de deserción" />
+  <img src="/images/blog/inline-ai-prediction-pipeline.webp" alt="Diagrama del pipeline de predicción: datos de interacción del alumno alimentan un modelo de IA que genera niveles de riesgo de deserción" />
   <figcaption>Pipeline de predicción: los datos de interacción temprana alimentan el modelo que identifica alumnos en riesgo</figcaption>
 </figure>
 

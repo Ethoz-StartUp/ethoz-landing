@@ -1,6 +1,7 @@
 <script lang="ts">
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
+  import { Button } from '$lib/components/ui/button';
   import { t } from '$lib/i18n/index.svelte';
   import {
     ShieldCheck,
@@ -12,6 +13,8 @@
     ArrowRight,
     CheckCircle,
     Clock,
+    ExternalLink,
+    Scale,
   } from '@lucide/svelte';
 
   // ── Compliance pillars ──
@@ -93,7 +96,7 @@
   <!-- ══════════════════════════════════════
        HERO
        ══════════════════════════════════════ -->
-  <section class="pt-32 pb-20 sm:pt-40 sm:pb-24 bg-secondary">
+  <section class="pt-28 pb-16 sm:pt-32 sm:pb-20 bg-secondary">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
       <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary shadow-sm">
         <ShieldCheck class="size-3.5" />
@@ -112,15 +115,45 @@
   </section>
 
   <!-- ══════════════════════════════════════
+       OFFICIAL LAW REFERENCE
+       ══════════════════════════════════════ -->
+  <section class="py-10 sm:py-12 bg-background">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <a
+        href="https://www.bcn.cl/leychile/navegar?idNorma=1209272"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex items-start gap-4 rounded-xl border border-border bg-card p-5 shadow-sm transition-colors hover:border-primary/30 hover:bg-primary/[0.02]"
+      >
+        <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+          <Scale class="size-5 text-primary" />
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center gap-2">
+            <p class="text-sm font-bold text-foreground">{t('compliance_page.law_ref.title')}</p>
+            <ExternalLink class="size-3.5 text-muted-foreground transition-colors group-hover:text-primary" />
+          </div>
+          <p class="mt-1 text-sm leading-relaxed text-muted-foreground">
+            {t('compliance_page.law_ref.desc')}
+          </p>
+          <p class="mt-2 text-xs font-medium text-primary">
+            {t('compliance_page.law_ref.source')}
+          </p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
        COMPLIANCE TIMELINE
        ══════════════════════════════════════ -->
   <section class="py-16 sm:py-20 bg-background">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-primary">
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('compliance_page.timeline.overline')}
         </p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('compliance_page.timeline.title')}
         </h2>
         <p class="mt-4 text-base text-muted-foreground">
@@ -184,15 +217,54 @@
   </section>
 
   <!-- ══════════════════════════════════════
-       6 COMPLIANCE PILLARS
+       VISUAL: RBAC + PICKUPS
        ══════════════════════════════════════ -->
   <section class="py-16 sm:py-20 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <!-- RBAC -->
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-widest text-primary">Control de acceso</p>
+          <h2 class="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            Cada rol ve solo lo que necesita
+          </h2>
+          <p class="mt-4 text-base leading-relaxed text-muted-foreground">
+            El director ve indicadores agregados. El docente ve solo sus cursos. El portero ve foto y alertas de retiro. Nadie accede a información que no necesita para su función — y eso es exactamente lo que exige la Ley 21.719.
+          </p>
+        </div>
+        <div class="flex justify-center">
+          <img src="/images/pages/compliance-rbac.webp" alt="Control de acceso basado en roles" class="w-full max-w-xs rounded-2xl mix-blend-multiply" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Pickups -->
+      <div class="mt-20 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div class="order-2 flex justify-center lg:order-1">
+          <img src="/images/pages/compliance-pickups.webp" alt="Retiros escolares seguros con verificación digital" class="w-full max-w-xs rounded-2xl mix-blend-multiply" loading="lazy" />
+        </div>
+        <div class="order-1 lg:order-2">
+          <p class="text-sm font-bold uppercase tracking-widest text-primary">Retiros seguros</p>
+          <h2 class="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            Verificación digital en portería
+          </h2>
+          <p class="mt-4 text-base leading-relaxed text-muted-foreground">
+            Cada retiro se valida contra la lista de personas autorizadas. Órdenes de alejamiento, custodia compartida y restricciones judiciales llegan al portero en tiempo real — no al día siguiente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       6 COMPLIANCE PILLARS
+       ══════════════════════════════════════ -->
+  <section class="py-16 sm:py-20 bg-background">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-primary">
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('compliance_page.pillars.overline')}
         </p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('compliance_page.pillars.title')}
         </h2>
         <p class="mt-4 max-w-2xl mx-auto text-base text-muted-foreground">
@@ -203,8 +275,8 @@
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {#each pillars as pillar}
           {@const Icon = pillar.icon}
-          <div class="flex flex-col rounded-2xl border border-border bg-card p-7 shadow-sm">
-            <div class="mb-4 flex items-center gap-3">
+          <div class="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm">
+            <div class="mb-3 flex items-center gap-3">
               <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                 <Icon class="size-5 text-primary" />
               </div>
@@ -223,15 +295,37 @@
   </section>
 
   <!-- ══════════════════════════════════════
+       VISUAL: AUDIT TRAIL
+       ══════════════════════════════════════ -->
+  <section class="py-16 sm:py-20 bg-secondary">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <p class="text-sm font-bold uppercase tracking-widest text-primary">Trazabilidad completa</p>
+          <h2 class="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            Cada acción queda registrada
+          </h2>
+          <p class="mt-4 text-base leading-relaxed text-muted-foreground">
+            Quién accedió a qué dato, cuándo y con qué finalidad. Si la Agencia de Protección de Datos solicita evidencia, su establecimiento puede entregar el registro completo en minutos — no en semanas de búsqueda en cuadernos.
+          </p>
+        </div>
+        <div class="flex justify-center">
+          <img src="/images/pages/compliance-audit.webp" alt="Registro de auditoría completo y trazable" class="w-full max-w-xs rounded-2xl mix-blend-multiply" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
        ARCHITECTURE OVERVIEW
        ══════════════════════════════════════ -->
   <section class="py-16 sm:py-20 bg-background">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-primary">
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('compliance_page.arch.overline')}
         </p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('compliance_page.arch.title')}
         </h2>
         <p class="mt-4 max-w-2xl mx-auto text-base text-muted-foreground">
@@ -263,10 +357,10 @@
   <section class="py-16 sm:py-20 bg-secondary">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-primary">
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('compliance_page.certs.overline')}
         </p>
-        <h2 class="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('compliance_page.certs.title')}
         </h2>
         <p class="mt-4 text-base text-muted-foreground">
@@ -276,28 +370,40 @@
 
       <div class="grid gap-5 sm:grid-cols-3">
         <!-- Ley 21.719 -->
-        <div class="flex flex-col items-center rounded-xl border border-border bg-card p-6 text-center shadow-sm">
-          <div class="mb-3 flex size-10 items-center justify-center rounded-lg bg-primary/10">
-            <ShieldCheck class="size-5 text-primary" />
+        <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
+          <div class="flex items-center gap-3">
+            <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+              <ShieldCheck class="size-5 text-primary" />
+            </div>
+            <div>
+              <p class="text-sm font-bold text-foreground">{t('compliance_page.certs.cert1.name')}</p>
+              <p class="text-xs text-muted-foreground">{t('compliance_page.certs.cert1.status')}</p>
+            </div>
           </div>
-          <p class="text-sm font-bold text-foreground">{t('compliance_page.certs.cert1.name')}</p>
-          <p class="mt-1 text-xs text-muted-foreground">{t('compliance_page.certs.cert1.status')}</p>
         </div>
         <!-- ISO 27001 placeholder -->
-        <div class="flex flex-col items-center rounded-xl border border-dashed border-border bg-card p-6 text-center shadow-sm opacity-60">
-          <div class="mb-3 flex size-10 items-center justify-center rounded-lg bg-muted">
-            <Lock class="size-5 text-muted-foreground" />
+        <div class="rounded-xl border border-dashed border-border bg-card p-5 shadow-sm opacity-60">
+          <div class="flex items-center gap-3">
+            <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted">
+              <Lock class="size-5 text-muted-foreground" />
+            </div>
+            <div>
+              <p class="text-sm font-bold text-foreground">{t('compliance_page.certs.cert2.name')}</p>
+              <p class="text-xs text-muted-foreground">{t('compliance_page.certs.cert2.status')}</p>
+            </div>
           </div>
-          <p class="text-sm font-bold text-foreground">{t('compliance_page.certs.cert2.name')}</p>
-          <p class="mt-1 text-xs text-muted-foreground">{t('compliance_page.certs.cert2.status')}</p>
         </div>
         <!-- SOC 2 placeholder -->
-        <div class="flex flex-col items-center rounded-xl border border-dashed border-border bg-card p-6 text-center shadow-sm opacity-60">
-          <div class="mb-3 flex size-10 items-center justify-center rounded-lg bg-muted">
-            <FileText class="size-5 text-muted-foreground" />
+        <div class="rounded-xl border border-dashed border-border bg-card p-5 shadow-sm opacity-60">
+          <div class="flex items-center gap-3">
+            <div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted">
+              <FileText class="size-5 text-muted-foreground" />
+            </div>
+            <div>
+              <p class="text-sm font-bold text-foreground">{t('compliance_page.certs.cert3.name')}</p>
+              <p class="text-xs text-muted-foreground">{t('compliance_page.certs.cert3.status')}</p>
+            </div>
           </div>
-          <p class="text-sm font-bold text-foreground">{t('compliance_page.certs.cert3.name')}</p>
-          <p class="mt-1 text-xs text-muted-foreground">{t('compliance_page.certs.cert3.status')}</p>
         </div>
       </div>
     </div>
@@ -315,13 +421,10 @@
         {t('compliance_page.cta.subtitle')}
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <a
-          href="/demo"
-          class="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-        >
+        <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30">
           {t('compliance_page.cta.primary')}
           <ArrowRight class="size-4" />
-        </a>
+        </Button>
         <a
           href="/"
           class="text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-labelledby="c3d-title c3d-desc">
+  <title id="c3d-title">Ethoz</title>
+  <desc id="c3d-desc">Ethoz structured E mark logo on dark background</desc>
+  <g transform="translate(4, 10)">
+    <rect x="0" y="0" width="4" height="28" rx="1" fill="#F1F5F9"/>
+    <rect x="0" y="0" width="22" height="4" rx="1" fill="#F1F5F9"/>
+    <rect x="0" y="12" width="16" height="4" rx="1" fill="#3B82F6"/>
+    <rect x="0" y="24" width="22" height="4" rx="1" fill="#F1F5F9"/>
+  </g>
+  <text x="34" y="35" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="600" letter-spacing="-0.5" fill="#F1F5F9">thoz</text>
+</svg>

@@ -26,7 +26,7 @@
   <div class="mx-auto max-w-5xl px-4 pt-28 pb-16 sm:pt-32 sm:pb-20">
     <!-- Header -->
     <div class="mb-10 sm:mb-14">
-      <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t('blog.title')}</h1>
+      <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t('blog.title')}</h1>
       <p class="mt-3 text-lg text-muted-foreground">
         {t('blog.subtitle')}
       </p>
@@ -37,7 +37,7 @@
       {#each allPosts as post}
         <a
           href="/blog/{post.slug}"
-          class="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:border-primary/20"
+          class="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:-translate-y-0.5"
         >
           <!-- Cover image -->
           {#if post.coverImage}

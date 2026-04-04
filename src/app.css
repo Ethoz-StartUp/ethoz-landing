@@ -44,17 +44,24 @@
 
 /*
  * ──────────────────────────────────────────
- * Apple Design Language — Light theme
- * Neutral grays, pure white, system blue accent.
+ * Ethoz Brand Design System — Light theme
+ *
+ * Brand colors:
+ *   Navy   #0F172A  (Slate 900)  — foreground, solidity, institution
+ *   Blue   #2563EB  (Blue 600)   — primary, accent, the "z", technology
+ *   White  #FFFFFF               — background, clarity
+ *
+ * The primary blue appears in: buttons, links, focus rings,
+ * the accent "z" in the wordmark, and the blue intersect rectangle.
  * ──────────────────────────────────────────
  */
 :root {
   /* ── Core ── */
-  --background: oklch(1 0 0);              /* Pure white — Apple's canvas */
-  --foreground: oklch(0.145 0.005 286);    /* #1D1D1F — Apple's near-black text */
+  --background: oklch(1 0 0);              /* #FFFFFF — clean canvas */
+  --foreground: oklch(0.145 0.005 286);    /* #1D1D1F — near-black text */
 
-  /* ── Primary — Apple system blue ── */
-  --primary: oklch(0.52 0.21 264);         /* #0071E3 — THE interactive color */
+  /* ── Primary — Ethoz brand blue ── */
+  --primary: oklch(0.546 0.213 264);       /* #2563EB — brand interactive color */
   --primary-foreground: oklch(0.99 0 0);
 
   /* ── Secondary — section alternation gray ── */
@@ -67,7 +74,7 @@
 
   /* ── Muted ── */
   --muted: oklch(0.93 0 0);               /* Visible neutral gray */
-  --muted-foreground: oklch(0.556 0.01 286); /* #86868B — Apple secondary text */
+  --muted-foreground: oklch(0.556 0.01 286); /* Secondary text */
 
   /* ── Card ── */
   --card: oklch(1 0 0);                    /* Pure white */
@@ -80,7 +87,7 @@
   /* ── Border / Input / Ring ── */
   --border: oklch(0.915 0.005 286);        /* Subtle, neutral */
   --input: oklch(0.915 0.005 286);
-  --ring: oklch(0.52 0.21 264);            /* Primary blue focus ring */
+  --ring: oklch(0.546 0.213 264);           /* Brand blue focus ring */
 
   /* ── Semantic: Destructive ── */
   --destructive: oklch(0.55 0.22 25);
@@ -100,8 +107,8 @@
   --sidebar-accent: oklch(0.94 0.003 286);
   --sidebar-accent-foreground: oklch(0.145 0.005 286);
   --sidebar-border: oklch(0.915 0.005 286);
-  --sidebar-ring: oklch(0.52 0.21 264);
-  --sidebar-primary: oklch(0.52 0.21 264);
+  --sidebar-ring: oklch(0.546 0.213 264);
+  --sidebar-primary: oklch(0.546 0.213 264);
   --sidebar-primary-foreground: oklch(0.99 0 0);
 
   /* ── Radius ── */
@@ -148,10 +155,15 @@ h1 { font-weight: 700; }
 h2 { font-weight: 700; }
 h3 { font-weight: 600; }
 
+/* ── Utility: text-balance ── */
+.text-balance {
+  text-wrap: balance;
+}
+
 /* ── Selection ── */
 ::selection {
-  background-color: oklch(0.52 0.21 264 / 0.2);
-  color: oklch(0.145 0.005 286);
+  background-color: oklch(0.546 0.213 264 / 0.35);
+  color: oklch(0.99 0 0);
 }
 
 /* ── Focus ring — accessible keyboard nav ── */
@@ -160,17 +172,21 @@ h3 { font-weight: 600; }
   outline-offset: 2px;
 }
 
-/* ── Global link & interactive styles ── */
-a:not([data-slot="button"]) {
+/* ── Global link styles — only inline text links get underline ── */
+.prose a {
   color: var(--primary);
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-a:not([data-slot="button"]):hover {
-  color: oklch(0.44 0.21 264);
   text-decoration: underline;
   text-underline-offset: 3px;
+  transition: opacity 0.15s ease;
+}
+
+.prose a:hover {
+  opacity: 0.8;
+}
+
+/* Card/block links never underline */
+a {
+  text-decoration: none;
 }
 
 /* ── Smooth transitions for all interactive elements ── */
@@ -185,5 +201,28 @@ button, a, [role="button"] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ── Animations ── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }

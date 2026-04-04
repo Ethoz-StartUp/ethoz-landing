@@ -9,7 +9,7 @@ export const post: BlogPost = {
 	author: 'Ignacio Araya',
 	readTime: '7 min',
 	tags: ['Privacidad', 'Art. 16 bis', 'Datos Médicos'],
-	coverImage: '/images/blog/privacidad-por-diseno-art-16-bis.png',
+	coverImage: '/images/blog/privacidad-por-diseno-art-16-bis.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
@@ -37,6 +37,11 @@ export const post: BlogPost = {
 </blockquote>
 
 <p>Un sistema conforme a la ley almacena solo lo que necesita saber para actuar correctamente en una emergencia, no el expediente clínico completo. Esto es exactamente lo que significa privacidad por diseño aplicada al contexto escolar.</p>
+
+<figure>
+  <img src="/images/blog/inline-privacidad-bandera-medica.webp" alt="Enfoque de bandera médica: alerta simple en vez de diagnóstico detallado" />
+  <figcaption>Bandera médica: una alerta booleana reemplaza al diagnóstico clínico detallado</figcaption>
+</figure>
 
 <h2>El modelo de bandera médica: implementación práctica</h2>
 <p>El enfoque técnico correcto opera con variables booleanas o alertas estructuradas de nivel mínimo. En lugar de almacenar datos clínicos, el sistema registra banderas de acción:</p>
@@ -106,5 +111,11 @@ export const post: BlogPost = {
 
 <h2>Conclusión</h2>
 <p>El Art. 16 bis no impide que los colegios cuiden a sus alumnos con condiciones de salud. Impide que lo hagan acumulando expedientes clínicos sin control ni base legal. El modelo de bandera médica —almacenar solo la alerta de acción, nunca el diagnóstico— es la solución técnica y legalmente correcta. Los establecimientos que adopten este enfoque antes de diciembre de 2026 no solo estarán en cumplimiento: habrán construido un sistema de cuidado más eficiente, más seguro y más respetuoso de los derechos de sus estudiantes.</p>
+
+<div style="margin-top: 2.5rem; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem 1.5rem; background: var(--secondary);">
+  <p style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted-foreground); margin-bottom: 0.5rem;">Referencia normativa</p>
+  <p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">El Art. 16 bis y las disposiciones sobre datos de salud de menores están contenidos en la Ley 21.719 — Protección y tratamiento de datos personales.</p>
+  <p style="margin-top: 0.75rem; margin-bottom: 0;"><a href="https://www.bcn.cl/leychile/navegar?idNorma=1209272" target="_blank" rel="noopener noreferrer" style="font-size: 0.875rem; font-weight: 600; color: var(--primary); text-decoration: underline; text-underline-offset: 3px;">Consultar texto oficial en BCN →</a></p>
+</div>
 `
 };

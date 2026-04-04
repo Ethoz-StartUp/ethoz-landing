@@ -7,7 +7,6 @@
   import { browser } from '$app/environment';
   import { trackEvent } from '$lib/utils/analytics';
 
-  // Read pre-filled data from URL params (client-side only — url.search not available during SSR prerender)
   const params = $derived(browser ? new URLSearchParams($page.url.search) : new URLSearchParams());
   const schoolName = $derived(params.get('school') ?? '');
   const contactName = $derived(params.get('name') ?? '');
@@ -15,17 +14,16 @@
   const commune = $derived(params.get('commune') ?? '');
   const region = $derived(params.get('region') ?? '');
 
-  // Build calendar URL with pre-filled guest email
-  const baseCalendarUrl = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ3AWVV5Nbr09v_eFMsBEptzINDk90MRU34coEH33h8siGSeeAGoNboVLfNCxRAStSCmi7Ee4p3u';
-  const calendarUrl = $derived.by(() => {
-    const url = new URL(baseCalendarUrl);
-    url.searchParams.set('gv', 'true');
-    if (contactEmail) url.searchParams.set('email', contactEmail);
+  let calLoaded = $state(false);
+
+  // Cal.com embed URL
+  const calUrl = $derived.by(() => {
+    const base = 'https://cal.com/ethoz/demo';
+    const url = new URL(base);
     if (contactName) url.searchParams.set('name', contactName);
+    if (contactEmail) url.searchParams.set('email', contactEmail);
     return url.toString();
   });
-
-  let iframeLoaded = $state(false);
 
   $effect(() => {
     trackEvent('agendar_page_viewed', { school: schoolName });
@@ -48,8 +46,7 @@
 <main class="flex min-h-dvh flex-col bg-secondary">
   <NavBar />
 
-  <!-- Content -->
-  <div class="mx-auto w-full max-w-5xl flex-1 px-4 py-12 pt-24 sm:py-16 sm:pt-24">
+  <div class="mx-auto w-full max-w-5xl flex-1 px-4 py-12 pt-24 sm:py-16 sm:pt-28">
     <!-- Success banner -->
     {#if schoolName || contactName || contactEmail}
       <div class="mb-8 flex items-start gap-4 rounded-xl border border-success/20 bg-success/5 p-5">
@@ -90,9 +87,9 @@
       </p>
     </div>
 
-    <!-- Google Calendar embed -->
+    <!-- Cal.com embed -->
     <div class="relative overflow-hidden rounded-xl border border-border bg-background shadow-sm">
-      {#if !iframeLoaded}
+      {#if !calLoaded}
         <div class="absolute inset-0 flex items-center justify-center bg-background">
           <div class="flex flex-col items-center gap-3">
             <Loader2 class="size-8 animate-spin text-primary" />
@@ -101,11 +98,11 @@
         </div>
       {/if}
       <iframe
-        src={calendarUrl}
+        src={calUrl}
         class="h-[650px] w-full border-0"
         title="Agendar demo de Ethoz"
         loading="lazy"
-        onload={() => { iframeLoaded = true; }}
+        onload={() => { calLoaded = true; }}
       ></iframe>
     </div>
   </div>

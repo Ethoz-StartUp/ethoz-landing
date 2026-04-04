@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" role="img" aria-labelledby="c2d-title c2d-desc">
+  <title id="c2d-title">Ethoz</title>
+  <desc id="c2d-desc">Ethoz shield logo with checkmark on dark background</desc>
+  <g transform="translate(2, 2)">
+    <path d="M18 2L32 8V20C32 27 26 32 18 36C10 32 4 27 4 20V8Z" fill="none" stroke="#F1F5F9" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M11 19L16 24L25 14" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="50" y="34" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="600" letter-spacing="-0.5" fill="#F1F5F9">Ethoz</text>
+</svg>

@@ -9,7 +9,7 @@ export const post: BlogPost = {
 	author: 'Ignacio Araya',
 	readTime: '8 min',
 	tags: ['Ley 21.719', 'Cumplimiento', 'Protección de Datos'],
-	coverImage: '/images/blog/ley-21719-que-deben-saber-los-colegios.png',
+	coverImage: '/images/blog/ley-21719-que-deben-saber-los-colegios.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
@@ -43,6 +43,11 @@ export const post: BlogPost = {
   <li><strong>Verificable</strong>: el colegio debe poder demostrar que obtuvo el consentimiento.</li>
 </ul>
 <p>Esto obliga a revisar los formularios de matrícula, los términos de uso de plataformas digitales que usan los estudiantes, y los convenios con proveedores de tecnología educativa.</p>
+
+<figure>
+  <img src="/images/blog/inline-ley21719-timeline.webp" alt="Línea de tiempo: la Ley 21.719 entra en vigencia en diciembre 2026" />
+  <figcaption>El plazo de cumplimiento se acerca: diciembre 2026 es la fecha límite</figcaption>
+</figure>
 
 <h2>La nueva Agencia de Protección de Datos Personales</h2>
 <p>La ley crea una autoridad de control autónoma —la <strong>Agencia de Protección de Datos Personales</strong>— con facultades de fiscalización, investigación y sanción. A diferencia del modelo anterior, basado en autoregulación, la Agencia puede iniciar procedimientos de oficio o por denuncia de cualquier persona.</p>
@@ -95,5 +100,11 @@ export const post: BlogPost = {
 <h2>Conclusión</h2>
 <p>La Ley 21.719 no es una formalidad administrativa. Establece derechos exigibles por los apoderados, una autoridad con facultades reales de sanción y multas que pueden representar el 4% de los ingresos de un establecimiento. El cumplimiento requiere cambios en procesos, contratos y sistemas. Los colegios que traten esto como una gestión de infraestructura —igual que la seguridad del edificio o el sistema de incendios— estarán en mejor posición que los que lo traten como papeleo legal.</p>
 <p>Contar con sistemas que centralicen la información estudiantil, generen registros de auditoría automáticos y faciliten la respuesta a solicitudes ARCO+P no es un lujo: es la base técnica que hace posible el cumplimiento.</p>
+
+<div style="margin-top: 2.5rem; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem 1.5rem; background: var(--secondary);">
+  <p style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted-foreground); margin-bottom: 0.5rem;">Fuente oficial</p>
+  <p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Ley 21.719 — Regula la protección y el tratamiento de los datos personales y crea la Agencia de Protección de Datos Personales. Publicada en el Diario Oficial el 13 de diciembre de 2024.</p>
+  <p style="margin-top: 0.75rem; margin-bottom: 0;"><a href="https://www.bcn.cl/leychile/navegar?idNorma=1209272" target="_blank" rel="noopener noreferrer" style="font-size: 0.875rem; font-weight: 600; color: var(--primary); text-decoration: underline; text-underline-offset: 3px;">Texto completo en Biblioteca del Congreso Nacional →</a></p>
+</div>
 `
 };

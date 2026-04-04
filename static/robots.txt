@@ -1,3 +1,18 @@
 User-agent: *
 Allow: /
 Sitemap: https://ethoz.cl/sitemap.xml
+
+# AI Agents
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# LLMs.txt — structured content for AI agents
+# https://ethoz.cl/llms.txt

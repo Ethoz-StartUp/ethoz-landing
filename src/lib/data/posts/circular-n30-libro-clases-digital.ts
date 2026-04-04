@@ -9,7 +9,7 @@ export const post: BlogPost = {
 	author: 'Ignacio Araya',
 	readTime: '6 min',
 	tags: ['Circular N°30', 'Libro de Clases', 'Digitalización'],
-	coverImage: '/images/blog/circular-n30-libro-clases-digital.png',
+	coverImage: '/images/blog/circular-n30-libro-clases-digital.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
@@ -37,6 +37,11 @@ export const post: BlogPost = {
   <li>Una denuncia por maltrato: los registros de comportamiento y derivaciones deben ser inmutables desde el momento en que se crearon.</li>
 </ul>
 <p>En todos estos casos, un audit log completo no es un beneficio adicional: es la diferencia entre poder acreditar los hechos o no poder hacerlo.</p>
+
+<figure>
+  <img src="/images/blog/inline-circular-n30-digital.webp" alt="Transición del libro de clases en papel al formato digital con trazabilidad" />
+  <figcaption>Del papel al digital: la Circular N°30 exige integridad, trazabilidad y verificación</figcaption>
+</figure>
 
 <h2>La intersección con la Ley 21.719</h2>
 <p>El libro de clases digital no opera en un vacío regulatorio. Cada registro que contiene —asistencia, calificaciones, observaciones de conducta— es un dato personal protegido bajo la <a href="/blog/ley-21719-que-deben-saber-los-colegios">Ley 21.719</a>. Esto significa que el sistema que soporta el libro de clases digital debe cumplir simultáneamente con los requisitos de la Circular N°30 <em>y</em> con los estándares de protección de datos de la ley.</p>

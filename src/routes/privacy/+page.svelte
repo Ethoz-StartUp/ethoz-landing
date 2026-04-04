@@ -4,56 +4,116 @@
 </script>
 
 <svelte:head>
-  <title>Privacy Policy — Ethoz</title>
-  <meta name="description" content="Política de privacidad de Ethoz. Información sobre el tratamiento de datos personales." />
+  <title>Política de Privacidad — Ethoz</title>
+  <meta name="description" content="Política de privacidad de Ethoz. Información sobre el tratamiento de datos personales conforme a la Ley 21.719." />
   <meta property="og:url" content="https://ethoz.cl/privacy" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Privacy Policy — Ethoz" />
-  <meta property="og:description" content="Política de privacidad de Ethoz. Información sobre el tratamiento de datos personales." />
+  <meta property="og:title" content="Política de Privacidad — Ethoz" />
+  <meta property="og:description" content="Política de privacidad de Ethoz. Información sobre el tratamiento de datos personales conforme a la Ley 21.719." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Privacy Policy — Ethoz" />
-  <meta name="twitter:description" content="Política de privacidad de Ethoz. Información sobre el tratamiento de datos personales." />
+  <meta name="twitter:title" content="Política de Privacidad — Ethoz" />
+  <meta name="twitter:description" content="Política de privacidad de Ethoz. Información sobre el tratamiento de datos personales conforme a la Ley 21.719." />
   <link rel="canonical" href="https://ethoz.cl/privacy" />
 </svelte:head>
 
-<NavBar />
+<main class="min-h-dvh bg-background">
+  <NavBar />
+  <div class="mx-auto max-w-3xl px-4 pt-28 pb-16 sm:pt-32 sm:pb-20 sm:px-6 lg:px-8">
 
-<main class="mx-auto max-w-3xl px-4 pt-16 py-16 sm:px-6 lg:px-8">
+    <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Política de Privacidad</h1>
+    <p class="mt-2 text-sm text-muted-foreground">Última actualización: abril 2026</p>
 
-  <h1 class="text-3xl font-bold tracking-tight text-foreground">Privacy Policy</h1>
+    <div class="mt-10 space-y-8 text-sm leading-relaxed text-muted-foreground">
 
-  <p class="mt-4 rounded-md border border-yellow-300 bg-yellow-50 px-4 py-3 text-sm text-yellow-800">
-    This privacy policy is a draft placeholder. The full policy will be published before launch.
-  </p>
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">1. Responsable del tratamiento</h2>
+        <p class="mt-2">
+          Ethoz SpA, RUT XX.XXX.XXX-X, con domicilio en Santiago de Chile, es responsable del tratamiento de los datos personales recopilados a través de la plataforma ethoz.cl y sus servicios asociados.
+        </p>
+      </section>
 
-  <div class="prose prose-sm mt-8 text-foreground/80">
-    <p>
-      Ethoz is committed to protecting your personal data in accordance with the General Data
-      Protection Regulation (GDPR) and applicable Spanish data protection law.
-    </p>
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">2. Datos que recopilamos</h2>
+        <p class="mt-2">Recopilamos exclusivamente la información necesaria para prestar nuestro servicio:</p>
+        <ul class="mt-3 list-disc space-y-1.5 pl-5">
+          <li><strong class="text-foreground">Datos de contacto:</strong> nombre, correo electrónico, teléfono y cargo del usuario administrador.</li>
+          <li><strong class="text-foreground">Datos del establecimiento:</strong> nombre, RBD, dirección y matrícula del colegio.</li>
+          <li><strong class="text-foreground">Datos de uso:</strong> información técnica sobre cómo se utiliza la plataforma para mejorar el servicio.</li>
+        </ul>
+        <p class="mt-3">
+          Ethoz <strong class="text-foreground">no recopila datos personales de alumnos ni apoderados</strong> a través de este sitio web. Los datos de alumnos son gestionados exclusivamente por el establecimiento educacional dentro de la plataforma, bajo la responsabilidad del colegio como responsable del tratamiento.
+        </p>
+      </section>
 
-    <h2 class="mt-8 text-lg font-semibold text-foreground">Data we collect</h2>
-    <p>
-      We collect only the information necessary to provide our service, including school
-      administrator contact details and usage data for product improvement.
-    </p>
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">3. Finalidad del tratamiento</h2>
+        <p class="mt-2">Sus datos son utilizados para:</p>
+        <ul class="mt-3 list-disc space-y-1.5 pl-5">
+          <li>Gestionar su cuenta y prestar el servicio contratado.</li>
+          <li>Comunicar actualizaciones, novedades y soporte técnico.</li>
+          <li>Mejorar la plataforma mediante análisis de uso agregado y anonimizado.</li>
+          <li>Cumplir con obligaciones legales y regulatorias.</li>
+        </ul>
+      </section>
 
-    <h2 class="mt-8 text-lg font-semibold text-foreground">How we use your data</h2>
-    <p>
-      Your data is used solely to operate and improve Ethoz. We do not sell or share your
-      personal data with third parties for marketing purposes.
-    </p>
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">4. Base legal</h2>
+        <p class="mt-2">
+          El tratamiento de sus datos se realiza conforme a la <strong class="text-foreground">Ley 21.719 de Protección de Datos Personales</strong> de Chile, sobre las siguientes bases de legitimación:
+        </p>
+        <ul class="mt-3 list-disc space-y-1.5 pl-5">
+          <li><strong class="text-foreground">Ejecución contractual:</strong> para prestar el servicio acordado.</li>
+          <li><strong class="text-foreground">Consentimiento informado:</strong> para comunicaciones comerciales.</li>
+          <li><strong class="text-foreground">Interés legítimo:</strong> para mejorar la seguridad y calidad del servicio.</li>
+        </ul>
+      </section>
 
-    <h2 class="mt-8 text-lg font-semibold text-foreground">Your rights</h2>
-    <p>
-      You have the right to access, correct, or delete your personal data at any time. To
-      exercise your rights, contact us at privacy@ethoz.io.
-    </p>
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">5. Sus derechos (ARCO+P)</h2>
+        <p class="mt-2">
+          Conforme a la Ley 21.719, usted tiene derecho a:
+        </p>
+        <ul class="mt-3 list-disc space-y-1.5 pl-5">
+          <li><strong class="text-foreground">Acceso:</strong> conocer qué datos personales tenemos sobre usted.</li>
+          <li><strong class="text-foreground">Rectificación:</strong> solicitar la corrección de datos inexactos.</li>
+          <li><strong class="text-foreground">Cancelación:</strong> solicitar la eliminación de sus datos.</li>
+          <li><strong class="text-foreground">Oposición:</strong> oponerse al tratamiento de sus datos.</li>
+          <li><strong class="text-foreground">Portabilidad:</strong> recibir sus datos en formato estructurado.</li>
+        </ul>
+        <p class="mt-3">
+          Para ejercer cualquiera de estos derechos, escriba a <a href="mailto:privacidad@ethoz.cl" class="font-medium text-primary underline underline-offset-2 hover:opacity-80">privacidad@ethoz.cl</a>. Responderemos en un plazo máximo de 15 días hábiles.
+        </p>
+      </section>
 
-    <h2 class="mt-8 text-lg font-semibold text-foreground">Contact</h2>
-    <p>
-      For privacy-related enquiries, email <a href="mailto:privacy@ethoz.io" class="underline">privacy@ethoz.io</a>.
-    </p>
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">6. Seguridad de los datos</h2>
+        <p class="mt-2">
+          Implementamos medidas técnicas y organizativas para proteger sus datos, incluyendo cifrado en tránsito y en reposo, control de acceso basado en roles (RBAC), aislamiento de datos por establecimiento (Row-Level Security) y registro de auditoría completo.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">7. Transferencia de datos</h2>
+        <p class="mt-2">
+          No vendemos, compartimos ni transferimos sus datos personales a terceros con fines comerciales. Los datos pueden ser procesados por proveedores de infraestructura tecnológica que actúan como encargados del tratamiento, sujetos a acuerdos de confidencialidad y protección de datos equivalentes.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">8. Retención de datos</h2>
+        <p class="mt-2">
+          Conservamos sus datos durante la vigencia de la relación contractual y por el período adicional que exija la legislación aplicable. Una vez finalizada la relación, los datos serán eliminados de forma segura.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">9. Contacto</h2>
+        <p class="mt-2">
+          Para consultas sobre esta política o el tratamiento de sus datos personales, contacte a nuestro equipo de privacidad en <a href="mailto:privacidad@ethoz.cl" class="font-medium text-primary underline underline-offset-2 hover:opacity-80">privacidad@ethoz.cl</a>.
+        </p>
+      </section>
+
+    </div>
   </div>
   <Footer />
 </main>
