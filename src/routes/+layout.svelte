@@ -2,6 +2,7 @@
   import '../app.css';
   import { env } from '$env/dynamic/public';
   import { slide } from 'svelte/transition';
+  import { checkInternalFlag, isInternal } from '$lib/utils/internal';
   let { children } = $props();
   const feedbackEnabled = env.PUBLIC_FEEDBACK_MODE === 'true';
   const clarityId = env.PUBLIC_CLARITY_PROJECT_ID ?? '';
@@ -21,9 +22,10 @@
 
   $effect(() => {
     if (typeof window !== 'undefined') {
+      checkInternalFlag(); // Check ?_internal=1 URL param
       const stored = localStorage.getItem('cookie-consent');
       cookieConsent = stored === null ? false : true;
-      if (stored === 'accepted') loadClarity();
+      if (stored === 'accepted' && !isInternal()) loadClarity();
     }
   });
 
