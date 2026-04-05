@@ -21,7 +21,7 @@
     submitting = true;
 
     // Save to Supabase as a lead
-    saveLead({
+    const result = await saveLead({
       school_name: '',
       contact_name: name,
       contact_role: 'contact_form',
@@ -30,6 +30,8 @@
       notes: message,
       status: 'new',
     });
+
+    if (!result.ok) console.error('[Contact] Lead save failed:', result.error);
 
     trackEvent('contact_form_submitted', { email });
 

@@ -145,7 +145,7 @@
       await executeRecaptcha('submit_demo');
       const school = schoolStore.selectedSchool;
 
-      saveLead({
+      const result = await saveLead({
         school_name: school?.name ?? '',
         school_rbd: school?.rbd,
         school_commune: school?.commune ?? '',
@@ -156,6 +156,8 @@
         contact_source: contactSource || undefined,
         status: 'new',
       });
+
+      if (!result.ok) console.error('[Demo] Lead save failed:', result.error);
 
       trackEvent('demo_form_submitted', { school: school?.name ?? '', email: contactEmail });
 

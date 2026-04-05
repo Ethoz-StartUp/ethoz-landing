@@ -4,12 +4,24 @@ import { isInternal, isTestEmail } from '$lib/utils/internal';
 import { getVisitorId } from '$lib/utils/visitor';
 import { getDeviceMetadata } from '$lib/utils/device';
 
+function captureError(err: unknown, context?: Record<string, unknown>): void {
+  import('@sentry/browser').then(Sentry => {
+    Sentry.captureException(err, { extra: context });
+  }).catch(() => {});
+}
+
 const supabaseUrl = env.PUBLIC_SUPABASE_URL ?? '';
 const supabaseKey = env.PUBLIC_SUPABASE_ANON_KEY ?? '';
 
 export const supabase = supabaseUrl && supabaseKey
   ? createClient(supabaseUrl, supabaseKey)
   : null;
+
+if (supabase) {
+  console.info('[Supabase] ✔ Client initialized —', supabaseUrl);
+} else {
+  console.warn('[Supabase] ✘ NOT configured — missing PUBLIC_SUPABASE_URL or PUBLIC_SUPABASE_ANON_KEY');
+}
 
 export interface Lead {
   school_name: string;
@@ -66,6 +78,7 @@ export async function updateLeadStatus(
     return { ok: true };
   } catch (err) {
     console.error('[Leads] updateLeadStatus error:', err);
+    captureError(err, { fn: 'updateLeadStatus', email });
     return { ok: false, error: String(err) };
   }
 }
@@ -93,9 +106,11 @@ export async function saveLead(lead: Lead): Promise<{ ok: boolean; error?: strin
   }]);
 
   if (error) {
-    console.error('[Leads] Failed to save:', error.message);
+    console.error('[Leads] ✘ Failed to save:', error.message, { lead: { school: lead.school_name, email: lead.contact_email } });
+    captureError(error, { fn: 'saveLead', school: lead.school_name, email: lead.contact_email });
     return { ok: false, error: error.message };
   }
 
+  console.info('[Leads] ✔ Lead saved:', { school: lead.school_name, email: lead.contact_email, source: lead.contact_source });
   return { ok: true };
 }
