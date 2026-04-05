@@ -525,25 +525,25 @@
           <span class="mr-2 inline-block size-2 animate-pulse rounded-full bg-destructive"></span>
           {t('compliance.countdown.label')}
         </p>
-        <div class="grid grid-cols-3 gap-4">
-          <div class="rounded-xl border border-border bg-background p-6 text-center shadow-sm sm:p-8">
-            <span class="block text-5xl font-bold tabular-nums tracking-tight text-primary sm:text-7xl">
+        <div class="grid grid-cols-3 gap-4 overflow-hidden">
+          <div class="overflow-hidden rounded-xl border border-border bg-background p-6 text-center shadow-sm sm:p-8">
+            <span class="block text-4xl font-bold tabular-nums tracking-tighter text-primary sm:text-6xl">
               {countdownDays}
             </span>
             <span class="mt-1 block text-xs font-medium uppercase tracking-wider text-muted-foreground sm:text-sm">
               {t('compliance.countdown.days')}
             </span>
           </div>
-          <div class="rounded-xl border border-border bg-background p-6 text-center shadow-sm sm:p-8">
-            <span class="block text-5xl font-bold tabular-nums tracking-tight text-primary sm:text-7xl">
+          <div class="overflow-hidden rounded-xl border border-border bg-background p-6 text-center shadow-sm sm:p-8">
+            <span class="block text-4xl font-bold tabular-nums tracking-tighter text-primary sm:text-6xl">
               {countdownHours}
             </span>
             <span class="mt-1 block text-xs font-medium uppercase tracking-wider text-muted-foreground sm:text-sm">
               {t('compliance.countdown.hours')}
             </span>
           </div>
-          <div class="rounded-xl border border-border bg-background p-6 text-center shadow-sm sm:p-8">
-            <span class="block text-5xl font-bold tabular-nums tracking-tight text-primary sm:text-7xl">
+          <div class="overflow-hidden rounded-xl border border-border bg-background p-6 text-center shadow-sm sm:p-8">
+            <span class="block text-4xl font-bold tabular-nums tracking-tighter text-primary sm:text-6xl">
               {countdownMinutes}
             </span>
             <span class="mt-1 block text-xs font-medium uppercase tracking-wider text-muted-foreground sm:text-sm">
