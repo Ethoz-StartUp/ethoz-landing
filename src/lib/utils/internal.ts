@@ -1,7 +1,9 @@
 import { browser } from '$app/environment';
 
 const STORAGE_KEY = 'ethoz_internal';
+const IP_CACHE_KEY = 'ethoz_ip_checked';
 const TEST_EMAILS = ['ignacioaraya1995@gmail.com'];
+const INTERNAL_IPS = ['181.43.240.234'];
 
 /** Check if current user is flagged as internal (team member) */
 export function isInternal(): boolean {
@@ -27,6 +29,27 @@ export function checkInternalFlag(): void {
     const clean = params.toString();
     const newUrl = window.location.pathname + (clean ? `?${clean}` : '');
     window.history.replaceState({}, '', newUrl);
+  }
+}
+
+/** Auto-detect internal IP and set flag (runs once per session) */
+export async function checkInternalIP(): Promise<void> {
+  if (!browser) return;
+  // Already flagged or already checked this session
+  if (isInternal()) return;
+  if (sessionStorage.getItem(IP_CACHE_KEY)) return;
+
+  sessionStorage.setItem(IP_CACHE_KEY, '1');
+
+  try {
+    const res = await fetch('https://api.ipify.org?format=json');
+    const { ip } = await res.json();
+    if (INTERNAL_IPS.includes(ip)) {
+      localStorage.setItem(STORAGE_KEY, '1');
+      console.info(`[Ethoz] Internal IP detected (${ip}) — analytics excluded`);
+    }
+  } catch {
+    // Silent fail — not critical
   }
 }
 

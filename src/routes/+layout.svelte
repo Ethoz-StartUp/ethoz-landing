@@ -2,7 +2,7 @@
   import '../app.css';
   import { env } from '$env/dynamic/public';
   import { slide } from 'svelte/transition';
-  import { checkInternalFlag, isInternal } from '$lib/utils/internal';
+  import { checkInternalFlag, checkInternalIP, isInternal } from '$lib/utils/internal';
   import { identifyVisitor } from '$lib/utils/visitor';
   let { children } = $props();
   const feedbackEnabled = env.PUBLIC_FEEDBACK_MODE === 'true';
@@ -24,6 +24,7 @@
   $effect(() => {
     if (typeof window !== 'undefined') {
       checkInternalFlag(); // Check ?_internal=1 URL param
+      checkInternalIP();  // Auto-detect internal IPs (once per session)
       const stored = localStorage.getItem('cookie-consent');
       cookieConsent = stored === null ? false : true;
       if (stored === 'accepted' && !isInternal()) loadClarity();
