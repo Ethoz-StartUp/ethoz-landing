@@ -27,6 +27,8 @@
   <meta name="description" content="Ethoz: plataforma de seguimiento integral y seguridad escolar construida en Chile." />
   <meta property="og:url" content="https://ethoz.cl/about" />
   <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ethoz — Construido en Chile, para colegios chilenos" />
+  <meta property="og:description" content="Conoce Ethoz, la plataforma de gestión y protección de datos escolares para Chile." />
   <link rel="canonical" href="https://ethoz.cl/about" />
 </svelte:head>
 

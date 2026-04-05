@@ -24,7 +24,7 @@ export const en = {
   'trust.compliance': 'Law 21.719 Compliant',
   'trust.encryption': 'Bank-grade encryption',
   'trust.integration': 'Works with Napsis and SIGE',
-  'trust.directory': '12,038 schools in directory',
+  'trust.directory': 'Directory of 12,038 schools',
 
   // Problem section
   'problem.overline': 'The problem',
@@ -168,10 +168,10 @@ export const en = {
   'faq.q4': 'What happens if we don\'t comply with Ley 21.719?',
   'faq.a4': 'Fines can reach up to 20,000 UTM (over $1.2 billion CLP). Additionally, the institution faces reputational damage and potential lawsuits from parents for data mishandling.',
   'faq.q5': 'What type of schools is it designed for?',
-  'faq.a5': 'Private subsidized and private schools with 500+ students, school networks (educational corporations), and educational foundations. If you have more than one role managing student information, Ethoz helps.',
+  'faq.a5': 'Ethoz works for schools of any size. The Esencial plan covers up to 500 students, Profesional from 500 to 1,500, and Enterprise for 1,500+ or school networks.',
 
   'faq.q11': 'We already use another school management platform. Why do we need Ethoz?',
-  'faq.a11': 'Ethoz doesn\'t replace your current gradebook or academic platform. It complements it. Management platforms handle attendance, grades, and planning — but none cover safe pickups, granular role-based access, Ley 21.719 compliance, or sensitive data audit trails. Ethoz is the protection layer your current software doesn\'t have.',
+  'faq.a11': 'Ethoz complements your current academic system. For the gradebook, we integrate with platforms like Napsis or Syscol. If your school doesn\'t have a digital system, we include a basic module compliant with Circular N°30.',
 
   'faq.q12': 'Is it safe to trust student data to a new platform?',
   'faq.a12': 'Ethoz was designed with privacy-by-design from the first line of code: complete school isolation, banking-grade encryption, immutable audit logs, and servers in Santiago. It\'s not an old platform trying to adapt to the law — it was built to comply from day one.',
@@ -314,7 +314,7 @@ export const en = {
   'pricing.faq.q5': 'How long does implementation take?',
   'pricing.faq.a5': 'Typical implementation takes 2 to 4 weeks, depending on the volume of data to migrate and the number of campuses. No on-premise infrastructure is needed: Ethoz runs 100% in the cloud.',
   'pricing.faq.q6': 'What types of schools is Ethoz designed for?',
-  'pricing.faq.a6': 'Any educational institution in Chile: private, subsidized, municipal, and multi-campus networks. From schools with 200 students to corporations with multiple locations. Plans adapt to enrollment size.',
+  'pricing.faq.a6': 'Any educational institution in Chile: private, subsidized, municipal, and multi-campus networks. From schools with 200 students to large multi-campus networks. The Esencial plan covers up to 500 students, Profesional from 500 to 1,500, and Enterprise for 1,500+.',
   'pricing.faq.q7': 'Is there an implementation fee?',
   'pricing.faq.a7': 'No. Implementation, data migration, and training are included in all plans at no extra cost.',
   'pricing.faq.q8': 'How is billing handled?',

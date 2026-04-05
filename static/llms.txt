@@ -45,9 +45,9 @@ La Ley 21.719 de Protección de Datos Personales de Chile entra en vigencia en d
 
 ## Planes
 
-- **Esencial**: Hasta 300 alumnos. Gestión base + cumplimiento normativo.
-- **Profesional**: Hasta 800 alumnos. Incluye alertas inteligentes y módulo de convivencia.
-- **Institucional**: Sin límite. Multi-sede, API, soporte prioritario.
+- **Esencial**: Hasta 500 alumnos. Gestión base + cumplimiento normativo.
+- **Profesional**: 500–1.500 alumnos. Incluye alertas inteligentes y módulo de convivencia.
+- **Institucional (Enterprise)**: 1.500+ alumnos. Multi-sede, API, soporte prioritario.
 
 ## Contacto
 

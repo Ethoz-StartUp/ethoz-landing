@@ -51,8 +51,8 @@
     },
     {
       icon: Eye,
-      name: 'Libro de Clases Digital',
-      desc: 'Conforme a Circular N°30: integridad de datos, trazabilidad y verificación. Registro de asistencia y calificaciones con auditoría completa.',
+      name: 'Integración Libro Digital',
+      desc: 'Conecta con tu proveedor de libro de clases actual (Napsis, Syscol, SchoolTrack). Si no tienes uno, incluimos un módulo básico conforme a Circular N°30.',
       href: '/compliance',
       color: 'bg-primary/10 text-primary',
       highlights: ['Conforme a Circular N°30', 'Verificación de identidad digital', 'Registro de auditoría completo', 'Integración con Ley 21.719'],
@@ -63,6 +63,10 @@
 <svelte:head>
   <title>Productos — Ethoz</title>
   <meta name="description" content="Conoce los módulos de Ethoz: perfil integral, retiros seguros, permisos por cargo, búsqueda inteligente, convivencia y libro de clases digital." />
+  <meta property="og:url" content="https://ethoz.cl/productos" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Productos — Ethoz" />
+  <meta property="og:description" content="Conoce todos los módulos de Ethoz: perfil integral, retiros seguros, permisos por cargo, y más." />
   <link rel="canonical" href="https://ethoz.cl/productos" />
 </svelte:head>
 
@@ -77,6 +81,9 @@
       </h1>
       <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
         Cada módulo resuelve un problema concreto de tu colegio. Activa solo los que necesitas hoy.
+      </p>
+      <p class="mt-3 inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
+        Cumplimiento Ley 21.719 — Plazo: diciembre 2026
       </p>
     </div>
   </section>

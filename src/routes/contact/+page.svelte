@@ -50,6 +50,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contacto — Ethoz" />
   <meta name="twitter:description" content="Contáctanos para saber más sobre Ethoz, la plataforma de seguridad escolar para Chile." />
+  <meta name="description" content="Contacta al equipo de Ethoz. Escríbenos por WhatsApp, email o agenda una demo para tu colegio." />
   <link rel="canonical" href="https://ethoz.cl/contact" />
 </svelte:head>
 

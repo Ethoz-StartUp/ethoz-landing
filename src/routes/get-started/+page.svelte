@@ -27,7 +27,7 @@
     { icon: BarChart3, name: 'Dashboard de gestión' },
     { icon: FileText, name: 'Auditoría y trazabilidad' },
     { icon: Lock, name: 'Cumplimiento Ley 21.719' },
-    { icon: Eye, name: 'Libro de clases digital' },
+    { icon: Eye, name: 'Integración Libro Digital' },
   ];
 
   const faqItems = [
@@ -45,6 +45,11 @@
 <svelte:head>
   <title>¿Cómo contratar? — Ethoz</title>
   <meta name="description" content="Contrata Ethoz en 4 pasos: agenda una demo, elige tus módulos, migramos tus datos y tu colegio queda protegido." />
+  <link rel="canonical" href="https://ethoz.cl/get-started" />
+  <meta property="og:url" content="https://ethoz.cl/get-started" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="¿Cómo contratar? — Ethoz" />
+  <meta property="og:description" content="Conoce cómo implementar Ethoz en tu colegio. Proceso consultivo paso a paso." />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -67,6 +72,9 @@
       </h1>
       <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
         Sin licitaciones complicadas. Sin instalaciones en tu servidor. En menos de un mes, tu colegio está operando con datos protegidos y cumplimiento normativo resuelto.
+      </p>
+      <p class="mt-3 inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
+        Cumplimiento Ley 21.719 — Plazo: diciembre 2026
       </p>
       <div class="mt-8">
         <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25">

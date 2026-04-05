@@ -143,7 +143,7 @@
 
 <svelte:head>
   <title>Ethoz — {t('hero.title')}</title>
-  <meta name="description" content="Plataforma de gestión y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
+  <meta name="description" content="Ethoz — Software de gestión y protección de datos escolares para colegios de Chile. Cumple con la Ley 21.719 antes del plazo de diciembre 2026." />
   <meta property="og:url" content="https://ethoz.cl/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ethoz — Gestión y cumplimiento para colegios" />

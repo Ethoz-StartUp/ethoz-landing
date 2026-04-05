@@ -11,6 +11,10 @@ export const post: BlogPost = {
 	tags: ['Inteligencia Artificial', 'Deserción', 'EdTech'],
 	coverImage: '/images/blog/inteligencia-artificial-desercion-escolar.webp',
 	content: `
+<div style="border-left: 3px solid oklch(0.75 0.15 85); padding-left: 1rem; margin-bottom: 2rem; background: oklch(0.75 0.15 85 / 0.08); border-radius: 0.5rem; padding: 1.25rem;">
+<p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: oklch(0.55 0.12 85); margin-bottom: 0.5rem;">Nota de transparencia</p>
+<p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Este artículo explora el potencial de la IA para predecir deserción escolar. Ethoz actualmente no ofrece un módulo de IA — pero sí centraliza los datos que harían posible este tipo de análisis en el futuro. La funcionalidad predictiva está en nuestro roadmap para 2027.</p>
+</div>
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
 <p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Investigación de la UTN demuestra que una red neuronal puede predecir la deserción escolar usando solo datos de las primeras dos semanas de clases. El predictor más relevante es la interacción con materiales en las primeras 48 horas. Modelos por curso superan a los modelos generales.</p>

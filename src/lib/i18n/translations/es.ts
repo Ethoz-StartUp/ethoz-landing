@@ -24,7 +24,7 @@ export const es = {
   'trust.compliance': 'Cumple Ley 21.719',
   'trust.encryption': 'Cifrado de grado bancario',
   'trust.integration': 'Compatible con Napsis y SIGE',
-  'trust.directory': '12.038 colegios en directorio',
+  'trust.directory': 'Directorio de 12.038 establecimientos',
 
   // Problem section
   'problem.overline': 'El problema',
@@ -168,7 +168,7 @@ export const es = {
   'faq.q4': '¿Qué pasa si no cumplimos con la Ley 21.719?',
   'faq.a4': 'Las multas pueden alcanzar hasta 20.000 UTM (más de $1.200 millones CLP). Además, la institución enfrenta daño reputacional y potenciales demandas de apoderados por mal manejo de datos.',
   'faq.q5': '¿Para qué tipo de colegios está diseñado?',
-  'faq.a5': 'Colegios particulares subvencionados y pagados de 500+ alumnos, redes de colegios (corporaciones educacionales) y fundaciones educativas. Si tienes más de un rol gestionando información de alumnos, Ethoz te ayuda.',
+  'faq.a5': 'Ethoz funciona para colegios de cualquier tamaño. El plan Esencial cubre hasta 500 alumnos, el Profesional de 500 a 1.500, y el Enterprise para más de 1.500 o redes de colegios.',
 
   'faq.q6': '¿Qué es la Ley 21.719?',
   'faq.a6': 'Es la nueva ley de protección de datos personales de Chile, publicada en diciembre de 2024. Crea la Agencia de Protección de Datos con poder de fiscalizar y sancionar, y entra en vigencia en diciembre de 2026.',
@@ -186,7 +186,7 @@ export const es = {
   'faq.a10': 'Sí. La ley exige designar un responsable de datos — puede ser el director, el sostenedor o un encargado. Ethoz le da a esa persona los controles de acceso, consentimiento y auditoría que necesita para cumplir.',
 
   'faq.q11': 'Ya usamos otra plataforma de gestión escolar. ¿Para qué necesitamos Ethoz?',
-  'faq.a11': 'Ethoz no reemplaza tu plataforma actual de libro de clases o gestión académica. La complementa. Las plataformas de gestión resuelven asistencia, notas y planificación — pero ninguna cubre retiros seguros, control de acceso granular por cargo, cumplimiento de la Ley 21.719 ni auditoría de acceso a datos sensibles. Ethoz es la capa de protección que tu software actual no tiene.',
+  'faq.a11': 'Ethoz complementa tu sistema académico actual. Para el libro de clases, nos integramos con plataformas como Napsis o Syscol. Si tu colegio no tiene sistema digital, incluimos un módulo básico conforme a Circular N°30.',
 
   'faq.q12': '¿Es seguro confiar los datos de mis alumnos a una plataforma nueva?',
   'faq.a12': 'Ethoz fue diseñado con privacidad por diseño desde la primera línea de código: aislamiento total entre colegios, cifrado de grado bancario, registros de auditoría inalterables y servidores en Santiago. No es una plataforma antigua que intenta adaptarse a la ley — fue construida para cumplirla desde el día uno.',
