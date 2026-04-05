@@ -42,7 +42,7 @@
   let loaded = $state(false);
   let isFullscreen = $state(false);
   let showControls = $state(true);
-  let showSubtitles = $state(typeof window !== 'undefined' ? window.innerWidth > 640 : true);
+  let showSubtitles = $state(true);
   let controlsTimeout: ReturnType<typeof setTimeout>;
   let containerEl = $state<HTMLDivElement | null>(null);
 
@@ -1408,10 +1408,10 @@
 
   /* ═══ RESPONSIVE ═══ */
   @media (max-width: 640px) {
-    .slide-area { padding-bottom: 6rem; }
-    .slide-content { padding: 1rem 1.25rem; gap: 0.75rem; }
-    .subtitle-bar { bottom: 7rem; width: calc(100% - 1.5rem); }
-    .subtitle-text { font-size: 0.8rem; padding: 0.5rem 1rem; }
+    .slide-area { padding-bottom: 3.5rem; align-items: flex-start; padding-top: 1rem; }
+    .slide-content { padding: 0.75rem 1rem; gap: 0.5rem; }
+    .subtitle-bar { bottom: 5.5rem; width: calc(100% - 1.5rem); }
+    .subtitle-text { font-size: 0.75rem; padding: 0.4rem 0.75rem; line-height: 1.4; }
     .controls-bar { padding: 0.5rem 0.75rem 0.75rem; }
     .scattered-grid { gap: 1.25rem; }
     .scatter-icon { width: 3.5rem; height: 3.5rem; }
