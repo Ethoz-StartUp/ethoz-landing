@@ -141,39 +141,42 @@
     e.preventDefault();
     submitting = true;
 
-    await executeRecaptcha('submit_demo');
-    const school = schoolStore.selectedSchool;
+    try {
+      await executeRecaptcha('submit_demo');
+      const school = schoolStore.selectedSchool;
 
-    saveLead({
-      school_name: school?.name ?? '',
-      school_rbd: school?.rbd,
-      school_commune: school?.commune ?? '',
-      contact_name: contactName,
-      contact_role: contactRole,
-      contact_email: contactEmail,
-      contact_phone: contactPhone || undefined,
-      contact_source: contactSource || undefined,
-      status: 'new',
-    });
+      saveLead({
+        school_name: school?.name ?? '',
+        school_rbd: school?.rbd,
+        school_commune: school?.commune ?? '',
+        contact_name: contactName,
+        contact_role: contactRole,
+        contact_email: contactEmail,
+        contact_phone: contactPhone || undefined,
+        contact_source: contactSource || undefined,
+        status: 'new',
+      });
 
-    trackEvent('demo_form_submitted', { school: school?.name ?? '', email: contactEmail });
+      trackEvent('demo_form_submitted', { school: school?.name ?? '', email: contactEmail });
 
-    // Clear saved form
-    if (browser) sessionStorage.removeItem(STORAGE_KEY);
+      // Clear saved form
+      if (browser) sessionStorage.removeItem(STORAGE_KEY);
 
-    // Redirect to scheduling page
-    const params = new URLSearchParams();
-    if (school) {
-      params.set('school', school.name);
-      params.set('commune', school.commune);
-      const region = schoolStore.regions.find(r => r.code === school.regionCode);
-      if (region) params.set('region', region.name);
+      // Redirect to scheduling page
+      const params = new URLSearchParams();
+      if (school) {
+        params.set('school', school.name);
+        params.set('commune', school.commune);
+        const region = schoolStore.regions.find(r => r.code === school.regionCode);
+        if (region) params.set('region', region.name);
+      }
+      params.set('name', contactName);
+      params.set('email', contactEmail);
+
+      goto(`/schedule?${params.toString()}`);
+    } finally {
+      submitting = false;
     }
-    params.set('name', contactName);
-    params.set('email', contactEmail);
-
-    submitting = false;
-    goto(`/schedule?${params.toString()}`);
   }
 </script>
 
