@@ -175,11 +175,13 @@
 ></audio>
 
 <!-- Main Container -->
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <div
   bind:this={containerEl}
   class="pitch-container"
   onmousemove={resetControlsTimeout}
   onclick={resetControlsTimeout}
+  onkeydown={resetControlsTimeout}
   role="application"
   aria-label="Presentación interactiva Ethoz"
 >
@@ -452,6 +454,7 @@
     <div
       class="progress-bar"
       onclick={handleProgressClick}
+      onkeydown={(e) => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') handleProgressClick(e); }}
       role="slider"
       tabindex={0}
       aria-label="Progreso del audio"

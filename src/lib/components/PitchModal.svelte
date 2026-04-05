@@ -323,7 +323,7 @@
 
   <!-- Controls -->
   <div class="controls">
-    <div class="progress" onclick={handleProgressClick} role="slider" tabindex={0} aria-label="Progreso" aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100}>
+    <div class="progress" onclick={handleProgressClick} onkeydown={(e) => { if (e.key === 'ArrowRight') handleProgressClick(e); if (e.key === 'ArrowLeft') handleProgressClick(e); }} role="slider" tabindex={0} aria-label="Progreso" aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100}>
       <div class="track">
         <div class="fill" style="width:{progress}%"></div>
         {#each slides as s, i}

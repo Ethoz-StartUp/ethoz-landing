@@ -89,6 +89,7 @@
       <!-- Productos dropdown -->
       <div
         class="relative"
+        role="navigation"
         onmouseenter={openProducts}
         onmouseleave={closeProducts}
       >
@@ -107,6 +108,8 @@
         {#if productsOpen}
           <div
             class="absolute left-1/2 top-full mt-2 w-[420px] -translate-x-1/2 rounded-xl border border-border bg-background p-3 shadow-lg"
+            role="menu"
+            tabindex={-1}
             onmouseenter={openProducts}
             onmouseleave={closeProducts}
           >
