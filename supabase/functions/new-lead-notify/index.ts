@@ -26,7 +26,6 @@ Deno.serve(async (req: Request) => {
 
     const meta = r.metadata ?? {};
     const isContactForm = r.contact_role === 'contact_form';
-    const formType = isContactForm ? 'Contacto' : 'Demo';
     const schoolName = r.school_name || 'Sin colegio';
     const contactName = r.contact_name || 'Sin nombre';
     const contactEmail = r.contact_email || '';
@@ -47,7 +46,9 @@ Deno.serve(async (req: Request) => {
 
     const now = new Date().toLocaleString('es-CL', { timeZone: 'America/Santiago', dateStyle: 'long', timeStyle: 'short' });
 
-    const subject = `${isContactForm ? '💬' : '🎯'} Nuevo lead (${formType}): ${contactName} — ${schoolName}`;
+    const subject = isContactForm
+      ? `💬 Nuevo lead (Contacto): ${contactName}`
+      : `🎯 Nuevo lead: ${contactName} — ${schoolName}`;
 
     const html = `<!DOCTYPE html>
 <html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"></head>
@@ -62,7 +63,7 @@ Deno.serve(async (req: Request) => {
       </span>
     </div>
     <div style="display:inline-block;background:${isContactForm ? '#2563EB' : '#16a34a'};color:#fff;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:4px 12px;border-radius:100px;">
-      Nuevo Lead — ${formType}
+      Nuevo Lead${isContactForm ? ' — Contacto' : ''}
     </div>
   </div>
 
