@@ -3,8 +3,8 @@
 
 export const CONTACT = {
   whatsapp: {
-    number: '56912345678',
-    display: '+56 9 1234 5678',
+    number: '56979923964',
+    display: '+56 9 7992 3964',
     get link() {
       return `https://wa.me/${this.number}?text=${encodeURIComponent('Hola, me interesa saber más sobre Ethoz para mi colegio.')}`;
     },
