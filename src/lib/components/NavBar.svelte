@@ -158,7 +158,7 @@
     <!-- Actions -->
     <div class="flex items-center justify-end gap-2">
       <a
-        href={env.PUBLIC_APP_URL ?? 'http://localhost:5174/'}
+        href={env.PUBLIC_APP_URL ?? 'https://app.ethoz.cl/login'}
         class="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-muted/50 md:inline-flex"
       >
         {t('nav.login')}
@@ -236,7 +236,7 @@
       </div>
       <div class="mt-4 flex flex-col gap-3 border-t border-border pt-4">
         <a
-          href={env.PUBLIC_APP_URL ?? 'http://localhost:5174/'}
+          href={env.PUBLIC_APP_URL ?? 'https://app.ethoz.cl/login'}
           class="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted/50"
           onclick={() => (mobileOpen = false)}
         >
