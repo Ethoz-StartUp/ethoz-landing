@@ -14,11 +14,13 @@
   let message = $state('');
   let submitting = $state(false);
   let submitted = $state(false);
+  let errorMessage = $state('');
 
   // ── Handlers ──
   async function handleSubmit(e: Event) {
     e.preventDefault();
     submitting = true;
+    errorMessage = '';
 
     // Save to Supabase as a lead
     const result = await saveLead({
@@ -31,7 +33,12 @@
       status: 'new',
     });
 
-    if (!result.ok) console.error('[Contact] Lead save failed:', result.error);
+    if (!result.ok) {
+      console.error('[Contact] Lead save failed:', result.error);
+      errorMessage = 'No pudimos enviar tu mensaje. Por favor intenta de nuevo.';
+      submitting = false;
+      return;
+    }
 
     trackEvent('contact_form_submitted', { email });
 
@@ -54,6 +61,7 @@
   <meta name="twitter:description" content="Contáctanos para saber más sobre Ethoz, la plataforma de seguridad escolar para Chile." />
   <meta name="description" content="Contacta al equipo de Ethoz. Escríbenos por WhatsApp, email o agenda una demo para tu colegio." />
   <link rel="canonical" href="https://ethoz.cl/contact" />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Contacto"}]})}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-secondary">
@@ -144,7 +152,7 @@
             bind:value={name}
             placeholder={t('contact.form.name.placeholder')}
             autocomplete="name"
-            class="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
+            class="w-full rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </div>
 
@@ -160,7 +168,7 @@
             bind:value={email}
             placeholder={t('contact.form.email.placeholder')}
             autocomplete="email"
-            class="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
+            class="w-full rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </div>
 
@@ -175,7 +183,7 @@
             bind:value={message}
             placeholder={t('contact.form.message.placeholder')}
             rows={4}
-            class="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
+            class="w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
           ></textarea>
         </div>
 
@@ -192,6 +200,9 @@
             {t('contact.form.submit')}
           {/if}
         </Button>
+        {#if errorMessage}
+          <p class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-destructive">{errorMessage}</p>
+        {/if}
 
       </form>
       {/if}

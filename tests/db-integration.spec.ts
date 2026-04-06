@@ -1,10 +1,12 @@
 import { test, expect } from '@playwright/test';
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-	'https://irpesrcijcdwyjxxwpyb.supabase.co',
-	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlycGVzcmNpamNkd3lqeHh3cHliIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzMzI5OTYsImV4cCI6MjA5MDkwODk5Nn0.UHuUs_gN_MNV7NNOR9z95C9v6i7MBcS2vQvC5DXBwqg'
-);
+const url = process.env.SUPABASE_URL ?? process.env.PUBLIC_SUPABASE_URL ?? '';
+const key = process.env.SUPABASE_ANON_KEY ?? process.env.PUBLIC_SUPABASE_ANON_KEY ?? '';
+
+test.skip(!url || !key, 'Skipped: missing SUPABASE_URL / SUPABASE_ANON_KEY env vars');
+
+const supabase = createClient(url, key);
 
 test.describe('DB Integration — lead persistence', () => {
 	const testEmail = `e2e-test-${Date.now()}@ethoz-test.com`;

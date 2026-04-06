@@ -29,7 +29,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ethoz — Construido en Chile, para colegios chilenos" />
   <meta property="og:description" content="Conoce Ethoz, la plataforma de gestión y protección de datos escolares para Chile." />
+  <meta name="twitter:title" content="Ethoz — Construido en Chile, para colegios chilenos" />
+  <meta name="twitter:description" content="Conoce Ethoz, la plataforma de gestión y protección de datos escolares para Chile." />
   <link rel="canonical" href="https://ethoz.cl/about" />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Nosotros"}]})}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-background">

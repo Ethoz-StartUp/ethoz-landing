@@ -67,7 +67,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Productos — Ethoz" />
   <meta property="og:description" content="Conoce todos los módulos de Ethoz: perfil integral, retiros seguros, permisos por cargo, y más." />
+  <meta name="twitter:title" content="Productos — Ethoz" />
+  <meta name="twitter:description" content="Conoce todos los módulos de Ethoz: perfil integral, retiros seguros, permisos por cargo, y más." />
   <link rel="canonical" href="https://ethoz.cl/productos" />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos"}]})}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-background">
@@ -129,7 +132,7 @@
               {#if product.name === 'Perfil Integral del Alumno'}
                 <div class="p-4">
                   <div class="flex gap-3">
-                    <img src="/images/students/girl-12.webp" alt="" class="size-10 rounded-full object-cover" />
+                    <img src="/images/students/girl-12.webp" alt="Perfil de alumna" class="size-10 rounded-full object-cover" />
                     <div>
                       <p class="text-xs font-semibold text-foreground">Valentina Rojas Sepúlveda</p>
                       <p class="text-[10px] text-muted-foreground">7° Básico B · Apoderado: María Sepúlveda</p>
@@ -148,7 +151,7 @@
                     <span class="text-[10px] font-semibold text-success">AUTORIZADO</span>
                   </div>
                   <div class="flex items-center gap-2.5">
-                    <img src="/images/people/apoderado-madre.webp" alt="" class="size-8 rounded-full object-cover" />
+                    <img src="/images/people/apoderado-madre.webp" alt="Apoderada" class="size-8 rounded-full object-cover" />
                     <div>
                       <p class="text-[11px] font-medium text-foreground">María Sepúlveda · Madre</p>
                       <p class="text-[9px] text-muted-foreground">Valentina Rojas · 7° Básico B · 14:32</p>
@@ -160,7 +163,7 @@
                   <div class="space-y-1.5">
                     {#each [{name:'Directora',img:'/images/people/director-mujer.webp',dots:[true,true,true,true]},{name:'Docente',img:'/images/people/docente-mujer.webp',dots:[true,false,true,false]},{name:'Portero',img:'/images/people/portero-hombre.webp',dots:[false,true,false,false]}] as role}
                       <div class="flex items-center gap-2">
-                        <img src={role.img} alt="" class="size-5 rounded-full object-cover" />
+                        <img src={role.img} alt={role.name} class="size-5 rounded-full object-cover" />
                         <span class="w-16 text-[10px] font-medium text-foreground">{role.name}</span>
                         {#each role.dots as d}
                           <span class="size-2.5 rounded-full {d ? 'bg-success' : 'bg-muted'} mx-auto"></span>
@@ -173,7 +176,7 @@
                 <div class="p-4">
                   <div class="rounded border border-border px-2.5 py-1.5 text-[10px] text-foreground mb-2">val<span class="animate-pulse text-primary">|</span></div>
                   <div class="flex items-center gap-2 rounded bg-primary/5 px-2 py-1.5">
-                    <img src="/images/students/girl-12.webp" alt="" class="size-6 rounded-full object-cover" />
+                    <img src="/images/students/girl-12.webp" alt="Perfil de alumna" class="size-6 rounded-full object-cover" />
                     <span class="text-[10px] text-foreground"><mark class="bg-primary/20 font-semibold">Val</mark>entina Rojas · 7°B</span>
                   </div>
                 </div>

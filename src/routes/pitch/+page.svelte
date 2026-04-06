@@ -33,41 +33,19 @@
     Download
   } from '@lucide/svelte';
 
+  import { pitchSlides as slides, getDaysUntilEnforcement } from '$lib/data/pitch-slides';
+
   // ── Audio state ──
   let audioEl = $state<HTMLAudioElement | null>(null);
   let currentTime = $state(0);
   let duration = $state(0);
   let playing = $state(false);
   let muted = $state(false);
-  let loaded = $state(false);
   let isFullscreen = $state(false);
   let showControls = $state(true);
   let showSubtitles = $state(true);
   let controlsTimeout: ReturnType<typeof setTimeout>;
   let containerEl = $state<HTMLDivElement | null>(null);
-
-  // ── Slide definitions (synced to audio timestamps) ──
-  interface Slide {
-    start: number;
-    end: number;
-    id: string;
-    subtitle: string;
-  }
-
-  const slides: Slide[] = [
-    { start: 0, end: 5, id: 'intro', subtitle: 'Les presento a Ethoz, el escudo digital diseñado para la comunidad escolar de hoy.' },
-    { start: 5, end: 20, id: 'problem', subtitle: '¿Dónde está la información más sensible de los alumnos? La realidad es que vive en planillas, libretas, WhatsApps... está por todos lados. Y ahí está el riesgo.' },
-    { start: 20, end: 31, id: 'law', subtitle: 'Ahora se suma un nuevo desafío: la ley de protección de datos. Hablamos de la Ley 21.719. Va a cambiar las reglas del juego para todos.' },
-    { start: 31, end: 48, id: 'fines', subtitle: 'La cuenta regresiva ya empezó. En diciembre de 2026, la ley entra en plena vigencia. Las multas pueden llegar hasta 20.000 UTM — más de $1.200 millones.' },
-    { start: 48, end: 53, id: 'classification', subtitle: 'La ley clasifica las faltas en leves, graves y gravísimas, con sanciones para cada nivel.' },
-    { start: 53, end: 58, id: 'solution', subtitle: 'Aquí es donde entra Ethoz, el escudo digital que protege al colegio y cumple la ley.' },
-    { start: 58, end: 71, id: 'features-a', subtitle: 'Centralizamos todo en una ficha 360° por alumno. Las alertas críticas llegan al instante, solo a las personas que deben saber.' },
-    { start: 71, end: 80, id: 'features-b', subtitle: 'En portería, validan quién retira a un alumno en segundos. Cada persona ve solo lo que necesita para su rol.' },
-    { start: 80, end: 92, id: 'implementation', subtitle: 'Implementarlo es fácil. Conectamos el colegio, migramos los datos y listo. En semanas, el equipo ya está funcionando.' },
-    { start: 92, end: 99, id: 'security', subtitle: 'Usamos cifrado de nivel bancario y todos los datos se guardan de forma segura aquí en Chile.' },
-    { start: 99, end: 109, id: 'urgency', subtitle: 'La ley no espera. Prepararse hoy significa estar tranquilos mañana. Para 2026, abrimos un programa piloto.' },
-    { start: 109, end: 999, id: 'cta', subtitle: 'Los cupos son muy limitados. Agenden su demo en ethoz.cl y aseguren su cupo para ser de los primeros en cumplir.' },
-  ];
 
   // ── Derived state ──
   let currentSlideIndex = $derived(
@@ -145,13 +123,7 @@
   });
 
   // ── Countdown to Dec 2026 ──
-  let countdownDays = $state(0);
-  $effect(() => {
-    const target = new Date('2026-12-01T00:00:00-03:00');
-    const now = new Date();
-    const diff = target.getTime() - now.getTime();
-    countdownDays = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
-  });
+  let countdownDays = $state(getDaysUntilEnforcement());
 </script>
 
 <svelte:head>
@@ -166,9 +138,9 @@
 <audio
   bind:this={audioEl}
   src="/audio/pitch.m4a"
-  preload="auto"
+  preload="metadata"
   ontimeupdate={() => { if (audioEl) currentTime = audioEl.currentTime; }}
-  onloadedmetadata={() => { if (audioEl) { duration = audioEl.duration; loaded = true; } }}
+  onloadedmetadata={() => { if (audioEl) { duration = audioEl.duration; } }}
   onplay={() => { playing = true; resetControlsTimeout(); }}
   onpause={() => { playing = false; showControls = true; }}
   onended={() => { playing = false; showControls = true; }}
@@ -185,6 +157,15 @@
   role="application"
   aria-label="Presentación interactiva Ethoz"
 >
+  <!-- Back button -->
+  <a
+    href="/"
+    class="absolute left-4 top-4 z-30 flex size-10 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-sm transition-colors hover:bg-secondary hover:text-foreground"
+    aria-label="Volver al inicio"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+  </a>
+
   <!-- Slide Area -->
   <div class="slide-area">
     {#key currentSlide.id}
@@ -454,7 +435,7 @@
     <div
       class="progress-bar"
       onclick={handleProgressClick}
-      onkeydown={(e) => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') handleProgressClick(e); }}
+      onkeydown={(e) => { if (e.key === 'ArrowRight') { e.preventDefault(); seekTo(Math.min(currentTime + 5, duration)); } if (e.key === 'ArrowLeft') { e.preventDefault(); seekTo(Math.max(currentTime - 5, 0)); } }}
       role="slider"
       tabindex={0}
       aria-label="Progreso del audio"
@@ -1274,8 +1255,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: 50%;
     border: none;
     background: transparent;
@@ -1318,19 +1299,22 @@
   }
 
   .dot {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     border-radius: 9999px;
     border: none;
     background: oklch(0.85 0 0);
     cursor: pointer;
-    padding: 0;
+    padding: 10px;
+    box-sizing: content-box;
+    background-clip: content-box;
     transition: all 0.3s ease;
   }
 
   .dot.active {
     width: 1.5rem;
     background: var(--primary);
+    background-clip: content-box;
   }
 
   .dot:hover:not(.active) {
@@ -1426,7 +1410,7 @@
 
   /* ═══ REDUCED MOTION ═══ */
   @media (prefers-reduced-motion: reduce) {
-    .shield-glow, .shield-pulse, .pilot-badge { animation: none; }
+    .shield-pulse, .pilot-badge { animation: none; }
     .feature-card:hover { transform: none; }
     .cta-button:hover { transform: none; }
   }

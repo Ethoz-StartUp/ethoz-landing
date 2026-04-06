@@ -16,7 +16,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ethoz — Retiros Seguros y Alertas Críticas" />
   <meta property="og:description" content="El portero sabe en segundos si puede entregar al alumno — sin llamadas, sin papel, sin margen de error." />
+  <meta name="twitter:title" content="Ethoz — Retiros Seguros y Alertas Críticas" />
+  <meta name="twitter:description" content="El portero sabe en segundos si puede entregar al alumno — sin llamadas, sin papel, sin margen de error." />
   <link rel="canonical" href="https://ethoz.cl/features/safe-pickups" />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Retiros Escolares Seguros"}]})}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col pt-16">
@@ -54,7 +57,7 @@
               <span class="text-xs font-semibold text-success">RETIRO AUTORIZADO</span>
             </div>
             <div class="flex gap-3">
-              <img src="/images/people/apoderado-madre.webp" alt="" class="size-12 rounded-full object-cover" />
+              <img src="/images/people/apoderado-madre.webp" alt="Apoderada autorizada para retiro" class="size-12 rounded-full object-cover" />
               <div class="flex-1">
                 <p class="text-sm font-semibold text-foreground">María Sepúlveda Contreras</p>
                 <p class="text-[10px] text-muted-foreground">RUT 12.345.678-9 · Madre</p>

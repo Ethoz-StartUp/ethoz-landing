@@ -32,6 +32,7 @@ export interface Lead {
   contact_email: string;
   contact_phone?: string;
   contact_source?: string;
+  notes?: string;
   status: 'new' | 'contacted' | 'demo_scheduled' | 'demo_done' | 'closed';
   created_at?: string;
 }

@@ -29,6 +29,32 @@
   <meta name="twitter:title" content={post.title} />
   <meta name="twitter:description" content={post.description} />
   <link rel="canonical" href="https://ethoz.cl/blog/{post.slug}" />
+  {#if post.coverImage}
+    <meta property="og:image" content="https://ethoz.cl{post.coverImage}" />
+  {/if}
+  {@html `<script type="application/ld+json">${JSON.stringify([
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.description,
+      "datePublished": post.date,
+      "author": { "@type": "Person", "name": post.author },
+      "publisher": { "@type": "Organization", "name": "Ethoz", "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }},
+      "image": post.coverImage ? `https://ethoz.cl${post.coverImage}` : undefined,
+      "url": `https://ethoz.cl/blog/${post.slug}`,
+      "mainEntityOfPage": `https://ethoz.cl/blog/${post.slug}`
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://ethoz.cl/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ethoz.cl/blog" },
+        { "@type": "ListItem", "position": 3, "name": post.title }
+      ]
+    }
+  ])}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-background">
@@ -70,7 +96,7 @@
           <div class="w-full max-w-sm overflow-hidden rounded-xl">
             <img
               src={post.coverImage}
-              alt=""
+              alt={post.title}
               class="h-auto w-full object-cover"
             />
           </div>

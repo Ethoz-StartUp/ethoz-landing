@@ -9,7 +9,7 @@ const config = {
 			pages: 'build',
 			assets: 'build',
 			fallback: '200.html',
-			precompress: false,
+			precompress: true,
 			strict: false
 		}),
 		prerender: {

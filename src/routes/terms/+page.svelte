@@ -14,6 +14,7 @@
   <meta name="twitter:title" content="Términos de Uso — Ethoz" />
   <meta name="twitter:description" content="Términos de uso de Ethoz. Condiciones de uso de la plataforma de gestión escolar." />
   <link rel="canonical" href="https://ethoz.cl/terms" />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Términos de Servicio"}]})}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-background">

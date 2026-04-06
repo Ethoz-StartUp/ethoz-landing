@@ -129,6 +129,7 @@
 
 <svelte:head>
   <title>Sugerencias — Ethoz Dev</title>
+  <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-background">

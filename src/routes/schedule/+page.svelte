@@ -17,6 +17,7 @@
 
   let calContainer = $state<HTMLDivElement | null>(null);
   let calLoaded = $state(false);
+  let calError = $state(false);
 
   // Load Cal.com embed script and render inline
   $effect(() => {
@@ -33,11 +34,14 @@
         if (!cal.loaded) {
           cal.ns = {};
           cal.q = cal.q || [];
-          d.head.appendChild(d.createElement('script')).src = A;
+          const s = d.createElement('script');
+          s.src = A;
+          s.onerror = () => { calLoaded = true; calError = true; };
+          d.head.appendChild(s);
           cal.loaded = true;
         }
         if (ar[0] === L) {
-          const api = function () { p(api, arguments); };
+          const api: any = function () { p(api, arguments); };
           const namespace = ar[1];
           api.q = api.q || [];
           if (typeof namespace === 'string') {
@@ -94,6 +98,11 @@
     });
 
     calLoaded = true;
+
+    // Timeout fallback if embed doesn't render
+    setTimeout(() => {
+      if (!calLoaded) { calLoaded = true; calError = true; }
+    }, 10000);
   });
 
   $effect(() => {
@@ -183,6 +192,14 @@
             <Loader2 class="size-8 animate-spin text-primary" />
             <p class="text-sm text-muted-foreground">Cargando calendario...</p>
           </div>
+        </div>
+      {/if}
+      {#if calError}
+        <div class="flex flex-col items-center gap-3 py-12 text-center">
+          <p class="text-sm text-muted-foreground">No pudimos cargar el calendario.</p>
+          <a href="https://cal.com/ethoz/demo" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-primary underline-offset-4 hover:underline">
+            Agendar directamente en Cal.com
+          </a>
         </div>
       {/if}
       <div bind:this={calContainer} class="w-full"></div>

@@ -11,7 +11,10 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"test:unit": "vitest run",
-		"test:unit:watch": "vitest"
+		"test:unit:watch": "vitest",
+		"test:e2e": "playwright test --grep-invert 'DB Integration'",
+		"test:integration": "playwright test tests/db-integration.spec.ts",
+		"test:ci": "npm run check && npm run test:unit && playwright test --grep-invert 'DB Integration'"
 	},
 	"devDependencies": {
 		"@lucide/svelte": "^1.7.0",

@@ -16,7 +16,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ethoz — Búsqueda Instantánea y Dashboard Inteligente" />
   <meta property="og:description" content="Cualquier alumno, en segundos, con tolerancia a errores tipográficos." />
+  <meta name="twitter:title" content="Ethoz — Búsqueda Instantánea y Dashboard Inteligente" />
+  <meta name="twitter:description" content="Cualquier alumno, en segundos, con tolerancia a errores tipográficos." />
   <link rel="canonical" href="https://ethoz.cl/features/smart-search" />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Búsqueda Inteligente"}]})}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col pt-16">
@@ -56,7 +59,7 @@
             </div>
             <div class="space-y-1">
               <div class="flex items-center gap-2.5 rounded-lg px-2.5 py-2 bg-primary/5">
-                <img src="/images/students/girl-12.webp" alt="" class="size-8 rounded-full object-cover" />
+                <img src="/images/students/girl-12.webp" alt="Alumna encontrada en búsqueda" class="size-8 rounded-full object-cover" />
                 <div class="flex-1 min-w-0">
                   <p class="text-[11px] font-medium text-foreground"><mark class="bg-primary/20 text-foreground font-semibold">Val</mark>entina Rojas</p>
                   <p class="text-[9px] text-muted-foreground">7° Básico B · Prof. jefe: C. González</p>
@@ -64,7 +67,7 @@
                 <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-1.5 py-0.5 text-[8px] font-medium text-success">Sin alertas</span>
               </div>
               <div class="flex items-center gap-2.5 rounded-lg px-2.5 py-2 hover:bg-muted/50">
-                <img src="/images/students/kid-14.webp" alt="" class="size-8 rounded-full object-cover" />
+                <img src="/images/students/kid-14.webp" alt="Alumno encontrado en búsqueda" class="size-8 rounded-full object-cover" />
                 <div class="flex-1 min-w-0">
                   <p class="text-[11px] font-medium text-foreground"><mark class="bg-primary/20 text-foreground font-semibold">Val</mark>entín Araya</p>
                   <p class="text-[9px] text-muted-foreground">3° Medio A · Prof. jefe: M. López</p>
@@ -72,7 +75,7 @@
                 <span class="inline-flex items-center gap-1 rounded-full bg-warning/10 px-1.5 py-0.5 text-[8px] font-medium text-warning-foreground">1 alerta</span>
               </div>
               <div class="flex items-center gap-2.5 rounded-lg px-2.5 py-2 hover:bg-muted/50">
-                <img src="/images/students/girl-15.webp" alt="" class="size-8 rounded-full object-cover" />
+                <img src="/images/students/girl-15.webp" alt="Alumna encontrada en búsqueda" class="size-8 rounded-full object-cover" />
                 <div class="flex-1 min-w-0">
                   <p class="text-[11px] font-medium text-foreground"><mark class="bg-primary/20 text-foreground font-semibold">Val</mark>eria Fuentes</p>
                   <p class="text-[9px] text-muted-foreground">1° Medio C · Prof. jefe: A. Díaz</p>

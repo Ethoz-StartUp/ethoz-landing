@@ -3,7 +3,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
   import { Badge } from '$lib/components/ui/badge';
-  import { t } from '$lib/i18n/index.svelte';
+  import { t, type TranslationKey } from '$lib/i18n/index.svelte';
   import { trackEvent } from '$lib/utils/analytics';
   import { CONTACT } from '$lib/config';
   import { slide } from 'svelte/transition';
@@ -161,8 +161,10 @@
       "url": "https://ethoz.cl",
       "logo": "https://ethoz.cl/favicon.svg",
       "description": "Plataforma de gestión y protección de datos escolares para colegios de Chile",
+      "areaServed": { "@type": "Country", "name": "Chile" },
       "address": {
         "@type": "PostalAddress",
+        "addressLocality": "Santiago",
         "addressCountry": "CL"
       },
       "contactPoint": {
@@ -175,7 +177,12 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Ethoz",
-      "url": "https://ethoz.cl"
+      "url": "https://ethoz.cl",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ethoz.cl/demo?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@context": "https://schema.org",
@@ -185,11 +192,20 @@
       "operatingSystem": "Web",
       "description": "Plataforma de gestión y protección de datos escolares para colegios de Chile. Cumplimiento Ley 21.719.",
       "offers": {
-        "@type": "Offer",
-        "price": "0",
+        "@type": "AggregateOffer",
         "priceCurrency": "CLP",
-        "description": "Demo gratuita"
+        "availability": "https://schema.org/OnlineOnly",
+        "url": "https://ethoz.cl/get-started"
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [1,2,11,3,15,4,12].map(n => ({
+        "@type": "Question",
+        "name": t(`faq.q${n}` as TranslationKey),
+        "acceptedAnswer": { "@type": "Answer", "text": t(`faq.a${n}` as TranslationKey) }
+      }))
     }
   ])}
   </script>
@@ -259,6 +275,8 @@
                   <img
                     src={activeStudent.photo}
                     alt={activeStudent.name}
+                    width="64"
+                    height="64"
                     class="size-16 rounded-full object-cover ring-2 ring-border"
                     loading="eager"
                   />
@@ -315,9 +333,11 @@
             {#each heroStudents as _, i}
               <button
                 onclick={() => { currentStudent = i; }}
-                class="size-2 rounded-full transition-all {currentStudent === i ? 'w-6 bg-primary' : 'bg-border hover:bg-muted-foreground'}"
+                class="flex items-center justify-center p-2"
                 aria-label="Student {i + 1}"
-              ></button>
+              >
+                <span class="block size-2 rounded-full transition-all {currentStudent === i ? 'w-6 bg-primary' : 'bg-border hover:bg-muted-foreground'}"></span>
+              </button>
             {/each}
           </div>
         </div>
@@ -558,7 +578,7 @@
         {#each ['compliance.item1', 'compliance.item2', 'compliance.item3', 'compliance.item4', 'compliance.item5', 'compliance.item6'] as item}
           <div class="flex items-start gap-3">
             <Check class="mt-0.5 size-5 shrink-0 text-primary" />
-            <span class="text-sm leading-relaxed text-muted-foreground">{t(item)}</span>
+            <span class="text-sm leading-relaxed text-muted-foreground">{t(item as TranslationKey)}</span>
           </div>
         {/each}
       </div>
@@ -587,42 +607,42 @@
 
       <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/director-mujer.webp" alt="" class="size-10 shrink-0 rounded-full object-cover" loading="lazy" />
+          <img src="/images/people/director-mujer.webp" alt="Directora de colegio usando Ethoz" class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
           <div>
             <p class="text-sm font-semibold text-foreground">Directora</p>
             <p class="mt-0.5 text-xs text-muted-foreground">Indicadores, métricas, informes y exportación de datos.</p>
           </div>
         </div>
         <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/inspector-hombre.webp" alt="" class="size-10 shrink-0 rounded-full object-cover" loading="lazy" />
+          <img src="/images/people/inspector-hombre.webp" alt="Inspector escolar usando Ethoz" class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
           <div>
             <p class="text-sm font-semibold text-foreground">Inspector</p>
             <p class="mt-0.5 text-xs text-muted-foreground">Alertas activas, observaciones conductuales y retiros.</p>
           </div>
         </div>
         <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/docente-mujer.webp" alt="" class="size-10 shrink-0 rounded-full object-cover" loading="lazy" />
+          <img src="/images/people/docente-mujer.webp" alt="Docente usando Ethoz para ver perfil de alumno" class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
           <div>
             <p class="text-sm font-semibold text-foreground">Docente</p>
             <p class="mt-0.5 text-xs text-muted-foreground">Perfil del alumno, observaciones académicas y alertas de su curso.</p>
           </div>
         </div>
         <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/orientadora-mujer.webp" alt="" class="size-10 shrink-0 rounded-full object-cover" loading="lazy" />
+          <img src="/images/people/orientadora-mujer.webp" alt="Orientadora escolar con acceso al perfil completo" class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
           <div>
             <p class="text-sm font-semibold text-foreground">Orientadora</p>
             <p class="mt-0.5 text-xs text-muted-foreground">Perfil completo incluyendo observaciones emocionales y derivaciones.</p>
           </div>
         </div>
         <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/portero-hombre.webp" alt="" class="size-10 shrink-0 rounded-full object-cover" loading="lazy" />
+          <img src="/images/people/portero-hombre.webp" alt="Portero verificando retiro escolar con Ethoz" class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
           <div>
             <p class="text-sm font-semibold text-foreground">Portero</p>
             <p class="mt-0.5 text-xs text-muted-foreground">Solo foto, nombre, alertas críticas y registro de retiros.</p>
           </div>
         </div>
         <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/apoderado-madre.webp" alt="" class="size-10 shrink-0 rounded-full object-cover" loading="lazy" />
+          <img src="/images/people/apoderado-madre.webp" alt="Apoderada consultando estado de su hijo en Ethoz" class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
           <div>
             <p class="text-sm font-semibold text-foreground">Apoderado</p>
             <p class="mt-0.5 text-xs text-muted-foreground">Estado de su hijo, retiros registrados y comunicaciones del colegio.</p>
@@ -690,7 +710,7 @@
               class="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-muted/50"
               aria-expanded={openFaq === i}
             >
-              <span class="pr-8 text-sm font-semibold text-foreground">{t(`faq.q${n}`)}</span>
+              <span class="pr-8 text-sm font-semibold text-foreground">{t(`faq.q${n}` as TranslationKey)}</span>
               {#if openFaq === i}
                 <Minus class="size-4 shrink-0 text-muted-foreground" />
               {:else}
@@ -700,7 +720,7 @@
             {#if openFaq === i}
               <div transition:slide={{ duration: 200 }} class="px-6 pb-5">
                 <p class="text-sm leading-relaxed text-muted-foreground">
-                  {t(`faq.a${n}`)}
+                  {t(`faq.a${n}` as TranslationKey)}
                 </p>
               </div>
             {/if}

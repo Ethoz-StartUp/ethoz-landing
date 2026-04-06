@@ -16,7 +16,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ethoz — Ficha Integral 360° del Alumno" />
   <meta property="og:description" content="Un perfil longitudinal que sigue al alumno año a año, con acceso estrictamente controlado por rol." />
+  <meta name="twitter:title" content="Ethoz — Ficha Integral 360° del Alumno" />
+  <meta name="twitter:description" content="Un perfil longitudinal que sigue al alumno año a año, con acceso estrictamente controlado por rol." />
   <link rel="canonical" href="https://ethoz.cl/features/student-profile" />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Perfil Integral del Alumno"}]})}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col pt-16">
@@ -52,7 +55,7 @@
             <div class="flex gap-4">
               <!-- Student photo + basic info -->
               <div class="flex flex-col items-center gap-2">
-                <img src="/images/students/girl-12.webp" alt="" class="size-14 rounded-full object-cover" />
+                <img src="/images/students/girl-12.webp" alt="Perfil de alumna en Ethoz" class="size-14 rounded-full object-cover" />
                 <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2 py-0.5 text-[10px] font-medium text-success">Sin alertas</span>
               </div>
               <!-- Details -->

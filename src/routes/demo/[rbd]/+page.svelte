@@ -33,6 +33,7 @@
   let contactSource = $state('');
   let submitting = $state(false);
   let formRestored = $state(false);
+  let errorMessage = $state('');
 
   let mapContainer = $state<HTMLDivElement | null>(null);
   let mapInstance: any = null;
@@ -101,6 +102,7 @@
     if (!school || !container || school.lat === 0 && school.lng === 0) return;
     if (mapInstance || (container as any)._leaflet_id) return;
 
+    import('leaflet/dist/leaflet.css');
     import('leaflet').then((L) => {
       if (mapInstance || (container as any)._leaflet_id) return;
       mapInstance = L.map(container, {
@@ -145,6 +147,7 @@
   async function handleSubmit(e: Event) {
     e.preventDefault();
     submitting = true;
+    errorMessage = '';
 
     try {
       await executeRecaptcha('submit_demo');
@@ -162,7 +165,12 @@
         status: 'new',
       });
 
-      if (!result.ok) console.error('[Demo] Lead save failed:', result.error);
+      if (!result.ok) {
+        console.error('[Demo] Lead save failed:', result.error);
+        errorMessage = 'No pudimos guardar tu solicitud. Por favor intenta de nuevo.';
+        submitting = false;
+        return;
+      }
 
       trackEvent('demo_form_submitted', { school: school?.name ?? '', email: contactEmail });
 
@@ -189,7 +197,6 @@
 
 <svelte:head>
   <title>Ethoz — {t('nav.cta')}</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <meta property="og:url" content="https://ethoz.cl/demo" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Demo — Ethoz" />
@@ -321,7 +328,9 @@
                   bind:value={contactName}
                   placeholder={t('demo.form.name.placeholder')}
                   autocomplete="name"
-                  class="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  autocapitalize="words"
+                  enterkeyhint="next"
+                  class="w-full rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
               </div>
 
@@ -334,7 +343,7 @@
                     id="contact-role"
                     required
                     bind:value={contactRole}
-                    class="w-full cursor-pointer appearance-none rounded-lg border border-border bg-background py-3 pl-4 pr-10 text-sm text-foreground outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
+                    class="w-full cursor-pointer appearance-none rounded-lg border border-border bg-background py-3 pl-4 pr-10 text-base text-foreground outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
                   >
                     <option value="" disabled>{t('demo.form.role.placeholder')}</option>
                     <option value="director">{t('demo.form.role.director')}</option>
@@ -359,7 +368,8 @@
                   bind:value={contactEmail}
                   placeholder={t('demo.form.email.placeholder')}
                   autocomplete="email"
-                  class="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  enterkeyhint="next"
+                  class="w-full rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
               </div>
 
@@ -373,7 +383,8 @@
                   bind:value={contactPhone}
                   placeholder="+56 9 1234 5678"
                   autocomplete="tel"
-                  class="w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  enterkeyhint="next"
+                  class="w-full rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
                 />
               </div>
 
@@ -385,7 +396,7 @@
                   <select
                     id="contact-source"
                     bind:value={contactSource}
-                    class="w-full cursor-pointer appearance-none rounded-lg border border-border bg-background py-3 pl-4 pr-10 text-sm text-foreground outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
+                    class="w-full cursor-pointer appearance-none rounded-lg border border-border bg-background py-3 pl-4 pr-10 text-base text-foreground outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
                   >
                     <option value="">{t('demo.form.source.placeholder')}</option>
                     <option value="google">{t('demo.form.source.google')}</option>
@@ -412,6 +423,9 @@
                   <ChevronRight class="size-4" />
                 {/if}
               </Button>
+              {#if errorMessage}
+                <p class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-destructive">{errorMessage}</p>
+              {/if}
               <p class="mt-2 text-center text-[10px] text-muted-foreground">
                 Protegido por reCAPTCHA de Google.
               </p>

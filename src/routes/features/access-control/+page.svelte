@@ -16,7 +16,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ethoz — Control de Acceso Granular por Roles" />
   <meta property="og:description" content="Cada persona ve exactamente lo que necesita, ni más ni menos." />
+  <meta name="twitter:title" content="Ethoz — Control de Acceso Granular por Roles" />
+  <meta name="twitter:description" content="Cada persona ve exactamente lo que necesita, ni más ni menos." />
   <link rel="canonical" href="https://ethoz.cl/features/access-control" />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Control de Acceso por Roles"}]})}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col pt-16">
@@ -54,23 +57,23 @@
                 <span>Cargo</span><span>Perfil</span><span>Retiros</span><span>Conviv.</span><span>Informes</span>
               </div>
               <div class="grid grid-cols-[1fr_auto_auto_auto_auto] items-center gap-2">
-                <div class="flex items-center gap-2"><img src="/images/people/director-mujer.webp" alt="" class="size-6 rounded-full object-cover" /><span class="text-[11px] font-medium text-foreground">Directora</span></div>
+                <div class="flex items-center gap-2"><img src="/images/people/director-mujer.webp" alt="Directora" class="size-6 rounded-full object-cover" /><span class="text-[11px] font-medium text-foreground">Directora</span></div>
                 <span class="size-3 rounded-full bg-success mx-auto"></span><span class="size-3 rounded-full bg-success mx-auto"></span><span class="size-3 rounded-full bg-success mx-auto"></span><span class="size-3 rounded-full bg-success mx-auto"></span>
               </div>
               <div class="grid grid-cols-[1fr_auto_auto_auto_auto] items-center gap-2">
-                <div class="flex items-center gap-2"><img src="/images/people/inspector-hombre.webp" alt="" class="size-6 rounded-full object-cover" /><span class="text-[11px] font-medium text-foreground">Inspector</span></div>
+                <div class="flex items-center gap-2"><img src="/images/people/inspector-hombre.webp" alt="Inspector" class="size-6 rounded-full object-cover" /><span class="text-[11px] font-medium text-foreground">Inspector</span></div>
                 <span class="size-3 rounded-full bg-success mx-auto"></span><span class="size-3 rounded-full bg-success mx-auto"></span><span class="size-3 rounded-full bg-success mx-auto"></span><span class="size-3 rounded-full bg-muted mx-auto"></span>
               </div>
               <div class="grid grid-cols-[1fr_auto_auto_auto_auto] items-center gap-2">
-                <div class="flex items-center gap-2"><img src="/images/people/docente-mujer.webp" alt="" class="size-6 rounded-full object-cover" /><span class="text-[11px] font-medium text-foreground">Docente</span></div>
+                <div class="flex items-center gap-2"><img src="/images/people/docente-mujer.webp" alt="Docente" class="size-6 rounded-full object-cover" /><span class="text-[11px] font-medium text-foreground">Docente</span></div>
                 <span class="size-3 rounded-full bg-success mx-auto"></span><span class="size-3 rounded-full bg-muted mx-auto"></span><span class="size-3 rounded-full bg-success mx-auto"></span><span class="size-3 rounded-full bg-muted mx-auto"></span>
               </div>
               <div class="grid grid-cols-[1fr_auto_auto_auto_auto] items-center gap-2">
-                <div class="flex items-center gap-2"><img src="/images/people/orientadora-mujer.webp" alt="" class="size-6 rounded-full object-cover" /><span class="text-[11px] font-medium text-foreground">Orientadora</span></div>
+                <div class="flex items-center gap-2"><img src="/images/people/orientadora-mujer.webp" alt="Orientadora" class="size-6 rounded-full object-cover" /><span class="text-[11px] font-medium text-foreground">Orientadora</span></div>
                 <span class="size-3 rounded-full bg-success mx-auto"></span><span class="size-3 rounded-full bg-muted mx-auto"></span><span class="size-3 rounded-full bg-success mx-auto"></span><span class="size-3 rounded-full bg-muted mx-auto"></span>
               </div>
               <div class="grid grid-cols-[1fr_auto_auto_auto_auto] items-center gap-2">
-                <div class="flex items-center gap-2"><img src="/images/people/portero-hombre.webp" alt="" class="size-6 rounded-full object-cover" /><span class="text-[11px] font-medium text-foreground">Portero</span></div>
+                <div class="flex items-center gap-2"><img src="/images/people/portero-hombre.webp" alt="Portero" class="size-6 rounded-full object-cover" /><span class="text-[11px] font-medium text-foreground">Portero</span></div>
                 <span class="size-3 rounded-full bg-muted mx-auto"></span><span class="size-3 rounded-full bg-success mx-auto"></span><span class="size-3 rounded-full bg-muted mx-auto"></span><span class="size-3 rounded-full bg-muted mx-auto"></span>
               </div>
             </div>

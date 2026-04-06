@@ -2,6 +2,7 @@
   import { fly, fade, scale } from 'svelte/transition';
   import { quintOut, backOut } from 'svelte/easing';
   import { trackEvent } from '$lib/utils/analytics';
+  import { pitchSlides as slides, getDaysUntilEnforcement } from '$lib/data/pitch-slides';
   import {
     Shield, Lock, FileSpreadsheet, Smartphone, BookOpen, AlertTriangle,
     Bell, UserCheck, Eye, Zap, MapPin, Calendar, Play, Pause, Volume2,
@@ -23,23 +24,6 @@
   let duration = $state(0);
   let playing = $state(false);
   let muted = $state(false);
-
-  interface Slide { start: number; end: number; id: string; subtitle: string; }
-
-  const slides: Slide[] = [
-    { start: 0, end: 5, id: 'intro', subtitle: 'Les presento a Ethoz, el escudo digital diseñado para la comunidad escolar de hoy.' },
-    { start: 5, end: 20, id: 'problem', subtitle: '¿Dónde está la información más sensible de los alumnos? La realidad es que vive en planillas, libretas, WhatsApps... está por todos lados.' },
-    { start: 20, end: 31, id: 'law', subtitle: 'Ahora se suma un nuevo desafío: la ley de protección de datos. Hablamos de la Ley 21.719. Va a cambiar las reglas del juego para todos.' },
-    { start: 31, end: 48, id: 'fines', subtitle: 'La cuenta regresiva ya empezó. En diciembre de 2026, la ley entra en plena vigencia. Las multas pueden llegar hasta 20.000 UTM — más de $1.200 millones.' },
-    { start: 48, end: 53, id: 'classification', subtitle: 'La ley clasifica las faltas en leves, graves y gravísimas, con sanciones para cada nivel.' },
-    { start: 53, end: 58, id: 'solution', subtitle: 'Aquí es donde entra Ethoz, el escudo digital que protege al colegio y cumple la ley.' },
-    { start: 58, end: 71, id: 'features-a', subtitle: 'Centralizamos todo en una ficha 360° por alumno. Las alertas críticas llegan al instante.' },
-    { start: 71, end: 80, id: 'features-b', subtitle: 'En portería, validan quién retira a un alumno en segundos. Cada persona ve solo lo que necesita.' },
-    { start: 80, end: 92, id: 'implementation', subtitle: 'Implementarlo es fácil. Conectamos el colegio, migramos los datos y listo. En semanas, el equipo ya funciona.' },
-    { start: 92, end: 99, id: 'security', subtitle: 'Usamos cifrado de nivel bancario y todos los datos se guardan de forma segura aquí en Chile.' },
-    { start: 99, end: 109, id: 'urgency', subtitle: 'La ley no espera. Prepararse hoy significa estar tranquilos mañana. Para 2026, abrimos un programa piloto.' },
-    { start: 109, end: 999, id: 'cta', subtitle: 'Los cupos son muy limitados. Agenden su demo en ethoz.cl y aseguren su cupo.' },
-  ];
 
   let currentSlideIndex = $derived(Math.max(0, slides.findIndex(s => currentTime >= s.start && currentTime < s.end)));
   let currentSlide = $derived(slides[currentSlideIndex]);
@@ -101,11 +85,7 @@
   });
 
   // Countdown
-  let countdownDays = $state(0);
-  $effect(() => {
-    const diff = new Date('2026-12-01T00:00:00-03:00').getTime() - Date.now();
-    countdownDays = Math.max(0, Math.floor(diff / 86400000));
-  });
+  let countdownDays = $state(getDaysUntilEnforcement());
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
@@ -113,7 +93,7 @@
 <audio
   bind:this={audioEl}
   src="/audio/pitch.m4a"
-  preload="auto"
+  preload="metadata"
   controlsList="nodownload"
   oncontextmenu={(e) => e.preventDefault()}
   ontimeupdate={() => { if (audioEl) { currentTime = audioEl.currentTime; checkMilestones(); } }}
@@ -323,7 +303,7 @@
 
   <!-- Controls -->
   <div class="controls">
-    <div class="progress" onclick={handleProgressClick} onkeydown={(e) => { if (e.key === 'ArrowRight') handleProgressClick(e); if (e.key === 'ArrowLeft') handleProgressClick(e); }} role="slider" tabindex={0} aria-label="Progreso" aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100}>
+    <div class="progress" onclick={handleProgressClick} onkeydown={(e) => { if (e.key === 'ArrowRight') { e.preventDefault(); seekTo(Math.min(currentTime + 5, duration)); } if (e.key === 'ArrowLeft') { e.preventDefault(); seekTo(Math.max(currentTime - 5, 0)); } }} role="slider" tabindex={0} aria-label="Progreso" aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100}>
       <div class="track">
         <div class="fill" style="width:{progress}%"></div>
         {#each slides as s, i}
@@ -391,7 +371,9 @@
     .modal-content {
       height: auto;
       min-height: 60vh;
+      min-height: 60dvh;
       max-height: 90vh;
+      max-height: 90dvh;
       border-radius: 0.75rem;
     }
   }
@@ -737,8 +719,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: 50%;
     border: none;
     background: transparent;
@@ -755,10 +737,11 @@
 
   .dots { display: flex; justify-content: center; gap: 0.3rem; padding-top: 0.375rem; }
   .dot {
-    width: 5px; height: 5px; border-radius: 9999px; border: none;
-    background: oklch(0.85 0 0); cursor: pointer; padding: 0; transition: all 0.3s ease;
+    width: 8px; height: 8px; border-radius: 9999px; border: none;
+    background: oklch(0.85 0 0); cursor: pointer; padding: 10px; box-sizing: content-box;
+    background-clip: content-box; transition: all 0.3s ease;
   }
-  .dot.active { width: 1.25rem; background: var(--primary); }
+  .dot.active { width: 1.25rem; background: var(--primary); background-clip: content-box; }
   .dot:hover:not(.active) { background: oklch(0.7 0 0); }
 
   /* ═══ ANIMATIONS ═══ */

@@ -14,6 +14,7 @@
   <meta name="twitter:title" content="Política de Privacidad — Ethoz" />
   <meta name="twitter:description" content="Política de privacidad de Ethoz. Información sobre el tratamiento de datos personales conforme a la Ley 21.719." />
   <link rel="canonical" href="https://ethoz.cl/privacy" />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Política de Privacidad"}]})}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-background">

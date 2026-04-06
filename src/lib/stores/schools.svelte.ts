@@ -87,6 +87,7 @@ function createSchoolStore() {
 	// ---- reactive state --------------------------------------------------
 	let loaded = $state(false);
 	let loading = $state(false);
+	let loadError = $state<string | null>(null);
 	let regions = $state<Region[]>([]);
 
 	let selectedRegion = $state<number | null>(null);
@@ -186,7 +187,7 @@ function createSchoolStore() {
 			loaded = true;
 		} catch (error) {
 			console.error('[schoolStore] Error loading schools data:', error);
-			throw error;
+			loadError = 'No pudimos cargar los colegios. Verifica tu conexión.';
 		} finally {
 			loading = false;
 		}
@@ -233,6 +234,9 @@ function createSchoolStore() {
 		},
 		get loading() {
 			return loading;
+		},
+		get loadError() {
+			return loadError;
 		},
 		get regions() {
 			return regions;

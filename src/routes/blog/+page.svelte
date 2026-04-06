@@ -18,6 +18,7 @@
   <meta name="twitter:title" content="Blog — Ethoz" />
   <meta name="twitter:description" content="Artículos sobre protección de datos, seguridad escolar y cumplimiento normativo para colegios en Chile." />
   <link rel="canonical" href="https://ethoz.cl/blog" />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Blog"}]})}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-background">
@@ -44,7 +45,7 @@
             <div class="aspect-[16/9] overflow-hidden bg-muted">
               <img
                 src={post.coverImage}
-                alt=""
+                alt={post.title}
                 class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />

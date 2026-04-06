@@ -16,7 +16,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ethoz — Arquitectura de Privacidad y Cumplimiento" />
   <meta property="og:description" content="Construida para la Ley 21.719 desde el primer día — no como un parche posterior." />
+  <meta name="twitter:title" content="Ethoz — Arquitectura de Privacidad y Cumplimiento" />
+  <meta name="twitter:description" content="Construida para la Ley 21.719 desde el primer día — no como un parche posterior." />
   <link rel="canonical" href="https://ethoz.cl/features/privacy-compliance" />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Privacidad y Cumplimiento"}]})}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col pt-16">
@@ -66,17 +69,17 @@
             <p class="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">Registro de auditoría</p>
             <div class="space-y-1.5">
               <div class="flex items-center gap-2 text-[10px]">
-                <img src="/images/people/docente-mujer.webp" alt="" class="size-5 rounded-full object-cover" />
+                <img src="/images/people/docente-mujer.webp" alt="Docente" class="size-5 rounded-full object-cover" />
                 <span class="flex-1 text-muted-foreground">Prof. González accedió a perfil de V. Rojas</span>
                 <span class="text-[9px] text-muted-foreground">hace 12 min</span>
               </div>
               <div class="flex items-center gap-2 text-[10px]">
-                <img src="/images/people/inspector-hombre.webp" alt="" class="size-5 rounded-full object-cover" />
+                <img src="/images/people/inspector-hombre.webp" alt="Inspector" class="size-5 rounded-full object-cover" />
                 <span class="flex-1 text-muted-foreground">Inspector Muñoz registró retiro</span>
                 <span class="text-[9px] text-muted-foreground">hace 1h</span>
               </div>
               <div class="flex items-center gap-2 text-[10px]">
-                <img src="/images/people/orientadora-mujer.webp" alt="" class="size-5 rounded-full object-cover" />
+                <img src="/images/people/orientadora-mujer.webp" alt="Orientadora" class="size-5 rounded-full object-cover" />
                 <span class="flex-1 text-muted-foreground">Orientadora Lagos creó observación privada</span>
                 <span class="text-[9px] text-muted-foreground">hace 3h</span>
               </div>

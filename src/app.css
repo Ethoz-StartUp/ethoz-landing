@@ -126,6 +126,7 @@ html {
   scroll-behavior: smooth;
   text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  overscroll-behavior-y: contain;
 }
 
 body {
@@ -191,7 +192,8 @@ a {
 
 /* ── Smooth transitions for all interactive elements ── */
 button, a, [role="button"] {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease,
+              opacity 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 /* ── Hide reCAPTCHA badge (attribution in footer instead) ── */
