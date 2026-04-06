@@ -92,9 +92,9 @@
   </section>
 
   <!-- Products -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="space-y-12">
+      <div class="space-y-16 sm:space-y-20">
         {#each products as product, i}
           {@const Icon = product.icon}
           <div class="grid items-start gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-12 {i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}">
@@ -122,7 +122,7 @@
             </div>
 
             <!-- Mockup preview -->
-            <a href={product.href} class="group block rounded-xl border border-border bg-card shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5">
+            <a href={product.href} class="group block rounded-xl border border-border bg-card shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 min-h-[180px] sm:min-h-[200px]">
               <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
                 <div class="size-2.5 rounded-full bg-destructive/60"></div>
                 <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -130,37 +130,47 @@
                 <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — {product.name}</span>
               </div>
               {#if product.name === 'Perfil Integral del Alumno'}
-                <div class="p-4">
+                <div class="p-5">
                   <div class="flex gap-3">
-                    <img src="/images/students/girl-12.webp" alt="Perfil de alumna" class="size-10 rounded-full object-cover" />
+                    <img src="/images/students/girl-12.webp" alt="Perfil de alumna" class="size-12 rounded-full object-cover" />
                     <div>
-                      <p class="text-xs font-semibold text-foreground">Valentina Rojas Sepúlveda</p>
-                      <p class="text-[10px] text-muted-foreground">7° Básico B · Apoderado: María Sepúlveda</p>
+                      <p class="text-sm font-semibold text-foreground">Valentina Rojas Sepúlveda</p>
+                      <p class="text-xs text-muted-foreground">7° Básico B · Apoderado: María Sepúlveda</p>
                     </div>
                   </div>
-                  <div class="mt-2 flex gap-1 border-t border-border pt-2">
-                    <span class="border-b-2 border-primary px-2 py-1 text-[9px] font-semibold text-primary">Historial</span>
-                    <span class="px-2 py-1 text-[9px] text-muted-foreground">Retiros</span>
-                    <span class="px-2 py-1 text-[9px] text-muted-foreground">Convivencia</span>
+                  <div class="mt-3 flex gap-1 border-t border-border pt-3">
+                    <span class="border-b-2 border-primary px-2.5 py-1.5 text-[10px] font-semibold text-primary">Historial</span>
+                    <span class="px-2.5 py-1.5 text-[10px] text-muted-foreground">Retiros</span>
+                    <span class="px-2.5 py-1.5 text-[10px] text-muted-foreground">Convivencia</span>
+                    <span class="px-2.5 py-1.5 text-[10px] text-muted-foreground">Alertas</span>
+                  </div>
+                  <div class="mt-3 space-y-1.5 text-[10px] text-muted-foreground">
+                    <div class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-primary"></span>Ficha actualizada — datos familiares</div>
+                    <div class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-success"></span>Retiro autorizado — Madre · 14:32</div>
                   </div>
                 </div>
               {:else if product.name === 'Retiros Escolares Seguros'}
-                <div class="p-4">
-                  <div class="flex items-center gap-2 rounded bg-success/5 px-2 py-1.5 mb-2">
-                    <div class="size-1.5 rounded-full bg-success"></div>
-                    <span class="text-[10px] font-semibold text-success">AUTORIZADO</span>
+                <div class="p-5">
+                  <div class="flex items-center gap-2 rounded-lg bg-success/5 px-3 py-2 mb-3">
+                    <div class="size-2 rounded-full bg-success"></div>
+                    <span class="text-xs font-semibold text-success">AUTORIZADO</span>
                   </div>
-                  <div class="flex items-center gap-2.5">
-                    <img src="/images/people/apoderado-madre.webp" alt="Apoderada" class="size-8 rounded-full object-cover" />
+                  <div class="flex items-center gap-3">
+                    <img src="/images/people/apoderado-madre.webp" alt="Apoderada" class="size-10 rounded-full object-cover" />
                     <div>
-                      <p class="text-[11px] font-medium text-foreground">María Sepúlveda · Madre</p>
-                      <p class="text-[9px] text-muted-foreground">Valentina Rojas · 7° Básico B · 14:32</p>
+                      <p class="text-xs font-medium text-foreground">María Sepúlveda · Madre</p>
+                      <p class="text-[10px] text-muted-foreground">Valentina Rojas · 7° Básico B · 14:32</p>
                     </div>
+                  </div>
+                  <div class="mt-3 rounded-lg border border-dashed border-destructive/30 bg-destructive/5 px-3 py-2">
+                    <p class="text-[10px] font-medium text-destructive">Juan Rojas · Padre — BLOQUEADO</p>
+                    <p class="text-[9px] text-muted-foreground">Orden de alejamiento vigente</p>
                   </div>
                 </div>
               {:else if product.name === 'Permisos por Cargo'}
-                <div class="p-4">
-                  <div class="space-y-1.5">
+                <div class="p-5">
+                  <p class="mb-2 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Matriz de acceso</p>
+                  <div class="space-y-2">
                     {#each [{name:'Directora',img:'/images/people/director-mujer.webp',dots:[true,true,true,true]},{name:'Docente',img:'/images/people/docente-mujer.webp',dots:[true,false,true,false]},{name:'Portero',img:'/images/people/portero-hombre.webp',dots:[false,true,false,false]}] as role}
                       <div class="flex items-center gap-2">
                         <img src={role.img} alt={role.name} class="size-5 rounded-full object-cover" />
@@ -173,41 +183,66 @@
                   </div>
                 </div>
               {:else if product.name === 'Búsqueda Inteligente'}
-                <div class="p-4">
-                  <div class="rounded border border-border px-2.5 py-1.5 text-[10px] text-foreground mb-2">val<span class="animate-pulse text-primary">|</span></div>
-                  <div class="flex items-center gap-2 rounded bg-primary/5 px-2 py-1.5">
-                    <img src="/images/students/girl-12.webp" alt="Perfil de alumna" class="size-6 rounded-full object-cover" />
-                    <span class="text-[10px] text-foreground"><mark class="bg-primary/20 font-semibold">Val</mark>entina Rojas · 7°B</span>
+                <div class="p-5">
+                  <div class="rounded-lg border border-border px-3 py-2 text-xs text-foreground mb-3">val<span class="animate-pulse text-primary">|</span></div>
+                  <div class="space-y-1.5">
+                    <div class="flex items-center gap-2.5 rounded-lg bg-primary/5 px-3 py-2">
+                      <img src="/images/students/girl-12.webp" alt="Perfil de alumna" class="size-7 rounded-full object-cover" />
+                      <div>
+                        <span class="text-xs text-foreground"><mark class="bg-primary/20 font-semibold">Val</mark>entina Rojas</span>
+                        <p class="text-[10px] text-muted-foreground">7° Básico B</p>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-2.5 rounded-lg px-3 py-2 hover:bg-muted/50">
+                      <img src="/images/students/kid-14.webp" alt="Perfil de alumno" class="size-7 rounded-full object-cover" />
+                      <div>
+                        <span class="text-xs text-foreground"><mark class="bg-primary/20 font-semibold">Val</mark>dés, Tomás</span>
+                        <p class="text-[10px] text-muted-foreground">8° Básico A</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               {:else if product.name === 'Registro de Convivencia'}
-                <div class="p-4">
-                  <div class="space-y-1.5">
-                    <div class="flex items-center gap-2 text-[10px]">
-                      <span class="size-1.5 rounded-full bg-warning"></span>
-                      <span class="text-muted-foreground">Incidente leve — 8°A · hace 2h</span>
+                <div class="p-5">
+                  <p class="mb-2 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Últimas observaciones</p>
+                  <div class="space-y-2.5">
+                    <div class="flex items-start gap-2.5 text-xs">
+                      <span class="mt-1 size-2 shrink-0 rounded-full bg-warning"></span>
+                      <div>
+                        <span class="font-medium text-foreground">Incidente leve — 8°A</span>
+                        <p class="text-[10px] text-muted-foreground">Hace 2h · Prof. A. Martínez</p>
+                      </div>
                     </div>
-                    <div class="flex items-center gap-2 text-[10px]">
-                      <span class="size-1.5 rounded-full bg-destructive"></span>
-                      <span class="text-muted-foreground">Incidente grave — 7°B · ayer</span>
+                    <div class="flex items-start gap-2.5 text-xs">
+                      <span class="mt-1 size-2 shrink-0 rounded-full bg-destructive"></span>
+                      <div>
+                        <span class="font-medium text-foreground">Incidente grave — 7°B</span>
+                        <p class="text-[10px] text-muted-foreground">Ayer · Inspector J. Muñoz</p>
+                      </div>
                     </div>
-                    <div class="flex items-center gap-2 text-[10px]">
-                      <span class="size-1.5 rounded-full bg-success"></span>
-                      <span class="text-muted-foreground">Intervención cerrada — 6°A · hace 3 días</span>
+                    <div class="flex items-start gap-2.5 text-xs">
+                      <span class="mt-1 size-2 shrink-0 rounded-full bg-success"></span>
+                      <div>
+                        <span class="font-medium text-foreground">Intervención cerrada — 6°A</span>
+                        <p class="text-[10px] text-muted-foreground">Hace 3 días · Orientadora</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               {:else}
-                <div class="p-4">
-                  <div class="grid grid-cols-2 gap-2">
-                    <div class="rounded bg-success/5 px-2 py-1.5 text-center">
-                      <p class="text-sm font-bold text-success">98%</p>
-                      <p class="text-[8px] text-muted-foreground">Consentimientos</p>
+                <div class="p-5">
+                  <div class="grid grid-cols-2 gap-3">
+                    <div class="rounded-lg bg-success/5 px-3 py-3 text-center">
+                      <p class="text-lg font-bold text-success">98%</p>
+                      <p class="text-[10px] text-muted-foreground">Consentimientos</p>
                     </div>
-                    <div class="rounded bg-success/5 px-2 py-1.5 text-center">
-                      <p class="text-sm font-bold text-success">0</p>
-                      <p class="text-[8px] text-muted-foreground">Irregularidades</p>
+                    <div class="rounded-lg bg-success/5 px-3 py-3 text-center">
+                      <p class="text-lg font-bold text-success">0</p>
+                      <p class="text-[10px] text-muted-foreground">Irregularidades</p>
                     </div>
+                  </div>
+                  <div class="mt-3 rounded-lg bg-primary/5 px-3 py-2 text-center">
+                    <p class="text-xs font-medium text-primary">Ley 21.719 — En cumplimiento</p>
                   </div>
                 </div>
               {/if}

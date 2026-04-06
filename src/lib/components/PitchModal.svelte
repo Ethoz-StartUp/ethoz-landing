@@ -370,10 +370,10 @@
   @media (max-width: 640px) {
     .modal-content {
       height: auto;
-      min-height: 60vh;
-      min-height: 60dvh;
-      max-height: 90vh;
-      max-height: 90dvh;
+      min-height: 80vh;
+      min-height: 80dvh;
+      max-height: 95vh;
+      max-height: 95dvh;
       border-radius: 0.75rem;
     }
   }
@@ -755,9 +755,15 @@
   }
 
   @media (max-width: 500px) {
+    .slide-area { padding-bottom: 2rem; }
     .sc { padding: 0.75rem; gap: 0.75rem; }
-    .subtitle-bar { bottom: 7rem; left: 0; transform: none; width: 100%; padding: 0 0.5rem; }
-    .subtitle { font-size: 0.7rem; padding: 0.5rem 0.75rem; line-height: 1.5; }
+    .subtitle-bar {
+      position: relative;
+      bottom: auto; left: auto; transform: none;
+      width: 100%; padding: 0 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .subtitle { font-size: 0.75rem; padding: 0.5rem 0.75rem; line-height: 1.5; }
     .close-btn { top: 0.5rem; right: 0.5rem; width: 2rem; height: 2rem; }
     .callout { flex-wrap: wrap; justify-content: center; text-align: center; font-size: 0.65rem; }
     .heading { font-size: clamp(1rem, 5vw, 1.5rem); }

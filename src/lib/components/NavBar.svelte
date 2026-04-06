@@ -191,7 +191,7 @@
         {#each navLinksBefore as link}
           <a
             href={link.href}
-            class="rounded-lg px-3 py-2.5 text-sm font-medium transition-colors
+            class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
               {isActive(link.href)
                 ? 'text-primary bg-primary/5'
                 : 'text-foreground hover:bg-muted/50'}"
@@ -200,39 +200,54 @@
             {t(link.key)}
           </a>
         {/each}
+
+        <!-- ¿Cómo contratar? -->
+        <a
+          href="/get-started"
+          class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
+            {isActive('/get-started')
+              ? 'text-primary bg-primary/5'
+              : 'text-foreground hover:bg-muted/50'}"
+          onclick={() => (mobileOpen = false)}
+        >
+          {t('nav.pricing')}
+        </a>
 
         <!-- Productos -->
-        <p class="px-3 pt-3 pb-1 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">{t('nav.features')}</p>
-        {#each products as product}
-          {@const Icon = product.icon}
-          <a
-            href={product.href}
-            class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors
-              {isActive(product.href)
-                ? 'text-primary bg-primary/5'
-                : 'text-foreground hover:bg-muted/50'}"
-            onclick={() => (mobileOpen = false)}
-          >
-            <Icon class="size-4 shrink-0 text-primary" />
-            {product.name}
-          </a>
-        {/each}
+        <a
+          href="/productos"
+          class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
+            {isActive('/productos') || isProductActive()
+              ? 'text-primary bg-primary/5'
+              : 'text-foreground hover:bg-muted/50'}"
+          onclick={() => (mobileOpen = false)}
+        >
+          {t('nav.features')}
+        </a>
 
-        <div class="my-2 border-t border-border"></div>
+        <!-- Blog -->
+        <a
+          href="/blog"
+          class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
+            {isActive('/blog')
+              ? 'text-primary bg-primary/5'
+              : 'text-foreground hover:bg-muted/50'}"
+          onclick={() => (mobileOpen = false)}
+        >
+          {t('nav.blog')}
+        </a>
 
-        <!-- ¿Cómo contratar?, Blog, Contacto -->
-        {#each navLinksAfter as link}
-          <a
-            href={link.href}
-            class="rounded-lg px-3 py-2.5 text-sm font-medium transition-colors
-              {isActive(link.href)
-                ? 'text-primary bg-primary/5'
-                : 'text-foreground hover:bg-muted/50'}"
-            onclick={() => (mobileOpen = false)}
-          >
-            {t(link.key)}
-          </a>
-        {/each}
+        <!-- Contacto -->
+        <a
+          href="/contact"
+          class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
+            {isActive('/contact')
+              ? 'text-primary bg-primary/5'
+              : 'text-foreground hover:bg-muted/50'}"
+          onclick={() => (mobileOpen = false)}
+        >
+          {t('nav.contact')}
+        </a>
       </div>
       <div class="mt-4 flex flex-col gap-3 border-t border-border pt-4">
         <a
