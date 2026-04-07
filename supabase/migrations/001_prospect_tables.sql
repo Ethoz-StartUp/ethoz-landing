@@ -82,15 +82,27 @@ CREATE TRIGGER content_posts_updated_at
   BEFORE UPDATE ON content_posts
   FOR EACH ROW EXECUTE FUNCTION update_updated_at();
 
--- RLS policies (admin-only access)
+-- RLS policies (admin-only access via specific UUID)
+-- NOTE: Replace '169e6037-fcc2-4201-b2af-92547e1d6739' with your admin user UUID
+-- Get yours with: SELECT id, email FROM auth.users;
 ALTER TABLE prospects ENABLE ROW LEVEL SECURITY;
 ALTER TABLE prospect_activities ENABLE ROW LEVEL SECURITY;
 ALTER TABLE content_posts ENABLE ROW LEVEL SECURITY;
 
--- Authenticated users can do everything (admin panel is auth-gated)
-CREATE POLICY "Authenticated users full access" ON prospects FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Authenticated users full access" ON prospect_activities FOR ALL USING (auth.role() = 'authenticated');
-CREATE POLICY "Authenticated users full access" ON content_posts FOR ALL USING (auth.role() = 'authenticated');
+CREATE POLICY "admin_all_prospects" ON prospects
+  FOR ALL TO authenticated
+  USING (auth.uid() = '169e6037-fcc2-4201-b2af-92547e1d6739')
+  WITH CHECK (auth.uid() = '169e6037-fcc2-4201-b2af-92547e1d6739');
+
+CREATE POLICY "admin_all_prospect_activities" ON prospect_activities
+  FOR ALL TO authenticated
+  USING (auth.uid() = '169e6037-fcc2-4201-b2af-92547e1d6739')
+  WITH CHECK (auth.uid() = '169e6037-fcc2-4201-b2af-92547e1d6739');
+
+CREATE POLICY "admin_all_content_posts" ON content_posts
+  FOR ALL TO authenticated
+  USING (auth.uid() = '169e6037-fcc2-4201-b2af-92547e1d6739')
+  WITH CHECK (auth.uid() = '169e6037-fcc2-4201-b2af-92547e1d6739');
 
 -- Indexes
 CREATE INDEX idx_prospects_status ON prospects(status);

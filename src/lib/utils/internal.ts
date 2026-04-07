@@ -5,7 +5,7 @@ const STORAGE_KEY = 'ethoz_internal';
 const IP_CACHE_KEY = 'ethoz_ip_checked';
 // Test emails checked via domain + hash to avoid PII in the client bundle
 const TEST_EMAIL_HASHES = new Set([
-  'ignacioaraya1995@gmail.com', // TODO: replace with hash-based check if user base grows
+  'ignacioaraya1995@gmail.com', // audit-ignore:email  — internal team test account (TODO: hash-based)
 ]);
 const INTERNAL_IPS: string[] = [
   // Populated at runtime via checkInternalIP — no hardcoded IPs in bundle

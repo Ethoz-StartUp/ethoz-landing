@@ -56,6 +56,29 @@ docs/                 — Documentation index (5 sections + knowledge base + con
 All in `.env.local` (never commit): Supabase (anon + service_role), Kimi, Gemini, reCAPTCHA, Cal.com, Sentry, Cloudflare, Clarity.
 Content pipeline: Kimi CLI (text) → Gemini (images) → Supabase Edge Functions (publish)
 
+### Security (hardened 2026-04)
+- **NEVER** add `PUBLIC_*` env vars for secrets — they ship to the client bundle
+- **NEVER** hardcode emails, IPs, or PII in client-side code — it lands in the JS bundle
+- **NEVER** pass OAuth `client_secret` in URL query params — always POST body
+- **NEVER** log raw emails/phones/PII — use `maskEmail()` from `$lib/supabase`
+- **NEVER** pass PII in URL query params — use `sessionStorage` for cross-page data
+- **RLS is mandatory** on all Supabase tables. New tables must have admin-only policies (`auth.uid() = '<admin-uuid>'`), not `auth.role() = 'authenticated'`
+- **Lead writes** must go through the `verify-lead` Edge Function (server-side reCAPTCHA). The `leads` table has **no anon insert policy** — direct inserts will fail
+- **Edge Functions that receive webhooks** must verify signatures mandatorily (no `if (secret)` guards)
+- **OAuth flows** must validate the `state` parameter with a timestamp check (see `social-auth-linkedin` pattern)
+- **Edge Functions error responses** must not leak internal errors — log with `console.error`, return generic messages
+- **Open Supabase registration is disabled** — do not re-enable. Admin users are created manually in the dashboard
+- Run `npm run audit:security` before committing UI changes to check for regressions
+
+### UI components (shadcn-svelte)
+- Admin panel uses shadcn-svelte components from `$lib/components/ui/`
+- Available: `Table`, `DropdownMenu`, `Sheet`, `Dialog`, `Select`, `Input`, `Label`, `Badge`, `Button`, `Skeleton`, `Tabs`, `Tooltip`, `Sonner` (via `svelte-sonner`)
+- **Prefer shadcn components** over raw HTML. Don't reinvent tables, dropdowns, dialogs
+- **Use `toast` from `svelte-sonner`** for feedback — never `alert()` or silent failures
+- **Use `Skeleton`** for loading states — not just spinners
+- **Use `Dialog`** for destructive confirmations — never `confirm()`
+- Add new components via `npx shadcn-svelte add <name> --overwrite`
+
 ## Documentation Map
 - `docs/1-landing/` — All public pages documented
 - `docs/2-admin/` — Admin panel, auth, CRM, Edge Functions

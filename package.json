@@ -15,6 +15,7 @@
 		"test:e2e": "playwright test --grep-invert 'DB Integration'",
 		"test:integration": "playwright test tests/db-integration.spec.ts",
 		"test:ci": "npm run check && npm run test:unit && playwright test --grep-invert 'DB Integration'",
+		"audit:security": "node scripts/audit-security.mjs",
 		"video:render": "node scripts/generate-pitch-video.mjs"
 	},
 	"devDependencies": {
