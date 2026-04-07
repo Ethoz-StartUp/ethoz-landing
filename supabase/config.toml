@@ -1,0 +1,19 @@
+project_id = "irpesrcijcdwyjxxwpyb"
+
+[functions.social-auth-linkedin]
+verify_jwt = false
+
+[functions.social-auth-meta]
+verify_jwt = false
+
+[functions.social-auth-google]
+verify_jwt = false
+
+[functions.social-publish]
+verify_jwt = false
+
+[functions.cal-webhook]
+verify_jwt = false
+
+[functions.new-lead-notify]
+verify_jwt = false
