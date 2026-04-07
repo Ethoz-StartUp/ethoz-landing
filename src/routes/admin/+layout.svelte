@@ -4,6 +4,7 @@
   import { page } from '$app/state';
   import { LogOut, User, Search, Users, FileText, Settings } from '@lucide/svelte';
   import { onMount } from 'svelte';
+  import { Toaster } from '$lib/components/ui/sonner';
 
   let { children } = $props();
 
@@ -93,3 +94,5 @@
     <div class="size-6 animate-spin rounded-full border-2 border-primary border-t-transparent"></div>
   </div>
 {/if}
+
+<Toaster richColors position="top-right" />
