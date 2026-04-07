@@ -18,6 +18,20 @@ Deno.serve(async (req: Request) => {
     return resp({ error: 'Method not allowed' }, 405);
   }
 
+  // Verify request is from Supabase (database webhook) or authorized caller
+  const authHeader = req.headers.get('authorization');
+  const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+  const webhookSecret = Deno.env.get('LEAD_NOTIFY_SECRET');
+  const providedSecret = req.headers.get('x-webhook-secret');
+
+  const isServiceRole = authHeader && serviceKey && authHeader === `Bearer ${serviceKey}`;
+  const isWebhookAuth = webhookSecret && providedSecret && providedSecret === webhookSecret;
+
+  if (!isServiceRole && !isWebhookAuth) {
+    console.error('[lead-notify] Unauthorized request');
+    return resp({ error: 'Unauthorized' }, 401);
+  }
+
   try {
     const payload = await req.json();
     const r = payload.record ?? payload;
@@ -151,7 +165,7 @@ Deno.serve(async (req: Request) => {
   <!-- Footer -->
   <div style="padding:20px 28px;text-align:center;">
     <p style="margin:0 0 8px;font-size:11px;color:#94a3b8;">${now}</p>
-    <a href="https://supabase.com/dashboard/project/irpesrcijcdwyjxxwpyb/editor" style="font-size:11px;color:#2563EB;text-decoration:none;">Ver en Supabase →</a>
+    <p style="font-size:11px;color:#94a3b8;">Ver en panel de administración</p>
   </div>
 
 </div>

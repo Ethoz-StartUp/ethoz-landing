@@ -21,7 +21,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
 const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Origin': 'https://app.cal.com',
   'Access-Control-Allow-Headers':
     'authorization, x-client-info, apikey, content-type, x-cal-signature-256',
 };
@@ -73,15 +73,17 @@ Deno.serve(async (req: Request) => {
   try {
     const body = await req.text();
 
-    // ── Verify signature (if secret is configured) ──
+    // ── Verify signature (mandatory) ──
     const webhookSecret = Deno.env.get('CAL_WEBHOOK_SECRET');
-    if (webhookSecret) {
-      const signature = req.headers.get('x-cal-signature-256') ?? '';
-      const valid = await verifySignature(body, signature, webhookSecret);
-      if (!valid) {
-        console.error('[cal-webhook] Invalid signature');
-        return json({ error: 'Invalid signature' }, 401);
-      }
+    if (!webhookSecret) {
+      console.error('[cal-webhook] CAL_WEBHOOK_SECRET not configured');
+      return json({ error: 'Webhook not configured' }, 500);
+    }
+    const signature = req.headers.get('x-cal-signature-256') ?? '';
+    const valid = await verifySignature(body, signature, webhookSecret);
+    if (!valid) {
+      console.error('[cal-webhook] Invalid signature');
+      return json({ error: 'Invalid signature' }, 401);
     }
 
     const payload = JSON.parse(body);
@@ -145,7 +147,7 @@ Deno.serve(async (req: Request) => {
 
     if (selectError) {
       console.error('[cal-webhook] Select error:', selectError.message);
-      return json({ error: selectError.message }, 500);
+      return json({ error: 'Internal error' }, 500);
     }
 
     if (!leads?.length) {
@@ -171,7 +173,7 @@ Deno.serve(async (req: Request) => {
 
     if (updateError) {
       console.error('[cal-webhook] Update error:', updateError.message);
-      return json({ error: updateError.message }, 500);
+      return json({ error: 'Internal error' }, 500);
     }
 
     console.info(

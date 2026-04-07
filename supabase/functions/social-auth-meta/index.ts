@@ -22,23 +22,52 @@ Deno.serve(async (req) => {
     authUrl.searchParams.set("client_id", META_APP_ID);
     authUrl.searchParams.set("redirect_uri", REDIRECT_URI);
     authUrl.searchParams.set("scope", "pages_show_list,pages_manage_posts,pages_read_engagement,instagram_basic,instagram_content_publish");
-    authUrl.searchParams.set("state", crypto.randomUUID());
+    const state = `${Date.now()}:${crypto.randomUUID()}`;
+    authUrl.searchParams.set("state", state);
     return Response.redirect(authUrl.toString(), 302);
   }
 
+  // Validate state parameter to prevent CSRF attacks
+  const state = url.searchParams.get("state");
+  if (!state) {
+    return new Response("Missing state parameter", { status: 400 });
+  }
+  const [tsStr] = state.split(":");
+  const ts = Number(tsStr);
+  const TEN_MINUTES_MS = 10 * 60 * 1000;
+  if (isNaN(ts) || Date.now() - ts > TEN_MINUTES_MS) {
+    console.error("[Meta OAuth] State parameter invalid or expired:", state);
+    return new Response("Invalid or expired state parameter", { status: 400 });
+  }
+
   // Step 2: Exchange code for short-lived token
-  const tokenRes = await fetch(
-    `https://graph.facebook.com/v21.0/oauth/access_token?client_id=${META_APP_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&client_secret=${META_APP_SECRET}&code=${code}`
-  );
+  const tokenRes = await fetch("https://graph.facebook.com/v21.0/oauth/access_token", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      client_id: META_APP_ID,
+      client_secret: META_APP_SECRET,
+      redirect_uri: REDIRECT_URI,
+      code,
+    }),
+  });
   if (!tokenRes.ok) {
-    return new Response(`Meta token error: ${await tokenRes.text()}`, { status: 400 });
+    console.error("[Meta OAuth] Token exchange failed:", await tokenRes.text());
+    return new Response("Authentication failed. Please try again.", { status: 400 });
   }
   const { access_token: shortToken } = await tokenRes.json();
 
   // Step 3: Exchange for long-lived user token
-  const longRes = await fetch(
-    `https://graph.facebook.com/v21.0/oauth/access_token?grant_type=fb_exchange_token&client_id=${META_APP_ID}&client_secret=${META_APP_SECRET}&fb_exchange_token=${shortToken}`
-  );
+  const longRes = await fetch("https://graph.facebook.com/v21.0/oauth/access_token", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "fb_exchange_token",
+      client_id: META_APP_ID,
+      client_secret: META_APP_SECRET,
+      fb_exchange_token: shortToken,
+    }),
+  });
   const { access_token: longToken, expires_in } = await longRes.json();
 
   // Step 4: Get Page Access Token (never expires)
@@ -61,7 +90,8 @@ Deno.serve(async (req) => {
   }
 
   if (!page) {
-    return new Response(`No Facebook Pages found. Pages response: ${JSON.stringify(pagesData)}`, { status: 400 });
+    console.error("[Meta OAuth] No Facebook Pages found:", JSON.stringify(pagesData));
+    return new Response("No Facebook Pages found. Ensure the account has admin access to a Page.", { status: 400 });
   }
 
   const pageToken = page.access_token;

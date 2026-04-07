@@ -57,8 +57,8 @@ Deno.serve(async (req) => {
   });
 
   if (!tokenRes.ok) {
-    const err = await tokenRes.text();
-    return new Response(`LinkedIn token error: ${err}`, { status: 400 });
+    console.error("[LinkedIn OAuth] Token exchange failed:", await tokenRes.text());
+    return new Response("Authentication failed. Please try again.", { status: 400 });
   }
 
   const tokenData = await tokenRes.json();

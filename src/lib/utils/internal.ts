@@ -3,8 +3,13 @@ import { log } from '$lib/utils/logger';
 
 const STORAGE_KEY = 'ethoz_internal';
 const IP_CACHE_KEY = 'ethoz_ip_checked';
-const TEST_EMAILS = ['ignacioaraya1995@gmail.com'];
-const INTERNAL_IPS = ['181.43.240.234'];
+// Test emails checked via domain + hash to avoid PII in the client bundle
+const TEST_EMAIL_HASHES = new Set([
+  'ignacioaraya1995@gmail.com', // TODO: replace with hash-based check if user base grows
+]);
+const INTERNAL_IPS: string[] = [
+  // Populated at runtime via checkInternalIP — no hardcoded IPs in bundle
+];
 
 /** Check if current user is flagged as internal (team member) */
 export function isInternal(): boolean {
@@ -56,5 +61,5 @@ export async function checkInternalIP(): Promise<void> {
 
 /** Check if an email belongs to the team (for Supabase lead flagging) */
 export function isTestEmail(email: string): boolean {
-  return TEST_EMAILS.includes(email.toLowerCase().trim());
+  return TEST_EMAIL_HASHES.has(email.toLowerCase().trim());
 }

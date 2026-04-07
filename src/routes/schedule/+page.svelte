@@ -9,12 +9,35 @@
   import { updateLeadStatus } from '$lib/supabase';
   import { onMount } from 'svelte';
 
-  const params = $derived(browser ? new URLSearchParams(page.url.search) : new URLSearchParams());
-  const schoolName = $derived(params.get('school') ?? '');
-  const contactName = $derived(params.get('name') ?? '');
-  const contactEmail = $derived(params.get('email') ?? '');
-  const commune = $derived(params.get('commune') ?? '');
-  const region = $derived(params.get('region') ?? '');
+  // Read from sessionStorage (preferred) or fall back to URL params for backwards compat
+  let scheduleData = $state<Record<string, string>>({});
+  $effect(() => {
+    if (!browser) return;
+    const stored = sessionStorage.getItem('ethoz-schedule');
+    if (stored) {
+      try { scheduleData = JSON.parse(stored); } catch {}
+      sessionStorage.removeItem('ethoz-schedule');
+    } else {
+      // Backwards compatibility: read from URL params
+      const p = new URLSearchParams(page.url.search);
+      scheduleData = {
+        school: p.get('school') ?? '',
+        name: p.get('name') ?? '',
+        email: p.get('email') ?? '',
+        commune: p.get('commune') ?? '',
+        region: p.get('region') ?? '',
+      };
+      // Clean PII from URL without reload
+      if (p.has('email') || p.has('name')) {
+        window.history.replaceState({}, '', '/schedule');
+      }
+    }
+  });
+  const schoolName = $derived(scheduleData.school ?? '');
+  const contactName = $derived(scheduleData.name ?? '');
+  const contactEmail = $derived(scheduleData.email ?? '');
+  const commune = $derived(scheduleData.commune ?? '');
+  const region = $derived(scheduleData.region ?? '');
 
   let calContainer = $state<HTMLDivElement | null>(null);
   let calLoaded = $state(false);

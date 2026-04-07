@@ -1,5 +1,13 @@
 project_id = "irpesrcijcdwyjxxwpyb"
 
+[auth]
+enabled = true
+site_url = "https://ethoz.cl"
+
+[auth.email]
+enable_signup = false
+enable_confirmations = true
+
 [functions.social-auth-linkedin]
 verify_jwt = false
 
@@ -16,4 +24,7 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.new-lead-notify]
+verify_jwt = false
+
+[functions.verify-lead]
 verify_jwt = false

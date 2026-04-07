@@ -263,6 +263,7 @@ Deno.serve(async (req) => {
 
     return Response.json({ ok: true, published_url: publishedUrl }, { headers: corsHeaders });
   } catch (err) {
-    return Response.json({ error: err.message }, { status: 500, headers: corsHeaders });
+    console.error("[social-publish] Error:", err);
+    return Response.json({ error: "Publishing failed. Please try again." }, { status: 500, headers: corsHeaders });
   }
 });

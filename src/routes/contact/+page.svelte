@@ -7,6 +7,8 @@
   import { CONTACT } from '$lib/config';
   import { saveLead } from '$lib/supabase';
   import { trackEvent } from '$lib/utils/analytics';
+  import { executeRecaptcha, getRecaptchaScriptUrl } from '$lib/utils/recaptcha';
+  import { browser } from '$app/environment';
 
   // ── State ──
   let name = $state('');
@@ -16,13 +18,26 @@
   let submitted = $state(false);
   let errorMessage = $state('');
 
+  // ── Load reCAPTCHA script ──
+  $effect(() => {
+    if (!browser) return;
+    const src = getRecaptchaScriptUrl();
+    if (!src || document.querySelector(`script[src="${src}"]`)) return;
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    document.head.appendChild(script);
+  });
+
   // ── Handlers ──
   async function handleSubmit(e: Event) {
     e.preventDefault();
     submitting = true;
     errorMessage = '';
 
-    // Save to Supabase as a lead
+    const recaptchaToken = await executeRecaptcha('submit_contact');
+
+    // Save to Supabase as a lead (with server-side reCAPTCHA verification)
     const result = await saveLead({
       school_name: '',
       contact_name: name,
@@ -31,7 +46,7 @@
       contact_source: 'contact_page',
       notes: message,
       status: 'new',
-    });
+    }, recaptchaToken);
 
     if (!result.ok) {
       console.error('[Contact] Lead save failed:', result.error);

@@ -5,6 +5,12 @@ import { getVisitorId } from '$lib/utils/visitor';
 import { getDeviceMetadata } from '$lib/utils/device';
 import { log } from '$lib/utils/logger';
 
+function maskEmail(email: string): string {
+  const [user, domain] = email.split('@');
+  if (!domain) return '***';
+  return `${user.slice(0, 2)}***@${domain}`;
+}
+
 function captureError(err: unknown, context?: Record<string, unknown>): void {
   import('@sentry/browser').then(Sentry => {
     Sentry.captureException(err, { extra: context });
@@ -80,16 +86,13 @@ export async function updateLeadStatus(
     return { ok: true };
   } catch (err) {
     log.error('[Leads] updateLeadStatus error:', err);
-    captureError(err, { fn: 'updateLeadStatus', email });
+    captureError(err, { fn: 'updateLeadStatus', email: maskEmail(email) });
     return { ok: false, error: String(err) };
   }
 }
 
-export async function saveLead(lead: Lead): Promise<{ ok: boolean; error?: string }> {
-  if (!supabase) {
-    log.warn('[Leads] Supabase not configured, lead not saved:', lead);
-    return { ok: false, error: 'Supabase not configured' };
-  }
+export async function saveLead(lead: Lead, recaptchaToken?: string | null): Promise<{ ok: boolean; error?: string }> {
+  const supabaseUrl = env.PUBLIC_SUPABASE_URL;
 
   // Flag internal/test leads
   const test = isInternal() || isTestEmail(lead.contact_email);
@@ -98,21 +101,58 @@ export async function saveLead(lead: Lead): Promise<{ ok: boolean; error?: strin
   const visitor_id = getVisitorId() || undefined;
   const metadata = getDeviceMetadata();
 
-  const { error } = await supabase.from('leads').insert([{
+  const payload = {
     ...lead,
     status: lead.status ?? 'new',
     notes,
     visitor_id,
     metadata,
+    recaptcha_token: recaptchaToken || undefined,
+  };
+
+  // Use server-side verified endpoint if reCAPTCHA token is provided
+  if (recaptchaToken && supabaseUrl) {
+    try {
+      const res = await fetch(`${supabaseUrl}/functions/v1/verify-lead`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        log.error('[Leads] ✘ Verify-lead failed:', data.error, { lead: { school: lead.school_name, email: maskEmail(lead.contact_email) } });
+        captureError(new Error(data.error), { fn: 'saveLead', school: lead.school_name, email: maskEmail(lead.contact_email) });
+        return { ok: false, error: data.error };
+      }
+
+      log.info('[Leads] ✔ Lead saved (verified):', { school: lead.school_name, email: maskEmail(lead.contact_email), source: lead.contact_source });
+      return { ok: true };
+    } catch (err) {
+      log.error('[Leads] ✘ Verify-lead error:', err);
+      captureError(err, { fn: 'saveLead', school: lead.school_name, email: maskEmail(lead.contact_email) });
+      return { ok: false, error: String(err) };
+    }
+  }
+
+  // Fallback: direct insert (for when Supabase is not configured or no token)
+  if (!supabase) {
+    log.warn('[Leads] Supabase not configured, lead not saved:', lead);
+    return { ok: false, error: 'Supabase not configured' };
+  }
+
+  const { error } = await supabase.from('leads').insert([{
+    ...payload,
     created_at: new Date().toISOString(),
   }]);
 
   if (error) {
-    log.error('[Leads] ✘ Failed to save:', error.message, { lead: { school: lead.school_name, email: lead.contact_email } });
-    captureError(error, { fn: 'saveLead', school: lead.school_name, email: lead.contact_email });
+    log.error('[Leads] ✘ Failed to save:', error.message, { lead: { school: lead.school_name, email: maskEmail(lead.contact_email) } });
+    captureError(error, { fn: 'saveLead', school: lead.school_name, email: maskEmail(lead.contact_email) });
     return { ok: false, error: error.message };
   }
 
-  log.info('[Leads] ✔ Lead saved:', { school: lead.school_name, email: lead.contact_email, source: lead.contact_source });
+  log.info('[Leads] ✔ Lead saved:', { school: lead.school_name, email: maskEmail(lead.contact_email), source: lead.contact_source });
   return { ok: true };
 }

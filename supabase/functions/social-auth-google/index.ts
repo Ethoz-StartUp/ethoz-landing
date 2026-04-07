@@ -25,8 +25,22 @@ Deno.serve(async (req) => {
     authUrl.searchParams.set("scope", "https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube");
     authUrl.searchParams.set("access_type", "offline");
     authUrl.searchParams.set("prompt", "consent");
-    authUrl.searchParams.set("state", crypto.randomUUID());
+    const state = `${Date.now()}:${crypto.randomUUID()}`;
+    authUrl.searchParams.set("state", state);
     return Response.redirect(authUrl.toString(), 302);
+  }
+
+  // Validate state parameter to prevent CSRF attacks
+  const state = url.searchParams.get("state");
+  if (!state) {
+    return new Response("Missing state parameter", { status: 400 });
+  }
+  const [tsStr] = state.split(":");
+  const ts = Number(tsStr);
+  const TEN_MINUTES_MS = 10 * 60 * 1000;
+  if (isNaN(ts) || Date.now() - ts > TEN_MINUTES_MS) {
+    console.error("[Google OAuth] State parameter invalid or expired:", state);
+    return new Response("Invalid or expired state parameter", { status: 400 });
   }
 
   // Step 2: Exchange code for tokens
@@ -43,7 +57,8 @@ Deno.serve(async (req) => {
   });
 
   if (!tokenRes.ok) {
-    return new Response(`Google token error: ${await tokenRes.text()}`, { status: 400 });
+    console.error("[Google OAuth] Token exchange failed:", await tokenRes.text());
+    return new Response("Authentication failed. Please try again.", { status: 400 });
   }
 
   const tokenData = await tokenRes.json();

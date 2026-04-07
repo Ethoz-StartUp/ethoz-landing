@@ -153,8 +153,7 @@
     errorMessage = '';
 
     try {
-      // TODO: Send token to backend for server-side verification
-      await executeRecaptcha('submit_demo');
+      const recaptchaToken = await executeRecaptcha('submit_demo');
       const school = isManual ? null : schoolStore.selectedSchool;
       const schoolName = isManual ? manualSchoolName.trim() : (school?.name ?? '');
 
@@ -169,7 +168,7 @@
         contact_source: contactSource || undefined,
         notes: isManual ? 'Entrada manual — colegio no encontrado en directorio' : undefined,
         status: 'new',
-      });
+      }, recaptchaToken);
 
       if (!result.ok) {
         console.error('[Demo] Lead save failed:', result.error);
@@ -183,18 +182,18 @@
       // Clear saved form
       if (browser) sessionStorage.removeItem(STORAGE_KEY);
 
-      // Redirect to scheduling page
-      const params = new URLSearchParams();
-      params.set('school', schoolName);
-      if (school) {
-        params.set('commune', school.commune);
-        const region = schoolStore.regions.find(r => r.code === school.regionCode);
-        if (region) params.set('region', region.name);
+      // Store form data in sessionStorage (avoid PII in URL params)
+      if (browser) {
+        sessionStorage.setItem('ethoz-schedule', JSON.stringify({
+          school: schoolName,
+          commune: school?.commune ?? '',
+          region: school ? (schoolStore.regions.find(r => r.code === school.regionCode)?.name ?? '') : '',
+          name: contactName,
+          email: contactEmail,
+        }));
       }
-      params.set('name', contactName);
-      params.set('email', contactEmail);
 
-      goto(`/schedule?${params.toString()}`);
+      goto('/schedule');
     } finally {
       submitting = false;
     }
