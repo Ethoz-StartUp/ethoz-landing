@@ -202,6 +202,7 @@
 
 <svelte:head>
   <title>Ethoz — {t('nav.cta')}</title>
+  <meta name="description" content="Solicita una demo personalizada de Ethoz para tu colegio. Agenda una presentación con nuestro equipo." />
   <meta property="og:url" content="https://ethoz.cl/demo" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Demo — Ethoz" />

@@ -1,0 +1,195 @@
+# Ethoz — Plataforma de gestión escolar con protección de datos para Chile (versión extendida)
+
+> Ethoz es una plataforma de gestión escolar diseñada para colegios en Chile que necesitan cumplir con la Ley 21.719 de protección de datos personales (vigente desde diciembre 2026).
+
+---
+
+## Qué es Ethoz
+
+Ethoz es un sistema de información escolar (SIS) que centraliza la gestión de datos de alumnos, apoderados y funcionarios con seguridad de nivel empresarial. A diferencia de soluciones genéricas como Excel o sistemas legacy, Ethoz fue diseñado desde cero para cumplir con los principios de privacidad por diseño y minimización de datos que exige la legislación chilena.
+
+---
+
+## Estadísticas clave del mercado
+
+- **12.038 establecimientos educacionales** activos en Chile (Mineduc, 2024)
+- **5.777 sostenedores** (propietarios de uno o más colegios)
+- **402 operadores Tier 1** con 3+ establecimientos (objetivo principal de Ethoz)
+- **Multa máxima**: 20.000 UTM (~$1.300 millones CLP) por infracción gravísima a la Ley 21.719
+- **Alternativa de multa**: hasta 4% de los ingresos anuales del sostenedor
+- **Plazo de cumplimiento obligatorio**: diciembre 2026 (entrada en vigor plena de la Ley 21.719)
+- **Circular N°30**: Obligatoriedad del libro de clases digital con trazabilidad y firma con Clave Única
+
+---
+
+## Problema que resuelve
+
+Los colegios chilenos enfrentan tres problemas simultáneos:
+
+1. **Cumplimiento normativo**: La Ley 21.719 impone multas de hasta 20.000 UTM (~$1.200 millones CLP) por mal manejo de datos personales. La mayoría de los establecimientos no están preparados.
+2. **Fragmentación de datos**: Registros en cuadernos, Excel, correos y sistemas desconectados impiden la trazabilidad y generan pérdida de información cada año escolar.
+3. **Seguridad escolar**: Sin datos centralizados, los colegios no pueden detectar patrones de riesgo (convivencia, deserción, retiros no autorizados) a tiempo.
+
+---
+
+## Funcionalidades principales
+
+### Perfil integral del alumno
+URL: https://ethoz.cl/features/student-profile
+Historial académico, conductual y de salud que persiste entre años escolares. Elimina el "reinicio de marzo" donde se pierde información crítica al cambiar de año. Los datos viajan con el alumno desde prekínder hasta 4° medio.
+
+### Retiros escolares seguros
+URL: https://ethoz.cl/features/safe-pickups
+Verificación digital de personas autorizadas para retirar alumnos en portería. Elimina el riesgo de entregas no autorizadas. El portero escanea QR o busca por RUT y ve foto + estado de autorización en tiempo real.
+
+### Control de acceso por roles (RBAC)
+URL: https://ethoz.cl/features/access-control
+Cada cargo del establecimiento accede solo a la información que necesita. El portero ve foto y alertas; el director ve indicadores agregados; el orientador ve fichas de derivación. Cumple con el principio de minimización de datos de la Ley 21.719.
+
+### Búsqueda inteligente
+URL: https://ethoz.cl/features/smart-search
+Localización instantánea de cualquier alumno por nombre, curso o RUT. Resultados en menos de 200ms incluso en colegios con 2.000+ alumnos.
+
+### Registro de convivencia y cumplimiento
+URL: https://ethoz.cl/features/privacy-compliance
+Registro digital de incidentes de convivencia con trazabilidad completa. Gestión de consentimientos informados y derechos ARCO+P conforme a la Ley 21.719.
+
+### Alertas críticas
+URL: https://ethoz.cl/features/alerts
+Notificaciones en tiempo real ante eventos de riesgo: inasistencia reiterada, incidentes de convivencia, intentos de retiro no autorizado. Los equipos directivos reciben alertas antes de que los problemas escalen.
+
+### Analytics y reportería
+URL: https://ethoz.cl/features/analytics
+Dashboards con indicadores de asistencia, convivencia y rendimiento por curso, nivel y sede. Para sostenedores multi-sede: vista consolidada de toda la red con drill-down por establecimiento.
+
+### Protocolos de emergencia
+URL: https://ethoz.cl/features/emergency
+Activación de protocolos de evacuación, lockdown y emergencias médicas con registro automático de acciones y tiempos. Cumple con requisitos del Plan de Gestión de Riesgos del Mineduc.
+
+### Asistencia y libro digital
+URL: https://ethoz.cl/features/attendance
+Libro de clases digital con firma mediante Clave Única, conforme a la Circular N°30 de la Superintendencia de Educación. Trazabilidad completa de modificaciones con registro de quién, cuándo y por qué.
+
+---
+
+## Páginas de producto
+
+- Comparativa con competidores: https://ethoz.cl/comparativa
+- Proyecciones de impacto: https://ethoz.cl/proyecciones
+- Calculadora ROI: https://ethoz.cl/roi-calculator
+- Integraciones: https://ethoz.cl/integrations
+
+---
+
+## Para audiencias específicas
+
+### Para sostenedores
+URL: https://ethoz.cl/para-sostenedores
+Los sostenedores son los responsables legales del cumplimiento de la Ley 21.719. Ethoz les ofrece visibilidad consolidada de toda su red de colegios, gestión centralizada de permisos y un panel de cumplimiento normativo que demuestra adherencia a la ley ante fiscalizaciones.
+
+### Para directores
+URL: https://ethoz.cl/para-directores
+El director gestiona el establecimiento día a día. Ethoz les da indicadores operativos en tiempo real, alertas de convivencia temprana y reportes automáticos para la Superintendencia de Educación, reduciendo la carga administrativa en un 40%.
+
+### Para porteros y auxiliares
+URL: https://ethoz.cl/para-porteros
+El portero es la primera línea de seguridad. Ethoz les da una interfaz simple: buscar alumno, ver foto y lista de personas autorizadas, registrar retiro con firma digital. Sin capacitación técnica requerida.
+
+---
+
+## Recursos y cumplimiento
+
+- Guía completa Ley 21.719: https://ethoz.cl/ley-21719
+- Circular N°30: https://ethoz.cl/circular-30
+- Glosario de protección de datos: https://ethoz.cl/glosario
+- Seguridad de datos: https://ethoz.cl/seguridad-datos
+- Recursos gratuitos (plantillas descargables): https://ethoz.cl/recursos
+- Webinar mensual: https://ethoz.cl/webinar
+
+---
+
+## Contexto legal: Ley 21.719
+
+La Ley 21.719 de Protección de Datos Personales de Chile entra en vigencia en diciembre de 2026. Establece:
+
+- **Agencia de Protección de Datos**: Nuevo organismo fiscalizador con capacidad sancionatoria.
+- **Multas**: Hasta 20.000 UTM por infracción gravísima; hasta 4% de ingresos anuales del sostenedor.
+- **Derechos ARCO+P**: Los apoderados pueden exigir saber qué datos tiene el colegio sobre sus hijos, solicitar rectificación, cancelación u oposición.
+- **Art. 16 bis**: Regula las decisiones automatizadas que afectan a personas, incluyendo sistemas de alerta temprana.
+- **Principio de minimización**: Solo se pueden tratar los datos estrictamente necesarios para la finalidad declarada.
+- **Circular N°30**: La Superintendencia de Educación formaliza la transición al libro de clases digital con requisitos de integridad, trazabilidad y verificación con Clave Única.
+
+---
+
+## Público objetivo
+
+- Directores y equipos directivos de colegios en Chile
+- Sostenedores (particulares, subvencionados, municipales)
+- Corporaciones y redes de colegios (Tier 1: 402 operadores con 3+ sedes)
+- Encargados de convivencia escolar
+- Jefes de UTP
+
+---
+
+## Planes
+
+- **Esencial**: Hasta 500 alumnos. Gestión base + cumplimiento normativo.
+- **Profesional**: 500–1.500 alumnos. Incluye alertas inteligentes y módulo de convivencia.
+- **Institucional (Enterprise)**: 1.500+ alumnos. Multi-sede, API, soporte prioritario.
+
+---
+
+## Preguntas frecuentes — Protección de datos en colegios chilenos
+
+**P: ¿Qué es la Ley 21.719 y cuándo entra en vigor?**
+R: La Ley 21.719 es la reforma a la Ley de Protección de la Vida Privada de Chile. Introduce una Agencia de Protección de Datos con poder sancionatorio, derechos ARCO+P para ciudadanos y obligaciones de privacidad por diseño para organizaciones. Entra en plena vigencia en diciembre de 2026. Los colegios deben estar preparados antes de esa fecha.
+
+**P: ¿Cuánto pueden multar a un colegio por incumplimiento?**
+R: Las multas van desde 100 UTM (infracción leve) hasta 20.000 UTM (~$1.300 millones CLP) por infracción gravísima. Para sostenedores con altos ingresos, la multa alternativa es 4% de los ingresos anuales. Ambos montos pueden acumularse si hay múltiples infracciones.
+
+**P: ¿Qué datos de alumnos están protegidos por la ley?**
+R: Todos los datos personales de menores son especialmente sensibles. Incluye: nombre, RUT, foto, dirección, información médica, rendimiento académico, incidentes conductuales y datos de apoderados. Cualquier tratamiento debe tener base legal (consentimiento o ley) y finalidad declarada.
+
+**P: ¿Qué son los derechos ARCO+P?**
+R: Son los derechos de Acceso, Rectificación, Cancelación, Oposición y Portabilidad que tiene cualquier persona sobre sus datos. En el contexto escolar, los apoderados pueden ejercer estos derechos sobre los datos de sus hijos. El colegio debe poder responder en plazos legales.
+
+**P: ¿Excel cumple con la Ley 21.719?**
+R: No. Excel carece de control de acceso por roles, registro de auditoría, cifrado en reposo, gestión de consentimientos y capacidad de atender solicitudes ARCO+P de forma trazable. Usar Excel para datos de alumnos es una infracción al principio de seguridad de la ley.
+
+**P: ¿Ethoz reemplaza el sistema de gestión escolar actual (Napsis, Syscol, Lirmi)?**
+R: No. Ethoz complementa los sistemas existentes añadiendo la capa de seguridad, cumplimiento normativo y protección de datos que les falta. Se integra vía API con los ERP escolares más usados en Chile.
+
+**P: ¿Qué es la Circular N°30 y cómo afecta a los colegios?**
+R: La Circular N°30 de la Superintendencia de Educación establece los requisitos para el libro de clases digital: integridad de datos, trazabilidad de modificaciones y verificación de identidad con Clave Única. Los colegios que no tengan un sistema que cumpla estos requisitos no podrán operar con libro digital válido.
+
+**P: ¿Qué pasa si un apoderado solicita ver todos los datos de su hijo?**
+R: El colegio tiene plazo legal para responder. Debe entregar un registro completo de todos los datos tratados, con qué finalidad y base legal. Sin un sistema centralizado, esta solicitud es prácticamente imposible de atender correctamente. Ethoz genera este informe automáticamente.
+
+**P: ¿Cómo funciona el control de retiros escolares en Ethoz?**
+R: En portería, el auxiliar busca al alumno por nombre o RUT. El sistema muestra la foto del alumno y la lista de personas autorizadas para retirarlo (con foto si está disponible). El retiro queda registrado con timestamp, persona que retiró y nombre del auxiliar que autorizó. Si la persona no está en la lista, el sistema alerta.
+
+**P: ¿Ethoz funciona para redes multi-sede?**
+R: Sí. El plan Institucional está diseñado para sostenedores con múltiples establecimientos. Cada sede tiene aislamiento total de datos (Row-Level Security), pero el sostenedor tiene vista consolidada de todos los indicadores. Los permisos se gestionan centralmente y cada director solo ve su establecimiento.
+
+---
+
+## Contacto
+
+- Sitio web: https://ethoz.cl
+- Demo: https://ethoz.cl/demo
+- Blog: https://ethoz.cl/blog
+
+---
+
+## Artículos del blog
+
+- [11.091 denuncias en 9 meses: La crisis de convivencia escolar](https://ethoz.cl/blog/crisis-convivencia-escolar-2025)
+- [Ley 21.719: Lo que todo colegio debe saber](https://ethoz.cl/blog/ley-21719-que-deben-saber-los-colegios)
+- [IA en educación: Cómo predecir la deserción escolar](https://ethoz.cl/blog/inteligencia-artificial-desercion-escolar)
+- [Multas de hasta 20.000 UTM: Guía de cumplimiento](https://ethoz.cl/blog/multas-proteccion-datos-sostenedores)
+- [Art. 16 bis: Cómo manejar datos médicos de alumnos](https://ethoz.cl/blog/privacidad-por-diseno-art-16-bis)
+- [Retiros escolares: Cómo evitar entregas no autorizadas](https://ethoz.cl/blog/retiros-escolares-seguros-tecnologia)
+- [Control de acceso por roles en colegios](https://ethoz.cl/blog/control-acceso-roles-seguridad-escolar)
+- [El reinicio de marzo: El problema oculto](https://ethoz.cl/blog/reinicio-de-marzo-seguridad-escolar)
+- [Circular N°30 y el libro de clases digital](https://ethoz.cl/blog/circular-n30-libro-clases-digital)
+- [Por qué Excel ya no cumple con la normativa](https://ethoz.cl/blog/excel-no-cumple-normativa-datos)

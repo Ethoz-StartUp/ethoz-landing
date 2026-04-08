@@ -145,6 +145,7 @@
   <meta name="twitter:title" content="Agendar Demo — Ethoz" />
   <meta name="twitter:description" content="Agenda una demostración personalizada de Ethoz para tu colegio." />
   <link rel="canonical" href="https://ethoz.cl/schedule" />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Demo","item":"https://ethoz.cl/demo"},{"@type":"ListItem","position":3,"name":"Agendar Demo"}]})}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-background">

@@ -2,6 +2,7 @@
   <meta property="og:site_name" content="Ethoz" />
   <meta property="og:locale" content="es_CL" />
   <meta name="application-name" content="Ethoz" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 </svelte:head>
 
 <script lang="ts">

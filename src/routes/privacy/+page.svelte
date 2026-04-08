@@ -1,6 +1,9 @@
 <script lang="ts">
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
+  import { trackEvent } from '$lib/utils/analytics';
+
+  $effect(() => { trackEvent('privacy_viewed'); });
 </script>
 
 <svelte:head>

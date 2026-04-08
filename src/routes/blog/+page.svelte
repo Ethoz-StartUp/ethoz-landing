@@ -5,6 +5,9 @@
   import { allPosts } from '$lib/data/posts';
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
+  import { trackEvent } from '$lib/utils/analytics';
+
+  $effect(() => { trackEvent('blog_index_viewed'); });
 </script>
 
 <svelte:head>

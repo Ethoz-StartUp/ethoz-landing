@@ -36,6 +36,7 @@
   } from '@lucide/svelte';
 
   import { pitchSlides as slides, getDaysUntilEnforcement } from '$lib/data/pitch-slides';
+  import { trackEvent } from '$lib/utils/analytics';
 
   // ── Audio state ──
   let audioEl = $state<HTMLAudioElement | null>(null);
@@ -126,12 +127,17 @@
 
   // ── Countdown to Dec 2026 ──
   let countdownDays = $state(getDaysUntilEnforcement());
+
+  $effect(() => { trackEvent('pitch_viewed'); });
 </script>
 
 <svelte:head>
   <title>Ethoz — Pitch Interactivo</title>
   <meta name="description" content="Presentación interactiva de Ethoz, el escudo digital escolar." />
   <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://ethoz.cl/pitch" />
+  <meta property="og:title" content="Ethoz — Pitch Interactivo" />
+  <meta property="og:description" content="Presentación interactiva de Ethoz, la plataforma de protección escolar para colegios chilenos." />
 </svelte:head>
 
 <svelte:window onkeydown={handleKeydown} />

@@ -6,6 +6,9 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Trash2, Download, RefreshCw, Copy, Check } from '@lucide/svelte';
+  import { trackEvent } from '$lib/utils/analytics';
+
+  $effect(() => { trackEvent('suggestions_viewed'); });
 
   // Redirect if feedback mode is not enabled
   onMount(() => {
@@ -129,7 +132,12 @@
 
 <svelte:head>
   <title>Sugerencias — Ethoz Dev</title>
+  <meta name="description" content="Panel de sugerencias y feedback interno de Ethoz." />
   <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://ethoz.cl/suggestions" />
+  <meta property="og:title" content="Sugerencias — Ethoz Dev" />
+  <meta property="og:description" content="Panel de sugerencias y feedback interno de Ethoz." />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Sugerencias"}]})}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-background">

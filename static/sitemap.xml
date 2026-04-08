@@ -38,6 +38,60 @@
     <lastmod>2026-04-06</lastmod>
   </url>
 
+  <!-- Product pages -->
+  <url>
+    <loc>https://ethoz.cl/comparativa</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://ethoz.cl/proyecciones</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://ethoz.cl/roi-calculator</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+
+  <!-- Audience pages -->
+  <url>
+    <loc>https://ethoz.cl/para-sostenedores</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://ethoz.cl/para-directores</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://ethoz.cl/para-porteros</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+
+  <!-- Compliance & resources -->
+  <url>
+    <loc>https://ethoz.cl/ley-21719</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://ethoz.cl/circular-30</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://ethoz.cl/glosario</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://ethoz.cl/seguridad-datos</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://ethoz.cl/recursos</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://ethoz.cl/webinar</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+
   <!-- Feature pages -->
   <url>
     <loc>https://ethoz.cl/features/student-profile</loc>
@@ -58,6 +112,22 @@
   <url>
     <loc>https://ethoz.cl/features/privacy-compliance</loc>
     <lastmod>2026-04-06</lastmod>
+  </url>
+  <url>
+    <loc>https://ethoz.cl/features/alerts</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://ethoz.cl/features/analytics</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://ethoz.cl/features/emergency</loc>
+    <lastmod>2026-04-07</lastmod>
+  </url>
+  <url>
+    <loc>https://ethoz.cl/features/attendance</loc>
+    <lastmod>2026-04-07</lastmod>
   </url>
 
   <!-- Blog posts (all 13) -->
