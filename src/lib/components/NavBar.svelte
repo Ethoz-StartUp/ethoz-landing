@@ -27,7 +27,6 @@
     { icon: Fingerprint, name: 'Permisos por Cargo', href: '/features/access-control', desc: 'Cada cargo ve solo lo que necesita' },
     { icon: Search, name: 'Búsqueda Inteligente', href: '/features/smart-search', desc: 'Cualquier alumno en segundos' },
     { icon: Shield, name: 'Registro de Convivencia', href: '/features/privacy-compliance', desc: 'Seguimiento sin reinicio de marzo' },
-    { icon: Plug, name: 'Integraciones', href: '/integrations', desc: 'Conecta con tu sistema o usa el nuestro' },
   ];
 
   const navLinksBefore = [
@@ -47,7 +46,8 @@
   }
 
   function isProductActive(): boolean {
-    return page.url.pathname.startsWith('/features') || page.url.pathname === '/compliance' || page.url.pathname === '/productos' || page.url.pathname === '/integrations';
+    const path = page.url.pathname;
+    return path.startsWith('/features') || path === '/compliance' || path === '/productos';
   }
 
   function openProducts() {
