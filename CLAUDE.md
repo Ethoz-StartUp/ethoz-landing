@@ -24,7 +24,10 @@ docs/                 — Documentation index (5 sections + knowledge base + con
 
 ### Code
 - Dev server: `npm run dev -- --port 5177` (ALWAYS port 5177)
-- Build: `npm run build` | Deploy: `npm run build && firebase deploy`
+- Build: `npm run build`
+- Deploy: `npm run build && firebase deploy --only hosting` (deploys BOTH sites: ethoz.web.app + ethoz.cl)
+- **NEVER** use `firebase deploy --only hosting:ethoz` alone — ethoz.cl is served by `gestion-estudiantil-dev`, NOT `ethoz`
+- After deploy, verify: `curl -sI "https://ethoz.cl/" | grep cache-control` → must show `max-age=0`
 - All text via `t()` i18n function — NEVER hardcode strings in templates
 - URLs in English (`/features/safe-pickups`), content in ES/EN
 - Svelte 5 runes API (`$state`, `$derived`, `$effect`) — no legacy reactive syntax
