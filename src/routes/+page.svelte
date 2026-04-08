@@ -232,25 +232,25 @@
         </Badge>
 
         <!-- Headline -->
-        <h1 class="animate-fade-in-up animate-delay-100 text-balance text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+        <h1 class="animate-fade-in-up animate-delay-100 text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           {t('hero.title')}
         </h1>
 
         <!-- Subtitle -->
-        <p class="animate-fade-in-up animate-delay-200 mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+        <p class="animate-fade-in-up animate-delay-200 mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
           {t('hero.subtitle')}
         </p>
 
         <!-- CTAs -->
         <div class="animate-fade-in-up animate-delay-300 mt-8 flex items-center justify-center gap-3 sm:justify-start sm:gap-4">
-          <Button size="lg" href="/demo" class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 sm:h-12 sm:px-8 sm:text-base">
+          <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 h-12 px-8 text-base sm:h-14 sm:px-10 sm:text-lg">
             {t('hero.cta.primary')}
-            <ArrowRight class="size-4" />
+            <ArrowRight class="size-5" />
           </Button>
-          <Button variant="outline" size="lg" onclick={() => showPitch = true} class="border-foreground/20 hover:border-foreground/40 hover:bg-muted sm:h-12 sm:px-8 sm:text-base">
-            <Play class="size-4" />
+          <Button variant="outline" size="xl" onclick={() => showPitch = true} class="border-foreground/20 hover:border-foreground/40 hover:bg-muted h-12 px-6 text-base sm:h-14 sm:px-8 sm:text-lg">
+            <Play class="size-5" />
             <span class="hidden sm:inline">Conoce Ethoz en 2 min</span>
-            <span class="sm:hidden">Ver presentación</span>
+            <span class="sm:hidden">Ver video</span>
           </Button>
         </div>
       </div>
@@ -547,6 +547,14 @@
             </span>
           </div>
         </div>
+        <!-- CTA right under countdown -->
+        <div class="mt-8 text-center">
+          <Button size="xl" href="/demo" class="h-14 px-10 text-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30">
+            {t('hero.cta.primary')}
+            <ArrowRight class="size-5" />
+          </Button>
+          <p class="mt-3 text-xs text-muted-foreground">No esperes al último momento — agenda hoy</p>
+        </div>
       </div>
 
       <!-- Compliance items -->
@@ -559,13 +567,6 @@
         {/each}
       </div>
 
-      <!-- CTA -->
-      <div class="mt-14 text-center">
-        <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30">
-          {t('hero.cta.primary')}
-          <ArrowRight class="size-4" />
-        </Button>
-      </div>
     </div>
   </section>
 
@@ -743,9 +744,9 @@
   <!-- Mobile sticky CTA -->
   {#if showStickyCta}
     <div class="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-background px-4 pb-[max(env(safe-area-inset-bottom,0px),1rem)] pt-3 md:hidden">
-      <Button size="lg" href="/demo" class="w-full">
+      <Button size="xl" href="/demo" class="w-full h-14 text-base">
         {t('hero.cta.primary')}
-        <ArrowRight class="size-4" />
+        <ArrowRight class="size-5" />
       </Button>
     </div>
   {/if}
