@@ -17,6 +17,7 @@
 		"test:ci": "npm run lint && npm run check && npm run audit:security && npm run test:unit && playwright test --grep-invert 'DB Integration'",
 		"audit:security": "node scripts/audit-security.mjs",
 		"lint": "eslint src supabase/functions --max-warnings=50",
+		"lint:i18n": "node scripts/check-i18n.js",
 		"lint:fix": "eslint src supabase/functions --fix",
 		"video:render": "node scripts/generate-pitch-video.mjs"
 	},

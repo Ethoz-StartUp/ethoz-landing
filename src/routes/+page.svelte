@@ -230,25 +230,25 @@
         </Badge>
 
         <!-- Headline -->
-        <h1 class="animate-fade-in-up animate-delay-100 text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+        <h1 class="animate-fade-in-up animate-delay-100 w-full text-2xl font-bold tracking-tight text-foreground sm:text-balance sm:text-4xl lg:text-5xl">
           {t('hero.title')}
         </h1>
 
         <!-- Subtitle -->
-        <p class="animate-fade-in-up animate-delay-200 mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p class="animate-fade-in-up animate-delay-200 mt-5 text-sm leading-relaxed text-muted-foreground sm:text-lg">
           {t('hero.subtitle')}
         </p>
 
         <!-- CTAs -->
-        <div class="animate-fade-in-up animate-delay-300 mt-8 flex items-center justify-center gap-3 sm:justify-start sm:gap-4">
-          <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30">
+        <div class="animate-fade-in-up animate-delay-300 mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:justify-start sm:gap-4">
+          <Button size="xl" href="/demo" class="w-full justify-center shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 sm:w-auto">
             {t('hero.cta.primary')}
             <ArrowRight class="size-5" />
           </Button>
-          <Button variant="outline" size="xl" onclick={() => showPitch = true} class="border-foreground/20 hover:border-foreground/40 hover:bg-muted">
+          <Button variant="outline" size="xl" onclick={() => showPitch = true} class="w-full justify-center border-foreground/20 hover:border-foreground/40 hover:bg-muted sm:w-auto">
             <Play class="size-5" />
-            <span class="hidden sm:inline">Conoce Ethoz en 2 min</span>
-            <span class="sm:hidden">Ver video</span>
+            <span class="hidden sm:inline">{t('hero.video_long')}</span>
+            <span class="sm:hidden">{t('hero.video_short')}</span>
           </Button>
         </div>
       </div>
@@ -261,7 +261,7 @@
             <div class="size-3 rounded-full bg-destructive/60"></div>
             <div class="size-3 rounded-full bg-warning/60"></div>
             <div class="size-3 rounded-full bg-success/60"></div>
-            <span class="ml-3 text-xs font-medium text-muted-foreground">Ethoz — Panel de Seguimiento</span>
+            <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
           </div>
 
           <!-- Dashboard content — carousel -->
@@ -290,7 +290,7 @@
                   {:else}
                     <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2.5 py-1 text-xs font-medium text-success">
                       <Check class="size-3" />
-                      Sin alertas
+                      {t('hero.no_alerts')}
                     </span>
                   {/if}
                 </div>
@@ -298,7 +298,7 @@
                 <!-- Timeline column -->
                 <div class="flex-1 border-t border-border pt-4 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6">
                   <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    Historial reciente
+                    {t('hero.recent_history')}
                   </p>
                   <div class="flex flex-col gap-3">
                     {#each activeStudent.timeline as entry}
@@ -486,8 +486,8 @@
         <a href="/compliance" class="group flex items-center gap-4 rounded-xl border border-border px-6 py-4 transition-all hover:border-primary/20 hover:shadow-sm">
           <Shield class="size-5 shrink-0 text-primary" />
           <div class="flex-1">
-            <p class="text-sm font-semibold text-foreground">Todo Ethoz cumple la Ley 21.719 por diseño</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">Cifrado, auditoría, consentimiento parental y aislamiento de datos — integrados en cada función.</p>
+            <p class="text-sm font-semibold text-foreground">{t('home.compliance_banner.title')}</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.compliance_banner.desc')}</p>
           </div>
           <ChevronRight class="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
         </a>
@@ -519,8 +519,8 @@
           <span class="mr-2 inline-block size-2 animate-pulse rounded-full bg-destructive"></span>
           {t('compliance.countdown.label')}
         </p>
-        <div class="grid grid-cols-3 gap-4 overflow-hidden">
-          <div class="overflow-hidden rounded-xl border border-border bg-background p-6 text-center shadow-sm sm:p-8">
+        <div class="grid grid-cols-3 gap-3 sm:gap-4 overflow-hidden">
+          <div class="overflow-hidden rounded-xl border border-border bg-background p-4 text-center shadow-sm sm:p-6">
             <span class="block text-4xl font-bold tabular-nums tracking-tighter text-primary sm:text-6xl">
               {countdownDays}
             </span>
@@ -528,7 +528,7 @@
               {t('compliance.countdown.days')}
             </span>
           </div>
-          <div class="overflow-hidden rounded-xl border border-border bg-background p-6 text-center shadow-sm sm:p-8">
+          <div class="overflow-hidden rounded-xl border border-border bg-background p-4 text-center shadow-sm sm:p-6">
             <span class="block text-4xl font-bold tabular-nums tracking-tighter text-primary sm:text-6xl">
               {countdownHours}
             </span>
@@ -536,7 +536,7 @@
               {t('compliance.countdown.hours')}
             </span>
           </div>
-          <div class="overflow-hidden rounded-xl border border-border bg-background p-6 text-center shadow-sm sm:p-8">
+          <div class="overflow-hidden rounded-xl border border-border bg-background p-4 text-center shadow-sm sm:p-6">
             <span class="block text-4xl font-bold tabular-nums tracking-tighter text-primary sm:text-6xl">
               {countdownMinutes}
             </span>
@@ -551,7 +551,7 @@
             {t('hero.cta.primary')}
             <ArrowRight class="size-5" />
           </Button>
-          <p class="mt-3 text-xs text-muted-foreground">No esperes al último momento — agenda hoy</p>
+          <p class="mt-3 text-xs text-muted-foreground">{t('home.countdown.cta_hint')}</p>
         </div>
       </div>
 
@@ -574,53 +574,53 @@
   <section class="bg-secondary py-16 sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">Para cada cargo</p>
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('home.roles.overline')}</p>
         <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          Cada persona ve exactamente lo que necesita
+          {t('home.roles.title')}
         </h2>
       </div>
 
       <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/director-mujer.webp" alt="Directora de colegio usando Ethoz" class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
+          <img src="/images/people/director-mujer.webp" alt={t('home.roles.directora.alt')} class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
           <div>
-            <p class="text-sm font-semibold text-foreground">Directora</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">Indicadores, métricas, informes y exportación de datos.</p>
+            <p class="text-sm font-semibold text-foreground">{t('home.roles.directora.title')}</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.roles.directora.desc')}</p>
           </div>
         </div>
         <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/inspector-hombre.webp" alt="Inspector escolar usando Ethoz" class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
+          <img src="/images/people/inspector-hombre.webp" alt={t('home.roles.inspector.alt')} class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
           <div>
-            <p class="text-sm font-semibold text-foreground">Inspector</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">Alertas activas, observaciones conductuales y retiros.</p>
+            <p class="text-sm font-semibold text-foreground">{t('home.roles.inspector.title')}</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.roles.inspector.desc')}</p>
           </div>
         </div>
         <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/docente-mujer.webp" alt="Docente usando Ethoz para ver perfil de alumno" class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
+          <img src="/images/people/docente-mujer.webp" alt={t('home.roles.docente.alt')} class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
           <div>
-            <p class="text-sm font-semibold text-foreground">Docente</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">Perfil del alumno, observaciones académicas y alertas de su curso.</p>
+            <p class="text-sm font-semibold text-foreground">{t('home.roles.docente.title')}</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.roles.docente.desc')}</p>
           </div>
         </div>
         <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/orientadora-mujer.webp" alt="Orientadora escolar con acceso al perfil completo" class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
+          <img src="/images/people/orientadora-mujer.webp" alt={t('home.roles.orientadora.alt')} class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
           <div>
-            <p class="text-sm font-semibold text-foreground">Orientadora</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">Perfil completo incluyendo observaciones emocionales y derivaciones.</p>
+            <p class="text-sm font-semibold text-foreground">{t('home.roles.orientadora.title')}</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.roles.orientadora.desc')}</p>
           </div>
         </div>
         <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/portero-hombre.webp" alt="Portero verificando retiro escolar con Ethoz" class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
+          <img src="/images/people/portero-hombre.webp" alt={t('home.roles.portero.alt')} class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
           <div>
-            <p class="text-sm font-semibold text-foreground">Portero</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">Solo foto, nombre, alertas críticas y registro de retiros.</p>
+            <p class="text-sm font-semibold text-foreground">{t('home.roles.portero.title')}</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.roles.portero.desc')}</p>
           </div>
         </div>
         <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/apoderado-madre.webp" alt="Apoderada consultando estado de su hijo en Ethoz" class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
+          <img src="/images/people/apoderado-madre.webp" alt={t('home.roles.apoderado.alt')} class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
           <div>
-            <p class="text-sm font-semibold text-foreground">Apoderado</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">Estado de su hijo, retiros registrados y comunicaciones del colegio.</p>
+            <p class="text-sm font-semibold text-foreground">{t('home.roles.apoderado.title')}</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.roles.apoderado.desc')}</p>
           </div>
         </div>
       </div>
@@ -645,17 +645,17 @@
       <!-- Steps -->
       <div class="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-3">
         <div class="text-center">
-          <span class="text-2xl font-bold text-primary">48 horas</span>
+          <span class="text-2xl font-bold text-primary">{t('home.how.step1.time')}</span>
           <p class="mt-1 text-sm font-medium text-foreground">{t('how.step1.title')}</p>
           <p class="mt-0.5 text-xs text-muted-foreground">{t('how.step1.desc')}</p>
         </div>
         <div class="text-center">
-          <span class="text-2xl font-bold text-primary">2 semanas</span>
+          <span class="text-2xl font-bold text-primary">{t('home.how.step2.time')}</span>
           <p class="mt-1 text-sm font-medium text-foreground">{t('how.step2.title')}</p>
           <p class="mt-0.5 text-xs text-muted-foreground">{t('how.step2.desc')}</p>
         </div>
         <div class="text-center">
-          <span class="text-2xl font-bold text-primary">Día 1</span>
+          <span class="text-2xl font-bold text-primary">{t('home.how.step3.time')}</span>
           <p class="mt-1 text-sm font-medium text-foreground">{t('how.step3.title')}</p>
           <p class="mt-0.5 text-xs text-muted-foreground">{t('how.step3.desc')}</p>
         </div>
@@ -710,7 +710,7 @@
        ═══════════════════════════════════════════ -->
   <section class="py-16 sm:py-20" id="cta">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-      <h2 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+      <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         {t('cta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
@@ -731,7 +731,7 @@
           onclick={() => showPitch = true}
         >
           <Play class="size-5" />
-          Ver presentación
+          {t('hero.video_short')}
         </Button>
       </div>
     </div>

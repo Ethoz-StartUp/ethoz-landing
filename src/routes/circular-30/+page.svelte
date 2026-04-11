@@ -95,7 +95,7 @@
         <Badge variant="secondary" class="text-xs font-semibold uppercase tracking-wide">Normativa escolar</Badge>
         <Badge variant="outline" class="text-xs">Superintendencia de Educación</Badge>
       </div>
-      <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+      <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         Circular N°30: libro de clases digital obligatorio
       </h1>
       <p class="mt-6 text-xl text-muted-foreground leading-relaxed max-w-3xl">

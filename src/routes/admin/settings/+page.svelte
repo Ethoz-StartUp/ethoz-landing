@@ -6,6 +6,7 @@
   import { env } from '$env/dynamic/public';
   import { onMount } from 'svelte';
   import { toast } from 'svelte-sonner';
+  import { formatDate, capitalize } from '$lib/utils/format';
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
   import { Skeleton } from '$lib/components/ui/skeleton';
@@ -145,7 +146,7 @@
     // Check for OAuth callback success
     const connected = page.url.searchParams.get('connected');
     if (connected) {
-      toast.success(`${connected.charAt(0).toUpperCase() + connected.slice(1)} conectado correctamente`);
+      toast.success(`${capitalize(connected)} conectado correctamente`);
     }
 
     await loadData();
@@ -166,20 +167,12 @@
       toast.error('Error al desconectar', { description: error.message });
     } else {
       tokens = { ...tokens, [platform]: null };
-      toast.success(`${platform.charAt(0).toUpperCase() + platform.slice(1)} desconectado`);
+      toast.success(`${capitalize(platform)} desconectado`);
     }
     disconnecting = null;
   }
 
   // ── Helpers ──
-  function formatDate(iso: string): string {
-    return new Date(iso).toLocaleDateString('es-CL', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
-    });
-  }
-
   function isTokenExpired(token: SocialToken | undefined): boolean {
     if (!token) return false;
     // If there's a refresh_token, the token is auto-refreshed — never "expired" from user perspective

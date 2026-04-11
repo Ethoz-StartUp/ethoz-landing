@@ -106,7 +106,7 @@
         <TrendingDown class="size-3.5" />
         Proyecciones de impacto
       </div>
-      <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+      <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         Proyecciones de impacto
       </h1>
       <p class="mt-3 text-xl font-semibold text-primary">Basadas en datos públicos</p>

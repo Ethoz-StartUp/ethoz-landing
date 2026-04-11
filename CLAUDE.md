@@ -34,7 +34,7 @@ docs/                 — Documentation index (5 sections + knowledge base + con
 - Blog posts: export `BlogPost` from `src/lib/data/posts/*.ts` — auto-discovered, no manual registration
 
 ### Design (see .impeccable.md for full spec)
-- Light mode only. Brand: Navy #0F172A + Blue #2563EB + White #FFFFFF
+- Light mode only. Brand: International Orange + Titanium + Cream #FAF8F5
 - NEVER hardcode colors — use design tokens (bg-primary, text-muted-foreground, etc.)
 - Icons + titles ALWAYS inline (same row), never stacked. No icon-in-colored-box wrappers.
 - Card pattern: `rounded-xl border border-border bg-card`

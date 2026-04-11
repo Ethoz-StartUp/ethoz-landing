@@ -77,17 +77,17 @@
 <svelte:head>
   <title>Inventario de Datos Personales para Colegios — Plantilla gratuita | Ethoz</title>
   <meta name="description" content="Plantilla de inventario de datos personales para establecimientos educacionales chilenos. Bases legales, finalidades y plazos de retención. Descarga gratis." />
-  <meta property="og:url" content="https://ethoz.cl/recursos/inventario-datos" />
+  <meta property="og:url" content="https://ethoz.cl/resources/data-inventory" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Inventario de Datos Personales para Colegios | Ethoz" />
   <meta property="og:description" content="Plantilla completa de inventario de datos conforme a la Ley 21.719 para colegios chilenos." />
-  <link rel="canonical" href="https://ethoz.cl/recursos/inventario-datos" />
+  <link rel="canonical" href="https://ethoz.cl/resources/data-inventory" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Dataset",
     "name": "Inventario de Datos Personales para Colegios",
     "description": "Plantilla de inventario de datos personales conforme a la Ley 21.719.",
-    "url": "https://ethoz.cl/recursos/inventario-datos",
+    "url": "https://ethoz.cl/resources/data-inventory",
     "publisher": { "@type": "Organization", "name": "Ethoz", "url": "https://ethoz.cl" }
   })}</script>`}
 </svelte:head>
@@ -99,13 +99,13 @@
 <main class="min-h-dvh bg-background">
   <div class="print:hidden sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur-sm">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-      <Button href="/recursos" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
+      <Button href="/resources" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
         <ArrowLeft class="size-4" />
         Volver a recursos
       </Button>
-      <Button onclick={() => window.print()} class="gap-2">
+      <Button href="/downloads/inventario-datos-personales.pdf" download size="lg" class="gap-2 shadow-lg shadow-primary/25">
         <Printer class="size-4" />
-        Descargar como PDF
+        Descargar PDF
       </Button>
     </div>
   </div>

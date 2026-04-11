@@ -103,8 +103,7 @@ El portero es la primera línea de seguridad. Ethoz les da una interfaz simple: 
 - Circular N°30: https://ethoz.cl/circular-30
 - Glosario de protección de datos: https://ethoz.cl/glosario
 - Seguridad de datos: https://ethoz.cl/seguridad-datos
-- Recursos gratuitos (plantillas descargables): https://ethoz.cl/recursos
-- Webinar mensual: https://ethoz.cl/webinar
+- Recursos gratuitos (plantillas descargables): https://ethoz.cl/resources
 
 ---
 

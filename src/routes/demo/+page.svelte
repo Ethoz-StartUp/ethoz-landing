@@ -224,7 +224,7 @@
             <button
               type="button"
               onclick={() => goto(`/demo/0?manual=1&school=${encodeURIComponent(searchInput.trim())}`)}
-              class="mt-4 inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              class="mt-4 inline-flex min-h-11 items-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
               {t('demo.manual')}
               <ChevronRight class="size-3.5" />

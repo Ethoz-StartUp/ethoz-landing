@@ -102,7 +102,7 @@
         <Calculator class="size-3.5" />
         Calculadora de exposición
       </div>
-      <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+      <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         Calcula tu exposición al riesgo
       </h1>
       <p class="mt-3 text-lg font-semibold text-primary">En 30 segundos</p>

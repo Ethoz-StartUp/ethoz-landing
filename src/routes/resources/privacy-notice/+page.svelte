@@ -8,17 +8,17 @@
 <svelte:head>
   <title>Modelo de Aviso de Privacidad Escolar — Plantilla gratuita | Ethoz</title>
   <meta name="description" content="Plantilla de aviso de privacidad conforme al Art. 14 de la Ley 21.719 para establecimientos educacionales chilenos. Descarga gratis." />
-  <meta property="og:url" content="https://ethoz.cl/recursos/aviso-privacidad" />
+  <meta property="og:url" content="https://ethoz.cl/resources/privacy-notice" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Modelo de Aviso de Privacidad Escolar | Ethoz" />
   <meta property="og:description" content="Plantilla conforme a la Ley 21.719 para publicar el aviso de privacidad en tu colegio." />
-  <link rel="canonical" href="https://ethoz.cl/recursos/aviso-privacidad" />
+  <link rel="canonical" href="https://ethoz.cl/resources/privacy-notice" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "LegalDocument",
     "name": "Modelo de Aviso de Privacidad Escolar",
     "description": "Plantilla de aviso de privacidad conforme al Art. 14 de la Ley 21.719.",
-    "url": "https://ethoz.cl/recursos/aviso-privacidad",
+    "url": "https://ethoz.cl/resources/privacy-notice",
     "publisher": { "@type": "Organization", "name": "Ethoz", "url": "https://ethoz.cl" }
   })}</script>`}
 </svelte:head>
@@ -30,13 +30,13 @@
 <main class="min-h-dvh bg-background">
   <div class="print:hidden sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur-sm">
     <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
-      <Button href="/recursos" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
+      <Button href="/resources" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
         <ArrowLeft class="size-4" />
         Volver a recursos
       </Button>
-      <Button onclick={() => window.print()} class="gap-2">
+      <Button href="/downloads/aviso-privacidad-escolar.pdf" download size="lg" class="gap-2 shadow-lg shadow-primary/25">
         <Printer class="size-4" />
-        Descargar como PDF
+        Descargar PDF
       </Button>
     </div>
   </div>

@@ -162,7 +162,7 @@
         <Badge variant="secondary" class="text-xs font-semibold uppercase tracking-wide">Guía normativa</Badge>
         <Badge variant="outline" class="text-xs">Actualizado abril 2026</Badge>
       </div>
-      <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+      <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         Ley 21.719: qué es, a quién afecta y cómo cumplir antes de diciembre 2026
       </h1>
       <p class="mt-6 text-xl text-muted-foreground leading-relaxed max-w-3xl">
@@ -407,7 +407,7 @@
       <div class="space-y-4">
         {#each sanctions as s}
           <div class="rounded-xl border {s.color} p-5">
-            <div class="flex items-start justify-between gap-4 mb-3">
+            <div class="flex flex-col sm:flex-row items-start justify-between gap-2 sm:gap-4 mb-3">
               <div class="flex items-center gap-2.5">
                 <h3 class="font-bold text-foreground text-lg">{s.level}</h3>
                 <span class="rounded-full px-2.5 py-0.5 text-xs font-semibold {s.badge}">{s.fine}</span>
@@ -437,7 +437,7 @@
       <div class="space-y-3">
         {#each timeline as item}
           <div class="flex gap-4 rounded-xl border {item.highlight ? 'border-primary/30 bg-primary/5' : 'border-border bg-card'} p-4">
-            <div class="shrink-0 w-28">
+            <div class="shrink-0 w-20 sm:w-28">
               <span class="text-sm font-bold {item.highlight ? 'text-primary' : 'text-muted-foreground'}">{item.date}</span>
             </div>
             <p class="text-sm {item.highlight ? 'text-foreground font-medium' : 'text-muted-foreground'}">{item.event}</p>

@@ -132,17 +132,17 @@
 <svelte:head>
   <title>Guía de Roles y Permisos para Colegios — Descarga gratuita | Ethoz</title>
   <meta name="description" content="Matriz de permisos recomendada para establecimientos educacionales chilenos. Director, Inspector, UTP, Orientador, Docente, Portero. Descarga gratis." />
-  <meta property="og:url" content="https://ethoz.cl/recursos/guia-roles-permisos" />
+  <meta property="og:url" content="https://ethoz.cl/resources/roles-permissions-guide" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Guía de Roles y Permisos para Colegios | Ethoz" />
   <meta property="og:description" content="Matriz de acceso a datos por rol para colegios chilenos conforme a la Ley 21.719." />
-  <link rel="canonical" href="https://ethoz.cl/recursos/guia-roles-permisos" />
+  <link rel="canonical" href="https://ethoz.cl/resources/roles-permissions-guide" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "HowTo",
     "name": "Guía de Roles y Permisos para Colegios",
     "description": "Matriz de permisos recomendada para establecimientos educacionales chilenos conforme a la Ley 21.719.",
-    "url": "https://ethoz.cl/recursos/guia-roles-permisos",
+    "url": "https://ethoz.cl/resources/roles-permissions-guide",
     "publisher": { "@type": "Organization", "name": "Ethoz", "url": "https://ethoz.cl" }
   })}</script>`}
 </svelte:head>
@@ -154,13 +154,13 @@
 <main class="min-h-dvh bg-background">
   <div class="print:hidden sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur-sm">
     <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-      <Button href="/recursos" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
+      <Button href="/resources" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
         <ArrowLeft class="size-4" />
         Volver a recursos
       </Button>
-      <Button onclick={() => window.print()} class="gap-2">
+      <Button href="/downloads/guia-roles-permisos.pdf" download size="lg" class="gap-2 shadow-lg shadow-primary/25">
         <Printer class="size-4" />
-        Descargar como PDF
+        Descargar PDF
       </Button>
     </div>
   </div>

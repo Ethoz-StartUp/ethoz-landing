@@ -3,7 +3,7 @@
   import { t } from '$lib/i18n/index.svelte';
   import { Menu, X, ChevronDown, Shield, Search, ClipboardList, Bell, Fingerprint } from '@lucide/svelte';
   import { env } from '$env/dynamic/public';
-  import { slide } from 'svelte/transition';
+  import { slide, fade } from 'svelte/transition';
   import { page } from '$app/state';
 
   let mobileOpen = $state(false);
@@ -33,8 +33,8 @@
     { key: 'nav.about' as const, href: '/about' },
     { key: 'nav.pricing' as const, href: '/get-started' },
   ];
-  const navLinksAfter: Array<{ key?: any; label?: string; href: string }> = [
-    { label: 'Integraciones', href: '/integrations' },
+  const navLinksAfter = [
+    { key: 'nav.integrations' as const, href: '/integrations' },
     { key: 'nav.blog' as const, href: '/blog' },
     { key: 'nav.contact' as const, href: '/contact' },
   ];
@@ -135,7 +135,7 @@
               class="mt-2 block border-t border-border pt-2 text-center text-[11px] font-medium text-primary transition-colors hover:text-primary/80"
               onclick={() => (productsOpen = false)}
             >
-              Ver todos los productos →
+              {t('nav.all_products')}
             </a>
           </div>
         {/if}
@@ -150,7 +150,7 @@
               ? 'text-primary bg-primary/5'
               : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}"
         >
-          {link.label ?? t(link.key)}
+          {t(link.key)}
         </a>
       {/each}
     </div>
@@ -186,7 +186,7 @@
 
   <!-- Mobile menu -->
   {#if mobileOpen}
-    <div transition:slide={{ duration: 200 }} class="border-t border-border bg-background px-4 pb-5 pt-3 md:hidden">
+    <div transition:slide={{ duration: 200 }} class="relative z-50 border-t border-border bg-background px-4 pb-5 pt-3 md:hidden">
       <div class="flex flex-col gap-0.5">
         <!-- ¿Qué es? -->
         {#each navLinksBefore as link}
@@ -235,7 +235,7 @@
               : 'text-foreground hover:bg-muted/50'}"
           onclick={() => (mobileOpen = false)}
         >
-          Integraciones
+          {t('nav.integrations')}
         </a>
 
         <!-- Blog -->
@@ -277,3 +277,14 @@
     </div>
   {/if}
 </nav>
+
+<!-- Backdrop blur below navbar when mobile menu open -->
+{#if mobileOpen}
+  <button
+    type="button"
+    class="fixed inset-x-0 top-16 bottom-0 z-40 bg-foreground/30 backdrop-blur-md md:hidden"
+    aria-label="Close menu"
+    onclick={() => (mobileOpen = false)}
+    transition:fade={{ duration: 200 }}
+  ></button>
+{/if}

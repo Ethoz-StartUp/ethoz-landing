@@ -2,13 +2,15 @@
   import { adminStore } from '$lib/stores/admin.svelte';
   import { goto } from '$app/navigation';
   import { page } from '$app/state';
-  import { LogOut, User, Search, Users, FileText, Settings } from '@lucide/svelte';
+  import { LogOut, User, Search, Users, FileText, Settings, Menu, X } from '@lucide/svelte';
   import { onMount } from 'svelte';
   import { Toaster } from '$lib/components/ui/sonner';
 
   let { children } = $props();
 
   const isLoginPage = $derived(page.url.pathname === '/admin');
+
+  let mobileMenuOpen = $state(false);
 
   onMount(async () => {
     await adminStore.init();
@@ -17,6 +19,10 @@
   async function handleLogout() {
     await adminStore.logout();
     goto('/admin');
+  }
+
+  function closeMobileMenu() {
+    mobileMenuOpen = false;
   }
 </script>
 
@@ -82,8 +88,59 @@
           <LogOut class="size-3.5" />
           Salir
         </button>
+        <button
+          type="button"
+          onclick={() => (mobileMenuOpen = !mobileMenuOpen)}
+          class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground sm:hidden"
+          aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={mobileMenuOpen}
+        >
+          {#if mobileMenuOpen}
+            <X class="size-5" />
+          {:else}
+            <Menu class="size-5" />
+          {/if}
+        </button>
       </div>
     </div>
+    {#if mobileMenuOpen}
+      <div class="border-t border-border bg-background/95 backdrop-blur-lg sm:hidden">
+        <nav class="mx-auto flex max-w-7xl flex-col px-4 py-2">
+          <a
+            href="/admin/prospecting"
+            onclick={closeMobileMenu}
+            class="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/prospecting') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}"
+          >
+            <Search class="size-4" />
+            Prospecting
+          </a>
+          <a
+            href="/admin/leads"
+            onclick={closeMobileMenu}
+            class="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/leads') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}"
+          >
+            <Users class="size-4" />
+            Leads
+          </a>
+          <a
+            href="/admin/content"
+            onclick={closeMobileMenu}
+            class="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/content') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}"
+          >
+            <FileText class="size-4" />
+            Content
+          </a>
+          <a
+            href="/admin/settings"
+            onclick={closeMobileMenu}
+            class="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/settings') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}"
+          >
+            <Settings class="size-4" />
+            Settings
+          </a>
+        </nav>
+      </div>
+    {/if}
   </header>
 {/if}
 

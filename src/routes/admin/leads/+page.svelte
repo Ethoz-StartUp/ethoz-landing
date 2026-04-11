@@ -4,6 +4,7 @@
   import { supabase } from '$lib/supabase';
   import { onMount } from 'svelte';
   import { toast } from 'svelte-sonner';
+  import { formatDate, formatDateTime } from '$lib/utils/format';
   import * as Table from '$lib/components/ui/table';
   import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
   import * as Sheet from '$lib/components/ui/sheet';
@@ -156,23 +157,7 @@
     updatingId = null;
   }
 
-  function formatDate(iso: string): string {
-    return new Date(iso).toLocaleDateString('es-CL', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
-    });
-  }
 
-  function formatDateTime(iso: string): string {
-    return new Date(iso).toLocaleString('es-CL', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-    });
-  }
 </script>
 
 <svelte:head>

@@ -84,7 +84,7 @@
       </div>
       <div class="flex items-center gap-3 mb-4">
         <ShieldCheck class="size-8 shrink-0 text-primary" />
-        <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+        <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
           Seguridad de datos en Ethoz
         </h1>
       </div>

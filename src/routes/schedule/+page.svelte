@@ -98,7 +98,7 @@
 
     Cal('ui', {
       theme: 'light',
-      styles: { branding: { brandColor: '#2563EB' } },
+      styles: { branding: { brandColor: '#E8702A' } },
       hideEventTypeDetails: false,
       hideBranding: true,
       layout: 'month_view'

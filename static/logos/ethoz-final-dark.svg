@@ -3,9 +3,9 @@
   <desc id="final-d-desc">Ethoz logo — intersect mark with accent Z, dark version</desc>
   <g transform="translate(2, 0)">
     <rect x="2" y="8" width="24" height="34" rx="5.5" fill="none" stroke="#F1F5F9" stroke-width="2.4"/>
-    <rect x="14" y="4" width="24" height="34" rx="5.5" fill="none" stroke="#3B82F6" stroke-width="2.4"/>
+    <rect x="14" y="4" width="24" height="34" rx="5.5" fill="none" stroke="#E8702A" stroke-width="2.4"/>
   </g>
   <text x="56" y="35" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="600" letter-spacing="-0.5">
-    <tspan fill="#F1F5F9">Etho</tspan><tspan fill="#3B82F6">z</tspan>
+    <tspan fill="#F1F5F9">Etho</tspan><tspan fill="#E8702A">z</tspan>
   </text>
 </svg>

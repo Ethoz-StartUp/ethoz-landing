@@ -68,13 +68,13 @@
           <div class="mt-6 flex items-center gap-3">
             <button
               onclick={() => showBlocked = false}
-              class="text-xs font-medium px-3 py-1.5 rounded-full border transition-colors {!showBlocked ? 'bg-primary text-primary-foreground border-primary' : 'border-border text-muted-foreground hover:text-foreground'}"
+              class="text-xs font-medium px-3 py-2 sm:py-1.5 rounded-full border transition-colors {!showBlocked ? 'bg-primary text-primary-foreground border-primary' : 'border-border text-muted-foreground hover:text-foreground'}"
             >
               Ver retiro autorizado
             </button>
             <button
               onclick={() => showBlocked = true}
-              class="text-xs font-medium px-3 py-1.5 rounded-full border transition-colors {showBlocked ? 'bg-destructive text-destructive-foreground border-destructive' : 'border-border text-muted-foreground hover:text-foreground'}"
+              class="text-xs font-medium px-3 py-2 sm:py-1.5 rounded-full border transition-colors {showBlocked ? 'bg-destructive text-destructive-foreground border-destructive' : 'border-border text-muted-foreground hover:text-foreground'}"
             >
               Ver retiro bloqueado
             </button>

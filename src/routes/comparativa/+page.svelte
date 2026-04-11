@@ -112,7 +112,7 @@
         <Scale class="size-3.5" />
         Análisis comparativo
       </div>
-      <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+      <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         ¿Por qué Ethoz y no tu sistema actual?
       </h1>
       <p class="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl">

@@ -86,8 +86,7 @@ La Ley 21.719 de Protección de Datos Personales de Chile entra en vigencia en d
 - Circular N°30: https://ethoz.cl/circular-30
 - Glosario: https://ethoz.cl/glosario
 - Seguridad de datos: https://ethoz.cl/seguridad-datos
-- Recursos gratuitos (plantillas descargables): https://ethoz.cl/recursos
-- Webinar mensual: https://ethoz.cl/webinar
+- Recursos gratuitos (plantillas descargables): https://ethoz.cl/resources
 
 ## Artículos del blog
 

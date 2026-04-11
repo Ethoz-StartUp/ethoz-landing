@@ -8,17 +8,17 @@
 <svelte:head>
   <title>Protocolo de Retiros Seguros — Plantilla gratuita | Ethoz</title>
   <meta name="description" content="Plantilla de protocolo de retiros seguros para colegios chilenos. Procedimiento de 8 pasos, casos especiales y trazabilidad. Descarga gratis." />
-  <meta property="og:url" content="https://ethoz.cl/recursos/protocolo-retiros" />
+  <meta property="og:url" content="https://ethoz.cl/resources/pickup-protocol" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Protocolo de Retiros Seguros | Ethoz" />
   <meta property="og:description" content="Plantilla completa de protocolo de retiros seguros para establecimientos educacionales chilenos." />
-  <link rel="canonical" href="https://ethoz.cl/recursos/protocolo-retiros" />
+  <link rel="canonical" href="https://ethoz.cl/resources/pickup-protocol" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "HowTo",
     "name": "Protocolo de Retiros Seguros",
     "description": "Procedimiento completo para gestionar retiros de alumnos en establecimientos educacionales.",
-    "url": "https://ethoz.cl/recursos/protocolo-retiros",
+    "url": "https://ethoz.cl/resources/pickup-protocol",
     "publisher": { "@type": "Organization", "name": "Ethoz", "url": "https://ethoz.cl" }
   })}</script>`}
 </svelte:head>
@@ -30,13 +30,13 @@
 <main class="min-h-dvh bg-background">
   <div class="print:hidden sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur-sm">
     <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
-      <Button href="/recursos" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
+      <Button href="/resources" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
         <ArrowLeft class="size-4" />
         Volver a recursos
       </Button>
-      <Button onclick={() => window.print()} class="gap-2">
+      <Button href="/downloads/protocolo-retiros-seguros.pdf" download size="lg" class="gap-2 shadow-lg shadow-primary/25">
         <Printer class="size-4" />
-        Descargar como PDF
+        Descargar PDF
       </Button>
     </div>
   </div>

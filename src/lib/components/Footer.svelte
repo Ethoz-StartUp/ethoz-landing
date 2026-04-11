@@ -35,7 +35,7 @@
   <!-- Upper footer -->
   <div class="border-t border-border bg-background">
     <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
+      <div class="grid grid-cols-2 gap-6 sm:gap-8 sm:grid-cols-3 lg:grid-cols-6">
 
         <!-- Brand + social -->
         <div class="col-span-2 sm:col-span-3 lg:col-span-2">
@@ -69,25 +69,24 @@
         <div>
           <h4 class="text-xs font-semibold uppercase tracking-wider text-foreground">{t('footer.product')}</h4>
           <ul class="mt-3 flex flex-col gap-2">
-            <li><a href="/productos" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Funcionalidades</a></li>
-            <li><a href="/integrations" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Integraciones</a></li>
-            <li><a href="/comparativa" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Comparativa</a></li>
-            <li><a href="/roi-calculator" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Calculadora ROI</a></li>
-            <li><a href="/proyecciones" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Proyecciones</a></li>
+            <li><a href="/productos" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.features')}</a></li>
+            <li><a href="/integrations" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.integrations')}</a></li>
+            <li><a href="/comparativa" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.comparison')}</a></li>
+            <li><a href="/roi-calculator" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.roi')}</a></li>
+            <li><a href="/proyecciones" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.projections')}</a></li>
             <li><a href="/get-started" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.pricing')}</a></li>
           </ul>
         </div>
 
         <!-- Recursos -->
         <div>
-          <h4 class="text-xs font-semibold uppercase tracking-wider text-foreground">Recursos</h4>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-foreground">{t('footer.resources_section')}</h4>
           <ul class="mt-3 flex flex-col gap-2">
-            <li><a href="/ley-21719" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Ley 21.719</a></li>
-            <li><a href="/circular-30" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Circular N°30</a></li>
-            <li><a href="/glosario" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Glosario</a></li>
-            <li><a href="/recursos" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Descargas gratuitas</a></li>
-            <li><a href="/webinar" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Webinar</a></li>
-            <li><a href="/seguridad-datos" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Seguridad de datos</a></li>
+            <li><a href="/ley-21719" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.law')}</a></li>
+            <li><a href="/circular-30" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.circular')}</a></li>
+            <li><a href="/glosario" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.glossary')}</a></li>
+            <li><a href="/resources" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.downloads')}</a></li>
+            <li><a href="/seguridad-datos" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.security')}</a></li>
           </ul>
         </div>
 
@@ -104,11 +103,11 @@
 
         <!-- Para ti -->
         <div>
-          <h4 class="text-xs font-semibold uppercase tracking-wider text-foreground">Para ti</h4>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-foreground">{t('footer.for_you')}</h4>
           <ul class="mt-3 flex flex-col gap-2">
-            <li><a href="/para-sostenedores" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Sostenedores</a></li>
-            <li><a href="/para-directores" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Directores</a></li>
-            <li><a href="/para-porteros" class="text-sm text-muted-foreground transition-colors hover:text-foreground">Porteros</a></li>
+            <li><a href="/para-sostenedores" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.operators')}</a></li>
+            <li><a href="/para-directores" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.directors')}</a></li>
+            <li><a href="/para-porteros" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.porters')}</a></li>
             <li class="mt-2 border-t border-border pt-2"><a href="/privacy" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.privacy')}</a></li>
             <li><a href="/terms" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.terms')}</a></li>
           </ul>

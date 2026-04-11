@@ -607,7 +607,7 @@
   .logo-main {
     height: clamp(3.5rem, 8vw, 5.5rem);
     width: auto;
-    filter: drop-shadow(0 2px 12px oklch(0.546 0.213 264 / 0.12));
+    filter: drop-shadow(0 2px 12px oklch(0.68 0.21 40 / 0.12));
     animation: float 3s ease-in-out infinite;
   }
 
@@ -623,11 +623,11 @@
     align-items: center;
     padding: 0.5rem 1.25rem;
     border-radius: 9999px;
-    background: oklch(0.546 0.213 264 / 0.08);
+    background: oklch(0.68 0.21 40 / 0.08);
     color: var(--primary);
     font-size: 0.875rem;
     font-weight: 500;
-    border: 1px solid oklch(0.546 0.213 264 / 0.15);
+    border: 1px solid oklch(0.68 0.21 40 / 0.15);
   }
 
   /* ═══ SLIDE: Problem ═══ */
@@ -686,7 +686,7 @@
 
   .law-icon {
     color: var(--primary);
-    filter: drop-shadow(0 0 16px oklch(0.546 0.213 264 / 0.2));
+    filter: drop-shadow(0 0 16px oklch(0.68 0.21 40 / 0.2));
   }
 
   .law-subtitle {
@@ -699,8 +699,8 @@
     margin-top: 0.5rem;
     padding: 1.25rem 2rem;
     border-radius: 0.75rem;
-    background: oklch(0.546 0.213 264 / 0.05);
-    border: 1px solid oklch(0.546 0.213 264 / 0.1);
+    background: oklch(0.68 0.21 40 / 0.05);
+    border: 1px solid oklch(0.68 0.21 40 / 0.1);
   }
 
   .impact-text {
@@ -839,7 +839,7 @@
 
   .shield-pulse {
     color: var(--primary);
-    filter: drop-shadow(0 0 30px oklch(0.546 0.213 264 / 0.3));
+    filter: drop-shadow(0 0 30px oklch(0.68 0.21 40 / 0.3));
     animation: pulse-glow 2s ease-in-out infinite;
   }
 
@@ -910,9 +910,9 @@
   }
 
   .icon-primary {
-    background: oklch(0.546 0.213 264 / 0.08);
+    background: oklch(0.68 0.21 40 / 0.08);
     color: var(--primary);
-    border: 1px solid oklch(0.546 0.213 264 / 0.12);
+    border: 1px solid oklch(0.68 0.21 40 / 0.12);
   }
 
   .icon-destructive {
@@ -953,7 +953,7 @@
     right: 0.75rem;
     font-size: 0.75rem;
     font-weight: 700;
-    color: oklch(0.546 0.213 264 / 0.4);
+    color: oklch(0.68 0.21 40 / 0.4);
     font-variant-numeric: tabular-nums;
   }
 
@@ -964,9 +964,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: oklch(0.546 0.213 264 / 0.06);
+    background: oklch(0.68 0.21 40 / 0.06);
     color: var(--primary);
-    border: 1px solid oklch(0.546 0.213 264 / 0.12);
+    border: 1px solid oklch(0.68 0.21 40 / 0.12);
   }
 
   .step-label {
@@ -979,7 +979,7 @@
   .step-connector {
     width: 3rem;
     height: 2px;
-    background: linear-gradient(90deg, oklch(0.546 0.213 264 / 0.2), oklch(0.546 0.213 264 / 0.05));
+    background: linear-gradient(90deg, oklch(0.68 0.21 40 / 0.2), oklch(0.68 0.21 40 / 0.05));
     flex-shrink: 0;
   }
 
@@ -1000,7 +1000,7 @@
     display: flex;
     gap: 1.5rem;
     color: var(--primary);
-    filter: drop-shadow(0 0 16px oklch(0.546 0.213 264 / 0.15));
+    filter: drop-shadow(0 0 16px oklch(0.68 0.21 40 / 0.15));
   }
 
   .sec-icon-wrap {
@@ -1010,8 +1010,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: oklch(0.546 0.213 264 / 0.06);
-    border: 1px solid oklch(0.546 0.213 264 / 0.1);
+    background: oklch(0.68 0.21 40 / 0.06);
+    border: 1px solid oklch(0.68 0.21 40 / 0.1);
   }
 
   .security-badges {
@@ -1081,7 +1081,7 @@
   .logo-cta {
     height: clamp(2.5rem, 5vw, 4rem);
     width: auto;
-    filter: drop-shadow(0 2px 12px oklch(0.546 0.213 264 / 0.12));
+    filter: drop-shadow(0 2px 12px oklch(0.68 0.21 40 / 0.12));
   }
 
   .cta-title {
@@ -1108,12 +1108,12 @@
     font-weight: 600;
     text-decoration: none;
     transition: all 0.25s ease;
-    box-shadow: 0 4px 20px oklch(0.546 0.213 264 / 0.2);
+    box-shadow: 0 4px 20px oklch(0.68 0.21 40 / 0.2);
   }
 
   .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px oklch(0.546 0.213 264 / 0.3);
+    box-shadow: 0 8px 32px oklch(0.68 0.21 40 / 0.3);
   }
 
   .cta-button:active {
@@ -1222,7 +1222,7 @@
   }
 
   .slide-marker.active {
-    background: oklch(0.546 0.213 264 / 0.3);
+    background: oklch(0.68 0.21 40 / 0.3);
   }
 
   /* Controls row */
@@ -1363,11 +1363,11 @@
 
   .start-button :global(svg) {
     color: var(--primary);
-    filter: drop-shadow(0 0 16px oklch(0.546 0.213 264 / 0.3));
+    filter: drop-shadow(0 0 16px oklch(0.68 0.21 40 / 0.3));
   }
 
   .start-button:hover {
-    border-color: oklch(0.546 0.213 264 / 0.2);
+    border-color: oklch(0.68 0.21 40 / 0.2);
     box-shadow: 0 8px 32px oklch(0 0 0 / 0.1);
     transform: scale(1.02);
   }
@@ -1384,8 +1384,8 @@
   }
 
   @keyframes pulse-glow {
-    0%, 100% { filter: drop-shadow(0 0 24px oklch(0.546 0.213 264 / 0.2)); }
-    50% { filter: drop-shadow(0 0 40px oklch(0.546 0.213 264 / 0.35)); }
+    0%, 100% { filter: drop-shadow(0 0 24px oklch(0.68 0.21 40 / 0.2)); }
+    50% { filter: drop-shadow(0 0 40px oklch(0.68 0.21 40 / 0.35)); }
   }
 
   @keyframes pulse-subtle {
@@ -1396,7 +1396,7 @@
   /* ── Subtitle toggle active state ── */
   .ctrl-active {
     color: var(--primary) !important;
-    background: oklch(0.546 0.213 264 / 0.1);
+    background: oklch(0.68 0.21 40 / 0.1);
   }
 
   .hidden-mobile { display: inline-flex; }

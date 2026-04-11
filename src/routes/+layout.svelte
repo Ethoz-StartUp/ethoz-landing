@@ -55,7 +55,7 @@
   }
 </script>
 
-<div class="min-h-screen bg-background text-foreground antialiased">
+<div class="min-h-screen overflow-x-hidden bg-background text-foreground antialiased">
   {@render children()}
   {#if feedbackEnabled}
     {#await import('$lib/components/FeedbackOverlay.svelte') then { default: FeedbackOverlay }}
