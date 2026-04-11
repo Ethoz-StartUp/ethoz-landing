@@ -152,8 +152,7 @@
   <meta name="twitter:title" content="Ethoz — Gestión y cumplimiento para colegios" />
   <meta name="twitter:description" content="Plataforma de gestión y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
   <link rel="canonical" href="https://ethoz.cl/" />
-  <script type="application/ld+json">
-  {JSON.stringify([
+  {@html `<script type="application/ld+json">${JSON.stringify([
     {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -207,8 +206,7 @@
         "acceptedAnswer": { "@type": "Answer", "text": t(`faq.a${n}` as TranslationKey) }
       }))
     }
-  ])}
-  </script>
+  ])}</script>`}
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-background">
