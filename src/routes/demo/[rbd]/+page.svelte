@@ -119,7 +119,13 @@
         keyboard: false,
       }).setView([school.lat, school.lng], 15);
       L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(mapInstance);
-      L.marker([school.lat, school.lng]).addTo(mapInstance);
+      const pinIcon = L.divIcon({
+        className: 'ethoz-map-pin',
+        html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 32" width="28" height="36" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12c0 8.4 12 20 12 20s12-11.6 12-20C24 5.4 18.6 0 12 0z" fill="#E8702A"/><circle cx="12" cy="12" r="4.5" fill="#FFFFFF"/></svg>',
+        iconSize: [28, 36],
+        iconAnchor: [14, 36],
+      });
+      L.marker([school.lat, school.lng], { icon: pinIcon }).addTo(mapInstance);
       setTimeout(() => mapInstance?.invalidateSize(), 100);
     });
 
