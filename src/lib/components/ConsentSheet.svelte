@@ -28,33 +28,39 @@
 
     <div class="mt-6 space-y-5">
       <div class="flex items-start justify-between gap-4 rounded-xl border border-border bg-card p-4">
-        <div>
+        <div class="flex-1">
           <p class="text-sm font-medium text-foreground">Esenciales</p>
-          <p class="mt-1 text-xs text-muted-foreground">
+          <p class="mt-1 text-sm text-muted-foreground">
             Necesarias para el funcionamiento del sitio, incluido el monitoreo básico de errores.
           </p>
         </div>
-        <Switch checked={true} disabled aria-label="Cookies esenciales (siempre activas)" />
+        <span class="flex min-h-[44px] items-center">
+          <Switch checked={true} disabled aria-label="Cookies esenciales (siempre activas)" />
+        </span>
       </div>
 
       <div class="flex items-start justify-between gap-4 rounded-xl border border-border bg-card p-4">
-        <div>
+        <div class="flex-1">
           <p class="text-sm font-medium text-foreground">Análisis</p>
-          <p class="mt-1 text-xs text-muted-foreground">
+          <p class="mt-1 text-sm text-muted-foreground">
             Nos ayudan a entender cómo se usa el sitio. Incluye Google Analytics y Microsoft Clarity.
           </p>
         </div>
-        <Switch bind:checked={analytics} aria-label="Cookies de análisis" />
+        <span class="flex min-h-[44px] items-center">
+          <Switch bind:checked={analytics} aria-label="Cookies de análisis" />
+        </span>
       </div>
 
       <div class="flex items-start justify-between gap-4 rounded-xl border border-border bg-card p-4">
-        <div>
+        <div class="flex-1">
           <p class="text-sm font-medium text-foreground">Marketing</p>
-          <p class="mt-1 text-xs text-muted-foreground">
+          <p class="mt-1 text-sm text-muted-foreground">
             Permiten medir la efectividad de campañas y personalizar el contenido.
           </p>
         </div>
-        <Switch bind:checked={marketing} aria-label="Cookies de marketing" />
+        <span class="flex min-h-[44px] items-center">
+          <Switch bind:checked={marketing} aria-label="Cookies de marketing" />
+        </span>
       </div>
     </div>
 
