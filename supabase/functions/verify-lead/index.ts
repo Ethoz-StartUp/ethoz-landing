@@ -33,6 +33,20 @@ interface LeadPayload {
   visitor_id?: string;
   metadata?: Record<string, unknown>;
   recaptcha_token?: string;
+  // Attribution (populated client-side by captureAttribution)
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
+  gclid?: string;
+  fbclid?: string;
+  li_fat_id?: string;
+  msclkid?: string;
+  referrer?: string;
+  landing_page?: string;
+  first_touch_at?: string;
+  last_touch_at?: string;
 }
 
 function json(data: Record<string, unknown>, status = 200) {
@@ -112,6 +126,19 @@ Deno.serve(async (req: Request) => {
       status: payload.status || 'new',
       visitor_id: payload.visitor_id || null,
       metadata: payload.metadata || null,
+      utm_source: payload.utm_source || null,
+      utm_medium: payload.utm_medium || null,
+      utm_campaign: payload.utm_campaign || null,
+      utm_content: payload.utm_content || null,
+      utm_term: payload.utm_term || null,
+      gclid: payload.gclid || null,
+      fbclid: payload.fbclid || null,
+      li_fat_id: payload.li_fat_id || null,
+      msclkid: payload.msclkid || null,
+      referrer: payload.referrer || null,
+      landing_page: payload.landing_page || null,
+      first_touch_at: payload.first_touch_at || null,
+      last_touch_at: payload.last_touch_at || null,
       created_at: new Date().toISOString(),
     };
 
