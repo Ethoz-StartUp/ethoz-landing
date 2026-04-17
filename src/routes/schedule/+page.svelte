@@ -41,7 +41,15 @@
 
   let calContainer = $state<HTMLDivElement | null>(null);
   let calLoaded = $state(false);
+  let embedRendered = $state(false);
   let calError = $state(false);
+
+  function captureError(err: unknown, context?: Record<string, unknown>) {
+    if (!browser) return;
+    import('@sentry/browser')
+      .then((Sentry) => Sentry.captureException(err, { extra: context }))
+      .catch(() => {});
+  }
 
   // Load Cal.com embed script and render inline
   $effect(() => {
@@ -107,28 +115,40 @@
       layout: 'month_view'
     });
 
+    // Embed is rendered when Cal fires linkReady — bookingSuccessful arrives later.
+    Cal('on', {
+      action: 'linkReady',
+      callback: () => {
+        embedRendered = true;
+        calLoaded = true;
+      }
+    });
+
     // Listen for Cal.com events — client-side lead update (immediate)
     Cal('on', {
       action: 'bookingSuccessful',
       callback: () => {
         trackEvent('demo_booked', { school: schoolName });
 
-        // Update lead status in Supabase (fire-and-forget, resilient)
         if (contactEmail) {
           updateLeadStatus(
             contactEmail,
             'demo_scheduled',
             `Booked via Cal.com | School: ${schoolName}`
-          ).catch(() => {}); // Silent — webhook is the backup
+          ).catch((err) => captureError(err, { fn: 'schedule.updateLeadStatus' }));
         }
       }
     });
 
-    calLoaded = true;
-
-    // Timeout fallback if embed doesn't render
+    // Timeout fallback if embed doesn't render (linkReady never fires).
     setTimeout(() => {
-      if (!calLoaded) { calLoaded = true; calError = true; }
+      if (!embedRendered) {
+        calLoaded = true;
+        calError = true;
+        captureError(new Error('Cal.com embed failed to render within 10s'), {
+          fn: 'schedule.embedTimeout'
+        });
+      }
     }, 10000);
   });
 

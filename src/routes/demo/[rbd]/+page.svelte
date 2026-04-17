@@ -40,6 +40,15 @@
 
   let mapContainer = $state<HTMLDivElement | null>(null);
   let mapInstance: any = null;
+  let mapFailed = $state(false);
+  let recaptchaFailed = $state(false);
+
+  function captureError(err: unknown, context?: Record<string, unknown>) {
+    if (!browser) return;
+    import('@sentry/browser')
+      .then((Sentry) => Sentry.captureException(err, { extra: context }))
+      .catch(() => {});
+  }
 
   // ── Load school by RBD (skip if manual) ──
   $effect(() => {
@@ -106,28 +115,33 @@
     if (mapInstance || (container as any)._leaflet_id) return;
 
     import('leaflet/dist/leaflet.css');
-    import('leaflet').then((L) => {
-      if (mapInstance || (container as any)._leaflet_id) return;
-      mapInstance = L.map(container, {
-        attributionControl: false,
-        zoomControl: false,
-        dragging: false,
-        touchZoom: false,
-        scrollWheelZoom: false,
-        doubleClickZoom: false,
-        boxZoom: false,
-        keyboard: false,
-      }).setView([school.lat, school.lng], 15);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(mapInstance);
-      const pinIcon = L.divIcon({
-        className: 'ethoz-map-pin',
-        html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 32" width="28" height="36" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12c0 8.4 12 20 12 20s12-11.6 12-20C24 5.4 18.6 0 12 0z" fill="#E8702A"/><circle cx="12" cy="12" r="4.5" fill="#FFFFFF"/></svg>',
-        iconSize: [28, 36],
-        iconAnchor: [14, 36],
+    import('leaflet')
+      .then((L) => {
+        if (mapInstance || (container as any)._leaflet_id) return;
+        mapInstance = L.map(container, {
+          attributionControl: false,
+          zoomControl: false,
+          dragging: false,
+          touchZoom: false,
+          scrollWheelZoom: false,
+          doubleClickZoom: false,
+          boxZoom: false,
+          keyboard: false,
+        }).setView([school.lat, school.lng], 15);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(mapInstance);
+        const pinIcon = L.divIcon({
+          className: 'ethoz-map-pin',
+          html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 32" width="28" height="36" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12c0 8.4 12 20 12 20s12-11.6 12-20C24 5.4 18.6 0 12 0z" fill="#E8702A"/><circle cx="12" cy="12" r="4.5" fill="#FFFFFF"/></svg>',
+          iconSize: [28, 36],
+          iconAnchor: [14, 36],
+        });
+        L.marker([school.lat, school.lng], { icon: pinIcon }).addTo(mapInstance);
+        setTimeout(() => mapInstance?.invalidateSize(), 100);
+      })
+      .catch((err) => {
+        mapFailed = true;
+        captureError(err, { fn: 'demo.leafletImport' });
       });
-      L.marker([school.lat, school.lng], { icon: pinIcon }).addTo(mapInstance);
-      setTimeout(() => mapInstance?.invalidateSize(), 100);
-    });
 
     return () => {
       if (mapInstance) {
@@ -155,11 +169,22 @@
   // ── Submit ──
   async function handleSubmit(e: Event) {
     e.preventDefault();
+    if (submitting) return; // double-submit guard
     submitting = true;
     errorMessage = '';
+    recaptchaFailed = false;
 
     try {
-      const recaptchaToken = await executeRecaptcha('submit_demo');
+      let recaptchaToken: string | null = null;
+      try {
+        recaptchaToken = await executeRecaptcha('submit_demo');
+      } catch (err) {
+        captureError(err, { fn: 'demo.executeRecaptcha' });
+        recaptchaFailed = true;
+        errorMessage = 'No pudimos verificar que seas humano. Escríbenos a hola@ethoz.cl o intenta más tarde.';
+        submitting = false;
+        return;
+      }
       const school = isManual ? null : schoolStore.selectedSchool;
       const schoolName = isManual ? manualSchoolName.trim() : (school?.name ?? '');
 
@@ -183,7 +208,7 @@
         return;
       }
 
-      trackEvent('demo_form_submitted', { school: schoolName, email: contactEmail, manual: isManual });
+      trackEvent('demo_form_submitted', { school: schoolName, manual: isManual });
 
       // Clear saved form
       if (browser) sessionStorage.removeItem(STORAGE_KEY);
@@ -347,10 +372,27 @@
 
             <!-- Map — desktop only -->
             {#if school?.lat !== 0}
-              <div
-                bind:this={mapContainer}
-                class="hidden h-64 w-full overflow-hidden rounded-xl border border-border lg:block"
-              ></div>
+              {#if mapFailed}
+                <div class="hidden rounded-xl border border-border bg-background p-4 text-sm text-muted-foreground lg:block">
+                  <p class="font-medium text-foreground">Ubicación</p>
+                  <p class="mt-1">{school?.commune}{school ? `, ${regionName(school.regionCode)}` : ''}</p>
+                  {#if school?.name}
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(school.name + ' ' + (school.commune ?? ''))}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="mt-2 inline-block text-primary underline-offset-2 hover:underline"
+                    >
+                      Ver en Google Maps →
+                    </a>
+                  {/if}
+                </div>
+              {:else}
+                <div
+                  bind:this={mapContainer}
+                  class="hidden h-64 w-full overflow-hidden rounded-xl border border-border lg:block"
+                ></div>
+              {/if}
             {/if}
             {/if}
           </div>
@@ -421,6 +463,7 @@
                 <input
                   id="contact-phone"
                   type="tel"
+                  inputmode="tel"
                   bind:value={contactPhone}
                   placeholder="+56 9 1234 5678"
                   autocomplete="tel"
