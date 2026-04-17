@@ -2,29 +2,10 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<!-- Google Tag Manager — dataLayer init (sync, tiny) -->
+		<!-- dataLayer stub (GTM loader runs after consent from +layout.svelte) -->
 		<script>
 		  window.dataLayer = window.dataLayer || [];
-		  window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
 		</script>
-		<!-- GTM loader deferred until after initial paint to protect LCP -->
-		<script>
-		  (function() {
-		    function loadGTM() {
-		      var f = document.getElementsByTagName('script')[0];
-		      var j = document.createElement('script');
-		      j.async = true;
-		      j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-WX6ZCXLZ';
-		      f.parentNode.insertBefore(j, f);
-		    }
-		    if (document.readyState === 'complete') {
-		      setTimeout(loadGTM, 1500);
-		    } else {
-		      window.addEventListener('load', function() { setTimeout(loadGTM, 1500); });
-		    }
-		  })();
-		</script>
-		<!-- End Google Tag Manager -->
 		<!-- Preconnect to third-party origins hit during page lifecycle -->
 		<link rel="preconnect" href="https://irpesrcijcdwyjxxwpyb.supabase.co" crossorigin />
 		<link rel="preconnect" href="https://www.clarity.ms" crossorigin />
@@ -44,10 +25,6 @@
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<!-- Google Tag Manager (noscript) -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WX6ZCXLZ"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-		<!-- End Google Tag Manager (noscript) -->
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
