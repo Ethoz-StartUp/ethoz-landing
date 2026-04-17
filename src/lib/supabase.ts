@@ -3,6 +3,7 @@ import { env } from '$env/dynamic/public';
 import { isInternal, isTestEmail } from '$lib/utils/internal';
 import { getVisitorId } from '$lib/utils/visitor';
 import { getDeviceMetadata } from '$lib/utils/device';
+import { readAttribution } from '$lib/utils/attribution';
 import { log } from '$lib/utils/logger';
 
 function maskEmail(email: string): string {
@@ -151,9 +152,11 @@ export async function saveLead(lead: Lead, recaptchaToken?: string | null): Prom
 
   const visitor_id = getVisitorId() || undefined;
   const metadata = getDeviceMetadata();
+  const attribution = readAttribution();
 
   const payload = {
     ...lead,
+    ...attribution,
     status: lead.status ?? 'new',
     notes,
     visitor_id,

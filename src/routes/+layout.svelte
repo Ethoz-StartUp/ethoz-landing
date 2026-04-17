@@ -15,6 +15,7 @@
   import { loadGtm } from '$lib/trackers/gtm';
   import { loadClarity } from '$lib/trackers/clarity';
   import { initSentry } from '$lib/sentry';
+  import { captureAttribution } from '$lib/utils/attribution';
   import ConsentBanner from '$lib/components/ConsentBanner.svelte';
 
   let { children } = $props();
@@ -24,6 +25,7 @@
     if (typeof window === 'undefined') return;
     checkInternalFlag();
     checkInternalIP();
+    captureAttribution();
     initSentry();
   });
 
