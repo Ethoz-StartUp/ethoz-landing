@@ -28,3 +28,6 @@ verify_jwt = false
 
 [functions.verify-lead]
 verify_jwt = false
+
+[functions.request-resource]
+verify_jwt = false
