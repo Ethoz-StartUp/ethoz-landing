@@ -36,10 +36,24 @@ async function getCaptured(page: Page, eventName: string) {
 // 1. Hero CTA buttons fire hero_cta_clicked
 // ─────────────────────────────────────────────────────────────────────────────
 
+/**
+ * Pre-seed localStorage with accepted consent so GTM loads and trackEvent
+ * reaches dataLayer. Must be called BEFORE page.goto().
+ */
+async function acceptConsent(page: Page) {
+	await page.addInitScript(() => {
+		localStorage.setItem(
+			'ethoz_consent_v1',
+			JSON.stringify({ essential: true, analytics: true, marketing: true, updatedAt: Date.now() })
+		);
+	});
+}
+
 test.describe('Analytics — hero CTA trackEvent calls', () => {
 	test('Watch Video hero button fires hero_cta_clicked with cta:watch_video location:hero', async ({
 		page
 	}) => {
+		await acceptConsent(page);
 		await page.goto('/');
 		await page.waitForLoadState('networkidle');
 		await patchDataLayer(page);
@@ -66,6 +80,7 @@ test.describe('Analytics — hero CTA trackEvent calls', () => {
 	test('Book Demo hero button fires hero_cta_clicked with cta:book_demo location:hero', async ({
 		page
 	}) => {
+		await acceptConsent(page);
 		await page.goto('/');
 		await page.waitForLoadState('networkidle');
 		await patchDataLayer(page);
@@ -100,9 +115,12 @@ test.describe('Analytics — hero CTA trackEvent calls', () => {
 		await patchDataLayer(page);
 
 		// Dismiss cookie consent banner — it sits in a fixed bottom overlay that
-		// intercepts pointer events over the sticky CTA
+		// intercepts pointer events over the sticky CTA. Use the new consent store key.
 		await page.evaluate(() => {
-			localStorage.setItem('cookie-consent', 'accepted');
+			localStorage.setItem(
+				'ethoz_consent_v1',
+				JSON.stringify({ essential: true, analytics: true, marketing: true, updatedAt: Date.now() })
+			);
 		});
 		await page.reload();
 		await page.waitForLoadState('networkidle');
@@ -127,6 +145,46 @@ test.describe('Analytics — hero CTA trackEvent calls', () => {
 			(e: any) => e.cta === 'book_demo' && e.location === 'sticky'
 		);
 		expect(stickyEvents.length).toBeGreaterThanOrEqual(1);
+	});
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 2. Consent — reject flow
+// ─────────────────────────────────────────────────────────────────────────────
+
+test.describe('Consent — reject flow', () => {
+	test('no GTM/Clarity requests load when user picks "Solo esenciales"', async ({ page }) => {
+		const gtmRequests: string[] = [];
+		const clarityRequests: string[] = [];
+		page.on('request', (req) => {
+			const url = req.url();
+			if (url.includes('googletagmanager.com/gtm.js')) gtmRequests.push(url);
+			if (url.includes('clarity.ms/tag')) clarityRequests.push(url);
+		});
+
+		await page.goto('/');
+		await page.getByRole('button', { name: 'Solo esenciales' }).click();
+
+		// Navigate a couple of routes to let any lazy loader fire.
+		await page.goto('/comparativa');
+		await page.goto('/ley-21719');
+		await page.waitForTimeout(2000);
+
+		expect(gtmRequests).toHaveLength(0);
+		expect(clarityRequests).toHaveLength(0);
+	});
+
+	test('trackEvent calls do not touch dataLayer pre-consent', async ({ page }) => {
+		await page.goto('/');
+		const dlBefore = await page.evaluate(() => (window as any).dataLayer?.length ?? 0);
+		// Fire a tracked CTA click via trial click (hover/focus without navigating).
+		const cta = page.getByRole('link', { name: /Agendar demo/i }).first();
+		if (await cta.count()) {
+			await cta.click({ trial: true });
+		}
+		await page.waitForTimeout(500);
+		const dlAfter = await page.evaluate(() => (window as any).dataLayer?.length ?? 0);
+		expect(dlAfter).toBe(dlBefore);
 	});
 });
 
