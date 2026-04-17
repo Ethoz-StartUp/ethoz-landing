@@ -13,6 +13,7 @@
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { corsHeaders } from '../_shared/cors.ts';
+import { sendGa4Event } from '../_shared/ga4.ts';
 
 const RECAPTCHA_SECRET = Deno.env.get('RECAPTCHA_SECRET_KEY') || '';
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
@@ -33,6 +34,20 @@ interface LeadPayload {
   visitor_id?: string;
   metadata?: Record<string, unknown>;
   recaptcha_token?: string;
+  // Attribution (populated client-side by captureAttribution)
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
+  gclid?: string;
+  fbclid?: string;
+  li_fat_id?: string;
+  msclkid?: string;
+  referrer?: string;
+  landing_page?: string;
+  first_touch_at?: string;
+  last_touch_at?: string;
 }
 
 function json(data: Record<string, unknown>, status = 200) {
@@ -112,6 +127,19 @@ Deno.serve(async (req: Request) => {
       status: payload.status || 'new',
       visitor_id: payload.visitor_id || null,
       metadata: payload.metadata || null,
+      utm_source: payload.utm_source || null,
+      utm_medium: payload.utm_medium || null,
+      utm_campaign: payload.utm_campaign || null,
+      utm_content: payload.utm_content || null,
+      utm_term: payload.utm_term || null,
+      gclid: payload.gclid || null,
+      fbclid: payload.fbclid || null,
+      li_fat_id: payload.li_fat_id || null,
+      msclkid: payload.msclkid || null,
+      referrer: payload.referrer || null,
+      landing_page: payload.landing_page || null,
+      first_touch_at: payload.first_touch_at || null,
+      last_touch_at: payload.last_touch_at || null,
       created_at: new Date().toISOString(),
     };
 
@@ -137,6 +165,20 @@ Deno.serve(async (req: Request) => {
       }
     } catch {
       // Notification failure should never block lead save
+    }
+
+    // GA4 MP backup — fires even when client consent denies GTM.
+    if (payload.visitor_id) {
+      sendGa4Event(payload.visitor_id, {
+        name: 'lead_submitted',
+        params: {
+          source: payload.contact_source || 'unknown',
+          school_name: payload.school_name || '',
+          utm_source: payload.utm_source || '',
+          utm_medium: payload.utm_medium || '',
+          utm_campaign: payload.utm_campaign || '',
+        },
+      }).catch(() => {});
     }
 
     console.info(`[verify-lead] Lead saved: ${payload.contact_email.slice(0, 3)}*** (score: ${score})`);

@@ -1,6 +1,7 @@
 <script lang="ts">
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
+  import ResourceGate from '$lib/components/ResourceGate.svelte';
   import { Button } from '$lib/components/ui/button';
   import { t } from '$lib/i18n/index.svelte';
   import {
@@ -13,6 +14,19 @@
     Download
   } from '@lucide/svelte';
 
+  let gateOpen = $state(false);
+  let gateSlug = $state('');
+  let gatePdf = $state('');
+  let gateTitle = $state('');
+
+  function openGate(slug: string, pdf: string, title: string, e: MouseEvent) {
+    e.preventDefault();
+    gateSlug = slug;
+    gatePdf = pdf;
+    gateTitle = title;
+    gateOpen = true;
+  }
+
   const resources = [
     {
       icon: ClipboardCheck,
@@ -20,6 +34,7 @@
       description: '20 ítems en 4 secciones para verificar tu estado de cumplimiento: gobernanza, consentimiento, seguridad técnica y derechos de los titulares.',
       href: '/resources/compliance-checklist',
       pdf: '/downloads/checklist-cumplimiento-ley-21719.pdf',
+      slug: 'compliance-checklist',
       tag: 'Cumplimiento'
     },
     {
@@ -28,6 +43,7 @@
       description: 'Procedimiento completo de 8 pasos para gestionar retiros de alumnos, incluyendo casos especiales y trazabilidad.',
       href: '/resources/pickup-protocol',
       pdf: '/downloads/protocolo-retiros-seguros.pdf',
+      slug: 'pickup-protocol',
       tag: 'Operaciones'
     },
     {
@@ -36,6 +52,7 @@
       description: 'Plantilla conforme al Art. 14 de la Ley 21.719 lista para adaptar con los datos de tu establecimiento.',
       href: '/resources/privacy-notice',
       pdf: '/downloads/aviso-privacidad-escolar.pdf',
+      slug: 'privacy-notice',
       tag: 'Legal'
     },
     {
@@ -44,6 +61,7 @@
       description: 'Matriz de permisos recomendada para Director, Inspector, UTP, Orientador, Docente, Portero y Auxiliar.',
       href: '/resources/roles-permissions-guide',
       pdf: '/downloads/guia-roles-permisos.pdf',
+      slug: 'roles-permissions-guide',
       tag: 'Gobernanza'
     },
     {
@@ -52,6 +70,7 @@
       description: 'Inventario estructurado de todas las categorías de datos tratados por el colegio, con base legal y plazos de retención.',
       href: '/resources/data-inventory',
       pdf: '/downloads/inventario-datos-personales.pdf',
+      slug: 'data-inventory',
       tag: 'Cumplimiento'
     },
     {
@@ -60,6 +79,7 @@
       description: 'Plantilla completa con equipo de respuesta, clasificación de brechas y procedimiento de notificación en 72 horas (Art. 30).',
       href: '/resources/breach-response-plan',
       pdf: '/downloads/plan-respuesta-brechas.pdf',
+      slug: 'breach-response-plan',
       tag: 'Incidentes'
     }
   ];
@@ -115,7 +135,12 @@
           <h2 class="text-base font-semibold text-foreground leading-snug mb-2">{resource.title}</h2>
           <p class="text-sm text-muted-foreground leading-relaxed flex-1 mb-5">{resource.description}</p>
           <div class="flex gap-2">
-            <a href={resource.pdf} download class="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+            <a
+              href={resource.pdf}
+              download
+              onclick={(e) => openGate(resource.slug, resource.pdf, resource.title, e)}
+              class="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            >
               <Download class="size-4" />
               {t('resources.download_pdf')}
             </a>
@@ -141,4 +166,12 @@
   </section>
 
   <Footer />
+
+  <ResourceGate
+    bind:open={gateOpen}
+    slug={gateSlug}
+    pdfUrl={gatePdf}
+    title={gateTitle}
+    onclose={() => {}}
+  />
 </main>
