@@ -14,16 +14,18 @@ export const es = {
 
   // Hero
   'hero.badge': 'Cumple con Ley 21.719',
-  'hero.title': 'Protección de datos y seguimiento integral para colegios chilenos',
+  'hero.title': 'Cada alumno protegido. Cada retiro verificado. Antes de diciembre 2026.',
   'hero.subtitle':
-    'Seguimiento de alumnos, alertas críticas y protección de datos — diseñado para la realidad normativa chilena.',
+    'La plataforma de seguridad escolar diseñada para la Ley 21.719 chilena — sin reemplazar el sistema que ya usas.',
   'hero.cta.primary': 'Agendar Demo',
   'hero.cta.secondary': 'Postular al Piloto 2026',
 
-  // Trust badges
-  'trust.compliance': 'Cumple Ley 21.719',
-  'trust.encryption': 'Cifrado de grado bancario',
-  'trust.integration': 'Compatible con Napsis y SIGE',
+  // Trust bar — provable facts, not generic badges
+  'trust.attribution': 'Desarrollado en Chile · Cumplimiento por diseño desde el origen',
+  'trust.compliance': 'Construido para Ley 21.719',
+  'trust.encryption': 'Cifrado y auditoría según Ley 21.719',
+  'trust.integration': 'Diseñado para integrarse con Napsis, SIGE y Lirmi',
+  'trust.servers': 'Datos en Santiago, Chile (Google Cloud)',
   'trust.directory': 'Directorio de 12.038 establecimientos',
 
   // Problem section
@@ -86,7 +88,7 @@ export const es = {
   'compliance.overline': 'Cumplimiento normativo',
   'compliance.title': 'La Ley 21.719 entra en vigencia pronto',
   'compliance.subtitle':
-    'Los colegios que no estén preparados enfrentan multas de hasta 20.000 UTM. Ethoz te pone en cumplimiento desde el día uno.',
+    'Los colegios que no estén preparados enfrentan multas de hasta 20.000 UTM. Ethoz fue diseñado para que tu colegio cumpla la Ley 21.719.',
   'compliance.countdown.label': 'Tiempo restante para la entrada en vigencia',
   'compliance.countdown.days': 'días',
   'compliance.countdown.hours': 'horas',
@@ -207,6 +209,7 @@ export const es = {
   'faq.section_product': 'Sobre Ethoz',
   'faq.section_law': 'Sobre la Ley 21.719',
   'faq.view_all': 'Ver todas las preguntas',
+  'faq.contact_link': '¿Otra pregunta? Escríbenos',
 
   // Showcase section
   'showcase.overline': 'El producto en acción',
@@ -532,6 +535,7 @@ export const es = {
   'hero.video_long': 'Conoce Ethoz en 2 min',
   'hero.video_short': 'Ver video',
   'hero.mockup_title': 'Ethoz — Panel de Seguimiento',
+  'hero.mockup_demo_label': 'Vista demo',
   'hero.no_alerts': 'Sin alertas',
   'hero.recent_history': 'Historial reciente',
 
@@ -558,27 +562,33 @@ export const es = {
   'home.roles.title': 'Cada persona ve exactamente lo que necesita',
   'home.roles.directora.title': 'Directora',
   'home.roles.directora.desc': 'Indicadores, métricas, informes y exportación de datos.',
-  'home.roles.directora.alt': 'Directora de colegio usando Ethoz',
+  'home.roles.directora.alt': 'Ilustración del rol: Directora de colegio',
   'home.roles.inspector.title': 'Inspector',
   'home.roles.inspector.desc': 'Alertas activas, observaciones conductuales y retiros.',
-  'home.roles.inspector.alt': 'Inspector escolar usando Ethoz',
+  'home.roles.inspector.alt': 'Ilustración del rol: Inspector escolar',
   'home.roles.docente.title': 'Docente',
   'home.roles.docente.desc': 'Perfil del alumno, observaciones académicas y alertas de su curso.',
-  'home.roles.docente.alt': 'Docente usando Ethoz para ver perfil de alumno',
+  'home.roles.docente.alt': 'Ilustración del rol: Docente',
   'home.roles.orientadora.title': 'Orientadora',
   'home.roles.orientadora.desc': 'Perfil completo incluyendo observaciones emocionales y derivaciones.',
-  'home.roles.orientadora.alt': 'Orientadora escolar con acceso al perfil completo',
+  'home.roles.orientadora.alt': 'Ilustración del rol: Orientadora',
   'home.roles.portero.title': 'Portero',
   'home.roles.portero.desc': 'Solo foto, nombre, alertas críticas y registro de retiros.',
-  'home.roles.portero.alt': 'Portero verificando retiro escolar con Ethoz',
+  'home.roles.portero.alt': 'Ilustración del rol: Portero',
   'home.roles.apoderado.title': 'Apoderado',
   'home.roles.apoderado.desc': 'Estado de su hijo, retiros registrados y comunicaciones del colegio.',
-  'home.roles.apoderado.alt': 'Apoderada consultando estado de su hijo en Ethoz',
+  'home.roles.apoderado.alt': 'Ilustración del rol: Apoderado',
 
   // Home page — how it works time labels
+  'home.how.subtitle': 'Sin licitaciones, sin instalaciones, sin servidores propios. Implementación acompañada por nuestro equipo.',
+  'home.how.step_label': 'Paso',
+  'home.how.cta': 'Empezar mi colegio',
   'home.how.step1.time': '48 horas',
   'home.how.step2.time': '2 semanas',
   'home.how.step3.time': 'Día 1',
+
+  // Home page — meta
+  'home.meta.title': 'Ethoz — Protección y seguimiento escolar para Chile (Ley 21.719)',
 
   // Get-started page
   'getstarted.hero.title': 'Fácil de contratar, fácil de implementar',

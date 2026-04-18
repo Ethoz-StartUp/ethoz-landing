@@ -14,16 +14,18 @@ export const en = {
 
   // Hero
   'hero.badge': 'Compliant with Law 21.719',
-  'hero.title': 'The digital shield for your school community',
+  'hero.title': 'Every student protected. Every pickup verified. Before December 2026.',
   'hero.subtitle':
-    'Student tracking, critical alerts, and data protection — built for Chile\'s regulatory reality.',
+    'The school safety platform built for Chile\'s Ley 21.719 — without replacing the system you already use.',
   'hero.cta.primary': 'Book a Demo',
   'hero.cta.secondary': 'Apply for the 2026 Pilot',
 
-  // Trust badges
-  'trust.compliance': 'Law 21.719 Compliant',
-  'trust.encryption': 'Bank-grade encryption',
-  'trust.integration': 'Works with Napsis and SIGE',
+  // Trust bar — provable facts, not generic badges
+  'trust.attribution': 'Built in Chile · Compliance by design from day one',
+  'trust.compliance': 'Built for Ley 21.719',
+  'trust.encryption': 'Encryption and audit per Ley 21.719',
+  'trust.integration': 'Designed to integrate with Napsis, SIGE and Lirmi',
+  'trust.servers': 'Data in Santiago, Chile (Google Cloud)',
   'trust.directory': 'Directory of 12,038 schools',
 
   // Problem section
@@ -86,7 +88,7 @@ export const en = {
   'compliance.overline': 'Regulatory compliance',
   'compliance.title': 'Law 21.719 takes effect soon',
   'compliance.subtitle':
-    'Schools that aren\'t prepared face fines of up to 20,000 UTM. Ethoz puts you in compliance from day one.',
+    'Schools that aren\'t prepared face fines of up to 20,000 UTM. Ethoz was built so your school can comply with Ley 21.719.',
   'compliance.countdown.label': 'Time remaining until enforcement',
   'compliance.countdown.days': 'days',
   'compliance.countdown.hours': 'hours',
@@ -185,6 +187,7 @@ export const en = {
   'faq.section_product': 'About Ethoz',
   'faq.section_law': 'About Ley 21.719',
   'faq.view_all': 'View all questions',
+  'faq.contact_link': 'Another question? Contact us',
 
   'faq.q11': 'We already use another school management platform. Why do we need Ethoz?',
   'faq.a11': 'Ethoz complements your current academic system. For the gradebook, we integrate with platforms like Napsis or Syscol. If your school doesn\'t have a digital system, we include a basic module compliant with Circular N°30.',
@@ -527,6 +530,7 @@ export const en = {
   'hero.video_long': 'Meet Ethoz in 2 min',
   'hero.video_short': 'Watch video',
   'hero.mockup_title': 'Ethoz — Tracking Dashboard',
+  'hero.mockup_demo_label': 'Demo view',
   'hero.no_alerts': 'No alerts',
   'hero.recent_history': 'Recent history',
 
@@ -553,27 +557,33 @@ export const en = {
   'home.roles.title': 'Every person sees exactly what they need',
   'home.roles.directora.title': 'Director',
   'home.roles.directora.desc': 'Indicators, metrics, reports, and data export.',
-  'home.roles.directora.alt': 'School director using Ethoz',
+  'home.roles.directora.alt': 'Role illustration: School director',
   'home.roles.inspector.title': 'Inspector',
   'home.roles.inspector.desc': 'Active alerts, behavioral observations, and pickups.',
-  'home.roles.inspector.alt': 'School inspector using Ethoz',
+  'home.roles.inspector.alt': 'Role illustration: School inspector',
   'home.roles.docente.title': 'Teacher',
   'home.roles.docente.desc': 'Student profile, academic observations, and classroom alerts.',
-  'home.roles.docente.alt': 'Teacher using Ethoz to view student profile',
+  'home.roles.docente.alt': 'Role illustration: Teacher',
   'home.roles.orientadora.title': 'Counselor',
   'home.roles.orientadora.desc': 'Full profile including emotional observations and referrals.',
-  'home.roles.orientadora.alt': 'School counselor with full profile access',
+  'home.roles.orientadora.alt': 'Role illustration: School counselor',
   'home.roles.portero.title': 'Porter',
   'home.roles.portero.desc': 'Only photo, name, critical alerts, and pickup records.',
-  'home.roles.portero.alt': 'Porter verifying school pickup with Ethoz',
+  'home.roles.portero.alt': 'Role illustration: Porter',
   'home.roles.apoderado.title': 'Parent',
   'home.roles.apoderado.desc': 'Child\'s status, recorded pickups, and school communications.',
-  'home.roles.apoderado.alt': 'Parent checking child\'s status on Ethoz',
+  'home.roles.apoderado.alt': 'Role illustration: Parent',
 
   // Home page — how it works time labels
+  'home.how.subtitle': 'No procurement, no installations, no servers of your own. Implementation guided by our team.',
+  'home.how.step_label': 'Step',
+  'home.how.cta': 'Start my school',
   'home.how.step1.time': '48 hours',
   'home.how.step2.time': '2 weeks',
   'home.how.step3.time': 'Day 1',
+
+  // Home page — meta
+  'home.meta.title': 'Ethoz — School data protection and tracking for Chile (Ley 21.719)',
 
   // Get-started page
   'getstarted.hero.title': 'Easy to contract, easy to implement',

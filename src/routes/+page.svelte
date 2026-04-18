@@ -32,7 +32,10 @@
     ChevronDown,
     Plus,
     Minus,
-    Play
+    Play,
+    Plug,
+    Database,
+    Rocket
   } from '@lucide/svelte';
 
   // ── Reactive state ──
@@ -45,29 +48,31 @@
     openFaq = openFaq === index ? null : index;
   }
 
-  // ── Countdown state ──
-  let countdownDays = $state(0);
-  let countdownHours = $state(0);
-  let countdownMinutes = $state(0);
-
-  function updateCountdown() {
+  // ── Countdown state ── (initialized synchronously so SSR + first paint show real values)
+  function computeCountdown() {
     const target = new Date('2026-12-01T00:00:00-03:00');
-    const now = new Date();
-    const diff = target.getTime() - now.getTime();
-    if (diff <= 0) {
-      countdownDays = 0;
-      countdownHours = 0;
-      countdownMinutes = 0;
-      return;
-    }
-    countdownDays = Math.floor(diff / (1000 * 60 * 60 * 24));
-    countdownHours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    countdownMinutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const diff = target.getTime() - Date.now();
+    if (diff <= 0) return { days: 0, hours: 0, minutes: 0 };
+    return {
+      days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+    };
   }
+  const initial = computeCountdown();
+  let countdownDays = $state(initial.days);
+  let countdownHours = $state(initial.hours);
+  let countdownMinutes = $state(initial.minutes);
 
   $effect(() => {
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 60_000);
+    const tick = () => {
+      const c = computeCountdown();
+      countdownDays = c.days;
+      countdownHours = c.hours;
+      countdownMinutes = c.minutes;
+    };
+    tick();
+    const interval = setInterval(tick, 60_000);
     return () => clearInterval(interval);
   });
 
@@ -126,14 +131,25 @@
   ];
 
   let currentStudent = $state(0);
+  let carouselPaused = $state(false);
   const activeStudent = $derived(heroStudents[currentStudent]);
 
+  // Auto-advance carousel — pauses on hover/focus and respects reduced-motion (WCAG 2.2.2)
   $effect(() => {
+    if (carouselPaused) return;
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const interval = setInterval(() => {
       currentStudent = (currentStudent + 1) % heroStudents.length;
     }, 5000);
     return () => clearInterval(interval);
   });
+
+  // Compact countdown label for hero badge
+  const heroCountdownLabel = $derived(
+    countdownDays > 0
+      ? `Faltan ${countdownDays} días para Ley 21.719`
+      : `Ley 21.719 en vigencia`
+  );
 </script>
 
 <!-- Scroll listener (guarded to avoid no-op reactivity writes) -->
@@ -143,7 +159,7 @@
 }} />
 
 <svelte:head>
-  <title>Ethoz — {t('hero.title')}</title>
+  <title>{t('home.meta.title')}</title>
   <meta name="description" content="Ethoz — Software de gestión y protección de datos escolares para colegios de Chile. Cumple con la Ley 21.719 antes del plazo de diciembre 2026." />
   <meta property="og:url" content="https://ethoz.cl/" />
   <meta property="og:type" content="website" />
@@ -233,19 +249,25 @@
 
       <!-- Left column: headline + CTAs -->
       <div class="flex flex-col items-center text-center sm:items-start sm:text-left">
-        <!-- Badge -->
-        <Badge variant="secondary" class="animate-fade-in-up mb-4 gap-1.5 px-3 py-1 text-xs font-medium">
-          <Shield class="size-3.5" />
-          {t('hero.badge')}
-        </Badge>
+        <!-- Live urgency badge — pulsing dot + countdown -->
+        <div
+          class="animate-fade-in-up mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.06] px-3 py-1.5 text-xs font-medium text-foreground"
+          aria-label={heroCountdownLabel}
+        >
+          <span class="relative flex size-2 shrink-0">
+            <span class="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-60"></span>
+            <span class="relative inline-flex size-2 rounded-full bg-primary"></span>
+          </span>
+          <span aria-hidden="true">{heroCountdownLabel}</span>
+        </div>
 
         <!-- Headline -->
-        <h1 class="animate-fade-in-up animate-delay-100 w-full text-2xl font-bold tracking-tight text-foreground sm:text-balance sm:text-4xl lg:text-5xl">
+        <h1 class="animate-fade-in-up animate-delay-100 w-full text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[3.25rem] lg:leading-[1.05]">
           {t('hero.title')}
         </h1>
 
         <!-- Subtitle -->
-        <p class="animate-fade-in-up animate-delay-200 mt-5 text-sm leading-relaxed text-muted-foreground sm:text-lg">
+        <p class="animate-fade-in-up animate-delay-200 mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
           {t('hero.subtitle')}
         </p>
 
@@ -272,13 +294,25 @@
 
       <!-- Right column: dashboard mockup -->
       <div class="animate-fade-in-up animate-delay-400 w-full">
-        <div class="rounded-xl border border-border bg-card shadow-2xl">
+        <div
+          class="rounded-xl border border-border bg-card shadow-2xl"
+          role="region"
+          aria-roledescription="carrusel"
+          aria-label="Vista del panel Ethoz"
+          onmouseenter={() => (carouselPaused = true)}
+          onmouseleave={() => (carouselPaused = false)}
+          onfocusin={() => (carouselPaused = true)}
+          onfocusout={() => (carouselPaused = false)}
+        >
           <!-- macOS-style title bar -->
           <div class="flex items-center gap-2 border-b border-border px-4 py-3">
             <div class="size-3 rounded-full bg-destructive/60"></div>
             <div class="size-3 rounded-full bg-warning/60"></div>
             <div class="size-3 rounded-full bg-success/60"></div>
             <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
+            <span class="ml-auto inline-flex items-center gap-1 rounded-full border border-border bg-muted/60 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+              {t('hero.mockup_demo_label')}
+            </span>
           </div>
 
           <!-- Dashboard content — carousel -->
@@ -345,11 +379,12 @@
 
           <!-- Carousel dots -->
           <div class="flex items-center justify-center gap-2 border-t border-border px-4 py-3">
-            {#each heroStudents as _, i}
+            {#each heroStudents as student, i}
               <button
                 onclick={() => { currentStudent = i; }}
                 class="flex items-center justify-center p-2"
-                aria-label="Student {i + 1}"
+                aria-label={`Ver ${student.name}`}
+                aria-current={currentStudent === i ? 'true' : undefined}
               >
                 <span class="block size-2 rounded-full transition-all {currentStudent === i ? 'w-6 bg-primary' : 'bg-border hover:bg-muted-foreground'}"></span>
               </button>
@@ -362,29 +397,32 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       SECTION 3: TRUST BAR
+       SECTION 3: TRUST BAR — provable facts, not generic badges
        ═══════════════════════════════════════════ -->
-  <section class="border-y border-border bg-secondary py-8">
+  <section class="border-y border-border bg-secondary py-8" aria-label="Por qué confiar en Ethoz">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-12">
+      <p class="text-center text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+        {t('trust.attribution')}
+      </p>
+      <div class="mt-5 flex flex-col items-center justify-center gap-5 sm:flex-row sm:flex-wrap sm:gap-x-10 sm:gap-y-3">
         <div class="trust-item flex items-center gap-2.5">
-          <Shield class="size-4 text-primary" />
-          <p class="text-sm font-medium text-foreground">{t('trust.compliance')}</p>
+          <Building class="size-4 shrink-0 text-primary" />
+          <p class="text-sm font-medium text-foreground">{t('trust.servers')}</p>
         </div>
         <div class="hidden h-4 w-px bg-border sm:block"></div>
         <div class="trust-item flex items-center gap-2.5">
-          <Lock class="size-4 text-primary" />
+          <Lock class="size-4 shrink-0 text-primary" />
           <p class="text-sm font-medium text-foreground">{t('trust.encryption')}</p>
         </div>
         <div class="hidden h-4 w-px bg-border sm:block"></div>
         <div class="trust-item flex items-center gap-2.5">
-          <Zap class="size-4 text-primary" />
+          <Zap class="size-4 shrink-0 text-primary" />
           <p class="text-sm font-medium text-foreground">{t('trust.integration')}</p>
         </div>
         <div class="hidden h-4 w-px bg-border sm:block"></div>
         <div class="trust-item flex items-center gap-2.5">
-          <Building class="size-4 text-primary" />
-          <p class="text-sm font-medium text-foreground">{t('trust.directory')}</p>
+          <Shield class="size-4 shrink-0 text-primary" />
+          <p class="text-sm font-medium text-foreground">{t('trust.compliance')}</p>
         </div>
       </div>
     </div>
@@ -412,7 +450,7 @@
       <div class="mx-auto mt-10 grid gap-6 sm:grid-cols-3">
         <div class="rounded-xl border border-border bg-card p-6">
           <div class="flex items-center gap-2.5">
-            <AlertTriangle class="size-4.5 shrink-0 text-warning-foreground" />
+            <AlertTriangle class="size-5 shrink-0 text-warning-foreground" />
             <h3 class="text-base font-semibold text-foreground">{t('problem.card1.title')}</h3>
           </div>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('problem.card1.desc')}</p>
@@ -420,7 +458,7 @@
 
         <div class="rounded-xl border border-border bg-card p-6">
           <div class="flex items-center gap-2.5">
-            <Shield class="size-4.5 shrink-0 text-destructive" />
+            <Shield class="size-5 shrink-0 text-destructive" />
             <h3 class="text-base font-semibold text-foreground">{t('problem.card2.title')}</h3>
           </div>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('problem.card2.desc')}</p>
@@ -428,7 +466,7 @@
 
         <div class="rounded-xl border border-border bg-card p-6">
           <div class="flex items-center gap-2.5">
-            <FileCheck class="size-4.5 shrink-0 text-primary" />
+            <FileCheck class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">{t('problem.card3.title')}</h3>
           </div>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('problem.card3.desc')}</p>
@@ -462,8 +500,8 @@
           <span class="text-xs font-bold tabular-nums tracking-wider text-primary/40">01</span>
           <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('features.record.title')}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.record.desc')}</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
-            {t('features.learn_more')} <ChevronRight class="size-3.5" />
+          <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:opacity-60 md:transition-opacity md:group-hover:opacity-100">
+            {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
           </span>
         </a>
 
@@ -472,8 +510,8 @@
           <span class="text-xs font-bold tabular-nums tracking-wider text-primary/40">02</span>
           <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('features.pickup.title')}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.pickup.desc')}</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
-            {t('features.learn_more')} <ChevronRight class="size-3.5" />
+          <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:opacity-60 md:transition-opacity md:group-hover:opacity-100">
+            {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
           </span>
         </a>
 
@@ -482,8 +520,8 @@
           <span class="text-xs font-bold tabular-nums tracking-wider text-primary/40">03</span>
           <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('features.rbac.title')}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.rbac.desc')}</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
-            {t('features.learn_more')} <ChevronRight class="size-3.5" />
+          <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:opacity-60 md:transition-opacity md:group-hover:opacity-100">
+            {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
           </span>
         </a>
 
@@ -492,8 +530,8 @@
           <span class="text-xs font-bold tabular-nums tracking-wider text-primary/40">04</span>
           <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('features.search.title')}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.search.desc')}</p>
-          <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
-            {t('features.learn_more')} <ChevronRight class="size-3.5" />
+          <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:opacity-60 md:transition-opacity md:group-hover:opacity-100">
+            {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
           </span>
         </a>
       </div>
@@ -536,8 +574,12 @@
           <span class="mr-2 inline-block size-2 animate-pulse rounded-full bg-destructive"></span>
           {t('compliance.countdown.label')}
         </p>
-        <div class="grid grid-cols-3 gap-3 sm:gap-4 overflow-hidden">
-          <div class="overflow-hidden rounded-xl border border-border bg-background p-4 text-center shadow-sm sm:p-6">
+        <div
+          class="grid grid-cols-3 gap-3 sm:gap-4 overflow-hidden"
+          role="group"
+          aria-label={`Faltan ${countdownDays} días, ${countdownHours} horas y ${countdownMinutes} minutos`}
+        >
+          <div class="overflow-hidden rounded-xl border border-border bg-background p-4 text-center shadow-sm sm:p-6" aria-hidden="true">
             <span class="block text-4xl font-bold tabular-nums tracking-tighter text-primary sm:text-6xl">
               {countdownDays}
             </span>
@@ -545,7 +587,7 @@
               {t('compliance.countdown.days')}
             </span>
           </div>
-          <div class="overflow-hidden rounded-xl border border-border bg-background p-4 text-center shadow-sm sm:p-6">
+          <div class="overflow-hidden rounded-xl border border-border bg-background p-4 text-center shadow-sm sm:p-6" aria-hidden="true">
             <span class="block text-4xl font-bold tabular-nums tracking-tighter text-primary sm:text-6xl">
               {countdownHours}
             </span>
@@ -553,7 +595,7 @@
               {t('compliance.countdown.hours')}
             </span>
           </div>
-          <div class="overflow-hidden rounded-xl border border-border bg-background p-4 text-center shadow-sm sm:p-6">
+          <div class="overflow-hidden rounded-xl border border-border bg-background p-4 text-center shadow-sm sm:p-6" aria-hidden="true">
             <span class="block text-4xl font-bold tabular-nums tracking-tighter text-primary sm:text-6xl">
               {countdownMinutes}
             </span>
@@ -586,66 +628,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       SECTION 7.5: ROLES — cada cargo ve lo que necesita
-       ═══════════════════════════════════════════ -->
-  <section class="bg-secondary py-16 sm:py-20">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('home.roles.overline')}</p>
-        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          {t('home.roles.title')}
-        </h2>
-      </div>
-
-      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/director-mujer.webp" alt={t('home.roles.directora.alt')} class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
-          <div>
-            <p class="text-sm font-semibold text-foreground">{t('home.roles.directora.title')}</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.roles.directora.desc')}</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/inspector-hombre.webp" alt={t('home.roles.inspector.alt')} class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
-          <div>
-            <p class="text-sm font-semibold text-foreground">{t('home.roles.inspector.title')}</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.roles.inspector.desc')}</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/docente-mujer.webp" alt={t('home.roles.docente.alt')} class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
-          <div>
-            <p class="text-sm font-semibold text-foreground">{t('home.roles.docente.title')}</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.roles.docente.desc')}</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/orientadora-mujer.webp" alt={t('home.roles.orientadora.alt')} class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
-          <div>
-            <p class="text-sm font-semibold text-foreground">{t('home.roles.orientadora.title')}</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.roles.orientadora.desc')}</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/portero-hombre.webp" alt={t('home.roles.portero.alt')} class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
-          <div>
-            <p class="text-sm font-semibold text-foreground">{t('home.roles.portero.title')}</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.roles.portero.desc')}</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-          <img src="/images/people/apoderado-madre.webp" alt={t('home.roles.apoderado.alt')} class="size-10 shrink-0 rounded-full object-cover" width="40" height="40" loading="lazy" />
-          <div>
-            <p class="text-sm font-semibold text-foreground">{t('home.roles.apoderado.title')}</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.roles.apoderado.desc')}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════
-       SECTION 8: HOW IT WORKS
+       SECTION 8: HOW IT WORKS — visual progression with icons + connector
        ═══════════════════════════════════════════ -->
   <section class="py-16 sm:py-20" id="how">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -657,24 +640,69 @@
         <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('how.title')}
         </h2>
+        <p class="mt-4 text-base text-muted-foreground sm:text-lg">
+          {t('home.how.subtitle')}
+        </p>
       </div>
 
-      <!-- Steps -->
-      <div class="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-3">
-        <div class="text-center">
-          <span class="text-2xl font-bold text-primary">{t('home.how.step1.time')}</span>
-          <p class="mt-1 text-sm font-medium text-foreground">{t('how.step1.title')}</p>
-          <p class="mt-0.5 text-xs text-muted-foreground">{t('how.step1.desc')}</p>
+      <!-- Steps with connecting line -->
+      <div class="relative mx-auto mt-14 max-w-5xl">
+        <!-- Desktop connector line — sits behind icons -->
+        <div class="pointer-events-none absolute left-[16.66%] right-[16.66%] top-7 hidden h-px sm:block" aria-hidden="true">
+          <div class="h-full w-full bg-gradient-to-r from-transparent via-border to-transparent"></div>
         </div>
-        <div class="text-center">
-          <span class="text-2xl font-bold text-primary">{t('home.how.step2.time')}</span>
-          <p class="mt-1 text-sm font-medium text-foreground">{t('how.step2.title')}</p>
-          <p class="mt-0.5 text-xs text-muted-foreground">{t('how.step2.desc')}</p>
-        </div>
-        <div class="text-center">
-          <span class="text-2xl font-bold text-primary">{t('home.how.step3.time')}</span>
-          <p class="mt-1 text-sm font-medium text-foreground">{t('how.step3.title')}</p>
-          <p class="mt-0.5 text-xs text-muted-foreground">{t('how.step3.desc')}</p>
+
+        <ol class="relative grid gap-10 sm:grid-cols-3 sm:gap-6">
+          <!-- Step 1 -->
+          <li class="flex flex-col items-center text-center">
+            <div class="relative z-10 flex size-14 items-center justify-center rounded-full border border-border bg-background shadow-sm">
+              <Plug class="size-6 text-primary" />
+            </div>
+            <span class="mt-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              {t('home.how.step_label')} 1 · {t('home.how.step1.time')}
+            </span>
+            <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('how.step1.title')}</h3>
+            <p class="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">{t('how.step1.desc')}</p>
+          </li>
+
+          <!-- Step 2 -->
+          <li class="flex flex-col items-center text-center">
+            <div class="relative z-10 flex size-14 items-center justify-center rounded-full border border-border bg-background shadow-sm">
+              <Database class="size-6 text-primary" />
+            </div>
+            <span class="mt-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              {t('home.how.step_label')} 2 · {t('home.how.step2.time')}
+            </span>
+            <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('how.step2.title')}</h3>
+            <p class="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">{t('how.step2.desc')}</p>
+          </li>
+
+          <!-- Step 3 -->
+          <li class="flex flex-col items-center text-center">
+            <div class="relative z-10 flex size-14 items-center justify-center rounded-full border border-primary/30 bg-primary/[0.06] shadow-sm">
+              <Rocket class="size-6 text-primary" />
+            </div>
+            <span class="mt-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
+              {t('home.how.step_label')} 3 · {t('home.how.step3.time')}
+            </span>
+            <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('how.step3.title')}</h3>
+            <p class="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">{t('how.step3.desc')}</p>
+          </li>
+        </ol>
+
+        <!-- Inline CTA right after step 3 -->
+        <div class="mt-12 text-center">
+          <Button
+            size="lg"
+            onclick={async () => {
+              trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'how_it_works' });
+              await goto('/demo');
+            }}
+            class="shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30"
+          >
+            {t('home.how.cta')}
+            <ArrowRight class="size-4" />
+          </Button>
         </div>
       </div>
     </div>
@@ -698,9 +726,11 @@
         {#each [1, 2, 11, 3, 15, 4, 12] as n, i}
           <div>
             <button
+              id={`faq-trigger-${i}`}
               onclick={() => toggleFaq(i)}
               class="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-muted/50"
               aria-expanded={openFaq === i}
+              aria-controls={`faq-panel-${i}`}
             >
               <span class="pr-8 text-sm font-semibold text-foreground">{t(`faq.q${n}` as TranslationKey)}</span>
               {#if openFaq === i}
@@ -710,7 +740,13 @@
               {/if}
             </button>
             {#if openFaq === i}
-              <div transition:slide={{ duration: 200 }} class="px-6 pb-5">
+              <div
+                id={`faq-panel-${i}`}
+                role="region"
+                aria-labelledby={`faq-trigger-${i}`}
+                transition:slide={{ duration: 200 }}
+                class="px-6 pb-5"
+              >
                 <p class="text-sm leading-relaxed text-muted-foreground">
                   {t(`faq.a${n}` as TranslationKey)}
                 </p>
@@ -718,6 +754,14 @@
             {/if}
           </div>
         {/each}
+      </div>
+
+      <!-- Inline contact link — no /faq page yet, route to /contact for unanswered questions -->
+      <div class="mt-6 text-center">
+        <a href="/contact" class="inline-flex items-center gap-1 text-sm font-medium text-primary hover:opacity-80">
+          {t('faq.contact_link')}
+          <ArrowRight class="size-3.5" />
+        </a>
       </div>
     </div>
   </section>
