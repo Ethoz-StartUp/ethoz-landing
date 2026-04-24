@@ -2,7 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
-  import { ArrowRight, ArrowLeft, Plug, Upload, Database, Check, Zap, Building } from '@lucide/svelte';
+  import { ArrowRight, Plug, Upload, Database, Check, Zap, Building } from '@lucide/svelte';
   import { trackEvent } from '$lib/utils/analytics';
 
   $effect(() => { trackEvent('integrations_page_viewed'); });
@@ -28,11 +28,7 @@
   <!-- Hero -->
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <a href="/productos" class="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
-        <ArrowLeft class="size-3.5" />
-        Volver a productos
-      </a>
-      <div class="mt-6 max-w-3xl">
+      <div class="max-w-3xl">
         <div class="flex items-center gap-3">
           <Plug class="size-6 shrink-0 text-primary" />
           <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
