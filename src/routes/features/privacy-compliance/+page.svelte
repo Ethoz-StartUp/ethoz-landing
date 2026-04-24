@@ -144,9 +144,24 @@
     </div>
   </section>
 
+  <!-- Editorial anchor — privacy-by-design thesis -->
+  <section class="py-12 sm:py-14" aria-labelledby="privacy-editorial">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <p id="privacy-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Privacidad por diseño</p>
+      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+        Cumplir la Ley 21.719 no es agregar un módulo al final. Es cambiar cómo se almacena cada campo desde el principio.
+      </blockquote>
+      <p class="mt-6 text-sm text-muted-foreground">
+        Los sistemas que prometen "adaptarse" antes de diciembre 2026 arrastran su arquitectura vieja. Ethoz nació después de la ley, no antes.
+      </p>
+    </div>
+  </section>
+
   <!-- Data inventory section -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
+      <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary">Registro de tratamiento</p>
       <h2 class="mb-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Inventario de datos categorizados</h2>
       <p class="mb-8 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         Ethoz genera automáticamente el inventario de datos personales que la Ley 21.719 exige documentar. Cada categoría tiene su base legal y nivel de sensibilidad asignado.
@@ -253,21 +268,35 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
-      <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">¿Listo para empezar?</h2>
-      <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-        Agenda una demo y ve cómo Ethoz te pone en cumplimiento con la Ley 21.719 desde el día uno.
+  <!-- Final CTA — dark navy editorial close with deadline footnote -->
+  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="privacy-cta">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Ley 21.719 · Vigencia plena en diciembre 2026</p>
+      <h2 id="privacy-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+        El cumplimiento no se improvisa la semana antes.
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+        Agenda una evaluación de 30 minutos. Revisamos tu flujo actual de datos y tu exposición real.
       </p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <Button size="lg" href="/demo">
-          Agendar Demo <ArrowRight class="size-4" />
-        </Button>
-        <Button size="lg" variant="outline" href="/#features">
-          Ver todas las funciones
-        </Button>
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/demo"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
+          Agendar evaluación
+          <ArrowRight class="size-4" />
+        </a>
+        <a
+          href="/ley-21719"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
+          Entender la ley primero
+        </a>
       </div>
+      <p class="mt-8 text-xs text-background/60">
+        Multas hasta 20.000 UTM (~$1.300M CLP) o el 4% de los ingresos anuales · por establecimiento.
+      </p>
     </div>
   </section>
 

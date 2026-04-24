@@ -184,6 +184,20 @@
     </div>
   </section>
 
+  <!-- Editorial anchor — portero voice -->
+  <section class="py-12 sm:py-14" aria-labelledby="portero-editorial">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <p id="portero-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">La pantalla responde · el portero decide</p>
+      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+        El portero no debería cargar con las decisiones legales del colegio a las 14:30.
+      </blockquote>
+      <p class="mt-6 text-sm text-muted-foreground">
+        Ethoz le muestra lo imprescindible: verde o rojo. El resto —la orden judicial, los datos médicos, el historial— vive en el rol que corresponde.
+      </p>
+    </div>
+  </section>
+
   <!-- El retiro de las 14:30 — escenario real -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
@@ -215,7 +229,7 @@
             tiempo: '4 seg'
           },
         ] as step}
-          <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
+          <div class="group border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
             <div class="mb-3 flex items-center gap-3">
               <span class="flex size-7 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">{step.num}</span>
               <p class="text-sm font-semibold text-foreground">{step.titulo}</p>
@@ -370,20 +384,31 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-12 sm:py-14">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
-      <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">¿Tu portería necesita esto?</h2>
-      <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-        Agenda una demo de 20 minutos y muéstrale la pantalla a tu equipo de portería. La decisión la toman ellos.
+  <!-- Final CTA — dark navy editorial close -->
+  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="portero-cta">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Portería · Herramienta concreta, 15 segundos por retiro</p>
+      <h2 id="portero-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+        Muéstrale la pantalla al equipo. La decisión la toman ellos.
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+        Demo de 20 minutos para tu portería. Sin consultores, sin mails de seguimiento.
       </p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <Button size="lg" href="/demo">
-          Solicita una demo para tu portería <ArrowRight class="size-4" />
-        </Button>
-        <Button size="lg" variant="outline" href="/#features">
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/demo"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
+          Agendar demo para portería
+          <ArrowRight class="size-4" />
+        </a>
+        <a
+          href="/#features"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
           Ver todas las funciones
-        </Button>
+        </a>
       </div>
     </div>
   </section>

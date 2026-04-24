@@ -150,11 +150,15 @@
         <div class="mx-auto mb-4 flex size-14 items-center justify-center rounded-full bg-primary/10">
           <GraduationCap class="size-7 text-primary" />
         </div>
+        <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Demo personalizada · 30 minutos</p>
         <h1 class="text-2xl font-bold tracking-tight text-foreground">
           {t('demo.step1.title')}
         </h1>
         <p class="mt-2 text-sm text-muted-foreground">
           {t('demo.step1.subtitle')}
+        </p>
+        <p class="mx-auto mt-5 max-w-md text-xs leading-relaxed text-muted-foreground">
+          Cargamos tu colegio, tus cursos y un caso real similar. No hablamos de features; te mostramos cómo quedaría el lunes próximo.
         </p>
       </div>
 

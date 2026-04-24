@@ -136,6 +136,20 @@
     </div>
   </section>
 
+  <!-- Editorial anchor — libro digital thesis -->
+  <section class="py-12 sm:py-14" aria-labelledby="attendance-editorial">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <p id="attendance-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Circular N°30 · Obligatoria desde 2024</p>
+      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+        El libro de clases en papel no cumple. Uno en PDF tampoco.
+      </blockquote>
+      <p class="mt-6 text-sm text-muted-foreground">
+        La Circular N°30 del MINEDUC exige firma electrónica, trazabilidad y respaldo en nube. Lo que no es libro digital con esos tres pilares, no vale ante una fiscalización.
+      </p>
+    </div>
+  </section>
+
   <!-- Features -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -178,7 +192,7 @@
         </div>
 
         <!-- Justification flow mockup -->
-        <div class="rounded-xl border border-border bg-card shadow-xl">
+        <div class="rounded-xl border border-border bg-card shadow-mockup">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -275,20 +289,31 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
-      <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">¿Tu colegio aún usa planillas de asistencia?</h2>
-      <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-        Agenda una demo y te mostramos el módulo de asistencia con tus cursos reales cargados.
+  <!-- Final CTA — dark navy editorial close -->
+  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="attendance-cta">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Asistencia · Conforme a Circular N°30</p>
+      <h2 id="attendance-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+        Que el libro de clases deje de ser un riesgo y sea una herramienta.
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+        Demo con los cursos de tu colegio cargados. Quince minutos.
       </p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <Button size="lg" href="/demo">
-          Agendar Demo <ArrowRight class="size-4" />
-        </Button>
-        <Button size="lg" variant="outline" href="/productos">
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/demo"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
+          Agendar demo
+          <ArrowRight class="size-4" />
+        </a>
+        <a
+          href="/productos"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
           Ver todos los módulos
-        </Button>
+        </a>
       </div>
     </div>
   </section>

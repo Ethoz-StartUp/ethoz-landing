@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" role="img" aria-labelledby="portal-l">
-  <title id="portal-l">Ethoz</title>
-  <g transform="translate(4, 2)">
-    <path d="M8 40V18C8 8.5 13.5 4 21 4C28.5 4 34 8.5 34 18V40" stroke="#0F172A" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <line x1="8" y1="40" x2="34" y2="40" stroke="#0F172A" stroke-width="2.6" stroke-linecap="round"/>
-    <circle cx="21" cy="24" r="4" fill="#2563EB"/>
-  </g>
-  <text x="56" y="35" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="600" letter-spacing="-0.5" fill="#0F172A">Ethoz</text>
-</svg>

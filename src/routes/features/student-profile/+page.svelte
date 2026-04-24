@@ -255,10 +255,25 @@
     </div>
   </section>
 
+  <!-- Editorial anchor — no-reinicio thesis -->
+  <section class="py-12 sm:py-14" aria-labelledby="profile-editorial">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <p id="profile-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Continuidad del expediente</p>
+      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+        En marzo, la mitad de los colegios de Chile empieza desde cero. Los alumnos no.
+      </blockquote>
+      <p class="mt-6 text-sm text-muted-foreground">
+        La ficha de cada alumno viaja con él desde Pre-kinder hasta 4° Medio. El nuevo profesor jefe abre el lunes con el contexto completo, no con una carpeta vacía.
+      </p>
+    </div>
+  </section>
+
   <!-- Timeline section -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
-      <h2 class="mb-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Historial longitudinal año a año</h2>
+      <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary">Historial longitudinal</p>
+      <h2 class="mb-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Año a año, sin reinicio de marzo</h2>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         El expediente de Valentina viaja con ella al cambiar de curso. Nada se pierde, nada se duplica.
       </p>
@@ -394,20 +409,31 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
-      <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">¿Listo para empezar?</h2>
-      <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-        Agenda una demo y ve cómo la Ficha 360° funciona con los datos reales de tu colegio.
+  <!-- Final CTA — dark navy editorial close -->
+  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="profile-cta">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Ficha 360° · Un alumno, un expediente</p>
+      <h2 id="profile-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+        Todo lo que el colegio sabe, en la pantalla correcta para cada rol.
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+        Demo con los alumnos y apoderados de tu establecimiento cargados.
       </p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <Button size="lg" href="/demo">
-          Agendar Demo <ArrowRight class="size-4" />
-        </Button>
-        <Button size="lg" variant="outline" href="/#features">
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/demo"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
+          Agendar demo
+          <ArrowRight class="size-4" />
+        </a>
+        <a
+          href="/#features"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
           Ver todas las funciones
-        </Button>
+        </a>
       </div>
     </div>
   </section>

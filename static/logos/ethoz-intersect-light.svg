@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" role="img" aria-labelledby="intersect-l">
-  <title id="intersect-l">Ethoz</title>
-  <g transform="translate(2, 0)">
-    <rect x="2" y="8" width="24" height="34" rx="5.5" fill="none" stroke="#0F172A" stroke-width="2.4"/>
-    <rect x="14" y="4" width="24" height="34" rx="5.5" fill="none" stroke="#2563EB" stroke-width="2.4"/>
-  </g>
-  <text x="56" y="35" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="600" letter-spacing="-0.5" fill="#0F172A">Ethoz</text>
-</svg>

@@ -440,34 +440,33 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       SECTION 3: TRUST BAR — provable facts, not generic badges
+       SECTION 3: TRUST BAR — editorial facts strip (no icons, no template feel).
+       Label → fact pattern with hairline divisions. Reads like a spec sheet,
+       not a badge row.
        ═══════════════════════════════════════════ -->
-  <section class="reveal border-y border-border bg-secondary py-8" aria-label="Por qué confiar en Ethoz">
+  <section class="reveal border-y border-border bg-secondary py-10" aria-label="Arquitectura verificable">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {t('trust.attribution')}
       </p>
-      <div class="mt-5 flex flex-col items-center justify-center gap-5 sm:flex-row sm:flex-wrap sm:gap-x-10 sm:gap-y-3">
-        <div class="trust-item flex items-center gap-2.5">
-          <Building class="size-4 shrink-0 text-primary" />
-          <p class="text-sm font-medium text-foreground">{t('trust.servers')}</p>
+      <dl class="mx-auto mt-8 grid max-w-5xl grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
+        <div class="px-4 text-center lg:px-6">
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Datos</dt>
+          <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.servers')}</dd>
         </div>
-        <div class="hidden h-4 w-px bg-border sm:block"></div>
-        <div class="trust-item flex items-center gap-2.5">
-          <Lock class="size-4 shrink-0 text-primary" />
-          <p class="text-sm font-medium text-foreground">{t('trust.encryption')}</p>
+        <div class="px-4 text-center lg:px-6">
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Cifrado</dt>
+          <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.encryption')}</dd>
         </div>
-        <div class="hidden h-4 w-px bg-border sm:block"></div>
-        <div class="trust-item flex items-center gap-2.5">
-          <Zap class="size-4 shrink-0 text-primary" />
-          <p class="text-sm font-medium text-foreground">{t('trust.integration')}</p>
+        <div class="px-4 text-center lg:px-6">
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Integración</dt>
+          <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.integration')}</dd>
         </div>
-        <div class="hidden h-4 w-px bg-border sm:block"></div>
-        <div class="trust-item flex items-center gap-2.5">
-          <Shield class="size-4 shrink-0 text-primary" />
-          <p class="text-sm font-medium text-foreground">{t('trust.compliance')}</p>
+        <div class="px-4 text-center lg:px-6">
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Cumplimiento</dt>
+          <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.compliance')}</dd>
         </div>
-      </div>
+      </dl>
     </div>
   </section>
 
@@ -771,46 +770,38 @@
         </p>
       </div>
 
-      <!-- Steps with connecting line -->
-      <div class="relative mx-auto mt-10 max-w-5xl">
-        <!-- Desktop connector — solid hairline, McKinsey style -->
-        <div class="pointer-events-none absolute left-[16.66%] right-[16.66%] top-7 hidden h-px bg-border sm:block" aria-hidden="true"></div>
-
-        <ol class="relative grid gap-8 sm:grid-cols-3 sm:gap-6">
+      <!-- Steps — editorial chapter style: big Playfair numbers, no icon circles.
+           Each step reads as "01 · [time]" then title + description. -->
+      <div class="mx-auto mt-12 max-w-5xl">
+        <ol class="grid gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border">
           <!-- Step 1 -->
-          <li class="flex flex-col items-center text-center">
-            <div class="relative z-10 flex size-14 items-center justify-center rounded-full border border-border bg-background shadow-sm">
-              <Plug class="size-6 text-primary" />
+          <li class="px-0 sm:px-8">
+            <div class="flex items-baseline gap-4">
+              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-primary/80" data-numeric>01</span>
+              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step1.time')}</span>
             </div>
-            <span class="mt-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              {t('home.how.step_label')} 1 · {t('home.how.step1.time')}
-            </span>
-            <h3 class="mt-3 text-base font-semibold text-foreground">{t('how.step1.title')}</h3>
-            <p class="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">{t('how.step1.desc')}</p>
+            <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step1.title')}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('how.step1.desc')}</p>
           </li>
 
           <!-- Step 2 -->
-          <li class="flex flex-col items-center text-center">
-            <div class="relative z-10 flex size-14 items-center justify-center rounded-full border border-border bg-background shadow-sm">
-              <Database class="size-6 text-primary" />
+          <li class="px-0 sm:px-8">
+            <div class="flex items-baseline gap-4">
+              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-primary/80" data-numeric>02</span>
+              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step2.time')}</span>
             </div>
-            <span class="mt-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              {t('home.how.step_label')} 2 · {t('home.how.step2.time')}
-            </span>
-            <h3 class="mt-3 text-base font-semibold text-foreground">{t('how.step2.title')}</h3>
-            <p class="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">{t('how.step2.desc')}</p>
+            <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step2.title')}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('how.step2.desc')}</p>
           </li>
 
-          <!-- Step 3 -->
-          <li class="flex flex-col items-center text-center">
-            <div class="relative z-10 flex size-14 items-center justify-center rounded-full border border-primary/30 bg-primary/[0.06] shadow-sm">
-              <Rocket class="size-6 text-primary" />
+          <!-- Step 3 — marked as the "arrival" with primary number -->
+          <li class="px-0 sm:px-8">
+            <div class="flex items-baseline gap-4">
+              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-primary" data-numeric>03</span>
+              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">{t('home.how.step3.time')}</span>
             </div>
-            <span class="mt-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
-              {t('home.how.step_label')} 3 · {t('home.how.step3.time')}
-            </span>
-            <h3 class="mt-3 text-base font-semibold text-foreground">{t('how.step3.title')}</h3>
-            <p class="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">{t('how.step3.desc')}</p>
+            <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step3.title')}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('how.step3.desc')}</p>
           </li>
         </ol>
 

@@ -117,11 +117,26 @@
     </div>
   </section>
 
+  <!-- Editorial anchor — alert architecture -->
+  <section class="py-12 sm:py-14" aria-labelledby="alerts-editorial">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <p id="alerts-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">La alerta que nadie leyó</p>
+      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+        Un correo sin acuse. Una planilla con fecha de hace tres meses. Así se vuelven titulares las cosas que un protocolo digital habría detenido.
+      </blockquote>
+      <p class="mt-6 text-sm text-muted-foreground">
+        Cada alerta en Ethoz tiene un responsable, una fecha de vencimiento y una persona que la revisa. Ninguna queda en el aire.
+      </p>
+    </div>
+  </section>
+
   <!-- Alert types section -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Todos los tipos de alerta en un solo lugar</h2>
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">Seis tipos críticos</p>
+        <h2 class="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Todos los tipos de alerta en un solo lugar</h2>
         <p class="mt-3 text-base text-muted-foreground">Cada alerta tiene su propio flujo de revisión, nivel de visibilidad y protocolo de actuación.</p>
       </div>
       <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -231,7 +246,7 @@
           </ul>
         </div>
         <!-- Timeline mockup -->
-        <div class="rounded-xl border border-border bg-card shadow-xl">
+        <div class="rounded-xl border border-border bg-card shadow-mockup">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -306,20 +321,31 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
-      <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">¿Tu colegio tiene alertas críticas sin sistema?</h2>
-      <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-        Agenda una demo y te mostramos cómo centralizar todas las alertas de tu establecimiento en menos de una semana.
+  <!-- Final CTA — dark navy editorial close -->
+  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="alerts-cta">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Alertas críticas · Evidencia, no testimonio</p>
+      <h2 id="alerts-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+        Cuando llega el tribunal, o la Superintendencia, habla el registro.
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+        Centralizamos las alertas de tu establecimiento en menos de una semana.
       </p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <Button size="lg" href="/demo">
-          Agendar Demo <ArrowRight class="size-4" />
-        </Button>
-        <Button size="lg" variant="outline" href="/productos">
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/demo"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
+          Agendar demo
+          <ArrowRight class="size-4" />
+        </a>
+        <a
+          href="/productos"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
           Ver todos los módulos
-        </Button>
+        </a>
       </div>
     </div>
   </section>

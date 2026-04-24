@@ -3,7 +3,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import { Button } from '$lib/components/ui/button';
   import { t } from '$lib/i18n/index.svelte';
-  import { Mail, CalendarDays, Loader2, Check } from '@lucide/svelte';
+  import { Mail, CalendarDays, Loader2, Check, Clock, ExternalLink } from '@lucide/svelte';
   import { CONTACT } from '$lib/config';
   import { saveLead } from '$lib/supabase';
   import { trackEvent } from '$lib/utils/analytics';
@@ -111,59 +111,99 @@
   <NavBar />
 
   <!-- Content -->
-  <div id="contact-main" class="mx-auto flex-1 w-full max-w-2xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12">
+  <div id="contact-main" class="mx-auto flex-1 w-full max-w-3xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
 
-    <!-- Heading -->
-    <div class="mb-10 text-center">
-      <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+    <!-- HEADING — editorial -->
+    <div class="mb-12">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <span class="text-primary">Contacto institucional</span>
+        <span aria-hidden="true" class="text-border">·</span>
+        <span>Horario de respuesta · L-V 9:00-18:00 CLT</span>
+      </p>
+      <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem]">
         {t('contact.heading')}
       </h1>
-      <p class="mt-3 text-base text-muted-foreground">
+      <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
         {t('contact.subheading')}
       </p>
     </div>
 
-    <!-- Contact methods -->
-    <div class="mb-10 grid gap-3 sm:grid-cols-2">
-      <a
-        href={CONTACT.email.link}
-        class="group flex items-center gap-3 rounded-xl border border-border bg-background p-4 shadow-sm transition-all hover:border-primary/40 hover:shadow-md sm:flex-col sm:items-center sm:gap-2 sm:p-5 sm:text-center"
-      >
-        <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 transition-colors group-hover:bg-primary/20 sm:size-11">
-          <Mail class="size-5 text-primary" />
-        </div>
-        <div>
-          <p class="text-sm font-semibold text-foreground">{t('contact.email.label')}</p>
-          <p class="text-xs text-muted-foreground">{CONTACT.email.address}</p>
-        </div>
-      </a>
+    <!-- Contact methods — editorial grid -->
+    <div class="mb-12">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-4">Canales directos</p>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <a
+          href={CONTACT.email.link}
+          class="group flex flex-col gap-3 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]"
+        >
+          <div class="flex items-center gap-2.5">
+            <Mail class="size-4 shrink-0 text-primary" />
+            <p class="text-sm font-semibold text-foreground">{t('contact.email.label')}</p>
+          </div>
+          <p class="text-sm text-muted-foreground">{CONTACT.email.address}</p>
+          <span class="mt-auto inline-flex items-center gap-1 border-b border-primary self-start pb-0.5 text-xs font-semibold text-primary group-hover:border-b-2">
+            Escribir correo
+          </span>
+        </a>
 
-      <a
-        href="/demo"
-        class="group flex items-center gap-3 rounded-xl border border-border bg-background p-4 shadow-sm transition-all hover:border-primary/40 hover:shadow-md sm:flex-col sm:items-center sm:gap-2 sm:p-5 sm:text-center"
-      >
-        <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 transition-colors group-hover:bg-primary/20 sm:size-11">
-          <CalendarDays class="size-5 text-primary" />
+        <a
+          href="/demo"
+          class="group flex flex-col gap-3 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]"
+        >
+          <div class="flex items-center gap-2.5">
+            <CalendarDays class="size-4 shrink-0 text-primary" />
+            <p class="text-sm font-semibold text-foreground">{t('contact.demo.label')}</p>
+          </div>
+          <p class="text-sm text-muted-foreground">Sesión de 30 minutos con un especialista</p>
+          <span class="mt-auto inline-flex items-center gap-1 border-b border-primary self-start pb-0.5 text-xs font-semibold text-primary group-hover:border-b-2">
+            Agendar demo
+          </span>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/company/ethozcl/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex flex-col gap-3 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]"
+        >
+          <div class="flex items-center gap-2.5">
+            <ExternalLink class="size-4 shrink-0 text-primary" />
+            <p class="text-sm font-semibold text-foreground">LinkedIn</p>
+          </div>
+          <p class="text-sm text-muted-foreground">Seguimiento institucional, novedades normativas</p>
+          <span class="mt-auto inline-flex items-center gap-1 border-b border-primary self-start pb-0.5 text-xs font-semibold text-primary group-hover:border-b-2">
+            Seguir en LinkedIn
+          </span>
+        </a>
+
+        <div class="flex flex-col gap-3 rounded-lg border border-border bg-card p-5">
+          <div class="flex items-center gap-2.5">
+            <Clock class="size-4 shrink-0 text-primary" />
+            <p class="text-sm font-semibold text-foreground">Horario de atención</p>
+          </div>
+          <dl class="space-y-1.5 text-sm text-muted-foreground">
+            <div class="flex items-baseline justify-between gap-2"><dt>Lunes a viernes</dt><dd class="font-medium text-foreground">9:00 – 18:00</dd></div>
+            <div class="flex items-baseline justify-between gap-2"><dt>Sábado</dt><dd>10:00 – 13:00</dd></div>
+            <div class="flex items-baseline justify-between gap-2"><dt>Zona horaria</dt><dd class="font-medium text-foreground">CLT · Santiago</dd></div>
+          </dl>
         </div>
-        <div>
-          <p class="text-sm font-semibold text-foreground">{t('contact.demo.label')}</p>
-          <p class="text-xs text-muted-foreground">ethoz.cl/demo</p>
-        </div>
-      </a>
+      </div>
     </div>
 
     <!-- Contact form -->
-    <div class="rounded-xl border border-border bg-background p-6 shadow-sm">
+    <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-4">Formulario</p>
+    <div class="rounded-lg border border-border bg-card p-6 sm:p-8">
       {#if submitted}
         <div class="flex flex-col items-center gap-3 py-8 text-center" role="status" aria-live="polite">
           <div class="flex size-12 items-center justify-center rounded-full bg-success/10" aria-hidden="true">
             <Check class="size-6 text-success" />
           </div>
-          <h2 class="text-lg font-semibold text-foreground">{t('contact.form.success.title')}</h2>
+          <h2 class="font-heading text-xl font-medium text-foreground">{t('contact.form.success.title')}</h2>
           <p class="text-sm text-muted-foreground">{t('contact.form.success.message')}</p>
         </div>
       {:else}
-      <h2 class="mb-6 text-lg font-semibold text-foreground">
+      <h2 class="mb-6 font-heading text-xl font-medium text-foreground">
         {t('contact.form.title')}
       </h2>
 

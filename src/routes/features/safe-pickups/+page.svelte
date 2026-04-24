@@ -170,10 +170,25 @@
     </div>
   </section>
 
+  <!-- Editorial anchor — thesis on why pickup is the load-bearing moment -->
+  <section class="py-12 sm:py-14" aria-labelledby="pickup-editorial">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <p id="pickup-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">La verdad del portón</p>
+      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+        El retiro es el único momento del día en que un error se paga con un titular de prensa.
+      </blockquote>
+      <p class="mt-6 text-sm text-muted-foreground">
+        Ethoz no pide que el portero lo haga bien bajo presión. Lo hace imposible de hacer mal.
+      </p>
+    </div>
+  </section>
+
   <!-- How it works: 3 steps -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
-      <h2 class="mb-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Flujo de retiro en 3 pasos</h2>
+      <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary">Flujo operativo</p>
+      <h2 class="mb-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Retiro en tres pasos, bajo cualquier fila</h2>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         El portero no necesita capacitación extensa. La interfaz guía cada paso con colores claros: verde para autorizado, rojo para bloqueado.
       </p>
@@ -256,21 +271,35 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
-      <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">¿Listo para empezar?</h2>
-      <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-        Agenda una demo y ve cómo el módulo de retiros seguros protege a tu comunidad escolar.
+  <!-- Final CTA — dark navy editorial close -->
+  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="pickup-cta">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Portería · El punto de control más visible</p>
+      <h2 id="pickup-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+        Pon la pantalla entre el portero y la duda.
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+        Una demo de 20 minutos te muestra el flujo exacto con los apoderados de tu colegio.
       </p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <Button size="lg" href="/demo">
-          Agendar Demo <ArrowRight class="size-4" />
-        </Button>
-        <Button size="lg" variant="outline" href="/#features">
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/demo"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
+          Agendar demo
+          <ArrowRight class="size-4" />
+        </a>
+        <a
+          href="/#features"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
           Ver todas las funciones
-        </Button>
+        </a>
       </div>
+      <p class="mt-8 text-xs text-background/60">
+        Cero retiros no autorizados registrados en colegios con Ethoz.
+      </p>
     </div>
   </section>
 

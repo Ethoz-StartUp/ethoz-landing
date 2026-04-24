@@ -281,10 +281,14 @@
       {@const school = isManual ? null : schoolStore.selectedSchool}
       <div class="space-y-8">
         <div class="text-center">
+          <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Paso 2 de 3 · Tus datos de contacto</p>
           <h1 class="text-2xl font-bold tracking-tight text-foreground">
             {t('demo.step2.title')}
           </h1>
-          <a href="/demo" class="mt-2 inline-flex items-center gap-1 text-sm text-primary transition-colors hover:text-primary/70">
+          <p class="mx-auto mt-3 max-w-md text-xs leading-relaxed text-muted-foreground">
+            Te contactamos dentro del siguiente día hábil para agendar. La demo dura 30 minutos y se hace en línea, con tu equipo completo si prefieres.
+          </p>
+          <a href="/demo" class="mt-3 inline-flex items-center gap-1 text-sm text-primary transition-colors hover:text-primary/70">
             <ChevronLeft class="size-4" />
             {t('demo.step2.change')}
           </a>

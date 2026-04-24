@@ -67,20 +67,47 @@
 <main class="flex min-h-dvh flex-col bg-background">
   <NavBar />
 
-  <!-- ═══ HERO: Hook ═══ -->
-  <section class="pt-24 pb-10 sm:pt-28 sm:pb-12 bg-secondary">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
-      <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+  <!-- ═══ HERO — editorial ═══ -->
+  <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <span class="text-primary">Proceso de onboarding</span>
+        <span aria-hidden="true" class="text-border">·</span>
+        <span>4 pasos · 2-4 semanas</span>
+      </p>
+      <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem]">
         {t('getstarted.hero.title')}
       </h1>
-      <p class="mt-5 text-lg leading-relaxed text-muted-foreground">
+      <p class="mt-8 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
         {t('getstarted.hero.subtitle')}
       </p>
-      <p class="mt-3 inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
+      <p class="mt-6 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
         {t('getstarted.hero.badge')}
       </p>
-      <div class="mt-8">
-        <Button size="xl" href="/demo" class="shadow-lg">
+
+      <!-- Timeline overview -->
+      <dl class="mt-10 grid grid-cols-2 gap-6 border-t border-border pt-6 sm:grid-cols-4">
+        <div>
+          <dt class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Paso 01</dt>
+          <dd class="mt-1 text-sm font-medium text-foreground">Demo · 30 min</dd>
+        </div>
+        <div>
+          <dt class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Paso 02</dt>
+          <dd class="mt-1 text-sm font-medium text-foreground">Configuración · 1 sem</dd>
+        </div>
+        <div>
+          <dt class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Paso 03</dt>
+          <dd class="mt-1 text-sm font-medium text-foreground">Migración · 1-2 sem</dd>
+        </div>
+        <div>
+          <dt class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Paso 04</dt>
+          <dd class="mt-1 text-sm font-medium text-foreground">En vivo</dd>
+        </div>
+      </dl>
+
+      <div class="mt-10">
+        <Button size="xl" href="/demo">
           {t('getstarted.hero.cta')}
           <ArrowRight class="size-4" />
         </Button>
@@ -223,20 +250,25 @@
     </div>
   </section>
 
-  <!-- ═══ CTA FINAL ═══ -->
-  <section class="py-12 sm:py-14 bg-secondary">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
-      <h2 class="text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+  <!-- ═══ FINAL CTA — dark navy ═══ -->
+  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-getstarted">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
+      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/70">Comenzar</p>
+      <h2 id="final-cta-getstarted" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl">
         {t('pricing.cta.title')}
       </h2>
-      <p class="mt-4 text-base text-muted-foreground">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
         {t('pricing.cta.subtitle')}
       </p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <Button size="xl" href="/demo" class="shadow-lg">
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/demo"
+          class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-background px-10 text-base font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
           {t('pricing.cta.primary')}
-          <ArrowRight class="size-4" />
-        </Button>
+          <ArrowRight class="size-5" />
+        </a>
       </div>
     </div>
   </section>

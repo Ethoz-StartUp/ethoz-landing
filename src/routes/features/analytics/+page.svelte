@@ -121,11 +121,26 @@
     </div>
   </section>
 
+  <!-- Editorial anchor — decisions over dashboards -->
+  <section class="py-12 sm:py-14" aria-labelledby="analytics-editorial">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <p id="analytics-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Datos con consecuencia</p>
+      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+        Un dashboard que solo se mira no vale el minuto que toma cargarlo.
+      </blockquote>
+      <p class="mt-6 text-sm text-muted-foreground">
+        Ethoz no genera reportes: genera decisiones. Cada gráfico existe para responder una pregunta que un director se hace antes de entrar a la sala de reuniones.
+      </p>
+    </div>
+  </section>
+
   <!-- Charts section -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Visualizaciones diseñadas para tomar decisiones</h2>
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">Visualizaciones</p>
+        <h2 class="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Diseñadas para tomar decisiones</h2>
         <p class="mt-3 text-base text-muted-foreground">No son reportes para cumplir: son herramientas para actuar.</p>
       </div>
 
@@ -227,42 +242,42 @@
         <p class="mt-3 text-base text-muted-foreground">Cada perfil ve los indicadores relevantes para su función.</p>
       </div>
       <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <TrendingUp class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Tendencias de convivencia</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">Detecta semanas de alta conflictividad antes de que escalen. Compara períodos y cursos con un clic.</p>
         </div>
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <Users class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Segmentación por curso y género</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">Filtra indicadores por nivel, curso, sección y género. Identifica brechas y patrones que los reportes manuales no revelan.</p>
         </div>
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <BarChart3 class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Dashboard multi-sede</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">Sostenedores con múltiples establecimientos ven todos sus indicadores consolidados. Compara sedes con métricas homologadas.</p>
         </div>
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <ShieldAlert class="size-5 shrink-0 text-destructive" />
             <h3 class="text-base font-semibold text-foreground">KPI de cumplimiento normativo</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">Porcentaje de consentimientos firmados (Ley 21.719), alertas gestionadas a tiempo y protocolos completados.</p>
         </div>
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <ClipboardList class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Exportación para SEREMIs</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">Genera informes estadísticos en el formato que exige la SEREMI de Educación o la Superintendencia de Educación.</p>
         </div>
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <Filter class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Alertas de umbral automáticas</h3>
@@ -296,20 +311,31 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
-      <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Deja de gestionar con hojas de cálculo</h2>
-      <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-        Agenda una demo y te mostramos el dashboard con datos reales de un colegio similar al tuyo.
+  <!-- Final CTA — dark navy editorial close -->
+  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="analytics-cta">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Analytics · Lo que Excel nunca te pudo dar</p>
+      <h2 id="analytics-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+        Deja de gestionar con hojas de cálculo.
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+        Demo con el dashboard cargado con los datos de un colegio similar al tuyo.
       </p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <Button size="lg" href="/demo">
-          Agendar Demo <ArrowRight class="size-4" />
-        </Button>
-        <Button size="lg" variant="outline" href="/productos">
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/demo"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
+          Agendar demo
+          <ArrowRight class="size-4" />
+        </a>
+        <a
+          href="/productos"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
           Ver todos los módulos
-        </Button>
+        </a>
       </div>
     </div>
   </section>

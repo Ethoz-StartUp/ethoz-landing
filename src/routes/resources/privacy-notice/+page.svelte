@@ -42,14 +42,18 @@
   </div>
 
   <div class="mx-auto max-w-4xl px-4 py-10 sm:py-14">
-    <div class="mb-10 border-b border-border pb-8">
-      <div class="flex items-center gap-3 mb-3 print:hidden">
-        <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Legal</span>
-        <span class="text-xs text-muted-foreground">Basado en Art. 14 Ley 21.719 · Plantilla editable</span>
-      </div>
-      <h1 class="text-3xl font-bold tracking-tight text-foreground mb-3">Modelo de Aviso de Privacidad Escolar</h1>
-      <p class="text-muted-foreground">Complete los campos marcados con <span class="font-medium text-primary">[corchetes]</span> con la información de su establecimiento. Este aviso debe publicarse en el sitio web institucional y estar disponible físicamente en la recepción.</p>
-      <p class="mt-3 text-xs text-muted-foreground">Elaborado por Ethoz · ethoz.cl · Basado en Ley 21.719 promulgada el 13 de diciembre de 2024</p>
+    <div class="mb-12 border-b border-border pb-10">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
+        <span class="text-primary">Plantilla · Legal</span>
+        <span aria-hidden="true" class="text-border">·</span>
+        <span>Art. 14 Ley 21.719</span>
+        <span aria-hidden="true" class="text-border">·</span>
+        <span>10 secciones</span>
+      </p>
+      <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
+      <h1 class="mt-5 font-heading text-3xl font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-4xl">Modelo de Aviso de Privacidad Escolar</h1>
+      <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Complete los campos marcados con <span class="font-medium text-primary">[corchetes]</span> con la información de su establecimiento. Este aviso debe publicarse en el sitio web institucional y estar disponible físicamente en la recepción.</p>
+      <p class="mt-4 text-xs text-muted-foreground">Elaborado por Ethoz · ethoz.cl · Basado en Ley 21.719 promulgada el 13 de diciembre de 2024</p>
     </div>
 
     <!-- Document -->

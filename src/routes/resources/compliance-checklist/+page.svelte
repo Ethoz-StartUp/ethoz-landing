@@ -178,16 +178,20 @@
 
   <div class="mx-auto max-w-4xl px-4 py-10 sm:py-14">
     <!-- Header -->
-    <div class="mb-10 border-b border-border pb-8">
-      <div class="flex items-center gap-3 mb-3 print:hidden">
-        <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Cumplimiento</span>
-        <span class="text-xs text-muted-foreground">Ley 21.719 · 20 ítems · 4 secciones</span>
-      </div>
-      <h1 class="text-3xl font-bold tracking-tight text-foreground mb-3">Checklist de Cumplimiento Ley 21.719</h1>
-      <p class="text-muted-foreground">
-        Verifique el estado de cumplimiento de su establecimiento con la Ley de Protección de Datos Personales. Marque cada ítem completado. La ley entra en plena vigencia en <strong>diciembre de 2026</strong>. Las multas llegan hasta las 20.000 UTM.
+    <div class="mb-12 border-b border-border pb-10">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
+        <span class="text-primary">Plantilla · Cumplimiento</span>
+        <span aria-hidden="true" class="text-border">·</span>
+        <span>Ley 21.719</span>
+        <span aria-hidden="true" class="text-border">·</span>
+        <span>20 ítems · 4 secciones</span>
       </p>
-      <p class="mt-3 text-xs text-muted-foreground">Elaborado por el equipo de Ethoz · ethoz.cl · Uso libre para establecimientos educacionales</p>
+      <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
+      <h1 class="mt-5 font-heading text-3xl font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-4xl">Checklist de Cumplimiento Ley 21.719</h1>
+      <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
+        Verifique el estado de cumplimiento de su establecimiento con la Ley de Protección de Datos Personales. Marque cada ítem completado. La ley entra en plena vigencia en <strong class="text-foreground">diciembre de 2026</strong>. Las multas llegan hasta las 20.000 UTM.
+      </p>
+      <p class="mt-4 text-xs text-muted-foreground">Elaborado por el equipo de Ethoz · ethoz.cl · Uso libre para establecimientos educacionales</p>
     </div>
 
     <!-- Sections -->

@@ -125,11 +125,26 @@
     </div>
   </section>
 
+  <!-- Editorial anchor — seconds matter thesis -->
+  <section class="py-12 sm:py-14" aria-labelledby="emergency-editorial">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <p id="emergency-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Chile · País sísmico</p>
+      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+        La emergencia no avisa a qué hora sucede. El protocolo tampoco puede estar guardado en una carpeta de Inspectoría.
+      </blockquote>
+      <p class="mt-6 text-sm text-muted-foreground">
+        En una evacuación, el protocolo vive en los bolsillos de los docentes o no existe. Ethoz lo pone en su móvil, activable en un toque.
+      </p>
+    </div>
+  </section>
+
   <!-- Protocol cards -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Cuatro protocolos, un solo sistema</h2>
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">Cuatro protocolos · ONEMI + SENAPRED</p>
+        <h2 class="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Un solo sistema, cuatro flujos distintos</h2>
         <p class="mt-3 text-base text-muted-foreground">Adaptados a los planes de seguridad escolar vigentes en Chile.</p>
       </div>
       <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -232,7 +247,7 @@
         </div>
         <!-- Notification mockup -->
         <div class="mx-auto max-w-xs w-full">
-          <div class="rounded-2xl border border-border bg-card shadow-card-hover overflow-hidden">
+          <div class="rounded-xl border border-border bg-card shadow-card-hover overflow-hidden">
             <!-- Phone top bar -->
             <div class="bg-muted/50 px-4 py-2 flex items-center justify-between">
               <span class="text-[10px] font-medium text-muted-foreground">14:24</span>
@@ -287,20 +302,31 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
-      <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">¿Tu colegio tiene un protocolo de emergencia digital?</h2>
-      <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-        Agenda una demo y te mostramos cómo activar un simulacro digital con los datos reales de tu establecimiento.
+  <!-- Final CTA — dark navy editorial close -->
+  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="emergency-cta">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Emergencias · El protocolo no puede ir en papel</p>
+      <h2 id="emergency-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+        Haz que cada segundo cuente.
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+        Activemos un simulacro digital con los datos reales de tu establecimiento.
       </p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <Button size="lg" href="/demo">
-          Agendar Demo <ArrowRight class="size-4" />
-        </Button>
-        <Button size="lg" variant="outline" href="/productos">
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/demo"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
+          Agendar demo
+          <ArrowRight class="size-4" />
+        </a>
+        <a
+          href="/productos"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
           Ver todos los módulos
-        </Button>
+        </a>
       </div>
     </div>
   </section>

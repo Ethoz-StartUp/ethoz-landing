@@ -111,14 +111,18 @@
   </div>
 
   <div class="mx-auto max-w-6xl px-4 py-10 sm:py-14">
-    <div class="mb-10 border-b border-border pb-8">
-      <div class="flex items-center gap-3 mb-3 print:hidden">
-        <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Cumplimiento</span>
-        <span class="text-xs text-muted-foreground">5 categorías · 24 campos · Art. 16 Ley 21.719</span>
-      </div>
-      <h1 class="text-3xl font-bold tracking-tight text-foreground mb-3">Inventario de Datos Personales</h1>
-      <p class="text-muted-foreground">Registro estructurado de todas las categorías de datos personales tratados por establecimientos educacionales chilenos, con base legal, finalidad y plazos de retención conformes a la Ley 21.719.</p>
-      <p class="mt-3 text-xs text-muted-foreground">Elaborado por Ethoz · ethoz.cl · Versión 1.0 · Complete con [Nombre del Establecimiento] y RBD</p>
+    <div class="mb-12 border-b border-border pb-10">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
+        <span class="text-primary">Plantilla · Cumplimiento</span>
+        <span aria-hidden="true" class="text-border">·</span>
+        <span>Art. 16 Ley 21.719</span>
+        <span aria-hidden="true" class="text-border">·</span>
+        <span>5 categorías · 24 campos</span>
+      </p>
+      <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
+      <h1 class="mt-5 font-heading text-3xl font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-4xl">Inventario de Datos Personales</h1>
+      <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Registro estructurado de todas las categorías de datos personales tratados por establecimientos educacionales chilenos, con base legal, finalidad y plazos de retención conformes a la Ley 21.719.</p>
+      <p class="mt-4 text-xs text-muted-foreground">Elaborado por Ethoz · ethoz.cl · Versión 1.0 · Complete con [Nombre del Establecimiento] y RBD</p>
     </div>
 
     <!-- Legend -->

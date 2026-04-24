@@ -144,6 +144,20 @@
     </div>
   </section>
 
+  <!-- Editorial anchor — sostenedor voice -->
+  <section class="py-12 sm:py-14" aria-labelledby="sostenedor-editorial">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <p id="sostenedor-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">La carta que ninguna Superintendencia olvida</p>
+      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+        El sostenedor responde por cinco colegios. Con cinco Excel, responde con cinco respuestas distintas.
+      </blockquote>
+      <p class="mt-6 text-sm text-muted-foreground">
+        A partir de diciembre 2026, la Ley 21.719 no evaluará tu intención. Evaluará tu capacidad de demostrar, por sede, qué pasó, quién lo hizo y cuándo.
+      </p>
+    </div>
+  </section>
+
   <!-- El problema del sostenedor en 2026 -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
@@ -155,7 +169,7 @@
         Operar múltiples establecimientos con sistemas distintos no es solo ineficiente — es un riesgo legal concreto con fecha de vencimiento.
       </p>
       <div class="grid gap-6 sm:grid-cols-2">
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5 mb-3">
             <Scale class="size-5 shrink-0 text-destructive" />
             <h3 class="text-base font-semibold text-foreground">Ley 21.719 — plazo real</h3>
@@ -164,7 +178,7 @@
             La ley de protección de datos personales entra en plena vigencia en <strong class="text-foreground">diciembre de 2026</strong>. Las multas llegan a <strong class="text-foreground">20.000 UTM (~$1.300M CLP)</strong> o el 4% de la facturación anual — lo que sea mayor. Por establecimiento.
           </p>
         </div>
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5 mb-3">
             <TrendingDown class="size-5 shrink-0 text-warning-foreground" />
             <h3 class="text-base font-semibold text-foreground">Sistemas fragmentados por sede</h3>
@@ -173,7 +187,7 @@
             Cada colegio lleva su propio Excel, su propio cuaderno de portería y sus propios protocolos. No hay estándar, no hay visibilidad cruzada y en una fiscalización, cada sede responde sola.
           </p>
         </div>
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5 mb-3">
             <BarChart3 class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Consolidación manual imposible</h3>
@@ -182,7 +196,7 @@
             Pedir un reporte de incidentes a tus 5 directores tarda días. Para cuando llega la información, ya cambió. Las decisiones se toman con datos de la semana pasada, cuando los problemas ya escalaron.
           </p>
         </div>
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5 mb-3">
             <FileSearch class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Exposición en auditorías</h3>
@@ -357,21 +371,35 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-12 sm:py-14">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
-      <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Evalúa tu portafolio con nosotros</h2>
-      <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-        Una sesión de 30 minutos para mapear tu exposición real ante la Ley 21.719 y ver cómo Ethoz consolida la protección de toda tu red.
+  <!-- Final CTA — dark navy editorial close -->
+  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="sostenedor-cta">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Sostenedores · Gestión consolidada</p>
+      <h2 id="sostenedor-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+        Tu exposición legal se multiplica por sede. Tu defensa también debería.
+      </h2>
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+        Una sesión de 30 minutos para mapear tu exposición real y el costo consolidado frente al costo fragmentado.
       </p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        <Button size="lg" href="/demo">
-          Agenda una evaluación de tu portafolio <ArrowRight class="size-4" />
-        </Button>
-        <Button size="lg" variant="outline" href="/#features">
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/demo"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
+          Agendar evaluación de portafolio
+          <ArrowRight class="size-4" />
+        </a>
+        <a
+          href="/#features"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
           Ver todas las funciones
-        </Button>
+        </a>
       </div>
+      <p class="mt-8 text-xs text-background/60">
+        Hasta 100.000 UTM de exposición consolidada para redes de 5 establecimientos.
+      </p>
     </div>
   </section>
 

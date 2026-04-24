@@ -98,21 +98,23 @@
   <NavBar />
 
   <!-- ══════════════════════════════════════
-       HERO
+       HERO — editorial, institutional
        ══════════════════════════════════════ -->
-  <section class="pt-24 pb-10 sm:pt-28 sm:pb-12 bg-secondary bg-grid-pattern">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-      <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary shadow-sm">
-        <ShieldCheck class="size-3.5" />
-        {t('compliance_page.hero.badge')}
-      </div>
-      <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+  <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <span class="text-primary">{t('compliance_page.hero.badge')}</span>
+        <span aria-hidden="true" class="text-border">·</span>
+        <span>Ley 21.719 · Dic 2026</span>
+      </p>
+      <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem]">
         {t('compliance_page.hero.title')}
       </h1>
-      <p class="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl">
+      <p class="mt-8 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
         {t('compliance_page.hero.subtitle')}
       </p>
-      <p class="mt-4 text-base leading-relaxed text-muted-foreground">
+      <p class="mt-5 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
         {t('compliance_page.hero.body')}
       </p>
     </div>
@@ -121,24 +123,24 @@
   <!-- ══════════════════════════════════════
        OFFICIAL LAW REFERENCE
        ══════════════════════════════════════ -->
-  <section class="py-10 sm:py-12 bg-background">
+  <section class="py-8 sm:py-10 bg-background">
     <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
       <a
         href="https://www.bcn.cl/leychile/navegar?idNorma=1209272"
         target="_blank"
         rel="noopener noreferrer"
-        class="group flex items-start gap-4 rounded-xl border border-border bg-card p-5 shadow-sm transition-colors hover:border-primary/30 hover:bg-primary/[0.02]"
+        class="group flex items-start gap-4 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]"
       >
         <Scale class="size-5 shrink-0 text-primary" />
         <div class="min-w-0 flex-1">
           <div class="flex items-center gap-2">
-            <p class="text-sm font-bold text-foreground">{t('compliance_page.law_ref.title')}</p>
+            <p class="text-sm font-semibold text-foreground">{t('compliance_page.law_ref.title')}</p>
             <ExternalLink class="size-3.5 text-muted-foreground transition-colors group-hover:text-primary" />
           </div>
-          <p class="mt-1 text-sm leading-relaxed text-muted-foreground">
+          <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">
             {t('compliance_page.law_ref.desc')}
           </p>
-          <p class="mt-2 text-xs font-medium text-primary">
+          <p class="mt-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
             {t('compliance_page.law_ref.source')}
           </p>
         </div>
@@ -274,20 +276,17 @@
         </p>
       </div>
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {#each pillars as pillar}
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {#each pillars as pillar, i}
           {@const Icon = pillar.icon}
-          <div class="flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm">
-            <div class="mb-3 flex items-center gap-2.5">
-              <Icon class="size-5 shrink-0 text-primary" />
-              <div class="flex min-w-0 flex-1 items-center justify-between gap-3">
-                <h3 class="text-base font-bold text-foreground leading-snug">{t(pillar.titleKey)}</h3>
-                <span class="shrink-0 rounded-md bg-muted px-2 py-0.5 label-mono text-muted-foreground">
-                  {t(pillar.articleKey)}
-                </span>
-              </div>
+          <div class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+            <span class="font-heading text-2xl font-medium leading-none tracking-tight text-primary/70 tabular-nums" data-numeric>0{i + 1}</span>
+            <div class="mt-4 flex items-center gap-2.5">
+              <Icon class="size-4 shrink-0 text-primary" />
+              <h3 class="text-base font-semibold text-foreground leading-snug">{t(pillar.titleKey)}</h3>
             </div>
-            <p class="text-sm leading-relaxed text-muted-foreground">{t(pillar.descKey)}</p>
+            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t(pillar.descKey)}</p>
+            <p class="mt-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">{t(pillar.articleKey)} · Ley 21.719</p>
           </div>
         {/each}
       </div>
@@ -370,58 +369,57 @@
 
       <div class="grid gap-5 sm:grid-cols-3">
         <!-- Ley 21.719 -->
-        <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
+        <div class="rounded-lg border border-border bg-card p-5">
           <div class="flex items-center gap-2.5">
-            <ShieldCheck class="size-5 shrink-0 text-primary" />
-            <div>
-              <p class="text-sm font-bold text-foreground">{t('compliance_page.certs.cert1.name')}</p>
-              <p class="text-xs text-muted-foreground">{t('compliance_page.certs.cert1.status')}</p>
-            </div>
+            <ShieldCheck class="size-4 shrink-0 text-primary" />
+            <p class="text-sm font-semibold text-foreground">{t('compliance_page.certs.cert1.name')}</p>
           </div>
+          <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">{t('compliance_page.certs.cert1.status')}</p>
         </div>
         <!-- ISO 27001 placeholder -->
-        <div class="rounded-xl border border-dashed border-border bg-card p-5 shadow-sm opacity-60">
+        <div class="rounded-lg border border-dashed border-border bg-card p-5">
           <div class="flex items-center gap-2.5">
-            <Lock class="size-5 shrink-0 text-muted-foreground" />
-            <div>
-              <p class="text-sm font-bold text-foreground">{t('compliance_page.certs.cert2.name')}</p>
-              <p class="text-xs text-muted-foreground">{t('compliance_page.certs.cert2.status')}</p>
-            </div>
+            <Lock class="size-4 shrink-0 text-muted-foreground" />
+            <p class="text-sm font-semibold text-foreground">{t('compliance_page.certs.cert2.name')}</p>
           </div>
+          <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('compliance_page.certs.cert2.status')}</p>
         </div>
         <!-- SOC 2 placeholder -->
-        <div class="rounded-xl border border-dashed border-border bg-card p-5 shadow-sm opacity-60">
+        <div class="rounded-lg border border-dashed border-border bg-card p-5">
           <div class="flex items-center gap-2.5">
-            <FileText class="size-5 shrink-0 text-muted-foreground" />
-            <div>
-              <p class="text-sm font-bold text-foreground">{t('compliance_page.certs.cert3.name')}</p>
-              <p class="text-xs text-muted-foreground">{t('compliance_page.certs.cert3.status')}</p>
-            </div>
+            <FileText class="size-4 shrink-0 text-muted-foreground" />
+            <p class="text-sm font-semibold text-foreground">{t('compliance_page.certs.cert3.name')}</p>
           </div>
+          <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('compliance_page.certs.cert3.status')}</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════
-       CTA
+       FINAL CTA — dark navy editorial closing
        ══════════════════════════════════════ -->
-  <section class="py-12 sm:py-14 bg-background">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
+  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-compliance">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
+      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/70">Evaluación institucional</p>
+      <h2 id="final-cta-compliance" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl">
         {t('compliance_page.cta.title')}
       </h2>
-      <p class="mt-4 text-base text-muted-foreground">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
         {t('compliance_page.cta.subtitle')}
       </p>
-      <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href="/demo" class="shadow-lg">
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/demo"
+          class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-background px-10 text-base font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+        >
           {t('compliance_page.cta.primary')}
-          <ArrowRight class="size-4" />
-        </Button>
+          <ArrowRight class="size-5" />
+        </a>
         <a
           href="/"
-          class="text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+          class="inline-flex items-center gap-1 border-b border-background/60 pb-0.5 text-sm font-medium text-background/80 transition-colors hover:border-background hover:text-background"
         >
           {t('compliance_page.cta.secondary')}
         </a>

@@ -43,14 +43,18 @@
 
   <div class="mx-auto max-w-4xl px-4 py-10 sm:py-14">
     <!-- Header -->
-    <div class="mb-10 border-b border-border pb-8">
-      <div class="flex items-center gap-3 mb-3 print:hidden">
-        <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Operaciones</span>
-        <span class="text-xs text-muted-foreground">Plantilla editable</span>
-      </div>
-      <h1 class="text-3xl font-bold tracking-tight text-foreground mb-3">Protocolo de Retiros Seguros</h1>
-      <p class="text-muted-foreground">Procedimiento oficial para la gestión segura y trazable del retiro de alumnos durante la jornada escolar.</p>
-      <p class="mt-3 text-xs text-muted-foreground">Versión 1.0 · Elaborado por Ethoz · ethoz.cl · Adapte con los datos de su establecimiento</p>
+    <div class="mb-12 border-b border-border pb-10">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
+        <span class="text-primary">Plantilla · Operaciones</span>
+        <span aria-hidden="true" class="text-border">·</span>
+        <span>8 pasos</span>
+        <span aria-hidden="true" class="text-border">·</span>
+        <span>Ley 21.719 · MINEDUC</span>
+      </p>
+      <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
+      <h1 class="mt-5 font-heading text-3xl font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-4xl">Protocolo de Retiros Seguros</h1>
+      <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Procedimiento oficial para la gestión segura y trazable del retiro de alumnos durante la jornada escolar. Integridad física del estudiante y cumplimiento de deberes legales del establecimiento.</p>
+      <p class="mt-4 text-xs text-muted-foreground">Versión 1.0 · Elaborado por Ethoz · ethoz.cl · Adapte con los datos de su establecimiento</p>
     </div>
 
     <div class="space-y-10 text-sm leading-relaxed text-foreground">
