@@ -2,10 +2,10 @@
   <title id="final-l-title">Ethoz</title>
   <desc id="final-l-desc">Ethoz logo — intersect mark with accent Z, light version (for light surfaces)</desc>
   <g transform="translate(2, 0)">
-    <rect x="2" y="8" width="24" height="34" rx="5.5" fill="none" stroke="#0B1E3A" stroke-width="2.4"/>
-    <rect x="14" y="4" width="24" height="34" rx="5.5" fill="none" stroke="#034B8A" stroke-width="2.4"/>
+    <rect x="2" y="8" width="24" height="34" fill="none" stroke="#051C2C" stroke-width="2.4"/>
+    <rect x="14" y="4" width="24" height="34" fill="none" stroke="#1F77C9" stroke-width="2.4"/>
   </g>
-  <text x="56" y="35" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="600" letter-spacing="-0.5">
-    <tspan fill="#0B1E3A">Etho</tspan><tspan fill="#034B8A">z</tspan>
+  <text x="56" y="35" font-family="'Playfair Display', 'Times New Roman', Georgia, serif" font-size="36" font-weight="500" letter-spacing="-0.5">
+    <tspan fill="#051C2C">Etho</tspan><tspan fill="#034B8A">z</tspan>
   </text>
 </svg>

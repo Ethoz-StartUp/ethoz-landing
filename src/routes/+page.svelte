@@ -239,14 +239,10 @@
   <NavBar />
 
   <!-- ═══════════════════════════════════════════
-       SECTION 2: HERO — split layout, institutional warmth
+       SECTION 2: HERO — editorial, McKinsey-style
        ═══════════════════════════════════════════ -->
-  <section class="relative overflow-hidden pt-28 sm:pt-32">
-    <!-- Soft warm wash from top-left + blue tint from top-right for depth -->
-    <div class="pointer-events-none absolute inset-x-0 top-0 h-[480px] bg-gradient-to-br from-primary/[0.05] via-background to-transparent" aria-hidden="true"></div>
-    <div class="pointer-events-none absolute right-[-10%] top-[-8%] h-[420px] w-[420px] rounded-full bg-primary/[0.07] blur-3xl" aria-hidden="true"></div>
-
-    <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-14 lg:px-8">
+  <section class="relative pt-28 sm:pt-32">
+    <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-12 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8">
 
       <!-- Left column: headline + CTAs -->
       <div class="flex flex-col items-center text-center sm:items-start sm:text-left">
@@ -293,33 +289,32 @@
         </div>
       </div>
 
-      <!-- Right column: dashboard mockup — gradient frame for premium feel -->
+      <!-- Right column: dashboard mockup — flat, hairline 1px border, McK style -->
       <div class="animate-fade-in-up animate-delay-400 w-full">
-        <div class="rounded-xl bg-gradient-to-br from-primary/20 via-border to-primary/10 p-px shadow-mockup">
-          <div
-            class="overflow-hidden rounded-[calc(var(--radius-xl)-1px)] bg-card"
-            role="region"
-            aria-roledescription="carrusel"
-            aria-label="Vista del panel Ethoz"
-            onmouseenter={() => (carouselPaused = true)}
-            onmouseleave={() => (carouselPaused = false)}
-            onfocusin={() => (carouselPaused = true)}
-            onfocusout={() => (carouselPaused = false)}
-          >
-            <!-- macOS-style title bar with LIVE indicator -->
-            <div class="flex items-center gap-2 border-b border-border bg-gradient-to-b from-muted/40 to-transparent px-4 py-3">
-              <div class="size-3 rounded-full bg-destructive/60"></div>
-              <div class="size-3 rounded-full bg-warning/60"></div>
-              <div class="size-3 rounded-full bg-success/60"></div>
-              <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
-              <span class="ml-auto inline-flex items-center gap-1.5 rounded-full border border-success/20 bg-success/[0.08] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-success">
-                <span class="relative flex size-1.5">
-                  <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
-                  <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
-                </span>
-                Live
+        <div
+          class="overflow-hidden border border-border bg-card shadow-mockup"
+          role="region"
+          aria-roledescription="carrusel"
+          aria-label="Vista del panel Ethoz"
+          onmouseenter={() => (carouselPaused = true)}
+          onmouseleave={() => (carouselPaused = false)}
+          onfocusin={() => (carouselPaused = true)}
+          onfocusout={() => (carouselPaused = false)}
+        >
+          <!-- Title bar with LIVE indicator -->
+          <div class="flex items-center gap-2 border-b border-border bg-muted px-4 py-3">
+            <div class="size-3 rounded-full bg-destructive/60"></div>
+            <div class="size-3 rounded-full bg-warning/60"></div>
+            <div class="size-3 rounded-full bg-success/60"></div>
+            <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
+            <span class="ml-auto inline-flex items-center gap-1.5 border border-success/30 bg-card px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-success">
+              <span class="relative flex size-1.5">
+                <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
+                <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
               </span>
-            </div>
+              Live
+            </span>
+          </div>
 
           <!-- Dashboard content — carousel -->
           {#key currentStudent}
@@ -395,7 +390,6 @@
                 <span class="block size-2 rounded-full transition-all {currentStudent === i ? 'w-6 bg-primary' : 'bg-border hover:bg-muted-foreground'}"></span>
               </button>
             {/each}
-          </div>
           </div>
         </div>
       </div>
@@ -503,8 +497,8 @@
       <!-- Feature cards — 2×2 grid, numbered headings (no icon boxes) -->
       <div class="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2">
         <!-- Feature 1: Ficha 360° -->
-        <a href="/features/student-profile" class="group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/25 hover:shadow-card-hover hover:-translate-y-1">
-          <span class="font-heading block text-3xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-primary/25 transition-colors group-hover:text-primary/60">01</span>
+        <a href="/features/student-profile" class="group relative border border-border bg-card p-6 transition-colors duration-[120ms] hover:border-foreground">
+          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary/80 transition-colors group-hover:text-foreground">01</span>
           <h3 class="mt-3 text-base font-semibold text-foreground">{t('features.record.title')}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.record.desc')}</p>
           <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:opacity-60 md:transition-opacity md:group-hover:opacity-100">
@@ -513,8 +507,8 @@
         </a>
 
         <!-- Feature 2: Retiros Seguros -->
-        <a href="/features/safe-pickups" class="group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/25 hover:shadow-card-hover hover:-translate-y-1">
-          <span class="font-heading block text-3xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-primary/25 transition-colors group-hover:text-primary/60">02</span>
+        <a href="/features/safe-pickups" class="group relative border border-border bg-card p-6 transition-colors duration-[120ms] hover:border-foreground">
+          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary/80 transition-colors group-hover:text-foreground">02</span>
           <h3 class="mt-3 text-base font-semibold text-foreground">{t('features.pickup.title')}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.pickup.desc')}</p>
           <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:opacity-60 md:transition-opacity md:group-hover:opacity-100">
@@ -523,8 +517,8 @@
         </a>
 
         <!-- Feature 3: Permisos por Cargo -->
-        <a href="/features/access-control" class="group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/25 hover:shadow-card-hover hover:-translate-y-1">
-          <span class="font-heading block text-3xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-primary/25 transition-colors group-hover:text-primary/60">03</span>
+        <a href="/features/access-control" class="group relative border border-border bg-card p-6 transition-colors duration-[120ms] hover:border-foreground">
+          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary/80 transition-colors group-hover:text-foreground">03</span>
           <h3 class="mt-3 text-base font-semibold text-foreground">{t('features.rbac.title')}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.rbac.desc')}</p>
           <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:opacity-60 md:transition-opacity md:group-hover:opacity-100">
@@ -533,8 +527,8 @@
         </a>
 
         <!-- Feature 4: Búsqueda Instantánea -->
-        <a href="/features/smart-search" class="group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/25 hover:shadow-card-hover hover:-translate-y-1">
-          <span class="font-heading block text-3xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-primary/25 transition-colors group-hover:text-primary/60">04</span>
+        <a href="/features/smart-search" class="group relative border border-border bg-card p-6 transition-colors duration-[120ms] hover:border-foreground">
+          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary/80 transition-colors group-hover:text-foreground">04</span>
           <h3 class="mt-3 text-base font-semibold text-foreground">{t('features.search.title')}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.search.desc')}</p>
           <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:opacity-60 md:transition-opacity md:group-hover:opacity-100">
@@ -589,27 +583,27 @@
           role="group"
           aria-label={`Faltan ${countdownDays} días, ${countdownHours} horas y ${countdownMinutes} minutos`}
         >
-          <div class="group relative overflow-hidden rounded-xl border border-border bg-gradient-to-b from-card to-muted/40 p-4 text-center shadow-card transition-all hover:shadow-card-hover sm:p-6" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-            <span class="font-heading block text-5xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-foreground sm:text-7xl">
+          <div class="group relative border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-primary"></div>
+            <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
               {countdownDays}
             </span>
             <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
               {t('compliance.countdown.days')}
             </span>
           </div>
-          <div class="group relative overflow-hidden rounded-xl border border-border bg-gradient-to-b from-card to-muted/40 p-4 text-center shadow-card transition-all hover:shadow-card-hover sm:p-6" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-            <span class="font-heading block text-5xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-foreground sm:text-7xl">
+          <div class="group relative border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-primary"></div>
+            <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
               {countdownHours}
             </span>
             <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
               {t('compliance.countdown.hours')}
             </span>
           </div>
-          <div class="group relative overflow-hidden rounded-xl border border-border bg-gradient-to-b from-card to-muted/40 p-4 text-center shadow-card transition-all hover:shadow-card-hover sm:p-6" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
-            <span class="font-heading block text-5xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-foreground sm:text-7xl">
+          <div class="group relative border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-primary"></div>
+            <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
               {countdownMinutes}
             </span>
             <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">

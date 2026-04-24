@@ -1,54 +1,47 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter";
-@import "@fontsource-variable/dm-sans";
+@import "@fontsource-variable/playfair-display";
 @import "@fontsource-variable/jetbrains-mono";
 
 /*
  * ──────────────────────────────────────────
- * Ethoz Landing Design System — Light theme
+ * Ethoz Landing — McKinsey-style design system
  *
- * Institutional, warm, confident. The app is pharma-clean (restrained,
- * AAA, internal-user) but the LANDING is a different job: a school
- * director has 5 seconds to decide if this company is serious, warm,
- * and chilean. Sterile marketing fails that test.
+ * Governing principle: HIGH CONTRAST.
+ *   Deep blue vs white. Serif display vs sans body. Editorial whitespace.
+ *   Nothing dusty, nothing mid-tone, nothing decorative.
+ *   If a choice softens the contrast, it's wrong.
  *
  * Brand rules:
- *  - Deep institutional blue (#0C2A6E / primary) — unifies with the
- *    Ethoz-app (both are in the medical-blue family) but has more
- *    presence than the app's clinical #034B8A. Reserve it for primary
- *    actions and brand accents (the "z" in wordmark).
- *  - Warm off-white background (cream-tinted) — NOT paper-blue.
- *    Feels institutional chileno, not dashboard-clinical.
- *  - Navy (#0B1E3A) for text, headlines, icons — not pure black.
- *  - DM Sans for headings (distinctive marketing voice), Inter for
- *    body/UI, JetBrains Mono for numbers/stats.
- *  - Real shadow elevation on CTAs and cards. Pharma-clean hairline
- *    discipline was wrong for a landing page.
- *  - Destructive red + shadow-glow-destructive untouched — safety
- *    signature preserved.
- *  - AAA contrast on all text (7:1). WCAG 1.4.11 (≥3:1) on interactive
- *    UI affordance (inputs, focus rings). Decorative card borders use
- *    a softer warm hairline — compliant because cards carry text +
- *    hover + arrow affordance (border is not the sole identifier).
+ *  - Deep blue (#051C2C) is the anchor — headlines, body text on white,
+ *    primary surfaces. Never pure black.
+ *  - Primary action: McKinsey blue #034B8A — square fills, hairline
+ *    underlines for links. NO glow, NO lift, NO scale hovers.
+ *  - Hairline 1px borders (--mck-fog) do the work shadows would do
+ *    elsewhere. Shadows are absent by default, hairline only when needed.
+ *  - RADII ARE ZERO. Corners are square. Buttons, cards, inputs — all 0.
+ *    Pill only for status chips and avatars.
+ *  - Gradients are forbidden on UI chrome. Only acceptable as soft
+ *    backdrops on dark hero imagery.
+ *  - Serif display (Playfair Display as Bower substitute) for headlines.
+ *    Sans body (Inter) for body, UI, meta.
+ *  - Eyebrow → serif headline → sans meta. Signature editorial hierarchy.
+ *  - Hover: underline appears or darkens. NEVER shadow-lift, scale, glow.
+ *  - Focus ring: 2px solid --mck-blue-500 with 2px offset. Always visible.
  *
- * Divergence from app: warmer bg, DM Sans headings, middle-ground radii
- * (12px cards, not 8px cap), real shadows. Unified on: primary blue
- * family, navy ink, Inter body, token names.
- *
- * HARD RULE: All colors as tokens. No hardcoded oklch/hex/rgb in
- * components.
+ * Ref: /Users/ignacioaraya/Downloads/design-system.md
  * ──────────────────────────────────────────
  */
 
 @theme inline {
-  /* ---------- Primary accent — Institutional Blue ---------- */
+  /* ---------- Primary — McKinsey blue ---------- */
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-ink: var(--primary-ink);
   --color-primary-hover: var(--primary-hover);
   --color-primary-pressed: var(--primary-pressed);
 
-  /* ---------- Neutrals — Warm off-white + Navy ---------- */
+  /* ---------- Neutrals — white & deep blue ---------- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -69,7 +62,7 @@
   --color-titanium: var(--titanium);
   --color-titanium-foreground: var(--titanium-foreground);
 
-  /* ---------- Semantic severity ---------- */
+  /* ---------- Semantic — used sparingly in data-viz only ---------- */
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-danger: var(--danger);
@@ -78,7 +71,6 @@
   --color-warning-foreground: var(--warning-foreground);
   --color-warning-text: var(--warning-text);
 
-  /* ---------- Status ---------- */
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-info: var(--info);
@@ -100,90 +92,83 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
 
-  /* ---------- Overlay ---------- */
   --color-overlay: var(--overlay);
   --color-skeleton: var(--skeleton);
 
-  /* ---------- Radius — middle ground (not sharp, not toy) ---------- */
+  /* ---------- Radius — ZERO everywhere ---------- */
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
   --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-3xl: var(--radius-3xl);
 
-  /* ---------- Typography — DM Sans headings + Inter body ---------- */
+  /* ---------- Typography — Serif display + Sans body ---------- */
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "DM Sans Variable", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Playfair Display Variable", "Times New Roman", Georgia, serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
 :root {
-  /* ── Primary — Institutional Blue (AAA verified) ──
-   * Slightly deeper + more chromatic than the app's #034B8A.
-   * White-on-primary: 10.0:1. Primary-on-white: 10.0:1. Both AAA. */
-  --primary: oklch(0.38 0.17 262);            /* ≈ #1A3FA5 institutional blue */
-  --primary-foreground: oklch(1 0 0);
-  --primary-ink: oklch(0.22 0.06 260);        /* Navy for icons/headlines on light */
-  --primary-hover: oklch(0.33 0.16 262);
-  --primary-pressed: oklch(0.29 0.15 262);
+  /* ── Primary — McKinsey blue (AAA 10.0:1 on white) ── */
+  --primary: #034B8A;
+  --primary-foreground: #FFFFFF;
+  --primary-ink: #051C2C;                   /* Deep blue for icons/headlines */
+  --primary-hover: #051C2C;                 /* Hover deepens toward black, per spec */
+  --primary-pressed: #03294F;
 
-  /* ── Core — Warm off-white canvas + Navy ink ──
-   * Barely-warm bg — reads mostly white but has soul. */
-  --background: oklch(0.99 0.004 85);         /* ≈ #FDFCFA warm off-white */
-  --foreground: oklch(0.22 0.06 260);         /* #0B1E3A navy */
+  /* ── Core — White + Deep Blue anchor ── */
+  --background: #FFFFFF;                    /* Pure white default */
+  --foreground: #051C2C;                    /* McKinsey deep blue — headlines, body */
 
-  /* ── Card — pure white (lifts above warm bg) ── */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.06 260);
-  --row-hover: oklch(0.97 0.008 85);
+  /* ── Card — white, hairline border ── */
+  --card: #FFFFFF;
+  --card-foreground: #051C2C;
+  --row-hover: #F7F8F9;
 
   /* ── Popover ── */
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.06 260);
+  --popover: #FFFFFF;
+  --popover-foreground: #051C2C;
 
-  /* ── Muted — warm gray surface ── */
-  --muted: oklch(0.96 0.006 85);
-  --muted-foreground: oklch(0.42 0.015 260);  /* Navy-tinted gray, AAA 7.4:1 on white */
+  /* ── Muted — off-white panel / slate text ── */
+  --muted: #F7F8F9;                         /* mck-off-white — subtle panel */
+  --muted-foreground: #3F4A54;              /* mck-slate-700 — body text on white, AAA 9.3:1 */
 
-  /* ── Secondary — section alternation surface (subtle warm dip) ── */
-  --secondary: oklch(0.965 0.008 85);
-  --secondary-foreground: oklch(0.22 0.06 260);
+  /* ── Secondary — section alternation (off-white) ── */
+  --secondary: #F7F8F9;
+  --secondary-foreground: #051C2C;
 
-  /* ── Accent — even softer warm wash ── */
-  --accent: oklch(0.97 0.010 85);
-  --accent-foreground: oklch(0.22 0.06 260);
+  /* ── Accent — palest blue wash (used sparingly) ── */
+  --accent: #EAF2F9;                        /* mck-ice */
+  --accent-foreground: #051C2C;
 
-  /* ── Border / Input / Ring ──
-   *   --border: decorative warm hairline (for cards, dividers, mockup
-   *     chrome). Cards signal interactivity through text + arrow +
-   *     hover lift, not the border alone, so softer is fine.
-   *   --input: darker for WCAG 1.4.11 ≥3:1 on form affordance —
-   *     fields need to read as fields even without focus. */
-  --border: oklch(0.88 0.010 85);             /* ≈ #E3DFD8 warm hairline */
-  --input: oklch(0.62 0.01 260);              /* Darker, 3.64:1 vs white */
-  --ring: oklch(0.38 0.17 262);               /* Primary blue focus (10:1) */
+  /* ── Border / Input / Ring ── */
+  --border: #D8DCE0;                        /* mck-fog — hairline */
+  --input: #B3BAC2;                         /* mck-slate-300 — form affordance, 3.2:1 on white */
+  --ring: #1F77C9;                          /* mck-blue-500 — focus ring */
 
-  /* ── Titanium — static navy surface (does NOT invert) ── */
-  --titanium: oklch(0.22 0.06 260);
-  --titanium-foreground: oklch(1 0 0);
+  /* ── Titanium — static deep-blue surface (does NOT invert) ── */
+  --titanium: #051C2C;
+  --titanium-foreground: #FFFFFF;
 
-  /* ── Semantic: Destructive (AAA 9.98:1 white-on-red) ── */
-  --destructive: oklch(0.40 0.16 30);         /* ≈ #A02822 */
-  --destructive-foreground: oklch(1 0 0);
-  --danger: oklch(0.38 0.17 30);
-  --danger-foreground: oklch(1 0 0);
+  /* ── Semantic: Destructive (used in data-viz / safety only) ── */
+  --destructive: #C0382B;                   /* mck-red */
+  --destructive-foreground: #FFFFFF;
+  --danger: #A0291E;
+  --danger-foreground: #FFFFFF;
 
-  /* ── Semantic: Warning — lightened amber with NAVY fg (AAA 7.63:1) ── */
-  --warning: oklch(0.75 0.13 70);             /* ≈ #E8A356 */
-  --warning-foreground: oklch(0.22 0.06 260);
-  --warning-text: oklch(0.22 0.06 260);
+  /* ── Semantic: Warning — amber with deep-blue fg ── */
+  --warning: #D98F2B;                       /* mck-amber */
+  --warning-foreground: #051C2C;
+  --warning-text: #051C2C;
 
-  /* ── Semantic: Success — darkened green (AAA 7.73:1 white-on-green) ── */
-  --success: oklch(0.42 0.13 155);            /* ≈ #005E31 */
-  --success-foreground: oklch(1 0 0);
+  /* ── Semantic: Success — positive delta ── */
+  --success: #2E8B57;                       /* mck-green */
+  --success-foreground: #FFFFFF;
 
-  /* ── Semantic: Info — same family as primary (AAA) ── */
-  --info: oklch(0.38 0.17 262);
-  --info-foreground: oklch(1 0 0);
+  /* ── Semantic: Info — mck-blue ── */
+  --info: #034B8A;
+  --info-foreground: #FFFFFF;
 
   /* ── Platform brand exceptions (external identity, do not repurpose) ── */
   --brand-linkedin: #0A66C2;
@@ -192,24 +177,47 @@
   --brand-youtube: #FF0000;
 
   /* ── Sidebar (admin) ── */
-  --sidebar: oklch(0.97 0.008 85);
-  --sidebar-foreground: oklch(0.22 0.06 260);
-  --sidebar-accent: oklch(0.95 0.010 85);
-  --sidebar-accent-foreground: oklch(0.22 0.06 260);
-  --sidebar-border: oklch(0.88 0.010 85);
-  --sidebar-ring: oklch(0.38 0.17 262);
-  --sidebar-primary: oklch(0.38 0.17 262);
-  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar: #F7F8F9;
+  --sidebar-foreground: #051C2C;
+  --sidebar-accent: #EEF0F2;
+  --sidebar-accent-foreground: #051C2C;
+  --sidebar-border: #D8DCE0;
+  --sidebar-ring: #1F77C9;
+  --sidebar-primary: #034B8A;
+  --sidebar-primary-foreground: #FFFFFF;
 
   /* ── Overlay ── */
-  --overlay: oklch(0.22 0.06 260 / 0.60);
-  --skeleton: oklch(0.92 0.008 85);
+  --overlay: rgba(5, 28, 44, 0.60);
+  --skeleton: #EEF0F2;
 
-  /* ── Radius — middle ground (distinctive without being toy) ── */
-  --radius-sm: 0.25rem;                       /* 4px  — badges, tight pills */
-  --radius-md: 0.5rem;                        /* 8px  — buttons, inputs */
-  --radius-lg: 0.75rem;                       /* 12px — cards */
-  --radius-xl: 1rem;                          /* 16px — mockup frames, large cards */
+  /* ── Radius — ZERO everywhere. Pills only for chips/avatars. ── */
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+  --radius-3xl: 0;
+
+  /* ── Motion ── */
+  --ease-standard: cubic-bezier(0.2, 0, 0.2, 1);
+  --ease-entrance: cubic-bezier(0.0, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 400ms;
+
+  /* ── Typographic scale (editorial) ── */
+  --fs-display-1: clamp(56px, 7vw, 96px);
+  --fs-display-2: clamp(44px, 5.5vw, 72px);
+  --fs-h1: clamp(36px, 4vw, 56px);
+  --fs-h2: clamp(28px, 3vw, 40px);
+  --fs-lead: 20px;
+  --fs-body: 17px;
+  --fs-caption: 13px;
+  --fs-eyebrow: 12px;
+
+  --tracking-eyebrow: 0.14em;
+  --tracking-caps: 0.06em;
 }
 
 /* ──────────────────────────────────────────
@@ -232,24 +240,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background);
   color: var(--foreground);
-  line-height: 1.6;
-  letter-spacing: -0.011em;
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  letter-spacing: 0;
 }
 
-/* ── Typography — DM Sans headings with real presence ── */
+/* ── Typography — SERIF display, sans body. Tight serif tracking. ── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  color: var(--foreground);
   text-wrap: balance;
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  font-weight: 700;
 }
 
-h1 { font-weight: 800; letter-spacing: -0.03em; line-height: 1.03; }
-h2 { font-weight: 700; letter-spacing: -0.025em; }
-h3 { font-weight: 700; }
+h1 { font-size: var(--fs-h1); font-weight: 500; letter-spacing: -0.02em; line-height: 1.05; }
+h2 { font-size: var(--fs-h2); font-weight: 500; letter-spacing: -0.02em; }
+h3 { font-size: 28px; font-weight: 500; }
+h4 { font-size: 22px; font-weight: 500; }
+h5 { font-size: 18px; font-weight: 500; }
 
-p, li { text-wrap: pretty; }
+p, li {
+  text-wrap: pretty;
+}
 
 /* ── Numeric tabular nuance — monospace for stats ── */
 [data-numeric], .font-numeric {
@@ -257,49 +271,97 @@ p, li { text-wrap: pretty; }
   font-variant-numeric: tabular-nums;
 }
 
-/* ── Editorial eyebrow — small caps section tag in primary blue ── */
+/* ── Eyebrow — signature editorial marker above headlines ── */
 .eyebrow,
 .label-mono {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
   text-transform: uppercase;
   color: var(--primary);
+}
+
+/* ── Pull quote — italic serif, blue left rule ── */
+blockquote.pull-quote,
+.pull-quote {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 2.5vw, 34px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--foreground);
+  border-left: 2px solid var(--primary);
+  padding-left: 24px;
+  margin: 24px 0;
+}
+
+/* ── Section rule — signature 48px short rule under section headers ── */
+.mck-rule {
+  height: 1px;
+  background: var(--foreground);
+  width: 48px;
+  margin: 16px 0;
+  border: 0;
+}
+
+.mck-rule--wide {
+  width: 100%;
+  background: var(--border);
+}
+
+/* ── Line pattern — signature vertical hairline motif (use sparingly) ── */
+.mck-line-pattern {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--foreground) 0 2px,
+    transparent 2px 10px
+  );
 }
 
 /* ── Utility: text-balance ── */
 .text-balance { text-wrap: balance; }
 
-/* ── Selection — institutional blue at low opacity ── */
+/* ── Selection — deep-blue highlight ── */
 ::selection {
-  background-color: oklch(0.38 0.17 262 / 0.25);
-  color: oklch(0.22 0.06 260);
+  background-color: rgba(3, 75, 138, 0.20);
+  color: var(--foreground);
 }
 
 /* ──────────────────────────────────────────
- * Global :focus-visible safety net — WCAG 2.4.7 + 2.4.11
+ * Links — McKinsey hairline-underline pattern
+ * ────────────────────────────────────────── */
+.prose a {
+  color: var(--primary);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: color var(--dur-fast) var(--ease-standard),
+              border-color var(--dur-fast) var(--ease-standard);
+}
+
+.prose a:hover {
+  color: var(--primary-hover);
+  border-bottom-width: 2px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ──────────────────────────────────────────
+ * Global :focus-visible — 2px mck-blue-500 with 2px offset. Always visible.
  * ────────────────────────────────────────── */
 :where(button, a, input, textarea, select, [tabindex], [role="button"]):focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
-/* ── Global link styles — only inline text links underline ── */
-.prose a {
-  color: var(--primary);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: opacity 0.15s ease;
-}
-
-.prose a:hover { opacity: 0.8; }
-a { text-decoration: none; }
-
 /* ── Smooth transitions for interactive elements ── */
 button, a, [role="button"] {
-  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease,
-              opacity 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  transition: color var(--dur-fast) var(--ease-standard),
+              background-color var(--dur-fast) var(--ease-standard),
+              border-color var(--dur-fast) var(--ease-standard),
+              opacity var(--dur-fast) var(--ease-standard);
 }
 
 /* ── Checkbox visibility ── */
@@ -307,11 +369,11 @@ button[role="checkbox"] {
   border: 1.5px solid var(--input);
 }
 
-/* ── Hide reCAPTCHA badge (attribution in footer instead) ── */
+/* ── Hide reCAPTCHA badge ── */
 .grecaptcha-badge { visibility: hidden !important; pointer-events: none !important; }
 
 /* ──────────────────────────────────────────
- * Vestibular safety — honor prefers-reduced-motion
+ * Vestibular safety
  * ────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -323,15 +385,15 @@ button[role="checkbox"] {
 }
 
 /* ──────────────────────────────────────────
- * Animations
+ * Animations — fades and slow reveals only. No bounces/overshoot/springs.
  * ────────────────────────────────────────── */
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(1rem); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fade-in-up var(--dur-slow) var(--ease-entrance) both;
 }
 
 .animate-delay-100 { animation-delay: 100ms; }
@@ -347,13 +409,9 @@ button[role="checkbox"] {
   }
 }
 
-/* ── Scroll-triggered reveal — native scroll-driven animation, no JS ──
- * Apply `class="reveal"` to any element to have it fade-up as it enters
- * the viewport. Progressive enhancement: browsers without animation-timeline
- * support just render the element normally (no flash of hidden content
- * because the initial state is only set when the animation is supported). */
+/* ── Scroll-triggered reveal — native scroll-driven animation, no JS ── */
 @keyframes reveal-enter {
-  from { opacity: 0; transform: translateY(32px); }
+  from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -374,71 +432,78 @@ button[role="checkbox"] {
 }
 
 /* ──────────────────────────────────────────
- * Utilities — real elevation, marketing energy restored
+ * Button underline-from-left hover pattern —
+ * the text stays still, a hairline grows left-to-right on hover.
+ * ────────────────────────────────────────── */
+.btn-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 0;
+  background: currentColor;
+  transition: width var(--dur-base) var(--ease-standard);
+}
+
+.btn-underline:hover::after,
+.btn-underline:focus-visible::after {
+  width: 100%;
+}
+
+/* ──────────────────────────────────────────
+ * Shadows — absent by default. Hairline borders do the work.
+ * Tokens retained for backwards-compat; all neutralized or minimal.
  * ────────────────────────────────────────── */
 
-/* Primary CTA lift — controlled blue glow for hero CTAs. Not garish,
- * gives the button actual presence on the page. */
 @utility shadow-glow-primary {
-  box-shadow:
-    0 4px 16px color-mix(in oklch, var(--primary) 22%, transparent),
-    0 1px 3px color-mix(in oklch, var(--primary) 12%, transparent);
+  box-shadow: none;
 }
 
 @utility shadow-glow-primary-hover {
-  box-shadow:
-    0 8px 28px color-mix(in oklch, var(--primary) 32%, transparent),
-    0 2px 6px color-mix(in oklch, var(--primary) 18%, transparent);
+  box-shadow: none;
 }
 
-/* Card shadows — soft default + layered hover, no hairline nonsense */
 @utility shadow-card {
-  box-shadow:
-    0 1px 3px rgb(11 30 58 / 0.04),
-    0 1px 2px rgb(11 30 58 / 0.06);
+  box-shadow: none;
 }
 
 @utility shadow-card-hover {
-  box-shadow:
-    0 12px 32px rgb(11 30 58 / 0.08),
-    0 4px 12px rgb(11 30 58 / 0.05);
+  box-shadow: 0 1px 0 rgba(5, 28, 44, 0.06);
 }
 
-/* Card inset ring */
 @utility ring-card {
-  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--foreground) 6%, transparent);
+  box-shadow: inset 0 0 0 1px var(--border);
 }
 
-/* Popover / dialog elevation */
 @utility shadow-popover {
-  box-shadow:
-    0 16px 40px rgb(11 30 58 / 0.12),
-    0 4px 12px rgb(11 30 58 / 0.06);
+  box-shadow: 0 8px 24px rgba(5, 28, 44, 0.10);
 }
 
-/* Hero mockup — serious presence for the dashboard carousel */
 @utility shadow-mockup {
-  box-shadow:
-    0 24px 48px rgb(11 30 58 / 0.10),
-    0 8px 16px rgb(11 30 58 / 0.06),
-    0 2px 4px rgb(11 30 58 / 0.04);
+  box-shadow: 0 2px 8px rgba(5, 28, 44, 0.08);
 }
 
-/* Modal/sheet scrim */
 @utility bg-overlay {
   background-color: var(--overlay);
 }
 
-/* Destructive glow — SAFETY SIGNATURE, unchanged */
+/* Destructive glow — SAFETY SIGNATURE only (panic button, critical
+ * confirmations). Retained because it carries semantic weight. */
 @utility shadow-glow-destructive {
   box-shadow: 0 0 40px color-mix(in oklch, var(--destructive) 60%, transparent);
 }
 
-/* Technical grid pattern — subtle warm dot grid for hero/section textures */
+/* Grid pattern — neutralized (transparent). Utility retained for compat. */
 @utility bg-grid-pattern {
   background-image:
-    linear-gradient(to right, color-mix(in oklch, var(--foreground) 4%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 4%, transparent) 1px, transparent 1px);
+    linear-gradient(to right, transparent 1px, transparent 1px),
+    linear-gradient(to bottom, transparent 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
