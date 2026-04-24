@@ -124,7 +124,7 @@
   </section>
 
   <div class="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8 lg:pb-28">
-    <article class="max-w-[68ch] space-y-20">
+    <article class="mx-auto max-w-[68ch] space-y-20">
 
       <!-- SECCIÓN 1: QUÉ EXIGE -->
       <section id="que-exige">

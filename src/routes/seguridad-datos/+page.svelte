@@ -148,7 +148,7 @@
         </nav>
       </aside>
 
-      <article class="max-w-[68ch] space-y-20">
+      <article class="mx-auto max-w-[68ch] space-y-20">
 
         <!-- CIFRADO -->
         <section id="cifrado">
