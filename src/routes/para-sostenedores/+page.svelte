@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { t } from '$lib/i18n/index.svelte';
   import {
     Building2, ArrowRight, ShieldAlert, BarChart3, BadgeCheck,
     AlertTriangle, FileSearch, TrendingDown, Scale, CheckCircle,
@@ -148,12 +149,12 @@
   <section class="py-12 sm:py-14" aria-labelledby="sostenedor-editorial">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="sostenedor-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">La carta que ninguna Superintendencia olvida</p>
+      <p id="sostenedor-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.sostenedores.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
-        El sostenedor responde por cinco colegios. Con cinco Excel, responde con cinco respuestas distintas.
+        {t('audience.sostenedores.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
-        A partir de diciembre 2026, la Ley 21.719 no evaluará tu intención. Evaluará tu capacidad de demostrar, por sede, qué pasó, quién lo hizo y cuándo.
+        {t('audience.sostenedores.editorial.body')}
       </p>
     </div>
   </section>
@@ -375,12 +376,12 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="sostenedor-cta">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Sostenedores · Gestión consolidada</p>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">{t('audience.sostenedores.finalCta.eyebrow')}</p>
       <h2 id="sostenedor-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
-        Tu exposición legal se multiplica por sede. Tu defensa también debería.
+        {t('audience.sostenedores.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
-        Una sesión de 30 minutos para mapear tu exposición real y el costo consolidado frente al costo fragmentado.
+        {t('audience.sostenedores.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
@@ -398,7 +399,7 @@
         </a>
       </div>
       <p class="mt-8 text-xs text-background/60">
-        Hasta 100.000 UTM de exposición consolidada para redes de 5 establecimientos.
+        {t('audience.sostenedores.finalCta.footnote')}
       </p>
     </div>
   </section>

@@ -125,12 +125,12 @@
   <section class="py-12 sm:py-14" aria-labelledby="analytics-editorial">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="analytics-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Datos con consecuencia</p>
+      <p id="analytics-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.analytics.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
-        Un dashboard que solo se mira no vale el minuto que toma cargarlo.
+        {t('featurePage.analytics.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
-        Ethoz no genera reportes: genera decisiones. Cada gráfico existe para responder una pregunta que un director se hace antes de entrar a la sala de reuniones.
+        {t('featurePage.analytics.editorial.body')}
       </p>
     </div>
   </section>
@@ -315,12 +315,12 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="analytics-cta">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Analytics · Lo que Excel nunca te pudo dar</p>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">{t('featurePage.analytics.finalCta.eyebrow')}</p>
       <h2 id="analytics-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
-        Deja de gestionar con hojas de cálculo.
+        {t('featurePage.analytics.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
-        Demo con el dashboard cargado con los datos de un colegio similar al tuyo.
+        {t('featurePage.analytics.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a

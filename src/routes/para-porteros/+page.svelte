@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { t } from '$lib/i18n/index.svelte';
   import {
     DoorOpen, ArrowRight, BadgeCheck, CheckCircle, XCircle,
     Ban, AlertTriangle, Eye, EyeOff, Wifi, WifiOff, Clock, UserCheck
@@ -188,12 +189,12 @@
   <section class="py-12 sm:py-14" aria-labelledby="portero-editorial">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="portero-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">La pantalla responde · el portero decide</p>
+      <p id="portero-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.porteros.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
-        El portero no debería cargar con las decisiones legales del colegio a las 14:30.
+        {t('audience.porteros.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
-        Ethoz le muestra lo imprescindible: verde o rojo. El resto —la orden judicial, los datos médicos, el historial— vive en el rol que corresponde.
+        {t('audience.porteros.editorial.body')}
       </p>
     </div>
   </section>
@@ -388,12 +389,12 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="portero-cta">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Portería · Herramienta concreta, 15 segundos por retiro</p>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">{t('audience.porteros.finalCta.eyebrow')}</p>
       <h2 id="portero-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
-        Muéstrale la pantalla al equipo. La decisión la toman ellos.
+        {t('audience.porteros.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
-        Demo de 20 minutos para tu portería. Sin consultores, sin mails de seguimiento.
+        {t('audience.porteros.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a

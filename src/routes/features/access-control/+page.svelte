@@ -138,12 +138,12 @@
   <section class="py-12 sm:py-14" aria-labelledby="rbac-editorial">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="rbac-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Principio de mínimo privilegio</p>
+      <p id="rbac-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.accessControl.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
-        El acceso no regulado no es confianza; es un riesgo diferido.
+        {t('featurePage.accessControl.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
-        La Ley 21.719 responsabiliza al establecimiento por quién ve qué. Ethoz hace que la arquitectura responda por ti.
+        {t('featurePage.accessControl.editorial.body')}
       </p>
     </div>
   </section>
@@ -243,12 +243,12 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="rbac-cta">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Gobernanza de datos</p>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">{t('featurePage.accessControl.finalCta.eyebrow')}</p>
       <h2 id="rbac-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
-        Que cada rol vea exactamente lo que le corresponde.
+        {t('featurePage.accessControl.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
-        Configuramos los permisos de tu equipo completo en menos de 48 horas.
+        {t('featurePage.accessControl.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a

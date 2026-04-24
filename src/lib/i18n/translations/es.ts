@@ -659,4 +659,116 @@ export const es = {
   'a11y.mockup.region_label': 'Vista previa del panel Ethoz',
   'a11y.carousel.prev_student': 'Ver estudiante anterior',
   'a11y.carousel.next_student': 'Ver siguiente estudiante',
+
+  // Feature page: Access Control (Permisos por cargo)
+  'featurePage.accessControl.editorial.eyebrow': 'Principio de mínimo privilegio',
+  'featurePage.accessControl.editorial.statement': 'El acceso no regulado no es confianza; es un riesgo diferido.',
+  'featurePage.accessControl.editorial.body': 'La Ley 21.719 responsabiliza al establecimiento por quién ve qué. Ethoz hace que la arquitectura responda por ti.',
+  'featurePage.accessControl.finalCta.eyebrow': 'Gobernanza de datos',
+  'featurePage.accessControl.finalCta.title': 'Que cada rol vea exactamente lo que le corresponde.',
+  'featurePage.accessControl.finalCta.subtitle': 'Configuramos los permisos de tu equipo completo en menos de 48 horas.',
+
+  // Feature page: Safe Pickups (Retiros seguros)
+  'featurePage.safePickups.editorial.eyebrow': 'La verdad del portón',
+  'featurePage.safePickups.editorial.statement': 'El retiro es el único momento del día en que un error se paga con un titular de prensa.',
+  'featurePage.safePickups.editorial.body': 'Ethoz no pide que el portero lo haga bien bajo presión. Lo hace imposible de hacer mal.',
+  'featurePage.safePickups.finalCta.eyebrow': 'Portería · El punto de control más visible',
+  'featurePage.safePickups.finalCta.title': 'Pon la pantalla entre el portero y la duda.',
+  'featurePage.safePickups.finalCta.subtitle': 'Una demo de 20 minutos te muestra el flujo exacto con los apoderados de tu colegio.',
+  'featurePage.safePickups.finalCta.footnote': 'Cero retiros no autorizados registrados en colegios con Ethoz.',
+
+  // Feature page: Student Profile (Ficha 360°)
+  'featurePage.studentProfile.editorial.eyebrow': 'Continuidad del expediente',
+  'featurePage.studentProfile.editorial.statement': 'En marzo, la mitad de los colegios de Chile empieza desde cero. Los alumnos no.',
+  'featurePage.studentProfile.editorial.body': 'La ficha de cada alumno viaja con él desde Pre-kinder hasta 4° Medio. El nuevo profesor jefe abre el lunes con el contexto completo, no con una carpeta vacía.',
+  'featurePage.studentProfile.finalCta.eyebrow': 'Ficha 360° · Un alumno, un expediente',
+  'featurePage.studentProfile.finalCta.title': 'Todo lo que el colegio sabe, en la pantalla correcta para cada rol.',
+  'featurePage.studentProfile.finalCta.subtitle': 'Demo con los alumnos y apoderados de tu establecimiento cargados.',
+
+  // Feature page: Smart Search (Búsqueda inteligente)
+  'featurePage.smartSearch.editorial.eyebrow': 'Velocidad como garantía',
+  'featurePage.smartSearch.editorial.statement': 'En una emergencia, cada segundo buscando un nombre es un segundo sin protocolo.',
+  'featurePage.smartSearch.editorial.body': 'Por eso la búsqueda de Ethoz responde en menos de 50 ms — antes de que el inspector termine de pronunciar el apellido.',
+  'featurePage.smartSearch.finalCta.eyebrow': '50 ms — el tiempo real de la operación',
+  'featurePage.smartSearch.finalCta.title': 'Encontrar es la primera mitad de proteger.',
+  'featurePage.smartSearch.finalCta.subtitle': 'Demo con los alumnos y cursos reales de tu colegio cargados.',
+
+  // Feature page: Privacy & Compliance
+  'featurePage.privacyCompliance.editorial.eyebrow': 'Privacidad por diseño',
+  'featurePage.privacyCompliance.editorial.statement': 'Cumplir la Ley 21.719 no es agregar un módulo al final. Es cambiar cómo se almacena cada campo desde el principio.',
+  'featurePage.privacyCompliance.editorial.body': 'Los sistemas que prometen "adaptarse" antes de diciembre 2026 arrastran su arquitectura vieja. Ethoz nació después de la ley, no antes.',
+  'featurePage.privacyCompliance.finalCta.eyebrow': 'Ley 21.719 · Vigencia plena en diciembre 2026',
+  'featurePage.privacyCompliance.finalCta.title': 'El cumplimiento no se improvisa la semana antes.',
+  'featurePage.privacyCompliance.finalCta.subtitle': 'Agenda una evaluación de 30 minutos. Revisamos tu flujo actual de datos y tu exposición real.',
+  'featurePage.privacyCompliance.finalCta.footnote': 'Multas hasta 20.000 UTM (~$1.300M CLP) o el 4% de los ingresos anuales · por establecimiento.',
+
+  // Feature page: Analytics
+  'featurePage.analytics.editorial.eyebrow': 'Datos con consecuencia',
+  'featurePage.analytics.editorial.statement': 'Un dashboard que solo se mira no vale el minuto que toma cargarlo.',
+  'featurePage.analytics.editorial.body': 'Ethoz no genera reportes: genera decisiones. Cada gráfico existe para responder una pregunta que un director se hace antes de entrar a la sala de reuniones.',
+  'featurePage.analytics.finalCta.eyebrow': 'Analytics · Lo que Excel nunca te pudo dar',
+  'featurePage.analytics.finalCta.title': 'Deja de gestionar con hojas de cálculo.',
+  'featurePage.analytics.finalCta.subtitle': 'Demo con el dashboard cargado con los datos de un colegio similar al tuyo.',
+
+  // Feature page: Attendance
+  'featurePage.attendance.editorial.eyebrow': 'Circular N°30 · Obligatoria desde 2024',
+  'featurePage.attendance.editorial.statement': 'El libro de clases en papel no cumple. Uno en PDF tampoco.',
+  'featurePage.attendance.editorial.body': 'La Circular N°30 del MINEDUC exige firma electrónica, trazabilidad y respaldo en nube. Lo que no es libro digital con esos tres pilares, no vale ante una fiscalización.',
+  'featurePage.attendance.finalCta.eyebrow': 'Asistencia · Conforme a Circular N°30',
+  'featurePage.attendance.finalCta.title': 'Que el libro de clases deje de ser un riesgo y sea una herramienta.',
+  'featurePage.attendance.finalCta.subtitle': 'Demo con los cursos de tu colegio cargados. Quince minutos.',
+
+  // Feature page: Alerts
+  'featurePage.alerts.editorial.eyebrow': 'La alerta que nadie leyó',
+  'featurePage.alerts.editorial.statement': 'Un correo sin acuse. Una planilla con fecha de hace tres meses. Así se vuelven titulares las cosas que un protocolo digital habría detenido.',
+  'featurePage.alerts.editorial.body': 'Cada alerta en Ethoz tiene un responsable, una fecha de vencimiento y una persona que la revisa. Ninguna queda en el aire.',
+  'featurePage.alerts.finalCta.eyebrow': 'Alertas críticas · Evidencia, no testimonio',
+  'featurePage.alerts.finalCta.title': 'Cuando llega el tribunal, o la Superintendencia, habla el registro.',
+  'featurePage.alerts.finalCta.subtitle': 'Centralizamos las alertas de tu establecimiento en menos de una semana.',
+
+  // Feature page: Emergency
+  'featurePage.emergency.editorial.eyebrow': 'Chile · País sísmico',
+  'featurePage.emergency.editorial.statement': 'La emergencia no avisa a qué hora sucede. El protocolo tampoco puede estar guardado en una carpeta de Inspectoría.',
+  'featurePage.emergency.editorial.body': 'En una evacuación, el protocolo vive en los bolsillos de los docentes o no existe. Ethoz lo pone en su móvil, activable en un toque.',
+  'featurePage.emergency.finalCta.eyebrow': 'Emergencias · El protocolo no puede ir en papel',
+  'featurePage.emergency.finalCta.title': 'Haz que cada segundo cuente.',
+  'featurePage.emergency.finalCta.subtitle': 'Activemos un simulacro digital con los datos reales de tu establecimiento.',
+
+  // Audience page: Sostenedores
+  'audience.sostenedores.editorial.eyebrow': 'La carta que ninguna Superintendencia olvida',
+  'audience.sostenedores.editorial.statement': 'El sostenedor responde por cinco colegios. Con cinco Excel, responde con cinco respuestas distintas.',
+  'audience.sostenedores.editorial.body': 'A partir de diciembre 2026, la Ley 21.719 no evaluará tu intención. Evaluará tu capacidad de demostrar, por sede, qué pasó, quién lo hizo y cuándo.',
+  'audience.sostenedores.finalCta.eyebrow': 'Sostenedores · Gestión consolidada',
+  'audience.sostenedores.finalCta.title': 'Tu exposición legal se multiplica por sede. Tu defensa también debería.',
+  'audience.sostenedores.finalCta.subtitle': 'Una sesión de 30 minutos para mapear tu exposición real y el costo consolidado frente al costo fragmentado.',
+  'audience.sostenedores.finalCta.footnote': 'Hasta 100.000 UTM de exposición consolidada para redes de 5 establecimientos.',
+
+  // Audience page: Directores
+  'audience.directores.editorial.eyebrow': 'El lunes a las 07:30',
+  'audience.directores.editorial.statement': 'Un director no necesita más información. Necesita la información correcta, antes del primer café.',
+  'audience.directores.editorial.body': 'Ethoz te entrega el día curado: quién faltó, qué alertas están abiertas, qué retiros requieren autorización. No diez dashboards. Uno.',
+  'audience.directores.finalCta.eyebrow': 'Dirección · Operación diaria sin Excel',
+  'audience.directores.finalCta.title': 'Así luce tu lunes con Ethoz.',
+  'audience.directores.finalCta.subtitle': 'Demo personalizada con el contexto de tu establecimiento. No una demo genérica.',
+
+  // Audience page: Porteros
+  'audience.porteros.editorial.eyebrow': 'La pantalla responde · el portero decide',
+  'audience.porteros.editorial.statement': 'El portero no debería cargar con las decisiones legales del colegio a las 14:30.',
+  'audience.porteros.editorial.body': 'Ethoz le muestra lo imprescindible: verde o rojo. El resto —la orden judicial, los datos médicos, el historial— vive en el rol que corresponde.',
+  'audience.porteros.finalCta.eyebrow': 'Portería · Herramienta concreta, 15 segundos por retiro',
+  'audience.porteros.finalCta.title': 'Muéstrale la pantalla al equipo. La decisión la toman ellos.',
+  'audience.porteros.finalCta.subtitle': 'Demo de 20 minutos para tu portería. Sin consultores, sin mails de seguimiento.',
+
+  // Conversion flow: Demo (step 1 — find school)
+  'demo.step1.eyebrow': 'Demo personalizada · 30 minutos',
+  'demo.step1.description': 'Cargamos tu colegio, tus cursos y un caso real similar. No hablamos de features; te mostramos cómo quedaría el lunes próximo.',
+  'demo.step1.manualFallback': '¿No encuentras tu colegio? Continúa con el nombre a mano',
+
+  // Conversion flow: Demo (step 2 — contact form)
+  'demo.step2.eyebrow': 'Paso 2 de 3 · Tus datos de contacto',
+  'demo.step2.description': 'Te contactamos dentro del siguiente día hábil para agendar. La demo dura 30 minutos y se hace en línea, con tu equipo completo si prefieres.',
+
+  // Conversion flow: Schedule (step 3 — book time)
+  'demo.step3.eyebrow': 'Paso 3 de 3 · Último paso',
+  'demo.step3.description': 'Te acompañamos en una videollamada de 30 minutos con pantalla compartida. Sin presentaciones genéricas: entramos al sistema con un caso real y resolvemos tus dudas en vivo.',
 } as const;

@@ -140,12 +140,12 @@
   <section class="py-12 sm:py-14" aria-labelledby="attendance-editorial">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="attendance-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Circular N°30 · Obligatoria desde 2024</p>
+      <p id="attendance-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.attendance.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
-        El libro de clases en papel no cumple. Uno en PDF tampoco.
+        {t('featurePage.attendance.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
-        La Circular N°30 del MINEDUC exige firma electrónica, trazabilidad y respaldo en nube. Lo que no es libro digital con esos tres pilares, no vale ante una fiscalización.
+        {t('featurePage.attendance.editorial.body')}
       </p>
     </div>
   </section>
@@ -293,12 +293,12 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="attendance-cta">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Asistencia · Conforme a Circular N°30</p>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">{t('featurePage.attendance.finalCta.eyebrow')}</p>
       <h2 id="attendance-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
-        Que el libro de clases deje de ser un riesgo y sea una herramienta.
+        {t('featurePage.attendance.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
-        Demo con los cursos de tu colegio cargados. Quince minutos.
+        {t('featurePage.attendance.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a

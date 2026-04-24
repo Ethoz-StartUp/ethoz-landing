@@ -654,4 +654,116 @@ export const en = {
   'a11y.mockup.region_label': 'Ethoz panel preview',
   'a11y.carousel.prev_student': 'Previous student',
   'a11y.carousel.next_student': 'Next student',
+
+  // Feature page: Access Control
+  'featurePage.accessControl.editorial.eyebrow': 'Principle of least privilege',
+  'featurePage.accessControl.editorial.statement': "Unregulated access isn't trust; it's deferred risk.",
+  'featurePage.accessControl.editorial.body': 'Law 21.719 holds the school accountable for who sees what. Ethoz lets the architecture answer for you.',
+  'featurePage.accessControl.finalCta.eyebrow': 'Data governance',
+  'featurePage.accessControl.finalCta.title': 'Let every role see exactly what belongs to them.',
+  'featurePage.accessControl.finalCta.subtitle': 'We configure permissions for your full team in under 48 hours.',
+
+  // Feature page: Safe Pickups
+  'featurePage.safePickups.editorial.eyebrow': 'The truth at the gate',
+  'featurePage.safePickups.editorial.statement': 'Pickup is the one moment of the day where a mistake pays out in a news headline.',
+  'featurePage.safePickups.editorial.body': "Ethoz doesn't ask the porter to get it right under pressure. It makes getting it wrong impossible.",
+  'featurePage.safePickups.finalCta.eyebrow': 'The gate · The most visible control point',
+  'featurePage.safePickups.finalCta.title': 'Put the screen between the porter and the doubt.',
+  'featurePage.safePickups.finalCta.subtitle': "A 20-minute demo walks you through the exact flow, loaded with your school's guardians.",
+  'featurePage.safePickups.finalCta.footnote': 'Zero unauthorized pickups on record across schools running Ethoz.',
+
+  // Feature page: Student Profile
+  'featurePage.studentProfile.editorial.eyebrow': 'Continuity of the record',
+  'featurePage.studentProfile.editorial.statement': 'In March, half of Chile\'s schools start from scratch. The students don\'t.',
+  'featurePage.studentProfile.editorial.body': "Each student's file travels with them from Pre-kinder through 12th grade. The new homeroom teacher opens Monday with the full context — not an empty folder.",
+  'featurePage.studentProfile.finalCta.eyebrow': '360° profile · One student, one record',
+  'featurePage.studentProfile.finalCta.title': 'Everything the school knows, on the right screen for each role.',
+  'featurePage.studentProfile.finalCta.subtitle': "Demo with your school's students and guardians already loaded.",
+
+  // Feature page: Smart Search
+  'featurePage.smartSearch.editorial.eyebrow': 'Speed as a guarantee',
+  'featurePage.smartSearch.editorial.statement': 'In an emergency, every second spent searching a name is a second without a protocol.',
+  'featurePage.smartSearch.editorial.body': "That's why Ethoz search answers in under 50 ms — before the inspector finishes saying the last name.",
+  'featurePage.smartSearch.finalCta.eyebrow': '50 ms — the real speed of operations',
+  'featurePage.smartSearch.finalCta.title': 'Finding is half of protecting.',
+  'featurePage.smartSearch.finalCta.subtitle': "Demo with your school's actual students and classes already loaded.",
+
+  // Feature page: Privacy & Compliance
+  'featurePage.privacyCompliance.editorial.eyebrow': 'Privacy by design',
+  'featurePage.privacyCompliance.editorial.statement': "Complying with Law 21.719 isn't a module you bolt on at the end. It's changing how every field is stored from the start.",
+  'featurePage.privacyCompliance.editorial.body': 'Systems promising to "adapt" before December 2026 are dragging their old architecture behind them. Ethoz was born after the law, not before.',
+  'featurePage.privacyCompliance.finalCta.eyebrow': 'Law 21.719 · Full enforcement December 2026',
+  'featurePage.privacyCompliance.finalCta.title': "Compliance isn't something you improvise the week before.",
+  'featurePage.privacyCompliance.finalCta.subtitle': 'Book a 30-minute assessment. We review your current data flow and your real exposure.',
+  'featurePage.privacyCompliance.finalCta.footnote': 'Fines up to 20,000 UTM (~$1.3B CLP) or 4% of annual revenue · per institution.',
+
+  // Feature page: Analytics
+  'featurePage.analytics.editorial.eyebrow': 'Data with consequence',
+  'featurePage.analytics.editorial.statement': "A dashboard that's only looked at isn't worth the minute it takes to load.",
+  'featurePage.analytics.editorial.body': "Ethoz doesn't generate reports — it generates decisions. Every chart exists to answer a question a director asks before walking into the boardroom.",
+  'featurePage.analytics.finalCta.eyebrow': 'Analytics · What Excel could never give you',
+  'featurePage.analytics.finalCta.title': 'Stop running your school on spreadsheets.',
+  'featurePage.analytics.finalCta.subtitle': 'Demo with the dashboard loaded with data from a school similar to yours.',
+
+  // Feature page: Attendance
+  'featurePage.attendance.editorial.eyebrow': 'Circular N°30 · Mandatory since 2024',
+  'featurePage.attendance.editorial.statement': "Paper gradebooks don't comply. Neither do PDFs.",
+  'featurePage.attendance.editorial.body': "MINEDUC's Circular N°30 requires electronic signature, traceability, and cloud backup. Anything short of a digital gradebook with those three pillars won't hold up in an inspection.",
+  'featurePage.attendance.finalCta.eyebrow': 'Attendance · Compliant with Circular N°30',
+  'featurePage.attendance.finalCta.title': 'Turn the gradebook from a liability into a tool.',
+  'featurePage.attendance.finalCta.subtitle': "Demo with your school's classes loaded. Fifteen minutes.",
+
+  // Feature page: Alerts
+  'featurePage.alerts.editorial.eyebrow': "The alert nobody read",
+  'featurePage.alerts.editorial.statement': 'An unread email. A spreadsheet with a three-month-old timestamp. That\'s how the things a digital protocol would have stopped become headlines.',
+  'featurePage.alerts.editorial.body': 'Every alert in Ethoz has an owner, a deadline, and a reviewer. None of them float.',
+  'featurePage.alerts.finalCta.eyebrow': 'Critical alerts · Evidence, not testimony',
+  'featurePage.alerts.finalCta.title': "When the court, or the Superintendence, arrives — the record speaks.",
+  'featurePage.alerts.finalCta.subtitle': "We centralize your school's alerts in under a week.",
+
+  // Feature page: Emergency
+  'featurePage.emergency.editorial.eyebrow': 'Chile · A seismic country',
+  'featurePage.emergency.editorial.statement': "Emergencies don't announce when they strike. The protocol can't be sitting in an Inspector's filing cabinet either.",
+  'featurePage.emergency.editorial.body': "In an evacuation, the protocol lives in each teacher's pocket — or it doesn't exist. Ethoz puts it on their phone, one tap away.",
+  'featurePage.emergency.finalCta.eyebrow': "Emergencies · The protocol can't live on paper",
+  'featurePage.emergency.finalCta.title': 'Make every second count.',
+  'featurePage.emergency.finalCta.subtitle': "Let's run a digital drill with your school's real data.",
+
+  // Audience page: School operators (Sostenedores)
+  'audience.sostenedores.editorial.eyebrow': 'The letter no Superintendence forgets',
+  'audience.sostenedores.editorial.statement': "The school operator answers for five schools. With five spreadsheets, they answer with five different stories.",
+  'audience.sostenedores.editorial.body': "Starting December 2026, Law 21.719 won't assess your intention. It will assess your ability to prove, site by site, what happened, who did it, and when.",
+  'audience.sostenedores.finalCta.eyebrow': 'Operators · Consolidated governance',
+  'audience.sostenedores.finalCta.title': 'Your legal exposure multiplies per site. Your defense should, too.',
+  'audience.sostenedores.finalCta.subtitle': 'A 30-minute session to map your real exposure and the consolidated cost versus the fragmented one.',
+  'audience.sostenedores.finalCta.footnote': 'Up to 100,000 UTM of consolidated exposure for 5-school networks.',
+
+  // Audience page: Directors
+  'audience.directores.editorial.eyebrow': 'Monday at 7:30 am',
+  'audience.directores.editorial.statement': "A director doesn't need more information. They need the right information, before the first coffee.",
+  'audience.directores.editorial.body': 'Ethoz hands you the day curated: who was absent, which alerts are open, which pickups need approval. Not ten dashboards. One.',
+  'audience.directores.finalCta.eyebrow': 'Leadership · Daily operations without Excel',
+  'audience.directores.finalCta.title': 'This is what your Monday looks like with Ethoz.',
+  'audience.directores.finalCta.subtitle': "A personalized demo with your school's context. Not a generic one.",
+
+  // Audience page: Porters (front-desk staff)
+  'audience.porteros.editorial.eyebrow': 'The screen answers · the porter decides',
+  'audience.porteros.editorial.statement': "Front-desk staff shouldn't carry the school's legal decisions at 2:30 pm.",
+  'audience.porteros.editorial.body': 'Ethoz shows them what matters: green or red. The rest — the judicial order, the medical data, the history — lives with the role it belongs to.',
+  'audience.porteros.finalCta.eyebrow': 'Front desk · Concrete tool, 15 seconds per pickup',
+  'audience.porteros.finalCta.title': 'Show your team the screen. They make the call.',
+  'audience.porteros.finalCta.subtitle': 'A 20-minute demo for your front desk. No consultants, no follow-up emails.',
+
+  // Conversion flow: Demo (step 1 — find school)
+  'demo.step1.eyebrow': 'Personalized demo · 30 minutes',
+  'demo.step1.description': "We load your school, your classes, and a comparable real case. We don't talk features — we show you what next Monday would look like.",
+  'demo.step1.manualFallback': "Can't find your school? Continue with the name by hand",
+
+  // Conversion flow: Demo (step 2 — contact form)
+  'demo.step2.eyebrow': 'Step 2 of 3 · Your contact details',
+  'demo.step2.description': "We'll reach out within the next business day to book it. The demo runs 30 minutes online, with your full team if you prefer.",
+
+  // Conversion flow: Schedule (step 3 — book time)
+  'demo.step3.eyebrow': 'Step 3 of 3 · Last step',
+  'demo.step3.description': "We walk you through a 30-minute screen-shared video call. No generic presentations — we go into the system with a real case and answer your questions live.",
 } as const;

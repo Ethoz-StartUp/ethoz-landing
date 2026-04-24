@@ -148,12 +148,12 @@
   <section class="py-12 sm:py-14" aria-labelledby="privacy-editorial">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="privacy-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Privacidad por diseño</p>
+      <p id="privacy-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.privacyCompliance.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
-        Cumplir la Ley 21.719 no es agregar un módulo al final. Es cambiar cómo se almacena cada campo desde el principio.
+        {t('featurePage.privacyCompliance.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
-        Los sistemas que prometen "adaptarse" antes de diciembre 2026 arrastran su arquitectura vieja. Ethoz nació después de la ley, no antes.
+        {t('featurePage.privacyCompliance.editorial.body')}
       </p>
     </div>
   </section>
@@ -272,12 +272,12 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="privacy-cta">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Ley 21.719 · Vigencia plena en diciembre 2026</p>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">{t('featurePage.privacyCompliance.finalCta.eyebrow')}</p>
       <h2 id="privacy-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
-        El cumplimiento no se improvisa la semana antes.
+        {t('featurePage.privacyCompliance.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
-        Agenda una evaluación de 30 minutos. Revisamos tu flujo actual de datos y tu exposición real.
+        {t('featurePage.privacyCompliance.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
@@ -295,7 +295,7 @@
         </a>
       </div>
       <p class="mt-8 text-xs text-background/60">
-        Multas hasta 20.000 UTM (~$1.300M CLP) o el 4% de los ingresos anuales · por establecimiento.
+        {t('featurePage.privacyCompliance.finalCta.footnote')}
       </p>
     </div>
   </section>

@@ -150,7 +150,7 @@
         <div class="mx-auto mb-4 flex size-14 items-center justify-center rounded-full bg-primary/10">
           <GraduationCap class="size-7 text-primary" />
         </div>
-        <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Demo personalizada · 30 minutos</p>
+        <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step1.eyebrow')}</p>
         <h1 class="text-2xl font-bold tracking-tight text-foreground">
           {t('demo.step1.title')}
         </h1>
@@ -158,7 +158,7 @@
           {t('demo.step1.subtitle')}
         </p>
         <p class="mx-auto mt-5 max-w-md text-xs leading-relaxed text-muted-foreground">
-          Cargamos tu colegio, tus cursos y un caso real similar. No hablamos de features; te mostramos cómo quedaría el lunes próximo.
+          {t('demo.step1.description')}
         </p>
       </div>
 
@@ -274,7 +274,7 @@
               onclick={() => goto(`/demo/0?manual=1&school=${encodeURIComponent(searchInput.trim())}`)}
               class="text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
             >
-              ¿No encuentras tu colegio? Continúa con el nombre a mano
+              {t('demo.step1.manualFallback')}
             </button>
           </div>
         {/if}

@@ -233,7 +233,7 @@
 
     <!-- Heading -->
     <div class="mb-8 text-center">
-      <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">Paso 3 de 3 · Último paso</p>
+      <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step3.eyebrow')}</p>
       <h1 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
         {t('agendar.title')}
       </h1>
@@ -241,7 +241,7 @@
         {t('agendar.subtitle')}
       </p>
       <p class="mx-auto mt-4 max-w-lg text-xs leading-relaxed text-muted-foreground">
-        Te acompañamos en una videollamada de 30 minutos con pantalla compartida. Sin presentaciones genéricas: entramos al sistema con un caso real y resolvemos tus dudas en vivo.
+        {t('demo.step3.description')}
       </p>
     </div>
 

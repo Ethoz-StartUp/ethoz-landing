@@ -121,12 +121,12 @@
   <section class="py-12 sm:py-14" aria-labelledby="alerts-editorial">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="alerts-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">La alerta que nadie leyó</p>
+      <p id="alerts-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.alerts.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
-        Un correo sin acuse. Una planilla con fecha de hace tres meses. Así se vuelven titulares las cosas que un protocolo digital habría detenido.
+        {t('featurePage.alerts.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
-        Cada alerta en Ethoz tiene un responsable, una fecha de vencimiento y una persona que la revisa. Ninguna queda en el aire.
+        {t('featurePage.alerts.editorial.body')}
       </p>
     </div>
   </section>
@@ -325,12 +325,12 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="alerts-cta">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Alertas críticas · Evidencia, no testimonio</p>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">{t('featurePage.alerts.finalCta.eyebrow')}</p>
       <h2 id="alerts-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
-        Cuando llega el tribunal, o la Superintendencia, habla el registro.
+        {t('featurePage.alerts.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
-        Centralizamos las alertas de tu establecimiento en menos de una semana.
+        {t('featurePage.alerts.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a

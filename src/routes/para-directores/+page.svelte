@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { t } from '$lib/i18n/index.svelte';
   import {
     Compass, ArrowRight, BadgeCheck, AlertTriangle, Clock,
     CheckCircle, Users, Activity, BarChart3, MessageSquare,
@@ -144,12 +145,12 @@
   <section class="py-12 sm:py-14" aria-labelledby="director-editorial">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="director-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">El lunes a las 07:30</p>
+      <p id="director-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.directores.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
-        Un director no necesita más información. Necesita la información correcta, antes del primer café.
+        {t('audience.directores.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
-        Ethoz te entrega el día curado: quién faltó, qué alertas están abiertas, qué retiros requieren autorización. No diez dashboards. Uno.
+        {t('audience.directores.editorial.body')}
       </p>
     </div>
   </section>
@@ -428,12 +429,12 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="director-cta">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Dirección · Operación diaria sin Excel</p>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">{t('audience.directores.finalCta.eyebrow')}</p>
       <h2 id="director-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
-        Así luce tu lunes con Ethoz.
+        {t('audience.directores.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
-        Demo personalizada con el contexto de tu establecimiento. No una demo genérica.
+        {t('audience.directores.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a

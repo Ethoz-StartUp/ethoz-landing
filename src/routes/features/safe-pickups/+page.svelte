@@ -174,12 +174,12 @@
   <section class="py-12 sm:py-14" aria-labelledby="pickup-editorial">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="pickup-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">La verdad del portón</p>
+      <p id="pickup-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.safePickups.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
-        El retiro es el único momento del día en que un error se paga con un titular de prensa.
+        {t('featurePage.safePickups.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
-        Ethoz no pide que el portero lo haga bien bajo presión. Lo hace imposible de hacer mal.
+        {t('featurePage.safePickups.editorial.body')}
       </p>
     </div>
   </section>
@@ -275,12 +275,12 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="pickup-cta">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">Portería · El punto de control más visible</p>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">{t('featurePage.safePickups.finalCta.eyebrow')}</p>
       <h2 id="pickup-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
-        Pon la pantalla entre el portero y la duda.
+        {t('featurePage.safePickups.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
-        Una demo de 20 minutos te muestra el flujo exacto con los apoderados de tu colegio.
+        {t('featurePage.safePickups.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
@@ -298,7 +298,7 @@
         </a>
       </div>
       <p class="mt-8 text-xs text-background/60">
-        Cero retiros no autorizados registrados en colegios con Ethoz.
+        {t('featurePage.safePickups.finalCta.footnote')}
       </p>
     </div>
   </section>
