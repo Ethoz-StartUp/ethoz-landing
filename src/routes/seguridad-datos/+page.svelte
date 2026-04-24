@@ -76,7 +76,7 @@
   <NavBar />
 
   <!-- HERO -->
-  <section class="pt-24 pb-16 sm:pt-32 sm:pb-20 bg-secondary">
+  <section class="pt-20 pb-10 sm:pt-24 sm:pb-12 bg-secondary">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-2 mb-4">
         <Badge variant="secondary" class="text-xs font-semibold uppercase tracking-wide">Seguridad técnica</Badge>
@@ -414,7 +414,7 @@
   </div>
 
   <!-- CTA -->
-  <section class="py-16 sm:py-20 bg-secondary">
+  <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
       <ShieldCheck class="mx-auto size-10 text-primary mb-4" />
       <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">

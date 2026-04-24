@@ -106,7 +106,7 @@
   <!-- ══════════════════════════════════════
        HERO
        ══════════════════════════════════════ -->
-  <section class="pt-28 pb-16 sm:pt-32 sm:pb-20 bg-secondary">
+  <section class="pt-24 pb-10 sm:pt-28 sm:pb-12 bg-secondary">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
       <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary shadow-sm">
         <Scale class="size-3.5" />
@@ -263,7 +263,7 @@
   <!-- ══════════════════════════════════════
        POSITIONING CARDS
        ══════════════════════════════════════ -->
-  <section class="py-16 sm:py-20 bg-secondary">
+  <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">La diferencia clave</p>
@@ -318,7 +318,7 @@
   <!-- ══════════════════════════════════════
        RISK CALLOUT
        ══════════════════════════════════════ -->
-  <section class="py-16 sm:py-20 bg-background">
+  <section class="py-12 sm:py-14 bg-background">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <div class="rounded-xl border border-border bg-card p-8 shadow-sm">
         <div class="grid gap-8 sm:grid-cols-3 text-center">
@@ -345,7 +345,7 @@
   <!-- ══════════════════════════════════════
        CTA
        ══════════════════════════════════════ -->
-  <section class="py-16 sm:py-20 bg-secondary">
+  <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
       <Lock class="mx-auto size-10 text-primary mb-4" />
       <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">

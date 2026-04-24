@@ -31,7 +31,7 @@
   <NavBar />
 
   <!-- Hero -->
-  <section class="bg-secondary pt-28 pb-16 sm:pt-32 sm:pb-20">
+  <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="lg:pt-6">
@@ -181,7 +181,7 @@
   </section>
 
   <!-- El retiro de las 14:30 — escenario real -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="flex items-center gap-3 mb-2">
         <Clock class="size-5 shrink-0 text-primary" />
@@ -229,7 +229,7 @@
   </section>
 
   <!-- Solo lo que el portero necesita -->
-  <section class="bg-secondary py-16 sm:py-20">
+  <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <div>
@@ -296,7 +296,7 @@
   </section>
 
   <!-- Entrenamiento + offline -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="grid gap-6 sm:grid-cols-2">
         <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
@@ -347,7 +347,7 @@
   </section>
 
   <!-- Stats -->
-  <section class="bg-secondary py-16 sm:py-20">
+  <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="grid gap-8 sm:grid-cols-3 text-center">
         <div>
@@ -367,7 +367,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
       <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">¿Tu portería necesita esto?</h2>
       <p class="mt-4 text-base leading-relaxed text-muted-foreground">

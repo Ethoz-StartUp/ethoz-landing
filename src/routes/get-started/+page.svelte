@@ -68,7 +68,7 @@
   <NavBar />
 
   <!-- ═══ HERO: Hook ═══ -->
-  <section class="pt-28 pb-16 sm:pt-32 sm:pb-20 bg-secondary">
+  <section class="pt-24 pb-10 sm:pt-28 sm:pb-12 bg-secondary">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         {t('getstarted.hero.title')}
@@ -89,7 +89,7 @@
   </section>
 
   <!-- ═══ STEP 1: Conoce la plataforma ═══ -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
@@ -113,7 +113,7 @@
   </section>
 
   <!-- ═══ STEP 2: Elige tus módulos ═══ -->
-  <section class="py-16 sm:py-20 bg-secondary">
+  <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
@@ -142,7 +142,7 @@
   </section>
 
   <!-- ═══ STEP 3: Migración ═══ -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
@@ -170,7 +170,7 @@
   </section>
 
   <!-- ═══ STEP 4: En vivo ═══ -->
-  <section class="py-16 sm:py-20 bg-secondary">
+  <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
@@ -190,7 +190,7 @@
   </section>
 
   <!-- ═══ FAQ ═══ -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
       <h2 class="text-balance text-center text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
         {t('pricing.faq.title')}
@@ -224,7 +224,7 @@
   </section>
 
   <!-- ═══ CTA FINAL ═══ -->
-  <section class="py-16 sm:py-20 bg-secondary">
+  <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
       <h2 class="text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
         {t('pricing.cta.title')}

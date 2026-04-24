@@ -46,7 +46,7 @@
   <NavBar />
 
   <!-- Hero -->
-  <section class="bg-secondary pt-28 pb-16 sm:pt-32 sm:pb-20">
+  <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="lg:pt-6">
@@ -145,7 +145,7 @@
   </section>
 
   <!-- El problema del sostenedor en 2026 -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="flex items-center gap-3 mb-2">
         <AlertTriangle class="size-5 shrink-0 text-destructive" />
@@ -196,7 +196,7 @@
   </section>
 
   <!-- Exposición legal por N colegios -->
-  <section class="bg-secondary py-16 sm:py-20">
+  <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="grid gap-10 lg:grid-cols-2 items-center">
         <div>
@@ -270,7 +270,7 @@
   </section>
 
   <!-- Auditoría centralizada -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <div>
@@ -335,7 +335,7 @@
   </section>
 
   <!-- TAM callout + stats -->
-  <section class="bg-secondary py-16 sm:py-20">
+  <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="rounded-xl border border-border bg-card p-8 text-center shadow-sm">
         <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">El mercado que protegemos</p>
@@ -358,7 +358,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
       <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Evalúa tu portafolio con nosotros</h2>
       <p class="mt-4 text-base leading-relaxed text-muted-foreground">

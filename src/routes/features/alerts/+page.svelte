@@ -28,7 +28,7 @@
   <NavBar />
 
   <!-- Hero -->
-  <section class="bg-secondary pt-28 pb-16 sm:pt-32 sm:pb-20">
+  <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href="/productos" class="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
@@ -118,7 +118,7 @@
   </section>
 
   <!-- Alert types section -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Todos los tipos de alerta en un solo lugar</h2>
@@ -203,7 +203,7 @@
   </section>
 
   <!-- Timeline mockup section -->
-  <section class="bg-secondary py-16 sm:py-20">
+  <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
@@ -280,7 +280,7 @@
   </section>
 
   <!-- Por qué importa -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Por qué esto importa ahora</h2>
@@ -307,7 +307,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="bg-secondary py-16 sm:py-20">
+  <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
       <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">¿Tu colegio tiene alertas críticas sin sistema?</h2>
       <p class="mt-4 text-base leading-relaxed text-muted-foreground">

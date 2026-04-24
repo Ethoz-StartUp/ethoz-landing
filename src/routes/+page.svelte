@@ -266,8 +266,8 @@
   <!-- ═══════════════════════════════════════════
        SECTION 2: HERO — editorial, McKinsey-style
        ═══════════════════════════════════════════ -->
-  <section class="relative pt-28 sm:pt-32">
-    <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-12 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8">
+  <section class="relative pt-20 sm:pt-24">
+    <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-8 sm:px-6 sm:py-12 lg:grid-cols-2 lg:gap-12 lg:px-8">
 
       <!-- Left column: headline + CTAs -->
       <div class="flex flex-col items-center text-center sm:items-start sm:text-left">
@@ -474,7 +474,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 4: PROBLEM
        ═══════════════════════════════════════════ -->
-  <section class="reveal py-16 sm:py-20" id="problem">
+  <section class="reveal py-12 sm:py-14" id="problem">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
       <div class="mx-auto max-w-2xl text-center">
@@ -490,7 +490,7 @@
       </div>
 
       <!-- Problem items — 3 columns, icon + title always inline -->
-      <div class="mx-auto mt-10 grid gap-6 sm:grid-cols-3">
+      <div class="mx-auto mt-8 grid gap-5 sm:grid-cols-3">
         <div class="rounded-xl border border-border bg-card p-6">
           <div class="flex items-center gap-2.5">
             <AlertTriangle class="size-5 shrink-0 text-warning" />
@@ -521,7 +521,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 5: SOLUTION / FEATURES
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-secondary py-16 sm:py-20" id="features">
+  <section class="reveal bg-secondary py-12 sm:py-14" id="features">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
       <div class="mx-auto max-w-2xl text-center">
@@ -537,7 +537,7 @@
       </div>
 
       <!-- Feature cards — 2×2 grid, numbered headings (no icon boxes) -->
-      <div class="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2">
+      <div class="mx-auto mt-8 grid max-w-4xl gap-6 sm:grid-cols-2">
         <!-- Feature 1: Ficha 360° -->
         <a href="/features/student-profile" class="group relative border border-border bg-card p-6 transition-colors duration-[120ms] hover:border-foreground">
           <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary/80 transition-colors group-hover:text-foreground">01</span>
@@ -596,7 +596,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 6: COMPLIANCE + COUNTDOWN
        ═══════════════════════════════════════════ -->
-  <section class="reveal py-16 sm:py-20" id="compliance">
+  <section class="reveal py-12 sm:py-14" id="compliance">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
       <div class="mx-auto max-w-2xl text-center">
@@ -612,7 +612,7 @@
       </div>
 
       <!-- Countdown — dramatic editorial treatment -->
-      <div class="mx-auto mt-14 max-w-2xl">
+      <div class="mx-auto mt-10 max-w-3xl">
         <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
           <span class="relative flex size-2">
             <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
@@ -668,7 +668,7 @@
       </div>
 
       <!-- Compliance items -->
-      <div class="mx-auto mt-16 grid max-w-3xl gap-x-8 gap-y-4 sm:grid-cols-2">
+      <div class="mx-auto mt-12 grid max-w-3xl gap-x-8 gap-y-4 sm:grid-cols-2">
         {#each ['compliance.item1', 'compliance.item2', 'compliance.item3', 'compliance.item4', 'compliance.item5', 'compliance.item6'] as item}
           <div class="flex items-start gap-3">
             <Check class="mt-0.5 size-5 shrink-0 text-primary" />
@@ -683,7 +683,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 8: HOW IT WORKS — visual progression with icons + connector
        ═══════════════════════════════════════════ -->
-  <section class="reveal py-16 sm:py-20" id="how">
+  <section class="reveal py-12 sm:py-14" id="how">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
       <div class="mx-auto max-w-2xl text-center">
@@ -699,11 +699,11 @@
       </div>
 
       <!-- Steps with connecting line -->
-      <div class="relative mx-auto mt-14 max-w-5xl">
+      <div class="relative mx-auto mt-10 max-w-5xl">
         <!-- Desktop connector — solid hairline, McKinsey style -->
         <div class="pointer-events-none absolute left-[16.66%] right-[16.66%] top-7 hidden h-px bg-border sm:block" aria-hidden="true"></div>
 
-        <ol class="relative grid gap-10 sm:grid-cols-3 sm:gap-6">
+        <ol class="relative grid gap-8 sm:grid-cols-3 sm:gap-6">
           <!-- Step 1 -->
           <li class="flex flex-col items-center text-center">
             <div class="relative z-10 flex size-14 items-center justify-center rounded-full border border-border bg-background shadow-sm">
@@ -742,7 +742,7 @@
         </ol>
 
         <!-- Inline CTA right after step 3 -->
-        <div class="mt-12 text-center">
+        <div class="mt-10 text-center">
           <Button
             size="lg"
             onclick={async () => {
@@ -762,7 +762,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 9: FAQ
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-secondary py-16 sm:py-20" id="faq">
+  <section class="reveal bg-secondary py-12 sm:py-14" id="faq">
     <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">
@@ -820,7 +820,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 10: FINAL CTA
        ═══════════════════════════════════════════ -->
-  <section class="reveal py-16 sm:py-20" id="cta">
+  <section class="reveal py-12 sm:py-14" id="cta">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
       <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         {t('cta.title')}
@@ -828,7 +828,7 @@
       <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
         {t('cta.subtitle')}
       </p>
-      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <Button
           size="xl"
           onclick={async () => {

@@ -74,7 +74,7 @@
   </section>
 
   <!-- Problem — Loss Aversion: show what you LOSE with fragmented data -->
-  <section class="bg-secondary py-16 sm:py-20">
+  <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
         <div class="order-2 flex justify-center lg:order-1">
@@ -98,7 +98,7 @@
   </section>
 
   <!-- Compliance shield — Authority Bias -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
         <div>
@@ -137,7 +137,7 @@
   </section>
 
   <!-- Values -->
-  <section class="bg-secondary py-16 sm:py-20">
+  <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <h2 class="text-center text-2xl font-bold tracking-tight text-foreground">{t('about.values_title')}</h2>
       <div class="mt-10 grid gap-6 sm:grid-cols-3">
@@ -167,7 +167,7 @@
   </section>
 
   <!-- FAQ — subtle, not prominent -->
-  <section class="bg-secondary py-16 sm:py-20">
+  <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-2xl px-4 sm:px-6">
       <h2 class="text-center text-xl font-bold tracking-tight text-foreground sm:text-2xl">
         {t('about.faq.title')}
@@ -196,7 +196,7 @@
   </section>
 
   <!-- CTA — Present Bias: act now -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
       <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
         {t('pricing.cta.title')}

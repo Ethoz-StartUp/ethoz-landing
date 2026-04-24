@@ -125,7 +125,7 @@
   </section>
 
   <!-- Products -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="space-y-16 sm:space-y-20">
         {#each products as product, i}
@@ -285,7 +285,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="py-16 sm:py-20 bg-secondary">
+  <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
       <h2 class="text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
         {t('pricing.cta.title')}

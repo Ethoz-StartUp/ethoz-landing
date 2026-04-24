@@ -27,7 +27,7 @@
 <main class="flex min-h-dvh flex-col bg-background">
   <NavBar />
 
-  <div class="mx-auto flex-1 max-w-5xl px-4 pt-28 pb-16 sm:pt-32 sm:pb-20">
+  <div class="mx-auto flex-1 max-w-5xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12">
     <!-- Header -->
     <div class="mb-10 sm:mb-14">
       <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t('blog.title')}</h1>

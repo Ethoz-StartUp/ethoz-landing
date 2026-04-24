@@ -52,7 +52,7 @@
   <NavBar />
 
   <!-- Hero -->
-  <section class="bg-secondary pt-28 pb-16 sm:pt-32 sm:pb-20">
+  <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href="/#features" class="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
@@ -134,7 +134,7 @@
   </section>
 
   <!-- Role cards section -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <h2 class="mb-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Cada rol, una interfaz distinta</h2>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
@@ -191,7 +191,7 @@
   </section>
 
   <!-- Detail cards -->
-  <section class="bg-secondary py-16 sm:py-20">
+  <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
@@ -230,7 +230,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="py-16 sm:py-20">
+  <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
       <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">¿Listo para empezar?</h2>
       <p class="mt-4 text-base leading-relaxed text-muted-foreground">

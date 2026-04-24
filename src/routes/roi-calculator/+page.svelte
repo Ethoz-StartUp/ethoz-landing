@@ -105,7 +105,7 @@
   <!-- ══════════════════════════════════════
        HERO
        ══════════════════════════════════════ -->
-  <section class="pt-28 pb-16 sm:pt-32 sm:pb-20 bg-secondary">
+  <section class="pt-24 pb-10 sm:pt-28 sm:pb-12 bg-secondary">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
       <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary shadow-sm">
         <Calculator class="size-3.5" />
@@ -124,7 +124,7 @@
   <!-- ══════════════════════════════════════
        CALCULATOR
        ══════════════════════════════════════ -->
-  <section class="py-16 sm:py-20 bg-background">
+  <section class="py-12 sm:py-14 bg-background">
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
 
@@ -293,7 +293,7 @@
   <!-- ══════════════════════════════════════
        CTA
        ══════════════════════════════════════ -->
-  <section class="py-16 sm:py-20 bg-secondary">
+  <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
       <Calculator class="mx-auto size-10 text-primary mb-4" />
       <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
