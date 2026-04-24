@@ -243,6 +243,24 @@
   >
     {t('nav.skip_to_content')}
   </a>
+
+  <!-- Urgency ribbon — McKinsey-editorial, deep-blue anchor, surfaces Ley 21.719 deadline above the fold -->
+  <div class="border-b border-border bg-foreground text-background" role="complementary" aria-label="Plazo de cumplimiento Ley 21.719">
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-4 py-2 text-[13px] sm:px-6 lg:px-8">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent">Ley 21.719</span>
+        <span class="hidden text-background/50 sm:inline" aria-hidden="true">·</span>
+        <span class="text-background/90">
+          Faltan <span data-numeric class="font-semibold text-background">{countdownDays}</span> días ·
+          Multas hasta <span data-numeric class="font-semibold text-background">20.000 UTM</span>
+        </span>
+      </p>
+      <a href="/demo" class="inline-flex items-center gap-1 border-b border-background text-[13px] font-semibold text-background hover:border-b-2">
+        Agendar demo <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+
   <NavBar />
 
   <!-- ═══════════════════════════════════════════
@@ -273,6 +291,22 @@
         <!-- Subtitle -->
         <p class="animate-fade-in-up animate-delay-200 mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
           {t('hero.subtitle')}
+        </p>
+
+        <!-- Inline countdown — editorial text density, not a widget -->
+        <p class="animate-fade-in-up animate-delay-200 mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+          <span class="inline-flex items-center gap-1.5">
+            <span class="relative flex size-1.5">
+              <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
+              <span class="relative inline-flex size-1.5 rounded-full bg-destructive"></span>
+            </span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">Cuenta regresiva</span>
+          </span>
+          <span data-numeric class="text-foreground">
+            <span class="font-semibold">{countdownDays}</span> días
+            · <span class="font-semibold">{countdownHours.toString().padStart(2, '0')}</span> h
+            · <span class="font-semibold">{countdownMinutes.toString().padStart(2, '0')}</span> min
+          </span>
         </p>
 
         <!-- CTAs -->
@@ -586,10 +620,14 @@
           </span>
           {t('compliance.countdown.label')}
         </p>
+        <!-- Visually hidden live region announces the countdown to screen readers without flooding on every minute tick -->
+        <p class="sr-only" aria-live="polite" aria-atomic="true">
+          Faltan {countdownDays} días, {countdownHours} horas y {countdownMinutes} minutos para que la Ley 21.719 entre plenamente en vigencia.
+        </p>
         <div
           class="grid grid-cols-3 gap-2 sm:gap-4"
           role="group"
-          aria-label={`Faltan ${countdownDays} días, ${countdownHours} horas y ${countdownMinutes} minutos`}
+          aria-hidden="true"
         >
           <div class="group relative border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
             <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-primary"></div>
