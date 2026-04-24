@@ -61,7 +61,7 @@
         </div>
 
         <!-- Emergency activation mockup -->
-        <div class="w-full rounded-xl border border-border bg-card shadow-2xl">
+        <div class="w-full rounded-xl border border-border bg-card shadow-card-hover">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -232,7 +232,7 @@
         </div>
         <!-- Notification mockup -->
         <div class="mx-auto max-w-xs w-full">
-          <div class="rounded-2xl border border-border bg-card shadow-2xl overflow-hidden">
+          <div class="rounded-2xl border border-border bg-card shadow-card-hover overflow-hidden">
             <!-- Phone top bar -->
             <div class="bg-muted/50 px-4 py-2 flex items-center justify-between">
               <span class="text-[10px] font-medium text-muted-foreground">14:24</span>

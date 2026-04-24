@@ -303,7 +303,7 @@
         Esta calculadora usa supuestos generales. Nuestro equipo puede hacer una evaluación específica para tu establecimiento — sin costo ni compromiso.
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href={demoUrl} onclick={handleCTAClick} class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30">
+        <Button size="xl" href={demoUrl} onclick={handleCTAClick} class="shadow-lg">
           Solicita una evaluación personalizada
           <ArrowRight class="size-4" />
         </Button>

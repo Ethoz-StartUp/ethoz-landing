@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 48" role="img" aria-labelledby="final-l-title final-l-desc">
   <title id="final-l-title">Ethoz</title>
-  <desc id="final-l-desc">Ethoz logo — intersect mark with accent Z, light version</desc>
+  <desc id="final-l-desc">Ethoz logo — intersect mark with accent Z, light version (for light surfaces)</desc>
   <g transform="translate(2, 0)">
-    <rect x="2" y="8" width="24" height="34" rx="5.5" fill="none" stroke="#2C2C2E" stroke-width="2.4"/>
-    <rect x="14" y="4" width="24" height="34" rx="5.5" fill="none" stroke="#E8702A" stroke-width="2.4"/>
+    <rect x="2" y="8" width="24" height="34" rx="5.5" fill="none" stroke="#0B1E3A" stroke-width="2.4"/>
+    <rect x="14" y="4" width="24" height="34" rx="5.5" fill="none" stroke="#034B8A" stroke-width="2.4"/>
   </g>
   <text x="56" y="35" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="36" font-weight="600" letter-spacing="-0.5">
-    <tspan fill="#2C2C2E">Etho</tspan><tspan fill="#E8702A">z</tspan>
+    <tspan fill="#0B1E3A">Etho</tspan><tspan fill="#034B8A">z</tspan>
   </text>
 </svg>

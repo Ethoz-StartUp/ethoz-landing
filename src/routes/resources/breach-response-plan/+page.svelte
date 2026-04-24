@@ -34,7 +34,7 @@
         <ArrowLeft class="size-4" />
         Volver a recursos
       </Button>
-      <Button href="/downloads/plan-respuesta-brechas.pdf" download size="lg" class="gap-2 shadow-lg shadow-primary/25">
+      <Button href="/downloads/plan-respuesta-brechas.pdf" download size="lg" class="gap-2">
         <Printer class="size-4" />
         Descargar PDF
       </Button>

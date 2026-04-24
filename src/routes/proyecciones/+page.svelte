@@ -252,7 +252,7 @@
         Usa nuestra calculadora de ROI para una estimación personalizada basada en el tamaño real de tu establecimiento.
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href="/roi-calculator" class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30">
+        <Button size="xl" href="/roi-calculator" class="shadow-lg">
           Calcular mi exposición al riesgo
           <ArrowRight class="size-4" />
         </Button>

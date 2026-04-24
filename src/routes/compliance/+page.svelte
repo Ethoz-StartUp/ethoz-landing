@@ -415,7 +415,7 @@
         {t('compliance_page.cta.subtitle')}
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30">
+        <Button size="xl" href="/demo" class="shadow-lg">
           {t('compliance_page.cta.primary')}
           <ArrowRight class="size-4" />
         </Button>

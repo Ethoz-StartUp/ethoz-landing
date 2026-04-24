@@ -80,7 +80,7 @@
         {t('getstarted.hero.badge')}
       </p>
       <div class="mt-8">
-        <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25">
+        <Button size="xl" href="/demo" class="shadow-lg">
           {t('getstarted.hero.cta')}
           <ArrowRight class="size-4" />
         </Button>
@@ -233,7 +233,7 @@
         {t('pricing.cta.subtitle')}
       </p>
       <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25">
+        <Button size="xl" href="/demo" class="shadow-lg">
           {t('pricing.cta.primary')}
           <ArrowRight class="size-4" />
         </Button>

@@ -34,11 +34,15 @@ docs/                 — Documentation index (5 sections + knowledge base + con
 - Blog posts: export `BlogPost` from `src/lib/data/posts/*.ts` — auto-discovered, no manual registration
 
 ### Design (see .impeccable.md for full spec)
-- Light mode only. Brand: International Orange + Titanium + Cream #FAF8F5
-- NEVER hardcode colors — use design tokens (bg-primary, text-muted-foreground, etc.)
+- Light mode only. Brand: Medical Blue `#034B8A` + Navy `#0B1E3A` + Paper-blue `#F5F8FC` (unified with Ethoz-app, 2026-04-23 migration from orange/cream)
+- Inter everywhere for headings and body (DM Sans retired). JetBrains Mono for numbers/stats only
+- NEVER hardcode colors — use design tokens (bg-primary, text-muted-foreground, text-primary-ink, etc.)
 - Icons + titles ALWAYS inline (same row), never stacked. No icon-in-colored-box wrappers.
-- Card pattern: `rounded-xl border border-border bg-card`
-- McKinsey + Apple tone: precise, authoritative, no buzzwords
+- Card pattern: `rounded-xl border border-border bg-card` (xl caps at 8px — no oversized curves)
+- Flat on purpose. No gradients. Hairline shadow discipline — `shadow-glow-primary` is neutralized. `shadow-glow-destructive` retained (safety-critical)
+- One primary action per screen. Medical blue is reserved — don't spray it
+- AAA contrast targets: 7:1 for normal text, 4.5:1 for large text
+- McKinsey + pharma-clean tone: precise, authoritative, institutional
 
 ### Content
 - Spanish chileno profesional (no slang, no extreme modismos)

@@ -190,7 +190,7 @@
         Este glosario se actualiza continuamente. Si tiene dudas sobre normativa escolar o protección de datos, nuestro equipo puede ayudarle.
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25">
+        <Button size="xl" href="/demo" class="shadow-lg">
           Hablar con un especialista
           <ArrowRight class="size-4" />
         </Button>

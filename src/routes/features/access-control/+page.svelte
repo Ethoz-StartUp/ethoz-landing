@@ -86,7 +86,7 @@
         </div>
 
         <!-- Permission matrix mockup -->
-        <div class="w-full rounded-xl border border-border bg-card shadow-2xl overflow-hidden">
+        <div class="w-full rounded-xl border border-border bg-card shadow-card-hover overflow-hidden">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>

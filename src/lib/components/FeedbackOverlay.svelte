@@ -224,7 +224,7 @@
     <!-- Slide-up panel -->
     {#if panelOpen}
       <div
-        class="mb-1 w-72 rounded-2xl border border-border bg-card shadow-2xl"
+        class="mb-1 w-72 rounded-2xl border border-border bg-card shadow-popover"
         style="animation: slideUp 0.2s cubic-bezier(0.4,0,0.2,1);"
       >
         <!-- Panel header -->
@@ -283,7 +283,7 @@
     <button
       type="button"
       onclick={() => (panelOpen = !panelOpen)}
-      class="relative flex size-14 items-center justify-center rounded-full shadow-2xl transition-all duration-200
+      class="relative flex size-14 items-center justify-center rounded-full shadow-popover transition-all duration-200
         {feedbackStore.active
           ? 'bg-primary text-primary-foreground scale-105'
           : 'bg-card border border-border text-foreground hover:scale-105 hover:shadow-xl'}"

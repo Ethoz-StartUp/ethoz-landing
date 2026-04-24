@@ -127,7 +127,7 @@
   <section class="mx-auto max-w-7xl px-4 pb-20 sm:pb-28">
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {#each resources as resource}
-        <div class="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
+        <div class="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/50">
           <div class="mb-4 flex items-center gap-3">
             <resource.icon class="size-5 text-primary shrink-0" />
             <span class="rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-medium text-primary">{resource.tag}</span>

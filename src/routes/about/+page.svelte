@@ -205,7 +205,7 @@
         {t('pricing.cta.subtitle')}
       </p>
       <div class="mt-8">
-        <Button size="lg" href="/demo" class="shadow-lg shadow-primary/30">
+        <Button size="lg" href="/demo" class="shadow-lg">
           {t('pricing.cta.primary')}
           <ArrowRight class="size-4" />
         </Button>

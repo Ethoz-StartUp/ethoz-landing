@@ -56,7 +56,7 @@
     class="fixed inset-0 z-[110] flex items-end justify-center sm:items-center"
     onclick={handleBackdropClick}
   >
-    <div class="relative w-full max-w-sm rounded-t-2xl border border-border bg-card p-5 shadow-2xl sm:mx-4 sm:rounded-2xl">
+    <div class="relative w-full max-w-sm rounded-t-2xl border border-border bg-card p-5 shadow-popover sm:mx-4 sm:rounded-2xl">
       <!-- Context pill -->
       {#if feedbackStore.capturedTarget}
         <div class="mb-3 truncate rounded-lg bg-muted px-3 py-1.5 text-xs text-muted-foreground">

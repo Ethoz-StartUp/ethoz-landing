@@ -355,7 +355,7 @@
         Te ayudamos a evaluar tu exposición real ante la Ley 21.719 y las brechas de seguridad operacional de tu colegio — sin costo ni compromiso.
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30">
+        <Button size="xl" href="/demo" class="shadow-lg">
           Solicitar evaluación gratuita
           <ArrowRight class="size-4" />
         </Button>

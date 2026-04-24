@@ -239,12 +239,9 @@
   <NavBar />
 
   <!-- ═══════════════════════════════════════════
-       SECTION 2: HERO — split layout
+       SECTION 2: HERO — split layout (flat, no gradient — pharma-clean)
        ═══════════════════════════════════════════ -->
   <section class="relative overflow-hidden pt-28 sm:pt-32">
-    <!-- Background gradient -->
-    <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-transparent to-transparent"></div>
-
     <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-14 lg:px-8">
 
       <!-- Left column: headline + CTAs -->
@@ -279,12 +276,12 @@
               trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'hero' });
               await goto('/demo');
             }}
-            class="w-full justify-center shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 sm:w-auto"
+            class="w-full justify-center sm:w-auto"
           >
             {t('hero.cta.primary')}
             <ArrowRight class="size-5" />
           </Button>
-          <Button variant="outline" size="xl" onclick={() => { trackEvent('hero_cta_clicked', { cta: 'watch_video', location: 'hero' }); showPitch = true; }} class="w-full justify-center border-foreground/20 hover:border-foreground/40 hover:bg-muted sm:w-auto">
+          <Button variant="outline" size="xl" onclick={() => { trackEvent('hero_cta_clicked', { cta: 'watch_video', location: 'hero' }); showPitch = true; }} class="w-full justify-center border-border hover:border-primary/40 hover:bg-muted sm:w-auto">
             <Play class="size-5" />
             <span class="hidden sm:inline">{t('hero.video_long')}</span>
             <span class="sm:hidden">{t('hero.video_short')}</span>
@@ -295,7 +292,7 @@
       <!-- Right column: dashboard mockup -->
       <div class="animate-fade-in-up animate-delay-400 w-full">
         <div
-          class="rounded-xl border border-border bg-card shadow-2xl"
+          class="rounded-xl border border-border bg-card shadow-card-hover"
           role="region"
           aria-roledescription="carrusel"
           aria-label="Vista del panel Ethoz"
@@ -450,7 +447,7 @@
       <div class="mx-auto mt-10 grid gap-6 sm:grid-cols-3">
         <div class="rounded-xl border border-border bg-card p-6">
           <div class="flex items-center gap-2.5">
-            <AlertTriangle class="size-5 shrink-0 text-warning-foreground" />
+            <AlertTriangle class="size-5 shrink-0 text-warning" />
             <h3 class="text-base font-semibold text-foreground">{t('problem.card1.title')}</h3>
           </div>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('problem.card1.desc')}</p>
@@ -606,7 +603,7 @@
         </div>
         <!-- CTA right under countdown -->
         <div class="mt-8 text-center">
-          <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30">
+          <Button size="xl" href="/demo">
             {t('hero.cta.primary')}
             <ArrowRight class="size-5" />
           </Button>
@@ -698,7 +695,7 @@
               trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'how_it_works' });
               await goto('/demo');
             }}
-            class="shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30"
+            class=""
           >
             {t('home.how.cta')}
             <ArrowRight class="size-4" />
@@ -784,7 +781,6 @@
             trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'hero' });
             await goto('/demo');
           }}
-          class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30"
         >
           {t('cta.primary')}
           <ArrowRight class="size-5" />

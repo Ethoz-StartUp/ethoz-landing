@@ -424,7 +424,7 @@
         Nuestro equipo puede presentarle la arquitectura de seguridad, responder preguntas técnicas y evaluar la compatibilidad con los requisitos específicos de su colegio.
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25">
+        <Button size="xl" href="/demo" class="shadow-lg">
           Solicitar sesión técnica
           <ArrowRight class="size-4" />
         </Button>

@@ -108,7 +108,7 @@
 
         {#if productsOpen}
           <div
-            class="absolute left-1/2 top-full mt-2 w-[420px] -translate-x-1/2 rounded-xl border border-border bg-background p-3 shadow-lg"
+            class="absolute left-1/2 top-full mt-2 w-[420px] -translate-x-1/2 rounded-xl border border-border bg-card p-3 shadow-popover"
             role="menu"
             tabindex={-1}
             onmouseenter={openProducts}

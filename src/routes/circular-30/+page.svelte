@@ -291,7 +291,7 @@
         Revisamos su sistema actual y le entregamos un informe de brechas sin costo. En 30 minutos sabe exactamente dónde está.
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25">
+        <Button size="xl" href="/demo" class="shadow-lg">
           Solicitar revisión gratuita
           <ArrowRight class="size-4" />
         </Button>

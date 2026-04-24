@@ -531,7 +531,7 @@
         Evalúe su nivel de cumplimiento con la Ley 21.719 en 20 minutos. Sin costo, sin compromiso.
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href="/demo" class="shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30">
+        <Button size="xl" href="/demo" class="shadow-lg">
           Solicitar evaluación gratuita
           <ArrowRight class="size-4" />
         </Button>

@@ -450,12 +450,12 @@
   .logo-hero {
     height: clamp(3rem, 7vw, 4.5rem);
     width: auto;
-    filter: drop-shadow(0 2px 10px oklch(0.68 0.21 40 / 0.1));
+    filter: drop-shadow(0 2px 10px oklch(0.36 0.14 255 / 0.1));
   }
   .logo-cta {
     height: clamp(2.25rem, 4.5vw, 3.5rem);
     width: auto;
-    filter: drop-shadow(0 2px 10px oklch(0.68 0.21 40 / 0.1));
+    filter: drop-shadow(0 2px 10px oklch(0.36 0.14 255 / 0.1));
   }
 
   /* ── Pill badges ── */
@@ -465,11 +465,11 @@
     gap: 0.375rem;
     padding: 0.4rem 1rem;
     border-radius: 9999px;
-    background: oklch(0.68 0.21 40 / 0.07);
+    background: oklch(0.36 0.14 255 / 0.07);
     color: var(--primary);
     font-size: 0.8rem;
     font-weight: 500;
-    border: 1px solid oklch(0.68 0.21 40 / 0.12);
+    border: 1px solid oklch(0.36 0.14 255 / 0.12);
   }
   .warn-pill {
     background: oklch(0.75 0.15 85 / 0.07);
@@ -526,7 +526,7 @@
 
   .icon-accent {
     color: var(--primary);
-    filter: drop-shadow(0 0 12px oklch(0.68 0.21 40 / 0.15));
+    filter: drop-shadow(0 0 12px oklch(0.36 0.14 255 / 0.15));
   }
   .warn-icon { color: oklch(0.55 0.13 85); filter: drop-shadow(0 0 12px oklch(0.7 0.15 85 / 0.15)); }
 
@@ -563,18 +563,18 @@
     justify-content: center;
   }
   .ficon.lg { width: 4rem; height: 4rem; border-radius: 0.875rem; }
-  .primary-bg { background: oklch(0.68 0.21 40 / 0.07); color: var(--primary); border: 1px solid oklch(0.68 0.21 40 / 0.1); }
+  .primary-bg { background: oklch(0.36 0.14 255 / 0.07); color: var(--primary); border: 1px solid oklch(0.36 0.14 255 / 0.1); }
   .danger-bg { background: oklch(0.55 0.22 25 / 0.07); color: oklch(0.5 0.2 25); border: 1px solid oklch(0.55 0.22 25 / 0.1); }
   .success-bg { background: oklch(0.62 0.19 145 / 0.07); color: oklch(0.5 0.17 145); border: 1px solid oklch(0.62 0.19 145 / 0.1); }
 
-  .connector { width: 2.5rem; height: 2px; background: oklch(0.68 0.21 40 / 0.15); flex-shrink: 0; }
+  .connector { width: 2.5rem; height: 2px; background: oklch(0.36 0.14 255 / 0.15); flex-shrink: 0; }
 
   /* ── Info card ── */
   .card-light {
     padding: 1rem 1.75rem;
     border-radius: 0.75rem;
-    background: oklch(0.68 0.21 40 / 0.04);
-    border: 1px solid oklch(0.68 0.21 40 / 0.08);
+    background: oklch(0.36 0.14 255 / 0.04);
+    border: 1px solid oklch(0.36 0.14 255 / 0.08);
   }
   .card-text { font-size: 1.1rem; color: var(--foreground); line-height: 1.5; }
 
@@ -617,7 +617,7 @@
   /* ── Shield glow ── */
   .shield-glow {
     color: var(--primary);
-    filter: drop-shadow(0 0 24px oklch(0.68 0.21 40 / 0.2));
+    filter: drop-shadow(0 0 24px oklch(0.36 0.14 255 / 0.2));
     animation: pulse-glow 2s ease-in-out infinite;
   }
 
@@ -650,9 +650,9 @@
     font-weight: 600;
     text-decoration: none;
     transition: all 0.25s ease;
-    box-shadow: 0 4px 16px oklch(0.68 0.21 40 / 0.18);
+    box-shadow: 0 4px 16px oklch(0.36 0.14 255 / 0.18);
   }
-  .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 24px oklch(0.68 0.21 40 / 0.25); }
+  .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 24px oklch(0.36 0.14 255 / 0.25); }
 
   /* ═══ SUBTITLE BAR ═══ */
   .subtitle-bar {
@@ -708,7 +708,7 @@
   }
   .progress:hover .fill::after { transform: translateY(-50%) scale(1); }
   .marker { position: absolute; top: -1px; width: 2px; height: calc(100% + 2px); background: oklch(0.88 0 0); }
-  .marker.active { background: oklch(0.68 0.21 40 / 0.25); }
+  .marker.active { background: oklch(0.36 0.14 255 / 0.25); }
 
   .ctrl-row { display: flex; align-items: center; justify-content: space-between; padding: 0.125rem 0; gap: 0.5rem; }
   .time { font-size: 0.75rem; color: var(--muted-foreground); font-variant-numeric: tabular-nums; min-width: 5rem; }
@@ -746,8 +746,8 @@
 
   /* ═══ ANIMATIONS ═══ */
   @keyframes pulse-glow {
-    0%, 100% { filter: drop-shadow(0 0 20px oklch(0.68 0.21 40 / 0.15)); }
-    50% { filter: drop-shadow(0 0 36px oklch(0.68 0.21 40 / 0.3)); }
+    0%, 100% { filter: drop-shadow(0 0 20px oklch(0.36 0.14 255 / 0.15)); }
+    50% { filter: drop-shadow(0 0 36px oklch(0.36 0.14 255 / 0.3)); }
   }
 
   @media (prefers-reduced-motion: reduce) {

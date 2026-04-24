@@ -1,29 +1,42 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter";
-@import "@fontsource-variable/dm-sans";
 @import "@fontsource-variable/jetbrains-mono";
 
 /*
  * ──────────────────────────────────────────
  * Ethoz Brand Design System — Light theme
  *
- * Industrial/premium aesthetic inspired by
- * Apple Watch Ultra (titanium + international orange).
+ * Pharma-clean: McKinsey framework structure + medical-grade palette.
+ * Unified with Ethoz-app (2026-04-23 migration from orange/cream).
  *
  * Brand rules:
- *  - Orange is the single accent. Never pair with another bright color.
- *  - Cream is the default light background; white is for cards on cream.
- *  - Titanium replaces pure black — never use #000.
- *  - DM Sans for headings, Inter for body, JetBrains Mono for numbers/stats.
+ *  - Medical blue (#034B8A / primary) is the single action accent. Never pair
+ *    with another bright color. Reserve for one action per screen.
+ *  - Paper-blue neutral (#F5F8FC) is the page foundation; pure white is for
+ *    card surfaces (lift vs bg).
+ *  - Navy (#0B1E3A) replaces any pure black for text, headlines, icons.
+ *  - Inter for body AND headlines (DM Sans retired). JetBrains Mono for
+ *    numbers/stats only.
+ *  - Flat on purpose. No gradients. Hairline shadow discipline —
+ *    shadow-glow-primary is neutralized to `none`. Destructive glow retained
+ *    (safety-critical: panic, pickup, Ley 21.719).
+ *  - Radii cap at 8px (no oversized curves). Pharma-clean sharp.
+ *
+ * HARD RULE: All colors live in this file as tokens. No hardcoded oklch/hex/rgb
+ * in components. Token NAMES preserved so existing rounded-*, bg-primary,
+ * text-muted-foreground continue to work without file churn.
  * ──────────────────────────────────────────
  */
 
 @theme inline {
-  /* ---------- Primary accent — International Orange ---------- */
+  /* ---------- Primary accent — Medical Blue ---------- */
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-ink: var(--primary-ink);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-pressed: var(--primary-pressed);
 
-  /* ---------- Neutrals — Cream & Titanium ---------- */
+  /* ---------- Neutrals — Paper-blue & Navy ---------- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -36,15 +49,25 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-row-hover: var(--row-hover);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* ---------- Semantic ---------- */
+  /* Static navy surface — does NOT invert with theme. Replaces legacy titanium. */
+  --color-titanium: var(--titanium);
+  --color-titanium-foreground: var(--titanium-foreground);
+
+  /* ---------- Semantic severity (SAFETY-CRITICAL — AAA contrast) ---------- */
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
   --color-warning: var(--warning);
   --color-warning-foreground: var(--warning-foreground);
+  --color-warning-text: var(--warning-text);
+
+  /* ---------- Status ---------- */
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
   --color-info: var(--info);
@@ -56,7 +79,7 @@
   --color-brand-instagram: var(--brand-instagram);
   --color-brand-youtube: var(--brand-youtube);
 
-  /* ---------- Sidebar ---------- */
+  /* ---------- Sidebar (admin) ---------- */
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-accent: var(--sidebar-accent);
@@ -66,67 +89,91 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
 
-  /* ---------- Radius ---------- */
+  /* ---------- Overlay ---------- */
+  --color-overlay: var(--overlay);
+  --color-skeleton: var(--skeleton);
+
+  /* ---------- Radius — pharma-clean sharp ---------- */
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
   --radius-xl: var(--radius-xl);
 
-  /* ---------- Typography ---------- */
+  /* ---------- Typography — Inter everywhere ---------- */
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "DM Sans Variable", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
 :root {
-  /* ── Core — Cream canvas + Titanium text ── */
-  --background: oklch(0.98 0.006 80);       /* Cream #FAF8F5 */
-  --foreground: oklch(0.21 0.003 270);      /* Titanium #1C1C1E */
+  /* ── Primary — Medical Blue (AAA darkened: 7:1 white-on-blue) ── */
+  --primary: oklch(0.36 0.14 255);            /* ≈ #034B8A */
+  --primary-foreground: oklch(1 0 0);
+  --primary-ink: oklch(0.22 0.06 260);        /* #0B1E3A navy — for text/icons on light surfaces */
+  --primary-hover: oklch(0.30 0.13 255);
+  --primary-pressed: oklch(0.25 0.11 255);
 
-  /* ── Primary — International Orange ── */
-  --primary: oklch(0.68 0.21 40);           /* Orange — single accent color */
-  --primary-foreground: oklch(0.98 0.005 80); /* Cream white */
+  /* ── Core — Paper-blue canvas + Navy ink ── */
+  --background: oklch(0.97 0.005 250);        /* #F5F8FC paper-blue page bg */
+  --foreground: oklch(0.22 0.06 260);         /* #0B1E3A navy text */
 
-  /* ── Secondary — Cream warm ── */
-  --secondary: oklch(0.93 0.013 80);        /* Warm cream #EDE8E1 */
-  --secondary-foreground: oklch(0.21 0.003 270);
-
-  /* ── Accent — neutral, not a second bright color ── */
-  --accent: oklch(0.93 0.013 80);
-  --accent-foreground: oklch(0.21 0.003 270);
-
-  /* ── Muted ── */
-  --muted: oklch(0.95 0.010 80);            /* Cream dark #F5F0EB */
-  --muted-foreground: oklch(0.48 0.003 270); /* #636366 */
-
-  /* ── Card — White on cream ── */
-  --card: oklch(1 0 0);                     /* Pure white */
-  --card-foreground: oklch(0.21 0.003 270);
+  /* ── Card — pure white lift vs paper-blue bg ── */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.06 260);
+  --row-hover: oklch(0.96 0.015 250);
 
   /* ── Popover ── */
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.21 0.003 270);
+  --popover-foreground: oklch(0.22 0.06 260);
 
-  /* ── Border / Input / Ring ── */
-  --border: oklch(0.87 0.014 80);           /* Warm border #DDD7CE */
-  --input: oklch(0.93 0.013 80);            /* Cream warm for inputs */
-  --ring: oklch(0.68 0.21 40);              /* Focus ring = orange */
+  /* ── Muted — slightly darker than bg ── */
+  --muted: oklch(0.94 0.008 245);
+  --muted-foreground: oklch(0.38 0.015 245);  /* ≈ #3F4A54 — AAA 7:1 on white/paper-blue */
 
-  /* ── Semantic: Destructive ── */
-  --destructive: oklch(0.55 0.22 28);
-  --destructive-foreground: oklch(0.98 0.005 80);
+  /* ── Secondary — recessed paper-blue for section alternation on landing.
+   *    Sits one notch darker than --background so `bg-secondary` sections
+   *    read as a subtle dip and `bg-card` cards read as lifted.
+   *    (Admin/app uses white for this slot because it's button-variant only;
+   *    landing needs a visible alternation surface across 50+ marketing pages.) */
+  --secondary: oklch(0.95 0.008 250);
+  --secondary-foreground: oklch(0.22 0.06 260);
 
-  /* ── Semantic: Warning ── */
-  --warning: oklch(0.78 0.15 75);
-  --warning-foreground: oklch(0.21 0.003 270);
+  /* ── Accent — neutral blue wash, not a second bright color ── */
+  --accent: oklch(0.96 0.015 250);            /* = row-hover */
+  --accent-foreground: oklch(0.22 0.06 260);
 
-  /* ── Semantic: Success ── */
-  --success: oklch(0.62 0.18 148);
-  --success-foreground: oklch(0.98 0.005 80);
+  /* ── Border / Input / Ring — hairline edges with WCAG 1.4.11 clearance ──
+   *    --border darkened from 0.72→0.62 so it hits ≥3:1 vs both white cards
+   *    (3.64:1) and paper-blue bg (3.34:1). Visually heavier than the app's
+   *    0.72 token — logged as a divergence to sync back to Ethoz-app which
+   *    incorrectly claims 3:1 at 0.72 (actual 2.48:1). */
+  --border: oklch(0.62 0.01 250);             /* ≈ #868B92 — WCAG 1.4.11 verified ≥3:1 */
+  --input: oklch(0.62 0.01 250);
+  --ring: oklch(0.36 0.14 255);               /* Medical blue focus ring (AAA) */
 
-  /* ── Semantic: Info ── */
-  --info: oklch(0.60 0.18 250);
-  --info-foreground: oklch(0.98 0.005 80);
+  /* ── Titanium — static navy surface (does NOT invert) ── */
+  --titanium: oklch(0.22 0.06 260);
+  --titanium-foreground: oklch(1 0 0);
+
+  /* ── Semantic: Destructive (AAA 7:1 white-on-red) ── */
+  --destructive: oklch(0.40 0.16 30);         /* ≈ #A02822 */
+  --destructive-foreground: oklch(1 0 0);
+  --danger: oklch(0.38 0.17 30);
+  --danger-foreground: oklch(1 0 0);
+
+  /* ── Semantic: Warning — lightened amber with NAVY fg (AAA 7.63:1 verified).
+   *    White fails on amber (≈ 2.3:1) — do not use. */
+  --warning: oklch(0.75 0.13 70);             /* ≈ #E8A356 */
+  --warning-foreground: oklch(0.22 0.06 260);
+  --warning-text: oklch(0.22 0.06 260);
+
+  /* ── Semantic: Success — darkened green for AAA on white (verified 7.73:1) ── */
+  --success: oklch(0.42 0.13 155);            /* ≈ #005E31 */
+  --success-foreground: oklch(1 0 0);
+
+  /* ── Semantic: Info — same as primary (AAA medical blue) ── */
+  --info: oklch(0.36 0.14 255);
+  --info-foreground: oklch(1 0 0);
 
   /* ── Platform brand exceptions (external brand identity — do not repurpose) ── */
   --brand-linkedin: #0A66C2;
@@ -134,21 +181,25 @@
   --brand-instagram: #E1306C;
   --brand-youtube: #FF0000;
 
-  /* ── Sidebar ── */
-  --sidebar: oklch(0.96 0.008 80);
-  --sidebar-foreground: oklch(0.21 0.003 270);
-  --sidebar-accent: oklch(0.93 0.013 80);
-  --sidebar-accent-foreground: oklch(0.21 0.003 270);
-  --sidebar-border: oklch(0.87 0.014 80);
-  --sidebar-ring: oklch(0.68 0.21 40);
-  --sidebar-primary: oklch(0.68 0.21 40);
-  --sidebar-primary-foreground: oklch(0.98 0.005 80);
+  /* ── Sidebar (admin) ── */
+  --sidebar: oklch(0.95 0.008 250);
+  --sidebar-foreground: oklch(0.22 0.06 260);
+  --sidebar-accent: oklch(0.94 0.008 245);
+  --sidebar-accent-foreground: oklch(0.22 0.06 260);
+  --sidebar-border: oklch(0.62 0.01 250);
+  --sidebar-ring: oklch(0.36 0.14 255);
+  --sidebar-primary: oklch(0.36 0.14 255);
+  --sidebar-primary-foreground: oklch(1 0 0);
 
-  /* ── Radius ── */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.625rem;
-  --radius-xl: 0.875rem;
+  /* ── Overlay — navy scrim ── */
+  --overlay: oklch(0.22 0.06 260 / 0.60);
+  --skeleton: oklch(0.90 0.008 250);
+
+  /* ── Radius — pharma-clean sharp (cap at 8px; no oversized curves) ── */
+  --radius-sm: 0.125rem;                      /* 2px */
+  --radius-md: 0.25rem;                       /* 4px */
+  --radius-lg: 0.5rem;                        /* 8px */
+  --radius-xl: 0.5rem;                        /* Capped at lg */
 }
 
 /* ──────────────────────────────────────────
@@ -161,6 +212,7 @@ html {
   -webkit-text-size-adjust: 100%;
   overscroll-behavior-y: contain;
   overflow-x: hidden;
+  color-scheme: light;
 }
 
 body {
@@ -174,16 +226,16 @@ body {
   letter-spacing: -0.011em;
 }
 
-/* ── Typography — DM Sans for headings ── */
+/* ── Typography — Inter everywhere, medium-weight with tight tracking for editorial feel ── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   text-wrap: balance;
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 600;
 }
 
-h1 { font-weight: 800; letter-spacing: -0.02em; }
+h1 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; }
 h2 { letter-spacing: -0.02em; }
 h3 { font-weight: 600; }
 
@@ -191,19 +243,21 @@ p, li {
   text-wrap: pretty;
 }
 
-/* Numeric tabular nuance — monospace for stats */
+/* ── Numeric tabular nuance — monospace for stats ── */
 [data-numeric], .font-numeric {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
 }
 
-/* Mono uppercase section label */
+/* ── Editorial eyebrow — small caps section tag in medical blue ── */
+.eyebrow,
 .label-mono {
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--primary);
 }
 
 /* ── Utility: text-balance ── */
@@ -211,14 +265,19 @@ p, li {
   text-wrap: balance;
 }
 
-/* ── Selection — orange highlight ── */
+/* ── Selection — medical blue highlight ── */
 ::selection {
-  background-color: oklch(0.68 0.21 40 / 0.35);
-  color: oklch(0.98 0.005 80);
+  background-color: oklch(0.36 0.14 255 / 0.25);
+  color: oklch(0.22 0.06 260);
 }
 
-/* ── Focus ring — accessible keyboard nav ── */
-*:focus-visible {
+/* ──────────────────────────────────────────
+ * Global :focus-visible safety net — WCAG 2.4.7 + 2.4.11
+ * Every interactive element gets a visible focus ring even if a component
+ * omits its own. Component-level `focus-visible:ring-*` still wins via
+ * specificity; this is just a fallback.
+ * ────────────────────────────────────────── */
+:where(button, a, input, textarea, select, [tabindex], [role="button"]):focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
@@ -235,7 +294,6 @@ p, li {
   opacity: 0.8;
 }
 
-/* Card/block links never underline */
 a {
   text-decoration: none;
 }
@@ -246,10 +304,17 @@ button, a, [role="button"] {
               opacity 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
+/* ── Checkbox visibility ── */
+button[role="checkbox"] {
+  border: 1.5px solid var(--border);
+}
+
 /* ── Hide reCAPTCHA badge (attribution in footer instead) ── */
 .grecaptcha-badge { visibility: hidden !important; pointer-events: none !important; }
 
-/* ── Reduced motion ── */
+/* ──────────────────────────────────────────
+ * Vestibular safety — honor prefers-reduced-motion globally
+ * ────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -259,7 +324,9 @@ button, a, [role="button"] {
   }
 }
 
-/* ── Animations ── */
+/* ──────────────────────────────────────────
+ * Animations
+ * ────────────────────────────────────────── */
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(1rem); }
   to { opacity: 1; transform: translateY(0); }
@@ -282,30 +349,58 @@ button, a, [role="button"] {
   }
 }
 
-/* ── Utilities — matching app design system ── */
+/* ──────────────────────────────────────────
+ * Utilities — hairline shadow discipline
+ * ────────────────────────────────────────── */
 
-/* Orange glow for primary CTAs — subtle, not garish */
+/* Primary CTA glow — NEUTRALIZED per hairline discipline. Utility name preserved
+ * for zero-file churn; visually becomes a no-op. Hover elevation now comes from
+ * shadow-card-hover. */
 @utility shadow-glow-primary {
-  box-shadow: 0 4px 20px color-mix(in oklch, var(--color-primary) 20%, transparent);
+  box-shadow: none;
 }
 
-/* Card shadows — light and layered, never heavy */
+/* Card shadows — hairline lift / McKinsey restraint. Tokens use navy
+ * (--foreground) so shadows read on paper-blue surfaces. */
 @utility shadow-card {
-  box-shadow:
-    0 1px 3px rgb(0 0 0 / 0.04),
-    0 1px 2px rgb(0 0 0 / 0.06);
+  box-shadow: 0 1px 0 color-mix(in oklch, var(--foreground) 6%, transparent);
 }
 
 @utility shadow-card-hover {
-  box-shadow:
-    0 8px 24px rgb(0 0 0 / 0.06),
-    0 2px 8px rgb(0 0 0 / 0.04);
+  box-shadow: 0 2px 8px color-mix(in oklch, var(--foreground) 8%, transparent);
 }
 
-/* 40px technical grid pattern */
+/* Card ring — inset elevation (subtle hairline outline) */
+@utility ring-card {
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--foreground) 6%, transparent);
+}
+
+/* Popover / dialog elevation — slightly heavier lift for modal chrome */
+@utility shadow-popover {
+  box-shadow: 0 8px 24px color-mix(in oklch, var(--foreground) 10%, transparent);
+}
+
+/* Modal/sheet scrim — replaces forbidden `bg-black/NN` */
+@utility bg-overlay {
+  background-color: var(--overlay);
+}
+
+/* Destructive glow — PANIC BUTTON, critical confirmations. UNCHANGED —
+ * this is the safety signature and carries semantic weight. */
+@utility shadow-glow-destructive {
+  box-shadow: 0 0 40px color-mix(in oklch, var(--destructive) 60%, transparent);
+}
+
+/* 40px technical grid pattern — NEUTRALIZED (transparent grid line) per
+ * hairline discipline. Utility survives so `bg-grid-pattern` remains valid. */
 @utility bg-grid-pattern {
   background-image:
-    linear-gradient(to right, color-mix(in oklch, var(--color-foreground) 4%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklch, var(--color-foreground) 4%, transparent) 1px, transparent 1px);
+    linear-gradient(to right, transparent 1px, transparent 1px),
+    linear-gradient(to bottom, transparent 1px, transparent 1px);
   background-size: 40px 40px;
+}
+
+/* Safe-area padding for mobile sticky CTAs */
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
