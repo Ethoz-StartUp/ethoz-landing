@@ -161,7 +161,7 @@
 
   <!-- El problema del sostenedor en 2026 -->
   <section class="py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-2">
         <AlertTriangle class="size-5 shrink-0 text-destructive" />
         <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">El problema del sostenedor en 2026</h2>
@@ -212,7 +212,7 @@
 
   <!-- Exposición legal por N colegios -->
   <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-center">
         <div>
           <div class="flex items-center gap-3 mb-2">
@@ -286,7 +286,7 @@
 
   <!-- Auditoría centralizada -->
   <section class="py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <div>
           <div class="flex items-center gap-3 mb-2">
@@ -351,7 +351,7 @@
 
   <!-- TAM callout + stats -->
   <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="rounded-xl border border-border bg-card p-8 text-center shadow-sm">
         <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">El mercado que protegemos</p>
         <div class="grid gap-8 sm:grid-cols-3">

@@ -128,7 +128,7 @@
        DISCLAIMER
        ══════════════════════════════════════ -->
   <section class="py-6 bg-background">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
         <AlertTriangle class="size-4 shrink-0 text-muted-foreground mt-0.5" />
         <p class="text-xs leading-relaxed text-muted-foreground">
@@ -142,7 +142,7 @@
        COMPARISON TABLE
        ══════════════════════════════════════ -->
   <section class="py-12 sm:py-16 bg-background">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
       <!-- Legend -->
       <div class="mb-8 flex flex-wrap items-center gap-5">
@@ -264,7 +264,7 @@
        POSITIONING CARDS
        ══════════════════════════════════════ -->
   <section class="py-12 sm:py-14 bg-secondary">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">La diferencia clave</p>
         <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -319,7 +319,7 @@
        RISK CALLOUT
        ══════════════════════════════════════ -->
   <section class="py-12 sm:py-14 bg-background">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="rounded-xl border border-border bg-card p-8 shadow-sm">
         <div class="grid gap-8 sm:grid-cols-3 text-center">
           <div>
@@ -346,7 +346,7 @@
        CTA
        ══════════════════════════════════════ -->
   <section class="py-12 sm:py-14 bg-secondary">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <Lock class="mx-auto size-10 text-primary mb-4" />
       <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
         ¿Tu sistema actual te protege?

@@ -201,7 +201,7 @@
 
   <!-- El retiro de las 14:30 — escenario real -->
   <section class="py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-2">
         <Clock class="size-5 shrink-0 text-primary" />
         <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">El retiro de las 14:30 — así funciona</h2>
@@ -249,7 +249,7 @@
 
   <!-- Solo lo que el portero necesita -->
   <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <div>
           <div class="flex items-center gap-3 mb-2">
@@ -316,7 +316,7 @@
 
   <!-- Entrenamiento + offline -->
   <section class="py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2">
         <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
           <div class="flex items-center gap-2.5 mb-3">
@@ -367,7 +367,7 @@
 
   <!-- Stats -->
   <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 sm:grid-cols-3 text-center">
         <div>
           <p class="text-4xl font-extrabold tracking-tight text-foreground">&lt;3s</p>

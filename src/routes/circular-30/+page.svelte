@@ -286,7 +286,7 @@
   </section>
 
   <section class="py-12 bg-background border-t border-border">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-5">También puede interesarle</p>
       <div class="flex flex-wrap gap-3">
         {#each [

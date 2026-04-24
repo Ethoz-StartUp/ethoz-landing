@@ -41,7 +41,7 @@
     </div>
   </div>
 
-  <div class="mx-auto max-w-4xl px-4 py-10 sm:py-14">
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <!-- Header -->
     <div class="mb-12 border-b border-border pb-10">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">

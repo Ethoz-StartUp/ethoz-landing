@@ -152,7 +152,7 @@
        COMPLIANCE TIMELINE
        ══════════════════════════════════════ -->
   <section class="py-12 sm:py-14 bg-background">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('compliance_page.timeline.overline')}
@@ -319,7 +319,7 @@
        ARCHITECTURE OVERVIEW
        ══════════════════════════════════════ -->
   <section class="py-12 sm:py-14 bg-background">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('compliance_page.arch.overline')}
@@ -354,7 +354,7 @@
        CERTIFICATIONS / STANDARDS
        ══════════════════════════════════════ -->
   <section class="py-12 sm:py-14 bg-secondary">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('compliance_page.certs.overline')}

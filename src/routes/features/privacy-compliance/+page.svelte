@@ -160,7 +160,7 @@
 
   <!-- Data inventory section -->
   <section class="py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary">Registro de tratamiento</p>
       <h2 class="mb-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Inventario de datos categorizados</h2>
       <p class="mb-8 text-sm leading-relaxed text-muted-foreground max-w-2xl">
@@ -206,7 +206,7 @@
 
   <!-- ARCO+P rights section -->
   <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 class="mb-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Derechos ARCO+P integrados</h2>
       <p class="mb-8 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         Cuando un apoderado solicita ejercer sus derechos, Ethoz genera el flujo de atención, registra cada paso y asegura que la respuesta se entregue dentro del plazo legal de 15 días hábiles.
@@ -231,7 +231,7 @@
 
   <!-- Detail cards -->
   <section class="py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">

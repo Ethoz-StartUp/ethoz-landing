@@ -181,7 +181,7 @@
 
   <!-- Dashboard mockup section -->
   <section class="py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <div>
           <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">Dashboard con visión de curso completo</h2>
@@ -251,7 +251,7 @@
 
   <!-- Detail cards -->
   <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">

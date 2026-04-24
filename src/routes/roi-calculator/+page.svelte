@@ -125,7 +125,7 @@
        CALCULATOR
        ══════════════════════════════════════ -->
   <section class="py-12 sm:py-14 bg-background">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
 
         <!-- LEFT: Inputs -->
@@ -294,7 +294,7 @@
        CTA
        ══════════════════════════════════════ -->
   <section class="py-12 sm:py-14 bg-secondary">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <Calculator class="mx-auto size-10 text-primary mb-4" />
       <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
         ¿Quieres un análisis más preciso?

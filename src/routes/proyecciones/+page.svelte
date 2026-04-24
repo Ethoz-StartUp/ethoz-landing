@@ -120,7 +120,7 @@
        FRAMING DISCLAIMER
        ══════════════════════════════════════ -->
   <section class="py-6 bg-background">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-5">
         <Info class="size-4 shrink-0 text-primary mt-0.5" />
         <div>
@@ -137,7 +137,7 @@
        PROJECTION CARDS
        ══════════════════════════════════════ -->
   <section class="py-12 sm:py-14 bg-background">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">Métricas proyectadas</p>
         <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -187,7 +187,7 @@
        SCENARIO TABLE
        ══════════════════════════════════════ -->
   <section class="py-12 sm:py-14 bg-secondary">
-    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">Escenario tipo</p>
         <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -244,7 +244,7 @@
        CTA
        ══════════════════════════════════════ -->
   <section class="py-12 sm:py-14 bg-secondary">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
         ¿Cómo se ven estas proyecciones en tu colegio?
       </h2>

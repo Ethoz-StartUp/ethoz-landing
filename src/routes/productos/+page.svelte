@@ -286,7 +286,7 @@
 
   <!-- CTA -->
   <section class="py-12 sm:py-14 bg-secondary">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <h2 class="text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
         {t('pricing.cta.title')}
       </h2>

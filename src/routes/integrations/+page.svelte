@@ -209,7 +209,7 @@
 
   <!-- CTA -->
   <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">¿Tienes dudas sobre la integración?</h2>
       <p class="mt-4 text-base leading-relaxed text-muted-foreground">
         Agenda una demo y revisamos juntos cómo conectar Ethoz con lo que tu colegio ya tiene. Sin compromiso.

@@ -157,7 +157,7 @@
 
   <!-- Observaciones con contexto -->
   <section class="py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <div>
           <div class="flex items-center gap-3 mb-2">
@@ -260,7 +260,7 @@
 
   <!-- Datos y tendencias -->
   <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <!-- Trend chart mockup -->
         <div class="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
@@ -333,7 +333,7 @@
 
   <!-- Sin reinicio de marzo -->
   <section class="py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-center">
         <div>
           <div class="flex items-center gap-3 mb-2">
@@ -407,7 +407,7 @@
 
   <!-- Stats -->
   <section class="bg-secondary py-12 sm:py-14">
-    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 sm:grid-cols-3 text-center">
         <div>
           <p class="text-4xl font-extrabold tracking-tight text-foreground">70,8%</p>
