@@ -62,18 +62,18 @@
 
 <nav class="fixed top-0 right-0 left-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg shadow-sm">
   <!-- Top ribbon — Ley 21.719 urgency. Part of the fixed chrome so it
-       doesn't get covered by the nav. Hidden on the /admin area. -->
+       doesn't get covered by the nav. Hidden on the /admin area.
+       No CTA here — the NavBar below already has "Agendar Demo". -->
   {#if !page.url.pathname.startsWith('/admin')}
     <div class="border-b border-border bg-foreground text-background">
-      <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-1 px-4 py-1.5 text-[12px] sm:px-6 lg:px-8">
-        <p class="flex flex-wrap items-center gap-x-3 gap-y-0.5">
-          <span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-background/70">Ley 21.719</span>
-          <span class="hidden text-background/40 sm:inline" aria-hidden="true">·</span>
-          <span class="text-background/90">Vigencia: Dic 2026 · Multas hasta <span class="font-semibold text-background">20.000 UTM</span></span>
+      <div class="mx-auto flex max-w-7xl items-center justify-center px-4 py-1.5 text-[12px] sm:px-6 lg:px-8">
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-center">
+          <span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-background/85">Ley 21.719</span>
+          <span class="text-background/50" aria-hidden="true">·</span>
+          <span class="text-background">Vigencia plena: Diciembre 2026</span>
+          <span class="hidden text-background/50 sm:inline" aria-hidden="true">·</span>
+          <span class="hidden text-background/85 sm:inline">Multas hasta <span class="font-semibold text-background">20.000 UTM</span></span>
         </p>
-        <a href="/demo" class="inline-flex items-center gap-1 border-b border-background text-[12px] font-semibold text-background hover:border-b-2">
-          Agendar demo <span aria-hidden="true">→</span>
-        </a>
       </div>
     </div>
   {/if}

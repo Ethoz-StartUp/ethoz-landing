@@ -432,7 +432,7 @@
       <p class="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {t('trust.attribution')}
       </p>
-      <dl class="mx-auto mt-8 grid max-w-5xl grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
+      <dl class="mt-8 grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <Building class="size-5 text-primary" aria-hidden="true" />
           <dt class="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Datos</dt>
