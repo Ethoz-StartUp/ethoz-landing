@@ -32,6 +32,18 @@ export const es = {
   'trust.servers': 'Datos en Santiago, Chile (Google Cloud)',
   'trust.directory': 'Directorio de 12.038 establecimientos',
 
+  // Editorial anchor — McK-style anti-slop moment between trust bar and problem
+  'editorial.eyebrow': 'El contexto',
+  'editorial.statement':
+    'La Ley 21.719 no es un formulario de cumplimiento. Es un cambio arquitectónico en cómo los colegios chilenos custodian la información de los niños.',
+  'editorial.stat1_number': '12.038',
+  'editorial.stat1_label': 'Establecimientos educacionales',
+  'editorial.stat2_number': '5.777',
+  'editorial.stat2_label': 'Sostenedores a cargo',
+  'editorial.stat3_number': 'Dic 2026',
+  'editorial.stat3_label': 'Entrada en plena vigencia',
+  'editorial.source': 'Fuentes: Mineduc (2024) · Ley N° 21.719',
+
   // Problem section
   'problem.overline': 'El problema',
   'problem.title': 'Cada día, colegios operan con información fragmentada',

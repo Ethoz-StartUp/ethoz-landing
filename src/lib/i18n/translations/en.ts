@@ -32,6 +32,18 @@ export const en = {
   'trust.servers': 'Data in Santiago, Chile (Google Cloud)',
   'trust.directory': 'Directory of 12,038 schools',
 
+  // Editorial anchor — McK-style anti-slop moment between trust bar and problem
+  'editorial.eyebrow': 'The context',
+  'editorial.statement':
+    'Law 21.719 is not a compliance form. It is an architectural shift in how Chilean schools safeguard children\'s data.',
+  'editorial.stat1_number': '12,038',
+  'editorial.stat1_label': 'Educational establishments',
+  'editorial.stat2_number': '5,777',
+  'editorial.stat2_label': 'School operators',
+  'editorial.stat3_number': 'Dec 2026',
+  'editorial.stat3_label': 'Full enforcement begins',
+  'editorial.source': 'Sources: Mineduc (2024) · Law 21.719',
+
   // Problem section
   'problem.overline': 'The problem',
   'problem.title': 'Every day, schools operate with fragmented information',
