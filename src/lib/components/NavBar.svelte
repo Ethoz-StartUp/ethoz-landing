@@ -81,7 +81,7 @@
           class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isActive(link.href)
               ? 'text-primary bg-primary/5'
-              : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}"
+              : 'text-muted-foreground hover:text-foreground hover:bg-muted'}"
         >
           {t(link.key)}
         </a>
@@ -101,7 +101,7 @@
           class="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isProductActive()
               ? 'text-primary-pressed bg-primary/5'
-              : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}"
+              : 'text-muted-foreground hover:text-foreground hover:bg-muted'}"
           onclick={() => (productsOpen = !productsOpen)}
           onkeydown={(e) => {
             if (e.key === 'Escape' && productsOpen) { productsOpen = false; e.currentTarget.focus(); }
@@ -127,7 +127,7 @@
                 {@const Icon = product.icon}
                 <a
                   href={product.href}
-                  class="flex items-start gap-2.5 rounded-lg px-3 py-2.5 transition-colors hover:bg-muted/50"
+                  class="flex items-start gap-2.5 rounded-lg px-3 py-2.5 transition-colors hover:bg-muted"
                   onclick={() => (productsOpen = false)}
                 >
                   <Icon class="mt-0.5 size-4 shrink-0 text-primary" />
@@ -156,7 +156,7 @@
           class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isActive(link.href)
               ? 'text-primary bg-primary/5'
-              : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}"
+              : 'text-muted-foreground hover:text-foreground hover:bg-muted'}"
         >
           {t(link.key)}
         </a>
@@ -168,7 +168,7 @@
     <div class="flex items-center justify-end gap-2">
       <a
         href={env.PUBLIC_APP_URL ?? 'https://app.ethoz.cl/login'}
-        class="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-muted/50 md:inline-flex"
+        class="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-muted md:inline-flex"
       >
         {t('nav.login')}
       </a>
@@ -178,7 +178,7 @@
 
       <button
         type="button"
-        class="inline-flex items-center justify-center rounded-lg p-2.5 min-h-[44px] min-w-[44px] text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground md:hidden"
+        class="inline-flex items-center justify-center rounded-lg p-2.5 min-h-[44px] min-w-[44px] text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
         onclick={() => (mobileOpen = !mobileOpen)}
         aria-label={mobileOpen ? t('nav.close_menu') : t('nav.open_menu')}
         aria-expanded={mobileOpen}
@@ -209,7 +209,7 @@
             class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
               {isActive(link.href)
                 ? 'text-primary bg-primary/5'
-                : 'text-foreground hover:bg-muted/50'}"
+                : 'text-foreground hover:bg-muted'}"
             onclick={() => (mobileOpen = false)}
           >
             {t(link.key)}
@@ -222,7 +222,7 @@
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/get-started')
               ? 'text-primary bg-primary/5'
-              : 'text-foreground hover:bg-muted/50'}"
+              : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >
           {t('nav.pricing')}
@@ -234,7 +234,7 @@
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/productos') || isProductActive()
               ? 'text-primary bg-primary/5'
-              : 'text-foreground hover:bg-muted/50'}"
+              : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >
           {t('nav.features')}
@@ -246,7 +246,7 @@
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/integrations')
               ? 'text-primary bg-primary/5'
-              : 'text-foreground hover:bg-muted/50'}"
+              : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >
           {t('nav.integrations')}
@@ -258,7 +258,7 @@
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/blog')
               ? 'text-primary bg-primary/5'
-              : 'text-foreground hover:bg-muted/50'}"
+              : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >
           {t('nav.blog')}
@@ -270,7 +270,7 @@
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/contact')
               ? 'text-primary bg-primary/5'
-              : 'text-foreground hover:bg-muted/50'}"
+              : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >
           {t('nav.contact')}
@@ -279,7 +279,7 @@
       <div class="mt-4 flex flex-col gap-3 border-t border-border pt-4">
         <a
           href={env.PUBLIC_APP_URL ?? 'https://app.ethoz.cl/login'}
-          class="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted/50"
+          class="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
           onclick={() => (mobileOpen = false)}
         >
           {t('nav.login')}

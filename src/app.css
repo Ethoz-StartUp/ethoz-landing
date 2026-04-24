@@ -190,15 +190,15 @@
   --overlay: rgba(5, 28, 44, 0.60);
   --skeleton: #EEF0F2;
 
-  /* ── Radius — subtle 2px softening (within McK spec "--radius-1: 2px rare").
-   *    Takes the aggressive-square edge off for a marketing surface without
-   *    reading as SaaS-playful. Pills kept for status chips/avatars. ── */
-  --radius-sm: 2px;
-  --radius-md: 2px;
-  --radius-lg: 2px;
-  --radius-xl: 2px;
-  --radius-2xl: 2px;
-  --radius-3xl: 2px;
+  /* ── Radius — institutional but not rectangular. 4/8/12/16 progression.
+   *    Buttons and inputs at 6px read as proper controls (not bricks).
+   *    Cards at 8px, mockup at 12px. Pills kept for status chips/avatars. ── */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
 
   /* ── Motion ── */
   --ease-standard: cubic-bezier(0.2, 0, 0.2, 1);

@@ -57,7 +57,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.name}
-                class="flex size-8 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
+                class="flex size-8 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               >
                 {@html s.svg}
               </a>
@@ -124,7 +124,7 @@
       <button
         type="button"
         onclick={toggleLocale}
-        class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-[11px] text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
+        class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-[11px] text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
       >
         <Globe class="size-3" />
         {getLocale() === 'es' ? 'English' : 'Español'}
