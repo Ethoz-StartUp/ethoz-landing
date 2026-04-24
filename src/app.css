@@ -26,7 +26,9 @@
  *  - Serif display (Playfair Display as Bower substitute) for headlines.
  *    Sans body (Inter) for body, UI, meta.
  *  - Eyebrow → serif headline → sans meta. Signature editorial hierarchy.
- *  - Hover: underline appears or darkens. NEVER shadow-lift, scale, glow.
+ *  - Hover: underline appears or darkens; cards may lift 1px with a
+ *    hairline bottom shadow (softened from pure McK per marketing-
+ *    landing affordance needs). NEVER scale, glow, or translate > 1px.
  *  - Focus ring: 2px solid --mck-blue-500 with 2px offset. Always visible.
  *
  * Ref: /Users/ignacioaraya/Downloads/design-system.md

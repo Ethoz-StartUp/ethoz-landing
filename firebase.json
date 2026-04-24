@@ -4,6 +4,10 @@
       "site": "ethoz",
       "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "redirects": [
+        { "source": "/en", "destination": "/", "type": 301 },
+        { "source": "/en/**", "destination": "/", "type": 301 }
+      ],
       "rewrites": [
         {
           "source": "**",
@@ -53,6 +57,10 @@
       "site": "gestion-estudiantil-dev",
       "public": "build",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "redirects": [
+        { "source": "/en", "destination": "/", "type": 301 },
+        { "source": "/en/**", "destination": "/", "type": 301 }
+      ],
       "rewrites": [
         {
           "source": "**",
