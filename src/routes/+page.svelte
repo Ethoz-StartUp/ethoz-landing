@@ -491,28 +491,28 @@
 
       <!-- Problem items — 3 columns, icon + title always inline -->
       <div class="mx-auto mt-8 grid gap-5 sm:grid-cols-3">
-        <div class="rounded-xl border border-border bg-card p-6">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
-            <AlertTriangle class="size-5 shrink-0 text-warning" />
+            <AlertTriangle class="size-5 shrink-0 text-warning transition-transform group-hover:-rotate-6" />
             <h3 class="text-base font-semibold text-foreground">{t('problem.card1.title')}</h3>
           </div>
-          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('problem.card1.desc')}</p>
+          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card1.desc')}</p>
         </div>
 
-        <div class="rounded-xl border border-border bg-card p-6">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
-            <Shield class="size-5 shrink-0 text-destructive" />
+            <Shield class="size-5 shrink-0 text-destructive transition-transform group-hover:-rotate-6" />
             <h3 class="text-base font-semibold text-foreground">{t('problem.card2.title')}</h3>
           </div>
-          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('problem.card2.desc')}</p>
+          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card2.desc')}</p>
         </div>
 
-        <div class="rounded-xl border border-border bg-card p-6">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
-            <FileCheck class="size-5 shrink-0 text-primary" />
+            <FileCheck class="size-5 shrink-0 text-primary transition-transform group-hover:-rotate-6" />
             <h3 class="text-base font-semibold text-foreground">{t('problem.card3.title')}</h3>
           </div>
-          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('problem.card3.desc')}</p>
+          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card3.desc')}</p>
         </div>
       </div>
     </div>
@@ -581,13 +581,13 @@
 
       <!-- Cross-cutting: privacy is not a product, it's how everything works -->
       <div class="mx-auto mt-8 max-w-4xl">
-        <a href="/compliance" class="group flex items-center gap-4 rounded-xl border border-border px-6 py-4 transition-all hover:border-primary/20 hover:shadow-sm">
-          <Shield class="size-5 shrink-0 text-primary" />
+        <a href="/compliance" class="group flex items-center gap-4 border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+          <Shield class="size-5 shrink-0 text-primary transition-transform group-hover:rotate-6" />
           <div class="flex-1">
             <p class="text-sm font-semibold text-foreground">{t('home.compliance_banner.title')}</p>
             <p class="mt-0.5 text-xs text-muted-foreground">{t('home.compliance_banner.desc')}</p>
           </div>
-          <ChevronRight class="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
+          <ChevronRight class="size-4 shrink-0 text-foreground transition-transform group-hover:translate-x-1" />
         </a>
       </div>
     </div>
