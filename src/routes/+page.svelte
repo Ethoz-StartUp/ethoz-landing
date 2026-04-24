@@ -293,28 +293,33 @@
         </div>
       </div>
 
-      <!-- Right column: dashboard mockup -->
+      <!-- Right column: dashboard mockup — gradient frame for premium feel -->
       <div class="animate-fade-in-up animate-delay-400 w-full">
-        <div
-          class="rounded-xl border border-border bg-card shadow-mockup"
-          role="region"
-          aria-roledescription="carrusel"
-          aria-label="Vista del panel Ethoz"
-          onmouseenter={() => (carouselPaused = true)}
-          onmouseleave={() => (carouselPaused = false)}
-          onfocusin={() => (carouselPaused = true)}
-          onfocusout={() => (carouselPaused = false)}
-        >
-          <!-- macOS-style title bar -->
-          <div class="flex items-center gap-2 border-b border-border px-4 py-3">
-            <div class="size-3 rounded-full bg-destructive/60"></div>
-            <div class="size-3 rounded-full bg-warning/60"></div>
-            <div class="size-3 rounded-full bg-success/60"></div>
-            <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
-            <span class="ml-auto inline-flex items-center gap-1 rounded-full border border-border bg-muted/60 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-              {t('hero.mockup_demo_label')}
-            </span>
-          </div>
+        <div class="rounded-xl bg-gradient-to-br from-primary/20 via-border to-primary/10 p-px shadow-mockup">
+          <div
+            class="overflow-hidden rounded-[calc(var(--radius-xl)-1px)] bg-card"
+            role="region"
+            aria-roledescription="carrusel"
+            aria-label="Vista del panel Ethoz"
+            onmouseenter={() => (carouselPaused = true)}
+            onmouseleave={() => (carouselPaused = false)}
+            onfocusin={() => (carouselPaused = true)}
+            onfocusout={() => (carouselPaused = false)}
+          >
+            <!-- macOS-style title bar with LIVE indicator -->
+            <div class="flex items-center gap-2 border-b border-border bg-gradient-to-b from-muted/40 to-transparent px-4 py-3">
+              <div class="size-3 rounded-full bg-destructive/60"></div>
+              <div class="size-3 rounded-full bg-warning/60"></div>
+              <div class="size-3 rounded-full bg-success/60"></div>
+              <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
+              <span class="ml-auto inline-flex items-center gap-1.5 rounded-full border border-success/20 bg-success/[0.08] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-success">
+                <span class="relative flex size-1.5">
+                  <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
+                  <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
+                </span>
+                Live
+              </span>
+            </div>
 
           <!-- Dashboard content — carousel -->
           {#key currentStudent}
@@ -391,6 +396,7 @@
               </button>
             {/each}
           </div>
+          </div>
         </div>
       </div>
 
@@ -400,7 +406,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 3: TRUST BAR — provable facts, not generic badges
        ═══════════════════════════════════════════ -->
-  <section class="border-y border-border bg-secondary py-8" aria-label="Por qué confiar en Ethoz">
+  <section class="reveal border-y border-border bg-secondary py-8" aria-label="Por qué confiar en Ethoz">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-center text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
         {t('trust.attribution')}
@@ -432,7 +438,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 4: PROBLEM
        ═══════════════════════════════════════════ -->
-  <section class="py-16 sm:py-20" id="problem">
+  <section class="reveal py-16 sm:py-20" id="problem">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
       <div class="mx-auto max-w-2xl text-center">
@@ -479,7 +485,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 5: SOLUTION / FEATURES
        ═══════════════════════════════════════════ -->
-  <section class="bg-secondary py-16 sm:py-20" id="features">
+  <section class="reveal bg-secondary py-16 sm:py-20" id="features">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
       <div class="mx-auto max-w-2xl text-center">
@@ -497,9 +503,9 @@
       <!-- Feature cards — 2×2 grid, numbered headings (no icon boxes) -->
       <div class="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2">
         <!-- Feature 1: Ficha 360° -->
-        <a href="/features/student-profile" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
-          <span class="text-xs font-bold tabular-nums tracking-wider text-primary/40">01</span>
-          <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('features.record.title')}</h3>
+        <a href="/features/student-profile" class="group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/25 hover:shadow-card-hover hover:-translate-y-1">
+          <span class="font-heading block text-3xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-primary/25 transition-colors group-hover:text-primary/60">01</span>
+          <h3 class="mt-3 text-base font-semibold text-foreground">{t('features.record.title')}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.record.desc')}</p>
           <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:opacity-60 md:transition-opacity md:group-hover:opacity-100">
             {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -507,9 +513,9 @@
         </a>
 
         <!-- Feature 2: Retiros Seguros -->
-        <a href="/features/safe-pickups" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
-          <span class="text-xs font-bold tabular-nums tracking-wider text-primary/40">02</span>
-          <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('features.pickup.title')}</h3>
+        <a href="/features/safe-pickups" class="group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/25 hover:shadow-card-hover hover:-translate-y-1">
+          <span class="font-heading block text-3xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-primary/25 transition-colors group-hover:text-primary/60">02</span>
+          <h3 class="mt-3 text-base font-semibold text-foreground">{t('features.pickup.title')}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.pickup.desc')}</p>
           <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:opacity-60 md:transition-opacity md:group-hover:opacity-100">
             {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -517,9 +523,9 @@
         </a>
 
         <!-- Feature 3: Permisos por Cargo -->
-        <a href="/features/access-control" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
-          <span class="text-xs font-bold tabular-nums tracking-wider text-primary/40">03</span>
-          <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('features.rbac.title')}</h3>
+        <a href="/features/access-control" class="group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/25 hover:shadow-card-hover hover:-translate-y-1">
+          <span class="font-heading block text-3xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-primary/25 transition-colors group-hover:text-primary/60">03</span>
+          <h3 class="mt-3 text-base font-semibold text-foreground">{t('features.rbac.title')}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.rbac.desc')}</p>
           <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:opacity-60 md:transition-opacity md:group-hover:opacity-100">
             {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -527,9 +533,9 @@
         </a>
 
         <!-- Feature 4: Búsqueda Instantánea -->
-        <a href="/features/smart-search" class="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
-          <span class="text-xs font-bold tabular-nums tracking-wider text-primary/40">04</span>
-          <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('features.search.title')}</h3>
+        <a href="/features/smart-search" class="group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/25 hover:shadow-card-hover hover:-translate-y-1">
+          <span class="font-heading block text-3xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-primary/25 transition-colors group-hover:text-primary/60">04</span>
+          <h3 class="mt-3 text-base font-semibold text-foreground">{t('features.search.title')}</h3>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.search.desc')}</p>
           <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:opacity-60 md:transition-opacity md:group-hover:opacity-100">
             {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -554,7 +560,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 6: COMPLIANCE + COUNTDOWN
        ═══════════════════════════════════════════ -->
-  <section class="py-16 sm:py-20" id="compliance">
+  <section class="reveal py-16 sm:py-20" id="compliance">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
       <div class="mx-auto max-w-2xl text-center">
@@ -569,49 +575,55 @@
         </p>
       </div>
 
-      <!-- Countdown -->
-      <div class="mx-auto mt-14 max-w-xl">
-        <p class="mb-6 text-center text-sm font-medium uppercase tracking-widest text-muted-foreground">
-          <span class="mr-2 inline-block size-2 animate-pulse rounded-full bg-destructive"></span>
+      <!-- Countdown — dramatic editorial treatment -->
+      <div class="mx-auto mt-14 max-w-2xl">
+        <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+          <span class="relative flex size-2">
+            <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
+            <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
+          </span>
           {t('compliance.countdown.label')}
         </p>
         <div
-          class="grid grid-cols-3 gap-3 sm:gap-4 overflow-hidden"
+          class="grid grid-cols-3 gap-2 sm:gap-4"
           role="group"
           aria-label={`Faltan ${countdownDays} días, ${countdownHours} horas y ${countdownMinutes} minutos`}
         >
-          <div class="overflow-hidden rounded-xl border border-border bg-background p-4 text-center shadow-sm sm:p-6" aria-hidden="true">
-            <span class="block text-4xl font-bold tabular-nums tracking-tighter text-primary sm:text-6xl">
+          <div class="group relative overflow-hidden rounded-xl border border-border bg-gradient-to-b from-card to-muted/40 p-4 text-center shadow-card transition-all hover:shadow-card-hover sm:p-6" aria-hidden="true">
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+            <span class="font-heading block text-5xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-foreground sm:text-7xl">
               {countdownDays}
             </span>
-            <span class="mt-1 block text-xs font-medium uppercase tracking-wider text-muted-foreground sm:text-sm">
+            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
               {t('compliance.countdown.days')}
             </span>
           </div>
-          <div class="overflow-hidden rounded-xl border border-border bg-background p-4 text-center shadow-sm sm:p-6" aria-hidden="true">
-            <span class="block text-4xl font-bold tabular-nums tracking-tighter text-primary sm:text-6xl">
+          <div class="group relative overflow-hidden rounded-xl border border-border bg-gradient-to-b from-card to-muted/40 p-4 text-center shadow-card transition-all hover:shadow-card-hover sm:p-6" aria-hidden="true">
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+            <span class="font-heading block text-5xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-foreground sm:text-7xl">
               {countdownHours}
             </span>
-            <span class="mt-1 block text-xs font-medium uppercase tracking-wider text-muted-foreground sm:text-sm">
+            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
               {t('compliance.countdown.hours')}
             </span>
           </div>
-          <div class="overflow-hidden rounded-xl border border-border bg-background p-4 text-center shadow-sm sm:p-6" aria-hidden="true">
-            <span class="block text-4xl font-bold tabular-nums tracking-tighter text-primary sm:text-6xl">
+          <div class="group relative overflow-hidden rounded-xl border border-border bg-gradient-to-b from-card to-muted/40 p-4 text-center shadow-card transition-all hover:shadow-card-hover sm:p-6" aria-hidden="true">
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+            <span class="font-heading block text-5xl font-extrabold tabular-nums leading-none tracking-[-0.04em] text-foreground sm:text-7xl">
               {countdownMinutes}
             </span>
-            <span class="mt-1 block text-xs font-medium uppercase tracking-wider text-muted-foreground sm:text-sm">
+            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
               {t('compliance.countdown.minutes')}
             </span>
           </div>
         </div>
-        <!-- CTA right under countdown -->
-        <div class="mt-8 text-center">
+        <!-- CTA under countdown -->
+        <div class="mt-10 text-center">
           <Button size="xl" href="/demo">
             {t('hero.cta.primary')}
             <ArrowRight class="size-5" />
           </Button>
-          <p class="mt-3 text-xs text-muted-foreground">{t('home.countdown.cta_hint')}</p>
+          <p class="mt-4 text-xs text-muted-foreground">{t('home.countdown.cta_hint')}</p>
         </div>
       </div>
 
@@ -631,7 +643,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 8: HOW IT WORKS — visual progression with icons + connector
        ═══════════════════════════════════════════ -->
-  <section class="py-16 sm:py-20" id="how">
+  <section class="reveal py-16 sm:py-20" id="how">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header -->
       <div class="mx-auto max-w-2xl text-center">
@@ -662,7 +674,7 @@
             <span class="mt-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               {t('home.how.step_label')} 1 · {t('home.how.step1.time')}
             </span>
-            <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('how.step1.title')}</h3>
+            <h3 class="mt-3 text-base font-semibold text-foreground">{t('how.step1.title')}</h3>
             <p class="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">{t('how.step1.desc')}</p>
           </li>
 
@@ -674,7 +686,7 @@
             <span class="mt-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               {t('home.how.step_label')} 2 · {t('home.how.step2.time')}
             </span>
-            <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('how.step2.title')}</h3>
+            <h3 class="mt-3 text-base font-semibold text-foreground">{t('how.step2.title')}</h3>
             <p class="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">{t('how.step2.desc')}</p>
           </li>
 
@@ -686,7 +698,7 @@
             <span class="mt-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">
               {t('home.how.step_label')} 3 · {t('home.how.step3.time')}
             </span>
-            <h3 class="mt-1.5 text-base font-semibold text-foreground">{t('how.step3.title')}</h3>
+            <h3 class="mt-3 text-base font-semibold text-foreground">{t('how.step3.title')}</h3>
             <p class="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">{t('how.step3.desc')}</p>
           </li>
         </ol>
@@ -712,7 +724,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 9: FAQ
        ═══════════════════════════════════════════ -->
-  <section class="bg-secondary py-16 sm:py-20" id="faq">
+  <section class="reveal bg-secondary py-16 sm:py-20" id="faq">
     <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">
@@ -770,7 +782,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 10: FINAL CTA
        ═══════════════════════════════════════════ -->
-  <section class="py-16 sm:py-20" id="cta">
+  <section class="reveal py-16 sm:py-20" id="cta">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
       <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         {t('cta.title')}
