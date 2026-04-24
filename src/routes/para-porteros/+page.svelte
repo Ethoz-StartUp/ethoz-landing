@@ -62,15 +62,19 @@
               Registro automático de cada retiro — el portero no escribe nada a mano
             </li>
           </ul>
-          <div class="mt-6 flex items-center gap-3">
+          <div class="mt-6 flex items-center gap-3" role="group" aria-label="Alternar vista del panel de portería">
             <button
+              type="button"
               onclick={() => retiroState = 'normal'}
+              aria-pressed={retiroState === 'normal'}
               class="text-xs font-medium px-3 py-1.5 rounded-full border transition-colors {retiroState === 'normal' ? 'bg-success text-white border-success' : 'border-border text-muted-foreground hover:text-foreground'}"
             >
               Retiro autorizado
             </button>
             <button
+              type="button"
               onclick={() => retiroState = 'bloqueado'}
+              aria-pressed={retiroState === 'bloqueado'}
               class="text-xs font-medium px-3 py-1.5 rounded-full border transition-colors {retiroState === 'bloqueado' ? 'bg-destructive text-destructive-foreground border-destructive' : 'border-border text-muted-foreground hover:text-foreground'}"
             >
               Retiro bloqueado

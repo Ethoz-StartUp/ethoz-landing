@@ -95,27 +95,28 @@
           </div>
           <div class="overflow-x-auto">
             <table class="w-full text-[10px]">
+              <caption class="sr-only">Matriz de permisos por rol: detalla qué acciones puede realizar cada rol (Director, Inspector, Orientador, Docente, UTP, Portero) en Ethoz.</caption>
               <thead>
                 <tr class="border-b border-border bg-muted/30">
-                  <th class="px-3 py-2 text-left font-semibold text-muted-foreground">Permiso</th>
+                  <th scope="col" class="px-3 py-2 text-left font-semibold text-muted-foreground">Permiso</th>
                   {#each roles as role}
-                    <th class="px-2 py-2 text-center font-semibold {role.color}">{role.abbr}</th>
+                    <th scope="col" class="px-2 py-2 text-center font-semibold {role.color}" title={role.name}>{role.abbr}</th>
                   {/each}
                 </tr>
               </thead>
               <tbody class="divide-y divide-border">
                 {#each permissions as perm}
-                  <tr class="hover:bg-muted/20 transition-colors">
-                    <td class="px-3 py-2 text-muted-foreground whitespace-nowrap">{perm.label}</td>
-                    {#each perm.values as val}
+                  <tr class="hover:bg-muted transition-colors">
+                    <th scope="row" class="px-3 py-2 text-left font-normal text-muted-foreground whitespace-nowrap">{perm.label}</th>
+                    {#each perm.values as val, vi}
                       <td class="px-2 py-2 text-center">
                         {#if val}
-                          <span class="inline-flex items-center justify-center size-4 rounded-full bg-success/10 mx-auto">
-                            <Check class="size-2.5 text-success" />
+                          <span class="inline-flex items-center justify-center size-4 rounded-full bg-success/10 mx-auto" aria-label={`${roles[vi].name}: permitido`}>
+                            <Check aria-hidden="true" class="size-2.5 text-success" />
                           </span>
                         {:else}
-                          <span class="inline-flex items-center justify-center size-4 rounded-full bg-muted mx-auto">
-                            <X class="size-2.5 text-muted-foreground" />
+                          <span class="inline-flex items-center justify-center size-4 rounded-full bg-muted mx-auto" aria-label={`${roles[vi].name}: no permitido`}>
+                            <X aria-hidden="true" class="size-2.5 text-muted-foreground" />
                           </span>
                         {/if}
                       </td>
@@ -146,8 +147,6 @@
             role: 'Director/a',
             icon: ShieldCheck,
             color: 'text-primary',
-            bg: 'bg-primary/5',
-            border: 'border-primary/20',
             desc: 'Acceso completo a todos los módulos. Configura roles, aprueba protocolos y recibe resúmenes ejecutivos del establecimiento.',
             can: ['Ver todo el expediente', 'Gestionar usuarios y roles', 'Exportar informes completos'],
           },
@@ -155,22 +154,18 @@
             role: 'Inspector/a',
             icon: Users,
             color: 'text-foreground',
-            bg: 'bg-card',
-            border: 'border-border',
             desc: 'Gestiona retiros, atrasos y el libro de clases. Ve alertas de convivencia sin acceder a datos médicos confidenciales.',
             can: ['Registrar retiros y atrasos', 'Ver alertas de convivencia', 'No ve datos médicos'],
           },
           {
             role: 'Portero/a',
             icon: Lock,
-            color: 'text-muted-foreground',
-            bg: 'bg-card',
-            border: 'border-border',
+            color: 'text-foreground',
             desc: 'Interfaz ultra-simplificada: solo búsqueda de alumno, lista de autorizados y botón de confirmar. Nada más en pantalla.',
             can: ['Buscar alumno', 'Ver lista de autorizados', 'Confirmar retiro'],
           },
         ] as card}
-          <div class="rounded-xl border {card.border} {card.bg} p-5 shadow-sm">
+          <div class="group border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
             <div class="flex items-center gap-2.5 mb-3">
               <card.icon class="size-5 shrink-0 {card.color}" />
               <h3 class="text-sm font-semibold text-foreground">{card.role}</h3>
@@ -195,7 +190,7 @@
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <UserCog class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Vistas personalizadas por cargo</h2>
@@ -205,7 +200,7 @@
           </p>
         </div>
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <GanttChartSquare class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Interfaz de portería ultra-restringida</h2>
@@ -215,7 +210,7 @@
           </p>
         </div>
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <EyeOff class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Confidencialidad filtrada por rol</h2>

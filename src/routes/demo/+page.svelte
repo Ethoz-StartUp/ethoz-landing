@@ -115,27 +115,36 @@
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-secondary pt-16">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#demo-search-main"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
 
   <!-- Step indicator -->
-  <div class="border-b border-border bg-background py-4">
-    <div class="mx-auto flex max-w-lg items-center justify-center gap-3 px-4">
+  <nav aria-label="Progreso del proceso de demo" class="border-b border-border bg-background py-4">
+    <ol class="mx-auto flex max-w-lg items-center justify-center gap-3 px-4">
       {#each [{ label: 'Busca tu colegio', n: 1 }, { label: 'Completa tus datos', n: 2 }, { label: 'Agenda tu demo', n: 3 }] as s}
-        <div class="flex items-center gap-2">
-          <div class="flex size-7 items-center justify-center rounded-full text-xs font-bold {1 >= s.n ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}">
+        <li class="flex items-center gap-2" aria-current={1 === s.n ? 'step' : undefined}>
+          <span class="flex size-7 items-center justify-center rounded-full text-xs font-bold {1 >= s.n ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}" aria-hidden="true">
             {s.n}
-          </div>
-          <span class="hidden text-xs font-medium sm:block {1 >= s.n ? 'text-foreground' : 'text-muted-foreground'}">{s.label}</span>
-        </div>
-        {#if s.n < 3}
-          <div class="h-px w-8 {1 > s.n ? 'bg-primary' : 'bg-border'}"></div>
-        {/if}
+          </span>
+          <span class="hidden text-xs font-medium sm:block {1 >= s.n ? 'text-foreground' : 'text-muted-foreground'}">
+            <span class="sr-only">Paso {s.n}{1 > s.n ? ' (completado)' : 1 === s.n ? ' (actual)' : ''}: </span>{s.label}
+          </span>
+          {#if s.n < 3}
+            <span aria-hidden="true" class="ml-1 h-px w-8 {1 > s.n ? 'bg-primary' : 'bg-border'}"></span>
+          {/if}
+        </li>
       {/each}
-    </div>
-  </div>
+    </ol>
+  </nav>
 
   <!-- Content -->
-  <div class="mx-auto flex-1 max-w-lg px-4 py-12 sm:py-16">
+  <div id="demo-search-main" class="mx-auto flex-1 max-w-lg px-4 py-12 sm:py-16">
     <div class="space-y-6">
       <div class="text-center">
         <div class="mx-auto mb-4 flex size-14 items-center justify-center rounded-full bg-primary/10">
@@ -150,25 +159,43 @@
       </div>
 
       {#if schoolStore.loading}
-        <div class="flex flex-col items-center gap-3 py-16">
-          <Loader2 class="size-8 animate-spin text-primary" />
+        <div class="flex flex-col items-center gap-3 py-16" role="status" aria-live="polite">
+          <Loader2 class="size-8 animate-spin text-primary" aria-hidden="true" />
           <p class="text-sm text-muted-foreground">{t('demo.search.loading')}</p>
         </div>
       {:else}
-        <!-- Search input -->
+        <!-- Search input — ARIA 1.2 combobox pattern -->
         <div class="sticky top-16 z-10 bg-secondary pb-3 pt-3">
+          <label for="demo-school-search" class="sr-only">{t('demo.step1.title')}</label>
+          <p id="demo-search-instructions" class="sr-only">{t('a11y.search.instructions')}</p>
           <div class="relative">
-            <Search class="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+            <Search aria-hidden="true" class="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             <input
               bind:this={searchInputEl}
+              id="demo-school-search"
               type="text"
               value={searchInput}
               oninput={handleSearch}
               placeholder={t('demo.search.placeholder')}
               autocomplete="off"
+              role="combobox"
+              aria-autocomplete="list"
+              aria-controls="demo-school-results"
+              aria-expanded={hasResults}
+              aria-activedescendant={hasResults && highlightIndex >= 0 ? `school-opt-${highlightIndex}` : undefined}
+              aria-describedby="demo-search-instructions"
               class="w-full rounded-xl border border-border bg-background py-4 pl-11 pr-4 text-base text-foreground shadow-sm outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
             />
           </div>
+        </div>
+
+        <!-- Live region for result count (polite, non-intrusive) -->
+        <div class="sr-only" aria-live="polite" aria-atomic="true">
+          {#if hasResults}
+            {schools.length === 1 ? t('a11y.search.results_count_one') : `${schools.length} ${t('a11y.search.results_count_many')}`}
+          {:else if showNoResults}
+            {t('a11y.search.no_results')}
+          {/if}
         </div>
 
         {#if searchInput.trim().length < 2 && !hasResults}
@@ -179,23 +206,26 @@
         {#if hasResults}
           <ul
             bind:this={resultsListEl}
+            id="demo-school-results"
             class="space-y-1"
             role="listbox"
-            aria-label="School results"
+            aria-label={t('demo.step1.title')}
           >
             {#each schools.slice(0, 30) as school, i}
               {@const match = highlightMatch(school.name, searchInput.trim())}
               <li
+                id={`school-opt-${i}`}
                 role="option"
                 aria-selected={highlightIndex === i}
                 data-highlighted={highlightIndex === i}
               >
                 <button
                   type="button"
+                  tabindex="-1"
                   onclick={() => selectSchool(school)}
                   class="flex w-full items-center gap-3 rounded-xl border bg-background px-4 py-3 text-left shadow-sm transition-all hover:border-primary/30 hover:shadow-md {highlightIndex === i ? 'border-primary/30 shadow-md' : 'border-border'}"
                 >
-                  <Building class="size-4 shrink-0 text-muted-foreground" />
+                  <Building aria-hidden="true" class="size-4 shrink-0 text-muted-foreground" />
                   <div class="min-w-0 flex-1">
                     <div class="text-sm font-medium text-foreground">
                       {#if match}
@@ -205,11 +235,11 @@
                       {/if}
                     </div>
                     <div class="mt-0.5 flex items-center gap-1.5 text-xs text-muted-foreground">
-                      <MapPin class="size-3 shrink-0" />
+                      <MapPin aria-hidden="true" class="size-3 shrink-0" />
                       <span>{school.commune}</span>
                     </div>
                   </div>
-                  <ChevronRight class="size-4 shrink-0 text-muted-foreground" />
+                  <ChevronRight aria-hidden="true" class="size-4 shrink-0 text-muted-foreground" />
                 </button>
               </li>
             {/each}
@@ -219,7 +249,7 @@
         <!-- No results -->
         {#if showNoResults}
           <div class="rounded-xl border border-dashed border-border bg-background px-4 py-8 text-center">
-            <Search class="mx-auto mb-2 size-8 text-muted-foreground/50" />
+            <Search aria-hidden="true" class="mx-auto mb-2 size-8 text-muted-foreground/50" />
             <p class="text-sm font-medium text-foreground">{t('demo.search.noresults')}</p>
             <button
               type="button"
@@ -227,7 +257,7 @@
               class="mt-4 inline-flex min-h-11 items-center gap-1.5 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
               {t('demo.manual')}
-              <ChevronRight class="size-3.5" />
+              <ChevronRight aria-hidden="true" class="size-3.5" />
             </button>
           </div>
         {/if}

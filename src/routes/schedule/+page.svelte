@@ -172,25 +172,34 @@
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#schedule-main"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
 
-  <div class="mx-auto w-full max-w-5xl flex-1 px-4 py-12 pt-24 sm:py-16 sm:pt-28">
+  <div id="schedule-main" class="mx-auto w-full max-w-5xl flex-1 px-4 py-12 pt-24 sm:py-16 sm:pt-28">
     <!-- Step indicator -->
-    <div class="mb-8">
-      <div class="mx-auto flex max-w-lg items-center justify-center gap-3">
+    <nav aria-label="Progreso del proceso de demo" class="mb-8">
+      <ol class="mx-auto flex max-w-lg items-center justify-center gap-3">
         {#each [{ label: 'Busca tu colegio', n: 1 }, { label: 'Completa tus datos', n: 2 }, { label: 'Agenda tu demo', n: 3 }] as s}
-          <div class="flex items-center gap-2">
-            <div class="flex size-7 items-center justify-center rounded-full text-xs font-bold {3 >= s.n ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}">
+          <li class="flex items-center gap-2" aria-current={3 === s.n ? 'step' : undefined}>
+            <span class="flex size-7 items-center justify-center rounded-full text-xs font-bold {3 >= s.n ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}" aria-hidden="true">
               {s.n}
-            </div>
-            <span class="hidden text-xs font-medium sm:block {3 >= s.n ? 'text-foreground' : 'text-muted-foreground'}">{s.label}</span>
-          </div>
-          {#if s.n < 3}
-            <div class="h-px w-8 {3 > s.n ? 'bg-primary' : 'bg-border'}"></div>
-          {/if}
+            </span>
+            <span class="hidden text-xs font-medium sm:block {3 >= s.n ? 'text-foreground' : 'text-muted-foreground'}">
+              <span class="sr-only">Paso {s.n}{3 > s.n ? ' (completado)' : 3 === s.n ? ' (actual)' : ''}: </span>{s.label}
+            </span>
+            {#if s.n < 3}
+              <span aria-hidden="true" class="ml-1 h-px w-8 {3 > s.n ? 'bg-primary' : 'bg-border'}"></span>
+            {/if}
+          </li>
         {/each}
-      </div>
-    </div>
+      </ol>
+    </nav>
 
     <!-- Success banner -->
     {#if schoolName || contactName || contactEmail}
@@ -233,25 +242,26 @@
     </div>
 
     <!-- Cal.com inline embed — auto-resizes, no double scroll -->
-    <div class="overflow-hidden rounded-xl border border-border bg-background shadow-sm">
+    <section aria-label="Calendario de agenda" class="overflow-hidden rounded-xl border border-border bg-background shadow-sm">
       {#if !calLoaded}
-        <div class="flex items-center justify-center py-20">
+        <div class="flex items-center justify-center py-20" role="status" aria-live="polite">
           <div class="flex flex-col items-center gap-3">
-            <Loader2 class="size-8 animate-spin text-primary" />
-            <p class="text-sm text-muted-foreground">Cargando calendario...</p>
+            <Loader2 class="size-8 animate-spin text-primary" aria-hidden="true" />
+            <p class="text-sm text-muted-foreground">{t('a11y.calendar.loading')}</p>
           </div>
         </div>
       {/if}
       {#if calError}
-        <div class="flex flex-col items-center gap-3 py-12 text-center">
-          <p class="text-sm text-muted-foreground">No pudimos cargar el calendario.</p>
+        <div class="flex flex-col items-center gap-3 py-12 text-center" role="alert">
+          <p class="text-sm text-muted-foreground">{t('a11y.calendar.error')}</p>
           <a href="https://cal.com/ethoz/demo" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-primary underline-offset-4 hover:underline">
             Agendar directamente en Cal.com
+            <span class="sr-only">(se abre en una pestaña nueva)</span>
           </a>
         </div>
       {/if}
       <div bind:this={calContainer} class="w-full"></div>
-    </div>
+    </section>
   </div>
 
   <Footer />

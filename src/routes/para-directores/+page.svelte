@@ -168,7 +168,9 @@
             {/each}
           </div>
           <button
+            type="button"
             onclick={() => activeObs = !activeObs}
+            aria-pressed={activeObs}
             class="mt-6 text-xs font-medium px-3 py-1.5 rounded-full border border-border text-muted-foreground hover:text-foreground transition-colors"
           >
             {activeObs ? 'Ver formulario vacío' : 'Ver formulario completado'}

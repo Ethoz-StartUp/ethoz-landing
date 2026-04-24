@@ -164,7 +164,7 @@
             </thead>
             <tbody class="divide-y divide-border">
               {#each dataInventory as row}
-                <tr class="hover:bg-muted/20 transition-colors">
+                <tr class="hover:bg-muted transition-colors">
                   <td class="px-4 py-3 text-sm font-medium text-foreground whitespace-nowrap">{row.category}</td>
                   <td class="px-4 py-3 text-xs text-muted-foreground hidden sm:table-cell">{row.items}</td>
                   <td class="px-4 py-3 text-xs text-muted-foreground whitespace-nowrap">{row.law}</td>
@@ -204,10 +204,10 @@
           { letter: 'O', right: 'Oposición', desc: 'Rechazo al tratamiento de datos en casos específicos.' },
           { letter: 'P', right: 'Portabilidad', desc: 'Entrega de datos en formato estructurado para cambio de colegio.' },
         ] as item}
-          <div class="rounded-xl border border-border bg-card p-4 shadow-sm text-center">
-            <span class="inline-flex size-9 items-center justify-center rounded-full bg-primary/10 text-base font-bold text-primary mb-2">{item.letter}</span>
-            <p class="text-sm font-semibold text-foreground mb-1">{item.right}</p>
-            <p class="text-[11px] leading-relaxed text-muted-foreground">{item.desc}</p>
+          <div class="group border border-border bg-card p-4 text-center transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+            <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary/80 transition-colors group-hover:text-foreground">{item.letter}</span>
+            <p class="mt-3 text-sm font-semibold text-foreground">{item.right}</p>
+            <p class="mt-1 text-[11px] leading-relaxed text-muted-foreground">{item.desc}</p>
           </div>
         {/each}
       </div>
@@ -219,7 +219,7 @@
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <Building2 class="size-5 shrink-0 text-success" />
             <h2 class="text-base font-semibold text-foreground">Aislamiento total entre instituciones</h2>
@@ -229,7 +229,7 @@
           </p>
         </div>
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <KeyRound class="size-5 shrink-0 text-success" />
             <h2 class="text-base font-semibold text-foreground">Cifrado y trazabilidad de accesos</h2>
@@ -239,7 +239,7 @@
           </p>
         </div>
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <Users class="size-5 shrink-0 text-success" />
             <h2 class="text-base font-semibold text-foreground">Gestión de consentimientos parentales</h2>

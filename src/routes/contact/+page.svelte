@@ -101,10 +101,17 @@
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#contact-main"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
 
   <!-- Content -->
-  <div class="mx-auto flex-1 w-full max-w-2xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12">
+  <div id="contact-main" class="mx-auto flex-1 w-full max-w-2xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12">
 
     <!-- Heading -->
     <div class="mb-10 text-center">
@@ -148,8 +155,8 @@
     <!-- Contact form -->
     <div class="rounded-xl border border-border bg-background p-6 shadow-sm">
       {#if submitted}
-        <div class="flex flex-col items-center gap-3 py-8 text-center">
-          <div class="flex size-12 items-center justify-center rounded-full bg-success/10">
+        <div class="flex flex-col items-center gap-3 py-8 text-center" role="status" aria-live="polite">
+          <div class="flex size-12 items-center justify-center rounded-full bg-success/10" aria-hidden="true">
             <Check class="size-6 text-success" />
           </div>
           <h2 class="text-lg font-semibold text-foreground">{t('contact.form.success.title')}</h2>
@@ -160,7 +167,7 @@
         {t('contact.form.title')}
       </h2>
 
-      <form onsubmit={handleSubmit} class="space-y-4">
+      <form onsubmit={handleSubmit} class="space-y-4" aria-busy={submitting}>
         <!-- Name -->
         <div class="space-y-1.5">
           <label for="contact-name" class="block text-sm font-medium text-foreground">
@@ -222,14 +229,14 @@
           {/if}
         </Button>
         {#if errorMessage}
-          <div class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-destructive">
+          <div class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-destructive" role="alert">
             <p>{errorMessage}</p>
             {#if recaptchaFailed}
               <a
                 href={mailtoFallback}
                 class="mt-1 inline-block font-medium underline underline-offset-2 hover:text-destructive/80"
               >
-                Escribir por correo →
+                Escribir por correo <span aria-hidden="true">→</span>
               </a>
             {/if}
           </div>

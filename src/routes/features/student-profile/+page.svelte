@@ -12,7 +12,24 @@
 
   $effect(() => { trackEvent('feature_page_viewed', { feature: 'student-profile' }); });
 
-  let activeTab = $state<'historial' | 'retiros' | 'convivencia' | 'medico'>('historial');
+  const TAB_KEYS = ['historial', 'retiros', 'convivencia', 'medico'] as const;
+  type TabKey = typeof TAB_KEYS[number];
+  let activeTab = $state<TabKey>('historial');
+
+  function handleTabKeydown(e: KeyboardEvent, idx: number) {
+    // APG tab pattern: ArrowLeft/ArrowRight/Home/End move focus and activate
+    let nextIdx = idx;
+    if (e.key === 'ArrowRight') nextIdx = (idx + 1) % TAB_KEYS.length;
+    else if (e.key === 'ArrowLeft') nextIdx = (idx - 1 + TAB_KEYS.length) % TAB_KEYS.length;
+    else if (e.key === 'Home') nextIdx = 0;
+    else if (e.key === 'End') nextIdx = TAB_KEYS.length - 1;
+    else return;
+    e.preventDefault();
+    activeTab = TAB_KEYS[nextIdx];
+    requestAnimationFrame(() => {
+      document.getElementById(`sp-tab-${TAB_KEYS[nextIdx]}`)?.focus();
+    });
+  }
 </script>
 
 <svelte:head>
@@ -94,16 +111,23 @@
               </div>
             </div>
 
-            <!-- Tabs (static display, active state driven by JS) -->
-            <div class="mt-3 flex gap-0.5 border-b border-border overflow-x-auto">
+            <!-- Tabs — WAI-ARIA 1.2 tab pattern -->
+            <div role="tablist" aria-label="Secciones de la ficha del alumno" class="mt-3 flex gap-0.5 border-b border-border overflow-x-auto">
               {#each [
-                { key: 'historial', label: 'Historial' },
-                { key: 'retiros', label: 'Retiros' },
-                { key: 'convivencia', label: 'Convivencia' },
-                { key: 'medico', label: 'Médico' }
-              ] as tab}
+                { key: 'historial' as TabKey, label: 'Historial' },
+                { key: 'retiros' as TabKey, label: 'Retiros' },
+                { key: 'convivencia' as TabKey, label: 'Convivencia' },
+                { key: 'medico' as TabKey, label: 'Médico' }
+              ] as tab, i}
                 <button
-                  onclick={() => activeTab = tab.key as typeof activeTab}
+                  type="button"
+                  role="tab"
+                  id={`sp-tab-${tab.key}`}
+                  aria-controls={`sp-panel-${tab.key}`}
+                  aria-selected={activeTab === tab.key}
+                  tabindex={activeTab === tab.key ? 0 : -1}
+                  onclick={() => activeTab = tab.key}
+                  onkeydown={(e) => handleTabKeydown(e, i)}
                   class="shrink-0 px-2.5 py-1.5 text-[10px] font-medium transition-colors {activeTab === tab.key ? 'border-b-2 border-primary text-primary' : 'text-muted-foreground hover:text-foreground'}"
                 >
                   {tab.label}
@@ -113,7 +137,7 @@
 
             <!-- Tab content -->
             {#if activeTab === 'historial'}
-              <div class="mt-2.5 space-y-2">
+              <div id="sp-panel-historial" role="tabpanel" aria-labelledby="sp-tab-historial" tabindex="0" class="mt-2.5 space-y-2">
                 <div class="flex items-start gap-2">
                   <div class="mt-0.5 size-4 shrink-0 rounded-full bg-primary/10 flex items-center justify-center">
                     <Eye class="size-2 text-primary" />
@@ -152,7 +176,7 @@
                 </div>
               </div>
             {:else if activeTab === 'retiros'}
-              <div class="mt-2.5 space-y-1.5">
+              <div id="sp-panel-retiros" role="tabpanel" aria-labelledby="sp-tab-retiros" tabindex="0" class="mt-2.5 space-y-1.5">
                 <div class="flex items-center gap-2 rounded-lg bg-success/5 px-2 py-1.5">
                   <UserCheck class="size-3 shrink-0 text-success" />
                   <div class="flex-1 min-w-0">
@@ -179,7 +203,7 @@
                 </div>
               </div>
             {:else if activeTab === 'convivencia'}
-              <div class="mt-2.5 space-y-2">
+              <div id="sp-panel-convivencia" role="tabpanel" aria-labelledby="sp-tab-convivencia" tabindex="0" class="mt-2.5 space-y-2">
                 <div class="flex items-start gap-2">
                   <div class="mt-0.5 size-4 shrink-0 rounded-full bg-warning/10 flex items-center justify-center">
                     <MessageSquare class="size-2 text-warning-foreground" />
@@ -200,7 +224,7 @@
                 </div>
               </div>
             {:else if activeTab === 'medico'}
-              <div class="mt-2.5 space-y-2">
+              <div id="sp-panel-medico" role="tabpanel" aria-labelledby="sp-tab-medico" tabindex="0" class="mt-2.5 space-y-2">
                 <div class="flex items-center gap-2 rounded-lg bg-warning/5 border border-warning/20 px-2 py-1.5">
                   <Lock class="size-3 shrink-0 text-warning-foreground" />
                   <p class="text-[10px] text-warning-foreground font-medium">Solo visible para Director y Orientador</p>
@@ -282,7 +306,7 @@
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <History class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Historial longitudinal</h2>
@@ -292,7 +316,7 @@
           </p>
         </div>
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <Lock class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Niveles de confidencialidad</h2>
@@ -302,7 +326,7 @@
           </p>
         </div>
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <BadgeCheck class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Cumplimiento normativo</h2>

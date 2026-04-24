@@ -56,7 +56,13 @@
     class="fixed inset-0 z-[110] flex items-end justify-center sm:items-center"
     onclick={handleBackdropClick}
   >
-    <div class="relative w-full max-w-sm rounded-t-2xl border border-border bg-card p-5 shadow-popover sm:mx-4 sm:rounded-2xl">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="feedback-modal-label"
+      class="relative w-full max-w-sm rounded-t-2xl border border-border bg-card p-5 shadow-popover sm:mx-4 sm:rounded-2xl"
+    >
+      <h2 id="feedback-modal-label" class="sr-only">Enviar sugerencia de mejora</h2>
       <!-- Context pill -->
       {#if feedbackStore.capturedTarget}
         <div class="mb-3 truncate rounded-lg bg-muted px-3 py-1.5 text-xs text-muted-foreground">
@@ -65,7 +71,9 @@
       {/if}
 
       <!-- Just the textarea -->
+      <label for="feedback-description" class="sr-only">¿Qué mejorarías?</label>
       <textarea
+        id="feedback-description"
         bind:this={textareaEl}
         bind:value={description}
         rows="2"

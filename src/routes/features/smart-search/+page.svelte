@@ -100,11 +100,14 @@
 
           <!-- Example selector -->
           <div class="mt-6 space-y-2">
-            <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Probar ejemplos:</p>
-            <div class="flex flex-wrap gap-2">
+            <p id="search-example-label" class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Probar ejemplos:</p>
+            <div class="flex flex-wrap gap-2" role="group" aria-labelledby="search-example-label">
               {#each searchExamples as ex, i}
                 <button
+                  type="button"
                   onclick={() => activeExample = i}
+                  aria-pressed={activeExample === i}
+                  aria-label={`Ejemplo: ${ex.label}`}
                   class="text-xs font-medium px-3 py-1.5 rounded-full border transition-colors {activeExample === i ? 'bg-primary text-primary-foreground border-primary' : 'border-border text-muted-foreground hover:text-foreground'}"
                 >
                   "{ex.query}"
@@ -237,7 +240,7 @@
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <Zap class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Búsqueda tolerante a errores</h2>
@@ -247,7 +250,7 @@
           </p>
         </div>
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <LayoutDashboard class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Dashboard con badges de alerta</h2>
@@ -257,7 +260,7 @@
           </p>
         </div>
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <Filter class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Filtros precisos de navegación</h2>

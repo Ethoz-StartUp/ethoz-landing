@@ -242,30 +242,39 @@
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-secondary pt-16">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#demo-form-main"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
 
   <!-- Step indicator -->
-  <div class="border-b border-border bg-background py-4">
-    <div class="mx-auto flex max-w-lg items-center justify-center gap-3 px-4">
+  <nav aria-label="Progreso del proceso de demo" class="border-b border-border bg-background py-4">
+    <ol class="mx-auto flex max-w-lg items-center justify-center gap-3 px-4">
       {#each [{ label: 'Busca tu colegio', n: 1 }, { label: 'Completa tus datos', n: 2 }, { label: 'Agenda tu demo', n: 3 }] as s}
-        <div class="flex items-center gap-2">
-          <div class="flex size-7 items-center justify-center rounded-full text-xs font-bold {2 >= s.n ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}">
+        <li class="flex items-center gap-2" aria-current={2 === s.n ? 'step' : undefined}>
+          <span class="flex size-7 items-center justify-center rounded-full text-xs font-bold {2 >= s.n ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}" aria-hidden="true">
             {s.n}
-          </div>
-          <span class="hidden text-xs font-medium sm:block {2 >= s.n ? 'text-foreground' : 'text-muted-foreground'}">{s.label}</span>
-        </div>
-        {#if s.n < 3}
-          <div class="h-px w-8 {2 > s.n ? 'bg-primary' : 'bg-border'}"></div>
-        {/if}
+          </span>
+          <span class="hidden text-xs font-medium sm:block {2 >= s.n ? 'text-foreground' : 'text-muted-foreground'}">
+            <span class="sr-only">Paso {s.n}{2 > s.n ? ' (completado)' : 2 === s.n ? ' (actual)' : ''}: </span>{s.label}
+          </span>
+          {#if s.n < 3}
+            <span aria-hidden="true" class="ml-1 h-px w-8 {2 > s.n ? 'bg-primary' : 'bg-border'}"></span>
+          {/if}
+        </li>
       {/each}
-    </div>
-  </div>
+    </ol>
+  </nav>
 
   <!-- Content -->
-  <div class="mx-auto flex-1 max-w-5xl px-4 py-12 sm:py-16">
+  <div id="demo-form-main" class="mx-auto flex-1 max-w-5xl px-4 py-12 sm:py-16">
     {#if !isManual && (schoolStore.loading || !schoolStore.selectedSchool)}
-      <div class="flex flex-col items-center gap-3 py-16">
-        <Loader2 class="size-8 animate-spin text-primary" />
+      <div class="flex flex-col items-center gap-3 py-16" role="status" aria-live="polite">
+        <Loader2 class="size-8 animate-spin text-primary" aria-hidden="true" />
         <p class="text-sm text-muted-foreground">{t('demo.search.loading')}</p>
       </div>
     {:else}
@@ -390,6 +399,8 @@
               {:else}
                 <div
                   bind:this={mapContainer}
+                  role="img"
+                  aria-label={t('a11y.map.region_label')}
                   class="hidden h-64 w-full overflow-hidden rounded-xl border border-border lg:block"
                 ></div>
               {/if}
@@ -399,7 +410,7 @@
 
           <!-- Right: contact form -->
           <div>
-            <form onsubmit={handleSubmit} class="space-y-4">
+            <form onsubmit={handleSubmit} class="space-y-4" aria-busy={submitting}>
               <div class="space-y-1.5">
                 <label for="contact-name" class="block text-sm font-medium text-foreground">
                   {t('demo.form.name')} <span class="text-destructive">*</span>
@@ -508,7 +519,7 @@
                 {/if}
               </Button>
               {#if errorMessage}
-                <p class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-destructive">{errorMessage}</p>
+                <p class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-destructive" role="alert">{errorMessage}</p>
               {/if}
               <p class="mt-2 text-center text-[10px] text-muted-foreground">
                 Protegido por reCAPTCHA de Google.

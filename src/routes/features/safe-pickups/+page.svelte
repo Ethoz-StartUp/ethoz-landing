@@ -65,15 +65,19 @@
           </ul>
 
           <!-- Toggle demo states -->
-          <div class="mt-6 flex items-center gap-3">
+          <div class="mt-6 flex items-center gap-3" role="group" aria-label={t('a11y.mockup.toggle_group')}>
             <button
+              type="button"
               onclick={() => showBlocked = false}
+              aria-pressed={!showBlocked}
               class="text-xs font-medium px-3 py-2 sm:py-1.5 rounded-full border transition-colors {!showBlocked ? 'bg-primary text-primary-foreground border-primary' : 'border-border text-muted-foreground hover:text-foreground'}"
             >
               Ver retiro autorizado
             </button>
             <button
+              type="button"
               onclick={() => showBlocked = true}
+              aria-pressed={showBlocked}
               class="text-xs font-medium px-3 py-2 sm:py-1.5 rounded-full border transition-colors {showBlocked ? 'bg-destructive text-destructive-foreground border-destructive' : 'border-border text-muted-foreground hover:text-foreground'}"
             >
               Ver retiro bloqueado
@@ -174,26 +178,20 @@
         El portero no necesita capacitación extensa. La interfaz guía cada paso con colores claros: verde para autorizado, rojo para bloqueado.
       </p>
       <div class="grid gap-6 sm:grid-cols-3">
-        <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
-          <div class="mb-3 flex items-center gap-3">
-            <span class="flex size-7 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">1</span>
-            <p class="text-sm font-semibold text-foreground">Buscar alumno</p>
-          </div>
-          <p class="text-xs leading-relaxed text-muted-foreground">El portero escribe el nombre o RUT del alumno. La búsqueda es instantánea y tolera errores tipográficos.</p>
+        <div class="group border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary/80 transition-colors group-hover:text-foreground">01</span>
+          <p class="mt-3 text-sm font-semibold text-foreground">Buscar alumno</p>
+          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">El portero escribe el nombre o RUT del alumno. La búsqueda es instantánea y tolera errores tipográficos.</p>
         </div>
-        <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
-          <div class="mb-3 flex items-center gap-3">
-            <span class="flex size-7 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">2</span>
-            <p class="text-sm font-semibold text-foreground">Seleccionar apoderado</p>
-          </div>
-          <p class="text-xs leading-relaxed text-muted-foreground">Se muestra la lista de personas autorizadas. Cada una indica si puede retirar o está bloqueada en tiempo real.</p>
+        <div class="group border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary/80 transition-colors group-hover:text-foreground">02</span>
+          <p class="mt-3 text-sm font-semibold text-foreground">Seleccionar apoderado</p>
+          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Se muestra la lista de personas autorizadas. Cada una indica si puede retirar o está bloqueada en tiempo real.</p>
         </div>
-        <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
-          <div class="mb-3 flex items-center gap-3">
-            <span class="flex size-7 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">3</span>
-            <p class="text-sm font-semibold text-foreground">Confirmar y registrar</p>
-          </div>
-          <p class="text-xs leading-relaxed text-muted-foreground">El retiro queda firmado digitalmente con hora, portería y usuario que autorizó. Auditable en cualquier momento.</p>
+        <div class="group border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary/80 transition-colors group-hover:text-foreground">03</span>
+          <p class="mt-3 text-sm font-semibold text-foreground">Confirmar y registrar</p>
+          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">El retiro queda firmado digitalmente con hora, portería y usuario que autorizó. Auditable en cualquier momento.</p>
         </div>
       </div>
     </div>
@@ -204,7 +202,7 @@
     <div class="mx-auto max-w-4xl px-4 sm:px-6">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <ShieldCheck class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Validación en tiempo real</h2>
@@ -214,7 +212,7 @@
           </p>
         </div>
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <Ban class="size-5 shrink-0 text-destructive" />
             <h2 class="text-base font-semibold text-foreground">Bloqueo automático ante restricciones</h2>
@@ -224,7 +222,7 @@
           </p>
         </div>
 
-        <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <BellRing class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Notificaciones seguras por rol</h2>

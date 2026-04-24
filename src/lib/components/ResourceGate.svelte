@@ -82,7 +82,7 @@
       </Dialog.Description>
     </Dialog.Header>
 
-    <form onsubmit={handleSubmit} class="mt-4 space-y-4">
+    <form onsubmit={handleSubmit} class="mt-4 space-y-4" aria-busy={submitting}>
       <div class="space-y-1.5">
         <label for="resource-email" class="block text-sm font-medium text-foreground">
           Correo electrónico
@@ -94,10 +94,12 @@
           bind:value={email}
           placeholder="tucorreo@colegio.cl"
           autocomplete="email"
+          aria-invalid={error ? 'true' : undefined}
+          aria-describedby={error ? 'resource-email-error' : undefined}
           class="w-full rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
         />
         {#if error}
-          <p class="text-xs text-destructive">{error}</p>
+          <p id="resource-email-error" class="text-xs text-destructive" role="alert">{error}</p>
         {/if}
       </div>
 

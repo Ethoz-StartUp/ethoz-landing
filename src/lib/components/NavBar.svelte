@@ -90,6 +90,7 @@
       <!-- Productos dropdown (APG disclosure pattern) -->
       <div
         class="relative"
+        role="presentation"
         onmouseenter={openProducts}
         onmouseleave={closeProducts}
       >

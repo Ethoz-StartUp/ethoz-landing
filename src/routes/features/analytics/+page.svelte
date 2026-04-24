@@ -203,7 +203,7 @@
               { name: 'Catalina Vega R.', curso: '5°B', obs: 6, risk: 'Medio', riskColor: 'bg-warning/10 text-warning-foreground' },
               { name: 'Joaquín Soto N.', curso: '8°B', obs: 4, risk: 'Bajo', riskColor: 'bg-success/10 text-success' },
             ] as row}
-              <div class="grid grid-cols-[1fr_auto_auto] gap-2 items-center rounded-lg px-1 py-1.5 hover:bg-muted/30 transition-colors">
+              <div class="grid grid-cols-[1fr_auto_auto] gap-2 items-center rounded-lg px-1 py-1.5 hover:bg-muted transition-colors">
                 <div>
                   <p class="text-xs font-medium text-foreground">{row.name}</p>
                   <p class="text-[9px] text-muted-foreground">{row.curso}</p>

@@ -642,7 +642,7 @@
                   <div>
                     <p class="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Imagen</p>
                     {#if post.image_url}
-                      <img src={post.image_url} alt="" class="h-24 w-auto rounded-lg border border-border object-cover" />
+                      <img src={post.image_url} alt={`Imagen de portada: ${post.title}`} class="h-24 w-auto rounded-lg border border-border object-cover" />
                     {:else}
                       <div class="flex items-center gap-2">
                         <span class="text-xs text-muted-foreground">Sin imagen</span>

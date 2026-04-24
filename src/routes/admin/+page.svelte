@@ -58,14 +58,15 @@
         <p class="text-sm text-muted-foreground">Panel de administración</p>
       </div>
 
-      <form onsubmit={handleSubmit} class="space-y-4">
+      <form onsubmit={handleSubmit} class="space-y-4" aria-busy={loading}>
         <div>
           <label for="admin-email" class="mb-1.5 block text-xs font-medium text-foreground">Email</label>
           <div class="relative">
-            <Mail class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+            <Mail aria-hidden="true" class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             <input
               id="admin-email"
               type="email"
+              required
               bind:value={email}
               placeholder="correo@ejemplo.com"
               autocomplete="email"
@@ -77,19 +78,22 @@
         <div>
           <label for="admin-password" class="mb-1.5 block text-xs font-medium text-foreground">Contraseña</label>
           <div class="relative">
-            <Lock class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+            <Lock aria-hidden="true" class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
             <input
               id="admin-password"
               type="password"
+              required
               bind:value={password}
               placeholder="Ingresa la contraseña"
               autocomplete="current-password"
+              aria-invalid={errorMsg ? 'true' : undefined}
+              aria-describedby={errorMsg ? 'admin-password-error' : undefined}
               class="w-full rounded-lg border border-border bg-background py-2.5 pl-10 pr-4 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20
                 {errorMsg ? 'border-destructive focus:border-destructive focus:ring-destructive/20' : ''}"
             />
           </div>
           {#if errorMsg}
-            <p class="mt-1.5 text-xs text-destructive">{errorMsg}</p>
+            <p id="admin-password-error" class="mt-1.5 text-xs text-destructive" role="alert">{errorMsg}</p>
           {/if}
         </div>
 
