@@ -88,7 +88,7 @@
 
   <!-- HERO -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         <span class="text-primary">Documento técnico · 03</span>
         <span aria-hidden="true" class="text-border">·</span>
@@ -395,7 +395,7 @@
 
   <!-- FINAL CTA -->
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-sec">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Sesión técnica</p>
       <h2 id="final-cta-sec" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl">

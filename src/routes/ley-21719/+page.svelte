@@ -163,7 +163,7 @@
        HERO — editorial, institutional
        ══════════════════════════════════════ -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Eyebrow metadata line -->
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         <span class="text-primary">Documento normativo · 01</span>
@@ -493,7 +493,7 @@
        FINAL CTA — dark navy editorial closing
        ══════════════════════════════════════ -->
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-law">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Consulta institucional</p>
       <h2 id="final-cta-law" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl lg:text-5xl">

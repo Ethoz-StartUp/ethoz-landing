@@ -49,7 +49,7 @@
 
   <!-- HERO — thesis declaration -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         <span class="text-primary">Institucional</span>
         <span aria-hidden="true" class="text-border">·</span>
@@ -69,7 +69,7 @@
 
   <!-- EDITORIAL ANCHOR — the thesis, institutional declaration -->
   <section class="border-y border-border py-16 sm:py-20">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">La tesis</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
@@ -114,7 +114,7 @@
 
   <!-- MISSION — what Ethoz is NOT, and what it IS -->
   <section class="py-16 sm:py-20">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>01 · Qué es Ethoz</p>
       <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
         {t('about.mission_title')}
@@ -147,7 +147,7 @@
 
   <!-- ROADMAP — institutional transparency replaces "values" AI slop -->
   <section class="border-t border-border py-16 sm:py-20">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>02 · Trayectoria</p>
       <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
         Hoja de ruta institucional
@@ -190,7 +190,7 @@
 
   <!-- FAQ — subtle, editorial -->
   <section class="border-t border-border py-16 sm:py-20">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>03 · Preguntas frecuentes</p>
       <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
         {t('about.faq.title')}
@@ -224,7 +224,7 @@
 
   <!-- FINAL CTA — dark navy -->
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-about">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Conversación directa</p>
       <h2 id="final-cta-about" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl">

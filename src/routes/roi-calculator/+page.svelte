@@ -106,7 +106,7 @@
        HERO
        ══════════════════════════════════════ -->
   <section class="pt-24 pb-10 sm:pt-28 sm:pb-12 bg-secondary">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary shadow-sm">
         <Calculator class="size-3.5" />
         Calculadora de exposición

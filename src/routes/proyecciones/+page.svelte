@@ -101,7 +101,7 @@
        HERO
        ══════════════════════════════════════ -->
   <section class="pt-24 pb-10 sm:pt-28 sm:pb-12 bg-secondary">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary shadow-sm">
         <TrendingDown class="size-3.5" />
         Proyecciones de impacto
@@ -231,7 +231,7 @@
        BOTTOM DISCLAIMER
        ══════════════════════════════════════ -->
   <section class="py-10 bg-background">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="rounded-xl border border-border bg-secondary p-5">
         <p class="text-xs leading-relaxed text-muted-foreground text-center">
           <strong class="text-foreground">Aviso importante:</strong> Estas son proyecciones modeladas, no resultados históricos confirmados. Ethoz es una plataforma nueva (fundada en 2026) y no cuenta con estudios de caso de implementación a largo plazo. Las proyecciones se basan en datos públicos y modelos operacionales, y deben considerarse como estimaciones referenciales. Tus resultados variarán según el tamaño, contexto operacional y características específicas de tu establecimiento.

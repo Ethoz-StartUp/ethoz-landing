@@ -127,7 +127,7 @@
 
   <!-- Editorial anchor — seconds matter thesis -->
   <section class="py-12 sm:py-14" aria-labelledby="emergency-editorial">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="emergency-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.emergency.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
@@ -304,7 +304,7 @@
 
   <!-- Final CTA — dark navy editorial close -->
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="emergency-cta">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.emergency.finalCta.eyebrow')}</p>
       <h2 id="emergency-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">

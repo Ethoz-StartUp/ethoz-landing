@@ -464,7 +464,7 @@
        No card grid, no stock-template rhythm.
        ═══════════════════════════════════════════ -->
   <section class="reveal py-14 sm:py-20" aria-labelledby="editorial-heading">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="editorial-heading" class="eyebrow mt-6">{t('editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
@@ -814,7 +814,7 @@
        SECTION 9: FAQ
        ═══════════════════════════════════════════ -->
   <section class="reveal bg-secondary py-12 sm:py-14" id="faq">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('faq.overline')}

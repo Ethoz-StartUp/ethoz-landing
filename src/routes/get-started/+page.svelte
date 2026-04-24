@@ -220,7 +220,7 @@
 
   <!-- ═══ FAQ ═══ -->
   <section class="py-12 sm:py-14">
-    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 class="text-balance text-center text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
         {t('pricing.faq.title')}
       </h2>
@@ -254,7 +254,7 @@
 
   <!-- ═══ FINAL CTA — dark navy ═══ -->
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-getstarted">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Comenzar</p>
       <h2 id="final-cta-getstarted" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl">

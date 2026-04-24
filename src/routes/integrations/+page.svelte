@@ -173,7 +173,7 @@
 
   <!-- Migration -->
   <section class="py-12 sm:py-14">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <div class="flex items-center justify-center gap-3">
         <Upload class="size-5 text-primary" />
         <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Nosotros migramos tus datos</h2>
