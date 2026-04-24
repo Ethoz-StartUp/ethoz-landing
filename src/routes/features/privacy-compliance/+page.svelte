@@ -272,7 +272,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="privacy-cta">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">{t('featurePage.privacyCompliance.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.privacyCompliance.finalCta.eyebrow')}</p>
       <h2 id="privacy-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
         {t('featurePage.privacyCompliance.finalCta.title')}
       </h2>
@@ -294,7 +294,7 @@
           Entender la ley primero
         </a>
       </div>
-      <p class="mt-8 text-xs text-background/60">
+      <p class="mt-8 text-xs text-background/80">
         {t('featurePage.privacyCompliance.finalCta.footnote')}
       </p>
     </div>

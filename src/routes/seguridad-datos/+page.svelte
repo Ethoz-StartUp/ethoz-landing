@@ -397,7 +397,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-sec">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/70">Sesión técnica</p>
+      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Sesión técnica</p>
       <h2 id="final-cta-sec" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl">
         ¿Quiere revisar el modelo de seguridad en detalle?
       </h2>

@@ -495,7 +495,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-law">
     <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/70">Consulta institucional</p>
+      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Consulta institucional</p>
       <h2 id="final-cta-law" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl lg:text-5xl">
         Evalúe el nivel de exposición de su colegio en 20 minutos.
       </h2>

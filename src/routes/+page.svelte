@@ -244,23 +244,6 @@
     {t('nav.skip_to_content')}
   </a>
 
-  <!-- Urgency ribbon — McKinsey-editorial, deep-blue anchor, surfaces Ley 21.719 deadline above the fold -->
-  <div class="border-b border-border bg-foreground text-background" role="complementary" aria-label="Plazo de cumplimiento Ley 21.719">
-    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-4 py-2 text-[13px] sm:px-6 lg:px-8">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1">
-        <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent">Ley 21.719</span>
-        <span class="hidden text-background/50 sm:inline" aria-hidden="true">·</span>
-        <span class="text-background/90">
-          Faltan <span data-numeric class="font-semibold text-background">{countdownDays}</span> días ·
-          Multas hasta <span data-numeric class="font-semibold text-background">20.000 UTM</span>
-        </span>
-      </p>
-      <a href="/demo" class="inline-flex items-center gap-1 border-b border-background text-[13px] font-semibold text-background hover:border-b-2">
-        Agendar demo <span aria-hidden="true">→</span>
-      </a>
-    </div>
-  </div>
-
   <NavBar />
 
   <!-- ═══════════════════════════════════════════
@@ -450,20 +433,24 @@
         {t('trust.attribution')}
       </p>
       <dl class="mx-auto mt-8 grid max-w-5xl grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
-        <div class="px-4 text-center lg:px-6">
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Datos</dt>
+        <div class="flex flex-col items-center px-4 text-center lg:px-6">
+          <Building class="size-5 text-primary" aria-hidden="true" />
+          <dt class="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Datos</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.servers')}</dd>
         </div>
-        <div class="px-4 text-center lg:px-6">
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Cifrado</dt>
+        <div class="flex flex-col items-center px-4 text-center lg:px-6">
+          <Lock class="size-5 text-primary" aria-hidden="true" />
+          <dt class="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Cifrado</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.encryption')}</dd>
         </div>
-        <div class="px-4 text-center lg:px-6">
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Integración</dt>
+        <div class="flex flex-col items-center px-4 text-center lg:px-6">
+          <Zap class="size-5 text-primary" aria-hidden="true" />
+          <dt class="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Integración</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.integration')}</dd>
         </div>
-        <div class="px-4 text-center lg:px-6">
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Cumplimiento</dt>
+        <div class="flex flex-col items-center px-4 text-center lg:px-6">
+          <Shield class="size-5 text-primary" aria-hidden="true" />
+          <dt class="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Cumplimiento</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.compliance')}</dd>
         </div>
       </dl>
@@ -891,7 +878,7 @@
   <section class="reveal bg-foreground py-20 text-background sm:py-28" id="cta" aria-labelledby="final-cta-heading">
     <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">El momento es ahora</p>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">El momento es ahora</p>
       <h2 id="final-cta-heading" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl lg:text-5xl">
         {t('cta.title')}
       </h2>
@@ -917,7 +904,7 @@
         </button>
       </div>
       <!-- Urgency footnote — editorial line, not a widget -->
-      <p class="mt-8 text-sm text-background/60">
+      <p class="mt-8 text-sm text-background/80">
         <span data-numeric class="font-semibold text-background">{countdownDays}</span> días hasta que la Ley 21.719 entre en plena vigencia · Diciembre 2026
       </p>
     </div>
