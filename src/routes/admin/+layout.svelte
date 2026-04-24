@@ -46,28 +46,28 @@
       <nav class="hidden items-center gap-1 sm:flex">
         <a
           href="/admin/prospecting"
-          class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/prospecting') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}"
+          class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/prospecting') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
         >
           <Search class="size-3.5" />
           Prospecting
         </a>
         <a
           href="/admin/leads"
-          class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/leads') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}"
+          class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/leads') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
         >
           <Users class="size-3.5" />
           Leads
         </a>
         <a
           href="/admin/content"
-          class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/content') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}"
+          class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/content') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
         >
           <FileText class="size-3.5" />
           Content
         </a>
         <a
           href="/admin/settings"
-          class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/settings') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}"
+          class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/settings') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
         >
           <Settings class="size-3.5" />
           Settings
@@ -83,7 +83,7 @@
         <button
           type="button"
           onclick={handleLogout}
-          class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
+          class="inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
         >
           <LogOut class="size-3.5" />
           Salir
@@ -91,7 +91,7 @@
         <button
           type="button"
           onclick={() => (mobileMenuOpen = !mobileMenuOpen)}
-          class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground sm:hidden"
+          class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground sm:hidden"
           aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={mobileMenuOpen}
         >
@@ -109,7 +109,7 @@
           <a
             href="/admin/prospecting"
             onclick={closeMobileMenu}
-            class="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/prospecting') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}"
+            class="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/prospecting') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
           >
             <Search class="size-4" />
             Prospecting
@@ -117,7 +117,7 @@
           <a
             href="/admin/leads"
             onclick={closeMobileMenu}
-            class="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/leads') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}"
+            class="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/leads') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
           >
             <Users class="size-4" />
             Leads
@@ -125,7 +125,7 @@
           <a
             href="/admin/content"
             onclick={closeMobileMenu}
-            class="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/content') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}"
+            class="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/content') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
           >
             <FileText class="size-4" />
             Content
@@ -133,7 +133,7 @@
           <a
             href="/admin/settings"
             onclick={closeMobileMenu}
-            class="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/settings') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'}"
+            class="inline-flex min-h-11 items-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors {page.url.pathname.startsWith('/admin/settings') ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
           >
             <Settings class="size-4" />
             Settings
