@@ -143,8 +143,8 @@
   --accent-foreground: #051C2C;
 
   /* ── Border / Input / Ring ── */
-  --border: #D8DCE0;                        /* mck-fog — hairline */
-  --input: #B3BAC2;                         /* mck-slate-300 — form affordance, 3.2:1 on white */
+  --border: #D8DCE0;                        /* mck-fog — decorative hairline (1.38:1 on white; used on cards where affordance is signaled by text + hover, not the border) */
+  --input: #7A848E;                         /* mck-slate-500 — form affordance, WCAG 1.4.11 verified 3.81:1 on white */
   --ring: #1F77C9;                          /* mck-blue-500 — focus ring */
 
   /* ── Titanium — static deep-blue surface (does NOT invert) ── */

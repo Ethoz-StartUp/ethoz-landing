@@ -450,12 +450,10 @@
   .logo-hero {
     height: clamp(3rem, 7vw, 4.5rem);
     width: auto;
-    filter: drop-shadow(0 2px 10px oklch(0.36 0.14 255 / 0.1));
   }
   .logo-cta {
     height: clamp(2.25rem, 4.5vw, 3.5rem);
     width: auto;
-    filter: drop-shadow(0 2px 10px oklch(0.36 0.14 255 / 0.1));
   }
 
   /* ── Pill badges ── */
@@ -526,9 +524,7 @@
 
   .icon-accent {
     color: var(--primary);
-    filter: drop-shadow(0 0 12px oklch(0.36 0.14 255 / 0.15));
   }
-  .warn-icon { color: oklch(0.55 0.13 85); filter: drop-shadow(0 0 12px oklch(0.7 0.15 85 / 0.15)); }
 
   /* ── Feature cards ── */
   .card-grid {
@@ -617,8 +613,6 @@
   /* ── Shield glow ── */
   .shield-glow {
     color: var(--primary);
-    filter: drop-shadow(0 0 24px oklch(0.36 0.14 255 / 0.2));
-    animation: pulse-glow 2s ease-in-out infinite;
   }
 
   /* ── Check list ── */
@@ -743,16 +737,6 @@
   }
   .dot.active { width: 1.25rem; background: var(--primary); background-clip: content-box; }
   .dot:hover:not(.active) { background: oklch(0.7 0 0); }
-
-  /* ═══ ANIMATIONS ═══ */
-  @keyframes pulse-glow {
-    0%, 100% { filter: drop-shadow(0 0 20px oklch(0.36 0.14 255 / 0.15)); }
-    50% { filter: drop-shadow(0 0 36px oklch(0.36 0.14 255 / 0.3)); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .shield-glow { animation: none; }
-  }
 
   @media (max-width: 500px) {
     .slide-area { padding-bottom: 2rem; }

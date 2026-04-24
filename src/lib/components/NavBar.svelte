@@ -87,20 +87,26 @@
         </a>
       {/each}
 
-      <!-- Productos dropdown -->
+      <!-- Productos dropdown (APG disclosure pattern) -->
       <div
         class="relative"
-        role="navigation"
         onmouseenter={openProducts}
         onmouseleave={closeProducts}
       >
         <button
           type="button"
+          aria-expanded={productsOpen}
+          aria-haspopup="true"
+          aria-controls="products-menu"
           class="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isProductActive()
-              ? 'text-primary bg-primary/5'
+              ? 'text-primary-pressed bg-primary/5'
               : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'}"
           onclick={() => (productsOpen = !productsOpen)}
+          onkeydown={(e) => {
+            if (e.key === 'Escape' && productsOpen) { productsOpen = false; e.currentTarget.focus(); }
+            if (e.key === 'ArrowDown' && !productsOpen) { e.preventDefault(); productsOpen = true; }
+          }}
         >
           {t('nav.features')}
           <ChevronDown class="size-3.5 transition-transform {productsOpen ? 'rotate-180' : ''}" />
@@ -108,9 +114,11 @@
 
         {#if productsOpen}
           <div
+            id="products-menu"
             class="absolute left-1/2 top-full mt-2 w-[420px] -translate-x-1/2 rounded-xl border border-border bg-card p-3 shadow-popover"
             role="menu"
-            tabindex={-1}
+            tabindex="-1"
+            onkeydown={(e) => { if (e.key === 'Escape') { productsOpen = false; } }}
             onmouseenter={openProducts}
             onmouseleave={closeProducts}
           >
@@ -172,8 +180,9 @@
         type="button"
         class="inline-flex items-center justify-center rounded-lg p-2.5 min-h-[44px] min-w-[44px] text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground md:hidden"
         onclick={() => (mobileOpen = !mobileOpen)}
-        aria-label="Toggle menu"
+        aria-label={mobileOpen ? t('nav.close_menu') : t('nav.open_menu')}
         aria-expanded={mobileOpen}
+        aria-controls="mobile-menu"
       >
         {#if mobileOpen}
           <X class="size-5" />
@@ -186,7 +195,12 @@
 
   <!-- Mobile menu -->
   {#if mobileOpen}
-    <div transition:slide={{ duration: 200 }} class="relative z-50 border-t border-border bg-background px-4 pb-5 pt-3 md:hidden">
+    <div id="mobile-menu" transition:slide={{ duration: 200 }} class="relative z-50 border-t border-border bg-background px-4 pb-5 pt-3 md:hidden"
+      onkeydown={(e) => { if (e.key === 'Escape') { mobileOpen = false; } }}
+      role="dialog"
+      tabindex="-1"
+      aria-modal="true"
+      aria-label={t('nav.menu_label')}>
       <div class="flex flex-col gap-0.5">
         <!-- ¿Qué es? -->
         {#each navLinksBefore as link}
@@ -278,13 +292,12 @@
   {/if}
 </nav>
 
-<!-- Backdrop blur below navbar when mobile menu open -->
+<!-- Backdrop — click-away region (not an interactive control, per a11y guidance) -->
 {#if mobileOpen}
-  <button
-    type="button"
+  <div
     class="fixed inset-x-0 top-16 bottom-0 z-40 bg-foreground/30 backdrop-blur-md md:hidden"
-    aria-label="Close menu"
+    aria-hidden="true"
     onclick={() => (mobileOpen = false)}
     transition:fade={{ duration: 200 }}
-  ></button>
+  ></div>
 {/if}

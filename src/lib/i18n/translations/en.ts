@@ -11,6 +11,10 @@ export const en = {
   'nav.about': 'What is it?',
   'nav.cta': 'Book a Demo',
   'nav.login': 'Sign In',
+  'nav.open_menu': 'Open menu',
+  'nav.close_menu': 'Close menu',
+  'nav.menu_label': 'Main menu',
+  'nav.skip_to_content': 'Skip to main content',
 
   // Hero
   'hero.badge': 'Compliant with Law 21.719',

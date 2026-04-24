@@ -11,6 +11,10 @@ export const es = {
   'nav.about': '¿Qué es?',
   'nav.cta': 'Agendar Demo',
   'nav.login': 'Iniciar Sesión',
+  'nav.open_menu': 'Abrir menú',
+  'nav.close_menu': 'Cerrar menú',
+  'nav.menu_label': 'Menú principal',
+  'nav.skip_to_content': 'Saltar al contenido principal',
 
   // Hero
   'hero.badge': 'Cumple con Ley 21.719',

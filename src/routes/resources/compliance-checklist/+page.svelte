@@ -64,7 +64,7 @@
     },
     {
       title: 'Seguridad técnica',
-      color: 'orange',
+      color: 'warning',
       items: [
         {
           title: 'Cifrado de datos en reposo implementado',
@@ -134,7 +134,7 @@
   const colorMap: Record<string, string> = {
     blue: 'bg-primary/10 text-primary',
     green: 'bg-success/10 text-success',
-    orange: 'bg-warning/10 text-warning-foreground',
+    warning: 'bg-warning/10 text-warning-foreground',
     purple: 'bg-primary/10 text-primary'
   };
 </script>

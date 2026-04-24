@@ -154,7 +154,7 @@
 
 <!-- Scroll listener (guarded to avoid no-op reactivity writes) -->
 <svelte:window onscroll={() => {
-  const c = window.scrollY > 300;
+  const c = window.scrollY > 120;
   if (c !== showStickyCta) showStickyCta = c;
 }} />
 
@@ -236,6 +236,13 @@
 </svelte:head>
 
 <main class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — visible on focus, WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#hero-cta"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
 
   <!-- ═══════════════════════════════════════════
@@ -271,6 +278,7 @@
         <!-- CTAs -->
         <div class="animate-fade-in-up animate-delay-300 mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:justify-start sm:gap-4">
           <Button
+            id="hero-cta"
             size="xl"
             onclick={async () => {
               trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'hero' });
@@ -307,12 +315,12 @@
             <div class="size-3 rounded-full bg-warning/60"></div>
             <div class="size-3 rounded-full bg-success/60"></div>
             <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
-            <span class="ml-auto inline-flex items-center gap-1.5 border border-success/30 bg-card px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-success">
+            <span class="ml-auto inline-flex items-center gap-1.5 border border-border bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
               <span class="relative flex size-1.5">
                 <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
                 <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
               </span>
-              Live
+              Datos ficticios · Demo
             </span>
           </div>
 
@@ -654,10 +662,8 @@
 
       <!-- Steps with connecting line -->
       <div class="relative mx-auto mt-14 max-w-5xl">
-        <!-- Desktop connector line — sits behind icons -->
-        <div class="pointer-events-none absolute left-[16.66%] right-[16.66%] top-7 hidden h-px sm:block" aria-hidden="true">
-          <div class="h-full w-full bg-gradient-to-r from-transparent via-border to-transparent"></div>
-        </div>
+        <!-- Desktop connector — solid hairline, McKinsey style -->
+        <div class="pointer-events-none absolute left-[16.66%] right-[16.66%] top-7 hidden h-px bg-border sm:block" aria-hidden="true"></div>
 
         <ol class="relative grid gap-10 sm:grid-cols-3 sm:gap-6">
           <!-- Step 1 -->
