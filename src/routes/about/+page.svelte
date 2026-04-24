@@ -206,7 +206,7 @@
               aria-expanded={openFaq === i}
             >
               <span class="flex items-baseline gap-4">
-                <span class="font-heading text-xs text-primary/70 tabular-nums" data-numeric>0{i + 1}</span>
+                <span class="font-heading text-xs text-primary tabular-nums" data-numeric>0{i + 1}</span>
                 <span>{t(faq.q)}</span>
               </span>
               <ChevronDown class="size-4 shrink-0 text-muted-foreground transition-transform {openFaq === i ? 'rotate-180' : ''}" />

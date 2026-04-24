@@ -141,7 +141,7 @@
             </div>
             <a
               href="/productos"
-              class="mt-2 block border-t border-border pt-2 text-center text-[11px] font-medium text-primary transition-colors hover:text-primary/80"
+              class="mt-2 block border-t border-border pt-2 text-center text-[11px] font-medium text-primary transition-colors hover:text-primary"
               onclick={() => (productsOpen = false)}
             >
               {t('nav.all_products')}

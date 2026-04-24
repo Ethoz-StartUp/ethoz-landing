@@ -280,7 +280,7 @@
         {#each pillars as pillar, i}
           {@const Icon = pillar.icon}
           <div class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
-            <span class="font-heading text-2xl font-medium leading-none tracking-tight text-primary/70 tabular-nums" data-numeric>0{i + 1}</span>
+            <span class="font-heading text-2xl font-medium leading-none tracking-tight text-primary tabular-nums" data-numeric>0{i + 1}</span>
             <div class="mt-4 flex items-center gap-2.5">
               <Icon class="size-4 shrink-0 text-primary" />
               <h3 class="text-base font-semibold text-foreground leading-snug">{t(pillar.titleKey)}</h3>

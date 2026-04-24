@@ -291,7 +291,7 @@
       <p class="text-sm text-muted-foreground">{t('contact.cta.label')}</p>
       <a
         href="/demo"
-        class="mt-2 inline-block text-sm font-medium text-primary transition-colors hover:text-primary/70"
+        class="mt-2 inline-block text-sm font-medium text-primary transition-colors hover:text-primary"
       >
         {t('contact.cta.link')}
       </a>

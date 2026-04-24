@@ -51,7 +51,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
-          <span class="text-xs font-bold tabular-nums tracking-wider text-primary/40">01</span>
+          <span class="text-xs font-bold tabular-nums tracking-wider text-primary">01</span>
           <h2 class="mt-1.5 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             Integración con tu sistema actual
           </h2>
@@ -141,7 +141,7 @@
         </div>
 
         <div class="order-1 lg:order-2">
-          <span class="text-xs font-bold tabular-nums tracking-wider text-primary/40">02</span>
+          <span class="text-xs font-bold tabular-nums tracking-wider text-primary">02</span>
           <h2 class="mt-1.5 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             ¿No tienes sistema? No es problema.
           </h2>

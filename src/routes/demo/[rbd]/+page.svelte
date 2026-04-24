@@ -288,7 +288,7 @@
           <p class="mx-auto mt-3 max-w-md text-xs leading-relaxed text-muted-foreground">
             {t('demo.step2.description')}
           </p>
-          <a href="/demo" class="mt-3 inline-flex items-center gap-1 text-sm text-primary transition-colors hover:text-primary/70">
+          <a href="/demo" class="mt-3 inline-flex items-center gap-1 text-sm text-primary transition-colors hover:text-primary">
             <ChevronLeft class="size-4" />
             {t('demo.step2.change')}
           </a>

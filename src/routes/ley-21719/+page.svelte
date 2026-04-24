@@ -225,7 +225,7 @@
                   href={item.href}
                   class="group flex items-baseline gap-3 -ml-px border-l border-transparent py-1.5 pl-4 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
                 >
-                  <span class="font-heading text-xs text-primary/70 tabular-nums group-hover:text-primary" data-numeric>{item.n}</span>
+                  <span class="font-heading text-xs text-primary tabular-nums group-hover:text-primary" data-numeric>{item.n}</span>
                   <span>{item.label}</span>
                 </a>
               </li>
@@ -312,7 +312,7 @@
             ] as item, i}
               <li>
                 <p class="flex items-baseline gap-3 font-semibold text-foreground">
-                  <span class="font-heading text-xs text-primary/70 tabular-nums" data-numeric>0{i + 1}</span>
+                  <span class="font-heading text-xs text-primary tabular-nums" data-numeric>0{i + 1}</span>
                   <span>{item.name}</span>
                 </p>
                 <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
@@ -330,9 +330,9 @@
           </p>
           <div class="mt-8 grid gap-4 sm:grid-cols-2">
             {#each rights as right}
-              <div class="group border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)] rounded-lg">
+              <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)] rounded-lg">
                 <div class="flex items-baseline gap-3">
-                  <span class="font-heading text-2xl font-medium leading-none text-primary/80 group-hover:text-foreground">{right.letter}</span>
+                  <span class="font-heading text-2xl font-medium leading-none text-primary group-hover:text-foreground">{right.letter}</span>
                   <h3 class="text-base font-semibold text-foreground">{right.name}</h3>
                 </div>
                 <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{right.desc}</p>
@@ -431,7 +431,7 @@
           <ol class="mt-8 divide-y divide-border border-y border-border">
             {#each checklist as item, i}
               <li class="flex items-start gap-4 py-3">
-                <span class="font-heading text-xs font-medium text-primary/70 tabular-nums pt-0.5 w-6 shrink-0" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
+                <span class="font-heading text-xs font-medium text-primary tabular-nums pt-0.5 w-6 shrink-0" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
                 <span class="size-5 shrink-0 mt-0.5 border border-muted-foreground/40 rounded-[4px]"></span>
                 <p class="text-sm text-foreground">{item}</p>
               </li>

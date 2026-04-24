@@ -170,7 +170,7 @@
         Operar múltiples establecimientos con sistemas distintos no es solo ineficiente — es un riesgo legal concreto con fecha de vencimiento.
       </p>
       <div class="grid gap-6 sm:grid-cols-2">
-        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5 mb-3">
             <Scale class="size-5 shrink-0 text-destructive" />
             <h3 class="text-base font-semibold text-foreground">Ley 21.719 — plazo real</h3>
@@ -179,7 +179,7 @@
             La ley de protección de datos personales entra en plena vigencia en <strong class="text-foreground">diciembre de 2026</strong>. Las multas llegan a <strong class="text-foreground">20.000 UTM (~$1.300M CLP)</strong> o el 4% de la facturación anual — lo que sea mayor. Por establecimiento.
           </p>
         </div>
-        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5 mb-3">
             <TrendingDown class="size-5 shrink-0 text-warning-foreground" />
             <h3 class="text-base font-semibold text-foreground">Sistemas fragmentados por sede</h3>
@@ -188,7 +188,7 @@
             Cada colegio lleva su propio Excel, su propio cuaderno de portería y sus propios protocolos. No hay estándar, no hay visibilidad cruzada y en una fiscalización, cada sede responde sola.
           </p>
         </div>
-        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5 mb-3">
             <BarChart3 class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Consolidación manual imposible</h3>
@@ -197,7 +197,7 @@
             Pedir un reporte de incidentes a tus 5 directores tarda días. Para cuando llega la información, ya cambió. Las decisiones se toman con datos de la semana pasada, cuando los problemas ya escalaron.
           </p>
         </div>
-        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5 mb-3">
             <FileSearch class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Exposición en auditorías</h3>

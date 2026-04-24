@@ -218,7 +218,7 @@
         <ol class="mt-8 divide-y divide-border border-y border-border">
           {#each selfAssessment as item, i}
             <li class="flex items-start gap-4 py-4">
-              <span class="font-heading text-xs font-medium text-primary/70 tabular-nums pt-0.5 w-6 shrink-0" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
+              <span class="font-heading text-xs font-medium text-primary tabular-nums pt-0.5 w-6 shrink-0" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
               <span class="size-5 shrink-0 mt-0.5 border {item.critical ? 'border-destructive/50' : 'border-muted-foreground/40'} rounded-[4px]"></span>
               <p class="flex-1 text-sm text-foreground">
                 {item.question}
@@ -248,7 +248,7 @@
             { title: 'Integración con sistemas actuales', desc: 'Ethoz se conecta con Napsis, Syscol y Lirmi mediante API. No migra datos — los complementa con la capa de seguridad que falta.' },
             { title: 'Cumplimiento cruzado Ley 21.719', desc: 'Cada dato del libro de clases es un dato personal protegido por la Ley 21.719. Ethoz garantiza que ambas normativas se cumplan simultáneamente.' },
           ] as item}
-            <div class="group border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)] rounded-lg">
+            <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)] rounded-lg">
               <h3 class="font-semibold text-foreground">{item.title}</h3>
               <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
             </div>

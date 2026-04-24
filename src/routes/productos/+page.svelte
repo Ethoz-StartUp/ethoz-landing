@@ -153,7 +153,7 @@
             </div>
 
             <!-- Mockup preview -->
-            <a href={product.href} class="group block rounded-xl border border-border bg-card shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 min-h-[180px] sm:min-h-[200px]">
+            <a href={product.href} class="group block rounded-xl border border-border bg-card shadow-card transition-all duration-[160ms] hover:shadow-card-hover hover:border-foreground hover:-translate-y-[1px] min-h-[180px] sm:min-h-[200px]">
               <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
                 <div class="size-2.5 rounded-full bg-destructive/60"></div>
                 <div class="size-2.5 rounded-full bg-warning/60"></div>

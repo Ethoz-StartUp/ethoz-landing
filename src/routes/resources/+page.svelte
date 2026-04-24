@@ -148,7 +148,7 @@
       {#each resources as resource, i}
         <div class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center justify-between">
-            <span class="font-heading text-2xl font-medium leading-none tracking-tight text-primary/70 tabular-nums group-hover:text-foreground" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
+            <span class="font-heading text-2xl font-medium leading-none tracking-tight text-primary tabular-nums group-hover:text-foreground" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
             <resource.icon class="size-4 shrink-0 text-primary" />
           </div>
           <h2 class="mt-5 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{resource.title}</h2>

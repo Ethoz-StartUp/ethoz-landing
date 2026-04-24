@@ -139,7 +139,7 @@
             {#each toc as item}
               <li>
                 <a href={item.href} class="group flex items-baseline gap-3 -ml-px border-l border-transparent py-1.5 pl-4 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-foreground">
-                  <span class="font-heading text-xs text-primary/70 tabular-nums group-hover:text-primary" data-numeric>{item.n}</span>
+                  <span class="font-heading text-xs text-primary tabular-nums group-hover:text-primary" data-numeric>{item.n}</span>
                   <span>{item.label}</span>
                 </a>
               </li>
