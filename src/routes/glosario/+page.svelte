@@ -155,8 +155,9 @@
     </div>
   </section>
 
-  <!-- GLOSSARY -->
-  <div class="mx-auto max-w-3xl px-4 pb-20 sm:px-6 lg:px-8">
+  <!-- GLOSSARY — wide outer aligns with nav; inner max-w-3xl keeps reading measure -->
+  <div class="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+   <div class="mx-auto max-w-3xl">
     <div class="space-y-20">
       {#each allLetters as letter, i}
         <!-- Editorial break every 4 letters -->
@@ -196,6 +197,7 @@
         </section>
       {/each}
     </div>
+   </div>
   </div>
 
   <!-- FINAL CTA -->
