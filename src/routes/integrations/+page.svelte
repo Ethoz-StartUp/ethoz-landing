@@ -2,7 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
-  import { ArrowRight, Plug, Upload, Database, Check, Zap, Building } from '@lucide/svelte';
+  import { ArrowRight, Upload, Database, Check, Zap, Building } from '@lucide/svelte';
   import { trackEvent } from '$lib/utils/analytics';
 
   $effect(() => { trackEvent('integrations_page_viewed'); });
@@ -29,13 +29,16 @@
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <div class="flex items-center gap-3">
-          <Plug class="size-6 shrink-0 text-primary" />
-          <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Se conecta con lo que ya usas
-          </h1>
-        </div>
-        <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
+        <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <span class="text-primary">Integraciones</span>
+          <span aria-hidden="true" class="text-border">·</span>
+          <span>Napsis · Syscol · SchoolTrack · Lirmi</span>
+        </p>
+        <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
+        <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+          Se conecta con lo que ya usas
+        </h1>
+        <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
           Ethoz no reemplaza tu sistema académico — lo complementa. Si ya usas Napsis, Syscol, SchoolTrack u otra plataforma, nos integramos. Si no tienes sistema digital, tenemos un módulo básico incluido para que no te falte nada.
         </p>
       </div>
