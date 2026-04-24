@@ -587,44 +587,66 @@
         </p>
       </div>
 
-      <!-- Feature cards — 2×2 grid, numbered headings (no icon boxes) -->
-      <div class="mx-auto mt-8 grid max-w-4xl gap-6 sm:grid-cols-2">
-        <!-- Feature 1: Ficha 360° -->
-        <a href="/features/student-profile" class="group relative border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
-          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary/80 transition-colors group-hover:text-foreground">01</span>
-          <h3 class="mt-3 text-base font-semibold text-foreground">{t('features.record.title')}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.record.desc')}</p>
-          <span class="mt-4 inline-flex items-center gap-1 border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
+      <!-- Featured hero card: Ficha 360° — the foundational data module.
+           Asymmetric treatment breaks the 2×2 AI-slop template. -->
+      <div class="mx-auto mt-10 max-w-5xl">
+        <a href="/features/student-profile" class="group block border border-border bg-card p-8 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)] sm:p-10 lg:p-12">
+          <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
+            <div>
+              <span class="font-heading block text-5xl font-medium tabular-nums leading-none tracking-tight text-primary/70 transition-colors group-hover:text-foreground sm:text-6xl">01</span>
+              <h3 class="mt-5 font-heading text-2xl font-medium leading-tight tracking-tight text-foreground sm:text-[1.75rem] lg:text-[2rem]">
+                {t('features.record.title')}
+              </h3>
+              <p class="mt-4 text-base leading-relaxed text-muted-foreground">
+                {t('features.record.desc')}
+              </p>
+              <span class="mt-6 inline-flex items-center gap-1 border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
+                {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </div>
+            <ul class="space-y-4 border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+              <li class="flex items-start gap-3">
+                <Check class="mt-0.5 size-4 shrink-0 text-primary" />
+                <p class="text-sm leading-relaxed text-foreground">{t('features.record.bullet1')}</p>
+              </li>
+              <li class="flex items-start gap-3">
+                <Check class="mt-0.5 size-4 shrink-0 text-primary" />
+                <p class="text-sm leading-relaxed text-foreground">{t('features.record.bullet2')}</p>
+              </li>
+              <li class="flex items-start gap-3">
+                <Check class="mt-0.5 size-4 shrink-0 text-primary" />
+                <p class="text-sm leading-relaxed text-foreground">{t('features.record.bullet3')}</p>
+              </li>
+            </ul>
+          </div>
+        </a>
+      </div>
+
+      <!-- Supporting features — 3-column grid, compact cards -->
+      <div class="mx-auto mt-5 grid max-w-5xl gap-5 sm:grid-cols-3">
+        <a href="/features/safe-pickups" class="group flex flex-col border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary/70 transition-colors group-hover:text-foreground">02</span>
+          <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.pickup.title')}</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.pickup.desc')}</p>
+          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
             {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
           </span>
         </a>
 
-        <!-- Feature 2: Retiros Seguros -->
-        <a href="/features/safe-pickups" class="group relative border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
-          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary/80 transition-colors group-hover:text-foreground">02</span>
-          <h3 class="mt-3 text-base font-semibold text-foreground">{t('features.pickup.title')}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.pickup.desc')}</p>
-          <span class="mt-4 inline-flex items-center gap-1 border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
+        <a href="/features/access-control" class="group flex flex-col border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary/70 transition-colors group-hover:text-foreground">03</span>
+          <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.rbac.title')}</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.rbac.desc')}</p>
+          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
             {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
           </span>
         </a>
 
-        <!-- Feature 3: Permisos por Cargo -->
-        <a href="/features/access-control" class="group relative border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
-          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary/80 transition-colors group-hover:text-foreground">03</span>
-          <h3 class="mt-3 text-base font-semibold text-foreground">{t('features.rbac.title')}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.rbac.desc')}</p>
-          <span class="mt-4 inline-flex items-center gap-1 border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
-            {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
-          </span>
-        </a>
-
-        <!-- Feature 4: Búsqueda Instantánea -->
-        <a href="/features/smart-search" class="group relative border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
-          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary/80 transition-colors group-hover:text-foreground">04</span>
-          <h3 class="mt-3 text-base font-semibold text-foreground">{t('features.search.title')}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t('features.search.desc')}</p>
-          <span class="mt-4 inline-flex items-center gap-1 border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
+        <a href="/features/smart-search" class="group flex flex-col border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary/70 transition-colors group-hover:text-foreground">04</span>
+          <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.search.title')}</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.search.desc')}</p>
+          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
             {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
           </span>
         </a>
@@ -869,36 +891,44 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       SECTION 10: FINAL CTA
+       SECTION 10: FINAL CTA — dark navy editorial closing.
+       Per McK: "Deep-blue surfaces for hero, quote slides, section
+       dividers — used like a conductor's rest." The page has worked
+       the reader through urgency, context, product, proof — this is
+       the inverted moment that earns the decisive click.
        ═══════════════════════════════════════════ -->
-  <section class="reveal py-12 sm:py-14" id="cta">
-    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+  <section class="reveal bg-foreground py-20 text-background sm:py-28" id="cta" aria-labelledby="final-cta-heading">
+    <div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/70">El momento es ahora</p>
+      <h2 id="final-cta-heading" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl lg:text-5xl">
         {t('cta.title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-background/80">
         {t('cta.subtitle')}
       </p>
-      <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <Button
-          size="xl"
-          onclick={async () => {
-            trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'hero' });
-            await goto('/demo');
-          }}
+      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/demo"
+          onclick={() => trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'final_cta' })}
+          class="inline-flex h-14 items-center justify-center gap-2.5 rounded-md bg-background px-10 text-base font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
           {t('cta.primary')}
           <ArrowRight class="size-5" />
-        </Button>
-        <Button
-          variant="outline"
-          size="xl"
-          onclick={() => showPitch = true}
+        </a>
+        <button
+          type="button"
+          onclick={() => (showPitch = true)}
+          class="inline-flex h-14 items-center justify-center gap-2.5 rounded-md border-2 border-background bg-transparent px-10 text-base font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
           <Play class="size-5" />
           {t('hero.video_short')}
-        </Button>
+        </button>
       </div>
+      <!-- Urgency footnote — editorial line, not a widget -->
+      <p class="mt-8 text-sm text-background/60">
+        <span data-numeric class="font-semibold text-background">{countdownDays}</span> días hasta que la Ley 21.719 entre en plena vigencia · Diciembre 2026
+      </p>
     </div>
   </section>
 
