@@ -239,9 +239,13 @@
   <NavBar />
 
   <!-- ═══════════════════════════════════════════
-       SECTION 2: HERO — split layout (flat, no gradient — pharma-clean)
+       SECTION 2: HERO — split layout, institutional warmth
        ═══════════════════════════════════════════ -->
   <section class="relative overflow-hidden pt-28 sm:pt-32">
+    <!-- Soft warm wash from top-left + blue tint from top-right for depth -->
+    <div class="pointer-events-none absolute inset-x-0 top-0 h-[480px] bg-gradient-to-br from-primary/[0.05] via-background to-transparent" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute right-[-10%] top-[-8%] h-[420px] w-[420px] rounded-full bg-primary/[0.07] blur-3xl" aria-hidden="true"></div>
+
     <div class="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-14 lg:px-8">
 
       <!-- Left column: headline + CTAs -->
@@ -292,7 +296,7 @@
       <!-- Right column: dashboard mockup -->
       <div class="animate-fade-in-up animate-delay-400 w-full">
         <div
-          class="rounded-xl border border-border bg-card shadow-card-hover"
+          class="rounded-xl border border-border bg-card shadow-mockup"
           role="region"
           aria-roledescription="carrusel"
           aria-label="Vista del panel Ethoz"
