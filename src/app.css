@@ -269,9 +269,12 @@ p, li {
   text-wrap: pretty;
 }
 
-/* ── Numeric tabular nuance — monospace for stats ── */
+/* ── Numeric tabular nuance — only tabular-nums, preserve inherited font.
+ *    Previous version forced JetBrains Mono which gave editorial stats a
+ *    "coded/robotic" look on a marketing surface. Now the number inherits
+ *    from its surrounding class (font-heading → Playfair, default → Inter)
+ *    and only normalizes figure widths. ── */
 [data-numeric], .font-numeric {
-  font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
 }
 

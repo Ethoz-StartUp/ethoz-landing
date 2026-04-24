@@ -334,7 +334,7 @@
       <!-- Right column: dashboard mockup — flat, hairline 1px border, McK style -->
       <div class="animate-fade-in-up animate-delay-400 w-full">
         <div
-          class="overflow-hidden border border-border bg-card shadow-mockup"
+          class="overflow-hidden rounded-xl border border-border bg-card shadow-mockup"
           role="region"
           aria-roledescription="carrusel"
           aria-label="Vista del panel Ethoz"
@@ -541,7 +541,7 @@
 
       <!-- Problem items — 3 columns, icon + title always inline -->
       <div class="mx-auto mt-8 grid gap-5 sm:grid-cols-3">
-        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <AlertTriangle class="size-5 shrink-0 text-warning transition-transform group-hover:-rotate-6" />
             <h3 class="text-base font-semibold text-foreground">{t('problem.card1.title')}</h3>
@@ -549,7 +549,7 @@
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card1.desc')}</p>
         </div>
 
-        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <Shield class="size-5 shrink-0 text-destructive transition-transform group-hover:-rotate-6" />
             <h3 class="text-base font-semibold text-foreground">{t('problem.card2.title')}</h3>
@@ -557,7 +557,7 @@
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card2.desc')}</p>
         </div>
 
-        <div class="group border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <div class="flex items-center gap-2.5">
             <FileCheck class="size-5 shrink-0 text-primary transition-transform group-hover:-rotate-6" />
             <h3 class="text-base font-semibold text-foreground">{t('problem.card3.title')}</h3>
@@ -589,10 +589,10 @@
       <!-- Featured hero card: Ficha 360° — the foundational data module.
            Asymmetric treatment breaks the 2×2 AI-slop template. -->
       <div class="mx-auto mt-10 max-w-5xl">
-        <a href="/features/student-profile" class="group block border border-border bg-card p-8 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)] sm:p-10 lg:p-12">
+        <a href="/features/student-profile" class="group block rounded-lg border border-border bg-card p-8 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)] sm:p-10 lg:p-12">
           <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
             <div>
-              <span class="font-heading block text-5xl font-medium tabular-nums leading-none tracking-tight text-primary/70 transition-colors group-hover:text-foreground sm:text-6xl">01</span>
+              <span class="font-heading block text-5xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground sm:text-6xl">01</span>
               <h3 class="mt-5 font-heading text-2xl font-medium leading-tight tracking-tight text-foreground sm:text-[1.75rem] lg:text-[2rem]">
                 {t('features.record.title')}
               </h3>
@@ -623,8 +623,8 @@
 
       <!-- Supporting features — 3-column grid, compact cards -->
       <div class="mx-auto mt-5 grid max-w-5xl gap-5 sm:grid-cols-3">
-        <a href="/features/safe-pickups" class="group flex flex-col border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
-          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary/70 transition-colors group-hover:text-foreground">02</span>
+        <a href="/features/safe-pickups" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">02</span>
           <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.pickup.title')}</h3>
           <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.pickup.desc')}</p>
           <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
@@ -632,8 +632,8 @@
           </span>
         </a>
 
-        <a href="/features/access-control" class="group flex flex-col border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
-          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary/70 transition-colors group-hover:text-foreground">03</span>
+        <a href="/features/access-control" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">03</span>
           <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.rbac.title')}</h3>
           <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.rbac.desc')}</p>
           <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
@@ -641,8 +641,8 @@
           </span>
         </a>
 
-        <a href="/features/smart-search" class="group flex flex-col border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
-          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary/70 transition-colors group-hover:text-foreground">04</span>
+        <a href="/features/smart-search" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">04</span>
           <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.search.title')}</h3>
           <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.search.desc')}</p>
           <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
@@ -653,7 +653,7 @@
 
       <!-- Cross-cutting: privacy is not a product, it's how everything works -->
       <div class="mx-auto mt-8 max-w-4xl">
-        <a href="/compliance" class="group flex items-center gap-4 border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <a href="/compliance" class="group flex items-center gap-4 rounded-lg border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
           <Shield class="size-5 shrink-0 text-primary transition-transform group-hover:rotate-6" />
           <div class="flex-1">
             <p class="text-sm font-semibold text-foreground">{t('home.compliance_banner.title')}</p>
@@ -701,7 +701,7 @@
           role="group"
           aria-hidden="true"
         >
-          <div class="group relative border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
+          <div class="group relative rounded-lg border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
             <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-primary"></div>
             <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
               {countdownDays}
@@ -710,7 +710,7 @@
               {t('compliance.countdown.days')}
             </span>
           </div>
-          <div class="group relative border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
+          <div class="group relative rounded-lg border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
             <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-primary"></div>
             <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
               {countdownHours}
@@ -719,7 +719,7 @@
               {t('compliance.countdown.hours')}
             </span>
           </div>
-          <div class="group relative border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
+          <div class="group relative rounded-lg border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
             <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-primary"></div>
             <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
               {countdownMinutes}
@@ -777,7 +777,7 @@
           <!-- Step 1 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-primary/80" data-numeric>01</span>
+              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-primary" data-numeric>01</span>
               <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step1.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step1.title')}</h3>
@@ -787,7 +787,7 @@
           <!-- Step 2 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-primary/80" data-numeric>02</span>
+              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-primary" data-numeric>02</span>
               <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step2.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step2.title')}</h3>
