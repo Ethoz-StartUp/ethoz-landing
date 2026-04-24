@@ -23,7 +23,7 @@
 <main class="flex min-h-dvh flex-col bg-background">
   <NavBar />
 
-  <div class="mx-auto flex-1 max-w-3xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
+  <div class="mx-auto flex-1 max-w-7xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
 
     <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Términos de Uso</h1>
     <p class="mt-2 text-sm text-muted-foreground">Última actualización: abril 2026</p>

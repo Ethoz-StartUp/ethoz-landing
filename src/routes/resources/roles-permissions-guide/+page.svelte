@@ -153,7 +153,7 @@
 
 <main class="min-h-dvh bg-background">
   <div class="print:hidden sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur-sm">
-    <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
       <Button href="/resources" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
         <ArrowLeft class="size-4" />
         Volver a recursos

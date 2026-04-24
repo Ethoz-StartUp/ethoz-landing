@@ -27,7 +27,7 @@
 <main class="flex min-h-dvh flex-col bg-background">
   <NavBar />
 
-  <div class="mx-auto flex-1 max-w-5xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12">
+  <div class="mx-auto flex-1 max-w-7xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12">
     <!-- Header -->
     <div class="mb-10 sm:mb-14">
       <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{t('blog.title')}</h1>
@@ -41,7 +41,7 @@
       {#each allPosts as post, i}
         <a
           href="/blog/{post.slug}"
-          class="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:-translate-y-0.5"
+          class="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px]"
         >
           <!-- Cover image -->
           {#if post.coverImage}

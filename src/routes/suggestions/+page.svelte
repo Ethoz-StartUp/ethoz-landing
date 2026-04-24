@@ -147,7 +147,7 @@
 <main class="flex min-h-dvh flex-col bg-background">
   <NavBar />
 
-  <div class="mx-auto w-full max-w-5xl px-4 pt-28 pb-16 sm:px-6 lg:px-8">
+  <div class="mx-auto w-full max-w-7xl px-4 pt-28 pb-16 sm:px-6 lg:px-8">
 
     <!-- Header -->
     <div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

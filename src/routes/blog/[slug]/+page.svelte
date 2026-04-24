@@ -62,7 +62,7 @@
   <NavBar />
 
   <!-- Article -->
-  <article class="mx-auto flex-1 max-w-3xl px-4 pt-28 pb-12 sm:pt-32 sm:pb-16">
+  <article class="mx-auto flex-1 max-w-7xl px-4 pt-28 pb-12 sm:pt-32 sm:pb-16">
     <!-- Header -->
     <header class="mb-10">
       <div class="mb-5 flex flex-wrap gap-2">

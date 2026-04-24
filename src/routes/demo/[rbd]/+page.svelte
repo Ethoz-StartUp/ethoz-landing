@@ -271,7 +271,7 @@
   </nav>
 
   <!-- Content -->
-  <div id="demo-form-main" class="mx-auto flex-1 max-w-5xl px-4 py-12 sm:py-16">
+  <div id="demo-form-main" class="mx-auto flex-1 max-w-7xl px-4 py-12 sm:py-16">
     {#if !isManual && (schoolStore.loading || !schoolStore.selectedSchool)}
       <div class="flex flex-col items-center gap-3 py-16" role="status" aria-live="polite">
         <Loader2 class="size-8 animate-spin text-primary" aria-hidden="true" />

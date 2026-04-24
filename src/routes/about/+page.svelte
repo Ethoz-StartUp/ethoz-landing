@@ -76,7 +76,7 @@
         Los colegios chilenos no necesitan otro sistema que reemplazar el que tienen — necesitan una capa que proteja lo que ya existe, antes de que diciembre de 2026 convierta las brechas en sanciones.
       </blockquote>
     </div>
-    <div class="mx-auto mt-12 max-w-5xl px-4 sm:mt-14 sm:px-6 lg:px-8">
+    <div class="mx-auto mt-12 max-w-7xl px-4 sm:mt-14 sm:px-6 lg:px-8">
       <dl class="grid grid-cols-1 border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
         <div class="px-6 py-6 text-center sm:py-8">
           <dt class="sr-only">Establecimientos en Chile</dt>

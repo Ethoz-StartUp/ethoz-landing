@@ -111,7 +111,7 @@
   <NavBar />
 
   <!-- Content -->
-  <div id="contact-main" class="mx-auto flex-1 w-full max-w-3xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
+  <div id="contact-main" class="mx-auto flex-1 w-full max-w-7xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
 
     <!-- HEADING — editorial -->
     <div class="mb-12">

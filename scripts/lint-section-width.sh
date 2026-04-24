@@ -16,9 +16,10 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-# Pattern: mx-auto max-w-{2xl..6xl} followed by px- (indicates outer container)
-# Exclude: src/routes/admin/** (different scale convention) + print: utilities
-PATTERN='mx-auto max-w-(2xl|3xl|4xl|5xl|6xl) px-'
+# Pattern: mx-auto ... max-w-{2xl..6xl} ... px- (outer container signal).
+# Allows intermediate utilities like `flex-1`, `w-full`, etc.
+# Exclude: src/routes/admin/** (different scale convention).
+PATTERN='mx-auto[^"]*max-w-(2xl|3xl|4xl|5xl|6xl)[^"]*px-'
 
 HITS=$(grep -rEn "$PATTERN" \
   src/routes src/lib/components \

@@ -472,7 +472,7 @@
       </blockquote>
     </div>
 
-    <div class="mx-auto mt-12 max-w-5xl px-4 sm:mt-16 sm:px-6 lg:px-8">
+    <div class="mx-auto mt-12 max-w-7xl px-4 sm:mt-16 sm:px-6 lg:px-8">
       <dl class="grid grid-cols-1 border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
         <div class="px-6 py-6 text-center sm:py-8">
           <dt class="sr-only">{t('editorial.stat1_label')}</dt>

@@ -181,7 +181,7 @@
   </a>
   <NavBar />
 
-  <div id="schedule-main" class="mx-auto w-full max-w-5xl flex-1 px-4 py-12 pt-24 sm:py-16 sm:pt-28">
+  <div id="schedule-main" class="mx-auto w-full max-w-7xl flex-1 px-4 py-12 pt-24 sm:py-16 sm:pt-28">
     <!-- Step indicator -->
     <nav aria-label="Progreso del proceso de demo" class="mb-8">
       <ol class="mx-auto flex max-w-lg items-center justify-center gap-3">
