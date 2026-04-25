@@ -180,7 +180,7 @@
             can: ['Buscar alumno', 'Ver lista de autorizados', 'Confirmar retiro'],
           },
         ] as card}
-          <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+          <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
             <div class="flex items-center gap-2.5 mb-3">
               <card.icon class="size-5 shrink-0 {card.color}" />
               <h3 class="text-sm font-semibold text-foreground">{card.role}</h3>
@@ -205,7 +205,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <UserCog class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Vistas personalizadas por cargo</h2>
@@ -215,7 +215,7 @@
           </p>
         </div>
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <GanttChartSquare class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Interfaz de portería ultra-restringida</h2>
@@ -225,7 +225,7 @@
           </p>
         </div>
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <EyeOff class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Confidencialidad filtrada por rol</h2>

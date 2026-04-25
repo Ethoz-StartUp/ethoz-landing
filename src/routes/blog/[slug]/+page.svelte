@@ -99,6 +99,9 @@
               src={post.coverImage}
               alt={post.title}
               class="h-auto w-full object-cover"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
             />
           </div>
         </div>

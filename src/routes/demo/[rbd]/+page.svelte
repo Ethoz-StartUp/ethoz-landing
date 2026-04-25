@@ -253,7 +253,8 @@
 
   <!-- Step indicator -->
   <nav aria-label="Progreso del proceso de demo" class="border-b border-border bg-background py-4">
-    <ol class="mx-auto flex max-w-2xl items-center justify-center gap-3 px-4">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <ol class="mx-auto flex max-w-2xl items-center justify-center gap-3">
       {#each [{ label: 'Busca tu colegio', n: 1 }, { label: 'Completa tus datos', n: 2 }, { label: 'Agenda tu demo', n: 3 }] as s}
         <li class="flex items-center gap-2" aria-current={2 === s.n ? 'step' : undefined}>
           <span class="flex size-7 items-center justify-center rounded-full text-xs font-bold {2 >= s.n ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}" aria-hidden="true">
@@ -268,6 +269,7 @@
         </li>
       {/each}
     </ol>
+    </div>
   </nav>
 
   <!-- Content -->

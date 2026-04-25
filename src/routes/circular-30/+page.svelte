@@ -248,7 +248,7 @@
             { title: 'Integración con sistemas actuales', desc: 'Ethoz se conecta con Napsis, Syscol y Lirmi mediante API. No migra datos — los complementa con la capa de seguridad que falta.' },
             { title: 'Cumplimiento cruzado Ley 21.719', desc: 'Cada dato del libro de clases es un dato personal protegido por la Ley 21.719. Ethoz garantiza que ambas normativas se cumplan simultáneamente.' },
           ] as item}
-            <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)] rounded-lg">
+            <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover rounded-lg">
               <h3 class="font-semibold text-foreground">{item.title}</h3>
               <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
             </div>

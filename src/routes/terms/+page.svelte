@@ -102,7 +102,7 @@
       <section>
         <h2 class="text-lg font-semibold text-foreground">10. Contacto</h2>
         <p class="mt-2">
-          Para consultas sobre estos términos, escriba a <a href="mailto:legal@ethoz.cl" class="font-medium text-primary underline underline-offset-2 hover:opacity-80">legal@ethoz.cl</a>.
+          Para consultas sobre estos términos, escriba a <a href="mailto:legal@ethoz.cl" class="font-medium text-primary underline underline-offset-2 hover:text-primary-pressed">legal@ethoz.cl</a>.
         </p>
       </section>
 

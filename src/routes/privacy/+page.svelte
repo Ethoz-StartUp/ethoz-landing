@@ -85,7 +85,7 @@
           <li><strong class="text-foreground">Portabilidad:</strong> recibir sus datos en formato estructurado.</li>
         </ul>
         <p class="mt-3">
-          Para ejercer cualquiera de estos derechos, escriba a <a href="mailto:privacidad@ethoz.cl" class="font-medium text-primary underline underline-offset-2 hover:opacity-80">privacidad@ethoz.cl</a>. Responderemos en un plazo máximo de 15 días hábiles.
+          Para ejercer cualquiera de estos derechos, escriba a <a href="mailto:privacidad@ethoz.cl" class="font-medium text-primary underline underline-offset-2 hover:text-primary-pressed">privacidad@ethoz.cl</a>. Responderemos en un plazo máximo de 15 días hábiles.
         </p>
       </section>
 
@@ -113,7 +113,7 @@
       <section>
         <h2 class="text-lg font-semibold text-foreground">9. Contacto</h2>
         <p class="mt-2">
-          Para consultas sobre esta política o el tratamiento de sus datos personales, contacte a nuestro equipo de privacidad en <a href="mailto:privacidad@ethoz.cl" class="font-medium text-primary underline underline-offset-2 hover:opacity-80">privacidad@ethoz.cl</a>.
+          Para consultas sobre esta política o el tratamiento de sus datos personales, contacte a nuestro equipo de privacidad en <a href="mailto:privacidad@ethoz.cl" class="font-medium text-primary underline underline-offset-2 hover:text-primary-pressed">privacidad@ethoz.cl</a>.
         </p>
       </section>
 

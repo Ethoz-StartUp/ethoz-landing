@@ -95,7 +95,7 @@
             <!-- Student header -->
             <div class="flex gap-4">
               <div class="flex flex-col items-center gap-2">
-                <img src="/images/students/girl-12.webp" alt="Perfil de alumna en Ethoz" class="size-14 rounded-full object-cover ring-2 ring-primary/20" />
+                <img src="/images/students/girl-12.webp" alt="Perfil de alumna en Ethoz" class="size-14 rounded-full object-cover ring-2 ring-primary/20" loading="lazy" decoding="async" />
                 <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2 py-0.5 text-[10px] font-medium text-success">Sin alertas</span>
               </div>
               <div class="flex-1 min-w-0">
@@ -321,7 +321,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <History class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Historial longitudinal</h2>
@@ -331,7 +331,7 @@
           </p>
         </div>
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Lock class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Niveles de confidencialidad</h2>
@@ -341,7 +341,7 @@
           </p>
         </div>
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <BadgeCheck class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">Cumplimiento normativo</h2>

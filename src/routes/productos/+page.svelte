@@ -163,7 +163,7 @@
               {#if product.name === 'Perfil Integral del Alumno'}
                 <div class="p-5">
                   <div class="flex gap-3">
-                    <img src="/images/students/girl-12.webp" alt="Perfil de alumna" class="size-12 rounded-full object-cover" />
+                    <img src="/images/students/girl-12.webp" alt="Perfil de alumna" class="size-12 rounded-full object-cover" loading="lazy" decoding="async" />
                     <div>
                       <p class="text-sm font-semibold text-foreground">Valentina Rojas Sepúlveda</p>
                       <p class="text-xs text-muted-foreground">7° Básico B · Apoderado: María Sepúlveda</p>
@@ -187,7 +187,7 @@
                     <span class="text-xs font-semibold text-success">AUTORIZADO</span>
                   </div>
                   <div class="flex items-center gap-3">
-                    <img src="/images/people/apoderado-madre.webp" alt="Apoderada" class="size-10 rounded-full object-cover" />
+                    <img src="/images/people/apoderado-madre.webp" alt="Apoderada" class="size-10 rounded-full object-cover" loading="lazy" decoding="async" />
                     <div>
                       <p class="text-xs font-medium text-foreground">María Sepúlveda · Madre</p>
                       <p class="text-[10px] text-muted-foreground">Valentina Rojas · 7° Básico B · 14:32</p>
@@ -204,7 +204,7 @@
                   <div class="space-y-2">
                     {#each [{name:'Directora',img:'/images/people/director-mujer.webp',dots:[true,true,true,true]},{name:'Docente',img:'/images/people/docente-mujer.webp',dots:[true,false,true,false]},{name:'Portero',img:'/images/people/portero-hombre.webp',dots:[false,true,false,false]}] as role}
                       <div class="flex items-center gap-2">
-                        <img src={role.img} alt={role.name} class="size-5 rounded-full object-cover" />
+                        <img src={role.img} alt={role.name} class="size-5 rounded-full object-cover" loading="lazy" decoding="async" />
                         <span class="w-16 text-[10px] font-medium text-foreground">{role.name}</span>
                         {#each role.dots as d}
                           <span class="size-2.5 rounded-full {d ? 'bg-success' : 'bg-muted'} mx-auto"></span>
@@ -218,14 +218,14 @@
                   <div class="rounded-lg border border-border px-3 py-2 text-xs text-foreground mb-3">val<span class="animate-pulse text-primary">|</span></div>
                   <div class="space-y-1.5">
                     <div class="flex items-center gap-2.5 rounded-lg bg-primary/5 px-3 py-2">
-                      <img src="/images/students/girl-12.webp" alt="Perfil de alumna" class="size-7 rounded-full object-cover" />
+                      <img src="/images/students/girl-12.webp" alt="Perfil de alumna" class="size-7 rounded-full object-cover" loading="lazy" decoding="async" />
                       <div>
                         <span class="text-xs text-foreground"><mark class="bg-primary/20 font-semibold">Val</mark>entina Rojas</span>
                         <p class="text-[10px] text-muted-foreground">7° Básico B</p>
                       </div>
                     </div>
                     <div class="flex items-center gap-2.5 rounded-lg px-3 py-2 hover:bg-muted/50">
-                      <img src="/images/students/kid-14.webp" alt="Perfil de alumno" class="size-7 rounded-full object-cover" />
+                      <img src="/images/students/kid-14.webp" alt="Perfil de alumno" class="size-7 rounded-full object-cover" loading="lazy" decoding="async" />
                       <div>
                         <span class="text-xs text-foreground"><mark class="bg-primary/20 font-semibold">Val</mark>dés, Tomás</span>
                         <p class="text-[10px] text-muted-foreground">8° Básico A</p>

@@ -480,8 +480,11 @@ button[role="checkbox"] {
   box-shadow: none;
 }
 
+/* Canonical card hover shadow — 4-vector spec: border + bg + translate-1px + this shadow.
+   Per design system anti-pattern memory item #16. Single source of truth for the
+   ~50 hover-states across landing pages. */
 @utility shadow-card-hover {
-  box-shadow: 0 1px 0 rgba(5, 28, 44, 0.06);
+  box-shadow: 0 2px 0 0 rgba(5, 28, 44, 0.10);
 }
 
 @utility ring-card {

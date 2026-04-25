@@ -330,7 +330,7 @@
           </p>
           <div class="mt-8 grid gap-4 sm:grid-cols-2">
             {#each rights as right}
-              <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)] rounded-lg">
+              <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover rounded-lg">
                 <div class="flex items-baseline gap-3">
                   <span class="font-heading text-2xl font-medium leading-none text-primary group-hover:text-foreground">{right.letter}</span>
                   <h3 class="text-base font-semibold text-foreground">{right.name}</h3>
@@ -456,7 +456,7 @@
               { title: 'Gestión de derechos ARCO+P', desc: 'Panel para registrar y responder solicitudes de acceso, rectificación y supresión dentro de los plazos legales.', link: '/compliance' },
               { title: 'Integración con sistemas actuales', desc: 'Ethoz se conecta a Napsis, Syscol y Lirmi. No tiene que migrar ni reemplazar su ERP escolar.', link: '/integrations' },
             ] as item}
-              <a href={item.link} class="group block border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)] rounded-lg">
+              <a href={item.link} class="group block border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover rounded-lg">
                 <h3 class="font-semibold text-foreground">{item.title}</h3>
                 <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
                 <span class="mt-4 inline-flex items-center gap-1 border-b border-primary pb-0.5 text-sm font-semibold text-primary group-hover:border-b-2">

@@ -49,7 +49,7 @@
       {#each allPosts as post, i}
         <a
           href="/blog/{post.slug}"
-          class="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px]"
+          class="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:shadow-card-hover hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px]"
         >
           <!-- Cover image -->
           {#if post.coverImage}

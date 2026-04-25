@@ -242,42 +242,42 @@
         <p class="mt-3 text-base text-muted-foreground">Cada perfil ve los indicadores relevantes para su función.</p>
       </div>
       <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <TrendingUp class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Tendencias de convivencia</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">Detecta semanas de alta conflictividad antes de que escalen. Compara períodos y cursos con un clic.</p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Users class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Segmentación por curso y género</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">Filtra indicadores por nivel, curso, sección y género. Identifica brechas y patrones que los reportes manuales no revelan.</p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <BarChart3 class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Dashboard multi-sede</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">Sostenedores con múltiples establecimientos ven todos sus indicadores consolidados. Compara sedes con métricas homologadas.</p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <ShieldAlert class="size-5 shrink-0 text-destructive" />
             <h3 class="text-base font-semibold text-foreground">KPI de cumplimiento normativo</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">Porcentaje de consentimientos firmados (Ley 21.719), alertas gestionadas a tiempo y protocolos completados.</p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <ClipboardList class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Exportación para SEREMIs</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">Genera informes estadísticos en el formato que exige la SEREMI de Educación o la Superintendencia de Educación.</p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Filter class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">Alertas de umbral automáticas</h3>

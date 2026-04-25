@@ -135,7 +135,7 @@
       <div class="grid gap-4 sm:grid-cols-2">
         <a
           href={CONTACT.email.link}
-          class="group flex flex-col gap-3 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]"
+          class="group flex flex-col gap-3 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover"
         >
           <div class="flex items-center gap-2.5">
             <Mail class="size-4 shrink-0 text-primary" />
@@ -149,7 +149,7 @@
 
         <a
           href="/demo"
-          class="group flex flex-col gap-3 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]"
+          class="group flex flex-col gap-3 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover"
         >
           <div class="flex items-center gap-2.5">
             <CalendarDays class="size-4 shrink-0 text-primary" />
@@ -165,7 +165,7 @@
           href="https://www.linkedin.com/company/ethozcl/"
           target="_blank"
           rel="noopener noreferrer"
-          class="group flex flex-col gap-3 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]"
+          class="group flex flex-col gap-3 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover"
         >
           <div class="flex items-center gap-2.5">
             <ExternalLink class="size-4 shrink-0 text-primary" />

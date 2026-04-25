@@ -408,7 +408,7 @@
             {#each heroStudents as student, i}
               <button
                 onclick={() => { currentStudent = i; }}
-                class="flex items-center justify-center p-2"
+                class="flex min-h-[44px] min-w-[44px] items-center justify-center"
                 aria-label={`Ver ${student.name}`}
                 aria-current={currentStudent === i ? 'true' : undefined}
               >
@@ -528,7 +528,7 @@
 
       <!-- Problem items — 3 columns, icon + title always inline -->
       <div class="mx-auto mt-8 grid gap-5 sm:grid-cols-3">
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <AlertTriangle class="size-5 shrink-0 text-warning transition-transform group-hover:-rotate-6" />
             <h3 class="text-base font-semibold text-foreground">{t('problem.card1.title')}</h3>
@@ -536,7 +536,7 @@
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card1.desc')}</p>
         </div>
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Shield class="size-5 shrink-0 text-destructive transition-transform group-hover:-rotate-6" />
             <h3 class="text-base font-semibold text-foreground">{t('problem.card2.title')}</h3>
@@ -544,7 +544,7 @@
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card2.desc')}</p>
         </div>
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <FileCheck class="size-5 shrink-0 text-primary transition-transform group-hover:-rotate-6" />
             <h3 class="text-base font-semibold text-foreground">{t('problem.card3.title')}</h3>
@@ -576,7 +576,7 @@
       <!-- Featured hero card: Ficha 360° — the foundational data module.
            Asymmetric treatment breaks the 2×2 AI-slop template. -->
       <div class="mx-auto mt-10 max-w-5xl">
-        <a href="/features/student-profile" class="group block rounded-lg border border-border bg-card p-8 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)] sm:p-10 lg:p-12">
+        <a href="/features/student-profile" class="group block rounded-lg border border-border bg-card p-8 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover sm:p-10 lg:p-12">
           <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
             <div>
               <span class="font-heading block text-5xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground sm:text-6xl">01</span>
@@ -610,7 +610,7 @@
 
       <!-- Supporting features — 3-column grid, compact cards -->
       <div class="mx-auto mt-5 grid max-w-5xl gap-5 sm:grid-cols-3">
-        <a href="/features/safe-pickups" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <a href="/features/safe-pickups" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">02</span>
           <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.pickup.title')}</h3>
           <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.pickup.desc')}</p>
@@ -619,7 +619,7 @@
           </span>
         </a>
 
-        <a href="/features/access-control" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <a href="/features/access-control" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">03</span>
           <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.rbac.title')}</h3>
           <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.rbac.desc')}</p>
@@ -628,7 +628,7 @@
           </span>
         </a>
 
-        <a href="/features/smart-search" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <a href="/features/smart-search" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">04</span>
           <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.search.title')}</h3>
           <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.search.desc')}</p>
@@ -640,7 +640,7 @@
 
       <!-- Cross-cutting: privacy is not a product, it's how everything works -->
       <div class="mx-auto mt-8 max-w-4xl">
-        <a href="/compliance" class="group flex items-center gap-4 rounded-lg border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.10)]">
+        <a href="/compliance" class="group flex items-center gap-4 rounded-lg border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <Shield class="size-5 shrink-0 text-primary transition-transform group-hover:rotate-6" />
           <div class="flex-1">
             <p class="text-sm font-semibold text-foreground">{t('home.compliance_banner.title')}</p>
@@ -860,7 +860,7 @@
 
       <!-- Inline contact link — no /faq page yet, route to /contact for unanswered questions -->
       <div class="mt-6 text-center">
-        <a href="/contact" class="inline-flex items-center gap-1 text-sm font-medium text-primary hover:opacity-80">
+        <a href="/contact" class="inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:text-primary-pressed hover:underline">
           {t('faq.contact_link')}
           <ArrowRight class="size-3.5" />
         </a>
@@ -877,12 +877,12 @@
        ═══════════════════════════════════════════ -->
   <section class="reveal bg-foreground py-20 text-background sm:py-28" id="cta" aria-labelledby="final-cta-heading">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">El momento es ahora</p>
+      <span class="mx-auto block h-px w-12 bg-background/80" aria-hidden="true"></span>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background">El momento es ahora</p>
       <h2 id="final-cta-heading" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl lg:text-5xl">
         {t('cta.title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-background/95">
         {t('cta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -904,7 +904,7 @@
         </button>
       </div>
       <!-- Urgency footnote — editorial line, not a widget -->
-      <p class="mt-8 text-sm text-background/80">
+      <p class="mt-8 text-sm text-background/95">
         <span data-numeric class="font-semibold text-background">{countdownDays}</span> días hasta que la Ley 21.719 entre en plena vigencia · Diciembre 2026
       </p>
     </div>
