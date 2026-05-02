@@ -5,6 +5,8 @@ Ethoz (ethoz.cl) is a school protection platform for Chilean K-12 schools. Svelt
 
 **Not a school management system** — complements existing ERPs (Napsis, Syscol, Lirmi) by adding security, compliance, and student data protection.
 
+> **🚧 Active redesign in progress (`redesign/stripe-press` branch).** The Cal.com aesthetic on `main` is being replaced with Stripe Press editorial (warm cream `#FBF7F0` + deep navy `#0F1F3A` + Newsreader serif). Spec: `docs/superpowers/specs/2026-05-02-stripe-press-redesign-design.md`. Plan: `docs/superpowers/plans/2026-05-02-stripe-press-redesign-p0-p2.md`. **Light edits only on `main`** until the redesign branch merges. Avoid token churn or new component primitives on `main`.
+
 ## Architecture
 
 ```
