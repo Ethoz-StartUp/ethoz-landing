@@ -23,6 +23,7 @@ export const en = {
     'The school safety platform built for Chile\'s Ley 21.719 — without replacing the system you already use.',
   'hero.cta.primary': 'Book a Demo',
   'hero.cta.secondary': 'Apply for the 2026 Pilot',
+  'hero.countdown_label': 'Countdown',
 
   // Trust bar — provable facts, not generic badges
   'trust.attribution': 'Built in Chile · Compliance by design from day one',
@@ -31,6 +32,10 @@ export const en = {
   'trust.integration': 'Designed to integrate with Napsis, SIGE and Lirmi',
   'trust.servers': 'Data in Santiago, Chile (Google Cloud)',
   'trust.directory': 'Directory of 12,038 schools',
+  'trust.label.data': 'Data',
+  'trust.label.encryption': 'Encryption',
+  'trust.label.integration': 'Integration',
+  'trust.label.compliance': 'Compliance',
 
   // Editorial anchor — McK-style anti-slop moment between trust bar and problem
   'editorial.eyebrow': 'The context',
@@ -105,6 +110,7 @@ export const en = {
   'compliance.title': 'Law 21.719 takes effect soon',
   'compliance.subtitle':
     'Schools that aren\'t prepared face fines of up to 20,000 UTM. Ethoz was built so your school can comply with Ley 21.719.',
+  'compliance.overline_detail': 'Law 21.719 · December 2026',
   'compliance.countdown.label': 'Time remaining until enforcement',
   'compliance.countdown.days': 'days',
   'compliance.countdown.hours': 'hours',
@@ -130,6 +136,7 @@ export const en = {
     'Each team member sees only what their role allows. No lengthy training required.',
 
   // Final CTA
+  'cta.urgency_eyebrow': 'The time is now',
   'cta.title': 'Protect your school community today',
   'cta.subtitle':
     'The 2026 pilot has limited spots. Be among the first schools to comply with Law 21.719.',

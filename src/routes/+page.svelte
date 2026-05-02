@@ -270,7 +270,7 @@
               <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
               <span class="relative inline-flex size-1.5 rounded-full bg-destructive"></span>
             </span>
-            <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">Cuenta regresiva</span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">{t('hero.countdown_label')}</span>
           </span>
           <span data-numeric class="text-foreground">
             <span class="font-semibold">{countdownDays}</span> días
@@ -424,22 +424,22 @@
       <dl class="mt-8 grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-hairline-warm">
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">Datos</dt>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">{t('trust.label.data')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.servers')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">Cifrado</dt>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">{t('trust.label.encryption')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.encryption')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">Integración</dt>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">{t('trust.label.integration')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.integration')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">Cumplimiento</dt>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">{t('trust.label.compliance')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.compliance')}</dd>
         </div>
       </dl>
@@ -649,7 +649,7 @@
       <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft">
         <span class="text-on-navy-mustard">{t('compliance.overline')}</span>
         <span aria-hidden="true" class="text-on-navy-soft/40">·</span>
-        <span>Ley 21.719 · Diciembre 2026</span>
+        <span>{t('compliance.overline_detail')}</span>
       </p>
       <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-on-navy sm:text-4xl">
         {t('compliance.title')}
@@ -872,7 +872,7 @@
   <SectionDark variant="cta" id="cta" aria-labelledby="final-cta-heading">
     <div class="text-center">
       <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft">
-        <span class="text-on-navy-mustard">El momento es ahora</span>
+        <span class="text-on-navy-mustard">{t('cta.urgency_eyebrow')}</span>
         <span aria-hidden="true" class="text-on-navy-soft/40">·</span>
         <span><span data-numeric class="font-bold text-on-navy">{countdownDays}</span> días para Ley 21.719</span>
       </p>
