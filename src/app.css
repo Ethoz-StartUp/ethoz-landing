@@ -1,8 +1,7 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter";
-@import "@fontsource-variable/playfair-display";
+@import "@fontsource-variable/newsreader";
 @import "@fontsource-variable/jetbrains-mono";
-@import "cal-sans";
 
 /*
  * ──────────────────────────────────────────
@@ -108,7 +107,7 @@
 
   /* ---------- Typography — Cal Sans display + Inter body (Cal.com aesthetic) ---------- */
   --font-sans: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Cal Sans", "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Newsreader Variable", "Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* ---------- Cal-flavored surface tokens (Cal.com aesthetic) ---------- */
@@ -127,22 +126,69 @@
   --color-badge-pink: var(--badge-pink);
   --color-badge-violet: var(--badge-violet);
   --color-badge-emerald: var(--badge-emerald);
+
+  /* ── Stripe Press canvas + ink ── */
+  --color-canvas: var(--canvas);
+  --color-canvas-elevated: var(--canvas-elevated);
+  --color-canvas-strong: var(--canvas-strong);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-hairline-warm: var(--hairline-warm);
+  --color-hairline-warm-soft: var(--hairline-warm-soft);
+
+  /* ── Per-section accents ── */
+  --color-accent-mustard: var(--accent-mustard);
+  --color-accent-mustard-ink: var(--accent-mustard-ink);
+  --color-accent-brick: var(--accent-brick);
+  --color-accent-brick-ink: var(--accent-brick-ink);
+  --color-accent-sage: var(--accent-sage);
+  --color-accent-sage-ink: var(--accent-sage-ink);
+
+  /* ── Dark sections + footer ── */
+  --color-section-navy: var(--section-navy);
+  --color-on-navy: var(--on-navy);
+  --color-on-navy-soft: var(--on-navy-soft);
+  --color-on-navy-mustard: var(--on-navy-mustard);
 }
 
 :root {
+  /* ── Stripe Press canvas + ink ── */
+  --canvas: #FBF7F0;                        /* warm cream — replaces #FFFFFF as page bg */
+  --canvas-elevated: #F5EFE3;               /* nested cards, FAQ list bg */
+  --canvas-strong: #EDE5D3;                 /* disabled bg, deepest cream tier */
+  --ink: #0F1F3A;                           /* deep editorial navy — replaces Cal black + McK navy as primary text */
+  --ink-soft: #3A4A6B;                      /* body text on cream — 8.4:1 AAA */
+  --hairline-warm: #E5DDC9;                 /* warm hairline border (decorative-only — must pair with text affordance) */
+  --hairline-warm-soft: #F0EAD9;            /* barely-visible divider */
+
+  /* ── Per-section accent tokens ── */
+  /* CTA / heading / large-decorative only on cream — body text uses -ink variants */
+  --accent-mustard: #D4A017;                /* eyebrows, hairline rules, large numerals only on cream — FAILS 1.4.11 if used as CTA fill */
+  --accent-mustard-ink: #5C4500;            /* mustard-tinted body text on cream — 8.6:1 AAA body */
+  --accent-brick: #B23A2C;                  /* problem section, urgency dots, countdown rule */
+  --accent-brick-ink: #8A2A1F;              /* brick body text on cream — 7.6:1 AAA body */
+  --accent-sage: #4A6B47;                   /* features, success ticks, large step numerals */
+  --accent-sage-ink: #2F4A2D;               /* sage body text on cream — 9.3:1 AAA body */
+
+  /* ── Dark sections (Compliance, Final CTA) + footer ── */
+  --section-navy: #0F1F3A;                  /* full-bleed dark sections — alias of --ink */
+  --on-navy: #FBF7F0;                       /* cream type on navy — 15.8:1 AAA */
+  --on-navy-soft: #C7D0DD;                  /* body text on navy — 10.9:1 AAA */
+  --on-navy-mustard: #E8B82E;               /* mustard fill on dark-section CTAs + decorative — 9.1:1 AAA */
+
   /* ── Primary — Cal.com near-black (AAA 17:1 on white). Flipped from McK blue per Cal.com aesthetic ── */
-  --primary: #111111;
-  --primary-foreground: #FFFFFF;
-  --primary-ink: #111111;                   /* Cal ink — h1/h2/h3 + body anchor */
-  --primary-hover: #242424;                 /* Cal active/pressed shade */
-  --primary-pressed: #242424;
+  --primary: var(--ink);                    /* navy CTA fill — was #111111 Cal black */
+  --primary-foreground: var(--canvas);      /* cream CTA text — was #FFFFFF */
+  --primary-ink: var(--ink);
+  --primary-hover: #1A2D4A;                 /* slightly lighter navy for hover */
+  --primary-pressed: #1A2D4A;
 
   /* ── Brand Accent — sparingly used. Cal.com is near-monochrome; blue appears on inline links + small badges only ── */
   --brand-accent: #3b82f6;
 
   /* ── Core — White canvas + Cal ink ── */
-  --background: #FFFFFF;                    /* Pure white default — Cal canvas */
-  --foreground: #111111;                    /* Cal ink — replaces McK deep blue for primary text */
+  --background: var(--canvas);              /* repointed to warm cream — every bg-background utility now resolves here */
+  --foreground: var(--ink);                 /* repointed to deep editorial navy — every text-foreground utility now resolves here */
 
   /* ── Cal surface system ── */
   --surface-soft: #F8F9FA;                  /* nav-pill-group background, very-soft section dividers */
@@ -195,23 +241,23 @@
   --titanium-foreground: #FFFFFF;
 
   /* ── Semantic: Destructive (used in data-viz / safety only) ── */
-  --destructive: #C0382B;                   /* mck-red */
-  --destructive-foreground: #FFFFFF;
-  --danger: #A0291E;
-  --danger-foreground: #FFFFFF;
+  --destructive: #B23A2C;                   /* aligned with --accent-brick — single-source urgency */
+  --destructive-foreground: #FBF7F0;        /* cream on brick — 5.3:1 (AAA-large only); for AAA body, override per-component */
+  --danger: #8A2A1F;                        /* darker brick for danger states */
+  --danger-foreground: #FBF7F0;
 
-  /* ── Semantic: Warning — amber with deep-blue fg ── */
-  --warning: #D98F2B;                       /* mck-amber */
-  --warning-foreground: #051C2C;
-  --warning-text: #051C2C;
+  /* ── Semantic: Warning — mustard with navy ink ── */
+  --warning: #D4A017;                       /* aligned with --accent-mustard */
+  --warning-foreground: #0F1F3A;            /* navy on mustard — 7.1:1 AAA body ✓ */
+  --warning-text: #0F1F3A;
 
-  /* ── Semantic: Success — positive delta ── */
-  --success: #2E8B57;                       /* mck-green */
-  --success-foreground: #FFFFFF;
+  /* ── Semantic: Success — sage ── */
+  --success: #4A6B47;                       /* aligned with --accent-sage */
+  --success-foreground: #FBF7F0;            /* cream on sage — 5.5:1 (AAA-large only) */
 
-  /* ── Semantic: Info — mck-blue ── */
-  --info: #034B8A;
-  --info-foreground: #FFFFFF;
+  /* ── Semantic: Info — navy anchor ── */
+  --info: #0F1F3A;                          /* navy replaces McK blue — single anchor */
+  --info-foreground: #FBF7F0;
 
   /* ── Platform brand exceptions (external identity, do not repurpose) ── */
   --brand-linkedin: #0A66C2;
@@ -233,15 +279,13 @@
   --overlay: rgba(5, 28, 44, 0.60);
   --skeleton: #EEF0F2;
 
-  /* ── Radius — institutional but not rectangular. 4/8/12/16 progression.
-   *    Buttons and inputs at 6px read as proper controls (not bricks).
-   *    Cards at 8px, mockup at 12px. Pills kept for status chips/avatars. ── */
+  /* ── Radius — editorial-soft 4/6/10/14/20 progression (looser than Cal). ── */
   --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
-  --radius-2xl: 16px;
-  --radius-3xl: 20px;
+  --radius-md: 6px;     /* buttons, inputs */
+  --radius-lg: 10px;    /* feature cards (was 8px) */
+  --radius-xl: 14px;    /* hero mockup card, FAQ list wrapper (was 12px) */
+  --radius-2xl: 20px;   /* full-bleed section card wrappers (was 16px) */
+  --radius-3xl: 24px;
 
   /* ── Motion ── */
   --ease-standard: cubic-bezier(0.2, 0, 0.2, 1);
@@ -290,21 +334,21 @@ body {
   letter-spacing: 0;
 }
 
-/* ── Typography — Cal Sans display, Inter body. Cal tracking signature: -0.04em on display sizes. ── */
+/* ── Typography — Newsreader display, Inter body. Editorial tracking: -0.02em on display sizes. ── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  font-weight: 500;
+  letter-spacing: -0.02em;
   line-height: 1.15;
   color: var(--foreground);
   text-wrap: balance;
 }
 
-h1 { font-size: var(--fs-h1); font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; }
-h2 { font-size: var(--fs-h2); font-weight: 600; letter-spacing: -0.04em; line-height: 1.1; }
-h3 { font-size: 28px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.2; }
-h4 { font-size: 22px; font-weight: 600; letter-spacing: -0.03em; }
-h5 { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; }
+h1 { font-size: var(--fs-h1); font-weight: 500; letter-spacing: -0.02em; line-height: 1.05; }
+h2 { font-size: var(--fs-h2); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+h3 { font-size: 28px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; }
+h4 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+h5 { font-size: 18px; font-weight: 600; letter-spacing: 0; }
 
 p, li {
   text-wrap: pretty;
@@ -372,7 +416,7 @@ blockquote.pull-quote,
 
 /* ── Selection — Cal ink highlight ── */
 ::selection {
-  background-color: rgba(17, 17, 17, 0.15);
+  background-color: rgba(15, 31, 58, 0.18);
   color: var(--foreground);
 }
 
@@ -525,7 +569,7 @@ button[role="checkbox"] {
    Per design system anti-pattern memory item #16. Single source of truth for the
    ~50 hover-states across landing pages. */
 @utility shadow-card-hover {
-  box-shadow: 0 2px 0 0 rgba(5, 28, 44, 0.10);
+  box-shadow: 0 2px 0 0 rgba(15, 31, 58, 0.10);
 }
 
 @utility ring-card {
@@ -533,11 +577,11 @@ button[role="checkbox"] {
 }
 
 @utility shadow-popover {
-  box-shadow: 0 8px 24px rgba(5, 28, 44, 0.10);
+  box-shadow: 0 8px 24px rgba(15, 31, 58, 0.10);
 }
 
 @utility shadow-mockup {
-  box-shadow: 0 2px 8px rgba(5, 28, 44, 0.08);
+  box-shadow: 0 2px 12px rgba(15, 31, 58, 0.08);
 }
 
 @utility bg-overlay {
@@ -561,4 +605,8 @@ button[role="checkbox"] {
 /* Safe-area padding for mobile sticky CTAs */
 @utility pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@utility section-editorial {
+  padding-block: clamp(80px, 9vw, 120px);
 }
