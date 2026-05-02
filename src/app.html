@@ -2,21 +2,11 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<!-- Theme init — FOUC-free. Reads localStorage('theme') or system pref,
-		     sets data-theme attribute on <html> BEFORE Svelte hydrates.
-		     Mirrored by src/lib/stores/theme.svelte.ts at runtime. -->
+		<!-- Theme init — light only by product decision (2026-05-02).
+		     Dark mode tokens + toggle exist in code but are not exposed to users.
+		     Re-enable by reading localStorage('theme') / prefers-color-scheme. -->
 		<script>
-		  (function () {
-		    try {
-		      var stored = localStorage.getItem('theme');
-		      var theme = stored === 'dark' || stored === 'light'
-		        ? stored
-		        : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-		      document.documentElement.dataset.theme = theme;
-		    } catch (e) {
-		      document.documentElement.dataset.theme = 'light';
-		    }
-		  })();
+		  document.documentElement.dataset.theme = 'light';
 		</script>
 		<!-- dataLayer stub (GTM loader runs after consent from +layout.svelte) -->
 		<script>
@@ -32,9 +22,8 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="%sveltekit.assets%/favicon.png?v=3" />
 		<link rel="apple-touch-icon" sizes="192x192" href="%sveltekit.assets%/apple-touch-icon.png?v=3" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!-- Theme-color matches Cal canvas tokens (DESIGN.md: canvas=#ffffff light, #0f0f0f dark) -->
-		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-		<meta name="theme-color" content="#0f0f0f" media="(prefers-color-scheme: dark)" />
+		<!-- Theme-color matches Cal canvas (light only by product decision). -->
+		<meta name="theme-color" content="#ffffff" />
 		<meta name="description" content="Protección escolar inteligente. Cumplimiento Ley 21.719, seguridad escolar y convivencia para colegios en Chile." />
 		<meta property="og:image" content="https://ethoz.cl/images/og-default.png" />
 		<meta property="og:image:type" content="image/png" />
