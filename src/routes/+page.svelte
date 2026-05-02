@@ -518,7 +518,7 @@
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-primary">{t('problem.overline')}</span>
+          <span class="text-accent-brick-ink">{t('problem.overline')}</span>
           <span aria-hidden="true" class="text-border">·</span>
           <span>3 fricciones · 1 sistema</span>
         </p>
@@ -530,31 +530,26 @@
         </p>
       </div>
 
-      <!-- Problem items — 3 columns, icon + title always inline -->
+      <!-- Problem items — 3 columns, FeatureCardCal with brick left-rule -->
       <div class="mx-auto mt-8 grid gap-5 sm:grid-cols-3">
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <div class="flex items-center gap-2.5">
-            <AlertTriangle class="size-5 shrink-0 text-warning transition-transform group-hover:-rotate-6" />
-            <h3 class="text-base font-semibold text-foreground">{t('problem.card1.title')}</h3>
-          </div>
-          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card1.desc')}</p>
-        </div>
-
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <div class="flex items-center gap-2.5">
-            <Shield class="size-5 shrink-0 text-destructive transition-transform group-hover:-rotate-6" />
-            <h3 class="text-base font-semibold text-foreground">{t('problem.card2.title')}</h3>
-          </div>
-          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card2.desc')}</p>
-        </div>
-
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <div class="flex items-center gap-2.5">
-            <FileCheck class="size-5 shrink-0 text-primary transition-transform group-hover:-rotate-6" />
-            <h3 class="text-base font-semibold text-foreground">{t('problem.card3.title')}</h3>
-          </div>
-          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card3.desc')}</p>
-        </div>
+        <FeatureCardCal
+          icon={AlertTriangle}
+          title={t('problem.card1.title')}
+          description={t('problem.card1.desc')}
+          accent="brick"
+        />
+        <FeatureCardCal
+          icon={Shield}
+          title={t('problem.card2.title')}
+          description={t('problem.card2.desc')}
+          accent="brick"
+        />
+        <FeatureCardCal
+          icon={FileCheck}
+          title={t('problem.card3.title')}
+          description={t('problem.card3.desc')}
+          accent="brick"
+        />
       </div>
     </div>
   </section>
