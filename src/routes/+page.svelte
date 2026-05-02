@@ -656,91 +656,89 @@
   <!-- ═══════════════════════════════════════════
        SECTION 6: COMPLIANCE + COUNTDOWN
        ═══════════════════════════════════════════ -->
-  <section class="reveal py-16 sm:py-20 lg:py-24" id="compliance">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Section header — editorial eyebrow pattern -->
-      <div class="mx-auto max-w-2xl text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-primary">{t('compliance.overline')}</span>
-          <span aria-hidden="true" class="text-border">·</span>
-          <span>Ley 21.719 · Diciembre 2026</span>
-        </p>
-        <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          {t('compliance.title')}
-        </h2>
-        <p class="mt-4 text-lg text-muted-foreground">
-          {t('compliance.subtitle')}
-        </p>
-      </div>
-
-      <!-- Countdown — dramatic editorial treatment -->
-      <div class="mx-auto mt-10 max-w-3xl">
-        <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-          <span class="relative flex size-2">
-            <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
-            <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
-          </span>
-          {t('compliance.countdown.label')}
-        </p>
-        <!-- Visually hidden live region announces the countdown to screen readers without flooding on every minute tick -->
-        <p class="sr-only" aria-live="polite" aria-atomic="true">
-          Faltan {countdownDays} días, {countdownHours} horas y {countdownMinutes} minutos para que la Ley 21.719 entre plenamente en vigencia.
-        </p>
-        <div
-          class="grid grid-cols-3 gap-2 sm:gap-4"
-          role="group"
-          aria-hidden="true"
-        >
-          <div class="group relative rounded-lg border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-primary"></div>
-            <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
-              {countdownDays}
-            </span>
-            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
-              {t('compliance.countdown.days')}
-            </span>
-          </div>
-          <div class="group relative rounded-lg border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-primary"></div>
-            <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
-              {countdownHours}
-            </span>
-            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
-              {t('compliance.countdown.hours')}
-            </span>
-          </div>
-          <div class="group relative rounded-lg border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-primary"></div>
-            <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
-              {countdownMinutes}
-            </span>
-            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
-              {t('compliance.countdown.minutes')}
-            </span>
-          </div>
-        </div>
-        <!-- CTA under countdown -->
-        <div class="mt-10 text-center">
-          <Button size="xl" href="/demo">
-            {t('hero.cta.primary')}
-            <ArrowRight class="size-5" />
-          </Button>
-          <p class="mt-4 text-xs text-muted-foreground">{t('home.countdown.cta_hint')}</p>
-        </div>
-      </div>
-
-      <!-- Compliance items -->
-      <div class="mx-auto mt-12 grid max-w-3xl gap-x-8 gap-y-4 sm:grid-cols-2">
-        {#each ['compliance.item1', 'compliance.item2', 'compliance.item3', 'compliance.item4', 'compliance.item5', 'compliance.item6'] as item}
-          <div class="flex items-start gap-3">
-            <Check class="mt-0.5 size-5 shrink-0 text-primary" />
-            <span class="text-sm leading-relaxed text-muted-foreground">{t(item as TranslationKey)}</span>
-          </div>
-        {/each}
-      </div>
-
+  <SectionDark variant="compliance" id="compliance">
+    <!-- Section header — editorial eyebrow pattern -->
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft">
+        <span class="text-on-navy-mustard">{t('compliance.overline')}</span>
+        <span aria-hidden="true" class="text-on-navy-soft/40">·</span>
+        <span>Ley 21.719 · Diciembre 2026</span>
+      </p>
+      <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-on-navy sm:text-4xl">
+        {t('compliance.title')}
+      </h2>
+      <p class="mt-4 text-lg text-on-navy-soft">
+        {t('compliance.subtitle')}
+      </p>
     </div>
-  </section>
+
+    <!-- Countdown — dramatic editorial treatment -->
+    <div class="mx-auto mt-10 max-w-3xl">
+      <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-on-navy-soft">
+        <span class="relative flex size-2">
+          <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
+          <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
+        </span>
+        {t('compliance.countdown.label')}
+      </p>
+      <!-- Visually hidden live region announces the countdown to screen readers without flooding on every minute tick -->
+      <p class="sr-only" aria-live="polite" aria-atomic="true">
+        Faltan {countdownDays} días, {countdownHours} horas y {countdownMinutes} minutos para que la Ley 21.719 entre plenamente en vigencia.
+      </p>
+      <div
+        class="grid grid-cols-3 gap-2 sm:gap-4"
+        role="group"
+        aria-hidden="true"
+      >
+        <div class="group relative rounded-lg border border-on-navy-soft/30 bg-on-navy/[0.04] p-5 text-center transition-colors hover:border-on-navy-mustard sm:p-8" aria-hidden="true">
+          <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-on-navy-mustard"></div>
+          <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-on-navy sm:text-8xl">
+            {countdownDays}
+          </span>
+          <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft sm:text-xs">
+            {t('compliance.countdown.days')}
+          </span>
+        </div>
+        <div class="group relative rounded-lg border border-on-navy-soft/30 bg-on-navy/[0.04] p-5 text-center transition-colors hover:border-on-navy-mustard sm:p-8" aria-hidden="true">
+          <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-on-navy-mustard"></div>
+          <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-on-navy sm:text-8xl">
+            {countdownHours}
+          </span>
+          <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft sm:text-xs">
+            {t('compliance.countdown.hours')}
+          </span>
+        </div>
+        <div class="group relative rounded-lg border border-on-navy-soft/30 bg-on-navy/[0.04] p-5 text-center transition-colors hover:border-on-navy-mustard sm:p-8" aria-hidden="true">
+          <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-on-navy-mustard"></div>
+          <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-on-navy sm:text-8xl">
+            {countdownMinutes}
+          </span>
+          <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft sm:text-xs">
+            {t('compliance.countdown.minutes')}
+          </span>
+        </div>
+      </div>
+      <!-- CTA under countdown -->
+      <div class="mt-10 text-center">
+        <Button size="xl" href="/demo"
+                class="bg-on-navy-mustard text-ink hover:bg-on-navy-mustard/90">
+          {t('hero.cta.primary')}
+          <ArrowRight class="size-5" />
+        </Button>
+        <p class="mt-4 text-xs text-on-navy-soft">{t('home.countdown.cta_hint')}</p>
+      </div>
+    </div>
+
+    <!-- Compliance items -->
+    <div class="mx-auto mt-12 grid max-w-3xl gap-x-8 gap-y-4 sm:grid-cols-2">
+      {#each ['compliance.item1', 'compliance.item2', 'compliance.item3', 'compliance.item4', 'compliance.item5', 'compliance.item6'] as item}
+        <div class="flex items-start gap-3">
+          <Check class="mt-0.5 size-5 shrink-0 text-on-navy-mustard" />
+          <span class="text-sm leading-relaxed text-on-navy-soft">{t(item as TranslationKey)}</span>
+        </div>
+      {/each}
+    </div>
+  </SectionDark>
 
   <!-- ═══════════════════════════════════════════
        SECTION 8: HOW IT WORKS — visual progression with icons + connector
