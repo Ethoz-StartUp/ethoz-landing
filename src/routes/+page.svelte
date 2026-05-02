@@ -557,12 +557,12 @@
   <!-- ═══════════════════════════════════════════
        SECTION 5: SOLUTION / FEATURES
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="features">
+  <section class="reveal bg-canvas-elevated py-16 sm:py-20 lg:py-24" id="features">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-primary">{t('solution.overline')}</span>
+          <span class="text-accent-sage-ink">{t('solution.overline')}</span>
           <span aria-hidden="true" class="text-border">·</span>
           <span>10 módulos · Activación modular</span>
         </p>
@@ -577,21 +577,21 @@
       <!-- Featured hero card: Ficha 360° — the foundational data module.
            Asymmetric treatment breaks the 2×2 AI-slop template. -->
       <div class="mx-auto mt-10 max-w-5xl">
-        <a href="/features/student-profile" class="group block rounded-lg border border-border bg-card p-8 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover sm:p-10 lg:p-12">
+        <a href="/features/student-profile" class="group block rounded-lg border-l-2 border-accent-sage bg-canvas-elevated p-8 transition-all duration-[160ms] hover:border-l-4 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover sm:p-10 lg:p-12">
           <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
             <div>
-              <span class="font-heading block text-5xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground sm:text-6xl">01</span>
+              <span class="font-heading block text-5xl font-medium tabular-nums leading-none tracking-tight text-accent-sage sm:text-6xl">01</span>
               <h3 class="mt-5 font-heading text-2xl font-medium leading-tight tracking-tight text-foreground sm:text-[1.75rem] lg:text-[2rem]">
                 {t('features.record.title')}
               </h3>
               <p class="mt-4 text-base leading-relaxed text-muted-foreground">
                 {t('features.record.desc')}
               </p>
-              <span class="mt-6 inline-flex items-center gap-1 border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
+              <span class="mt-6 inline-flex items-center gap-1 border-b border-accent-sage-ink pb-0.5 text-sm font-semibold text-accent-sage-ink transition-all group-hover:gap-1.5 group-hover:border-b-2">
                 {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
               </span>
             </div>
-            <ul class="space-y-4 border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+            <ul class="space-y-4 border-t border-hairline-warm pt-6 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
               <li class="flex items-start gap-3">
                 <Check class="mt-0.5 size-4 shrink-0 text-primary" />
                 <p class="text-sm leading-relaxed text-foreground">{t('features.record.bullet1')}</p>
@@ -611,29 +611,29 @@
 
       <!-- Supporting features — 3-column grid, compact cards -->
       <div class="mx-auto mt-5 grid max-w-5xl gap-5 sm:grid-cols-3">
-        <a href="/features/safe-pickups" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">02</span>
+        <a href="/features/safe-pickups" class="group flex flex-col rounded-lg border-l-2 border-accent-sage bg-canvas-elevated p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover">
+          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-accent-sage">02</span>
           <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.pickup.title')}</h3>
           <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.pickup.desc')}</p>
-          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
+          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-accent-sage-ink pb-0.5 text-sm font-semibold text-accent-sage-ink transition-all group-hover:gap-1.5 group-hover:border-b-2">
             {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
           </span>
         </a>
 
-        <a href="/features/access-control" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">03</span>
+        <a href="/features/access-control" class="group flex flex-col rounded-lg border-l-2 border-accent-sage bg-canvas-elevated p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover">
+          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-accent-sage">03</span>
           <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.rbac.title')}</h3>
           <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.rbac.desc')}</p>
-          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
+          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-accent-sage-ink pb-0.5 text-sm font-semibold text-accent-sage-ink transition-all group-hover:gap-1.5 group-hover:border-b-2">
             {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
           </span>
         </a>
 
-        <a href="/features/smart-search" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">04</span>
+        <a href="/features/smart-search" class="group flex flex-col rounded-lg border-l-2 border-accent-sage bg-canvas-elevated p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover">
+          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-accent-sage">04</span>
           <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.search.title')}</h3>
           <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.search.desc')}</p>
-          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
+          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-accent-sage-ink pb-0.5 text-sm font-semibold text-accent-sage-ink transition-all group-hover:gap-1.5 group-hover:border-b-2">
             {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
           </span>
         </a>
@@ -641,8 +641,8 @@
 
       <!-- Cross-cutting: privacy is not a product, it's how everything works -->
       <div class="mx-auto mt-8 max-w-4xl">
-        <a href="/compliance" class="group flex items-center gap-4 rounded-lg border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <Shield class="size-5 shrink-0 text-primary transition-transform group-hover:rotate-6" />
+        <a href="/compliance" class="group flex items-center gap-4 rounded-lg border border-hairline-warm bg-canvas-elevated px-6 py-4 transition-all duration-[160ms] hover:border-ink/30 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover">
+          <Shield class="size-5 shrink-0 text-accent-sage transition-transform group-hover:rotate-6" />
           <div class="flex-1">
             <p class="text-sm font-semibold text-foreground">{t('home.compliance_banner.title')}</p>
             <p class="mt-0.5 text-xs text-muted-foreground">{t('home.compliance_banner.desc')}</p>
