@@ -467,7 +467,7 @@
        ═══════════════════════════════════════════ -->
   <section class="reveal py-14 sm:py-20" aria-labelledby="editorial-heading">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <span class="mx-auto block h-px w-12 bg-accent-mustard" aria-hidden="true"></span>
       <p id="editorial-heading" class="eyebrow mt-6">{t('editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('editorial.statement')}
@@ -475,7 +475,7 @@
     </div>
 
     <div class="mx-auto mt-12 max-w-7xl px-4 sm:mt-16 sm:px-6 lg:px-8">
-      <dl class="grid grid-cols-1 border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
+      <dl class="grid grid-cols-1 border-y border-hairline-warm sm:grid-cols-3 sm:divide-x sm:divide-hairline-warm">
         <div class="px-6 py-6 text-center sm:py-8">
           <dt class="sr-only">{t('editorial.stat1_label')}</dt>
           <dd class="font-heading text-5xl font-medium leading-none tracking-tight text-foreground sm:text-6xl" data-numeric>
@@ -485,7 +485,7 @@
             {t('editorial.stat1_label')}
           </p>
         </div>
-        <div class="border-t border-border px-6 py-6 text-center sm:border-t-0 sm:py-8">
+        <div class="border-t border-hairline-warm px-6 py-6 text-center sm:border-t-0 sm:py-8">
           <dt class="sr-only">{t('editorial.stat2_label')}</dt>
           <dd class="font-heading text-5xl font-medium leading-none tracking-tight text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat2_number')}
@@ -494,7 +494,7 @@
             {t('editorial.stat2_label')}
           </p>
         </div>
-        <div class="border-t border-border px-6 py-6 text-center sm:border-t-0 sm:py-8">
+        <div class="border-t border-hairline-warm px-6 py-6 text-center sm:border-t-0 sm:py-8">
           <dt class="sr-only">{t('editorial.stat3_label')}</dt>
           <dd class="font-heading text-5xl font-medium leading-none tracking-tight text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat3_number')}
