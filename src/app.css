@@ -224,29 +224,29 @@
   --badge-violet: #8B5CF6;
   --badge-emerald: #34D399;
 
-  /* ── Card — white, hairline border ── */
+  /* ── Card — white card floats on cream canvas (Stripe Press pattern) ── */
   --card: #FFFFFF;
-  --card-foreground: #051C2C;
-  --row-hover: #F7F8F9;
+  --card-foreground: var(--ink);
+  --row-hover: var(--canvas-elevated);      /* repointed for Stripe Press cascade — admin row hover stays cream-elevated */
 
   /* ── Popover ── */
   --popover: #FFFFFF;
   --popover-foreground: #051C2C;
 
-  /* ── Muted — off-white panel / slate text ── */
-  --muted: #F7F8F9;                         /* mck-off-white — subtle panel */
-  --muted-foreground: #3F4A54;              /* mck-slate-700 — body text on white, AAA 9.3:1 */
+  /* ── Muted — cream-elevated panel / ink-soft text (Stripe Press cascade) ── */
+  --muted: var(--canvas-elevated);          /* repointed from #F7F8F9 → cream-elevated */
+  --muted-foreground: var(--ink-soft);      /* repointed from #3F4A54 → 8.4:1 AAA on cream */
 
-  /* ── Secondary — section alternation (off-white) ── */
-  --secondary: #F7F8F9;
-  --secondary-foreground: #051C2C;
+  /* ── Secondary — section alternation (cream-elevated for Stripe Press cascade) ── */
+  --secondary: var(--canvas-elevated);
+  --secondary-foreground: var(--ink);
 
   /* ── Accent — palest blue wash (used sparingly) ── */
   --accent: #EAF2F9;                        /* mck-ice */
   --accent-foreground: #051C2C;
 
   /* ── Border / Input / Ring ── */
-  --border: #D8DCE0;                        /* mck-fog — decorative hairline (1.38:1 on white; used on cards where affordance is signaled by text + hover, not the border) */
+  --border: var(--hairline-warm);           /* repointed from cool gray #D8DCE0 → warm hairline for Stripe Press cascade across 44 .svelte files using border-border */
   --input: #7A848E;                         /* mck-slate-500 — form affordance, WCAG 1.4.11 verified 3.81:1 on white */
   --ring: #1F77C9;                          /* mck-blue-500 — focus ring */
 
