@@ -137,6 +137,19 @@
       ? `Faltan ${countdownDays} días para Ley 21.719`
       : `Ley 21.719 en vigencia`
   );
+
+  // Supporting feature cards rendered in the features section as a 3-up grid.
+  // Driven by an array so the card class string lives once instead of three times.
+  const supportingFeatures: Array<{
+    href: string;
+    numeral: string;
+    titleKey: TranslationKey;
+    descKey: TranslationKey;
+  }> = [
+    { href: '/features/safe-pickups',  numeral: '02', titleKey: 'features.pickup.title', descKey: 'features.pickup.desc' },
+    { href: '/features/access-control', numeral: '03', titleKey: 'features.rbac.title',   descKey: 'features.rbac.desc' },
+    { href: '/features/smart-search',   numeral: '04', titleKey: 'features.search.title', descKey: 'features.search.desc' },
+  ];
 </script>
 
 <!-- Scroll listener (guarded to avoid no-op reactivity writes) -->
@@ -596,34 +609,18 @@
         </a>
       </div>
 
-      <!-- Supporting features — 3-column grid, compact cards -->
+      <!-- Supporting features — 3-column grid, compact cards (driven by supportingFeatures array) -->
       <div class="mx-auto mt-5 grid max-w-5xl gap-5 sm:grid-cols-3">
-        <a href="/features/safe-pickups" class="group flex flex-col rounded-lg border-l-2 border-accent-sage bg-canvas-elevated p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover">
-          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-accent-sage">02</span>
-          <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.pickup.title')}</h3>
-          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.pickup.desc')}</p>
-          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-accent-sage-ink pb-0.5 text-sm font-semibold text-accent-sage-ink transition-all group-hover:gap-1.5 group-hover:border-b-2">
-            {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
-          </span>
-        </a>
-
-        <a href="/features/access-control" class="group flex flex-col rounded-lg border-l-2 border-accent-sage bg-canvas-elevated p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover">
-          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-accent-sage">03</span>
-          <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.rbac.title')}</h3>
-          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.rbac.desc')}</p>
-          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-accent-sage-ink pb-0.5 text-sm font-semibold text-accent-sage-ink transition-all group-hover:gap-1.5 group-hover:border-b-2">
-            {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
-          </span>
-        </a>
-
-        <a href="/features/smart-search" class="group flex flex-col rounded-lg border-l-2 border-accent-sage bg-canvas-elevated p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover">
-          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-accent-sage">04</span>
-          <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.search.title')}</h3>
-          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.search.desc')}</p>
-          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-accent-sage-ink pb-0.5 text-sm font-semibold text-accent-sage-ink transition-all group-hover:gap-1.5 group-hover:border-b-2">
-            {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
-          </span>
-        </a>
+        {#each supportingFeatures as feat (feat.href)}
+          <a href={feat.href} class="group flex flex-col rounded-lg border-l-2 border-accent-sage bg-canvas-elevated p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover">
+            <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-accent-sage">{feat.numeral}</span>
+            <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t(feat.titleKey)}</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t(feat.descKey)}</p>
+            <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-accent-sage-ink pb-0.5 text-sm font-semibold text-accent-sage-ink transition-all group-hover:gap-1.5 group-hover:border-b-2">
+              {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
+            </span>
+          </a>
+        {/each}
       </div>
 
       <!-- Cross-cutting: privacy is not a product, it's how everything works -->
