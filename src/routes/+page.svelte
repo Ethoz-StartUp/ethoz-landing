@@ -880,45 +880,43 @@
        the reader through urgency, context, product, proof — this is
        the inverted moment that earns the decisive click.
        ═══════════════════════════════════════════ -->
-  <!-- Final CTA — Cal cta-band-light: light-gray card on white, the calm before the dark footer.
-       Pacing: light → dark footer (the page's only dark surface) closes the editorial rhythm. -->
-  <section class="reveal py-16 sm:py-20 lg:py-24" id="cta" aria-labelledby="final-cta-heading">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <div class="rounded-2xl bg-surface-card-cal px-8 py-14 text-center sm:px-12 sm:py-16 lg:px-16 lg:py-20">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-primary">El momento es ahora</span>
-          <span aria-hidden="true" class="text-border">·</span>
-          <span><span data-numeric class="font-bold">{countdownDays}</span> días para Ley 21.719</span>
-        </p>
-        <h2 id="final-cta-heading" class="mt-5 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-          {t('cta.title')}
-        </h2>
-        <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          {t('cta.subtitle')}
-        </p>
-        <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-          <Button
-            size="xl"
-            href="/demo"
-            onclick={() => trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'final_cta' })}
-          >
-            {t('cta.primary')}
-            <ArrowRight class="size-5" />
-          </Button>
-          <Button
-            variant="outline"
-            size="xl"
-            onclick={() => (showPitch = true)}
-          >
-            <Play class="size-5" />
-            {t('hero.video_short')}
-          </Button>
-        </div>
-        </div>
+  <!-- Final CTA — full-bleed navy SectionDark. Mirrors compliance band treatment.
+       Pacing: navy → deeper-navy footer closes the editorial dark passage. -->
+  <SectionDark variant="cta" id="cta" aria-labelledby="final-cta-heading">
+    <div class="text-center">
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft">
+        <span class="text-on-navy-mustard">El momento es ahora</span>
+        <span aria-hidden="true" class="text-on-navy-soft/40">·</span>
+        <span><span data-numeric class="font-bold text-on-navy">{countdownDays}</span> días para Ley 21.719</span>
+      </p>
+      <h2 id="final-cta-heading" class="mt-5 text-balance text-3xl font-bold tracking-tight text-on-navy sm:text-4xl lg:text-5xl">
+        {t('cta.title')}
+      </h2>
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-on-navy-soft">
+        {t('cta.subtitle')}
+      </p>
+      <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+        <Button
+          size="xl"
+          href="/demo"
+          class="bg-on-navy-mustard text-ink hover:bg-on-navy-mustard/90"
+          onclick={() => trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'final_cta' })}
+        >
+          {t('cta.primary')}
+          <ArrowRight class="size-5" />
+        </Button>
+        <Button
+          variant="outline"
+          size="xl"
+          onclick={() => (showPitch = true)}
+          class="border-on-navy text-on-navy hover:bg-on-navy hover:text-ink"
+        >
+          <Play class="size-5" />
+          {t('hero.video_short')}
+        </Button>
       </div>
     </div>
-  </section>
+  </SectionDark>
 
   <Footer />
 
