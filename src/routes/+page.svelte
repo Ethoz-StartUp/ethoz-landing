@@ -2,40 +2,27 @@
   import { Button } from '$lib/components/ui/button';
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
-  import { Badge } from '$lib/components/ui/badge';
   import HeroAppMockupCard from '$lib/components/cal/HeroAppMockupCard.svelte';
   import FeatureCardCal from '$lib/components/cal/FeatureCardCal.svelte';
   import SectionDark from '$lib/components/cal/SectionDark.svelte';
   import { t, type TranslationKey } from '$lib/i18n/index.svelte';
   import { goto } from '$app/navigation';
   import { trackEvent } from '$lib/utils/analytics';
-  import { CONTACT } from '$lib/config';
   import { slide } from 'svelte/transition';
-  import { env } from '$env/dynamic/public';
   import PitchModal from '$lib/components/PitchModal.svelte';
   import {
     Shield,
-    Users,
-    Bell,
     FileCheck,
-    Clock,
     ArrowRight,
     Check,
     ChevronRight,
     UserCheck,
-    ClipboardList,
     AlertTriangle,
     Eye,
-    Search,
-    Fingerprint,
     MessageSquare,
-    ChevronDown,
     Plus,
     Minus,
-    Play,
-    Plug,
-    Database,
-    Rocket
+    Play
   } from '@lucide/svelte';
 
   // ── Reactive state ──
@@ -951,17 +938,4 @@
     from { opacity: 0; transform: translateY(4px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .trust-item {
-    animation: fadeInUp 0.5s ease-out both;
-  }
-
-  .trust-item:nth-child(3) { animation-delay: 0.1s; }
-  .trust-item:nth-child(5) { animation-delay: 0.2s; }
-  .trust-item:nth-child(7) { animation-delay: 0.3s; }
 </style>
