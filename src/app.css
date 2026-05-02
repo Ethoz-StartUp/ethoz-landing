@@ -208,12 +208,12 @@
   --surface-soft: #F8F9FA;                  /* nav-pill-group background, very-soft section dividers */
   --surface-card-cal: #F5F5F5;              /* feature cards, testimonial cards, badge fills (Cal signature) */
   --surface-strong: #E5E7EB;                /* hairline border alt; disabled button bg */
-  --surface-dark: #101010;                  /* Cal dark footer + featured pricing tier */
-  --surface-dark-elevated: #1A1A1A;         /* nested cards inside dark surfaces */
+  --surface-dark: #0A1628;                  /* Stripe Press deeper navy footer (warmer than Cal #101010) */
+  --surface-dark-elevated: #14213A;         /* nested cards inside dark surfaces */
   --hairline: #E5E7EB;                      /* 1px border tone on light surfaces */
   --hairline-soft: #F3F4F6;                 /* barely-visible divider */
-  --on-dark: #FFFFFF;                       /* text on --surface-dark */
-  --on-dark-soft: #A1A1AA;                  /* footer body text */
+  --on-dark: var(--on-navy);                /* alias to new on-navy (cream) — keeps Footer.svelte untouched */
+  --on-dark-soft: var(--on-navy-soft);      /* footer body text — aliased to on-navy-soft */
 
   /* ── Body text — Cal hierarchy ── */
   --body: #374151;                          /* Cal default running-text color (alt to --foreground) */
