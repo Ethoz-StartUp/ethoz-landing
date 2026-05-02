@@ -205,12 +205,12 @@
   --foreground: var(--ink);                 /* repointed to deep editorial navy — every text-foreground utility now resolves here */
 
   /* ── Cal surface system ── */
-  --surface-soft: #F8F9FA;                  /* nav-pill-group background, very-soft section dividers */
+  --surface-soft: var(--canvas-elevated);   /* repointed from cool gray #F8F9FA → warm cream-elevated for Stripe Press cascade (e.g. shadcn outline button hover bg) */
   --surface-card-cal: #F5F5F5;              /* feature cards, testimonial cards, badge fills (Cal signature) */
   --surface-strong: #E5E7EB;                /* hairline border alt; disabled button bg */
   --surface-dark: #0A1628;                  /* Stripe Press deeper navy footer (warmer than Cal #101010) */
   --surface-dark-elevated: #14213A;         /* nested cards inside dark surfaces */
-  --hairline: #E5E7EB;                      /* 1px border tone on light surfaces */
+  --hairline: var(--hairline-warm);         /* repointed from cool gray #E5E7EB → warm hairline for Stripe Press cascade (e.g. shadcn outline button border) */
   --hairline-soft: #F3F4F6;                 /* barely-visible divider */
   --on-dark: var(--on-navy);                /* alias to new on-navy (cream) — keeps Footer.svelte untouched */
   --on-dark-soft: var(--on-navy-soft);      /* footer body text — aliased to on-navy-soft */
