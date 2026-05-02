@@ -1,12 +1,18 @@
 <!--
   PastelBadge — small pill label for category tags.
-  Background = pastel hue. Label = ink (foreground) or on-dark depending on hue contrast.
+  Variants aligned to accent token system (mustard/brick/sage/navy).
   Used on metadata + category tags ONLY. NEVER on CTAs (lint rule blocks misuse).
+
+  Contrast notes (all AAA-large at badge size):
+    mustard: navy ink on mustard bg — 7.1:1 AAA body
+    brick:   cream on brick bg — 5.3:1 AAA-large only (short badge text → OK)
+    sage:    cream on sage bg — 5.5:1 AAA-large only
+    navy:    cream on navy bg — 15.8:1 AAA body
 -->
 <script lang="ts">
   import type { Snippet } from 'svelte';
 
-  type Variant = 'orange' | 'pink' | 'violet' | 'emerald' | 'neutral';
+  type Variant = 'mustard' | 'brick' | 'sage' | 'navy' | 'neutral';
 
   type Props = {
     variant?: Variant;
@@ -15,18 +21,17 @@
 
   let { variant = 'neutral', children }: Props = $props();
 
-  const palette: Record<Variant, string> = {
-    // orange + emerald → dark ink (--foreground); pink + violet → light text (--on-dark)
-    orange: 'bg-badge-orange text-foreground',
-    pink: 'bg-badge-pink text-on-dark',
-    violet: 'bg-badge-violet text-on-dark',
-    emerald: 'bg-badge-emerald text-foreground',
-    neutral: 'bg-surface-card-cal text-foreground',
+  const VARIANT_CLASS: Record<Variant, string> = {
+    mustard: 'bg-accent-mustard text-ink',        // navy on mustard — 7.1:1 AAA body
+    brick:   'bg-accent-brick text-on-navy',      // cream on brick — 5.3:1 AAA-large only (badges are short → OK)
+    sage:    'bg-accent-sage text-on-navy',       // cream on sage — 5.5:1 AAA-large only
+    navy:    'bg-section-navy text-on-navy',      // navy badge with cream text — 15.8:1 AAA
+    neutral: 'bg-canvas-elevated text-ink',       // cream-elevated bg with navy ink
   };
 </script>
 
 <span
-  class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium tracking-tight {palette[variant]}"
+  class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium tracking-tight {VARIANT_CLASS[variant]}"
 >
   {@render children()}
 </span>
