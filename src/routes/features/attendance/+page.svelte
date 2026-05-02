@@ -114,7 +114,7 @@
             <!-- Student rows -->
             <div class="space-y-0.5 max-h-52 overflow-y-auto">
               {#each students as s}
-                <div class="grid grid-cols-[1fr_repeat(5,_1.5rem)] gap-1 items-center rounded px-1 py-0.5 hover:bg-muted/20">
+                <div class="grid grid-cols-[1fr_repeat(5,_1.5rem)] gap-1 items-center rounded px-1 py-0.5 hover:bg-muted/40">
                   <span class="truncate text-[10px] text-foreground">{s.name}</span>
                   {#each s.days as d}
                     <span class="size-5 rounded text-[8px] font-bold flex items-center justify-center {dayColor(d)}">{d}</span>

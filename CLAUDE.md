@@ -34,15 +34,16 @@ docs/                 — Documentation index (5 sections + knowledge base + con
 - Blog posts: export `BlogPost` from `src/lib/data/posts/*.ts` — auto-discovered, no manual registration
 
 ### Design (see .impeccable.md for full spec)
-- Light mode only. Brand: Medical Blue `#034B8A` + Navy `#0B1E3A` + Paper-blue `#F5F8FC` (unified with Ethoz-app, 2026-04-23 migration from orange/cream)
-- Inter everywhere for headings and body (DM Sans retired). JetBrains Mono for numbers/stats only
-- NEVER hardcode colors — use design tokens (bg-primary, text-muted-foreground, text-primary-ink, etc.)
-- Icons + titles ALWAYS inline (same row), never stacked. No icon-in-colored-box wrappers.
-- Card pattern: `rounded-xl border border-border bg-card` (xl caps at 8px — no oversized curves)
-- Flat on purpose. No gradients. Hairline shadow discipline — `shadow-glow-primary` is neutralized. `shadow-glow-destructive` retained (safety-critical)
-- One primary action per screen. Medical blue is reserved — don't spray it
-- AAA contrast targets: 7:1 for normal text, 4.5:1 for large text
-- McKinsey + pharma-clean tone: precise, authoritative, institutional
+- Light mode only. **Cal.com aesthetic** (2026-05-01 migration from McKinsey/medical-blue): Cal black `#111111` + white canvas `#FFFFFF` + light-gray cards `#F5F5F5` + dark footer `#101010`
+- **Cal Sans** (`cal-sans` npm package, SIL OFL 1.1) for h1/h2/h3 + `font-heading` class. Weight 600, letter-spacing -0.04em. **Inter** for body, buttons, nav, captions. **JetBrains Mono** for `[data-numeric]` only.
+- NEVER hardcode colors — use design tokens (`bg-primary`, `bg-surface-card-cal`, `text-muted-foreground`, `text-on-dark`, etc.). Use `// lint-ok` annotation for legitimate exceptions (third-party SDK config, raw HTML strings).
+- Icons + titles ALWAYS inline (same row), never stacked. No icon-in-colored-box wrappers (`scripts/lint-icon-box-wrapper.sh` enforces).
+- Card pattern: `rounded-xl border border-hairline bg-background` (8/12/16px radius progression — `rounded-xl` is 12px, `rounded-2xl` is 16px for hero mockup card).
+- Flat on purpose. Subtle drop shadows only (`shadow-card`, `shadow-card-hover`, `shadow-mockup`, `shadow-popover`). `shadow-glow-primary` neutralized. `shadow-glow-destructive` retained (safety-critical).
+- One primary action per screen. Cal black is the action color — don't spray it. Pastel badges (`bg-badge-orange/pink/violet/emerald`) are metadata-only, NEVER on CTAs (`scripts/lint-pastel-on-cta.sh` enforces).
+- Footer is the only dark surface (`bg-surface-dark` = `#101010`). Light text via `text-on-dark` / `text-on-dark-soft` (AAA verified on `#101010`).
+- AAA contrast targets: 7:1 for normal text, 4.5:1 for large text. Cal black on white = 17:1 (effortless AAA).
+- Cal.com tone: confidently engineered, modern-SaaS, generous whitespace, single primary action per band.
 
 ### Content
 - Spanish chileno profesional (no slang, no extreme modismos)
@@ -79,14 +80,24 @@ Content pipeline: Kimi CLI (text) → Gemini (images) → Supabase Edge Function
 - Run `npm run lint` to check ESLint rules (Svelte 5 syntax, design tokens, security patterns)
 - `npm run test:ci` runs everything: lint + svelte-check + audit + unit + e2e
 
-### UI components (shadcn-svelte)
+### UI components (shadcn-svelte + Cal primitives)
 - Admin panel uses shadcn-svelte components from `$lib/components/ui/`
 - Available: `Table`, `DropdownMenu`, `Sheet`, `Dialog`, `Select`, `Input`, `Label`, `Badge`, `Button`, `Skeleton`, `Tabs`, `Tooltip`, `Sonner` (via `svelte-sonner`)
 - **Prefer shadcn components** over raw HTML. Don't reinvent tables, dropdowns, dialogs
 - **Use `toast` from `svelte-sonner`** for feedback — never `alert()` or silent failures
 - **Use `Skeleton`** for loading states — not just spinners
 - **Use `Dialog`** for destructive confirmations — never `confirm()`
-- Add new components via `npx shadcn-svelte add <name> --overwrite`
+- Add new shadcn components via `npx shadcn-svelte add <name> --overwrite`
+
+**Cal-flavored primitives** in `$lib/components/cal/`:
+- `FeatureCardCal` — light-gray feature card (gray surface variant) or white-with-hairline variant. Icon + title inline. Optional CTA with persistent arrow.
+- `HeroAppMockupCard` — hero right-side artifact wrapper for product UI fragments. Uses `shadow-mockup` + `rounded-2xl`.
+- `ProductMockupCard` — generic product UI fragment wrapper for embedding in any marketing card.
+- `NavPillGroup` — Cal pill-in-pill sub-nav with active segment having drop shadow inside the pill wrapper.
+- `PastelBadge` — metadata badge with pastel variants (orange/pink/violet/emerald). Lint blocks pastel use on CTAs.
+
+### Lint scripts (run via `npm run lint`)
+9 design-system bash lints in `scripts/lint-*.sh`, orchestrated by `lint-all.sh`. They block: narrow outer containers, `shadow-xl/2xl`, neutralized glow shadows, `hover:opacity-N<100`, `hover:bg-muted/N<40`, hardcoded hex (with `// lint-ok` escape for SDK config), pastel-on-CTA, hardcoded `Cal Sans` font-family, icon-in-colored-box wrapper. All wired into `npm run test:ci`.
 
 ## Documentation Map
 - `docs/1-landing/` — All public pages documented

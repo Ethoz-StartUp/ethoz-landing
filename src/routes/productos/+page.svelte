@@ -112,13 +112,19 @@
   <!-- Hero -->
   <section class="pt-28 pb-12 sm:pt-32 sm:pb-16 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-        Seis módulos, un solo objetivo
+      <!-- Editorial eyebrow — Cal-flavored, mirrors the /get-started pattern -->
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <span class="text-primary">Catálogo de módulos</span>
+        <span aria-hidden="true" class="text-border">·</span>
+        <span>10 productos · Activa solo los que necesitas</span>
+      </p>
+      <h1 class="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+        Diez módulos. Un solo objetivo.
       </h1>
       <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
         Cada módulo resuelve un problema concreto de tu colegio. Activa solo los que necesitas hoy.
       </p>
-      <span class="mt-3 inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
+      <span class="mt-5 inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
         Cumplimiento Ley 21.719 — Plazo: diciembre 2026
       </span>
     </div>

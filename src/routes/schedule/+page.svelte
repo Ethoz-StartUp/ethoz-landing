@@ -107,8 +107,8 @@
     Cal('ui', {
       theme: 'light',
       styles: { branding: {
-        // Cal.com API expects a hex literal; keep in sync with --primary (oklch(0.36 0.14 255))
-        brandColor: '#034B8A'
+        // lint-ok: Cal.com embed SDK expects hex literal; keep in sync with --primary (Cal black)
+        brandColor: '#111111'
       } },
       hideEventTypeDetails: false,
       hideBranding: true,

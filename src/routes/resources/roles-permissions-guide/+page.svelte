@@ -205,7 +205,7 @@
           </thead>
           <tbody class="divide-y divide-border">
             {#each roles as r}
-              <tr class="hover:bg-muted/20 transition-colors">
+              <tr class="hover:bg-muted/40 transition-colors">
                 <td class="px-3 py-3 font-medium text-foreground">{r.role}</td>
                 {#each permKeys as key}
                   <td class="px-2 py-3 text-center">

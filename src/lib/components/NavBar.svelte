@@ -110,8 +110,11 @@
         onmouseenter={openProducts}
         onmouseleave={closeProducts}
       >
-        <button
-          type="button"
+        <!-- Click → navigates to /productos (full catalog page).
+             Hover → opens dropdown via the parent onmouseenter handler.
+             Keyboard ArrowDown → opens dropdown without navigating. -->
+        <a
+          href="/productos"
           aria-expanded={productsOpen}
           aria-haspopup="true"
           aria-controls="products-menu"
@@ -119,15 +122,14 @@
             {isProductActive()
               ? 'text-primary-pressed bg-primary/5'
               : 'text-muted-foreground hover:text-foreground hover:bg-muted'}"
-          onclick={() => (productsOpen = !productsOpen)}
           onkeydown={(e) => {
-            if (e.key === 'Escape' && productsOpen) { productsOpen = false; e.currentTarget.focus(); }
+            if (e.key === 'Escape' && productsOpen) { productsOpen = false; (e.currentTarget as HTMLAnchorElement).focus(); }
             if (e.key === 'ArrowDown' && !productsOpen) { e.preventDefault(); productsOpen = true; }
           }}
         >
           {t('nav.features')}
-          <ChevronDown class="size-3.5 transition-transform {productsOpen ? 'rotate-180' : ''}" />
-        </button>
+          <ChevronDown class="size-3.5 transition-transform {productsOpen ? 'rotate-180' : ''}" aria-hidden="true" />
+        </a>
 
         {#if productsOpen}
           <div

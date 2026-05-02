@@ -152,7 +152,7 @@
               </thead>
               <tbody class="divide-y divide-border">
                 {#each section.fields as row}
-                  <tr class="hover:bg-muted/20 transition-colors">
+                  <tr class="hover:bg-muted/40 transition-colors">
                     <td class="px-4 py-2.5 font-medium text-foreground">{row.field}</td>
                     <td class="px-4 py-2.5 text-muted-foreground">{row.baseLegal}</td>
                     <td class="px-4 py-2.5 text-muted-foreground">{row.finalidad}</td>

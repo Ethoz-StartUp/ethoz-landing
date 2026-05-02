@@ -31,100 +31,99 @@
   ];
 </script>
 
-<footer>
+<!-- Cal.com aesthetic: dark footer (#101010) closes every page. The only dark surface in the system. -->
+<footer class="bg-surface-dark text-on-dark-soft">
   <!-- Upper footer -->
-  <div class="border-t border-border bg-background">
-    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 gap-6 sm:gap-8 sm:grid-cols-3 lg:grid-cols-6">
+  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
 
-        <!-- Brand + social -->
-        <div class="col-span-2 sm:col-span-3 lg:col-span-2">
-          <a href="/" class="inline-flex items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="size-6" aria-hidden="true">
-              <rect x="2" y="7" width="18" height="22" rx="4.5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-foreground"/>
-              <rect x="12" y="3" width="18" height="22" rx="4.5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-primary"/>
-            </svg>
-            <span class="text-lg font-bold tracking-tight"><span class="text-foreground">Etho</span><span class="text-primary">z</span></span>
-          </a>
-          <p class="mt-3 max-w-xs text-sm leading-relaxed text-muted-foreground">
-            {t('footer.tagline')}
-          </p>
-          <!-- Social icons -->
-          <div class="mt-5 flex items-center gap-3">
-            {#each social as s}
-              <a
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={s.name}
-                class="flex size-8 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-              >
-                {@html s.svg}
-              </a>
-            {/each}
-          </div>
+      <!-- Brand + social -->
+      <div class="col-span-2 sm:col-span-3 lg:col-span-2">
+        <a href="/" class="inline-flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="size-6" aria-hidden="true">
+            <rect x="2" y="7" width="18" height="22" rx="4.5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-on-dark"/>
+            <rect x="12" y="3" width="18" height="22" rx="4.5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-on-dark"/>
+          </svg>
+          <span class="text-lg font-semibold tracking-tight text-on-dark">Ethoz</span>
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-on-dark-soft">
+          {t('footer.tagline')}
+        </p>
+        <!-- Social icons -->
+        <div class="mt-6 flex items-center gap-3">
+          {#each social as s}
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.name}
+              class="flex size-9 items-center justify-center rounded-full bg-surface-dark-elevated text-on-dark-soft transition-colors hover:bg-on-dark-soft hover:text-surface-dark"
+            >
+              {@html s.svg}
+            </a>
+          {/each}
         </div>
-
-        <!-- Producto -->
-        <div>
-          <h4 class="text-xs font-semibold uppercase tracking-wider text-foreground">{t('footer.product')}</h4>
-          <ul class="mt-3 flex flex-col gap-2">
-            <li><a href="/productos" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.features')}</a></li>
-            <li><a href="/integrations" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.integrations')}</a></li>
-            <li><a href="/comparativa" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.comparison')}</a></li>
-            <li><a href="/roi-calculator" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.roi')}</a></li>
-            <li><a href="/proyecciones" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.projections')}</a></li>
-            <li><a href="/get-started" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.pricing')}</a></li>
-          </ul>
-        </div>
-
-        <!-- Recursos -->
-        <div>
-          <h4 class="text-xs font-semibold uppercase tracking-wider text-foreground">{t('footer.resources_section')}</h4>
-          <ul class="mt-3 flex flex-col gap-2">
-            <li><a href="/ley-21719" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.law')}</a></li>
-            <li><a href="/circular-30" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.circular')}</a></li>
-            <li><a href="/glosario" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.glossary')}</a></li>
-            <li><a href="/resources" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.downloads')}</a></li>
-            <li><a href="/seguridad-datos" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.security')}</a></li>
-          </ul>
-        </div>
-
-        <!-- Empresa -->
-        <div>
-          <h4 class="text-xs font-semibold uppercase tracking-wider text-foreground">{t('footer.company')}</h4>
-          <ul class="mt-3 flex flex-col gap-2">
-            <li><a href="/about" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.about')}</a></li>
-            <li><a href="/blog" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.blog')}</a></li>
-            <li><a href="/contact" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.contact')}</a></li>
-            <li><a href="/demo" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('nav.cta')}</a></li>
-          </ul>
-        </div>
-
-        <!-- Para ti -->
-        <div>
-          <h4 class="text-xs font-semibold uppercase tracking-wider text-foreground">{t('footer.for_you')}</h4>
-          <ul class="mt-3 flex flex-col gap-2">
-            <li><a href="/para-sostenedores" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.operators')}</a></li>
-            <li><a href="/para-directores" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.directors')}</a></li>
-            <li><a href="/para-porteros" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.porters')}</a></li>
-            <li class="mt-2 border-t border-border pt-2"><a href="/privacy" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.privacy')}</a></li>
-            <li><a href="/terms" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.terms')}</a></li>
-          </ul>
-        </div>
-
       </div>
+
+      <!-- Producto -->
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-on-dark">{t('footer.product')}</h4>
+        <ul class="mt-4 flex flex-col gap-3">
+          <li><a href="/productos" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.features')}</a></li>
+          <li><a href="/integrations" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.integrations')}</a></li>
+          <li><a href="/comparativa" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.comparison')}</a></li>
+          <li><a href="/roi-calculator" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.roi')}</a></li>
+          <li><a href="/proyecciones" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.projections')}</a></li>
+          <li><a href="/get-started" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.pricing')}</a></li>
+        </ul>
+      </div>
+
+      <!-- Recursos -->
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-on-dark">{t('footer.resources_section')}</h4>
+        <ul class="mt-4 flex flex-col gap-3">
+          <li><a href="/ley-21719" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.law')}</a></li>
+          <li><a href="/circular-30" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.circular')}</a></li>
+          <li><a href="/glosario" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.glossary')}</a></li>
+          <li><a href="/resources" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.downloads')}</a></li>
+          <li><a href="/seguridad-datos" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.security')}</a></li>
+        </ul>
+      </div>
+
+      <!-- Empresa -->
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-on-dark">{t('footer.company')}</h4>
+        <ul class="mt-4 flex flex-col gap-3">
+          <li><a href="/about" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.about')}</a></li>
+          <li><a href="/blog" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.blog')}</a></li>
+          <li><a href="/contact" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.contact')}</a></li>
+          <li><a href="/demo" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('nav.cta')}</a></li>
+        </ul>
+      </div>
+
+      <!-- Para ti -->
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-on-dark">{t('footer.for_you')}</h4>
+        <ul class="mt-4 flex flex-col gap-3">
+          <li><a href="/para-sostenedores" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.operators')}</a></li>
+          <li><a href="/para-directores" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.directors')}</a></li>
+          <li><a href="/para-porteros" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.porters')}</a></li>
+          <li class="mt-2 border-t border-surface-dark-elevated pt-3"><a href="/privacy" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.privacy')}</a></li>
+          <li><a href="/terms" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.terms')}</a></li>
+        </ul>
+      </div>
+
     </div>
   </div>
 
-  <!-- Bottom bar -->
-  <div class="border-t border-border bg-secondary">
-    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-4 sm:flex-row sm:px-6 lg:px-8">
-      <p class="text-[11px] text-muted-foreground">{t('footer.rights')} · Hecho con ♥ en Chile</p>
+  <!-- Bottom bar — slightly elevated dark surface for subtle separation -->
+  <div class="border-t border-surface-dark-elevated">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-5 sm:flex-row sm:px-6 lg:px-8">
+      <p class="text-xs text-on-dark-soft">{t('footer.rights')} · Hecho con ♥ en Chile</p>
       <button
         type="button"
         onclick={toggleLocale}
-        class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-[11px] text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+        class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-on-dark-soft transition-colors hover:bg-surface-dark-elevated hover:text-on-dark"
       >
         <Globe class="size-3" />
         {getLocale() === 'es' ? 'English' : 'Español'}

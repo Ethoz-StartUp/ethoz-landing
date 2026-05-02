@@ -189,7 +189,7 @@
               </tr>
               <!-- Data rows -->
               {#each cat.rows as row, rowIdx}
-                <tr class="border-b border-border {rowIdx % 2 === 0 ? 'bg-background' : 'bg-muted/20'} hover:bg-muted/30 transition-colors">
+                <tr class="border-b border-border {rowIdx % 2 === 0 ? 'bg-background' : 'bg-muted/20'} hover:bg-muted/40 transition-colors">
                   <td class="px-4 py-3 text-sm text-foreground font-medium">
                     {row.label}
                   </td>

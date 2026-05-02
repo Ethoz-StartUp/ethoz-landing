@@ -13,3 +13,4 @@ firebase-debug.log
 .remember/
 test-results/
 playwright-report/
+.superpowers/

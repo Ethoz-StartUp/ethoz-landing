@@ -8,7 +8,7 @@
 		variants: {
 			variant: {
 				default: "bg-primary text-primary-foreground hover:bg-primary-hover shadow-[0_1px_0_0_rgba(5,28,44,0.08)] hover:shadow-[0_2px_0_0_rgba(5,28,44,0.12)]",
-				outline: "border-2 border-foreground bg-muted text-foreground hover:bg-foreground hover:text-background dark:bg-input/30 dark:border-input aria-expanded:bg-foreground aria-expanded:text-background",
+				outline: "border border-hairline bg-background text-foreground hover:bg-surface-soft hover:border-foreground dark:bg-input/30 dark:border-input aria-expanded:bg-foreground aria-expanded:text-background",
 				secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
 				ghost: "hover:bg-muted hover:text-foreground dark:hover:bg-muted/50 aria-expanded:bg-muted aria-expanded:text-foreground",
 				destructive: "bg-destructive/10 hover:bg-destructive/20 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/20 text-destructive focus-visible:border-destructive/40 dark:hover:bg-destructive/30",
