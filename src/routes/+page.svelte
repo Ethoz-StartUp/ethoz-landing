@@ -816,11 +816,11 @@
   <!-- ═══════════════════════════════════════════
        SECTION 9: FAQ
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="faq">
+  <section class="reveal bg-canvas-elevated py-16 sm:py-20 lg:py-24" id="faq">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-primary">{t('faq.overline')}</span>
+          <span class="text-ink">{t('faq.overline')}</span>
           <span aria-hidden="true" class="text-border">·</span>
           <span>7 preguntas · Respuestas directas</span>
         </p>
@@ -829,13 +829,13 @@
         </h2>
       </div>
 
-      <div class="mt-10 divide-y divide-border rounded-2xl border border-border bg-card shadow-sm">
+      <div class="mt-10 divide-y divide-hairline-warm rounded-2xl border border-hairline-warm bg-canvas shadow-sm">
         {#each [1, 2, 11, 3, 15, 4, 12] as n, i}
           <div>
             <button
               id={`faq-trigger-${i}`}
               onclick={() => toggleFaq(i)}
-              class="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-muted"
+              class="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-canvas-elevated"
               aria-expanded={openFaq === i}
               aria-controls={`faq-panel-${i}`}
             >
@@ -865,7 +865,7 @@
 
       <!-- Inline contact link — no /faq page yet, route to /contact for unanswered questions -->
       <div class="mt-6 text-center">
-        <a href="/contact" class="inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:text-primary-pressed hover:underline">
+        <a href="/contact" class="inline-flex items-center gap-1 text-sm font-medium text-ink underline-offset-4 hover:text-ink-soft hover:underline">
           {t('faq.contact_link')}
           <ArrowRight class="size-3.5" />
         </a>
