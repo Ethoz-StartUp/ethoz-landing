@@ -461,7 +461,7 @@
 
   <!-- ═══════════════════════════════════════════
        EDITORIAL ANCHOR — the thesis before the problem.
-       Anti-AI-slop moment: an institutional declaration in Newsreader italic
+       Anti-AI-slop moment: an institutional declaration in Cal Sans display
        paired with three verified stats from Mineduc + Law 21.719.
        No card grid, no stock-template rhythm.
        ═══════════════════════════════════════════ -->
@@ -732,7 +732,7 @@
         </p>
       </div>
 
-      <!-- Steps — editorial chapter style: big Newsreader numbers, no icon circles.
+      <!-- Steps — editorial chapter style: big Cal Sans numbers, no icon circles.
            Each step reads as "01 · [time]" then title + description. -->
       <div class="mx-auto mt-12 max-w-5xl">
         <ol class="grid gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-hairline-warm">

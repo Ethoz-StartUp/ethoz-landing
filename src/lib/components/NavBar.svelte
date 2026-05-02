@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Button } from '$lib/components/ui/button';
+  import ThemeToggle from '$lib/components/ThemeToggle.svelte';
   import { t } from '$lib/i18n/index.svelte';
   import { Menu, X, ChevronDown, Shield, Search, ClipboardList, Bell, Fingerprint } from '@lucide/svelte';
   import { env } from '$env/dynamic/public';
@@ -191,6 +192,7 @@
       >
         {t('nav.login')}
       </a>
+      <ThemeToggle />
       <Button size="sm" href="/demo" class="hidden md:inline-flex">
         {t('nav.cta')}
       </Button>
