@@ -511,14 +511,16 @@
   <!-- ═══════════════════════════════════════════
        SECTION 4: PROBLEM
        ═══════════════════════════════════════════ -->
-  <section class="reveal py-12 sm:py-14" id="problem">
+  <section class="reveal py-16 sm:py-20 lg:py-24" id="problem">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Section header -->
+      <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">
-          {t('problem.overline')}
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <span class="text-primary">{t('problem.overline')}</span>
+          <span aria-hidden="true" class="text-border">·</span>
+          <span>3 fricciones · 1 sistema</span>
         </p>
-        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('problem.title')}
         </h2>
         <p class="mt-4 text-lg text-muted-foreground">
@@ -558,14 +560,16 @@
   <!-- ═══════════════════════════════════════════
        SECTION 5: SOLUTION / FEATURES
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-secondary py-12 sm:py-14" id="features">
+  <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="features">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Section header -->
+      <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">
-          {t('solution.overline')}
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <span class="text-primary">{t('solution.overline')}</span>
+          <span aria-hidden="true" class="text-border">·</span>
+          <span>10 módulos · Activación modular</span>
         </p>
-        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('solution.title')}
         </h2>
         <p class="mt-4 text-lg text-muted-foreground">
@@ -655,14 +659,16 @@
   <!-- ═══════════════════════════════════════════
        SECTION 6: COMPLIANCE + COUNTDOWN
        ═══════════════════════════════════════════ -->
-  <section class="reveal py-12 sm:py-14" id="compliance">
+  <section class="reveal py-16 sm:py-20 lg:py-24" id="compliance">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Section header -->
+      <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">
-          {t('compliance.overline')}
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <span class="text-primary">{t('compliance.overline')}</span>
+          <span aria-hidden="true" class="text-border">·</span>
+          <span>Ley 21.719 · Diciembre 2026</span>
         </p>
-        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('compliance.title')}
         </h2>
         <p class="mt-4 text-lg text-muted-foreground">
@@ -742,14 +748,16 @@
   <!-- ═══════════════════════════════════════════
        SECTION 8: HOW IT WORKS — visual progression with icons + connector
        ═══════════════════════════════════════════ -->
-  <section class="reveal py-12 sm:py-14" id="how">
+  <section class="reveal py-16 sm:py-20 lg:py-24" id="how">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Section header -->
+      <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">
-          {t('how.overline')}
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <span class="text-primary">{t('how.overline')}</span>
+          <span aria-hidden="true" class="text-border">·</span>
+          <span>3 pasos · 2-4 semanas</span>
         </p>
-        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('how.title')}
         </h2>
         <p class="mt-4 text-base text-muted-foreground sm:text-lg">
@@ -813,13 +821,15 @@
   <!-- ═══════════════════════════════════════════
        SECTION 9: FAQ
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-secondary py-12 sm:py-14" id="faq">
+  <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="faq">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">
-          {t('faq.overline')}
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <span class="text-primary">{t('faq.overline')}</span>
+          <span aria-hidden="true" class="text-border">·</span>
+          <span>7 preguntas · Respuestas directas</span>
         </p>
-        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           {t('faq.title')}
         </h2>
       </div>
@@ -875,38 +885,43 @@
        the reader through urgency, context, product, proof — this is
        the inverted moment that earns the decisive click.
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-foreground py-20 text-background sm:py-28" id="cta" aria-labelledby="final-cta-heading">
-    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/80" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background">El momento es ahora</p>
-      <h2 id="final-cta-heading" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl lg:text-5xl">
-        {t('cta.title')}
-      </h2>
-      <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-background/95">
-        {t('cta.subtitle')}
-      </p>
-      <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <a
-          href="/demo"
-          onclick={() => trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'final_cta' })}
-          class="inline-flex h-14 items-center justify-center gap-2.5 rounded-md bg-background px-10 text-base font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
-        >
-          {t('cta.primary')}
-          <ArrowRight class="size-5" />
-        </a>
-        <button
-          type="button"
-          onclick={() => (showPitch = true)}
-          class="inline-flex h-14 items-center justify-center gap-2.5 rounded-md border-2 border-background bg-transparent px-10 text-base font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
-        >
-          <Play class="size-5" />
-          {t('hero.video_short')}
-        </button>
+  <!-- Final CTA — Cal cta-band-light: light-gray card on white, the calm before the dark footer.
+       Pacing: light → dark footer (the page's only dark surface) closes the editorial rhythm. -->
+  <section class="reveal py-16 sm:py-20 lg:py-24" id="cta" aria-labelledby="final-cta-heading">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <div class="rounded-2xl bg-surface-card-cal px-8 py-14 text-center sm:px-12 sm:py-16 lg:px-16 lg:py-20">
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <span class="text-primary">El momento es ahora</span>
+          <span aria-hidden="true" class="text-border">·</span>
+          <span><span data-numeric class="font-bold">{countdownDays}</span> días para Ley 21.719</span>
+        </p>
+        <h2 id="final-cta-heading" class="mt-5 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          {t('cta.title')}
+        </h2>
+        <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          {t('cta.subtitle')}
+        </p>
+        <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+          <Button
+            size="xl"
+            href="/demo"
+            onclick={() => trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'final_cta' })}
+          >
+            {t('cta.primary')}
+            <ArrowRight class="size-5" />
+          </Button>
+          <Button
+            variant="outline"
+            size="xl"
+            onclick={() => (showPitch = true)}
+          >
+            <Play class="size-5" />
+            {t('hero.video_short')}
+          </Button>
+        </div>
+        </div>
       </div>
-      <!-- Urgency footnote — editorial line, not a widget -->
-      <p class="mt-8 text-sm text-background/95">
-        <span data-numeric class="font-semibold text-background">{countdownDays}</span> días hasta que la Ley 21.719 entre en plena vigencia · Diciembre 2026
-      </p>
     </div>
   </section>
 
