@@ -247,7 +247,7 @@
   <NavBar />
 
   <!-- ═══════════════════════════════════════════
-       SECTION 2: HERO — editorial, McKinsey-style
+       SECTION 2: HERO — Stripe Press editorial
        ═══════════════════════════════════════════ -->
   <section class="relative pt-20 sm:pt-24">
     <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-8 sm:px-6 sm:py-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 lg:px-8">
@@ -461,7 +461,7 @@
 
   <!-- ═══════════════════════════════════════════
        EDITORIAL ANCHOR — the thesis before the problem.
-       Anti-AI-slop moment: an institutional declaration in Playfair italic
+       Anti-AI-slop moment: an institutional declaration in Newsreader italic
        paired with three verified stats from Mineduc + Law 21.719.
        No card grid, no stock-template rhythm.
        ═══════════════════════════════════════════ -->
@@ -674,33 +674,21 @@
         role="group"
         aria-hidden="true"
       >
-        <div class="group relative rounded-lg border border-on-navy-soft/30 bg-on-navy/[0.04] p-5 text-center transition-colors hover:border-on-navy-mustard sm:p-8" aria-hidden="true">
-          <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-on-navy-mustard"></div>
-          <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-on-navy sm:text-8xl">
-            {countdownDays}
-          </span>
-          <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft sm:text-xs">
-            {t('compliance.countdown.days')}
-          </span>
-        </div>
-        <div class="group relative rounded-lg border border-on-navy-soft/30 bg-on-navy/[0.04] p-5 text-center transition-colors hover:border-on-navy-mustard sm:p-8" aria-hidden="true">
-          <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-on-navy-mustard"></div>
-          <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-on-navy sm:text-8xl">
-            {countdownHours}
-          </span>
-          <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft sm:text-xs">
-            {t('compliance.countdown.hours')}
-          </span>
-        </div>
-        <div class="group relative rounded-lg border border-on-navy-soft/30 bg-on-navy/[0.04] p-5 text-center transition-colors hover:border-on-navy-mustard sm:p-8" aria-hidden="true">
-          <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-on-navy-mustard"></div>
-          <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-on-navy sm:text-8xl">
-            {countdownMinutes}
-          </span>
-          <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft sm:text-xs">
-            {t('compliance.countdown.minutes')}
-          </span>
-        </div>
+        {#each [
+          { value: countdownDays, labelKey: 'compliance.countdown.days' },
+          { value: countdownHours, labelKey: 'compliance.countdown.hours' },
+          { value: countdownMinutes, labelKey: 'compliance.countdown.minutes' },
+        ] as box (box.labelKey)}
+          <div class="group relative rounded-lg border border-on-navy-soft/30 bg-on-navy/[0.04] p-5 text-center transition-colors hover:border-on-navy-mustard sm:p-8" aria-hidden="true">
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-on-navy-mustard"></div>
+            <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-on-navy sm:text-8xl">
+              {box.value}
+            </span>
+            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft sm:text-xs">
+              {t(box.labelKey as TranslationKey)}
+            </span>
+          </div>
+        {/each}
       </div>
       <!-- CTA under countdown -->
       <div class="mt-10 text-center">
@@ -744,7 +732,7 @@
         </p>
       </div>
 
-      <!-- Steps — editorial chapter style: big Playfair numbers, no icon circles.
+      <!-- Steps — editorial chapter style: big Newsreader numbers, no icon circles.
            Each step reads as "01 · [time]" then title + description. -->
       <div class="mx-auto mt-12 max-w-5xl">
         <ol class="grid gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-hairline-warm">

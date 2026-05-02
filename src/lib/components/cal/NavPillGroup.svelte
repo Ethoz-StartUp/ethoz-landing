@@ -25,6 +25,18 @@
   const padY = $derived(size === 'sm' ? 'py-1' : 'py-1.5');
   const fontSize = $derived(size === 'sm' ? 'text-xs' : 'text-sm');
 
+  function itemClasses(item: Item): string {
+    return [
+      padX,
+      padY,
+      fontSize,
+      'rounded-full font-medium transition-all',
+      item.active
+        ? 'bg-canvas text-ink shadow-card-hover'
+        : 'text-ink-soft hover:text-ink hover:bg-canvas',
+    ].join(' ');
+  }
+
   function handleClick(item: Item, ev: MouseEvent) {
     if (item.onClick) {
       ev.preventDefault();
@@ -44,15 +56,7 @@
         href={item.href}
         role="tab"
         aria-selected={item.active}
-        class={[
-          padX,
-          padY,
-          fontSize,
-          'rounded-full font-medium transition-all',
-          item.active
-            ? 'bg-canvas text-ink shadow-card-hover'
-            : 'text-ink-soft hover:text-ink hover:bg-canvas',
-        ].join(' ')}
+        class={itemClasses(item)}
         onclick={(ev) => handleClick(item, ev)}
       >
         {item.label}
@@ -62,15 +66,7 @@
         type="button"
         role="tab"
         aria-selected={item.active}
-        class={[
-          padX,
-          padY,
-          fontSize,
-          'rounded-full font-medium transition-all',
-          item.active
-            ? 'bg-canvas text-ink shadow-card-hover'
-            : 'text-ink-soft hover:text-ink hover:bg-canvas',
-        ].join(' ')}
+        class={itemClasses(item)}
         onclick={(ev) => handleClick(item, ev)}
       >
         {item.label}

@@ -195,7 +195,7 @@
   --primary-foreground: var(--canvas);      /* cream CTA text — was #FFFFFF */
   --primary-ink: var(--ink);
   --primary-hover: #1A2D4A;                 /* slightly lighter navy for hover */
-  --primary-pressed: #1A2D4A;
+  --primary-pressed: var(--primary-hover);  /* alias to --primary-hover so a future tint adjustment edits one place */
 
   /* ── Brand Accent — sparingly used. Cal.com is near-monochrome; blue appears on inline links + small badges only ── */
   --brand-accent: #3b82f6;
