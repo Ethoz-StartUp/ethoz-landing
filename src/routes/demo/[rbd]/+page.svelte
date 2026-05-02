@@ -242,7 +242,7 @@
   <link rel="canonical" href="https://ethoz.cl/demo" />
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-secondary pt-16">
+<main class="flex min-h-dvh flex-col bg-secondary pt-24 sm:pt-28">
   <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
   <a
     href="#demo-form-main"

@@ -114,7 +114,7 @@
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Demo"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-secondary pt-16">
+<main class="flex min-h-dvh flex-col bg-secondary pt-24 sm:pt-28">
   <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
   <a
     href="#demo-search-main"
@@ -171,7 +171,7 @@
         </div>
       {:else}
         <!-- Search input — ARIA 1.2 combobox pattern -->
-        <div class="sticky top-16 z-10 bg-secondary pb-3 pt-3">
+        <div class="sticky top-24 z-10 bg-secondary pb-3 pt-3">
           <label for="demo-school-search" class="sr-only">{t('demo.step1.title')}</label>
           <p id="demo-search-instructions" class="sr-only">{t('a11y.search.instructions')}</p>
           <div class="relative">
