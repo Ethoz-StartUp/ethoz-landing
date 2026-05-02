@@ -2,40 +2,27 @@
   import { Button } from '$lib/components/ui/button';
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
-  import { Badge } from '$lib/components/ui/badge';
+  import HeroAppMockupCard from '$lib/components/cal/HeroAppMockupCard.svelte';
+  import FeatureCardCal from '$lib/components/cal/FeatureCardCal.svelte';
+  import SectionDark from '$lib/components/cal/SectionDark.svelte';
   import { t, type TranslationKey } from '$lib/i18n/index.svelte';
   import { goto } from '$app/navigation';
   import { trackEvent } from '$lib/utils/analytics';
-  import { CONTACT } from '$lib/config';
   import { slide } from 'svelte/transition';
-  import { env } from '$env/dynamic/public';
   import PitchModal from '$lib/components/PitchModal.svelte';
   import {
     Shield,
-    Users,
-    Bell,
     FileCheck,
-    Clock,
     ArrowRight,
     Check,
     ChevronRight,
-    Lock,
-    Zap,
-    Building,
     UserCheck,
-    ClipboardList,
     AlertTriangle,
     Eye,
-    Search,
-    Fingerprint,
     MessageSquare,
-    ChevronDown,
     Plus,
     Minus,
-    Play,
-    Plug,
-    Database,
-    Rocket
+    Play
   } from '@lucide/svelte';
 
   // ── Reactive state ──
@@ -150,6 +137,19 @@
       ? `Faltan ${countdownDays} días para Ley 21.719`
       : `Ley 21.719 en vigencia`
   );
+
+  // Supporting feature cards rendered in the features section as a 3-up grid.
+  // Driven by an array so the card class string lives once instead of three times.
+  const supportingFeatures: Array<{
+    href: string;
+    numeral: string;
+    titleKey: TranslationKey;
+    descKey: TranslationKey;
+  }> = [
+    { href: '/features/safe-pickups',  numeral: '02', titleKey: 'features.pickup.title', descKey: 'features.pickup.desc' },
+    { href: '/features/access-control', numeral: '03', titleKey: 'features.rbac.title',   descKey: 'features.rbac.desc' },
+    { href: '/features/smart-search',   numeral: '04', titleKey: 'features.search.title', descKey: 'features.search.desc' },
+  ];
 </script>
 
 <!-- Scroll listener (guarded to avoid no-op reactivity writes) -->
@@ -247,7 +247,7 @@
   <NavBar />
 
   <!-- ═══════════════════════════════════════════
-       SECTION 2: HERO — editorial, McKinsey-style
+       SECTION 2: HERO — Stripe Press editorial
        ═══════════════════════════════════════════ -->
   <section class="relative pt-20 sm:pt-24">
     <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-8 sm:px-6 sm:py-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 lg:px-8">
@@ -256,12 +256,12 @@
       <div class="flex flex-col items-center text-center sm:items-start sm:text-left">
         <!-- Live urgency badge — pulsing dot + countdown -->
         <div
-          class="animate-fade-in-up mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.06] px-3 py-1.5 text-xs font-medium text-foreground"
+          class="animate-fade-in-up mb-5 inline-flex items-center gap-2 rounded-full border border-accent-mustard-ink/30 bg-accent-mustard/10 px-3 py-1.5 text-xs font-medium text-accent-mustard-ink"
           aria-label={heroCountdownLabel}
         >
           <span class="relative flex size-2 shrink-0">
-            <span class="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-60"></span>
-            <span class="relative inline-flex size-2 rounded-full bg-primary"></span>
+            <span class="absolute inline-flex size-full animate-ping rounded-full bg-accent-brick opacity-60"></span>
+            <span class="relative inline-flex size-2 rounded-full bg-accent-brick"></span>
           </span>
           <span aria-hidden="true">{heroCountdownLabel}</span>
         </div>
@@ -283,7 +283,7 @@
               <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
               <span class="relative inline-flex size-1.5 rounded-full bg-destructive"></span>
             </span>
-            <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">Cuenta regresiva</span>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">{t('hero.countdown_label')}</span>
           </span>
           <span data-numeric class="text-foreground">
             <span class="font-semibold">{countdownDays}</span> días
@@ -314,109 +314,111 @@
         </div>
       </div>
 
-      <!-- Right column: dashboard mockup — flat, hairline 1px border, McK style -->
+      <!-- Right column: dashboard mockup — cream-elevated frame + navy left-rule spine -->
       <div class="animate-fade-in-up animate-delay-400 w-full">
-        <div
-          class="overflow-hidden rounded-xl border border-border bg-card shadow-mockup"
-          role="region"
-          aria-roledescription="carrusel"
-          aria-label="Vista del panel Ethoz"
-          onmouseenter={() => (carouselPaused = true)}
-          onmouseleave={() => (carouselPaused = false)}
-          onfocusin={() => (carouselPaused = true)}
-          onfocusout={() => (carouselPaused = false)}
-        >
-          <!-- Title bar with LIVE indicator -->
-          <div class="flex items-center gap-2 border-b border-border bg-muted px-4 py-3">
-            <div class="size-3 rounded-full bg-destructive/60"></div>
-            <div class="size-3 rounded-full bg-warning/60"></div>
-            <div class="size-3 rounded-full bg-success/60"></div>
-            <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
-            <span class="ml-auto inline-flex items-center gap-1.5 border border-border bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-              <span class="relative flex size-1.5">
-                <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
-                <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
+        <HeroAppMockupCard>
+          <!-- Negative margin cancels HeroAppMockupCard's p-6 so title bar and dots are flush -->
+          <div class="-m-6"
+            role="region"
+            aria-roledescription="carrusel"
+            aria-label="Vista del panel Ethoz"
+            onmouseenter={() => (carouselPaused = true)}
+            onmouseleave={() => (carouselPaused = false)}
+            onfocusin={() => (carouselPaused = true)}
+            onfocusout={() => (carouselPaused = false)}
+          >
+            <!-- Title bar with LIVE indicator -->
+            <div class="flex items-center gap-2 border-b border-hairline-warm bg-canvas-elevated/40 px-4 py-3">
+              <div class="size-3 rounded-full bg-destructive/60"></div>
+              <div class="size-3 rounded-full bg-warning/60"></div>
+              <div class="size-3 rounded-full bg-success/60"></div>
+              <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
+              <span class="ml-auto inline-flex items-center gap-1.5 border border-hairline-warm bg-canvas-elevated px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                <span class="relative flex size-1.5">
+                  <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
+                  <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
+                </span>
+                Datos ficticios · Demo
               </span>
-              Datos ficticios · Demo
-            </span>
-          </div>
+            </div>
 
-          <!-- Dashboard content — carousel -->
-          {#key currentStudent}
-            <div class="carousel-fade p-4 sm:p-6">
-              <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
-                <!-- Student profile column -->
-                <div class="flex flex-col items-center gap-3 sm:w-48 sm:shrink-0 sm:items-start">
-                  <img
-                    src={activeStudent.photo}
-                    alt={activeStudent.name}
-                    width="64"
-                    height="64"
-                    class="size-16 rounded-full object-cover ring-2 ring-border"
-                    loading="eager"
-                  />
-                  <div class="text-center sm:text-left">
-                    <p class="text-sm font-semibold text-foreground">{activeStudent.name}</p>
-                    <p class="text-xs text-muted-foreground">{activeStudent.grade}</p>
+            <!-- Dashboard content — carousel -->
+            {#key currentStudent}
+              <div class="carousel-fade p-4 sm:p-6">
+                <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
+                  <!-- Student profile column -->
+                  <div class="flex flex-col items-center gap-3 sm:w-48 sm:shrink-0 sm:items-start">
+                    <img
+                      src={activeStudent.photo}
+                      alt={activeStudent.name}
+                      width="64"
+                      height="64"
+                      class="size-16 rounded-full object-cover ring-2 ring-border"
+                      loading="eager"
+                    />
+                    <div class="text-center sm:text-left">
+                      <p class="text-sm font-semibold text-foreground">{activeStudent.name}</p>
+                      <p class="text-xs text-muted-foreground">{activeStudent.grade}</p>
+                    </div>
+                    {#if activeStudent.hasAlert}
+                      <span class="inline-flex items-center gap-1 rounded-full bg-destructive/10 px-2.5 py-1 text-xs font-medium text-destructive">
+                        <AlertTriangle class="size-3" />
+                        {activeStudent.alertText}
+                      </span>
+                    {:else}
+                      <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2.5 py-1 text-xs font-medium text-success">
+                        <Check class="size-3" />
+                        {t('hero.no_alerts')}
+                      </span>
+                    {/if}
                   </div>
-                  {#if activeStudent.hasAlert}
-                    <span class="inline-flex items-center gap-1 rounded-full bg-destructive/10 px-2.5 py-1 text-xs font-medium text-destructive">
-                      <AlertTriangle class="size-3" />
-                      {activeStudent.alertText}
-                    </span>
-                  {:else}
-                    <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2.5 py-1 text-xs font-medium text-success">
-                      <Check class="size-3" />
-                      {t('hero.no_alerts')}
-                    </span>
-                  {/if}
-                </div>
 
-                <!-- Timeline column -->
-                <div class="flex-1 border-t border-border pt-4 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6">
-                  <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    {t('hero.recent_history')}
-                  </p>
-                  <div class="flex flex-col gap-3">
-                    {#each activeStudent.timeline as entry}
-                      <div class="flex items-start gap-3">
-                        <div class="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full {entry.type === 'alert' ? 'bg-destructive/10' : 'bg-primary/10'}">
-                          {#if entry.type === 'alert'}
-                            <AlertTriangle class="size-3 text-destructive" />
-                          {:else if entry.type === 'pickup'}
-                            <UserCheck class="size-3 text-primary" />
-                          {:else if entry.type === 'observation'}
-                            <MessageSquare class="size-3 text-primary" />
-                          {:else}
-                            <Eye class="size-3 text-primary" />
-                          {/if}
+                  <!-- Timeline column -->
+                  <div class="flex-1 border-t border-hairline-warm pt-4 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6">
+                    <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      {t('hero.recent_history')}
+                    </p>
+                    <div class="flex flex-col gap-3">
+                      {#each activeStudent.timeline as entry}
+                        <div class="flex items-start gap-3">
+                          <div class="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full {entry.type === 'alert' ? 'bg-destructive/10' : 'bg-primary/10'}">
+                            {#if entry.type === 'alert'}
+                              <AlertTriangle class="size-3 text-destructive" />
+                            {:else if entry.type === 'pickup'}
+                              <UserCheck class="size-3 text-primary" />
+                            {:else if entry.type === 'observation'}
+                              <MessageSquare class="size-3 text-primary" />
+                            {:else}
+                              <Eye class="size-3 text-primary" />
+                            {/if}
+                          </div>
+                          <div>
+                            <p class="text-xs font-medium text-foreground">{entry.text}</p>
+                            <p class="text-xs text-muted-foreground">{entry.meta}</p>
+                          </div>
                         </div>
-                        <div>
-                          <p class="text-xs font-medium text-foreground">{entry.text}</p>
-                          <p class="text-xs text-muted-foreground">{entry.meta}</p>
-                        </div>
-                      </div>
-                    {/each}
+                      {/each}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          {/key}
+            {/key}
 
-          <!-- Carousel dots -->
-          <div class="flex items-center justify-center gap-2 border-t border-border px-4 py-3">
-            {#each heroStudents as student, i}
-              <button
-                onclick={() => { currentStudent = i; }}
-                class="flex min-h-[44px] min-w-[44px] items-center justify-center"
-                aria-label={`Ver ${student.name}`}
-                aria-current={currentStudent === i ? 'true' : undefined}
-              >
-                <span class="block size-2 rounded-full transition-all {currentStudent === i ? 'w-6 bg-primary' : 'bg-border hover:bg-muted-foreground'}"></span>
-              </button>
-            {/each}
+            <!-- Carousel dots -->
+            <div class="flex items-center justify-center gap-2 border-t border-hairline-warm px-4 py-3">
+              {#each heroStudents as student, i}
+                <button
+                  onclick={() => { currentStudent = i; }}
+                  class="flex min-h-[44px] min-w-[44px] items-center justify-center"
+                  aria-label={`Ver ${student.name}`}
+                  aria-current={currentStudent === i ? 'true' : undefined}
+                >
+                  <span class="block size-2 rounded-full transition-all {currentStudent === i ? 'w-6 bg-primary' : 'bg-border hover:bg-muted-foreground'}"></span>
+                </button>
+              {/each}
+            </div>
           </div>
-        </div>
+        </HeroAppMockupCard>
       </div>
 
     </div>
@@ -427,30 +429,30 @@
        Label → fact pattern with hairline divisions. Reads like a spec sheet,
        not a badge row.
        ═══════════════════════════════════════════ -->
-  <section class="reveal border-y border-border bg-secondary py-10" aria-label="Arquitectura verificable">
+  <section class="reveal border-y border-hairline-warm bg-canvas py-10" aria-label="Arquitectura verificable">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {t('trust.attribution')}
       </p>
-      <dl class="mt-8 grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
+      <dl class="mt-8 grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-hairline-warm">
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <Building class="size-5 text-primary" aria-hidden="true" />
-          <dt class="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Datos</dt>
+          <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">{t('trust.label.data')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.servers')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <Lock class="size-5 text-primary" aria-hidden="true" />
-          <dt class="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Cifrado</dt>
+          <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">{t('trust.label.encryption')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.encryption')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <Zap class="size-5 text-primary" aria-hidden="true" />
-          <dt class="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Integración</dt>
+          <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">{t('trust.label.integration')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.integration')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <Shield class="size-5 text-primary" aria-hidden="true" />
-          <dt class="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Cumplimiento</dt>
+          <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">{t('trust.label.compliance')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.compliance')}</dd>
         </div>
       </dl>
@@ -459,13 +461,13 @@
 
   <!-- ═══════════════════════════════════════════
        EDITORIAL ANCHOR — the thesis before the problem.
-       Anti-AI-slop moment: an institutional declaration in Playfair italic
+       Anti-AI-slop moment: an institutional declaration in Newsreader italic
        paired with three verified stats from Mineduc + Law 21.719.
        No card grid, no stock-template rhythm.
        ═══════════════════════════════════════════ -->
   <section class="reveal py-14 sm:py-20" aria-labelledby="editorial-heading">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <span class="mx-auto block h-px w-12 bg-accent-mustard" aria-hidden="true"></span>
       <p id="editorial-heading" class="eyebrow mt-6">{t('editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('editorial.statement')}
@@ -473,7 +475,7 @@
     </div>
 
     <div class="mx-auto mt-12 max-w-7xl px-4 sm:mt-16 sm:px-6 lg:px-8">
-      <dl class="grid grid-cols-1 border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
+      <dl class="grid grid-cols-1 border-y border-hairline-warm sm:grid-cols-3 sm:divide-x sm:divide-hairline-warm">
         <div class="px-6 py-6 text-center sm:py-8">
           <dt class="sr-only">{t('editorial.stat1_label')}</dt>
           <dd class="font-heading text-5xl font-medium leading-none tracking-tight text-foreground sm:text-6xl" data-numeric>
@@ -483,7 +485,7 @@
             {t('editorial.stat1_label')}
           </p>
         </div>
-        <div class="border-t border-border px-6 py-6 text-center sm:border-t-0 sm:py-8">
+        <div class="border-t border-hairline-warm px-6 py-6 text-center sm:border-t-0 sm:py-8">
           <dt class="sr-only">{t('editorial.stat2_label')}</dt>
           <dd class="font-heading text-5xl font-medium leading-none tracking-tight text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat2_number')}
@@ -492,7 +494,7 @@
             {t('editorial.stat2_label')}
           </p>
         </div>
-        <div class="border-t border-border px-6 py-6 text-center sm:border-t-0 sm:py-8">
+        <div class="border-t border-hairline-warm px-6 py-6 text-center sm:border-t-0 sm:py-8">
           <dt class="sr-only">{t('editorial.stat3_label')}</dt>
           <dd class="font-heading text-5xl font-medium leading-none tracking-tight text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat3_number')}
@@ -516,7 +518,7 @@
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-primary">{t('problem.overline')}</span>
+          <span class="text-accent-brick-ink">{t('problem.overline')}</span>
           <span aria-hidden="true" class="text-border">·</span>
           <span>3 fricciones · 1 sistema</span>
         </p>
@@ -528,31 +530,26 @@
         </p>
       </div>
 
-      <!-- Problem items — 3 columns, icon + title always inline -->
+      <!-- Problem items — 3 columns, FeatureCardCal with brick left-rule -->
       <div class="mx-auto mt-8 grid gap-5 sm:grid-cols-3">
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <div class="flex items-center gap-2.5">
-            <AlertTriangle class="size-5 shrink-0 text-warning transition-transform group-hover:-rotate-6" />
-            <h3 class="text-base font-semibold text-foreground">{t('problem.card1.title')}</h3>
-          </div>
-          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card1.desc')}</p>
-        </div>
-
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <div class="flex items-center gap-2.5">
-            <Shield class="size-5 shrink-0 text-destructive transition-transform group-hover:-rotate-6" />
-            <h3 class="text-base font-semibold text-foreground">{t('problem.card2.title')}</h3>
-          </div>
-          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card2.desc')}</p>
-        </div>
-
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <div class="flex items-center gap-2.5">
-            <FileCheck class="size-5 shrink-0 text-primary transition-transform group-hover:-rotate-6" />
-            <h3 class="text-base font-semibold text-foreground">{t('problem.card3.title')}</h3>
-          </div>
-          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('problem.card3.desc')}</p>
-        </div>
+        <FeatureCardCal
+          icon={AlertTriangle}
+          title={t('problem.card1.title')}
+          description={t('problem.card1.desc')}
+          accent="brick"
+        />
+        <FeatureCardCal
+          icon={Shield}
+          title={t('problem.card2.title')}
+          description={t('problem.card2.desc')}
+          accent="brick"
+        />
+        <FeatureCardCal
+          icon={FileCheck}
+          title={t('problem.card3.title')}
+          description={t('problem.card3.desc')}
+          accent="brick"
+        />
       </div>
     </div>
   </section>
@@ -560,12 +557,12 @@
   <!-- ═══════════════════════════════════════════
        SECTION 5: SOLUTION / FEATURES
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="features">
+  <section class="reveal bg-canvas-elevated py-16 sm:py-20 lg:py-24" id="features">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-primary">{t('solution.overline')}</span>
+          <span class="text-accent-sage-ink">{t('solution.overline')}</span>
           <span aria-hidden="true" class="text-border">·</span>
           <span>10 módulos · Activación modular</span>
         </p>
@@ -580,21 +577,21 @@
       <!-- Featured hero card: Ficha 360° — the foundational data module.
            Asymmetric treatment breaks the 2×2 AI-slop template. -->
       <div class="mx-auto mt-10 max-w-5xl">
-        <a href="/features/student-profile" class="group block rounded-lg border border-border bg-card p-8 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover sm:p-10 lg:p-12">
+        <a href="/features/student-profile" class="group block rounded-lg border-l-2 border-accent-sage bg-canvas-elevated p-8 transition-all duration-[160ms] hover:border-l-4 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover sm:p-10 lg:p-12">
           <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
             <div>
-              <span class="font-heading block text-5xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground sm:text-6xl">01</span>
+              <span class="font-heading block text-5xl font-medium tabular-nums leading-none tracking-tight text-accent-sage sm:text-6xl">01</span>
               <h3 class="mt-5 font-heading text-2xl font-medium leading-tight tracking-tight text-foreground sm:text-[1.75rem] lg:text-[2rem]">
                 {t('features.record.title')}
               </h3>
               <p class="mt-4 text-base leading-relaxed text-muted-foreground">
                 {t('features.record.desc')}
               </p>
-              <span class="mt-6 inline-flex items-center gap-1 border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
+              <span class="mt-6 inline-flex items-center gap-1 border-b border-accent-sage-ink pb-0.5 text-sm font-semibold text-accent-sage-ink transition-all group-hover:gap-1.5 group-hover:border-b-2">
                 {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
               </span>
             </div>
-            <ul class="space-y-4 border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+            <ul class="space-y-4 border-t border-hairline-warm pt-6 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
               <li class="flex items-start gap-3">
                 <Check class="mt-0.5 size-4 shrink-0 text-primary" />
                 <p class="text-sm leading-relaxed text-foreground">{t('features.record.bullet1')}</p>
@@ -612,40 +609,24 @@
         </a>
       </div>
 
-      <!-- Supporting features — 3-column grid, compact cards -->
+      <!-- Supporting features — 3-column grid, compact cards (driven by supportingFeatures array) -->
       <div class="mx-auto mt-5 grid max-w-5xl gap-5 sm:grid-cols-3">
-        <a href="/features/safe-pickups" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">02</span>
-          <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.pickup.title')}</h3>
-          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.pickup.desc')}</p>
-          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
-            {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
-          </span>
-        </a>
-
-        <a href="/features/access-control" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">03</span>
-          <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.rbac.title')}</h3>
-          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.rbac.desc')}</p>
-          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
-            {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
-          </span>
-        </a>
-
-        <a href="/features/smart-search" class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">04</span>
-          <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t('features.search.title')}</h3>
-          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t('features.search.desc')}</p>
-          <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-primary pb-0.5 text-sm font-semibold text-primary transition-all group-hover:gap-1.5 group-hover:border-b-2">
-            {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
-          </span>
-        </a>
+        {#each supportingFeatures as feat (feat.href)}
+          <a href={feat.href} class="group flex flex-col rounded-lg border-l-2 border-accent-sage bg-canvas-elevated p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover">
+            <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-accent-sage">{feat.numeral}</span>
+            <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t(feat.titleKey)}</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t(feat.descKey)}</p>
+            <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-accent-sage-ink pb-0.5 text-sm font-semibold text-accent-sage-ink transition-all group-hover:gap-1.5 group-hover:border-b-2">
+              {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
+            </span>
+          </a>
+        {/each}
       </div>
 
       <!-- Cross-cutting: privacy is not a product, it's how everything works -->
       <div class="mx-auto mt-8 max-w-4xl">
-        <a href="/compliance" class="group flex items-center gap-4 rounded-lg border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <Shield class="size-5 shrink-0 text-primary transition-transform group-hover:rotate-6" />
+        <a href="/compliance" class="group flex items-center gap-4 rounded-lg border border-hairline-warm bg-canvas-elevated px-6 py-4 transition-all duration-[160ms] hover:border-ink/30 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover">
+          <Shield class="size-5 shrink-0 text-accent-sage transition-transform group-hover:rotate-6" />
           <div class="flex-1">
             <p class="text-sm font-semibold text-foreground">{t('home.compliance_banner.title')}</p>
             <p class="mt-0.5 text-xs text-muted-foreground">{t('home.compliance_banner.desc')}</p>
@@ -659,91 +640,77 @@
   <!-- ═══════════════════════════════════════════
        SECTION 6: COMPLIANCE + COUNTDOWN
        ═══════════════════════════════════════════ -->
-  <section class="reveal py-16 sm:py-20 lg:py-24" id="compliance">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Section header — editorial eyebrow pattern -->
-      <div class="mx-auto max-w-2xl text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-primary">{t('compliance.overline')}</span>
-          <span aria-hidden="true" class="text-border">·</span>
-          <span>Ley 21.719 · Diciembre 2026</span>
-        </p>
-        <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          {t('compliance.title')}
-        </h2>
-        <p class="mt-4 text-lg text-muted-foreground">
-          {t('compliance.subtitle')}
-        </p>
-      </div>
+  <SectionDark variant="compliance" id="compliance">
+    <!-- Section header — editorial eyebrow pattern -->
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft">
+        <span class="text-on-navy-mustard">{t('compliance.overline')}</span>
+        <span aria-hidden="true" class="text-on-navy-soft/40">·</span>
+        <span>{t('compliance.overline_detail')}</span>
+      </p>
+      <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-on-navy sm:text-4xl">
+        {t('compliance.title')}
+      </h2>
+      <p class="mt-4 text-lg text-on-navy-soft">
+        {t('compliance.subtitle')}
+      </p>
+    </div>
 
-      <!-- Countdown — dramatic editorial treatment -->
-      <div class="mx-auto mt-10 max-w-3xl">
-        <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-          <span class="relative flex size-2">
-            <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
-            <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
-          </span>
-          {t('compliance.countdown.label')}
-        </p>
-        <!-- Visually hidden live region announces the countdown to screen readers without flooding on every minute tick -->
-        <p class="sr-only" aria-live="polite" aria-atomic="true">
-          Faltan {countdownDays} días, {countdownHours} horas y {countdownMinutes} minutos para que la Ley 21.719 entre plenamente en vigencia.
-        </p>
-        <div
-          class="grid grid-cols-3 gap-2 sm:gap-4"
-          role="group"
-          aria-hidden="true"
-        >
-          <div class="group relative rounded-lg border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-primary"></div>
-            <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
-              {countdownDays}
+    <!-- Countdown — dramatic editorial treatment -->
+    <div class="mx-auto mt-10 max-w-3xl">
+      <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-on-navy-soft">
+        <span class="relative flex size-2">
+          <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
+          <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
+        </span>
+        {t('compliance.countdown.label')}
+      </p>
+      <!-- Visually hidden live region announces the countdown to screen readers without flooding on every minute tick -->
+      <p class="sr-only" aria-live="polite" aria-atomic="true">
+        Faltan {countdownDays} días, {countdownHours} horas y {countdownMinutes} minutos para que la Ley 21.719 entre plenamente en vigencia.
+      </p>
+      <div
+        class="grid grid-cols-3 gap-2 sm:gap-4"
+        role="group"
+        aria-hidden="true"
+      >
+        {#each [
+          { value: countdownDays, labelKey: 'compliance.countdown.days' },
+          { value: countdownHours, labelKey: 'compliance.countdown.hours' },
+          { value: countdownMinutes, labelKey: 'compliance.countdown.minutes' },
+        ] as box (box.labelKey)}
+          <div class="group relative rounded-lg border border-on-navy-soft/30 bg-on-navy/[0.04] p-5 text-center transition-colors hover:border-on-navy-mustard sm:p-8" aria-hidden="true">
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-on-navy-mustard"></div>
+            <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-on-navy sm:text-8xl">
+              {box.value}
             </span>
-            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
-              {t('compliance.countdown.days')}
+            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft sm:text-xs">
+              {t(box.labelKey as TranslationKey)}
             </span>
-          </div>
-          <div class="group relative rounded-lg border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-primary"></div>
-            <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
-              {countdownHours}
-            </span>
-            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
-              {t('compliance.countdown.hours')}
-            </span>
-          </div>
-          <div class="group relative rounded-lg border border-border bg-card p-5 text-center transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-primary"></div>
-            <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
-              {countdownMinutes}
-            </span>
-            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
-              {t('compliance.countdown.minutes')}
-            </span>
-          </div>
-        </div>
-        <!-- CTA under countdown -->
-        <div class="mt-10 text-center">
-          <Button size="xl" href="/demo">
-            {t('hero.cta.primary')}
-            <ArrowRight class="size-5" />
-          </Button>
-          <p class="mt-4 text-xs text-muted-foreground">{t('home.countdown.cta_hint')}</p>
-        </div>
-      </div>
-
-      <!-- Compliance items -->
-      <div class="mx-auto mt-12 grid max-w-3xl gap-x-8 gap-y-4 sm:grid-cols-2">
-        {#each ['compliance.item1', 'compliance.item2', 'compliance.item3', 'compliance.item4', 'compliance.item5', 'compliance.item6'] as item}
-          <div class="flex items-start gap-3">
-            <Check class="mt-0.5 size-5 shrink-0 text-primary" />
-            <span class="text-sm leading-relaxed text-muted-foreground">{t(item as TranslationKey)}</span>
           </div>
         {/each}
       </div>
-
+      <!-- CTA under countdown -->
+      <div class="mt-10 text-center">
+        <Button size="xl" href="/demo"
+                class="bg-on-navy-mustard text-ink hover:bg-on-navy-mustard/90">
+          {t('hero.cta.primary')}
+          <ArrowRight class="size-5" />
+        </Button>
+        <p class="mt-4 text-xs text-on-navy-soft">{t('home.countdown.cta_hint')}</p>
+      </div>
     </div>
-  </section>
+
+    <!-- Compliance items -->
+    <div class="mx-auto mt-12 grid max-w-3xl gap-x-8 gap-y-4 sm:grid-cols-2">
+      {#each ['compliance.item1', 'compliance.item2', 'compliance.item3', 'compliance.item4', 'compliance.item5', 'compliance.item6'] as item}
+        <div class="flex items-start gap-3">
+          <Check class="mt-0.5 size-5 shrink-0 text-on-navy-mustard" />
+          <span class="text-sm leading-relaxed text-on-navy-soft">{t(item as TranslationKey)}</span>
+        </div>
+      {/each}
+    </div>
+  </SectionDark>
 
   <!-- ═══════════════════════════════════════════
        SECTION 8: HOW IT WORKS — visual progression with icons + connector
@@ -753,7 +720,7 @@
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-primary">{t('how.overline')}</span>
+          <span class="text-accent-mustard-ink">{t('how.overline')}</span>
           <span aria-hidden="true" class="text-border">·</span>
           <span>3 pasos · 2-4 semanas</span>
         </p>
@@ -765,14 +732,14 @@
         </p>
       </div>
 
-      <!-- Steps — editorial chapter style: big Playfair numbers, no icon circles.
+      <!-- Steps — editorial chapter style: big Newsreader numbers, no icon circles.
            Each step reads as "01 · [time]" then title + description. -->
       <div class="mx-auto mt-12 max-w-5xl">
-        <ol class="grid gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border">
+        <ol class="grid gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-hairline-warm">
           <!-- Step 1 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-primary" data-numeric>01</span>
+              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-accent-mustard" data-numeric>01</span>
               <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step1.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step1.title')}</h3>
@@ -782,18 +749,18 @@
           <!-- Step 2 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-primary" data-numeric>02</span>
+              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-accent-mustard" data-numeric>02</span>
               <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step2.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step2.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('how.step2.desc')}</p>
           </li>
 
-          <!-- Step 3 — marked as the "arrival" with primary number -->
+          <!-- Step 3 — marked as the "arrival" with sage number -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-primary" data-numeric>03</span>
-              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">{t('home.how.step3.time')}</span>
+              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-accent-sage" data-numeric>03</span>
+              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-sage-ink">{t('home.how.step3.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step3.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('how.step3.desc')}</p>
@@ -821,11 +788,11 @@
   <!-- ═══════════════════════════════════════════
        SECTION 9: FAQ
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="faq">
+  <section class="reveal bg-canvas-elevated py-16 sm:py-20 lg:py-24" id="faq">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-primary">{t('faq.overline')}</span>
+          <span class="text-ink">{t('faq.overline')}</span>
           <span aria-hidden="true" class="text-border">·</span>
           <span>7 preguntas · Respuestas directas</span>
         </p>
@@ -834,13 +801,13 @@
         </h2>
       </div>
 
-      <div class="mt-10 divide-y divide-border rounded-2xl border border-border bg-card shadow-sm">
+      <div class="mt-10 divide-y divide-hairline-warm rounded-2xl border border-hairline-warm bg-canvas shadow-sm">
         {#each [1, 2, 11, 3, 15, 4, 12] as n, i}
           <div>
             <button
               id={`faq-trigger-${i}`}
               onclick={() => toggleFaq(i)}
-              class="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-muted"
+              class="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-canvas-elevated"
               aria-expanded={openFaq === i}
               aria-controls={`faq-panel-${i}`}
             >
@@ -870,7 +837,7 @@
 
       <!-- Inline contact link — no /faq page yet, route to /contact for unanswered questions -->
       <div class="mt-6 text-center">
-        <a href="/contact" class="inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:text-primary-pressed hover:underline">
+        <a href="/contact" class="inline-flex items-center gap-1 text-sm font-medium text-ink underline-offset-4 hover:text-ink-soft hover:underline">
           {t('faq.contact_link')}
           <ArrowRight class="size-3.5" />
         </a>
@@ -885,45 +852,43 @@
        the reader through urgency, context, product, proof — this is
        the inverted moment that earns the decisive click.
        ═══════════════════════════════════════════ -->
-  <!-- Final CTA — Cal cta-band-light: light-gray card on white, the calm before the dark footer.
-       Pacing: light → dark footer (the page's only dark surface) closes the editorial rhythm. -->
-  <section class="reveal py-16 sm:py-20 lg:py-24" id="cta" aria-labelledby="final-cta-heading">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-4xl">
-        <div class="rounded-2xl bg-surface-card-cal px-8 py-14 text-center sm:px-12 sm:py-16 lg:px-16 lg:py-20">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-primary">El momento es ahora</span>
-          <span aria-hidden="true" class="text-border">·</span>
-          <span><span data-numeric class="font-bold">{countdownDays}</span> días para Ley 21.719</span>
-        </p>
-        <h2 id="final-cta-heading" class="mt-5 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-          {t('cta.title')}
-        </h2>
-        <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-          {t('cta.subtitle')}
-        </p>
-        <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-          <Button
-            size="xl"
-            href="/demo"
-            onclick={() => trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'final_cta' })}
-          >
-            {t('cta.primary')}
-            <ArrowRight class="size-5" />
-          </Button>
-          <Button
-            variant="outline"
-            size="xl"
-            onclick={() => (showPitch = true)}
-          >
-            <Play class="size-5" />
-            {t('hero.video_short')}
-          </Button>
-        </div>
-        </div>
+  <!-- Final CTA — full-bleed navy SectionDark. Mirrors compliance band treatment.
+       Pacing: navy → deeper-navy footer closes the editorial dark passage. -->
+  <SectionDark variant="cta" id="cta" aria-labelledby="final-cta-heading">
+    <div class="text-center">
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft">
+        <span class="text-on-navy-mustard">{t('cta.urgency_eyebrow')}</span>
+        <span aria-hidden="true" class="text-on-navy-soft/40">·</span>
+        <span><span data-numeric class="font-bold text-on-navy">{countdownDays}</span> días para Ley 21.719</span>
+      </p>
+      <h2 id="final-cta-heading" class="mt-5 text-balance text-3xl font-bold tracking-tight text-on-navy sm:text-4xl lg:text-5xl">
+        {t('cta.title')}
+      </h2>
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-on-navy-soft">
+        {t('cta.subtitle')}
+      </p>
+      <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+        <Button
+          size="xl"
+          href="/demo"
+          class="bg-on-navy-mustard text-ink hover:bg-on-navy-mustard/90"
+          onclick={() => trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'final_cta' })}
+        >
+          {t('cta.primary')}
+          <ArrowRight class="size-5" />
+        </Button>
+        <Button
+          variant="outline"
+          size="xl"
+          onclick={() => (showPitch = true)}
+          class="border-on-navy text-on-navy hover:bg-on-navy hover:text-ink"
+        >
+          <Play class="size-5" />
+          {t('hero.video_short')}
+        </Button>
       </div>
     </div>
-  </section>
+  </SectionDark>
 
   <Footer />
 
@@ -958,17 +923,4 @@
     from { opacity: 0; transform: translateY(4px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .trust-item {
-    animation: fadeInUp 0.5s ease-out both;
-  }
-
-  .trust-item:nth-child(3) { animation-delay: 0.1s; }
-  .trust-item:nth-child(5) { animation-delay: 0.2s; }
-  .trust-item:nth-child(7) { animation-delay: 0.3s; }
 </style>

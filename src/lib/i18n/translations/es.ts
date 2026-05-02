@@ -23,6 +23,7 @@ export const es = {
     'La plataforma de seguridad escolar diseñada para la Ley 21.719 chilena — sin reemplazar el sistema que ya usas.',
   'hero.cta.primary': 'Agendar Demo',
   'hero.cta.secondary': 'Postular al Piloto 2026',
+  'hero.countdown_label': 'Cuenta regresiva',
 
   // Trust bar — provable facts, not generic badges
   'trust.attribution': 'Desarrollado en Chile · Cumplimiento por diseño desde el origen',
@@ -31,6 +32,10 @@ export const es = {
   'trust.integration': 'Diseñado para integrarse con Napsis, SIGE y Lirmi',
   'trust.servers': 'Datos en Santiago, Chile (Google Cloud)',
   'trust.directory': 'Directorio de 12.038 establecimientos',
+  'trust.label.data': 'Datos',
+  'trust.label.encryption': 'Cifrado',
+  'trust.label.integration': 'Integración',
+  'trust.label.compliance': 'Cumplimiento',
 
   // Editorial anchor — McK-style anti-slop moment between trust bar and problem
   'editorial.eyebrow': 'El contexto',
@@ -105,6 +110,7 @@ export const es = {
   'compliance.title': 'La Ley 21.719 entra en vigencia pronto',
   'compliance.subtitle':
     'Los colegios que no estén preparados enfrentan multas de hasta 20.000 UTM. Ethoz fue diseñado para que tu colegio cumpla la Ley 21.719.',
+  'compliance.overline_detail': 'Ley 21.719 · Diciembre 2026',
   'compliance.countdown.label': 'Tiempo restante para la entrada en vigencia',
   'compliance.countdown.days': 'días',
   'compliance.countdown.hours': 'horas',
@@ -130,6 +136,7 @@ export const es = {
     'Cada integrante del equipo accede solo a lo que le corresponde. Sin capacitación prolongada.',
 
   // Final CTA
+  'cta.urgency_eyebrow': 'El momento es ahora',
   'cta.title': 'Protege tu comunidad escolar hoy',
   'cta.subtitle':
     'El piloto 2026 tiene cupos limitados. Sé de los primeros colegios en cumplir con la Ley 21.719.',

@@ -1,0 +1,699 @@
+
+> ethoz-landing@0.0.1 test:ci
+> npm run lint && npm run check && npm run audit:security && npm run test:unit && playwright test --grep-invert 'DB Integration'
+
+
+> ethoz-landing@0.0.1 lint
+> eslint src supabase/functions --max-warnings=50 && bash scripts/lint-all.sh
+
+
+/Users/ignacioaraya/Projects/ethoz-landing/src/lib/components/Footer.svelte
+  54:11  warning  Each block should have a key  svelte/require-each-key
+
+/Users/ignacioaraya/Projects/ethoz-landing/src/lib/components/NavBar.svelte
+   94:7   warning  Each block should have a key  svelte/require-each-key
+  145:15  warning  Each block should have a key  svelte/require-each-key
+  172:7   warning  Each block should have a key  svelte/require-each-key
+  225:9   warning  Each block should have a key  svelte/require-each-key
+
+/Users/ignacioaraya/Projects/ethoz-landing/src/lib/components/PitchModal.svelte
+  309:9  warning  Each block should have a key  svelte/require-each-key
+  332:7  warning  Each block should have a key  svelte/require-each-key
+
+/Users/ignacioaraya/Projects/ethoz-landing/src/lib/stores/consent.svelte.ts
+  52:7  warning  'localStorage.setItem' is restricted from being used. Avoid localStorage for PII, tokens, or secrets. Use sessionStorage for temporary data and Supabase for persistent  no-restricted-properties
+
+/Users/ignacioaraya/Projects/ethoz-landing/src/lib/stores/feedback.svelte.ts
+  59:3  warning  'localStorage.setItem' is restricted from being used. Avoid localStorage for PII, tokens, or secrets. Use sessionStorage for temporary data and Supabase for persistent  no-restricted-properties
+
+/Users/ignacioaraya/Projects/ethoz-landing/src/lib/utils/logger.ts
+  7:47  warning  Unexpected console statement. Only these console methods are allowed: warn, error, info  no-console
+
+/Users/ignacioaraya/Projects/ethoz-landing/supabase/functions/social-publish/index.ts
+  13:16  warning  'refreshGoogleToken' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+✖ 11 problems (0 errors, 11 warnings)
+
+✓ Section-width lint: all outer containers aligned (max-w-7xl)
+✓ Shadow lint: no shadow-xl/2xl outside admin
+✓ Glow shadow lint: no neutralized glow utilities in use
+✓ Opacity hover lint: no opacity-as-reveal patterns
+✓ Muted hover lint: hover states have visible contrast (>=/40 threshold)
+✓ Hardcoded color lint: no hex literals in components
+✓ Pastel-on-CTA lint: pastels stay on metadata
+✓ Cal Sans scope lint: no inline font-family overrides
+✓ Icon box wrapper lint: no obvious AI-slop icon wrappers
+
+✓ All design-system lints passed
+
+> ethoz-landing@0.0.1 check
+> svelte-kit sync && svelte-check --tsconfig ./tsconfig.json
+
+1777733342613 START "/Users/ignacioaraya/Projects/ethoz-landing"
+1777733342624 WARNING "src/routes/+page.svelte" 967:3 "Unused CSS selector \".trust-item\"\nhttps://svelte.dev/e/css_unused_selector"
+1777733342624 WARNING "src/routes/+page.svelte" 971:3 "Unused CSS selector \".trust-item:nth-child(3)\"\nhttps://svelte.dev/e/css_unused_selector"
+1777733342624 WARNING "src/routes/+page.svelte" 972:3 "Unused CSS selector \".trust-item:nth-child(5)\"\nhttps://svelte.dev/e/css_unused_selector"
+1777733342624 WARNING "src/routes/+page.svelte" 973:3 "Unused CSS selector \".trust-item:nth-child(7)\"\nhttps://svelte.dev/e/css_unused_selector"
+1777733342624 COMPLETED 5152 FILES 0 ERRORS 4 WARNINGS 1 FILES_WITH_PROBLEMS
+
+> ethoz-landing@0.0.1 audit:security
+> node scripts/audit-security.mjs
+
+
+[1mSecurity Audit[0m
+────────────────────────────────────────────────────────────
+[32m✔ No security issues found[0m
+
+
+> ethoz-landing@0.0.1 test:unit
+> vitest run
+
+
+ RUN  v4.1.2 /Users/ignacioaraya/Projects/ethoz-landing
+
+
+ Test Files  13 passed (13)
+      Tests  101 passed (101)
+   Start at  10:49:03
+   Duration  2.00s (transform 2.12s, setup 0ms, import 1.77s, tests 1.81s, environment 12.23s)
+
+
+Running 209 tests using 5 workers
+
+  ✓    3 [chromium] › tests/smoke.spec.ts:16:2 › Smoke — pages load › homepage loads with hero and nav (541ms)
+  ✓    5 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › / returns 200 and has a heading (543ms)
+  ✓    4 [chromium] › tests/seo.spec.ts:31:3 › SEO — meta tags on key pages › / has title, description ≥50 chars, canonical, og:title, og:url, twitter:card (548ms)
+  ✓    7 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /demo returns 200 and has a heading (151ms)
+  ✓    8 [chromium] › tests/seo.spec.ts:31:3 › SEO — meta tags on key pages › /pitch has title, description ≥50 chars, canonical, og:title, og:url, twitter:card (218ms)
+  ✓    6 [chromium] › tests/smoke.spec.ts:23:2 › Smoke — pages load › blog listing loads with posts (254ms)
+  ✓    9 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /about returns 200 and has a heading (134ms)
+  ✘   10 [chromium] › tests/seo.spec.ts:31:3 › SEO — meta tags on key pages › /suggestions has title, description ≥50 chars, canonical, og:title, og:url, twitter:card (106ms)
+  ✓   11 [chromium] › tests/smoke.spec.ts:31:2 › Smoke — pages load › blog post detail loads with cover image (201ms)
+  ✓   12 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /contact returns 200 and has a heading (184ms)
+  ✓   14 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /get-started returns 200 and has a heading (153ms)
+  ✓   13 [chromium] › tests/smoke.spec.ts:37:2 › Smoke — pages load › demo page loads with school search (246ms)
+  ✓   15 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /productos returns 200 and has a heading (110ms)
+  ✓   16 [chromium] › tests/smoke.spec.ts:42:2 › Smoke — pages load › compliance page loads (158ms)
+  ✓   17 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /compliance returns 200 and has a heading (153ms)
+  ✓   18 [chromium] › tests/smoke.spec.ts:52:2 › Smoke — GTM & analytics › GTM loads dynamically after consent accept (127ms)
+  ✓   19 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /blog returns 200 and has a heading (166ms)
+  ✓   21 [chromium] › tests/smoke.spec.ts:70:2 › Smoke — GTM & analytics › dataLayer exists and receives events (137ms)
+  ✓   22 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /schedule returns 200 and has a heading (152ms)
+  ✓   20 [chromium] › tests/seo.spec.ts:31:3 › SEO — meta tags on key pages › /contact has title, description ≥50 chars, canonical, og:title, og:url, twitter:card (219ms)
+  ✓   24 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /features/student-profile returns 200 and has a heading (148ms)
+  ✓   25 [chromium] › tests/seo.spec.ts:31:3 › SEO — meta tags on key pages › /compliance has title, description ≥50 chars, canonical, og:title, og:url, twitter:card (141ms)
+  ✓   26 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /features/safe-pickups returns 200 and has a heading (139ms)
+  ✓   27 [chromium] › tests/seo.spec.ts:31:3 › SEO — meta tags on key pages › /productos has title, description ≥50 chars, canonical, og:title, og:url, twitter:card (146ms)
+  ✓   28 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /features/access-control returns 200 and has a heading (136ms)
+  ✓   29 [chromium] › tests/seo.spec.ts:31:3 › SEO — meta tags on key pages › /get-started has title, description ≥50 chars, canonical, og:title, og:url, twitter:card (161ms)
+  ✓   23 [chromium] › tests/smoke.spec.ts:76:2 › Smoke — GTM & analytics › blog post view fires tracking event (660ms)
+  ✓   30 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /features/smart-search returns 200 and has a heading (157ms)
+  ✓   31 [chromium] › tests/seo.spec.ts:31:3 › SEO — meta tags on key pages › /blog has title, description ≥50 chars, canonical, og:title, og:url, twitter:card (218ms)
+  ✓   32 [chromium] › tests/smoke.spec.ts:99:2 › Smoke — lead funnel › homepage CTA links to /demo (318ms)
+  ✓   33 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /features/privacy-compliance returns 200 and has a heading (295ms)
+  ✓    2 [chromium] › tests/analytics.spec.ts:53:2 › Analytics — hero CTA trackEvent calls › Watch Video hero button fires hero_cta_clicked with cta:watch_video location:hero (2.8s)
+  ✓   34 [chromium] › tests/seo.spec.ts:82:2 › SEO — meta tags on key pages › homepage has Organization ld+json with @type:Organization (243ms)
+  ✓   36 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /integrations returns 200 and has a heading (225ms)
+  ✓   35 [chromium] › tests/smoke.spec.ts:105:2 › Smoke — lead funnel › FAQ section renders all items (266ms)
+  ✓   38 [chromium] › tests/seo.spec.ts:104:2 › SEO — meta tags on key pages › homepage Organization sameAs has exactly 5 social URLs (194ms)
+  -   41 [chromium] › tests/seo.spec.ts:138:2 › SEO — /admin pages are noindex › /admin noindex via firebase headers (only runs on prod/preview)
+  -   42 [chromium] › tests/seo.spec.ts:156:2 › SEO — /admin pages are noindex › /admin/** noindex via firebase headers (only runs on prod/preview)
+  ✓   39 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /privacy returns 200 and has a heading (162ms)
+  ✓   43 [chromium] › tests/seo.spec.ts:180:2 › SEO — robots.txt › robots.txt disallows /admin and references sitemap (82ms)
+  ✓   44 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /terms returns 200 and has a heading (120ms)
+  ✓   45 [chromium] › tests/seo.spec.ts:197:2 › SEO — sitemap.xml › sitemap.xml returns 200 with urlset element (78ms)
+  ✓   40 [chromium] › tests/smoke.spec.ts:113:2 › Smoke — lead funnel › FAQ accordion opens on click (392ms)
+  ✓   46 [chromium] › tests/e2e.spec.ts:83:3 › Pages — load with 200 and visible heading › /pitch returns 200 and has a heading (141ms)
+  ✓   47 [chromium] › tests/seo.spec.ts:205:2 › SEO — sitemap.xml › sitemap.xml contains /pitch (95ms)
+  ✓   50 [chromium] › tests/seo.spec.ts:213:2 › SEO — sitemap.xml › sitemap.xml does not contain /suggestions (noindex internal tool) (88ms)
+  ✓   51 [chromium] › tests/seo.spec.ts:221:2 › SEO — sitemap.xml › sitemap.xml does not contain /admin URLs (101ms)
+  ✓   48 [chromium] › tests/smoke.spec.ts:124:2 › Smoke — lead funnel › cookie consent banner appears (231ms)
+  ✓   49 [chromium] › tests/e2e.spec.ts:101:2 › Navigation — desktop NavBar › logo links to homepage (283ms)
+  ✓   53 [chromium] › tests/e2e.spec.ts:107:2 › Navigation — desktop NavBar › About link navigates to /about (261ms)
+  ✓   54 [chromium] › tests/e2e.spec.ts:113:2 › Navigation — desktop NavBar › Pricing link navigates to /get-started (254ms)
+  ✓   55 [chromium] › tests/e2e.spec.ts:119:2 › Navigation — desktop NavBar › Blog link navigates to /blog (253ms)
+  ✓   56 [chromium] › tests/e2e.spec.ts:125:2 › Navigation — desktop NavBar › Contact link navigates to /contact (237ms)
+  ✓   57 [chromium] › tests/e2e.spec.ts:131:2 › Navigation — desktop NavBar › Nav CTA button links to /demo (123ms)
+  ✓   37 [chromium] › tests/analytics.spec.ts:80:2 › Analytics — hero CTA trackEvent calls › Book Demo hero button fires hero_cta_clicked with cta:book_demo location:hero (2.5s)
+  ✓   52 [chromium] › tests/smoke.spec.ts:140:2 › Smoke — tracking coverage › visitor ID is generated and persisted (2.2s)
+  ✓   60 [chromium] › tests/smoke.spec.ts:157:2 › Smoke — tracking coverage › visitor ID is pushed to dataLayer after consent (2.1s)
+  ✓   61 [chromium] › tests/smoke.spec.ts:165:2 › Smoke — tracking coverage › internal flag excludes analytics (443ms)
+  ✓   59 [chromium] › tests/analytics.spec.ts:108:2 › Analytics — hero CTA trackEvent calls › Sticky CTA fires hero_cta_clicked with cta:book_demo location:sticky (3.6s)
+  ✓   62 [chromium] › tests/smoke.spec.ts:182:2 › Smoke — tracking coverage › pricing page fires tracking event (1.1s)
+  ✓   64 [chromium] › tests/smoke.spec.ts:193:2 › Smoke — tracking coverage › feature pages fire tracking events (202ms)
+  ✓   65 [chromium] › tests/smoke.spec.ts:209:2 › Smoke — tracking coverage › contact form saves lead (mock check) (80ms)
+  ✓   66 [chromium] › tests/smoke.spec.ts:218:2 › Smoke — tracking coverage › demo search page loads and tracks (1.1s)
+  ✓   63 [chromium] › tests/analytics.spec.ts:156:2 › Consent — reject flow › no GTM/Clarity requests load when user picks "Solo esenciales" (2.2s)
+  ✓   67 [chromium] › tests/smoke.spec.ts:229:2 › Smoke — internal traffic › ?_internal=1 sets localStorage flag (388ms)
+  ✘    1 [chromium] › tests/error-paths.spec.ts:21:2 › Contact form — Supabase submission failure › shows error message when Supabase returns 500 (11.3s)
+  ✓   69 [chromium] › tests/smoke.spec.ts:236:2 › Smoke — internal traffic › ?_internal=0 removes localStorage flag (435ms)
+  ✓   68 [chromium] › tests/analytics.spec.ts:177:2 › Consent — reject flow › trackEvent calls do not touch dataLayer pre-consent (669ms)
+  ✓   71 [chromium] › tests/smoke.spec.ts:245:2 › Smoke — internal traffic › test email is detected (123ms)
+  ✓   73 [chromium] › tests/smoke.spec.ts:258:2 › Smoke — SEO › homepage has canonical URL (146ms)
+  ✓   74 [chromium] › tests/smoke.spec.ts:264:2 › Smoke — SEO › homepage has OG meta tags (123ms)
+  ✓   75 [chromium] › tests/smoke.spec.ts:270:2 › Smoke — SEO › blog post has article meta tags (92ms)
+  ✓   76 [chromium] › tests/smoke.spec.ts:277:2 › Smoke — SEO › all new blog posts are accessible (171ms)
+  ✓   72 [chromium] › tests/analytics.spec.ts:196:2 › Consent — accept flow › buffered events flush to dataLayer after consent is granted (3.0s)
+  ✘   70 [chromium] › tests/error-paths.spec.ts:44:2 › Contact form — Supabase submission failure › does not show success state when submission fails (12.3s)
+  ✘   58 [chromium] › tests/e2e.spec.ts:138:2 › Navigation — desktop NavBar › Productos dropdown opens on hover and shows product links (30.0s)
+  ✘   77 [chromium] › tests/error-paths.spec.ts:66:2 › Contact form — Supabase submission failure › form fields remain editable after failed submission (10.8s)
+  ✓   79 [chromium] › tests/error-paths.spec.ts:94:2 › Demo page — schools data load failure › does not crash when schools.json fetch is aborted (3.1s)
+  ✓   80 [chromium] › tests/error-paths.spec.ts:110:2 › Demo page — schools data load failure › still renders the page structure when schools.json is unavailable (115ms)
+  ✓   81 [chromium] › tests/error-paths.spec.ts:126:2 › Schedule page — Cal.com embed failure › shows fallback link when Cal.com embed script is blocked (217ms)
+  ✓   82 [chromium] › tests/error-paths.spec.ts:138:2 › Schedule page — Cal.com embed failure › does not crash when Cal.com script is blocked (202ms)
+  ✘   83 [chromium] › tests/error-paths.spec.ts:154:2 › Schedule page — Cal.com embed failure › still shows page heading and layout when Cal.com is blocked (121ms)
+  ✘   78 [chromium] › tests/e2e.spec.ts:149:2 › Navigation — desktop NavBar › Productos dropdown items navigate correctly (30.0s)
+  ✘   84 [chromium] › tests/e2e.spec.ts:166:2 › Navigation — mobile hamburger › hamburger button is visible on mobile (5.1s)
+  ✘   85 [chromium] › tests/e2e.spec.ts:172:2 › Navigation — mobile hamburger › hamburger opens mobile menu (30.0s)
+  ✘   86 [chromium] › tests/e2e.spec.ts:180:2 › Navigation — mobile hamburger › mobile menu has all nav links (30.0s)
+  ✘   87 [chromium] › tests/e2e.spec.ts:191:2 › Navigation — mobile hamburger › mobile menu closes when link is clicked (30.0s)
+  ✘   88 [chromium] › tests/e2e.spec.ts:202:2 › Navigation — mobile hamburger › hamburger shows X icon when open (30.0s)
+  ✓   89 [chromium] › tests/e2e.spec.ts:212:2 › Navigation — Footer links › footer integrations link navigates to /integrations (166ms)
+  ✓   90 [chromium] › tests/e2e.spec.ts:219:2 › Navigation — Footer links › footer pricing link navigates to /get-started (149ms)
+  ✓   91 [chromium] › tests/e2e.spec.ts:226:2 › Navigation — Footer links › footer blog link navigates to /blog (151ms)
+  ✓   92 [chromium] › tests/e2e.spec.ts:233:2 › Navigation — Footer links › footer about link navigates to /about (154ms)
+  ✓   93 [chromium] › tests/e2e.spec.ts:240:2 › Navigation — Footer links › footer privacy link navigates to /privacy (150ms)
+  ✓   94 [chromium] › tests/e2e.spec.ts:247:2 › Navigation — Footer links › footer terms link navigates to /terms (141ms)
+  ✓   95 [chromium] › tests/e2e.spec.ts:258:3 › Navigation — CTA buttons › "Solicita tu demo" CTA on / links to /demo (121ms)
+  ✓   96 [chromium] › tests/e2e.spec.ts:258:3 › Navigation — CTA buttons › "Solicita tu demo" CTA on /about links to /demo (98ms)
+  ✓   97 [chromium] › tests/e2e.spec.ts:258:3 › Navigation — CTA buttons › "Solicita tu demo" CTA on /get-started links to /demo (108ms)
+  ✓   98 [chromium] › tests/e2e.spec.ts:258:3 › Navigation — CTA buttons › "Solicita tu demo" CTA on /compliance links to /demo (107ms)
+  ✓   99 [chromium] › tests/e2e.spec.ts:272:2 › Runtime errors — no uncaught exceptions › demo school page (/demo/[rbd]) has no JS errors (2.6s)
+  ✓  100 [chromium] › tests/e2e.spec.ts:294:2 › Runtime errors — no uncaught exceptions › homepage has no JS errors (1.1s)
+  ✓  101 [chromium] › tests/e2e.spec.ts:303:2 › Runtime errors — no uncaught exceptions › contact page has no JS errors (1.1s)
+  ✓  102 [chromium] › tests/e2e.spec.ts:318:2 › Demo funnel — step 1: school search › search input is visible on /demo (208ms)
+  ✓  103 [chromium] › tests/e2e.spec.ts:324:2 › Demo funnel — step 1: school search › typing "Santiago" shows search results (709ms)
+  ✓  104 [chromium] › tests/e2e.spec.ts:337:2 › Demo funnel — step 1: school search › clicking a school navigates to /demo/[rbd] (1.7s)
+  ✓  105 [chromium] › tests/e2e.spec.ts:356:2 › Demo funnel — step 2: contact form › school card shows name, RBD and commune (1.6s)
+  ✓  106 [chromium] › tests/e2e.spec.ts:380:2 › Demo funnel — step 2: contact form › "Cambiar colegio" link goes back to /demo (1.8s)
+  ✓  107 [chromium] › tests/e2e.spec.ts:397:2 › Demo funnel — step 2: contact form › form fields are present (name, role, email, phone, source) (1.6s)
+  ✓  108 [chromium] › tests/e2e.spec.ts:415:2 › Demo funnel — step 2: contact form › submit button is disabled when form is empty (1.6s)
+  ✓  109 [chromium] › tests/e2e.spec.ts:430:2 › Demo funnel — step 2: contact form › sessionStorage persists form values across reload (2.6s)
+  ✓  110 [chromium] › tests/e2e.spec.ts:482:2 › Contact form › all fields are present (107ms)
+  ✓  111 [chromium] › tests/e2e.spec.ts:489:2 › Contact form › submit button is disabled when form is empty (92ms)
+  ✓  112 [chromium] › tests/e2e.spec.ts:495:2 › Contact form › submit button becomes enabled when all fields are filled (110ms)
+  ✓  113 [chromium] › tests/e2e.spec.ts:504:2 › Contact form › form has Supabase integration markers (80ms)
+  ✓  114 [chromium] › tests/e2e.spec.ts:518:2 › Tracking — GTM dataLayer › dataLayer exists on homepage (91ms)
+  ✓  115 [chromium] › tests/e2e.spec.ts:524:2 › Tracking — GTM dataLayer › dataLayer exists on every main page (240ms)
+  ✓  116 [chromium] › tests/e2e.spec.ts:533:2 › Tracking — GTM dataLayer › pricing_page_viewed fires on /get-started (185ms)
+  ✓  117 [chromium] › tests/e2e.spec.ts:539:2 › Tracking — GTM dataLayer › about_page_viewed fires on /about (180ms)
+  ✓  118 [chromium] › tests/e2e.spec.ts:545:2 › Tracking — GTM dataLayer › products_page_viewed fires on /productos (185ms)
+  ✓  119 [chromium] › tests/e2e.spec.ts:551:2 › Tracking — GTM dataLayer › compliance_page_viewed fires on /compliance (181ms)
+  ✓  120 [chromium] › tests/e2e.spec.ts:566:3 › Tracking — GTM dataLayer › feature_page_viewed fires on /features/student-profile (187ms)
+  ✓  121 [chromium] › tests/e2e.spec.ts:566:3 › Tracking — GTM dataLayer › feature_page_viewed fires on /features/safe-pickups (183ms)
+  ✓  122 [chromium] › tests/e2e.spec.ts:566:3 › Tracking — GTM dataLayer › feature_page_viewed fires on /features/access-control (171ms)
+  ✓  123 [chromium] › tests/e2e.spec.ts:566:3 › Tracking — GTM dataLayer › feature_page_viewed fires on /features/smart-search (183ms)
+  ✓  124 [chromium] › tests/e2e.spec.ts:566:3 › Tracking — GTM dataLayer › feature_page_viewed fires on /features/privacy-compliance (180ms)
+  ✓  125 [chromium] › tests/e2e.spec.ts:585:2 › Tracking — GTM dataLayer › school_selected fires when selecting a school (1.6s)
+  ✓  126 [chromium] › tests/e2e.spec.ts:606:2 › Tracking — internal flag suppresses events › ?_internal=1 prevents pricing_page_viewed (443ms)
+  ✓  127 [chromium] › tests/e2e.spec.ts:623:2 › Tracking — internal flag suppresses events › ?_internal=0 removes internal flag (427ms)
+  ✓  128 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › / has a <title> (110ms)
+  ✓  129 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /demo has a <title> (68ms)
+  ✓  130 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /about has a <title> (76ms)
+  ✓  131 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /contact has a <title> (73ms)
+  ✓  132 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /get-started has a <title> (78ms)
+  ✓  133 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /productos has a <title> (80ms)
+  ✓  134 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /compliance has a <title> (82ms)
+  ✓  135 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /blog has a <title> (115ms)
+  ✓  136 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /integrations has a <title> (76ms)
+  ✓  137 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /features/student-profile has a <title> (77ms)
+  ✓  138 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /features/safe-pickups has a <title> (81ms)
+  ✓  139 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /features/access-control has a <title> (76ms)
+  ✓  140 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /features/smart-search has a <title> (82ms)
+  ✓  141 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /features/privacy-compliance has a <title> (90ms)
+  ✓  142 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /privacy has a <title> (70ms)
+  ✓  143 [chromium] › tests/e2e.spec.ts:658:3 › SEO — titles, canonical, og:title › /terms has a <title> (69ms)
+  ✓  144 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › / has og:title or canonical (87ms)
+  ✓  145 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /demo has og:title or canonical (56ms)
+  ✓  146 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /about has og:title or canonical (73ms)
+  ✓  147 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /contact has og:title or canonical (74ms)
+  ✓  148 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /productos has og:title or canonical (82ms)
+  ✓  149 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /compliance has og:title or canonical (79ms)
+  ✓  150 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /blog has og:title or canonical (117ms)
+  ✓  151 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /integrations has og:title or canonical (81ms)
+  ✓  152 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /features/student-profile has og:title or canonical (80ms)
+  ✓  153 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /features/safe-pickups has og:title or canonical (84ms)
+  ✓  154 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /features/access-control has og:title or canonical (82ms)
+  ✓  155 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /features/smart-search has og:title or canonical (78ms)
+  ✓  156 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /features/privacy-compliance has og:title or canonical (81ms)
+  ✓  157 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /privacy has og:title or canonical (68ms)
+  ✓  158 [chromium] › tests/e2e.spec.ts:668:3 › SEO — titles, canonical, og:title › /terms has og:title or canonical (62ms)
+  ✓  159 [chromium] › tests/e2e.spec.ts:677:2 › SEO — titles, canonical, og:title › /get-started has a title (FAQPage JSON-LD page, no og:title) (94ms)
+  ✓  160 [chromium] › tests/e2e.spec.ts:688:2 › SEO — structured data and sitemap › homepage has JSON-LD structured data (92ms)
+  ✓  161 [chromium] › tests/e2e.spec.ts:694:2 › SEO — structured data and sitemap › /sitemap.xml returns 200 (38ms)
+  ✓  162 [chromium] › tests/e2e.spec.ts:699:2 › SEO — structured data and sitemap › /sitemap.xml contains expected routes (47ms)
+  ✓  163 [chromium] › tests/e2e.spec.ts:714:3 › Layout — footer at or below viewport bottom › footer is at or below viewport bottom on /contact (108ms)
+  ✓  164 [chromium] › tests/e2e.spec.ts:714:3 › Layout — footer at or below viewport bottom › footer is at or below viewport bottom on /about (100ms)
+  ✓  165 [chromium] › tests/e2e.spec.ts:714:3 › Layout — footer at or below viewport bottom › footer is at or below viewport bottom on /privacy (84ms)
+  ✓  166 [chromium] › tests/e2e.spec.ts:737:2 › Pitch page › loads with start overlay visible (101ms)
+  ✓  167 [chromium] › tests/e2e.spec.ts:743:2 › Pitch page › Play button exists in start overlay (104ms)
+  ✓  168 [chromium] › tests/e2e.spec.ts:749:2 › Pitch page › prev/next/play/pause/mute controls exist (107ms)
+  ✓  169 [chromium] › tests/e2e.spec.ts:758:2 › Pitch page › subtitle toggle button exists (105ms)
+  ✓  170 [chromium] › tests/e2e.spec.ts:764:2 › Pitch page › subtitle toggle hides/shows subtitle bar (149ms)
+  ✓  171 [chromium] › tests/e2e.spec.ts:790:2 › Pitch page › slide dots are visible (97ms)
+  ✓  172 [chromium] › tests/e2e.spec.ts:803:2 › Cookie consent › banner appears on fresh visit (no prior consent) (120ms)
+  ✓  173 [chromium] › tests/e2e.spec.ts:811:2 › Cookie consent › Accept button is present in banner (132ms)
+  ✓  174 [chromium] › tests/e2e.spec.ts:819:2 › Cookie consent › banner disappears after accepting (534ms)
+  ✓  175 [chromium] › tests/e2e.spec.ts:829:2 › Cookie consent › consent is persisted to localStorage (220ms)
+  ✓  176 [chromium] › tests/e2e.spec.ts:842:2 › Cookie consent › banner does NOT appear when consent already set (207ms)
+  ✘  177 [chromium] › tests/e2e.spec.ts:857:2 › Responsive — mobile (375×812) › hamburger menu appears on homepage (5.1s)
+  ✓  178 [chromium] › tests/e2e.spec.ts:863:2 › Responsive — mobile (375×812) › desktop nav links are hidden on mobile (135ms)
+  ✓  179 [chromium] › tests/e2e.spec.ts:870:2 › Responsive — mobile (375×812) › homepage content does not overflow horizontally (83ms)
+  ✓  180 [chromium] › tests/e2e.spec.ts:878:2 › Responsive — mobile (375×812) › /about content does not overflow horizontally (74ms)
+  ✓  181 [chromium] › tests/e2e.spec.ts:886:2 › Responsive — mobile (375×812) › /compliance content does not overflow horizontally (75ms)
+  ✓  182 [chromium] › tests/e2e.spec.ts:894:2 › Responsive — mobile (375×812) › sticky CTA is visible on homepage after scrolling (605ms)
+  ✓  183 [chromium] › tests/e2e.spec.ts:914:2 › Responsive — mobile (375×812) › /demo search works on mobile (717ms)
+  ✓  184 [chromium] › tests/e2e.spec.ts:924:2 › Responsive — mobile (375×812) › /pitch controls are visible on mobile (109ms)
+  ✘  185 [chromium] › tests/e2e.spec.ts:930:2 › Responsive — mobile (375×812) › mobile hamburger menu shows Integraciones link (5.1s)
+  ✘  186 [chromium] › tests/e2e.spec.ts:941:2 › Responsive — mobile (375×812) › mobile menu links close menu on click (5.1s)
+  ✓  187 [chromium] › tests/e2e.spec.ts:960:2 › Integrations page › loads with hero section (124ms)
+  ✓  188 [chromium] › tests/e2e.spec.ts:967:2 › Integrations page › shows compatible systems table (112ms)
+  ✓  189 [chromium] › tests/e2e.spec.ts:975:2 › Integrations page › has availability status badges (105ms)
+  ✓  190 [chromium] › tests/e2e.spec.ts:981:2 › Integrations page › has CTA linking to /demo (128ms)
+  ✓  191 [chromium] › tests/e2e.spec.ts:988:2 › Integrations page › has breadcrumb JSON-LD (76ms)
+  ✓  192 [chromium] › tests/e2e.spec.ts:994:2 › Integrations page › fires integrations_page_viewed tracking event (185ms)
+  ✓  193 [chromium] › tests/e2e.spec.ts:1000:2 › Integrations page › has no JS errors (1.1s)
+  ✓  194 [chromium] › tests/e2e.spec.ts:1014:2 › Admin — login page › login page loads with password field (80ms)
+  ✓  195 [chromium] › tests/e2e.spec.ts:1020:2 › Admin — login page › has noindex meta tag (post-hydration) (85ms)
+  ✓  196 [chromium] › tests/e2e.spec.ts:1032:2 › Admin — login page › shows error on wrong password (133ms)
+  ✓  197 [chromium] › tests/e2e.spec.ts:1052:2 › Admin — login page › submit button is disabled when empty (70ms)
+  ✓  198 [chromium] › tests/e2e.spec.ts:1058:2 › Admin — login page › has link back to main site (69ms)
+  ✓  199 [chromium] › tests/e2e.spec.ts:1064:2 › Admin — login page › has no JS errors (1.1s)
+  ✓  200 [chromium] › tests/e2e.spec.ts:1078:2 › Footer — social links › footer has 4 social media links (153ms)
+  ✓  201 [chromium] › tests/e2e.spec.ts:1085:2 › Footer — social links › LinkedIn link points to correct URL (109ms)
+  ✓  202 [chromium] › tests/e2e.spec.ts:1091:2 › Footer — social links › YouTube link points to correct URL (110ms)
+  ✓  203 [chromium] › tests/e2e.spec.ts:1097:2 › Footer — social links › social links open in new tab (108ms)
+  ✓  204 [chromium] › tests/e2e.spec.ts:1106:2 › Footer — social links › footer has Integraciones link (142ms)
+  ✓  205 [chromium] › tests/e2e.spec.ts:1119:2 › Demo — manual school entry › manual entry link appears when searching (722ms)
+  ✓  206 [chromium] › tests/e2e.spec.ts:1129:2 › Demo — manual school entry › manual entry navigates to /demo/0 with params (793ms)
+  ✘  207 [chromium] › tests/e2e.spec.ts:1147:2 › Navbar — products dropdown › Productos dropdown button exists (5.1s)
+  ✘  208 [chromium] › tests/e2e.spec.ts:1153:2 › Navbar — products dropdown › dropdown opens on hover and shows product links (30.0s)
+  ✓  209 [chromium] › tests/e2e.spec.ts:1164:2 › Navbar — products dropdown › Integraciones is a top-level nav link (143ms)
+
+
+  1) [chromium] › tests/e2e.spec.ts:138:2 › Navigation — desktop NavBar › Productos dropdown opens on hover and shows product links 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.hover: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('nav').getByRole('button', { name: /producto|feature/i }).first()[22m
+
+
+      139 | 		await page.goto('/');
+      140 | 		const dropdownTrigger = page.locator('nav').getByRole('button', { name: /producto|feature/i }).first();
+    > 141 | 		await dropdownTrigger.hover();
+          | 		                      ^
+      142 | 		await page.waitForTimeout(300);
+      143 | 		const dropdown = page.locator('[role="menu"]').first();
+      144 | 		await expect(dropdown).toBeVisible({ timeout: 3000 });
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/e2e.spec.ts:141:25
+
+    Error Context: test-results/e2e-Navigation-—-desktop-N-19cdd-ver-and-shows-product-links-chromium/error-context.md
+
+  2) [chromium] › tests/e2e.spec.ts:149:2 › Navigation — desktop NavBar › Productos dropdown items navigate correctly 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.hover: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('nav').getByRole('button', { name: /producto|feature/i }).first()[22m
+
+
+      150 | 		await page.goto('/');
+      151 | 		const dropdownTrigger = page.locator('nav').getByRole('button', { name: /producto|feature/i }).first();
+    > 152 | 		await dropdownTrigger.hover();
+          | 		                      ^
+      153 | 		const dropdown = page.locator('nav .absolute').first();
+      154 | 		await expect(dropdown).toBeVisible({ timeout: 2000 });
+      155 | 		// Click first feature link
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/e2e.spec.ts:152:25
+
+    Error Context: test-results/e2e-Navigation-—-desktop-N-86b4c-wn-items-navigate-correctly-chromium/error-context.md
+
+  3) [chromium] › tests/e2e.spec.ts:166:2 › Navigation — mobile hamburger › hamburger button is visible on mobile 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('button[aria-label="Toggle menu"]')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('button[aria-label="Toggle menu"]')[22m
+
+
+      167 | 		await page.goto('/');
+      168 | 		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+    > 169 | 		await expect(hamburger).toBeVisible();
+          | 		                        ^
+      170 | 	});
+      171 |
+      172 | 	test('hamburger opens mobile menu', async ({ page }) => {
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/e2e.spec.ts:169:27
+
+    Error Context: test-results/e2e-Navigation-—-mobile-ha-0ab7e-button-is-visible-on-mobile-chromium/error-context.md
+
+  4) [chromium] › tests/e2e.spec.ts:172:2 › Navigation — mobile hamburger › hamburger opens mobile menu 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('button[aria-label="Toggle menu"]')[22m
+
+
+      173 | 		await page.goto('/');
+      174 | 		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+    > 175 | 		await hamburger.click();
+          | 		                ^
+      176 | 		// Mobile menu should be visible
+      177 | 		await expect(page.locator('nav .md\\:hidden + div, nav [class*="border-t"][class*="bg-background"]').last()).toBeVisible({ timeout: 2000 });
+      178 | 	});
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/e2e.spec.ts:175:19
+
+    Error Context: test-results/e2e-Navigation-—-mobile-ha-60b7e-hamburger-opens-mobile-menu-chromium/error-context.md
+
+  5) [chromium] › tests/e2e.spec.ts:180:2 › Navigation — mobile hamburger › mobile menu has all nav links 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('button[aria-label="Toggle menu"]')[22m
+
+
+      181 | 		await page.goto('/');
+      182 | 		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+    > 183 | 		await hamburger.click();
+          | 		                ^
+      184 | 		await page.waitForTimeout(300);
+      185 | 		// Check for at least 8 links in mobile menu (6 products + 4 nav)
+      186 | 		const mobileMenu = page.locator('nav').last();
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/e2e.spec.ts:183:19
+
+    Error Context: test-results/e2e-Navigation-—-mobile-ha-b1088-bile-menu-has-all-nav-links-chromium/error-context.md
+
+  6) [chromium] › tests/e2e.spec.ts:191:2 › Navigation — mobile hamburger › mobile menu closes when link is clicked 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('button[aria-label="Toggle menu"]')[22m
+
+
+      192 | 		await page.goto('/');
+      193 | 		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+    > 194 | 		await hamburger.click();
+          | 		                ^
+      195 | 		await page.waitForTimeout(300);
+      196 | 		// Click Blog link in mobile menu
+      197 | 		const blogLink = page.locator('nav a[href="/blog"]').last();
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/e2e.spec.ts:194:19
+
+    Error Context: test-results/e2e-Navigation-—-mobile-ha-3e4f7-closes-when-link-is-clicked-chromium/error-context.md
+
+  7) [chromium] › tests/e2e.spec.ts:202:2 › Navigation — mobile hamburger › hamburger shows X icon when open 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('button[aria-label="Toggle menu"]')[22m
+
+
+      203 | 		await page.goto('/');
+      204 | 		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+    > 205 | 		await hamburger.click();
+          | 		                ^
+      206 | 		// aria-expanded should be true
+      207 | 		await expect(hamburger).toHaveAttribute('aria-expanded', 'true');
+      208 | 	});
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/e2e.spec.ts:205:19
+
+    Error Context: test-results/e2e-Navigation-—-mobile-ha-01c01-rger-shows-X-icon-when-open-chromium/error-context.md
+
+  8) [chromium] › tests/e2e.spec.ts:857:2 › Responsive — mobile (375×812) › hamburger menu appears on homepage 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('button[aria-label="Toggle menu"]')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('button[aria-label="Toggle menu"]')[22m
+
+
+      858 | 		await page.goto('/');
+      859 | 		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+    > 860 | 		await expect(hamburger).toBeVisible();
+          | 		                        ^
+      861 | 	});
+      862 |
+      863 | 	test('desktop nav links are hidden on mobile', async ({ page }) => {
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/e2e.spec.ts:860:27
+
+    Error Context: test-results/e2e-Responsive-—-mobile-37-9772a-er-menu-appears-on-homepage-chromium/error-context.md
+
+  9) [chromium] › tests/e2e.spec.ts:930:2 › Responsive — mobile (375×812) › mobile hamburger menu shows Integraciones link 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('button[aria-label="Toggle menu"]')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('button[aria-label="Toggle menu"]')[22m
+
+
+      931 | 		await page.goto('/');
+      932 | 		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+    > 933 | 		await expect(hamburger).toBeVisible();
+          | 		                        ^
+      934 | 		await hamburger.click();
+      935 | 		// Wait for slide transition
+      936 | 		await page.waitForTimeout(500);
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/e2e.spec.ts:933:27
+
+    Error Context: test-results/e2e-Responsive-—-mobile-37-b7d84-nu-shows-Integraciones-link-chromium/error-context.md
+
+  10) [chromium] › tests/e2e.spec.ts:941:2 › Responsive — mobile (375×812) › mobile menu links close menu on click 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('button[aria-label="Toggle menu"]')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('button[aria-label="Toggle menu"]')[22m
+
+
+      942 | 		await page.goto('/');
+      943 | 		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+    > 944 | 		await expect(hamburger).toBeVisible();
+          | 		                        ^
+      945 | 		await hamburger.click();
+      946 | 		await page.waitForTimeout(500);
+      947 | 		// Click a link visible in the mobile menu
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/e2e.spec.ts:944:27
+
+    Error Context: test-results/e2e-Responsive-—-mobile-37-6b3e6-u-links-close-menu-on-click-chromium/error-context.md
+
+  11) [chromium] › tests/e2e.spec.ts:1147:2 › Navbar — products dropdown › Productos dropdown button exists 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('nav button').filter({ hasText: /Productos|Funcionalidades/ })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('nav button').filter({ hasText: /Productos|Funcionalidades/ })[22m
+
+
+      1148 | 		await page.goto('/');
+      1149 | 		const btn = page.locator('nav button', { hasText: /Productos|Funcionalidades/ });
+    > 1150 | 		await expect(btn).toBeVisible();
+           | 		                  ^
+      1151 | 	});
+      1152 |
+      1153 | 	test('dropdown opens on hover and shows product links', async ({ page }) => {
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/e2e.spec.ts:1150:21
+
+    Error Context: test-results/e2e-Navbar-—-products-drop-32c41-ctos-dropdown-button-exists-chromium/error-context.md
+
+  12) [chromium] › tests/e2e.spec.ts:1153:2 › Navbar — products dropdown › dropdown opens on hover and shows product links 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.hover: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('nav').getByRole('button', { name: /producto|feature/i }).first()[22m
+
+
+      1154 | 		await page.goto('/');
+      1155 | 		const btn = page.locator('nav').getByRole('button', { name: /producto|feature/i }).first();
+    > 1156 | 		await btn.hover();
+           | 		          ^
+      1157 | 		await page.waitForTimeout(300);
+      1158 | 		const dropdown = page.locator('[role="menu"]').first();
+      1159 | 		await expect(dropdown).toBeVisible({ timeout: 3000 });
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/e2e.spec.ts:1156:13
+
+    Error Context: test-results/e2e-Navbar-—-products-drop-56959-ver-and-shows-product-links-chromium/error-context.md
+
+  13) [chromium] › tests/error-paths.spec.ts:21:2 › Contact form — Supabase submission failure › shows error message when Supabase returns 500 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('p.text-destructive')
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for locator('p.text-destructive')[22m
+
+
+      38 | 		// Error message should appear
+      39 | 		const errorEl = page.locator('p.text-destructive');
+    > 40 | 		await expect(errorEl).toBeVisible({ timeout: 10_000 });
+         | 		                      ^
+      41 | 		await expect(errorEl).toContainText('No pudimos enviar tu mensaje');
+      42 | 	});
+      43 |
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/error-paths.spec.ts:40:25
+
+    Error Context: test-results/error-paths-Contact-form-—-b83d8-e-when-Supabase-returns-500-chromium/error-context.md
+
+  14) [chromium] › tests/error-paths.spec.ts:44:2 › Contact form — Supabase submission failure › does not show success state when submission fails 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('p.text-destructive')
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for locator('p.text-destructive')[22m
+
+
+      57 |
+      58 | 		// Wait for the error to appear before asserting success is absent
+    > 59 | 		await expect(page.locator('p.text-destructive')).toBeVisible({ timeout: 10_000 });
+         | 		                                                 ^
+      60 |
+      61 | 		// Success state (Check icon container) must NOT be visible
+      62 | 		const successState = page.locator('.text-success').first();
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/error-paths.spec.ts:59:52
+
+    Error Context: test-results/error-paths-Contact-form-—-7454a-state-when-submission-fails-chromium/error-context.md
+
+  15) [chromium] › tests/error-paths.spec.ts:66:2 › Contact form — Supabase submission failure › form fields remain editable after failed submission 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('p.text-destructive')
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 10000ms[22m
+    [2m  - waiting for locator('p.text-destructive')[22m
+
+
+      78 | 		await page.locator('button[type="submit"]').click();
+      79 |
+    > 80 | 		await expect(page.locator('p.text-destructive')).toBeVisible({ timeout: 10_000 });
+         | 		                                                 ^
+      81 |
+      82 | 		// Inputs should still be visible and enabled so the user can retry
+      83 | 		await expect(page.locator('#contact-name')).toBeVisible();
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/error-paths.spec.ts:80:52
+
+    Error Context: test-results/error-paths-Contact-form-—-c0795-ble-after-failed-submission-chromium/error-context.md
+
+  16) [chromium] › tests/error-paths.spec.ts:154:2 › Schedule page — Cal.com embed failure › still shows page heading and layout when Cal.com is blocked 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('nav')
+    Expected: visible
+    Error: strict mode violation: locator('nav') resolved to 2 elements:
+        1) <nav class="fixed top-0 right-0 left-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg shadow-sm">…</nav> aka getByText('Ley 21.719 · Vigencia plena: Diciembre 2026 · Multas hasta 20.000 UTM Ethoz ¿Qu')
+        2) <nav class="mb-8" aria-label="Progreso del proceso de demo">…</nav> aka getByRole('navigation', { name: 'Progreso del proceso de demo' })
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('nav')[22m
+
+
+      159 | 		// Nav and heading should be immediately visible regardless of embed state
+      160 | 		await expect(page.locator('h1')).toBeVisible({ timeout: 5000 });
+    > 161 | 		await expect(page.locator('nav')).toBeVisible();
+          | 		                                  ^
+      162 | 	});
+      163 | });
+      164 |
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/error-paths.spec.ts:161:37
+
+    Error Context: test-results/error-paths-Schedule-page--b6011-out-when-Cal-com-is-blocked-chromium/error-context.md
+
+  17) [chromium] › tests/seo.spec.ts:31:3 › SEO — meta tags on key pages › /suggestions has title, description ≥50 chars, canonical, og:title, og:url, twitter:card 
+
+    Error: <title> must not be empty on /suggestions
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+      36 | 			// <title> must be non-empty
+      37 | 			const title = await page.title();
+    > 38 | 			expect(title.trim().length, `<title> must not be empty on ${route}`).toBeGreaterThan(0);
+         | 			                                                                     ^
+      39 |
+      40 | 			// <meta name="description"> must be present and ≥50 chars
+      41 | 			const description = await getMetaContent(page, 'meta[name="description"]');
+        at /Users/ignacioaraya/Projects/ethoz-landing/tests/seo.spec.ts:38:73
+
+    Error Context: test-results/seo-SEO-—-meta-tags-on-key-23244-g-title-og-url-twitter-card-chromium/error-context.md
+
+  17 failed
+    [chromium] › tests/e2e.spec.ts:138:2 › Navigation — desktop NavBar › Productos dropdown opens on hover and shows product links 
+    [chromium] › tests/e2e.spec.ts:149:2 › Navigation — desktop NavBar › Productos dropdown items navigate correctly 
+    [chromium] › tests/e2e.spec.ts:166:2 › Navigation — mobile hamburger › hamburger button is visible on mobile 
+    [chromium] › tests/e2e.spec.ts:172:2 › Navigation — mobile hamburger › hamburger opens mobile menu 
+    [chromium] › tests/e2e.spec.ts:180:2 › Navigation — mobile hamburger › mobile menu has all nav links 
+    [chromium] › tests/e2e.spec.ts:191:2 › Navigation — mobile hamburger › mobile menu closes when link is clicked 
+    [chromium] › tests/e2e.spec.ts:202:2 › Navigation — mobile hamburger › hamburger shows X icon when open 
+    [chromium] › tests/e2e.spec.ts:857:2 › Responsive — mobile (375×812) › hamburger menu appears on homepage 
+    [chromium] › tests/e2e.spec.ts:930:2 › Responsive — mobile (375×812) › mobile hamburger menu shows Integraciones link 
+    [chromium] › tests/e2e.spec.ts:941:2 › Responsive — mobile (375×812) › mobile menu links close menu on click 
+    [chromium] › tests/e2e.spec.ts:1147:2 › Navbar — products dropdown › Productos dropdown button exists 
+    [chromium] › tests/e2e.spec.ts:1153:2 › Navbar — products dropdown › dropdown opens on hover and shows product links 
+    [chromium] › tests/error-paths.spec.ts:21:2 › Contact form — Supabase submission failure › shows error message when Supabase returns 500 
+    [chromium] › tests/error-paths.spec.ts:44:2 › Contact form — Supabase submission failure › does not show success state when submission fails 
+    [chromium] › tests/error-paths.spec.ts:66:2 › Contact form — Supabase submission failure › form fields remain editable after failed submission 
+    [chromium] › tests/error-paths.spec.ts:154:2 › Schedule page — Cal.com embed failure › still shows page heading and layout when Cal.com is blocked 
+    [chromium] › tests/seo.spec.ts:31:3 › SEO — meta tags on key pages › /suggestions has title, description ≥50 chars, canonical, og:title, og:url, twitter:card 
+  2 skipped
+  190 passed (4.7m)

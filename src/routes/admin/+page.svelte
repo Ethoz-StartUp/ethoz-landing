@@ -44,7 +44,7 @@
   <title>Admin — Ethoz</title>
 </svelte:head>
 
-<main class="flex min-h-dvh items-center justify-center bg-secondary px-4">
+<main class="flex min-h-dvh items-center justify-center bg-canvas-strong px-4">
   <div class="w-full max-w-sm">
     <div class="rounded-xl border border-border bg-background p-8 shadow-sm">
       <div class="mb-6 text-center">

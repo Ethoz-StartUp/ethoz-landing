@@ -1,43 +1,56 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter";
-@import "@fontsource-variable/playfair-display";
+@import "@fontsource-variable/newsreader";
 @import "@fontsource-variable/jetbrains-mono";
-@import "cal-sans";
 
 /*
  * ──────────────────────────────────────────
- * Ethoz Landing — McKinsey-style design system
+ * Ethoz Landing — Stripe Press editorial design system
  *
- * Governing principle: HIGH CONTRAST.
- *   Deep blue vs white. Serif display vs sans body. Editorial whitespace.
- *   Nothing dusty, nothing mid-tone, nothing decorative.
- *   If a choice softens the contrast, it's wrong.
+ * Active redesign on `redesign/stripe-press` branch (2026-05-02).
+ * Spec: docs/superpowers/specs/2026-05-02-stripe-press-redesign-design.md
+ * Plan: docs/superpowers/plans/2026-05-02-stripe-press-redesign-p0-p2.md
+ *
+ * Governing principle: WARM EDITORIAL CONTRAST.
+ *   Deep navy ink on warm cream canvas. Newsreader serif display vs
+ *   Inter sans body. Generous whitespace. Per-section bold accent
+ *   (mustard / brick / sage) under a navy unifying thread.
  *
  * Brand rules:
- *  - Deep blue (#051C2C) is the anchor — headlines, body text on white,
- *    primary surfaces. Never pure black.
- *  - Primary action: McKinsey blue #034B8A — square fills, hairline
- *    underlines for links. NO glow, NO lift, NO scale hovers.
- *  - Hairline 1px borders (--mck-fog) do the work shadows would do
- *    elsewhere. Shadows are absent by default, hairline only when needed.
- *  - RADII ARE ZERO. Corners are square. Buttons, cards, inputs — all 0.
- *    Pill only for status chips and avatars.
- *  - Gradients are forbidden on UI chrome. Only acceptable as soft
- *    backdrops on dark hero imagery.
- *  - Serif display (Playfair Display as Bower substitute) for headlines.
- *    Sans body (Inter) for body, UI, meta.
- *  - Eyebrow → serif headline → sans meta. Signature editorial hierarchy.
- *  - Hover: underline appears or darkens; cards may lift 1px with a
- *    hairline bottom shadow (softened from pure McK per marketing-
- *    landing affordance needs). NEVER scale, glow, or translate > 1px.
- *  - Focus ring: 2px solid --mck-blue-500 with 2px offset. Always visible.
+ *  - Canvas: warm cream `#FBF7F0` — replaces pure white. Use via
+ *    `--canvas` / `bg-canvas` (or implicit `bg-background` aliases).
+ *  - Ink: deep editorial navy `#0F1F3A` — replaces Cal black `#111`
+ *    AND McK navy `#051C2C`. Use via `--ink` / `text-ink` (or implicit
+ *    `text-foreground` aliases). 16:1 on cream, AAA easily.
+ *  - Primary CTA: navy fill + cream text on cream sections (16:1
+ *    boundary). Mustard fill + navy text inside `<SectionDark>` only
+ *    (9.1:1 boundary on navy). Mustard CTA on cream FAILS WCAG 1.4.11
+ *    (2.2:1) — hard rule.
+ *  - Per-section accents (mustard / brick / sage) are decorative-only
+ *    on cream — eyebrows, hairline rules, large numerals. Body text
+ *    requires the `-ink` variants (`--accent-mustard-ink`,
+ *    `--accent-brick-ink`, `--accent-sage-ink`) for AAA body contrast.
+ *  - Display headlines: Newsreader Variable, weight 500 for h1/h2,
+ *    600 for h3-h5. Letter-spacing -0.02em.
+ *  - Body: Inter Variable, weight 400, line-height 1.55, color ink-soft.
+ *  - Two full-bleed `<SectionDark>` bookends (Compliance + Final CTA)
+ *    sit ahead of the dark Footer (`#0A1628`). Together they form the
+ *    page's closing dark passage — editorial "rests" before footer.
+ *  - Radii: 4 / 6 / 10 / 14 / 20 / 24px progression. No bricks.
+ *  - Shadows: hairline-only at rest; shadow-card-hover on lift.
+ *    Alpha based on ink (`rgba(15, 31, 58, ...)`), not Cal black.
+ *  - Hover: ≥ 2 properties change (bg + border, or lift + shadow,
+ *    or rule-grow + translate). Single-vector hovers read as broken.
+ *  - Focus ring: 2px solid var(--ring) with 2px offset. Always visible.
  *
- * Ref: /Users/ignacioaraya/Downloads/design-system.md
+ * Legacy Cal-era tokens (--surface-card-cal, --badge-orange, etc.)
+ * coexist with the new system during P1–P5 migration. They are
+ * removed in P6 cleanup.
  * ──────────────────────────────────────────
  */
 
 @theme inline {
-  /* ---------- Primary — McKinsey blue ---------- */
+  /* ---------- Primary — Stripe Press navy CTA ---------- */
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-ink: var(--primary-ink);
@@ -106,12 +119,12 @@
   --radius-2xl: var(--radius-2xl);
   --radius-3xl: var(--radius-3xl);
 
-  /* ---------- Typography — Cal Sans display + Inter body (Cal.com aesthetic) ---------- */
+  /* ---------- Typography — Newsreader Variable display + Inter body (Stripe Press editorial) ---------- */
   --font-sans: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Cal Sans", "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Newsreader Variable", "Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
 
-  /* ---------- Cal-flavored surface tokens (Cal.com aesthetic) ---------- */
+  /* ---------- Cal-era surface tokens (deprecated — coexist until P6 cleanup) ---------- */
   --color-surface-soft: var(--surface-soft);
   --color-surface-card-cal: var(--surface-card-cal);
   --color-surface-strong: var(--surface-strong);
@@ -127,33 +140,80 @@
   --color-badge-pink: var(--badge-pink);
   --color-badge-violet: var(--badge-violet);
   --color-badge-emerald: var(--badge-emerald);
+
+  /* ── Stripe Press canvas + ink ── */
+  --color-canvas: var(--canvas);
+  --color-canvas-elevated: var(--canvas-elevated);
+  --color-canvas-strong: var(--canvas-strong);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-hairline-warm: var(--hairline-warm);
+  --color-hairline-warm-soft: var(--hairline-warm-soft);
+
+  /* ── Per-section accents ── */
+  --color-accent-mustard: var(--accent-mustard);
+  --color-accent-mustard-ink: var(--accent-mustard-ink);
+  --color-accent-brick: var(--accent-brick);
+  --color-accent-brick-ink: var(--accent-brick-ink);
+  --color-accent-sage: var(--accent-sage);
+  --color-accent-sage-ink: var(--accent-sage-ink);
+
+  /* ── Dark sections + footer ── */
+  --color-section-navy: var(--section-navy);
+  --color-on-navy: var(--on-navy);
+  --color-on-navy-soft: var(--on-navy-soft);
+  --color-on-navy-mustard: var(--on-navy-mustard);
 }
 
 :root {
-  /* ── Primary — Cal.com near-black (AAA 17:1 on white). Flipped from McK blue per Cal.com aesthetic ── */
-  --primary: #111111;
-  --primary-foreground: #FFFFFF;
-  --primary-ink: #111111;                   /* Cal ink — h1/h2/h3 + body anchor */
-  --primary-hover: #242424;                 /* Cal active/pressed shade */
-  --primary-pressed: #242424;
+  /* ── Stripe Press canvas + ink ── */
+  --canvas: #FBF7F0;                        /* warm cream — replaces #FFFFFF as page bg */
+  --canvas-elevated: #F5EFE3;               /* nested cards, FAQ list bg */
+  --canvas-strong: #EDE5D3;                 /* disabled bg, deepest cream tier */
+  --ink: #0F1F3A;                           /* deep editorial navy — replaces Cal black + McK navy as primary text */
+  --ink-soft: #3A4A6B;                      /* body text on cream — 8.4:1 AAA */
+  --hairline-warm: #E5DDC9;                 /* warm hairline border (decorative-only — must pair with text affordance) */
+  --hairline-warm-soft: #F0EAD9;            /* barely-visible divider */
+
+  /* ── Per-section accent tokens ── */
+  /* CTA / heading / large-decorative only on cream — body text uses -ink variants */
+  --accent-mustard: #D4A017;                /* eyebrows, hairline rules, large numerals only on cream — FAILS 1.4.11 if used as CTA fill */
+  --accent-mustard-ink: #5C4500;            /* mustard-tinted body text on cream — 8.6:1 AAA body */
+  --accent-brick: #B23A2C;                  /* problem section, urgency dots, countdown rule */
+  --accent-brick-ink: #8A2A1F;              /* brick body text on cream — 7.6:1 AAA body */
+  --accent-sage: #4A6B47;                   /* features, success ticks, large step numerals */
+  --accent-sage-ink: #2F4A2D;               /* sage body text on cream — 9.3:1 AAA body */
+
+  /* ── Dark sections (Compliance, Final CTA) + footer ── */
+  --section-navy: var(--ink);               /* = #0F1F3A — full-bleed dark sections, aliased so it tracks --ink */
+  --on-navy: #FBF7F0;                       /* cream type on navy — 15.8:1 AAA */
+  --on-navy-soft: #C7D0DD;                  /* body text on navy — 10.9:1 AAA */
+  --on-navy-mustard: #E8B82E;               /* mustard fill on dark-section CTAs + decorative — 9.1:1 AAA */
+
+  /* ── Primary — Stripe Press navy CTA on cream (16:1 AAA boundary) ── */
+  --primary: var(--ink);                    /* navy CTA fill — was #111111 Cal black */
+  --primary-foreground: var(--canvas);      /* cream CTA text — was #FFFFFF */
+  --primary-ink: var(--ink);
+  --primary-hover: #1A2D4A;                 /* slightly lighter navy for hover */
+  --primary-pressed: var(--primary-hover);  /* alias to --primary-hover so a future tint adjustment edits one place */
 
   /* ── Brand Accent — sparingly used. Cal.com is near-monochrome; blue appears on inline links + small badges only ── */
   --brand-accent: #3b82f6;
 
   /* ── Core — White canvas + Cal ink ── */
-  --background: #FFFFFF;                    /* Pure white default — Cal canvas */
-  --foreground: #111111;                    /* Cal ink — replaces McK deep blue for primary text */
+  --background: var(--canvas);              /* repointed to warm cream — every bg-background utility now resolves here */
+  --foreground: var(--ink);                 /* repointed to deep editorial navy — every text-foreground utility now resolves here */
 
   /* ── Cal surface system ── */
-  --surface-soft: #F8F9FA;                  /* nav-pill-group background, very-soft section dividers */
+  --surface-soft: var(--canvas-elevated);   /* repointed from cool gray #F8F9FA → warm cream-elevated for Stripe Press cascade (e.g. shadcn outline button hover bg) */
   --surface-card-cal: #F5F5F5;              /* feature cards, testimonial cards, badge fills (Cal signature) */
   --surface-strong: #E5E7EB;                /* hairline border alt; disabled button bg */
-  --surface-dark: #101010;                  /* Cal dark footer + featured pricing tier */
-  --surface-dark-elevated: #1A1A1A;         /* nested cards inside dark surfaces */
-  --hairline: #E5E7EB;                      /* 1px border tone on light surfaces */
+  --surface-dark: #0A1628;                  /* Stripe Press deeper navy footer (warmer than Cal #101010) */
+  --surface-dark-elevated: #14213A;         /* nested cards inside dark surfaces */
+  --hairline: var(--hairline-warm);         /* repointed from cool gray #E5E7EB → warm hairline for Stripe Press cascade (e.g. shadcn outline button border) */
   --hairline-soft: #F3F4F6;                 /* barely-visible divider */
-  --on-dark: #FFFFFF;                       /* text on --surface-dark */
-  --on-dark-soft: #A1A1AA;                  /* footer body text */
+  --on-dark: var(--on-navy);                /* alias to new on-navy (cream) — keeps Footer.svelte untouched */
+  --on-dark-soft: var(--on-navy-soft);      /* footer body text — aliased to on-navy-soft */
 
   /* ── Body text — Cal hierarchy ── */
   --body: #374151;                          /* Cal default running-text color (alt to --foreground) */
@@ -164,29 +224,29 @@
   --badge-violet: #8B5CF6;
   --badge-emerald: #34D399;
 
-  /* ── Card — white, hairline border ── */
+  /* ── Card — white card floats on cream canvas (Stripe Press pattern) ── */
   --card: #FFFFFF;
-  --card-foreground: #051C2C;
-  --row-hover: #F7F8F9;
+  --card-foreground: var(--ink);
+  --row-hover: var(--canvas-elevated);      /* repointed for Stripe Press cascade — admin row hover stays cream-elevated */
 
   /* ── Popover ── */
   --popover: #FFFFFF;
   --popover-foreground: #051C2C;
 
-  /* ── Muted — off-white panel / slate text ── */
-  --muted: #F7F8F9;                         /* mck-off-white — subtle panel */
-  --muted-foreground: #3F4A54;              /* mck-slate-700 — body text on white, AAA 9.3:1 */
+  /* ── Muted — cream-elevated panel / ink-soft text (Stripe Press cascade) ── */
+  --muted: var(--canvas-elevated);          /* repointed from #F7F8F9 → cream-elevated */
+  --muted-foreground: var(--ink-soft);      /* repointed from #3F4A54 → 8.4:1 AAA on cream */
 
-  /* ── Secondary — section alternation (off-white) ── */
-  --secondary: #F7F8F9;
-  --secondary-foreground: #051C2C;
+  /* ── Secondary — section alternation (cream-elevated for Stripe Press cascade) ── */
+  --secondary: var(--canvas-elevated);
+  --secondary-foreground: var(--ink);
 
   /* ── Accent — palest blue wash (used sparingly) ── */
   --accent: #EAF2F9;                        /* mck-ice */
   --accent-foreground: #051C2C;
 
   /* ── Border / Input / Ring ── */
-  --border: #D8DCE0;                        /* mck-fog — decorative hairline (1.38:1 on white; used on cards where affordance is signaled by text + hover, not the border) */
+  --border: var(--hairline-warm);           /* repointed from cool gray #D8DCE0 → warm hairline for Stripe Press cascade across 44 .svelte files using border-border */
   --input: #7A848E;                         /* mck-slate-500 — form affordance, WCAG 1.4.11 verified 3.81:1 on white */
   --ring: #1F77C9;                          /* mck-blue-500 — focus ring */
 
@@ -195,23 +255,23 @@
   --titanium-foreground: #FFFFFF;
 
   /* ── Semantic: Destructive (used in data-viz / safety only) ── */
-  --destructive: #C0382B;                   /* mck-red */
-  --destructive-foreground: #FFFFFF;
-  --danger: #A0291E;
-  --danger-foreground: #FFFFFF;
+  --destructive: #B23A2C;                   /* aligned with --accent-brick — single-source urgency */
+  --destructive-foreground: #FBF7F0;        /* cream on brick — 5.3:1 (AAA-large only); for AAA body, override per-component */
+  --danger: #8A2A1F;                        /* darker brick for danger states */
+  --danger-foreground: #FBF7F0;             /* cream on dark-brick — ~7.1:1 AAA body ✓ */
 
-  /* ── Semantic: Warning — amber with deep-blue fg ── */
-  --warning: #D98F2B;                       /* mck-amber */
-  --warning-foreground: #051C2C;
-  --warning-text: #051C2C;
+  /* ── Semantic: Warning — mustard with navy ink ── */
+  --warning: #D4A017;                       /* aligned with --accent-mustard */
+  --warning-foreground: var(--ink);         /* navy on mustard — 7.1:1 AAA body ✓ */
+  --warning-text: var(--ink);
 
-  /* ── Semantic: Success — positive delta ── */
-  --success: #2E8B57;                       /* mck-green */
-  --success-foreground: #FFFFFF;
+  /* ── Semantic: Success — sage ── */
+  --success: #4A6B47;                       /* aligned with --accent-sage */
+  --success-foreground: #FBF7F0;            /* cream on sage — 5.5:1 (AAA-large only) */
 
-  /* ── Semantic: Info — mck-blue ── */
-  --info: #034B8A;
-  --info-foreground: #FFFFFF;
+  /* ── Semantic: Info — navy anchor ── */
+  --info: var(--ink);                       /* navy replaces McK blue — single anchor */
+  --info-foreground: var(--canvas);
 
   /* ── Platform brand exceptions (external identity, do not repurpose) ── */
   --brand-linkedin: #0A66C2;
@@ -233,15 +293,13 @@
   --overlay: rgba(5, 28, 44, 0.60);
   --skeleton: #EEF0F2;
 
-  /* ── Radius — institutional but not rectangular. 4/8/12/16 progression.
-   *    Buttons and inputs at 6px read as proper controls (not bricks).
-   *    Cards at 8px, mockup at 12px. Pills kept for status chips/avatars. ── */
+  /* ── Radius — editorial-soft 4/6/10/14/20 progression (looser than Cal). ── */
   --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
-  --radius-2xl: 16px;
-  --radius-3xl: 20px;
+  --radius-md: 6px;     /* buttons, inputs */
+  --radius-lg: 10px;    /* feature cards (was 8px) */
+  --radius-xl: 14px;    /* hero mockup card, FAQ list wrapper (was 12px) */
+  --radius-2xl: 20px;   /* full-bleed section card wrappers (was 16px) */
+  --radius-3xl: 24px;   /* (was 20px) — reserved for future oversized hero treatments */
 
   /* ── Motion ── */
   --ease-standard: cubic-bezier(0.2, 0, 0.2, 1);
@@ -290,21 +348,21 @@ body {
   letter-spacing: 0;
 }
 
-/* ── Typography — Cal Sans display, Inter body. Cal tracking signature: -0.04em on display sizes. ── */
+/* ── Typography — Newsreader display, Inter body. Editorial tracking: -0.02em on display sizes. ── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  font-weight: 500;
+  letter-spacing: -0.02em;
   line-height: 1.15;
   color: var(--foreground);
   text-wrap: balance;
 }
 
-h1 { font-size: var(--fs-h1); font-weight: 600; letter-spacing: -0.04em; line-height: 1.05; }
-h2 { font-size: var(--fs-h2); font-weight: 600; letter-spacing: -0.04em; line-height: 1.1; }
-h3 { font-size: 28px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.2; }
-h4 { font-size: 22px; font-weight: 600; letter-spacing: -0.03em; }
-h5 { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; }
+h1 { font-size: var(--fs-h1); font-weight: 500; letter-spacing: -0.02em; line-height: 1.05; }
+h2 { font-size: var(--fs-h2); font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
+h3 { font-size: 28px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; }
+h4 { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+h5 { font-size: 18px; font-weight: 600; letter-spacing: 0; }
 
 p, li {
   text-wrap: pretty;
@@ -372,7 +430,7 @@ blockquote.pull-quote,
 
 /* ── Selection — Cal ink highlight ── */
 ::selection {
-  background-color: rgba(17, 17, 17, 0.15);
+  background-color: rgba(15, 31, 58, 0.18);
   color: var(--foreground);
 }
 
@@ -525,7 +583,7 @@ button[role="checkbox"] {
    Per design system anti-pattern memory item #16. Single source of truth for the
    ~50 hover-states across landing pages. */
 @utility shadow-card-hover {
-  box-shadow: 0 2px 0 0 rgba(5, 28, 44, 0.10);
+  box-shadow: 0 2px 0 0 rgba(15, 31, 58, 0.10);
 }
 
 @utility ring-card {
@@ -533,11 +591,11 @@ button[role="checkbox"] {
 }
 
 @utility shadow-popover {
-  box-shadow: 0 8px 24px rgba(5, 28, 44, 0.10);
+  box-shadow: 0 8px 24px rgba(15, 31, 58, 0.10);
 }
 
 @utility shadow-mockup {
-  box-shadow: 0 2px 8px rgba(5, 28, 44, 0.08);
+  box-shadow: 0 2px 12px rgba(15, 31, 58, 0.08);
 }
 
 @utility bg-overlay {
@@ -561,4 +619,8 @@ button[role="checkbox"] {
 /* Safe-area padding for mobile sticky CTAs */
 @utility pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@utility section-editorial {
+  padding-block: clamp(80px, 9vw, 120px);
 }

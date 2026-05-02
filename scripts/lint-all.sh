@@ -13,7 +13,7 @@ bash scripts/lint-opacity-hover.sh
 bash scripts/lint-muted-hover.sh
 bash scripts/lint-hardcoded-color.sh
 bash scripts/lint-pastel-on-cta.sh
-bash scripts/lint-cal-sans-scope.sh
+bash scripts/lint-newsreader-scope.sh
 bash scripts/lint-icon-box-wrapper.sh
 
 echo ""
