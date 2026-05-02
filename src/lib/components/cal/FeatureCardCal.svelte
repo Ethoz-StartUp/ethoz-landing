@@ -16,8 +16,6 @@
     description: string;
     href?: string;
     cta?: string;
-    /** Use white-canvas variant instead of cream-elevated (legacy compat). */
-    variant?: 'gray' | 'white';
     /** Editorial left-rule accent. 'none' = full hairline card (default). */
     accent?: Accent;
   };
@@ -28,7 +26,6 @@
     description,
     href,
     cta = 'Conocer más',
-    variant = 'gray',
     accent = 'none',
   }: Props = $props();
 
@@ -46,7 +43,7 @@
       ? [
           'rounded-xl border border-hairline-warm bg-canvas-elevated p-8',
           'transition-all duration-200',
-          'hover:bg-canvas-strong hover:border-hairline-warm',
+          'hover:bg-canvas-strong hover:border-ink/30 hover:-translate-y-px hover:shadow-card-hover',
         ].join(' ')
       : [
           'border-l-2 bg-canvas-elevated p-8',
