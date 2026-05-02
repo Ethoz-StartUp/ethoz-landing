@@ -3,6 +3,9 @@
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
   import { Badge } from '$lib/components/ui/badge';
+  import HeroAppMockupCard from '$lib/components/cal/HeroAppMockupCard.svelte';
+  import FeatureCardCal from '$lib/components/cal/FeatureCardCal.svelte';
+  import SectionDark from '$lib/components/cal/SectionDark.svelte';
   import { t, type TranslationKey } from '$lib/i18n/index.svelte';
   import { goto } from '$app/navigation';
   import { trackEvent } from '$lib/utils/analytics';
@@ -19,9 +22,6 @@
     ArrowRight,
     Check,
     ChevronRight,
-    Lock,
-    Zap,
-    Building,
     UserCheck,
     ClipboardList,
     AlertTriangle,
@@ -256,12 +256,12 @@
       <div class="flex flex-col items-center text-center sm:items-start sm:text-left">
         <!-- Live urgency badge — pulsing dot + countdown -->
         <div
-          class="animate-fade-in-up mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/[0.06] px-3 py-1.5 text-xs font-medium text-foreground"
+          class="animate-fade-in-up mb-5 inline-flex items-center gap-2 rounded-full border border-accent-mustard-ink/30 bg-accent-mustard/10 px-3 py-1.5 text-xs font-medium text-accent-mustard-ink"
           aria-label={heroCountdownLabel}
         >
           <span class="relative flex size-2 shrink-0">
-            <span class="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-60"></span>
-            <span class="relative inline-flex size-2 rounded-full bg-primary"></span>
+            <span class="absolute inline-flex size-full animate-ping rounded-full bg-accent-brick opacity-60"></span>
+            <span class="relative inline-flex size-2 rounded-full bg-accent-brick"></span>
           </span>
           <span aria-hidden="true">{heroCountdownLabel}</span>
         </div>
@@ -314,109 +314,111 @@
         </div>
       </div>
 
-      <!-- Right column: dashboard mockup — flat, hairline 1px border, McK style -->
+      <!-- Right column: dashboard mockup — cream-elevated frame + navy left-rule spine -->
       <div class="animate-fade-in-up animate-delay-400 w-full">
-        <div
-          class="overflow-hidden rounded-xl border border-border bg-card shadow-mockup"
-          role="region"
-          aria-roledescription="carrusel"
-          aria-label="Vista del panel Ethoz"
-          onmouseenter={() => (carouselPaused = true)}
-          onmouseleave={() => (carouselPaused = false)}
-          onfocusin={() => (carouselPaused = true)}
-          onfocusout={() => (carouselPaused = false)}
-        >
-          <!-- Title bar with LIVE indicator -->
-          <div class="flex items-center gap-2 border-b border-border bg-muted px-4 py-3">
-            <div class="size-3 rounded-full bg-destructive/60"></div>
-            <div class="size-3 rounded-full bg-warning/60"></div>
-            <div class="size-3 rounded-full bg-success/60"></div>
-            <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
-            <span class="ml-auto inline-flex items-center gap-1.5 border border-border bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
-              <span class="relative flex size-1.5">
-                <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
-                <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
+        <HeroAppMockupCard>
+          <!-- Negative margin cancels HeroAppMockupCard's p-6 so title bar and dots are flush -->
+          <div class="-m-6"
+            role="region"
+            aria-roledescription="carrusel"
+            aria-label="Vista del panel Ethoz"
+            onmouseenter={() => (carouselPaused = true)}
+            onmouseleave={() => (carouselPaused = false)}
+            onfocusin={() => (carouselPaused = true)}
+            onfocusout={() => (carouselPaused = false)}
+          >
+            <!-- Title bar with LIVE indicator -->
+            <div class="flex items-center gap-2 border-b border-hairline-warm bg-canvas-elevated/40 px-4 py-3">
+              <div class="size-3 rounded-full bg-destructive/60"></div>
+              <div class="size-3 rounded-full bg-warning/60"></div>
+              <div class="size-3 rounded-full bg-success/60"></div>
+              <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
+              <span class="ml-auto inline-flex items-center gap-1.5 border border-hairline-warm bg-canvas-elevated px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                <span class="relative flex size-1.5">
+                  <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
+                  <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
+                </span>
+                Datos ficticios · Demo
               </span>
-              Datos ficticios · Demo
-            </span>
-          </div>
+            </div>
 
-          <!-- Dashboard content — carousel -->
-          {#key currentStudent}
-            <div class="carousel-fade p-4 sm:p-6">
-              <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
-                <!-- Student profile column -->
-                <div class="flex flex-col items-center gap-3 sm:w-48 sm:shrink-0 sm:items-start">
-                  <img
-                    src={activeStudent.photo}
-                    alt={activeStudent.name}
-                    width="64"
-                    height="64"
-                    class="size-16 rounded-full object-cover ring-2 ring-border"
-                    loading="eager"
-                  />
-                  <div class="text-center sm:text-left">
-                    <p class="text-sm font-semibold text-foreground">{activeStudent.name}</p>
-                    <p class="text-xs text-muted-foreground">{activeStudent.grade}</p>
+            <!-- Dashboard content — carousel -->
+            {#key currentStudent}
+              <div class="carousel-fade p-4 sm:p-6">
+                <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
+                  <!-- Student profile column -->
+                  <div class="flex flex-col items-center gap-3 sm:w-48 sm:shrink-0 sm:items-start">
+                    <img
+                      src={activeStudent.photo}
+                      alt={activeStudent.name}
+                      width="64"
+                      height="64"
+                      class="size-16 rounded-full object-cover ring-2 ring-border"
+                      loading="eager"
+                    />
+                    <div class="text-center sm:text-left">
+                      <p class="text-sm font-semibold text-foreground">{activeStudent.name}</p>
+                      <p class="text-xs text-muted-foreground">{activeStudent.grade}</p>
+                    </div>
+                    {#if activeStudent.hasAlert}
+                      <span class="inline-flex items-center gap-1 rounded-full bg-destructive/10 px-2.5 py-1 text-xs font-medium text-destructive">
+                        <AlertTriangle class="size-3" />
+                        {activeStudent.alertText}
+                      </span>
+                    {:else}
+                      <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2.5 py-1 text-xs font-medium text-success">
+                        <Check class="size-3" />
+                        {t('hero.no_alerts')}
+                      </span>
+                    {/if}
                   </div>
-                  {#if activeStudent.hasAlert}
-                    <span class="inline-flex items-center gap-1 rounded-full bg-destructive/10 px-2.5 py-1 text-xs font-medium text-destructive">
-                      <AlertTriangle class="size-3" />
-                      {activeStudent.alertText}
-                    </span>
-                  {:else}
-                    <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2.5 py-1 text-xs font-medium text-success">
-                      <Check class="size-3" />
-                      {t('hero.no_alerts')}
-                    </span>
-                  {/if}
-                </div>
 
-                <!-- Timeline column -->
-                <div class="flex-1 border-t border-border pt-4 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6">
-                  <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    {t('hero.recent_history')}
-                  </p>
-                  <div class="flex flex-col gap-3">
-                    {#each activeStudent.timeline as entry}
-                      <div class="flex items-start gap-3">
-                        <div class="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full {entry.type === 'alert' ? 'bg-destructive/10' : 'bg-primary/10'}">
-                          {#if entry.type === 'alert'}
-                            <AlertTriangle class="size-3 text-destructive" />
-                          {:else if entry.type === 'pickup'}
-                            <UserCheck class="size-3 text-primary" />
-                          {:else if entry.type === 'observation'}
-                            <MessageSquare class="size-3 text-primary" />
-                          {:else}
-                            <Eye class="size-3 text-primary" />
-                          {/if}
+                  <!-- Timeline column -->
+                  <div class="flex-1 border-t border-hairline-warm pt-4 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6">
+                    <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      {t('hero.recent_history')}
+                    </p>
+                    <div class="flex flex-col gap-3">
+                      {#each activeStudent.timeline as entry}
+                        <div class="flex items-start gap-3">
+                          <div class="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full {entry.type === 'alert' ? 'bg-destructive/10' : 'bg-primary/10'}">
+                            {#if entry.type === 'alert'}
+                              <AlertTriangle class="size-3 text-destructive" />
+                            {:else if entry.type === 'pickup'}
+                              <UserCheck class="size-3 text-primary" />
+                            {:else if entry.type === 'observation'}
+                              <MessageSquare class="size-3 text-primary" />
+                            {:else}
+                              <Eye class="size-3 text-primary" />
+                            {/if}
+                          </div>
+                          <div>
+                            <p class="text-xs font-medium text-foreground">{entry.text}</p>
+                            <p class="text-xs text-muted-foreground">{entry.meta}</p>
+                          </div>
                         </div>
-                        <div>
-                          <p class="text-xs font-medium text-foreground">{entry.text}</p>
-                          <p class="text-xs text-muted-foreground">{entry.meta}</p>
-                        </div>
-                      </div>
-                    {/each}
+                      {/each}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          {/key}
+            {/key}
 
-          <!-- Carousel dots -->
-          <div class="flex items-center justify-center gap-2 border-t border-border px-4 py-3">
-            {#each heroStudents as student, i}
-              <button
-                onclick={() => { currentStudent = i; }}
-                class="flex min-h-[44px] min-w-[44px] items-center justify-center"
-                aria-label={`Ver ${student.name}`}
-                aria-current={currentStudent === i ? 'true' : undefined}
-              >
-                <span class="block size-2 rounded-full transition-all {currentStudent === i ? 'w-6 bg-primary' : 'bg-border hover:bg-muted-foreground'}"></span>
-              </button>
-            {/each}
+            <!-- Carousel dots -->
+            <div class="flex items-center justify-center gap-2 border-t border-hairline-warm px-4 py-3">
+              {#each heroStudents as student, i}
+                <button
+                  onclick={() => { currentStudent = i; }}
+                  class="flex min-h-[44px] min-w-[44px] items-center justify-center"
+                  aria-label={`Ver ${student.name}`}
+                  aria-current={currentStudent === i ? 'true' : undefined}
+                >
+                  <span class="block size-2 rounded-full transition-all {currentStudent === i ? 'w-6 bg-primary' : 'bg-border hover:bg-muted-foreground'}"></span>
+                </button>
+              {/each}
+            </div>
           </div>
-        </div>
+        </HeroAppMockupCard>
       </div>
 
     </div>
@@ -427,30 +429,30 @@
        Label → fact pattern with hairline divisions. Reads like a spec sheet,
        not a badge row.
        ═══════════════════════════════════════════ -->
-  <section class="reveal border-y border-border bg-secondary py-10" aria-label="Arquitectura verificable">
+  <section class="reveal border-y border-hairline-warm bg-canvas py-10" aria-label="Arquitectura verificable">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {t('trust.attribution')}
       </p>
-      <dl class="mt-8 grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
+      <dl class="mt-8 grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-hairline-warm">
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <Building class="size-5 text-primary" aria-hidden="true" />
-          <dt class="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Datos</dt>
+          <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">Datos</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.servers')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <Lock class="size-5 text-primary" aria-hidden="true" />
-          <dt class="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Cifrado</dt>
+          <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">Cifrado</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.encryption')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <Zap class="size-5 text-primary" aria-hidden="true" />
-          <dt class="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Integración</dt>
+          <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">Integración</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.integration')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <Shield class="size-5 text-primary" aria-hidden="true" />
-          <dt class="mt-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">Cumplimiento</dt>
+          <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">Cumplimiento</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.compliance')}</dd>
         </div>
       </dl>
