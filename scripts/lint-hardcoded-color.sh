@@ -20,7 +20,7 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-WARN_MODE="${WARN_MODE:-1}"
+WARN_MODE="${WARN_MODE:-0}"  # P6 flipped default from 1→0 (strict by default after Stripe Press migration completed)
 
 # 6 or 3 char hex with #
 PATTERN='#[0-9a-fA-F]{6}\b|#[0-9a-fA-F]{3}\b'

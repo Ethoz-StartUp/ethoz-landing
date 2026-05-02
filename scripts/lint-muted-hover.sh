@@ -10,7 +10,7 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-WARN_MODE="${WARN_MODE:-1}"
+WARN_MODE="${WARN_MODE:-0}"  # P6 flipped default from 1→0 (strict by default after Stripe Press migration completed)
 
 # Match hover:bg-muted/N OR hover:bg-canvas-elevated/N for N=1..39 only.
 PATTERN='hover:bg-(muted|canvas-elevated)/([1-9]|[1-3][0-9])\b'
