@@ -243,9 +243,9 @@
   let importing = $state(false);
 
   let trackerSearch = $state('');
-  let trackerStatusFilter = $state('');
+  let trackerStatusFilter = $state('all');
   let trackerTierFilter = $state('0');
-  let trackerChannelFilter = $state('');
+  let trackerChannelFilter = $state('all');
 
   let editingId = $state<string | null>(null);
   let editDraft = $state<Partial<Prospect>>({});
@@ -259,10 +259,10 @@
 
   const trackerFiltered = $derived.by(() => {
     let list = prospects;
-    if (trackerStatusFilter) list = list.filter((p) => p.status === trackerStatusFilter);
+    if (trackerStatusFilter !== 'all') list = list.filter((p) => p.status === trackerStatusFilter);
     const ttf = Number(trackerTierFilter);
     if (ttf) list = list.filter((p) => p.tier === ttf);
-    if (trackerChannelFilter) list = list.filter((p) => p.channel === trackerChannelFilter);
+    if (trackerChannelFilter !== 'all') list = list.filter((p) => p.channel === trackerChannelFilter);
     if (trackerSearch.trim()) {
       const q = trackerSearch.trim().toLowerCase();
       list = list.filter((p) => p.sostenedor_name.toLowerCase().includes(q));
@@ -443,7 +443,7 @@
 {#if !adminStore.authenticated}
   <!-- Auth guard redirect -->
 {:else}
-  <main class="min-h-dvh bg-secondary pt-14">
+  <main class="min-h-dvh bg-canvas-strong pt-14">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
 
       <!-- Page header + tabs -->
@@ -700,10 +700,10 @@
                 <Label class="mb-1.5 block text-xs">Estado</Label>
                 <Select.Root type="single" bind:value={trackerStatusFilter}>
                   <Select.Trigger class="w-40">
-                    {trackerStatusFilter ? PROSPECT_STATUS_LABELS[trackerStatusFilter as ProspectStatus] : 'Todos'}
+                    {trackerStatusFilter === 'all' ? 'Todos' : PROSPECT_STATUS_LABELS[trackerStatusFilter as ProspectStatus]}
                   </Select.Trigger>
                   <Select.Content>
-                    <Select.Item value="">Todos</Select.Item>
+                    <Select.Item value="all">Todos</Select.Item>
                     {#each ALL_PROSPECT_STATUSES as s}
                       <Select.Item value={s}>{PROSPECT_STATUS_LABELS[s]}</Select.Item>
                     {/each}
@@ -728,10 +728,10 @@
                 <Label class="mb-1.5 block text-xs">Canal</Label>
                 <Select.Root type="single" bind:value={trackerChannelFilter}>
                   <Select.Trigger class="w-36">
-                    {trackerChannelFilter || 'Todos'}
+                    {trackerChannelFilter === 'all' ? 'Todos' : trackerChannelFilter}
                   </Select.Trigger>
                   <Select.Content>
-                    <Select.Item value="">Todos</Select.Item>
+                    <Select.Item value="all">Todos</Select.Item>
                     {#each CHANNELS as ch}
                       <Select.Item value={ch}>{ch}</Select.Item>
                     {/each}

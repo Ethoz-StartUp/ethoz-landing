@@ -214,7 +214,7 @@
 {#if !adminStore.authenticated}
   <!-- Auth guard redirect -->
 {:else}
-  <main class="min-h-dvh bg-secondary pt-14">
+  <main class="min-h-dvh bg-canvas-strong pt-14">
     <div class="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
