@@ -748,7 +748,7 @@
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-primary">{t('how.overline')}</span>
+          <span class="text-accent-mustard-ink">{t('how.overline')}</span>
           <span aria-hidden="true" class="text-border">·</span>
           <span>3 pasos · 2-4 semanas</span>
         </p>
@@ -763,11 +763,11 @@
       <!-- Steps — editorial chapter style: big Playfair numbers, no icon circles.
            Each step reads as "01 · [time]" then title + description. -->
       <div class="mx-auto mt-12 max-w-5xl">
-        <ol class="grid gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border">
+        <ol class="grid gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-hairline-warm">
           <!-- Step 1 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-primary" data-numeric>01</span>
+              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-accent-mustard" data-numeric>01</span>
               <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step1.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step1.title')}</h3>
@@ -777,18 +777,18 @@
           <!-- Step 2 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-primary" data-numeric>02</span>
+              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-accent-mustard" data-numeric>02</span>
               <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step2.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step2.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('how.step2.desc')}</p>
           </li>
 
-          <!-- Step 3 — marked as the "arrival" with primary number -->
+          <!-- Step 3 — marked as the "arrival" with sage number -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-primary" data-numeric>03</span>
-              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">{t('home.how.step3.time')}</span>
+              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-accent-sage" data-numeric>03</span>
+              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-sage-ink">{t('home.how.step3.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step3.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('how.step3.desc')}</p>
