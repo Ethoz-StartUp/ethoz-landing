@@ -31,7 +31,7 @@
  *    requires the `-ink` variants (`--accent-mustard-ink`,
  *    `--accent-brick-ink`, `--accent-sage-ink`) for AAA body contrast.
  *  - Display headlines: Newsreader Variable, weight 500 for h1/h2,
- *    600 for h3-h5. Letter-spacing -0.02em (looser than Cal Sans).
+ *    600 for h3-h5. Letter-spacing -0.02em.
  *  - Body: Inter Variable, weight 400, line-height 1.55, color ink-soft.
  *  - Two full-bleed `<SectionDark>` bookends (Compliance + Final CTA)
  *    sit ahead of the dark Footer (`#0A1628`). Together they form the
