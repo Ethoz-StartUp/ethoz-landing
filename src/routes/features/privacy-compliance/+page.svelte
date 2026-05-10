@@ -58,7 +58,7 @@
         <div class="lg:pt-4">
           <div class="flex items-center gap-3">
             <Shield class="size-6 shrink-0 text-primary" />
-            <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h1 class="text-balance text-foreground">
               {t('features.privacy.title')}
             </h1>
           </div>
@@ -149,7 +149,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="privacy-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.privacyCompliance.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.privacyCompliance.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
@@ -162,7 +162,7 @@
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary">Registro de tratamiento</p>
-      <h2 class="mb-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Inventario de datos categorizados</h2>
+      <h2 class="mb-2 text-xl text-foreground sm:text-2xl">Inventario de datos categorizados</h2>
       <p class="mb-8 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         Ethoz genera automáticamente el inventario de datos personales que la Ley 21.719 exige documentar. Cada categoría tiene su base legal y nivel de sensibilidad asignado.
       </p>
@@ -207,7 +207,7 @@
   <!-- ARCO+P rights section -->
   <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="mb-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Derechos ARCO+P integrados</h2>
+      <h2 class="mb-2 text-xl text-foreground sm:text-2xl">Derechos ARCO+P integrados</h2>
       <p class="mb-8 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         Cuando un apoderado solicita ejercer sus derechos, Ethoz genera el flujo de atención, registra cada paso y asegura que la respuesta se entregue dentro del plazo legal de 15 días hábiles.
       </p>
@@ -220,7 +220,7 @@
           { letter: 'P', right: 'Portabilidad', desc: 'Entrega de datos en formato estructurado para cambio de colegio.' },
         ] as item}
           <div class="group rounded-lg border border-border bg-card p-4 text-center transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-            <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">{item.letter}</span>
+            <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">{item.letter}</span>
             <p class="mt-3 text-sm font-semibold text-foreground">{item.right}</p>
             <p class="mt-1 text-[11px] leading-relaxed text-muted-foreground">{item.desc}</p>
           </div>
@@ -237,7 +237,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Building2 class="size-5 shrink-0 text-success" />
-            <h2 class="text-base font-semibold text-foreground">Aislamiento total entre instituciones</h2>
+            <h2 class="text-base text-foreground">Aislamiento total entre instituciones</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.privacy.bullet1')}
@@ -247,7 +247,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <KeyRound class="size-5 shrink-0 text-success" />
-            <h2 class="text-base font-semibold text-foreground">Cifrado y trazabilidad de accesos</h2>
+            <h2 class="text-base text-foreground">Cifrado y trazabilidad de accesos</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.privacy.bullet2')}
@@ -257,7 +257,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Users class="size-5 shrink-0 text-success" />
-            <h2 class="text-base font-semibold text-foreground">Gestión de consentimientos parentales</h2>
+            <h2 class="text-base text-foreground">Gestión de consentimientos parentales</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.privacy.bullet3')}
@@ -273,7 +273,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.privacyCompliance.finalCta.eyebrow')}</p>
-      <h2 id="privacy-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+      <h2 id="privacy-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.privacyCompliance.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

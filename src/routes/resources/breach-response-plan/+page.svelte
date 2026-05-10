@@ -51,7 +51,7 @@
         <span>72 h para notificar</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading text-3xl font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-4xl">Plan de Respuesta a Brechas de Datos</h1>
+      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Plan de Respuesta a Brechas de Datos</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Plantilla para gestionar incidentes de seguridad que involucren datos personales. La Ley 21.719 exige notificación a la autoridad competente dentro de <strong class="text-foreground">72 horas</strong> desde que se detecta la brecha.</p>
       <p class="mt-4 text-xs text-muted-foreground">Elaborado por Ethoz · ethoz.cl · Complete los campos [en corchetes] con datos de su establecimiento</p>
     </div>

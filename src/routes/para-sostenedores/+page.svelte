@@ -57,7 +57,7 @@
           </div>
           <div class="flex items-start gap-3">
             <Building2 class="mt-1 size-7 shrink-0 text-primary" />
-            <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h1 class="text-balance text-foreground">
               Gestiona la protección de 5 colegios desde un solo panel
             </h1>
           </div>
@@ -150,7 +150,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="sostenedor-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.sostenedores.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('audience.sostenedores.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
@@ -164,7 +164,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-2">
         <AlertTriangle class="size-5 shrink-0 text-destructive" />
-        <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">El problema del sostenedor en 2026</h2>
+        <h2 class="text-xl text-foreground sm:text-2xl">El problema del sostenedor en 2026</h2>
       </div>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         Operar múltiples establecimientos con sistemas distintos no es solo ineficiente — es un riesgo legal concreto con fecha de vencimiento.
@@ -173,7 +173,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <Scale class="size-5 shrink-0 text-destructive" />
-            <h3 class="text-base font-semibold text-foreground">Ley 21.719 — plazo real</h3>
+            <h3 class="text-base text-foreground">Ley 21.719 — plazo real</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
             La ley de protección de datos personales entra en plena vigencia en <strong class="text-foreground">diciembre de 2026</strong>. Las multas llegan a <strong class="text-foreground">20.000 UTM (~$1.300M CLP)</strong> o el 4% de la facturación anual — lo que sea mayor. Por establecimiento.
@@ -182,7 +182,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <TrendingDown class="size-5 shrink-0 text-warning-foreground" />
-            <h3 class="text-base font-semibold text-foreground">Sistemas fragmentados por sede</h3>
+            <h3 class="text-base text-foreground">Sistemas fragmentados por sede</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
             Cada colegio lleva su propio Excel, su propio cuaderno de portería y sus propios protocolos. No hay estándar, no hay visibilidad cruzada y en una fiscalización, cada sede responde sola.
@@ -191,7 +191,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <BarChart3 class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base font-semibold text-foreground">Consolidación manual imposible</h3>
+            <h3 class="text-base text-foreground">Consolidación manual imposible</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
             Pedir un reporte de incidentes a tus 5 directores tarda días. Para cuando llega la información, ya cambió. Las decisiones se toman con datos de la semana pasada, cuando los problemas ya escalaron.
@@ -200,7 +200,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <FileSearch class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base font-semibold text-foreground">Exposición en auditorías</h3>
+            <h3 class="text-base text-foreground">Exposición en auditorías</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
             Cuando la Superintendencia llega a un establecimiento, la pregunta no es si pasaron cosas. La pregunta es si puedes demostrar que tienes el control. Sin un sistema, la respuesta es no.
@@ -217,7 +217,7 @@
         <div>
           <div class="flex items-center gap-3 mb-2">
             <Scale class="size-5 shrink-0 text-destructive" />
-            <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">Tu exposición legal se multiplica</h2>
+            <h2 class="text-xl text-foreground sm:text-2xl">Tu exposición legal se multiplica</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             Las multas de la Ley 21.719 aplican <strong class="text-foreground">por infracción, por establecimiento</strong>. Operar 5 sedes sin cumplimiento no es un riesgo de 20.000 UTM — es un riesgo de 100.000 UTM.
@@ -291,7 +291,7 @@
         <div>
           <div class="flex items-center gap-3 mb-2">
             <ClipboardCheck class="size-5 shrink-0 text-primary" />
-            <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">Auditoría centralizada — todas las sedes</h2>
+            <h2 class="text-xl text-foreground sm:text-2xl">Auditoría centralizada — todas las sedes</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             Cada acción en cualquier colegio de tu red queda registrada con sello de tiempo, usuario y sede. Cuando llega la Superintendencia, exportas el reporte en un clic — no llamas a 5 directores.
@@ -377,7 +377,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('audience.sostenedores.finalCta.eyebrow')}</p>
-      <h2 id="sostenedor-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+      <h2 id="sostenedor-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('audience.sostenedores.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

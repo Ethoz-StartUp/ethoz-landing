@@ -60,7 +60,7 @@
         <div class="lg:pt-6">
           <div class="flex items-center gap-3">
             <ClipboardList class="size-6 shrink-0 text-primary" />
-            <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h1 class="text-balance text-foreground">
               {t('features.record.title')}
             </h1>
           </div>
@@ -260,7 +260,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="profile-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.studentProfile.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.studentProfile.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
@@ -273,7 +273,7 @@
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary">Historial longitudinal</p>
-      <h2 class="mb-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Año a año, sin reinicio de marzo</h2>
+      <h2 class="mb-2 text-xl text-foreground sm:text-2xl">Año a año, sin reinicio de marzo</h2>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         El expediente de Valentina viaja con ella al cambiar de curso. Nada se pierde, nada se duplica.
       </p>
@@ -324,7 +324,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <History class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base font-semibold text-foreground">Historial longitudinal</h2>
+            <h2 class="text-base text-foreground">Historial longitudinal</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.record.bullet1')}
@@ -334,7 +334,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Lock class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base font-semibold text-foreground">Niveles de confidencialidad</h2>
+            <h2 class="text-base text-foreground">Niveles de confidencialidad</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.record.bullet2')}
@@ -344,7 +344,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <BadgeCheck class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base font-semibold text-foreground">Cumplimiento normativo</h2>
+            <h2 class="text-base text-foreground">Cumplimiento normativo</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.record.bullet3')}
@@ -360,7 +360,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <div>
-          <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">Alertas priorizadas en la ficha</h2>
+          <h2 class="text-xl text-foreground sm:text-2xl">Alertas priorizadas en la ficha</h2>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             Las alertas críticas —orden judicial, información médica urgente, restricción de retiro— aparecen de forma prominente al abrir la ficha, sin necesidad de navegar pestañas.
           </p>
@@ -414,7 +414,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.studentProfile.finalCta.eyebrow')}</p>
-      <h2 id="profile-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+      <h2 id="profile-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.studentProfile.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

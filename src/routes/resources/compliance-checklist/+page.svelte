@@ -187,7 +187,7 @@
         <span>20 ítems · 4 secciones</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading text-3xl font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-4xl">Checklist de Cumplimiento Ley 21.719</h1>
+      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Checklist de Cumplimiento Ley 21.719</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
         Verifique el estado de cumplimiento de su establecimiento con la Ley de Protección de Datos Personales. Marque cada ítem completado. La ley entra en plena vigencia en <strong class="text-foreground">diciembre de 2026</strong>. Las multas llegan hasta las 20.000 UTM.
       </p>

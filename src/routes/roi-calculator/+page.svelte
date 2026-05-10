@@ -111,7 +111,7 @@
         <Calculator class="size-3.5" />
         Calculadora de exposición
       </div>
-      <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+      <h1 class="text-foreground">
         Calcula tu exposición al riesgo
       </h1>
       <p class="mt-3 text-lg font-semibold text-primary">En 30 segundos</p>
@@ -130,7 +130,7 @@
 
         <!-- LEFT: Inputs -->
         <div>
-          <h2 class="text-xl font-bold text-foreground mb-6">Datos de tu establecimiento</h2>
+          <h2 class="text-xl text-foreground mb-6">Datos de tu establecimiento</h2>
 
           <!-- Número de alumnos -->
           <div class="mb-8">
@@ -216,7 +216,7 @@
 
         <!-- RIGHT: Results -->
         <div>
-          <h2 class="text-xl font-bold text-foreground mb-6">Tu exposición estimada</h2>
+          <h2 class="text-xl text-foreground mb-6">Tu exposición estimada</h2>
 
           <!-- Fine exposure -->
           <div class="mb-4 rounded-xl border border-border bg-card p-5 shadow-sm">
@@ -296,7 +296,7 @@
   <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <Calculator class="mx-auto size-10 text-primary mb-4" />
-      <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+      <h2 class="text-3xl text-foreground sm:text-4xl">
         ¿Quieres un análisis más preciso?
       </h2>
       <p class="mt-4 text-base text-muted-foreground">

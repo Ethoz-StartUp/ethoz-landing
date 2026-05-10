@@ -54,7 +54,7 @@
           </div>
           <div class="flex items-start gap-3">
             <Compass class="mt-1 size-7 shrink-0 text-primary" />
-            <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h1 class="text-balance text-foreground">
               Tu día de director, sin planillas Excel ni llamadas de pánico
             </h1>
           </div>
@@ -146,7 +146,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="director-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.directores.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('audience.directores.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
@@ -162,7 +162,7 @@
         <div>
           <div class="flex items-center gap-3 mb-2">
             <MessageSquare class="size-5 shrink-0 text-primary" />
-            <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">Observaciones con contexto</h2>
+            <h2 class="text-xl text-foreground sm:text-2xl">Observaciones con contexto</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             Cada observación queda clasificada por categoría, nivel de confidencialidad y responsable. Los roles ven solo lo que deben ver. El director ve todo.
@@ -306,7 +306,7 @@
         <div>
           <div class="flex items-center gap-3 mb-2">
             <TrendingUp class="size-5 shrink-0 text-primary" />
-            <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">Decisiones basadas en datos</h2>
+            <h2 class="text-xl text-foreground sm:text-2xl">Decisiones basadas en datos</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             Un director que identifica patrones puede actuar antes de que el problema escale. Ethoz detecta automáticamente las tendencias que en papel o Excel son invisibles.
@@ -338,7 +338,7 @@
         <div>
           <div class="flex items-center gap-3 mb-2">
             <CalendarDays class="size-5 shrink-0 text-primary" />
-            <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">Sin reinicio de marzo</h2>
+            <h2 class="text-xl text-foreground sm:text-2xl">Sin reinicio de marzo</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             En los sistemas tradicionales, cada año escolar empieza desde cero. El historial de Catalina — las medidas de apoyo, las situaciones de convivencia, las restricciones de retiro — desaparece el 1° de marzo.
@@ -430,7 +430,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('audience.directores.finalCta.eyebrow')}</p>
-      <h2 id="director-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+      <h2 id="director-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('audience.directores.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

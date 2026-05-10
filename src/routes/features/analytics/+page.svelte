@@ -38,7 +38,7 @@
         <div>
           <div class="flex items-center gap-3">
             <BarChart3 class="size-6 shrink-0 text-primary" />
-            <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h1 class="text-balance text-foreground">
               Dashboard de Analytics Escolar
             </h1>
           </div>
@@ -126,7 +126,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="analytics-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.analytics.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.analytics.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
@@ -140,7 +140,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">Visualizaciones</p>
-        <h2 class="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Diseñadas para tomar decisiones</h2>
+        <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">Diseñadas para tomar decisiones</h2>
         <p class="mt-3 text-base text-muted-foreground">No son reportes para cumplir: son herramientas para actuar.</p>
       </div>
 
@@ -238,7 +238,7 @@
   <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Para directivos, sostenedores y equipos PIE</h2>
+        <h2 class="text-2xl text-foreground sm:text-3xl">Para directivos, sostenedores y equipos PIE</h2>
         <p class="mt-3 text-base text-muted-foreground">Cada perfil ve los indicadores relevantes para su función.</p>
       </div>
       <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -316,7 +316,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.analytics.finalCta.eyebrow')}</p>
-      <h2 id="analytics-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+      <h2 id="analytics-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.analytics.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

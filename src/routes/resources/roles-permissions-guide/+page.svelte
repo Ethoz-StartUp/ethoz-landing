@@ -175,7 +175,7 @@
         <span>7 roles · Matriz</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading text-3xl font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-4xl">Guía de Roles y Permisos para Colegios</h1>
+      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Guía de Roles y Permisos para Colegios</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Matriz de acceso a datos personales recomendada para establecimientos educacionales chilenos. Basada en el principio de mínimo privilegio exigido por la Ley 21.719.</p>
       <p class="mt-4 text-xs text-muted-foreground">Elaborado por Ethoz · ethoz.cl · Adaptable según el sistema de gestión escolar utilizado</p>
     </div>

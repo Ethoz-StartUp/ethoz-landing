@@ -62,7 +62,7 @@
         <div>
           <div class="flex items-center gap-3">
             <CalendarCheck class="size-6 shrink-0 text-primary" />
-            <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h1 class="text-balance text-foreground">
               Control de Asistencia Digital
             </h1>
           </div>
@@ -141,7 +141,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="attendance-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.attendance.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.attendance.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
@@ -155,7 +155,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
         <div>
-          <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Conforme a Circular N°30 desde el primer día</h2>
+          <h2 class="text-2xl text-foreground sm:text-3xl">Conforme a Circular N°30 desde el primer día</h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
             La Circular N°30 del MINEDUC exige que el libro de clases electrónico cumpla con requisitos de integridad, trazabilidad y respaldo. Ethoz los cumple todos.
           </p>
@@ -244,7 +244,7 @@
   <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">De la inasistencia al protocolo de intervención</h2>
+        <h2 class="text-2xl text-foreground sm:text-3xl">De la inasistencia al protocolo de intervención</h2>
         <p class="mt-3 text-base text-muted-foreground">Ethoz no solo registra — detecta el patrón y activa el flujo correcto.</p>
       </div>
       <div class="mt-10 grid gap-3 sm:grid-cols-4">
@@ -294,7 +294,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.attendance.finalCta.eyebrow')}</p>
-      <h2 id="attendance-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+      <h2 id="attendance-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.attendance.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

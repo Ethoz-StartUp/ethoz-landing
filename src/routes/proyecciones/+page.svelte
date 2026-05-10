@@ -106,7 +106,7 @@
         <TrendingDown class="size-3.5" />
         Proyecciones de impacto
       </div>
-      <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+      <h1 class="text-foreground">
         Proyecciones de impacto
       </h1>
       <p class="mt-3 text-xl font-semibold text-primary">Basadas en datos públicos</p>
@@ -140,7 +140,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">Métricas proyectadas</p>
-        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
           Qué cambia cuando Ethoz entra al colegio
         </h2>
       </div>
@@ -190,7 +190,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">Escenario tipo</p>
-        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
           Proyecciones para un colegio de 800 alumnos
         </h2>
         <p class="mt-4 text-base text-muted-foreground">
@@ -245,7 +245,7 @@
        ══════════════════════════════════════ -->
   <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+      <h2 class="text-3xl text-foreground sm:text-4xl">
         ¿Cómo se ven estas proyecciones en tu colegio?
       </h2>
       <p class="mt-4 text-base text-muted-foreground">

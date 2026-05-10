@@ -42,7 +42,7 @@
         <div class="lg:pt-6">
           <div class="flex items-center gap-3">
             <Bell class="size-6 shrink-0 text-primary" />
-            <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h1 class="text-balance text-foreground">
               {t('features.pickup.title')}
             </h1>
           </div>
@@ -175,7 +175,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="pickup-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.safePickups.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.safePickups.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
@@ -188,23 +188,23 @@
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary">Flujo operativo</p>
-      <h2 class="mb-2 text-xl font-bold tracking-tight text-foreground sm:text-2xl">Retiro en tres pasos, bajo cualquier fila</h2>
+      <h2 class="mb-2 text-xl text-foreground sm:text-2xl">Retiro en tres pasos, bajo cualquier fila</h2>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         El portero no necesita capacitación extensa. La interfaz guía cada paso con colores claros: verde para autorizado, rojo para bloqueado.
       </p>
       <div class="grid gap-6 sm:grid-cols-3">
         <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">01</span>
+          <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">01</span>
           <p class="mt-3 text-sm font-semibold text-foreground">Buscar alumno</p>
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">El portero escribe el nombre o RUT del alumno. La búsqueda es instantánea y tolera errores tipográficos.</p>
         </div>
         <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">02</span>
+          <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">02</span>
           <p class="mt-3 text-sm font-semibold text-foreground">Seleccionar apoderado</p>
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Se muestra la lista de personas autorizadas. Cada una indica si puede retirar o está bloqueada en tiempo real.</p>
         </div>
         <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-          <span class="font-heading block text-4xl font-medium tabular-nums leading-none tracking-tight text-primary transition-colors group-hover:text-foreground">03</span>
+          <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">03</span>
           <p class="mt-3 text-sm font-semibold text-foreground">Confirmar y registrar</p>
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">El retiro queda firmado digitalmente con hora, portería y usuario que autorizó. Auditable en cualquier momento.</p>
         </div>
@@ -220,7 +220,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <ShieldCheck class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base font-semibold text-foreground">Validación en tiempo real</h2>
+            <h2 class="text-base text-foreground">Validación en tiempo real</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.pickup.bullet1')}
@@ -230,7 +230,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Ban class="size-5 shrink-0 text-destructive" />
-            <h2 class="text-base font-semibold text-foreground">Bloqueo automático ante restricciones</h2>
+            <h2 class="text-base text-foreground">Bloqueo automático ante restricciones</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.pickup.bullet2')}
@@ -240,7 +240,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <BellRing class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base font-semibold text-foreground">Notificaciones seguras por rol</h2>
+            <h2 class="text-base text-foreground">Notificaciones seguras por rol</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.pickup.bullet3')}
@@ -276,7 +276,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.safePickups.finalCta.eyebrow')}</p>
-      <h2 id="pickup-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+      <h2 id="pickup-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.safePickups.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

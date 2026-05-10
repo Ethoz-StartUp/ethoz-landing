@@ -98,7 +98,7 @@
 
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
 
-      <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+      <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
         Un libro sin testigos no es un libro — es un borrador.
       </h1>
 
@@ -129,7 +129,7 @@
       <!-- SECCIÓN 1: QUÉ EXIGE -->
       <section id="que-exige">
         <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>01 · Marco</p>
-        <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">¿Qué exige la Circular N°30?</h2>
+        <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">¿Qué exige la Circular N°30?</h2>
         <p class="mt-6 text-base leading-relaxed text-muted-foreground">
           La Circular N°30 no prescribe una plataforma específica, pero establece estándares técnicos precisos que cualquier sistema de libro de clases digital debe cumplir. Los cuatro pilares son:
         </p>
@@ -156,7 +156,7 @@
         </dl>
 
         <!-- Pull-quote moment -->
-        <blockquote class="mt-10 border-l-2 border-primary pl-6 font-heading text-[1.5rem] font-normal italic leading-[1.4] text-foreground sm:text-[1.75rem]">
+        <blockquote class="mt-10 border-l-2 border-primary pl-6 font-heading text-[1.5rem] leading-[1.4] text-foreground sm:text-[1.75rem]">
           La Superintendencia no verifica solo que los datos existan — verifica que sean confiables.
         </blockquote>
 
@@ -171,7 +171,7 @@
       <!-- SECCIÓN 2: QUÉ SISTEMAS CUMPLEN -->
       <section id="que-sistemas-cumplen">
         <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>02 · Verificación</p>
-        <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">¿Qué sistemas cumplen los requisitos?</h2>
+        <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">¿Qué sistemas cumplen los requisitos?</h2>
         <p class="mt-6 text-base leading-relaxed text-muted-foreground">
           Lista de verificación técnica. Un sistema que no cumpla los primeros cuatro requisitos —los críticos— no cumple la Circular N°30, independientemente de otras funcionalidades que ofrezca.
         </p>
@@ -194,7 +194,7 @@
           {/each}
         </div>
 
-        <h3 class="mt-12 font-heading text-xl font-medium tracking-tight text-foreground">Sistemas que <em>no</em> cumplen la Circular N°30</h3>
+        <h3 class="mt-12 font-heading text-xl text-foreground">Sistemas que <em>no</em> cumplen la Circular N°30</h3>
         <ul class="mt-6 divide-y divide-border border-y border-border">
           {#each nonCompliant as nc}
             <li class="grid gap-3 py-5 sm:grid-cols-[minmax(0,12rem)_minmax(0,1fr)] sm:gap-8">
@@ -211,14 +211,14 @@
       <!-- SECCIÓN 3: AUTODIAGNÓSTICO -->
       <section id="autodiagnostico">
         <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>03 · Diagnóstico</p>
-        <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">¿Cumple su libro de clases actual?</h2>
+        <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">¿Cumple su libro de clases actual?</h2>
         <p class="mt-6 text-base leading-relaxed text-muted-foreground">
           Responda estas preguntas sobre el sistema que usa hoy. Si no puede responder "sí" con certeza a las marcadas como críticas, su libro de clases no cumple la Circular N°30.
         </p>
         <ol class="mt-8 divide-y divide-border border-y border-border">
           {#each selfAssessment as item, i}
             <li class="flex items-start gap-4 py-4">
-              <span class="font-heading text-xs font-medium text-primary tabular-nums pt-0.5 w-6 shrink-0" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
+              <span class="font-heading text-xs text-primary tabular-nums pt-0.5 w-6 shrink-0" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
               <span class="size-5 shrink-0 mt-0.5 border {item.critical ? 'border-destructive/50' : 'border-muted-foreground/40'} rounded-[4px]"></span>
               <p class="flex-1 text-sm text-foreground">
                 {item.question}
@@ -237,7 +237,7 @@
       <!-- SECCIÓN 4: INTEGRACIÓN CON ETHOZ -->
       <section id="integracion-ethoz">
         <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>04 · Integración</p>
-        <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Integración con Ethoz</h2>
+        <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Integración con Ethoz</h2>
         <p class="mt-6 text-base leading-relaxed text-muted-foreground">
           Ethoz no reemplaza el sistema de gestión que usa su colegio hoy. Agrega la capa de trazabilidad, control de acceso y cumplimiento normativo que le falta al libro de clases existente.
         </p>
@@ -264,7 +264,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Informe de brechas</p>
-      <h2 id="final-cta-circular" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl">
+      <h2 id="final-cta-circular" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         ¿Cumple su libro de clases la Circular N°30?
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

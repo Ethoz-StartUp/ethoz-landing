@@ -38,7 +38,7 @@
         <div>
           <div class="flex items-center gap-3">
             <Siren class="size-6 shrink-0 text-destructive" />
-            <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h1 class="text-balance text-foreground">
               Protocolos de Emergencia Digital
             </h1>
           </div>
@@ -130,7 +130,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="emergency-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.emergency.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.emergency.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
@@ -144,7 +144,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">Cuatro protocolos · ONEMI + SENAPRED</p>
-        <h2 class="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Un solo sistema, cuatro flujos distintos</h2>
+        <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">Un solo sistema, cuatro flujos distintos</h2>
         <p class="mt-3 text-base text-muted-foreground">Adaptados a los planes de seguridad escolar vigentes en Chile.</p>
       </div>
       <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -152,7 +152,7 @@
         <div class="rounded-xl border border-warning/30 bg-card p-5 shadow-sm">
           <div class="flex items-center gap-2.5">
             <AlertTriangle class="size-5 shrink-0 text-warning-foreground" />
-            <h3 class="text-base font-semibold text-foreground">Sismo</h3>
+            <h3 class="text-base text-foreground">Sismo</h3>
           </div>
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Protocolo SENAPRED activado en 1 toque. Guía paso a paso para Agacharse-Cubrirse-Sujetarse, luego evacuación por ruta configurada.</p>
           <ul class="mt-3 space-y-1">
@@ -168,7 +168,7 @@
         <div class="rounded-xl border border-destructive/20 bg-card p-5 shadow-sm">
           <div class="flex items-center gap-2.5">
             <Flame class="size-5 shrink-0 text-destructive" />
-            <h3 class="text-base font-semibold text-foreground">Incendio</h3>
+            <h3 class="text-base text-foreground">Incendio</h3>
           </div>
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Activa la alarma digital, muestra rutas de salida por sector del edificio y coordina el conteo en el punto de encuentro externo.</p>
           <ul class="mt-3 space-y-1">
@@ -184,7 +184,7 @@
         <div class="rounded-xl border border-destructive/20 bg-card p-5 shadow-sm">
           <div class="flex items-center gap-2.5">
             <UserX class="size-5 shrink-0 text-destructive" />
-            <h3 class="text-base font-semibold text-foreground">Intruso</h3>
+            <h3 class="text-base text-foreground">Intruso</h3>
           </div>
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Bloqueo de puertas coordinado, modo silencioso para docentes y notificación directa a Carabineros con ubicación del establecimiento.</p>
           <ul class="mt-3 space-y-1">
@@ -200,7 +200,7 @@
         <div class="rounded-xl border border-primary/20 bg-card p-5 shadow-sm">
           <div class="flex items-center gap-2.5">
             <Activity class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base font-semibold text-foreground">Emergencia médica</h3>
+            <h3 class="text-base text-foreground">Emergencia médica</h3>
           </div>
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Accede a las alertas médicas del alumno afectado con un toque. Notificación inmediata a apoderado y SAMU con datos del establecimiento.</p>
           <ul class="mt-3 space-y-1">
@@ -222,7 +222,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Los apoderados se enteran en segundos</h2>
+          <h2 class="text-2xl text-foreground sm:text-3xl">Los apoderados se enteran en segundos</h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
             En el momento en que se activa una emergencia, todos los apoderados reciben una notificación push con el estado del establecimiento. Al completar el conteo, confirman que su hijo está a salvo.
           </p>
@@ -307,7 +307,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.emergency.finalCta.eyebrow')}</p>
-      <h2 id="emergency-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+      <h2 id="emergency-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.emergency.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

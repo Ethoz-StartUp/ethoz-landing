@@ -285,7 +285,7 @@
       <div class="space-y-8">
         <div class="text-center">
           <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step2.eyebrow')}</p>
-          <h1 class="text-2xl font-bold tracking-tight text-foreground">
+          <h1 class="text-2xl text-foreground">
             {t('demo.step2.title')}
           </h1>
           <p class="mx-auto mt-3 max-w-md text-xs leading-relaxed text-muted-foreground">

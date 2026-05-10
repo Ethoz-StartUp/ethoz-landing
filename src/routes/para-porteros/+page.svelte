@@ -42,7 +42,7 @@
           </div>
           <div class="flex items-start gap-3">
             <DoorOpen class="mt-1 size-7 shrink-0 text-primary" />
-            <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h1 class="text-balance text-foreground">
               La pantalla que reemplaza la planilla Excel en portería
             </h1>
           </div>
@@ -190,7 +190,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="portero-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.porteros.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('audience.porteros.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
@@ -204,7 +204,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-2">
         <Clock class="size-5 shrink-0 text-primary" />
-        <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">El retiro de las 14:30 — así funciona</h2>
+        <h2 class="text-xl text-foreground sm:text-2xl">El retiro de las 14:30 — así funciona</h2>
       </div>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         Son las 14:28. La tía Carmen llega a buscar a Matías de 3° básico. Tiene 40 apoderados esperando. Esto es lo que pasa en los próximos 15 segundos.
@@ -254,7 +254,7 @@
         <div>
           <div class="flex items-center gap-3 mb-2">
             <Eye class="size-5 shrink-0 text-primary" />
-            <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">Solo lo que el portero necesita</h2>
+            <h2 class="text-xl text-foreground sm:text-2xl">Solo lo que el portero necesita</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             La privacidad es parte del diseño. El portero no necesita saber el diagnóstico médico de un alumno para decidir si puede retirarle. Ethoz le muestra exactamente lo que necesita — y nada más.
@@ -321,7 +321,7 @@
         <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
           <div class="flex items-center gap-2.5 mb-3">
             <UserCheck class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base font-semibold text-foreground">Entrenamiento en 15 minutos</h3>
+            <h3 class="text-base text-foreground">Entrenamiento en 15 minutos</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground mb-4">
             La interfaz tiene exactamente 3 acciones posibles: buscar, confirmar y reportar. No hay menús complejos. Un portero nuevo puede operar el sistema solo tras 15 minutos de introducción.
@@ -343,7 +343,7 @@
         <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
           <div class="flex items-center gap-2.5 mb-3">
             <WifiOff class="size-5 shrink-0 text-warning-foreground" />
-            <h3 class="text-base font-semibold text-foreground">Si falla la luz o el internet</h3>
+            <h3 class="text-base text-foreground">Si falla la luz o el internet</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground mb-4">
             Ethoz tiene modo offline. Los datos del día se sincronizan al recuperar conexión. Además, el establecimiento puede imprimir el listado de autorizados por curso como respaldo físico.
@@ -390,7 +390,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('audience.porteros.finalCta.eyebrow')}</p>
-      <h2 id="portero-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+      <h2 id="portero-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('audience.porteros.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

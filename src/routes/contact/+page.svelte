@@ -121,7 +121,7 @@
         <span>Horario de respuesta · L-V 9:00-18:00 CLT</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem]">
+      <h1 class="mt-6 font-heading text-[2rem] leading-[1.15] text-foreground sm:text-[2.5rem]">
         {t('contact.heading')}
       </h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -199,11 +199,11 @@
           <div class="flex size-12 items-center justify-center rounded-full bg-success/10" aria-hidden="true">
             <Check class="size-6 text-success" />
           </div>
-          <h2 class="font-heading text-xl font-medium text-foreground">{t('contact.form.success.title')}</h2>
+          <h2 class="font-heading text-xl text-foreground">{t('contact.form.success.title')}</h2>
           <p class="text-sm text-muted-foreground">{t('contact.form.success.message')}</p>
         </div>
       {:else}
-      <h2 class="mb-6 font-heading text-xl font-medium text-foreground">
+      <h2 class="mb-6 font-heading text-xl text-foreground">
         {t('contact.form.title')}
       </h2>
 

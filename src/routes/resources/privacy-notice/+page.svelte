@@ -51,7 +51,7 @@
         <span>10 secciones</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading text-3xl font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-4xl">Modelo de Aviso de Privacidad Escolar</h1>
+      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Modelo de Aviso de Privacidad Escolar</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Complete los campos marcados con <span class="font-medium text-primary">[corchetes]</span> con la información de su establecimiento. Este aviso debe publicarse en el sitio web institucional y estar disponible físicamente en la recepción.</p>
       <p class="mt-4 text-xs text-muted-foreground">Elaborado por Ethoz · ethoz.cl · Basado en Ley 21.719 promulgada el 13 de diciembre de 2024</p>
     </div>
@@ -62,7 +62,7 @@
       <!-- Header of document -->
       <div class="rounded-lg border-2 border-border bg-muted/20 p-6 text-center">
         <p class="text-xs uppercase tracking-widest text-muted-foreground mb-2">Aviso de Privacidad</p>
-        <h2 class="text-xl font-bold text-foreground">[NOMBRE DEL ESTABLECIMIENTO EDUCACIONAL]</h2>
+        <h2 class="text-xl text-foreground">[NOMBRE DEL ESTABLECIMIENTO EDUCACIONAL]</h2>
         <p class="text-muted-foreground text-xs mt-1">RBD: [___________] · RUT: [___________]</p>
         <p class="text-muted-foreground text-xs">Dirección: [___________], [Comuna], [Región], Chile</p>
         <p class="text-xs text-muted-foreground mt-3">Vigente desde: [DD/MM/AAAA] · Versión [1.0]</p>

@@ -133,7 +133,7 @@
 
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
 
-      <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+      <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
         El vocabulario precede al cumplimiento.
       </h1>
 
@@ -146,7 +146,7 @@
         {#each allLetters as letter}
           <a
             href="#{letter}"
-            class="flex size-9 items-center justify-center border border-border bg-card font-heading text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/40 hover:border-foreground hover:text-foreground rounded-md"
+            class="flex size-9 items-center justify-center border border-border bg-card font-heading text-sm text-muted-foreground transition-colors hover:bg-muted/40 hover:border-foreground hover:text-foreground rounded-md"
           >
             {letter}
           </a>
@@ -169,7 +169,7 @@
 
         <section id={letter}>
           <div class="flex items-baseline justify-between border-b border-border pb-4">
-            <h2 class="font-heading text-6xl font-medium leading-none text-foreground sm:text-7xl">{letter}</h2>
+            <h2 class="font-heading text-6xl leading-none text-foreground sm:text-7xl">{letter}</h2>
             <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground" data-numeric>
               {glossary[letter].length} {glossary[letter].length === 1 ? 'término' : 'términos'}
             </span>
@@ -178,7 +178,7 @@
             {#each glossary[letter] as item}
               <div class="grid gap-3 py-6 sm:grid-cols-[minmax(0,12rem)_minmax(0,1fr)] sm:gap-8">
                 <dt>
-                  <dfn class="font-heading text-lg font-medium not-italic text-foreground">{item.term}</dfn>
+                  <dfn class="font-heading text-lg not-italic text-foreground">{item.term}</dfn>
                   {#if item.tag}
                     <p class="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] {tagColors[item.tag] ?? 'text-muted-foreground'}">{item.tag}</p>
                   {/if}
@@ -205,7 +205,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Consulta especializada</p>
-      <h2 id="final-cta-glossary" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl">
+      <h2 id="final-cta-glossary" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         ¿Hay un término que no encontró?
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

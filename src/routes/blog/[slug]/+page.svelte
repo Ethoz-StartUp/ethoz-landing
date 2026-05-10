@@ -71,7 +71,7 @@
         {/each}
       </div>
 
-      <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+      <h1 class="text-balance text-3xl text-foreground sm:text-4xl lg:text-5xl">
         {post.title}
       </h1>
 
@@ -115,7 +115,7 @@
 
     <!-- CTA -->
     <div class="mt-16 rounded-xl border border-primary/20 bg-primary/5 p-6 text-center">
-      <h3 class="text-xl font-bold text-foreground">
+      <h3 class="text-xl text-foreground">
         {t('cta.title')}
       </h3>
       <p class="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
@@ -134,19 +134,14 @@
   :global(.prose h2) {
     clear: both;
     font-size: 1.5rem;
-    font-weight: 700;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    color: oklch(var(--foreground));
-    letter-spacing: -0.025em;
   }
 
   :global(.prose h3) {
     font-size: 1.25rem;
-    font-weight: 600;
     margin-top: 2rem;
     margin-bottom: 0.75rem;
-    color: oklch(var(--foreground));
   }
 
   :global(.prose p) {

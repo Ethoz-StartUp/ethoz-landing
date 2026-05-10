@@ -153,7 +153,7 @@
     <div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div>
         <p class="text-xs font-semibold uppercase tracking-widest text-primary">Dev only</p>
-        <h1 class="mt-1 text-2xl font-bold tracking-tight text-foreground">Panel de sugerencias</h1>
+        <h1 class="mt-1 text-2xl text-foreground">Panel de sugerencias</h1>
         <p class="mt-1 text-sm text-muted-foreground">
           {feedbackStore.items.length} ítem{feedbackStore.items.length !== 1 ? 's' : ''} en total
         </p>

@@ -99,7 +99,7 @@
 
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
 
-      <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+      <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
         La seguridad no es una capa sobre el producto — es el producto.
       </h1>
 
@@ -153,7 +153,7 @@
         <!-- CIFRADO -->
         <section id="cifrado">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>01 · Transporte y almacenamiento</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Cifrado en tránsito y at-rest</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Cifrado en tránsito y at-rest</h2>
           <div class="mt-8 grid gap-5 sm:grid-cols-2">
             <div class="border border-border bg-card p-5 rounded-lg">
               <div class="flex items-center gap-2.5">
@@ -179,12 +179,12 @@
         <!-- RLS -->
         <section id="rls">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>02 · Control de acceso</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Row-Level Security</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Row-Level Security</h2>
           <p class="mt-6 text-base leading-relaxed text-muted-foreground">
             Row-Level Security es el mecanismo de control de acceso más granular disponible en bases de datos relacionales. En Ethoz, cada consulta es evaluada por una política RLS antes de retornar cualquier resultado.
           </p>
 
-          <blockquote class="mt-10 border-l-2 border-primary pl-6 font-heading text-[1.5rem] font-normal italic leading-[1.4] text-foreground">
+          <blockquote class="mt-10 border-l-2 border-primary pl-6 font-heading text-[1.5rem] leading-[1.4] text-foreground">
             Sin autenticación válida, RLS retorna cero filas — independientemente de la tabla consultada.
           </blockquote>
 
@@ -204,7 +204,7 @@
         <!-- AUTENTICACIÓN -->
         <section id="autenticacion">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>03 · Identidad</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Autenticación y sesiones</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Autenticación y sesiones</h2>
           <dl class="mt-8 divide-y divide-border border-y border-border">
             {#each [
               { title: 'Supabase Auth con JWT', body: 'La autenticación usa Supabase Auth con JSON Web Tokens firmados en RS256. Cada token contiene el identificador del usuario y su rol, verificado por RLS en cada consulta.', icon: Key },
@@ -227,7 +227,7 @@
         <!-- AUDIT LOG -->
         <section id="audit-log">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>04 · Trazabilidad</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Audit log</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Audit log</h2>
           <p class="mt-6 text-base leading-relaxed text-muted-foreground">
             Cada acción sensible queda registrada en un log de auditoría inmutable. No es posible eliminar entradas sin acceso directo a la base de datos con privilegios de administrador.
           </p>
@@ -279,7 +279,7 @@
         <!-- AISLAMIENTO -->
         <section id="aislamiento">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>05 · Tenancy</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Aislamiento de datos por colegio</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Aislamiento de datos por colegio</h2>
           <p class="mt-6 text-base leading-relaxed text-muted-foreground">
             Cada colegio y cada sede tienen sus datos aislados mediante políticas RLS. No existe mecanismo por el cual un usuario de un colegio pueda acceder a datos de otro establecimiento, incluso si ambos pertenecen al mismo sostenedor.
           </p>
@@ -302,7 +302,7 @@
         <!-- RESPALDO -->
         <section id="respaldo">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>06 · Continuidad</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Respaldo y recuperación</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Respaldo y recuperación</h2>
           <div class="mt-8 grid gap-4 sm:grid-cols-2">
             {#each [
               { title: 'Backups diarios automáticos', desc: 'Supabase realiza snapshots completos de la base cada 24 horas. Los backups se almacenan en S3 con cifrado AES-256 y replicación en múltiples zonas.' },
@@ -321,7 +321,7 @@
         <!-- INFRAESTRUCTURA -->
         <section id="infraestructura">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>07 · Stack</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Infraestructura</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Infraestructura</h2>
           <p class="mt-6 text-base leading-relaxed text-muted-foreground">
             Ethoz opera sobre infraestructura de clase empresarial, seleccionada por su madurez en seguridad, disponibilidad geográfica en la región y compliance con estándares internacionales.
           </p>
@@ -347,7 +347,7 @@
         <!-- CUMPLIMIENTO -->
         <section id="cumplimiento">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>08 · Marco normativo</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Cumplimiento normativo</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Cumplimiento normativo</h2>
           <dl class="mt-8 divide-y divide-border border-y border-border">
             {#each complianceItems as item}
               <div class="grid gap-3 py-6 sm:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] sm:gap-8">
@@ -364,7 +364,7 @@
         <!-- DIVULGACIÓN -->
         <section id="divulgacion">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>09 · Reporte</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Divulgación responsable</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Divulgación responsable</h2>
           <p class="mt-6 text-base leading-relaxed text-muted-foreground">
             Si descubre una vulnerabilidad de seguridad en Ethoz, le pedimos que la reporte de forma responsable antes de divulgarla públicamente.
           </p>
@@ -398,7 +398,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Sesión técnica</p>
-      <h2 id="final-cta-sec" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl">
+      <h2 id="final-cta-sec" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         ¿Quiere revisar el modelo de seguridad en detalle?
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

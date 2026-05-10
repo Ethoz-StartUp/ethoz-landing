@@ -133,7 +133,7 @@
         <span>Descargables · PDF</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+      <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
         {t('resources.hero.title')}
       </h1>
       <p class="mt-8 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -148,10 +148,10 @@
       {#each resources as resource, i}
         <div class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center justify-between">
-            <span class="font-heading text-2xl font-medium leading-none tracking-tight text-primary tabular-nums group-hover:text-foreground" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
+            <span class="font-heading text-2xl leading-none text-primary tabular-nums group-hover:text-foreground" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
             <resource.icon class="size-4 shrink-0 text-primary" />
           </div>
-          <h2 class="mt-5 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{resource.title}</h2>
+          <h2 class="mt-5 font-heading text-lg leading-tight text-foreground">{resource.title}</h2>
           <p class="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{resource.description}</p>
 
           <!-- Metadata strip -->
@@ -198,7 +198,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Más allá de las plantillas</p>
-      <h2 id="final-cta-resources" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl">
+      <h2 id="final-cta-resources" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         {t('resources.cta_title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

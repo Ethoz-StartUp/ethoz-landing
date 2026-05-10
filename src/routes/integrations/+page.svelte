@@ -35,7 +35,7 @@
           <span>Napsis · Syscol · SchoolTrack · Lirmi</span>
         </p>
         <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
-        <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+        <h1 class="mt-6 font-heading text-[2rem] leading-[1.15] text-foreground sm:text-[2.5rem] lg:text-[3rem]">
           Se conecta con lo que ya usas
         </h1>
         <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -51,7 +51,7 @@
       <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <span class="text-xs font-bold tabular-nums tracking-wider text-primary">01</span>
-          <h2 class="mt-1.5 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 class="mt-1.5 text-2xl text-foreground sm:text-3xl">
             Integración con tu sistema actual
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -141,7 +141,7 @@
 
         <div class="order-1 lg:order-2">
           <span class="text-xs font-bold tabular-nums tracking-wider text-primary">02</span>
-          <h2 class="mt-1.5 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 class="mt-1.5 text-2xl text-foreground sm:text-3xl">
             ¿No tienes sistema? No es problema.
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -175,7 +175,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <div class="flex items-center justify-center gap-3">
         <Upload class="size-5 text-primary" />
-        <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Nosotros migramos tus datos</h2>
+        <h2 class="text-2xl text-foreground sm:text-3xl">Nosotros migramos tus datos</h2>
       </div>
       <p class="mt-4 text-base leading-relaxed text-muted-foreground">
         No tienes que mover un dedo. Nuestro equipo se encarga de importar tus datos históricos — desde Excel, desde tu sistema actual, o incluso desde registros en papel. En menos de 2 semanas tu colegio está operando con toda su información disponible.
@@ -209,7 +209,7 @@
   <!-- CTA -->
   <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">¿Tienes dudas sobre la integración?</h2>
+      <h2 class="text-2xl text-foreground sm:text-3xl">¿Tienes dudas sobre la integración?</h2>
       <p class="mt-4 text-base leading-relaxed text-muted-foreground">
         Agenda una demo y revisamos juntos cómo conectar Ethoz con lo que tu colegio ya tiene. Sin compromiso.
       </p>

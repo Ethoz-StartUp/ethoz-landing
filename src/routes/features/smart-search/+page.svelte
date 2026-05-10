@@ -76,7 +76,7 @@
         <div class="lg:pt-4">
           <div class="flex items-center gap-3">
             <Search class="size-6 shrink-0 text-primary" />
-            <h1 class="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h1 class="text-balance text-foreground">
               {t('features.search.title')}
             </h1>
           </div>
@@ -170,7 +170,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="search-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.smartSearch.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.smartSearch.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
@@ -184,7 +184,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <div>
-          <h2 class="text-xl font-bold tracking-tight text-foreground sm:text-2xl">Dashboard con visión de curso completo</h2>
+          <h2 class="text-xl text-foreground sm:text-2xl">Dashboard con visión de curso completo</h2>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             El Inspector de piso ve en una pantalla todos los alumnos con alertas activas, ordenados por urgencia. Sin necesidad de buscar uno a uno.
           </p>
@@ -257,7 +257,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Zap class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base font-semibold text-foreground">Búsqueda tolerante a errores</h2>
+            <h2 class="text-base text-foreground">Búsqueda tolerante a errores</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.search.bullet1')}
@@ -267,7 +267,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <LayoutDashboard class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base font-semibold text-foreground">Dashboard con badges de alerta</h2>
+            <h2 class="text-base text-foreground">Dashboard con badges de alerta</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.search.bullet2')}
@@ -277,7 +277,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Filter class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base font-semibold text-foreground">Filtros precisos de navegación</h2>
+            <h2 class="text-base text-foreground">Filtros precisos de navegación</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.search.bullet3')}
@@ -293,7 +293,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.smartSearch.finalCta.eyebrow')}</p>
-      <h2 id="search-cta" class="mt-5 font-heading text-3xl font-medium leading-[1.1] tracking-tight text-background sm:text-4xl">
+      <h2 id="search-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.smartSearch.finalCta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

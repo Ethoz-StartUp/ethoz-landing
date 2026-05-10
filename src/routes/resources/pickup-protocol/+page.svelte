@@ -52,7 +52,7 @@
         <span>Ley 21.719 · MINEDUC</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading text-3xl font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-4xl">Protocolo de Retiros Seguros</h1>
+      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Protocolo de Retiros Seguros</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Procedimiento oficial para la gestión segura y trazable del retiro de alumnos durante la jornada escolar. Integridad física del estudiante y cumplimiento de deberes legales del establecimiento.</p>
       <p class="mt-4 text-xs text-muted-foreground">Versión 1.0 · Elaborado por Ethoz · ethoz.cl · Adapte con los datos de su establecimiento</p>
     </div>

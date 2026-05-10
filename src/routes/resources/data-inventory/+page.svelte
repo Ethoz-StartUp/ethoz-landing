@@ -120,7 +120,7 @@
         <span>5 categorías · 24 campos</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading text-3xl font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-4xl">Inventario de Datos Personales</h1>
+      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Inventario de Datos Personales</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Registro estructurado de todas las categorías de datos personales tratados por establecimientos educacionales chilenos, con base legal, finalidad y plazos de retención conformes a la Ley 21.719.</p>
       <p class="mt-4 text-xs text-muted-foreground">Elaborado por Ethoz · ethoz.cl · Versión 1.0 · Complete con [Nombre del Establecimiento] y RBD</p>
     </div>
