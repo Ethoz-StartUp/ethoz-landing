@@ -118,7 +118,7 @@
         <span aria-hidden="true" class="text-border">·</span>
         <span>10 productos · Activa solo los que necesitas</span>
       </p>
-      <h1 class="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+      <h1 class="mt-4 text-balance text-foreground">
         Diez módulos. Un solo objetivo.
       </h1>
       <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
@@ -141,7 +141,7 @@
             <div>
               <div class="flex items-center gap-2.5">
                 <Icon class="size-5 shrink-0 {product.color.split(' ')[1]}" />
-                <h2 class="text-xl font-bold tracking-tight text-foreground">{product.name}</h2>
+                <h2 class="text-xl text-foreground">{product.name}</h2>
               </div>
               <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{product.desc}</p>
               <ul class="mt-4 space-y-2">
@@ -293,7 +293,7 @@
   <!-- CTA -->
   <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <h2 class="text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+      <h2 class="text-balance text-2xl text-foreground sm:text-3xl">
         {t('pricing.cta.title')}
       </h2>
       <p class="mt-4 text-base text-muted-foreground">

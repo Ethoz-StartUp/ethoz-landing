@@ -112,7 +112,7 @@
         <Scale class="size-3.5" />
         Análisis comparativo
       </div>
-      <h1 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+      <h1 class="text-foreground">
         ¿Por qué Ethoz y no tu sistema actual?
       </h1>
       <p class="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl">
@@ -267,7 +267,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">La diferencia clave</p>
-        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
           Ethoz no compite — complementa
         </h2>
         <p class="mt-4 max-w-2xl mx-auto text-base text-muted-foreground">
@@ -279,7 +279,7 @@
         <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
           <div class="mb-3 flex items-center gap-2.5">
             <Database class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base font-bold text-foreground">Napsis / Syscol / Lirmi</h3>
+            <h3 class="text-base text-foreground">Napsis / Syscol / Lirmi</h3>
           </div>
           <p class="text-sm text-muted-foreground leading-relaxed">
             Gestionan matrícula, notas, comunicaciones y finanzas. Son el núcleo administrativo que ya funciona en tu colegio.
@@ -291,7 +291,7 @@
         <div class="rounded-xl border border-primary/30 bg-primary/5 p-6 shadow-sm">
           <div class="mb-3 flex items-center gap-2.5">
             <ShieldCheck class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base font-bold text-foreground">Ethoz</h3>
+            <h3 class="text-base text-foreground">Ethoz</h3>
           </div>
           <p class="text-sm text-muted-foreground leading-relaxed">
             Agrega la capa de seguridad, privacidad y compliance. Protege a los estudiantes, al personal y al sostenedor ante la Ley 21.719.
@@ -303,7 +303,7 @@
         <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
           <div class="mb-3 flex items-center gap-2.5">
             <Link class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base font-bold text-foreground">Juntos</h3>
+            <h3 class="text-base text-foreground">Juntos</h3>
           </div>
           <p class="text-sm text-muted-foreground leading-relaxed">
             Tu sistema actual sigue haciendo lo que hace bien. Ethoz cubre lo que no puede: la seguridad y el cumplimiento de la nueva ley.
@@ -348,7 +348,7 @@
   <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <Lock class="mx-auto size-10 text-primary mb-4" />
-      <h2 class="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+      <h2 class="text-3xl text-foreground sm:text-4xl">
         ¿Tu sistema actual te protege?
       </h2>
       <p class="mt-4 text-base text-muted-foreground">

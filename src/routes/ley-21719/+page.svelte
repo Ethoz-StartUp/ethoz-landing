@@ -177,7 +177,7 @@
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
 
       <!-- Editorial italic statement -->
-      <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+      <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
         Una ley no reemplaza la intención de proteger — la obliga.
       </h1>
 
@@ -240,7 +240,7 @@
         <!-- SECCIÓN 1: QUÉ ES -->
         <section id="que-es">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>01 · Contexto</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">¿Qué es la Ley 21.719?</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">¿Qué es la Ley 21.719?</h2>
           <div class="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
             <p>
               La <strong class="text-foreground">Ley 21.719</strong>, publicada en el Diario Oficial el 13 de diciembre de 2024, es la nueva ley de protección de datos personales de Chile. Reemplaza y moderniza la Ley 19.628 de 1999, adaptando el marco legal chileno a estándares internacionales contemporáneos, en línea con el GDPR europeo.
@@ -254,7 +254,7 @@
           </div>
 
           <!-- Pull quote moment: the thesis of the page -->
-          <blockquote class="mt-10 border-l-2 border-primary pl-6 font-heading text-[1.5rem] font-normal italic leading-[1.4] text-foreground sm:text-[1.75rem]">
+          <blockquote class="mt-10 border-l-2 border-primary pl-6 font-heading text-[1.5rem] leading-[1.4] text-foreground sm:text-[1.75rem]">
             El plazo no es diciembre de 2026. Es diciembre de 2026 <em>menos</em> el tiempo que tarda un colegio en reescribir sus formularios, firmar contratos con proveedores y capacitar a su personal.
           </blockquote>
 
@@ -270,7 +270,7 @@
         <!-- SECCIÓN 2: A QUIÉN APLICA -->
         <section id="a-quien-aplica">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>02 · Alcance</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">¿A quién aplica?</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">¿A quién aplica?</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             La Ley 21.719 aplica a toda persona natural o jurídica que trate datos personales, sin distinción de tamaño ni sector. En el contexto escolar chileno, esto abarca cuatro tipologías:
           </p>
@@ -297,7 +297,7 @@
         <!-- SECCIÓN 3: PRINCIPIOS -->
         <section id="principios">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>03 · Marco</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Principios clave</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Principios clave</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             La ley organiza el tratamiento de datos en torno a seis principios que deben guiar todas las decisiones del colegio sobre gestión de información personal.
           </p>
@@ -324,7 +324,7 @@
         <!-- SECCIÓN 4: DERECHOS ARCO+P -->
         <section id="derechos-arco">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>04 · Titulares</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Derechos ARCO+P</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Derechos ARCO+P</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             Los titulares de datos —apoderados, estudiantes mayores de edad, docentes y administrativos— tienen derechos exigibles ante el colegio. Las solicitudes deben responderse dentro de <strong class="text-foreground">30 días hábiles</strong>. El incumplimiento constituye infracción grave.<sup class="ml-0.5 text-primary">3</sup>
           </p>
@@ -332,7 +332,7 @@
             {#each rights as right}
               <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover rounded-lg">
                 <div class="flex items-baseline gap-3">
-                  <span class="font-heading text-2xl font-medium leading-none text-primary group-hover:text-foreground">{right.letter}</span>
+                  <span class="font-heading text-2xl leading-none text-primary group-hover:text-foreground">{right.letter}</span>
                   <h3 class="text-base font-semibold text-foreground">{right.name}</h3>
                 </div>
                 <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{right.desc}</p>
@@ -350,7 +350,7 @@
         <!-- SECCIÓN 5: OBLIGACIONES -->
         <section id="obligaciones">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>05 · Operación</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Obligaciones concretas para colegios</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Obligaciones concretas para colegios</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             Las obligaciones de la Ley 21.719 no son abstractas. Para un establecimiento, se traducen en acciones específicas que deben estar implementadas antes de diciembre de 2026.
           </p>
@@ -377,7 +377,7 @@
         <!-- SECCIÓN 6: MULTAS -->
         <section id="multas">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>06 · Sanciones</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Multas y sanciones</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Multas y sanciones</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             El <strong class="text-foreground">Consejo para la Transparencia</strong> es el organismo fiscalizador. Las sanciones se clasifican en tres niveles según la gravedad de la infracción. Los montos se expresan en UTM.
           </p>
@@ -385,7 +385,7 @@
             {#each sanctions as s, i}
               <div class="grid gap-3 py-6 sm:grid-cols-[minmax(0,10rem)_minmax(0,1fr)_minmax(0,12rem)] sm:items-baseline sm:gap-8">
                 <div>
-                  <p class="font-heading text-2xl font-medium leading-none text-foreground tabular-nums" data-numeric>0{i + 1}</p>
+                  <p class="font-heading text-2xl leading-none text-foreground tabular-nums" data-numeric>0{i + 1}</p>
                   <p class="mt-2 text-base font-semibold text-foreground">{s.level}</p>
                 </div>
                 <p class="text-sm leading-relaxed text-muted-foreground">{s.examples}</p>
@@ -407,7 +407,7 @@
         <!-- SECCIÓN 7: PLAZOS -->
         <section id="plazos">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>07 · Calendario</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Plazos críticos</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Plazos críticos</h2>
           <ol class="mt-8 divide-y divide-border border-y border-border">
             {#each timeline as item}
               <li class="grid gap-3 py-5 sm:grid-cols-[minmax(0,10rem)_minmax(0,1fr)] sm:items-baseline sm:gap-8">
@@ -424,14 +424,14 @@
         <!-- SECCIÓN 8: CHECKLIST -->
         <section id="checklist">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>08 · Verificación</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">Checklist de cumplimiento</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Checklist de cumplimiento</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             Quince acciones concretas que su establecimiento debe completar antes de diciembre de 2026. No es exhaustivo, pero cubre los puntos que la autoridad fiscalizadora verificará primero.
           </p>
           <ol class="mt-8 divide-y divide-border border-y border-border">
             {#each checklist as item, i}
               <li class="flex items-start gap-4 py-3">
-                <span class="font-heading text-xs font-medium text-primary tabular-nums pt-0.5 w-6 shrink-0" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
+                <span class="font-heading text-xs text-primary tabular-nums pt-0.5 w-6 shrink-0" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
                 <span class="size-5 shrink-0 mt-0.5 border border-muted-foreground/40 rounded-[4px]"></span>
                 <p class="text-sm text-foreground">{item}</p>
               </li>
@@ -445,7 +445,7 @@
         <!-- SECCIÓN 9: CÓMO AYUDA ETHOZ -->
         <section id="como-ayuda-ethoz">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>09 · Herramienta</p>
-          <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">¿Cómo Ethoz ayuda con la Ley 21.719?</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">¿Cómo Ethoz ayuda con la Ley 21.719?</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             Ethoz no reemplaza el sistema de gestión escolar que ya usa su colegio. Agrega la capa de seguridad, privacidad y compliance que esos sistemas no tienen por diseño.
           </p>
@@ -496,7 +496,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Consulta institucional</p>
-      <h2 id="final-cta-law" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl lg:text-5xl">
+      <h2 id="final-cta-law" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl lg:text-5xl">
         Evalúe el nivel de exposición de su colegio en 20 minutos.
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

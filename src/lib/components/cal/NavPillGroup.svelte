@@ -1,8 +1,8 @@
 <!--
-  NavPillGroup — Stripe Press pill-in-pill sub-nav.
-  Outer wrapper: bg-canvas-elevated, rounded-full, padding 6px.
-  Active segment: bg-canvas (cream) with shadow-card-hover.
-  Inactive: transparent text in text-ink-soft. Hover changes ≥2 properties.
+  NavPillGroup — Cal pill-in-pill sub-nav.
+  Outer wrapper: bg-muted, rounded-full, padding 6px.
+  Active segment: bg-card (white) with shadow-card-hover.
+  Inactive: text-body. Hover changes ≥2 properties.
 -->
 <script lang="ts">
   type Item = {
@@ -32,8 +32,8 @@
       fontSize,
       'rounded-full font-medium transition-all',
       item.active
-        ? 'bg-canvas text-ink shadow-card-hover'
-        : 'text-ink-soft hover:text-ink hover:bg-canvas',
+        ? 'bg-card text-foreground shadow-card-hover'
+        : 'text-body hover:text-foreground hover:bg-card',
     ].join(' ');
   }
 
@@ -48,7 +48,7 @@
 <div
   role="tablist"
   aria-label={label}
-  class="inline-flex items-center gap-1 rounded-full bg-canvas-elevated p-1.5"
+  class="inline-flex items-center gap-1 rounded-full bg-muted p-1.5"
 >
   {#each items as item (item.label)}
     {#if item.href}

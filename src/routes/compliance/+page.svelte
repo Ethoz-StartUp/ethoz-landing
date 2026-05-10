@@ -108,7 +108,7 @@
         <span>Ley 21.719 · Dic 2026</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+      <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
         {t('compliance_page.hero.title')}
       </h1>
       <p class="mt-8 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -157,7 +157,7 @@
         <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('compliance_page.timeline.overline')}
         </p>
-        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
           {t('compliance_page.timeline.title')}
         </h2>
         <p class="mt-4 text-base text-muted-foreground">
@@ -229,7 +229,7 @@
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <p class="text-sm font-bold uppercase tracking-widest text-primary">Control de acceso</p>
-          <h2 class="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">
             Cada rol ve solo lo que necesita
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -248,7 +248,7 @@
         </div>
         <div class="order-1 lg:order-2">
           <p class="text-sm font-bold uppercase tracking-widest text-primary">Retiros seguros</p>
-          <h2 class="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">
             Verificación digital en portería
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -268,7 +268,7 @@
         <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('compliance_page.pillars.overline')}
         </p>
-        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
           {t('compliance_page.pillars.title')}
         </h2>
         <p class="mt-4 max-w-2xl mx-auto text-base text-muted-foreground">
@@ -280,7 +280,7 @@
         {#each pillars as pillar, i}
           {@const Icon = pillar.icon}
           <div class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
-            <span class="font-heading text-2xl font-medium leading-none tracking-tight text-primary tabular-nums" data-numeric>0{i + 1}</span>
+            <span class="font-heading text-2xl leading-none text-primary tabular-nums" data-numeric>0{i + 1}</span>
             <div class="mt-4 flex items-center gap-2.5">
               <Icon class="size-4 shrink-0 text-primary" />
               <h3 class="text-base font-semibold text-foreground leading-snug">{t(pillar.titleKey)}</h3>
@@ -301,7 +301,7 @@
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <p class="text-sm font-bold uppercase tracking-widest text-primary">Trazabilidad completa</p>
-          <h2 class="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">
             Cada acción queda registrada
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -324,7 +324,7 @@
         <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('compliance_page.arch.overline')}
         </p>
-        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
           {t('compliance_page.arch.title')}
         </h2>
         <p class="mt-4 max-w-2xl mx-auto text-base text-muted-foreground">
@@ -359,7 +359,7 @@
         <p class="text-sm font-bold uppercase tracking-widest text-primary">
           {t('compliance_page.certs.overline')}
         </p>
-        <h2 class="mt-3 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
           {t('compliance_page.certs.title')}
         </h2>
         <p class="mt-4 text-base text-muted-foreground">
@@ -403,7 +403,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Evaluación institucional</p>
-      <h2 id="final-cta-compliance" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl">
+      <h2 id="final-cta-compliance" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         {t('compliance_page.cta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

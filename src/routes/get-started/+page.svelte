@@ -77,7 +77,7 @@
         <span>4 pasos · 2-4 semanas</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+      <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
         {t('getstarted.hero.title')}
       </h1>
       <p class="mt-8 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -123,7 +123,7 @@
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('getstarted.step1.overline')}</p>
-          <h2 class="mt-2 text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 class="mt-2 text-balance text-2xl text-foreground sm:text-3xl">
             {t('getstarted.step1.title')}
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -150,7 +150,7 @@
         </div>
         <div class="order-1 lg:order-2">
           <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('getstarted.step2.overline')}</p>
-          <h2 class="mt-2 text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 class="mt-2 text-balance text-2xl text-foreground sm:text-3xl">
             {t('getstarted.step2.title')}
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -176,7 +176,7 @@
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('getstarted.step3.overline')}</p>
-          <h2 class="mt-2 text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 class="mt-2 text-balance text-2xl text-foreground sm:text-3xl">
             {t('getstarted.step3.title')}
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -207,7 +207,7 @@
         </div>
         <div class="order-1 lg:order-2">
           <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('getstarted.step4.overline')}</p>
-          <h2 class="mt-2 text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 class="mt-2 text-balance text-2xl text-foreground sm:text-3xl">
             {t('getstarted.step4.title')}
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -221,7 +221,7 @@
   <!-- ═══ FAQ ═══ -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-balance text-center text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+      <h2 class="text-balance text-center text-2xl text-foreground sm:text-3xl">
         {t('pricing.faq.title')}
       </h2>
 
@@ -257,7 +257,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Comenzar</p>
-      <h2 id="final-cta-getstarted" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl">
+      <h2 id="final-cta-getstarted" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         {t('pricing.cta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

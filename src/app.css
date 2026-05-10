@@ -447,7 +447,7 @@ html {
   -webkit-text-size-adjust: 100%;
   overscroll-behavior-y: contain;
   overflow-x: hidden;
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
 [data-theme="light"] { color-scheme: light; }

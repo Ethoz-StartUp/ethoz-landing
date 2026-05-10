@@ -1,10 +1,10 @@
 <!--
-  SectionDark.svelte — full-bleed navy section wrapper.
-  Used by Compliance + Final CTA bands per spec §6 sections 7 + 10.
-  Footer stays its own deeper-navy surface — does NOT use this wrapper.
+  SectionDark.svelte — full-bleed dark section wrapper (bg-surface-dark).
+  Used by Compliance + Final CTA bands.
+  Footer stays its own dark surface — does NOT use this wrapper.
 
-  Inside SectionDark, all text MUST use text-on-navy / text-on-navy-soft / text-on-navy-mustard.
-  Mustard CTAs are allowed inside (9.1:1 boundary on navy bg).
+  Inside SectionDark, all text uses text-on-dark / text-on-dark-soft.
+  CTAs are white-on-dark (bg-on-dark text-surface-dark) — Cal's inverse primary.
 -->
 <script lang="ts">
   import type { Snippet } from 'svelte';
@@ -32,7 +32,7 @@
   {id}
   aria-labelledby={ariaLabelledby}
   aria-label={ariaLabel}
-  class="section-editorial bg-section-navy text-on-navy"
+  class="section-editorial bg-surface-dark text-on-dark"
 >
   <div class="mx-auto {innerMaxW} px-4 sm:px-6 lg:px-8">
     {@render children()}

@@ -58,7 +58,7 @@
         <span>Fundada en 2026</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <h1 class="mt-6 font-heading text-[2rem] font-medium italic leading-[1.15] tracking-tight text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+      <h1 class="mt-6 font-heading text-[2rem] leading-[1.15] text-foreground sm:text-[2.5rem] lg:text-[3rem]">
         {t('about.title')}
       </h1>
       <p class="mt-8 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -72,7 +72,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-primary">La tesis</p>
-      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         Los colegios chilenos no necesitan otro sistema que reemplazar el que tienen — necesitan una capa que proteja lo que ya existe, antes de que diciembre de 2026 convierta las brechas en sanciones.
       </blockquote>
     </div>
@@ -80,7 +80,7 @@
       <dl class="grid grid-cols-1 border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
         <div class="px-6 py-6 text-center sm:py-8">
           <dt class="sr-only">Establecimientos en Chile</dt>
-          <dd class="font-heading text-5xl font-medium leading-none tracking-tight text-foreground sm:text-6xl" data-numeric>
+          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             12.038
           </dd>
           <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
@@ -89,7 +89,7 @@
         </div>
         <div class="border-t border-border px-6 py-6 text-center sm:border-t-0 sm:py-8">
           <dt class="sr-only">Sostenedores a cargo</dt>
-          <dd class="font-heading text-5xl font-medium leading-none tracking-tight text-foreground sm:text-6xl" data-numeric>
+          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             5.777
           </dd>
           <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
@@ -98,7 +98,7 @@
         </div>
         <div class="border-t border-border px-6 py-6 text-center sm:border-t-0 sm:py-8">
           <dt class="sr-only">Vigencia plena</dt>
-          <dd class="font-heading text-5xl font-medium leading-none tracking-tight text-foreground sm:text-6xl" data-numeric>
+          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             Dic 2026
           </dd>
           <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
@@ -116,7 +116,7 @@
   <section class="py-16 sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>01 · Qué es Ethoz</p>
-      <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+      <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">
         {t('about.mission_title')}
       </h2>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -149,7 +149,7 @@
   <section class="border-t border-border py-16 sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>02 · Trayectoria</p>
-      <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+      <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">
         Hoja de ruta institucional
       </h2>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
@@ -161,7 +161,7 @@
           <li class="grid gap-4 py-6 sm:grid-cols-[minmax(0,10rem)_minmax(0,1fr)_auto] sm:items-baseline sm:gap-8">
             <div>
               <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary" data-numeric>{item.period}</p>
-              <p class="mt-1 font-heading text-xs font-medium text-muted-foreground tabular-nums" data-numeric>0{i + 1}</p>
+              <p class="mt-1 font-heading text-xs text-muted-foreground tabular-nums" data-numeric>0{i + 1}</p>
             </div>
             <div>
               <p class="font-semibold text-foreground">{item.label}</p>
@@ -192,7 +192,7 @@
   <section class="border-t border-border py-16 sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>03 · Preguntas frecuentes</p>
-      <h2 class="mt-3 font-heading text-3xl font-medium tracking-tight text-foreground sm:text-4xl">
+      <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">
         {t('about.faq.title')}
       </h2>
 
@@ -227,7 +227,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Conversación directa</p>
-      <h2 id="final-cta-about" class="mt-5 font-heading text-3xl font-medium leading-[1.15] tracking-tight text-background sm:text-4xl">
+      <h2 id="final-cta-about" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         {t('pricing.cta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">

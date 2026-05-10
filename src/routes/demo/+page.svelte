@@ -153,7 +153,7 @@
           <GraduationCap class="size-7 text-primary" />
         </div>
         <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step1.eyebrow')}</p>
-        <h1 class="text-2xl font-bold tracking-tight text-foreground">
+        <h1 class="text-2xl text-foreground">
           {t('demo.step1.title')}
         </h1>
         <p class="mt-2 text-sm text-muted-foreground">

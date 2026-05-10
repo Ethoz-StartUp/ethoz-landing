@@ -254,20 +254,20 @@
 
       <!-- Left column: headline + CTAs -->
       <div class="flex flex-col items-center text-center sm:items-start sm:text-left">
-        <!-- Live urgency badge — pulsing dot + countdown -->
+        <!-- Live urgency badge — Cal mono pill + pulsing destructive dot for urgency semantics -->
         <div
-          class="animate-fade-in-up mb-5 inline-flex items-center gap-2 rounded-full border border-accent-mustard-ink/30 bg-accent-mustard/10 px-3 py-1.5 text-xs font-medium text-accent-mustard-ink"
+          class="animate-fade-in-up mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-foreground"
           aria-label={heroCountdownLabel}
         >
           <span class="relative flex size-2 shrink-0">
-            <span class="absolute inline-flex size-full animate-ping rounded-full bg-accent-brick opacity-60"></span>
-            <span class="relative inline-flex size-2 rounded-full bg-accent-brick"></span>
+            <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-60"></span>
+            <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
           </span>
           <span aria-hidden="true">{heroCountdownLabel}</span>
         </div>
 
-        <!-- Headline -->
-        <h1 class="animate-fade-in-up animate-delay-100 w-full text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-[3.25rem] lg:leading-[1.05]">
+        <!-- Headline — global h1 carries Cal Sans 600 + --fs-display-xl + --tracking-display-xl -->
+        <h1 class="animate-fade-in-up animate-delay-100 w-full text-balance text-foreground">
           {t('hero.title')}
         </h1>
 
@@ -328,12 +328,12 @@
             onfocusout={() => (carouselPaused = false)}
           >
             <!-- Title bar with LIVE indicator -->
-            <div class="flex items-center gap-2 border-b border-hairline-warm bg-canvas-elevated/40 px-4 py-3">
+            <div class="flex items-center gap-2 border-b border-border bg-muted/40 px-4 py-3">
               <div class="size-3 rounded-full bg-destructive/60"></div>
               <div class="size-3 rounded-full bg-warning/60"></div>
               <div class="size-3 rounded-full bg-success/60"></div>
               <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
-              <span class="ml-auto inline-flex items-center gap-1.5 border border-hairline-warm bg-canvas-elevated px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <span class="ml-auto inline-flex items-center gap-1.5 border border-border bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 <span class="relative flex size-1.5">
                   <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
                   <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
@@ -374,7 +374,7 @@
                   </div>
 
                   <!-- Timeline column -->
-                  <div class="flex-1 border-t border-hairline-warm pt-4 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6">
+                  <div class="flex-1 border-t border-border pt-4 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6">
                     <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                       {t('hero.recent_history')}
                     </p>
@@ -405,7 +405,7 @@
             {/key}
 
             <!-- Carousel dots -->
-            <div class="flex items-center justify-center gap-2 border-t border-hairline-warm px-4 py-3">
+            <div class="flex items-center justify-center gap-2 border-t border-border px-4 py-3">
               {#each heroStudents as student, i}
                 <button
                   onclick={() => { currentStudent = i; }}
@@ -429,30 +429,30 @@
        Label → fact pattern with hairline divisions. Reads like a spec sheet,
        not a badge row.
        ═══════════════════════════════════════════ -->
-  <section class="reveal border-y border-hairline-warm bg-canvas py-10" aria-label="Arquitectura verificable">
+  <section class="reveal border-y border-border bg-background py-10" aria-label="Arquitectura verificable">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {t('trust.attribution')}
       </p>
-      <dl class="mt-8 grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-hairline-warm">
+      <dl class="mt-8 grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">{t('trust.label.data')}</dt>
+          <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.data')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.servers')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">{t('trust.label.encryption')}</dt>
+          <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.encryption')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.encryption')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">{t('trust.label.integration')}</dt>
+          <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.integration')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.integration')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <span class="mb-2 block h-px w-6 bg-accent-mustard" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-mustard-ink">{t('trust.label.compliance')}</dt>
+          <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
+          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.compliance')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.compliance')}</dd>
         </div>
       </dl>
@@ -467,36 +467,36 @@
        ═══════════════════════════════════════════ -->
   <section class="reveal py-14 sm:py-20" aria-labelledby="editorial-heading">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-accent-mustard" aria-hidden="true"></span>
+      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="editorial-heading" class="eyebrow mt-6">{t('editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl font-normal italic leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('editorial.statement')}
       </blockquote>
     </div>
 
     <div class="mx-auto mt-12 max-w-7xl px-4 sm:mt-16 sm:px-6 lg:px-8">
-      <dl class="grid grid-cols-1 border-y border-hairline-warm sm:grid-cols-3 sm:divide-x sm:divide-hairline-warm">
+      <dl class="grid grid-cols-1 border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
         <div class="px-6 py-6 text-center sm:py-8">
           <dt class="sr-only">{t('editorial.stat1_label')}</dt>
-          <dd class="font-heading text-5xl font-medium leading-none tracking-tight text-foreground sm:text-6xl" data-numeric>
+          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat1_number')}
           </dd>
           <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
             {t('editorial.stat1_label')}
           </p>
         </div>
-        <div class="border-t border-hairline-warm px-6 py-6 text-center sm:border-t-0 sm:py-8">
+        <div class="border-t border-border px-6 py-6 text-center sm:border-t-0 sm:py-8">
           <dt class="sr-only">{t('editorial.stat2_label')}</dt>
-          <dd class="font-heading text-5xl font-medium leading-none tracking-tight text-foreground sm:text-6xl" data-numeric>
+          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat2_number')}
           </dd>
           <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
             {t('editorial.stat2_label')}
           </p>
         </div>
-        <div class="border-t border-hairline-warm px-6 py-6 text-center sm:border-t-0 sm:py-8">
+        <div class="border-t border-border px-6 py-6 text-center sm:border-t-0 sm:py-8">
           <dt class="sr-only">{t('editorial.stat3_label')}</dt>
-          <dd class="font-heading text-5xl font-medium leading-none tracking-tight text-foreground sm:text-6xl" data-numeric>
+          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat3_number')}
           </dd>
           <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
@@ -518,11 +518,11 @@
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-accent-brick-ink">{t('problem.overline')}</span>
-          <span aria-hidden="true" class="text-border">·</span>
+          <span class="text-foreground">{t('problem.overline')}</span>
+          <span aria-hidden="true" class="text-muted-foreground/40">·</span>
           <span>3 fricciones · 1 sistema</span>
         </p>
-        <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-4 text-balance text-foreground">
           {t('problem.title')}
         </h2>
         <p class="mt-4 text-lg text-muted-foreground">
@@ -530,25 +530,25 @@
         </p>
       </div>
 
-      <!-- Problem items — 3 columns, FeatureCardCal with brick left-rule -->
+      <!-- Problem items — 3 columns, FeatureCardCal with Cal black left-rule -->
       <div class="mx-auto mt-8 grid gap-5 sm:grid-cols-3">
         <FeatureCardCal
           icon={AlertTriangle}
           title={t('problem.card1.title')}
           description={t('problem.card1.desc')}
-          accent="brick"
+          accent="navy"
         />
         <FeatureCardCal
           icon={Shield}
           title={t('problem.card2.title')}
           description={t('problem.card2.desc')}
-          accent="brick"
+          accent="navy"
         />
         <FeatureCardCal
           icon={FileCheck}
           title={t('problem.card3.title')}
           description={t('problem.card3.desc')}
-          accent="brick"
+          accent="navy"
         />
       </div>
     </div>
@@ -557,16 +557,16 @@
   <!-- ═══════════════════════════════════════════
        SECTION 5: SOLUTION / FEATURES
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-canvas-elevated py-16 sm:py-20 lg:py-24" id="features">
+  <section class="reveal bg-muted py-16 sm:py-20 lg:py-24" id="features">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-accent-sage-ink">{t('solution.overline')}</span>
-          <span aria-hidden="true" class="text-border">·</span>
+          <span class="text-foreground">{t('solution.overline')}</span>
+          <span aria-hidden="true" class="text-muted-foreground/40">·</span>
           <span>10 módulos · Activación modular</span>
         </p>
-        <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-4 text-balance text-foreground">
           {t('solution.title')}
         </h2>
         <p class="mt-4 text-lg text-muted-foreground">
@@ -574,34 +574,33 @@
         </p>
       </div>
 
-      <!-- Featured hero card: Ficha 360° — the foundational data module.
-           Asymmetric treatment breaks the 2×2 AI-slop template. -->
+      <!-- Featured hero card: Ficha 360° — Cal black left-rule, asymmetric treatment -->
       <div class="mx-auto mt-10 max-w-5xl">
-        <a href="/features/student-profile" class="group block rounded-lg border-l-2 border-accent-sage bg-canvas-elevated p-8 transition-all duration-[160ms] hover:border-l-4 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover sm:p-10 lg:p-12">
+        <a href="/features/student-profile" class="group block rounded-lg border-l-2 border-foreground bg-card p-8 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover sm:p-10 lg:p-12">
           <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
             <div>
-              <span class="font-heading block text-5xl font-medium tabular-nums leading-none tracking-tight text-accent-sage sm:text-6xl">01</span>
-              <h3 class="mt-5 font-heading text-2xl font-medium leading-tight tracking-tight text-foreground sm:text-[1.75rem] lg:text-[2rem]">
+              <span class="font-heading block text-5xl tabular-nums leading-none text-foreground sm:text-6xl">01</span>
+              <h3 class="mt-5 font-heading text-2xl leading-tight text-foreground sm:text-[1.75rem] lg:text-[2rem]">
                 {t('features.record.title')}
               </h3>
-              <p class="mt-4 text-base leading-relaxed text-muted-foreground">
+              <p class="mt-4 text-base leading-relaxed text-body">
                 {t('features.record.desc')}
               </p>
-              <span class="mt-6 inline-flex items-center gap-1 border-b border-accent-sage-ink pb-0.5 text-sm font-semibold text-accent-sage-ink transition-all group-hover:gap-1.5 group-hover:border-b-2">
+              <span class="mt-6 inline-flex items-center gap-1 border-b border-foreground pb-0.5 text-sm font-semibold text-foreground transition-all group-hover:gap-1.5 group-hover:border-b-2">
                 {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
               </span>
             </div>
-            <ul class="space-y-4 border-t border-hairline-warm pt-6 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+            <ul class="space-y-4 border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
               <li class="flex items-start gap-3">
-                <Check class="mt-0.5 size-4 shrink-0 text-primary" />
+                <Check class="mt-0.5 size-4 shrink-0 text-foreground" />
                 <p class="text-sm leading-relaxed text-foreground">{t('features.record.bullet1')}</p>
               </li>
               <li class="flex items-start gap-3">
-                <Check class="mt-0.5 size-4 shrink-0 text-primary" />
+                <Check class="mt-0.5 size-4 shrink-0 text-foreground" />
                 <p class="text-sm leading-relaxed text-foreground">{t('features.record.bullet2')}</p>
               </li>
               <li class="flex items-start gap-3">
-                <Check class="mt-0.5 size-4 shrink-0 text-primary" />
+                <Check class="mt-0.5 size-4 shrink-0 text-foreground" />
                 <p class="text-sm leading-relaxed text-foreground">{t('features.record.bullet3')}</p>
               </li>
             </ul>
@@ -612,11 +611,11 @@
       <!-- Supporting features — 3-column grid, compact cards (driven by supportingFeatures array) -->
       <div class="mx-auto mt-5 grid max-w-5xl gap-5 sm:grid-cols-3">
         {#each supportingFeatures as feat (feat.href)}
-          <a href={feat.href} class="group flex flex-col rounded-lg border-l-2 border-accent-sage bg-canvas-elevated p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover">
-            <span class="font-heading block text-3xl font-medium tabular-nums leading-none tracking-tight text-accent-sage">{feat.numeral}</span>
-            <h3 class="mt-3 font-heading text-lg font-medium leading-tight tracking-tight text-foreground">{t(feat.titleKey)}</h3>
-            <p class="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{t(feat.descKey)}</p>
-            <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-accent-sage-ink pb-0.5 text-sm font-semibold text-accent-sage-ink transition-all group-hover:gap-1.5 group-hover:border-b-2">
+          <a href={feat.href} class="group flex flex-col rounded-lg border-l-2 border-foreground bg-card p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover">
+            <span class="font-heading block text-3xl tabular-nums leading-none text-foreground">{feat.numeral}</span>
+            <h3 class="mt-3 font-heading text-lg leading-tight text-foreground">{t(feat.titleKey)}</h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-body">{t(feat.descKey)}</p>
+            <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-foreground pb-0.5 text-sm font-semibold text-foreground transition-all group-hover:gap-1.5 group-hover:border-b-2">
               {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
             </span>
           </a>
@@ -625,8 +624,8 @@
 
       <!-- Cross-cutting: privacy is not a product, it's how everything works -->
       <div class="mx-auto mt-8 max-w-4xl">
-        <a href="/compliance" class="group flex items-center gap-4 rounded-lg border border-hairline-warm bg-canvas-elevated px-6 py-4 transition-all duration-[160ms] hover:border-ink/30 hover:bg-canvas-strong hover:-translate-y-[1px] hover:shadow-card-hover">
-          <Shield class="size-5 shrink-0 text-accent-sage transition-transform group-hover:rotate-6" />
+        <a href="/compliance" class="group flex items-center gap-4 rounded-lg border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground/30 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover">
+          <Shield class="size-5 shrink-0 text-foreground transition-transform group-hover:rotate-6" />
           <div class="flex-1">
             <p class="text-sm font-semibold text-foreground">{t('home.compliance_banner.title')}</p>
             <p class="mt-0.5 text-xs text-muted-foreground">{t('home.compliance_banner.desc')}</p>
@@ -643,22 +642,22 @@
   <SectionDark variant="compliance" id="compliance">
     <!-- Section header — editorial eyebrow pattern -->
     <div class="mx-auto max-w-2xl text-center">
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft">
-        <span class="text-on-navy-mustard">{t('compliance.overline')}</span>
-        <span aria-hidden="true" class="text-on-navy-soft/40">·</span>
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-dark-soft">
+        <span class="text-on-dark">{t('compliance.overline')}</span>
+        <span aria-hidden="true" class="text-on-dark-soft/40">·</span>
         <span>{t('compliance.overline_detail')}</span>
       </p>
-      <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-on-navy sm:text-4xl">
+      <h2 class="mt-4 text-balance text-on-dark">
         {t('compliance.title')}
       </h2>
-      <p class="mt-4 text-lg text-on-navy-soft">
+      <p class="mt-4 text-lg text-on-dark-soft">
         {t('compliance.subtitle')}
       </p>
     </div>
 
     <!-- Countdown — dramatic editorial treatment -->
     <div class="mx-auto mt-10 max-w-3xl">
-      <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-on-navy-soft">
+      <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-on-dark-soft">
         <span class="relative flex size-2">
           <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
           <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
@@ -679,25 +678,25 @@
           { value: countdownHours, labelKey: 'compliance.countdown.hours' },
           { value: countdownMinutes, labelKey: 'compliance.countdown.minutes' },
         ] as box (box.labelKey)}
-          <div class="group relative rounded-lg border border-on-navy-soft/30 bg-on-navy/[0.04] p-5 text-center transition-colors hover:border-on-navy-mustard sm:p-8" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-on-navy-mustard"></div>
-            <span class="font-heading block text-6xl font-medium tabular-nums leading-none tracking-[-0.03em] text-on-navy sm:text-8xl">
+          <div class="group relative rounded-lg border border-on-dark-soft/30 bg-on-dark/5 p-5 text-center transition-colors hover:border-on-dark sm:p-8" aria-hidden="true">
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-on-dark"></div>
+            <span class="font-heading block text-6xl tabular-nums leading-none tracking-[-0.03em] text-on-dark sm:text-8xl">
               {box.value}
             </span>
-            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft sm:text-xs">
+            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-on-dark-soft sm:text-xs">
               {t(box.labelKey as TranslationKey)}
             </span>
           </div>
         {/each}
       </div>
-      <!-- CTA under countdown -->
+      <!-- CTA under countdown — inverted Cal primary: white pill on dark surface -->
       <div class="mt-10 text-center">
         <Button size="xl" href="/demo"
-                class="bg-on-navy-mustard text-ink hover:bg-on-navy-mustard/90">
+                class="bg-on-dark text-surface-dark hover:bg-on-dark/90">
           {t('hero.cta.primary')}
           <ArrowRight class="size-5" />
         </Button>
-        <p class="mt-4 text-xs text-on-navy-soft">{t('home.countdown.cta_hint')}</p>
+        <p class="mt-4 text-xs text-on-dark-soft">{t('home.countdown.cta_hint')}</p>
       </div>
     </div>
 
@@ -705,8 +704,8 @@
     <div class="mx-auto mt-12 grid max-w-3xl gap-x-8 gap-y-4 sm:grid-cols-2">
       {#each ['compliance.item1', 'compliance.item2', 'compliance.item3', 'compliance.item4', 'compliance.item5', 'compliance.item6'] as item}
         <div class="flex items-start gap-3">
-          <Check class="mt-0.5 size-5 shrink-0 text-on-navy-mustard" />
-          <span class="text-sm leading-relaxed text-on-navy-soft">{t(item as TranslationKey)}</span>
+          <Check class="mt-0.5 size-5 shrink-0 text-on-dark" />
+          <span class="text-sm leading-relaxed text-on-dark-soft">{t(item as TranslationKey)}</span>
         </div>
       {/each}
     </div>
@@ -720,11 +719,11 @@
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-accent-mustard-ink">{t('how.overline')}</span>
-          <span aria-hidden="true" class="text-border">·</span>
+          <span class="text-foreground">{t('how.overline')}</span>
+          <span aria-hidden="true" class="text-muted-foreground/40">·</span>
           <span>3 pasos · 2-4 semanas</span>
         </p>
-        <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-4 text-balance text-foreground">
           {t('how.title')}
         </h2>
         <p class="mt-4 text-base text-muted-foreground sm:text-lg">
@@ -735,35 +734,35 @@
       <!-- Steps — editorial chapter style: big Cal Sans numbers, no icon circles.
            Each step reads as "01 · [time]" then title + description. -->
       <div class="mx-auto mt-12 max-w-5xl">
-        <ol class="grid gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-hairline-warm">
+        <ol class="grid gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border">
           <!-- Step 1 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-accent-mustard" data-numeric>01</span>
+              <span class="font-heading text-4xl leading-none text-foreground" data-numeric>01</span>
               <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step1.time')}</span>
             </div>
-            <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step1.title')}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('how.step1.desc')}</p>
+            <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step1.title')}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step1.desc')}</p>
           </li>
 
           <!-- Step 2 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-accent-mustard" data-numeric>02</span>
+              <span class="font-heading text-4xl leading-none text-foreground" data-numeric>02</span>
               <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step2.time')}</span>
             </div>
-            <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step2.title')}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('how.step2.desc')}</p>
+            <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step2.title')}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step2.desc')}</p>
           </li>
 
-          <!-- Step 3 — marked as the "arrival" with sage number -->
+          <!-- Step 3 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl font-medium leading-none tracking-tight text-accent-sage" data-numeric>03</span>
-              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-sage-ink">{t('home.how.step3.time')}</span>
+              <span class="font-heading text-4xl leading-none text-foreground" data-numeric>03</span>
+              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step3.time')}</span>
             </div>
-            <h3 class="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-foreground">{t('how.step3.title')}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('how.step3.desc')}</p>
+            <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step3.title')}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step3.desc')}</p>
           </li>
         </ol>
 
@@ -788,26 +787,26 @@
   <!-- ═══════════════════════════════════════════
        SECTION 9: FAQ
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-canvas-elevated py-16 sm:py-20 lg:py-24" id="faq">
+  <section class="reveal bg-muted py-16 sm:py-20 lg:py-24" id="faq">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-ink">{t('faq.overline')}</span>
-          <span aria-hidden="true" class="text-border">·</span>
+          <span class="text-foreground">{t('faq.overline')}</span>
+          <span aria-hidden="true" class="text-muted-foreground/40">·</span>
           <span>7 preguntas · Respuestas directas</span>
         </p>
-        <h2 class="mt-4 text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 class="mt-4 text-balance text-foreground">
           {t('faq.title')}
         </h2>
       </div>
 
-      <div class="mt-10 divide-y divide-hairline-warm rounded-2xl border border-hairline-warm bg-canvas shadow-sm">
+      <div class="mt-10 divide-y divide-border rounded-2xl border border-border bg-card shadow-sm">
         {#each [1, 2, 11, 3, 15, 4, 12] as n, i}
           <div>
             <button
               id={`faq-trigger-${i}`}
               onclick={() => toggleFaq(i)}
-              class="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-canvas-elevated"
+              class="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-muted"
               aria-expanded={openFaq === i}
               aria-controls={`faq-panel-${i}`}
             >
@@ -826,7 +825,7 @@
                 transition:slide={{ duration: 200 }}
                 class="px-6 pb-5"
               >
-                <p class="text-sm leading-relaxed text-muted-foreground">
+                <p class="text-sm leading-relaxed text-body">
                   {t(`faq.a${n}` as TranslationKey)}
                 </p>
               </div>
@@ -837,7 +836,7 @@
 
       <!-- Inline contact link — no /faq page yet, route to /contact for unanswered questions -->
       <div class="mt-6 text-center">
-        <a href="/contact" class="inline-flex items-center gap-1 text-sm font-medium text-ink underline-offset-4 hover:text-ink-soft hover:underline">
+        <a href="/contact" class="inline-flex items-center gap-1 text-sm font-medium text-foreground underline-offset-4 hover:text-body hover:underline">
           {t('faq.contact_link')}
           <ArrowRight class="size-3.5" />
         </a>
@@ -856,22 +855,22 @@
        Pacing: navy → deeper-navy footer closes the editorial dark passage. -->
   <SectionDark variant="cta" id="cta" aria-labelledby="final-cta-heading">
     <div class="text-center">
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-navy-soft">
-        <span class="text-on-navy-mustard">{t('cta.urgency_eyebrow')}</span>
-        <span aria-hidden="true" class="text-on-navy-soft/40">·</span>
-        <span><span data-numeric class="font-bold text-on-navy">{countdownDays}</span> días para Ley 21.719</span>
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-dark-soft">
+        <span class="text-on-dark">{t('cta.urgency_eyebrow')}</span>
+        <span aria-hidden="true" class="text-on-dark-soft/40">·</span>
+        <span><span data-numeric class="font-semibold text-on-dark">{countdownDays}</span> días para Ley 21.719</span>
       </p>
-      <h2 id="final-cta-heading" class="mt-5 text-balance text-3xl font-bold tracking-tight text-on-navy sm:text-4xl lg:text-5xl">
+      <h2 id="final-cta-heading" class="mt-5 text-balance text-on-dark">
         {t('cta.title')}
       </h2>
-      <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-on-navy-soft">
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-on-dark-soft">
         {t('cta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
         <Button
           size="xl"
           href="/demo"
-          class="bg-on-navy-mustard text-ink hover:bg-on-navy-mustard/90"
+          class="bg-on-dark text-surface-dark hover:bg-on-dark/90"
           onclick={() => trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'final_cta' })}
         >
           {t('cta.primary')}
@@ -881,7 +880,7 @@
           variant="outline"
           size="xl"
           onclick={() => (showPitch = true)}
-          class="border-on-navy text-on-navy hover:bg-on-navy hover:text-ink"
+          class="border-on-dark text-on-dark hover:bg-on-dark hover:text-surface-dark"
         >
           <Play class="size-5" />
           {t('hero.video_short')}

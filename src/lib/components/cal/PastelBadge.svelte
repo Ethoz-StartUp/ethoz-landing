@@ -22,11 +22,11 @@
   let { variant = 'neutral', children }: Props = $props();
 
   const VARIANT_CLASS: Record<Variant, string> = {
-    mustard: 'bg-accent-mustard text-ink',        // navy on mustard — 7.1:1 AAA body
-    brick:   'bg-accent-brick text-on-navy',      // cream on brick — 5.3:1 AAA-large only (badges are short → OK)
-    sage:    'bg-accent-sage text-on-navy',       // cream on sage — 5.5:1 AAA-large only
-    navy:    'bg-section-navy text-on-navy',      // navy badge with cream text — 15.8:1 AAA
-    neutral: 'bg-canvas-elevated text-ink',       // cream-elevated bg with navy ink
+    mustard: 'bg-accent-mustard text-foreground', // foreground on mustard
+    brick:   'bg-accent-brick text-on-dark',      // white on brick
+    sage:    'bg-accent-sage text-on-dark',       // white on sage
+    navy:    'bg-surface-dark text-on-dark',      // Cal dark badge
+    neutral: 'bg-muted text-foreground',          // muted bg with foreground ink
   };
 </script>
 
