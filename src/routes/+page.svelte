@@ -282,22 +282,6 @@
           {t('hero.subtitle')}
         </p>
 
-        <!-- Inline countdown — editorial text density, not a widget -->
-        <p class="animate-fade-in-up animate-delay-200 mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-          <span class="inline-flex items-center gap-1.5">
-            <span class="relative flex size-1.5">
-              <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
-              <span class="relative inline-flex size-1.5 rounded-full bg-destructive"></span>
-            </span>
-            <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground">{t('hero.countdown_label')}</span>
-          </span>
-          <span data-numeric class="text-foreground">
-            <span class="font-semibold">{countdownDays}</span> días
-            · <span class="font-semibold">{countdownHours.toString().padStart(2, '0')}</span> h
-            · <span class="font-semibold">{countdownMinutes.toString().padStart(2, '0')}</span> min
-          </span>
-        </p>
-
         <!-- CTAs -->
         <div class="animate-fade-in-up animate-delay-300 mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:justify-start sm:gap-4">
           <Button
@@ -387,17 +371,15 @@
                     <div class="flex flex-col gap-3">
                       {#each activeStudent.timeline as entry}
                         <div class="flex items-start gap-3">
-                          <div class="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full {entry.type === 'alert' ? 'bg-destructive/10' : 'bg-primary/10'}">
-                            {#if entry.type === 'alert'}
-                              <AlertTriangle class="size-3 text-destructive" />
-                            {:else if entry.type === 'pickup'}
-                              <UserCheck class="size-3 text-primary" />
-                            {:else if entry.type === 'observation'}
-                              <MessageSquare class="size-3 text-primary" />
-                            {:else}
-                              <Eye class="size-3 text-primary" />
-                            {/if}
-                          </div>
+                          {#if entry.type === 'alert'}
+                            <AlertTriangle class="mt-0.5 size-4 shrink-0 text-destructive" />
+                          {:else if entry.type === 'pickup'}
+                            <UserCheck class="mt-0.5 size-4 shrink-0 text-foreground" />
+                          {:else if entry.type === 'observation'}
+                            <MessageSquare class="mt-0.5 size-4 shrink-0 text-foreground" />
+                          {:else}
+                            <Eye class="mt-0.5 size-4 shrink-0 text-foreground" />
+                          {/if}
                           <div>
                             <p class="text-xs font-medium text-foreground">{entry.text}</p>
                             <p class="text-xs text-muted-foreground">{entry.meta}</p>
