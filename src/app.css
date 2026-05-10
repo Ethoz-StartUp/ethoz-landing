@@ -287,8 +287,9 @@
   --accent-sage: var(--success);
   --accent-sage-ink: var(--success);
 
-  /* Typography fluid scale (Cal display sizes from DESIGN.md) */
-  --fs-display-xl: clamp(40px, 5vw, 64px);
+  /* Typography fluid scale (Cal display sizes from DESIGN.md)
+     min raised 40→44 for stronger mobile hero presence on narrow viewports */
+  --fs-display-xl: clamp(44px, 5vw, 64px);
   --fs-display-lg: clamp(36px, 4vw, 48px);
   --fs-display-md: clamp(28px, 3vw, 36px);
   --fs-display-sm: clamp(24px, 2.5vw, 28px);

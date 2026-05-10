@@ -9,6 +9,7 @@
   let mobileOpen = $state(false);
   let productsOpen = $state(false);
   let productsTimeout: ReturnType<typeof setTimeout>;
+  let scrolled = $state(false);
 
   $effect(() => {
     if (typeof document !== 'undefined') {
@@ -19,6 +20,18 @@
         document.body.classList.remove('overflow-hidden');
       }
     };
+  });
+
+  // Conditional NavBar blur — only composite backdrop-filter when actually
+  // scrolled. Saves a permanent GPU layer on low-end Android (median Chilean
+  // K-12 device). At rest, the bar is fully opaque so 80% bg looks correct
+  // only when scrolled and there's content behind it to blur.
+  $effect(() => {
+    if (typeof window === 'undefined') return;
+    const onScroll = () => { scrolled = window.scrollY > 4; };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   });
 
   const products = [
@@ -60,7 +73,7 @@
   }
 </script>
 
-<nav class="fixed top-0 right-0 left-0 z-50 border-b border-border bg-background/80 backdrop-blur-lg shadow-sm">
+<nav class="fixed top-0 right-0 left-0 z-50 border-b border-border shadow-sm transition-colors duration-150 {scrolled ? 'bg-background/80 backdrop-blur-lg' : 'bg-background'}">
   <!-- Top ribbon — Ley 21.719 urgency. Part of the fixed chrome so it
        doesn't get covered by the nav. Hidden on the /admin area.
        No CTA here — the NavBar below already has "Agendar Demo". -->

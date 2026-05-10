@@ -119,14 +119,20 @@
 
   let currentStudent = $state(0);
   let carouselPaused = $state(false);
+  let carouselCycles = $state(0);
   const activeStudent = $derived(heroStudents[currentStudent]);
 
-  // Auto-advance carousel — pauses on hover/focus and respects reduced-motion (WCAG 2.2.2)
+  // Auto-advance carousel — pauses on hover/focus, respects reduced-motion, and
+  // auto-stops after one full cycle so touch/keyboard-only users aren't trapped
+  // in indefinite auto-advance (WCAG 2.2.2 Level A).
   $effect(() => {
     if (carouselPaused) return;
+    if (carouselCycles >= 1) return;
     if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const interval = setInterval(() => {
-      currentStudent = (currentStudent + 1) % heroStudents.length;
+      const next = (currentStudent + 1) % heroStudents.length;
+      currentStudent = next;
+      if (next === 0) carouselCycles += 1;
     }, 5000);
     return () => clearInterval(interval);
   });
@@ -235,7 +241,7 @@
   ])}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<main class="flex min-h-dvh flex-col bg-background pb-24 md:pb-0">
   <!-- Skip link — visible on focus, WCAG 2.4.1 Bypass Blocks -->
   <a
     href="#hero-cta"
