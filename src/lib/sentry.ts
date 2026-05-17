@@ -4,6 +4,24 @@ import { getConsent } from '$lib/stores/consent.svelte';
 
 let initialized = false;
 
+const EXTENSION_SCHEMES = [
+  'chrome-extension://',
+  'moz-extension://',
+  'safari-extension://',
+  'safari-web-extension://',
+  'ms-browser-extension://',
+];
+
+function isExtensionError(event: any): boolean {
+  const frames: any[] =
+    event?.exception?.values?.flatMap((v: any) => v?.stacktrace?.frames ?? []) ?? [];
+  const innermost = frames[frames.length - 1];
+  const file: string = innermost?.filename || innermost?.abs_path || event?.culprit || '';
+  if (EXTENSION_SCHEMES.some((s) => file.startsWith(s))) return true;
+  // Safari masks extension scripts behind this scheme — never actionable for us.
+  return file.startsWith('webkit-masked-url://');
+}
+
 function scrubFromSentry(event: any): any {
   // Strip request body + form breadcrumbs (may contain PII)
   if (event?.request?.data) delete event.request.data;
@@ -49,6 +67,7 @@ export async function initSentry(): Promise<void> {
         const url = event.request?.url ?? '';
         if (ua.includes('HeadlessChrome') || ua.includes('Playwright')) return null;
         if (url.startsWith('http://localhost') || url.startsWith('http://127.0.0.1')) return null;
+        if (isExtensionError(event)) return null;
         return scrubFromSentry(event);
       },
     });
