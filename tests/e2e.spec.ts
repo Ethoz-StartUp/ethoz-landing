@@ -1007,6 +1007,55 @@ test.describe('Integrations page', () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
+// 11b. Demo happy-path (stubbed grecaptcha + verify-lead)
+// ─────────────────────────────────────────────────────────────────────────────
+
+test.describe('Demo funnel — happy path (stubbed)', () => {
+	test('fills form and navigates to /schedule on success', async ({ page }) => {
+		// Stub grecaptcha so it resolves immediately without network
+		await page.addInitScript(() => {
+			Object.defineProperty(window, 'grecaptcha', {
+				value: {
+					ready: (cb: () => void) => cb(),
+					execute: () => Promise.resolve('stub-token'),
+				},
+				writable: true,
+			});
+		});
+
+		// Stub the Edge Function to return {ok:true}
+		await page.route('**/functions/v1/verify-lead', (route) =>
+			route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ok: true }) })
+		);
+
+		// Navigate to demo, pick first school result for "Santiago"
+		await page.goto('/demo');
+		const input = page.locator('input[type="text"], input[placeholder]').first();
+		await expect(input).toBeVisible({ timeout: 10_000 });
+		await input.fill('Santiago');
+		await page.waitForTimeout(500);
+		const firstResult = page.locator('[role="listbox"] button').first();
+		await expect(firstResult).toBeVisible({ timeout: 5_000 });
+		await firstResult.click();
+		await page.waitForURL(/\/demo\/\d+/, { timeout: 5_000 });
+
+		// Wait for form fields to render
+		await expect(page.locator('#contact-name')).toBeVisible({ timeout: 5_000 });
+
+		// Fill required fields
+		await page.locator('#contact-name').fill('Juan Pérez');
+		await page.locator('#contact-role').selectOption('director');
+		await page.locator('#contact-email').fill('juan@colegio.cl');
+
+		// Submit
+		await page.locator('button[type="submit"]').click();
+
+		// Should navigate to /schedule
+		await expect(page).toHaveURL('/schedule', { timeout: 10_000 });
+	});
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
 // 12. Admin pages
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -1067,6 +1116,11 @@ test.describe('Admin — login page', () => {
 		await page.goto('/admin');
 		await page.waitForTimeout(1000);
 		expect(errors).toEqual([]);
+	});
+
+	test('unauthenticated /admin/leads redirects to /admin', async ({ page }) => {
+		await page.goto('/admin/leads');
+		await expect(page).toHaveURL('/admin');
 	});
 });
 

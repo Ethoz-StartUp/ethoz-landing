@@ -206,15 +206,6 @@ test.describe('Smoke — tracking coverage', () => {
 			.toBe(true);
 	});
 
-	test('contact form saves lead (mock check)', async ({ page }) => {
-		await page.goto('/contact');
-		// Verify the form has Supabase integration by checking script content
-		const html = await page.content();
-		expect(html).toContain('contact-name');
-		expect(html).toContain('contact-email');
-		expect(html).toContain('contact-message');
-	});
-
 	test('demo search page loads and tracks', async ({ page }) => {
 		await page.goto('/demo');
 		await page.waitForTimeout(1000);

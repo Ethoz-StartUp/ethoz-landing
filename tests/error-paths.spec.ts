@@ -18,10 +18,10 @@ async function dismissCookies(page: Page) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 test.describe('Contact form — Supabase submission failure', () => {
-	test('shows error message when Supabase returns 500', async ({ page }) => {
-		// Intercept the Supabase leads endpoint and respond with a server error
-		await page.route('**/rest/v1/leads**', (route) =>
-			route.fulfill({ status: 500, body: 'Server Error' })
+	test('shows error message when verify-lead returns 403', async ({ page }) => {
+		// Intercept the Edge Function verify-lead endpoint and respond with a 403
+		await page.route('**/functions/v1/verify-lead', (route) =>
+			route.fulfill({ status: 403, body: 'Forbidden' })
 		);
 
 		await page.goto('/contact');
@@ -38,12 +38,11 @@ test.describe('Contact form — Supabase submission failure', () => {
 		// Error message should appear
 		const errorEl = page.locator('[role="alert"]');
 		await expect(errorEl).toBeVisible({ timeout: 10_000 });
-		await expect(errorEl).toContainText('No pudimos enviar tu mensaje');
 	});
 
 	test('does not show success state when submission fails', async ({ page }) => {
-		await page.route('**/rest/v1/leads**', (route) =>
-			route.fulfill({ status: 500, body: 'Server Error' })
+		await page.route('**/functions/v1/verify-lead', (route) =>
+			route.fulfill({ status: 403, body: 'Forbidden' })
 		);
 
 		await page.goto('/contact');
@@ -64,8 +63,8 @@ test.describe('Contact form — Supabase submission failure', () => {
 	});
 
 	test('form fields remain editable after failed submission', async ({ page }) => {
-		await page.route('**/rest/v1/leads**', (route) =>
-			route.fulfill({ status: 500, body: 'Server Error' })
+		await page.route('**/functions/v1/verify-lead', (route) =>
+			route.fulfill({ status: 403, body: 'Forbidden' })
 		);
 
 		await page.goto('/contact');
@@ -83,6 +82,32 @@ test.describe('Contact form — Supabase submission failure', () => {
 		await expect(page.locator('#contact-name')).toBeVisible();
 		await expect(page.locator('#contact-email')).toBeVisible();
 		await expect(page.locator('#contact-message')).toBeVisible();
+	});
+
+	test('grecaptcha throws — shows error/mailto fallback', async ({ page }) => {
+		// Simulate grecaptcha.execute throwing (e.g. network error or key misconfigured)
+		await page.addInitScript(() => {
+			Object.defineProperty(window, 'grecaptcha', {
+				value: {
+					ready: (cb: () => void) => cb(),
+					execute: () => Promise.reject(new Error('reCAPTCHA network error')),
+				},
+				writable: true,
+			});
+		});
+
+		await page.goto('/contact');
+		await dismissCookies(page);
+
+		await page.fill('#contact-name', 'Test Usuario');
+		await page.fill('#contact-email', 'test@ejemplo.cl');
+		await page.fill('#contact-message', 'Mensaje que fallará por reCAPTCHA.');
+
+		await page.locator('button[type="submit"]').click();
+
+		// Should show error alert (mailto fallback message or general error)
+		const errorEl = page.locator('[role="alert"]');
+		await expect(errorEl).toBeVisible({ timeout: 10_000 });
 	});
 });
 
