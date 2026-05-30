@@ -7,6 +7,7 @@
   import { onMount } from 'svelte';
   import { toast } from 'svelte-sonner';
   import { t } from '$lib/i18n/index.svelte';
+  import { formatDate } from '$lib/utils/format';
   import * as Sheet from '$lib/components/ui/sheet';
   import * as Dialog from '$lib/components/ui/dialog';
   import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
@@ -101,10 +102,6 @@
       .replace(/`(.+?)`/g, '$1')
       .replace(/\[(.+?)\]\(.+?\)/g, '$1')
       .trim();
-  }
-
-  function formatDate(iso: string): string {
-    return new Date(iso).toLocaleDateString('es-CL', { day: '2-digit', month: 'short', year: 'numeric' });
   }
 
   // ── Load data ──

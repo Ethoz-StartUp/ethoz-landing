@@ -1,7 +1,9 @@
 import { chromium } from 'playwright';
-import { readFileSync, mkdirSync } from 'fs';
+import { readFileSync, mkdirSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+
+const FORCE = process.argv.includes('--force');
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
@@ -197,6 +199,11 @@ async function run() {
   const browser = await chromium.launch();
 
   for (const banner of banners) {
+    const outPath = resolve(outDir, `${banner.name}.png`);
+    if (!FORCE && existsSync(outPath)) {
+      console.log('skip (exists):', outPath);
+      continue;
+    }
     console.log(`\n▸ ${banner.name} (${banner.width}x${banner.height})`);
 
     // Step 1: Generate background with Gemini
@@ -230,7 +237,6 @@ async function run() {
     await page.setContent(html, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1500); // Wait for fonts
 
-    const outPath = resolve(outDir, `${banner.name}.png`);
     await page.screenshot({ path: outPath, type: 'png' });
     console.log(`  ✔ Saved: ${outPath}`);
 

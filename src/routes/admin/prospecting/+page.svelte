@@ -13,6 +13,7 @@
   import { onMount } from 'svelte';
   import { toast } from 'svelte-sonner';
   import { t } from '$lib/i18n/index.svelte';
+  import { formatDate } from '$lib/utils/format';
   import * as Tabs from '$lib/components/ui/tabs';
   import * as Table from '$lib/components/ui/table';
   import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
@@ -439,10 +440,6 @@
       toast.success('Nota guardada');
     }
     savingNote = false;
-  }
-
-  function formatDate(iso: string): string {
-    return new Date(iso).toLocaleDateString('es-CL', { day: '2-digit', month: 'short', year: 'numeric' });
   }
 </script>
 
