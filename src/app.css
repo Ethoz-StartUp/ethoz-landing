@@ -153,17 +153,18 @@
   --font-heading: "Cal Sans", "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  /* ─── Radii (DESIGN.md.rounded) ─── */
+  /* ─── Radii — project scale (CLAUDE.md "8/12/16 progression": buttons/pills = md 8px, cards = xl 12px, hero = 2xl 16px).
+     Intentionally smaller than Cal DESIGN.md (lg 12 / xl 16) — the codebase's rounded-xl cards were authored for 12px. ─── */
   --radius-xs: 4px;
   --radius-sm: 6px;
   --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
   --radius-pill: 9999px;
   --radius-full: 9999px;
   /* shadcn aliases */
   --radius-2xl: 16px;
-  --radius-3xl: 24px;
+  --radius-3xl: 20px;
 
   /* ─── Spacing (DESIGN.md.spacing — 4px base) ─── */
   --spacing-cal-xxs: 4px;
