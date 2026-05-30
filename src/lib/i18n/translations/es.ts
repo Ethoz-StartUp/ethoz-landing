@@ -109,7 +109,7 @@ export const es = {
   'compliance.overline': 'Cumplimiento normativo',
   'compliance.title': 'La Ley 21.719 entra en vigencia pronto',
   'compliance.subtitle':
-    'Los colegios que no estén preparados enfrentan multas de hasta 20.000 UTM. Ethoz fue diseñado para que tu colegio cumpla la Ley 21.719.',
+    'Los colegios que no estén preparados enfrentan multas de hasta 20.000 UTM. {brand} fue diseñado para que tu colegio cumpla la Ley 21.719.',
   'compliance.overline_detail': 'Ley 21.719 · Diciembre 2026',
   'compliance.countdown.label': 'Tiempo restante para la entrada en vigencia',
   'compliance.countdown.days': 'días',
@@ -149,14 +149,14 @@ export const es = {
   'footer.features': 'Funcionalidades',
   'footer.compliance': 'Cumplimiento normativo',
   'footer.pricing': '¿Cómo contratar?',
-  'footer.about': '¿Por qué Ethoz?',
+  'footer.about': '¿Por qué {brand}?',
   'footer.contact': 'Contacto',
   'footer.blog': 'Blog',
   'footer.privacy': 'Política de privacidad',
   'footer.terms': 'Términos de uso',
   'footer.cookies': 'Cookies',
   'footer.law_21719': 'Ley 21.719 (BCN)',
-  'footer.rights': '© 2026 Ethoz',
+  'footer.rights': '© 2026 {brand}',
   'footer.tagline': 'Hecho en Chile para colegios chilenos.',
 
   // Language
@@ -186,13 +186,13 @@ export const es = {
   'faq.q1': '¿Cómo se protegen los datos de los alumnos?',
   'faq.a1': 'Cada colegio opera en un espacio aislado: ningún otro establecimiento puede acceder a sus datos. Los datos sensibles se cifran con estándar bancario y cada acceso queda registrado en un historial inalterable en servidores ubicados en Santiago.',
   'faq.q2': '¿Funciona con nuestro software actual?',
-  'faq.a2': 'Ethoz está diseñado para complementar tu software existente (Napsis, SIGE, etc.), no para reemplazarlo. Puedes importar datos desde Excel o cualquier formato estructurado sin perder historial.',
-  'faq.q3': '¿Cuánto tiempo toma implementar Ethoz?',
+  'faq.a2': '{brand} está diseñado para complementar tu software existente (Napsis, SIGE, etc.), no para reemplazarlo. Puedes importar datos desde Excel o cualquier formato estructurado sin perder historial.',
+  'faq.q3': '¿Cuánto tiempo toma implementar {brand}?',
   'faq.a3': 'La configuración inicial toma menos de 48 horas. La migración de datos y capacitación del equipo se completan en 2-4 semanas dependiendo del volumen de información.',
   'faq.q4': '¿Qué pasa si no cumplimos con la Ley 21.719?',
   'faq.a4': 'Las multas pueden alcanzar hasta 20.000 UTM (más de $1.200 millones CLP). Además, la institución enfrenta daño reputacional y potenciales demandas de apoderados por mal manejo de datos.',
   'faq.q5': '¿Para qué tipo de colegios está diseñado?',
-  'faq.a5': 'Ethoz funciona para colegios de cualquier tamaño. El plan Esencial cubre hasta 500 alumnos, el Profesional de 500 a 1.500, y el Enterprise para más de 1.500 o redes de colegios.',
+  'faq.a5': '{brand} funciona para colegios de cualquier tamaño. El plan Esencial cubre hasta 500 alumnos, el Profesional de 500 a 1.500, y el Enterprise para más de 1.500 o redes de colegios.',
 
   'faq.q6': '¿Qué es la Ley 21.719?',
   'faq.a6': 'Es la nueva ley de protección de datos personales de Chile, publicada en diciembre de 2024. Crea la Agencia de Protección de Datos con poder de fiscalizar y sancionar, y entra en vigencia en diciembre de 2026.',
@@ -204,16 +204,16 @@ export const es = {
   'faq.a8': 'Son los derechos que la ley otorga a los titulares: Acceso, Rectificación, Cancelación, Oposición y Portabilidad. Los apoderados pueden ejercerlos sobre los datos de sus hijos en cualquier momento, y el colegio tiene plazos legales para responder.',
 
   'faq.q9': '¿Qué pasa con los datos médicos de los alumnos?',
-  'faq.a9': 'El Art. 16 bis prohíbe almacenar diagnósticos clínicos detallados de menores. Ethoz usa alertas booleanas — "Alerta médica activa" sin especificar la condición — lo que permite proteger al alumno sin infringir la ley.',
+  'faq.a9': 'El Art. 16 bis prohíbe almacenar diagnósticos clínicos detallados de menores. {brand} usa alertas booleanas — "Alerta médica activa" sin especificar la condición — lo que permite proteger al alumno sin infringir la ley.',
 
   'faq.q10': '¿Necesitamos un encargado de protección de datos?',
-  'faq.a10': 'Sí. La ley exige designar un responsable de datos — puede ser el director, el sostenedor o un encargado. Ethoz le da a esa persona los controles de acceso, consentimiento y auditoría que necesita para cumplir.',
+  'faq.a10': 'Sí. La ley exige designar un responsable de datos — puede ser el director, el sostenedor o un encargado. {brand} le da a esa persona los controles de acceso, consentimiento y auditoría que necesita para cumplir.',
 
-  'faq.q11': 'Ya usamos otra plataforma de gestión escolar. ¿Para qué necesitamos Ethoz?',
-  'faq.a11': 'Ethoz complementa tu sistema académico actual. Para el libro de clases, nos integramos con plataformas como Napsis o Syscol. Si tu colegio no tiene sistema digital, incluimos un módulo básico conforme a Circular N°30.',
+  'faq.q11': 'Ya usamos otra plataforma de gestión escolar. ¿Para qué necesitamos {brand}?',
+  'faq.a11': '{brand} complementa tu sistema académico actual. Para el libro de clases, nos integramos con plataformas como Napsis o Syscol. Si tu colegio no tiene sistema digital, incluimos un módulo básico conforme a Circular N°30.',
 
   'faq.q12': '¿Es seguro confiar los datos de mis alumnos a una plataforma nueva?',
-  'faq.a12': 'Ethoz fue diseñado con privacidad por diseño desde la primera línea de código: aislamiento total entre colegios, cifrado de grado bancario, registros de auditoría inalterables y servidores en Santiago. No es una plataforma antigua que intenta adaptarse a la ley — fue construida para cumplirla desde el día uno.',
+  'faq.a12': '{brand} fue diseñado con privacidad por diseño desde la primera línea de código: aislamiento total entre colegios, cifrado de grado bancario, registros de auditoría inalterables y servidores en Santiago. No es una plataforma antigua que intenta adaptarse a la ley — fue construida para cumplirla desde el día uno.',
 
   'faq.q13': '¿Tienen app móvil?',
   'faq.a13': 'Estamos desarrollando una app móvil para apoderados y porteros que permitirá autorizar retiros, recibir alertas en tiempo real y gestionar personas autorizadas desde el teléfono. Estará disponible durante 2026 para los colegios del programa piloto.',
@@ -221,15 +221,15 @@ export const es = {
   'faq.q14': '¿Se integra con SIGE y la plataforma del MINEDUC?',
   'faq.a14': 'Estamos construyendo la integración directa con SIGE para sincronizar matrícula, asistencia y datos institucionales sin doble digitación. Hoy puedes importar datos desde Excel, Napsis o cualquier formato estructurado.',
 
-  'faq.q15': '¿Cuánto cuesta Ethoz?',
+  'faq.q15': '¿Cuánto cuesta {brand}?',
   'faq.a15': 'El precio depende del tamaño de la matrícula de tu colegio, no de la cantidad de usuarios. Todos los roles están incluidos: director, inspector, profesor, orientador y portero. Agenda una demo para recibir una cotización personalizada.',
 
-  'faq.q16': '¿Qué pasa con mis datos si dejo de usar Ethoz?',
-  'faq.a16': 'Tus datos son tuyos. Puedes ejercer el derecho de portabilidad en cualquier momento y recibir toda la información en formato electrónico interoperable. Ethoz no retiene datos una vez terminada la relación contractual — la Ley 21.719 así lo exige y nosotros lo cumplimos por diseño.',
+  'faq.q16': '¿Qué pasa con mis datos si dejo de usar {brand}?',
+  'faq.a16': 'Tus datos son tuyos. Puedes ejercer el derecho de portabilidad en cualquier momento y recibir toda la información en formato electrónico interoperable. {brand} no retiene datos una vez terminada la relación contractual — la Ley 21.719 así lo exige y nosotros lo cumplimos por diseño.',
 
   'faq.page_title': 'Preguntas frecuentes',
-  'faq.page_subtitle': 'Todo sobre Ethoz y la Ley 21.719 de Protección de Datos.',
-  'faq.section_product': 'Sobre Ethoz',
+  'faq.page_subtitle': 'Todo sobre {brand} y la Ley 21.719 de Protección de Datos.',
+  'faq.section_product': 'Sobre {brand}',
   'faq.section_law': 'Sobre la Ley 21.719',
   'faq.view_all': 'Ver todas las preguntas',
   'faq.contact_link': '¿Otra pregunta? Escríbenos',
@@ -298,7 +298,7 @@ export const es = {
   'blog.subtitle': 'Análisis, guías y actualizaciones sobre protección de datos y seguridad escolar en Chile.',
 
   // Pricing page
-  'pricing.meta.title': 'Precios — Ethoz',
+  'pricing.meta.title': 'Precios — {brand}',
   'pricing.hero.overline': 'Planes y precios',
   'pricing.hero.title': 'Planes diseñados para tu colegio',
   'pricing.hero.subtitle': 'Precio según tamaño de matrícula. Sin costos ocultos. Sin letra chica.',
@@ -353,12 +353,12 @@ export const es = {
   'pricing.faq.a1': 'La Ley 21.719 entra en vigencia en diciembre de 2026 y exige que todo colegio proteja los datos de alumnos con consentimiento, control de acceso y trazabilidad. Afecta a todos los establecimientos, sin importar tamaño ni dependencia.',
   'pricing.faq.q2': '¿Qué pasa si mi colegio no cumple con la Ley 21.719?',
   'pricing.faq.a2': 'La Agencia de Protección de Datos puede multar hasta 20.000 UTM (más de $1.200 millones CLP) por infracciones graves. Además, los apoderados pueden exigir saber qué datos tiene el colegio sobre sus hijos — y el establecimiento tiene plazo legal para responder.',
-  'pricing.faq.q3': '¿Cómo se protegen los datos de los alumnos en Ethoz?',
-  'pricing.faq.a3': 'Ethoz cifra los datos sensibles, controla el acceso por cargo, aísla la información de cada establecimiento y registra cada acceso en un historial inalterable. Todo eso cumple los requisitos técnicos de la Ley 21.719.',
+  'pricing.faq.q3': '¿Cómo se protegen los datos de los alumnos en {brand}?',
+  'pricing.faq.a3': '{brand} cifra los datos sensibles, controla el acceso por cargo, aísla la información de cada establecimiento y registra cada acceso en un historial inalterable. Todo eso cumple los requisitos técnicos de la Ley 21.719.',
   'pricing.faq.q4': '¿Funciona con nuestro software actual?',
-  'pricing.faq.a4': 'Ethoz se integra con los sistemas más comunes del ecosistema escolar chileno. Durante la implementación, migramos sus datos históricos y configuramos las conexiones necesarias. Si usan Excel o sistemas en papel, la migración también está contemplada.',
-  'pricing.faq.q5': '¿Cuánto tiempo toma implementar Ethoz?',
-  'pricing.faq.a5': 'La implementación típica toma entre 2 y 4 semanas, dependiendo del volumen de datos a migrar y la cantidad de establecimientos. No requiere infraestructura propia: Ethoz opera 100% en la nube.',
+  'pricing.faq.a4': '{brand} se integra con los sistemas más comunes del ecosistema escolar chileno. Durante la implementación, migramos sus datos históricos y configuramos las conexiones necesarias. Si usan Excel o sistemas en papel, la migración también está contemplada.',
+  'pricing.faq.q5': '¿Cuánto tiempo toma implementar {brand}?',
+  'pricing.faq.a5': 'La implementación típica toma entre 2 y 4 semanas, dependiendo del volumen de datos a migrar y la cantidad de establecimientos. No requiere infraestructura propia: {brand} opera 100% en la nube.',
   'pricing.faq.q6': '¿Para qué tipo de colegios está diseñado?',
   'pricing.faq.a6': 'Para cualquier establecimiento educacional en Chile: colegios particulares, subvencionados, municipales y redes de colegios. Desde establecimientos de 200 alumnos hasta corporaciones con múltiples sedes. Los planes se adaptan al tamaño de la matrícula.',
   'pricing.faq.q7': '¿Hay costo de implementación?',
@@ -367,18 +367,18 @@ export const es = {
   'pricing.faq.a8': 'Mensualmente, en UF. Emitimos factura electrónica y el pago se puede realizar por transferencia o débito automático.',
 
   'pricing.cta.title': '¿Listo para proteger tu comunidad escolar?',
-  'pricing.cta.subtitle': 'Agenda una demo gratuita y te mostramos cómo Ethoz se adapta a tu colegio.',
+  'pricing.cta.subtitle': 'Agenda una demo gratuita y te mostramos cómo {brand} se adapta a tu colegio.',
   'pricing.cta.primary': 'Agendar Demo gratuita',
 
   // Contact page
-  'contact.meta.title': 'Contacto — Ethoz',
+  'contact.meta.title': 'Contacto — {brand}',
   'contact.back': 'Volver al inicio',
   'contact.heading': 'Hablemos',
   'contact.subheading': 'Elige cómo quieres contactarnos. Te respondemos rápido.',
   'contact.email.label': 'Email',
   'contact.email.desc': 'Respuesta en menos de 24 horas',
   'contact.demo.label': 'Agendar Demo',
-  'contact.demo.desc': 'Muéstrame Ethoz en vivo',
+  'contact.demo.desc': 'Muéstrame {brand} en vivo',
   'contact.form.title': 'O escríbenos directamente',
   'contact.form.name': 'Nombre completo',
   'contact.form.name.placeholder': 'María González',
@@ -396,7 +396,7 @@ export const es = {
 
   // About page (simple keys used by /about route)
   'about.title': 'Construido en Chile, para colegios chilenos',
-  'about.intro': 'Ethoz nace de una necesidad concreta: los colegios chilenos manejan información crítica de sus alumnos con herramientas que no cumplen con la normativa vigente. Creamos la plataforma que cierra esa brecha.',
+  'about.intro': '{brand} nace de una necesidad concreta: los colegios chilenos manejan información crítica de sus alumnos con herramientas que no cumplen con la normativa vigente. Creamos la plataforma que cierra esa brecha.',
   'about.mission_title': 'Nuestra misión',
   'about.mission_desc': 'Dar a cada colegio las herramientas para proteger a sus alumnos y cumplir con la Ley 21.719 — sin reemplazar los sistemas que ya usan, sin procesos complicados ni dejar a nadie atrás.',
   'about.values_title': 'Lo que nos guía',
@@ -405,19 +405,19 @@ export const es = {
   'about.value2_title': 'Seguridad sin fricciones',
   'about.value2_desc': 'El portero, el inspector y el director necesitan información distinta. Cada uno ve exactamente lo que necesita — ni más, ni menos.',
   'about.value3_title': 'Cumplimiento desde el día uno',
-  'about.value3_desc': 'No esperamos a que la ley entre en vigencia para actuar. Ethoz cumple con la Ley 21.719 hoy, no mañana.',
+  'about.value3_desc': 'No esperamos a que la ley entre en vigencia para actuar. {brand} cumple con la Ley 21.719 hoy, no mañana.',
 
   // About page (extended keys)
-  'about.meta.title': 'Nosotros — Ethoz',
-  'about.meta.description': 'Ethoz es una plataforma de seguridad escolar construida en Chile para colegios chilenos. Conoce por qué existe y quién está detrás.',
+  'about.meta.title': 'Nosotros — {brand}',
+  'about.meta.description': '{brand} es una plataforma de seguridad escolar construida en Chile para colegios chilenos. Conoce por qué existe y quién está detrás.',
   'about.nav.back': '← Volver al inicio',
   'about.hero.overline': 'Construido en Chile, para colegios chilenos',
   'about.hero.title': 'La seguridad escolar no debería depender de un Excel',
-  'about.hero.subtitle': 'Ethoz nació de una constatación simple: los colegios chilenos tienen obligaciones legales crecientes y herramientas que no están a la altura.',
+  'about.hero.subtitle': '{brand} nació de una constatación simple: los colegios chilenos tienen obligaciones legales crecientes y herramientas que no están a la altura.',
   'about.mission.overline': 'Por qué existimos',
   'about.mission.title': 'El problema que nadie había resuelto',
   'about.mission.p1': 'Los colegios en Chile gestionan información crítica de sus alumnos — alertas judiciales, autorizaciones de retiro, datos de salud — usando planillas, libretas y grupos de WhatsApp. Eso funcionaba cuando la normativa era laxa. Ya no.',
-  'about.mission.p2': 'La Ley 21.719 exige trazabilidad, consentimiento explícito y control de acceso para los datos de menores. Las herramientas existentes no fueron diseñadas para eso. Ethoz sí.',
+  'about.mission.p2': 'La Ley 21.719 exige trazabilidad, consentimiento explícito y control de acceso para los datos de menores. Las herramientas existentes no fueron diseñadas para eso. {brand} sí.',
   'about.problems.overline': 'Lo que resolvemos',
   'about.problems.title': 'Tres problemas concretos, una sola plataforma',
   'about.problem1.title': 'Información fragmentada',
@@ -430,7 +430,7 @@ export const es = {
   'about.team.title': 'Quién está detrás',
   'about.team.founder.name': 'Ignacio Araya',
   'about.team.founder.role': 'Fundador',
-  'about.team.founder.bio': 'Desarrollador de software con experiencia en sistemas de gestión y cumplimiento normativo. Construyó Ethoz después de ver de cerca cómo los colegios enfrentaban la nueva ley de datos sin ninguna herramienta adecuada. El piloto 2026 es el primer paso.',
+  'about.team.founder.bio': 'Desarrollador de software con experiencia en sistemas de gestión y cumplimiento normativo. Construyó {brand} después de ver de cerca cómo los colegios enfrentaban la nueva ley de datos sin ninguna herramienta adecuada. El piloto 2026 es el primer paso.',
   'about.values.overline': 'Nuestros valores',
   'about.values.title': 'Cómo tomamos decisiones',
   'about.value1.title': 'Privacidad por diseño',
@@ -440,27 +440,27 @@ export const es = {
   'about.value3.title': 'Cumplimiento desde el día uno',
   'about.value3.desc': 'No construimos para agregar compliance después. La Ley 21.719 está en el núcleo de la arquitectura, no en la capa de presentación.',
   'about.faq.title': 'Preguntas frecuentes',
-  'about.faq.q1': '¿Qué significa "Ethoz"?',
-  'about.faq.a1': 'Ethoz viene de "ethos" (griego: ἦθος), que significa el carácter moral y los valores fundamentales de una comunidad. La "z" final le da identidad propia y representa el diferenciador tecnológico: no es solo ética, es ética aplicada con tecnología. Ethoz es la infraestructura ética de un colegio.',
+  'about.faq.q1': '¿Qué significa "{brand}"?',
+  'about.faq.a1': '{brand} viene de "ethos" (griego: ἦθος), que significa el carácter moral y los valores fundamentales de una comunidad. La "z" final le da identidad propia y representa el diferenciador tecnológico: no es solo ética, es ética aplicada con tecnología. {brand} es la infraestructura ética de un colegio.',
   'about.faq.q2': '¿Por qué los colores azul y navy?',
-  'about.faq.a2': 'El navy (#0F172A) representa la institución: lo sólido, lo confiable, lo que no cambia. El azul (#2563EB) representa la tecnología: la innovación, el acceso controlado, la transparencia. Juntos cuentan la historia de Ethoz: protección institucional potenciada por tecnología moderna.',
+  'about.faq.a2': 'El navy (#0F172A) representa la institución: lo sólido, lo confiable, lo que no cambia. El azul (#2563EB) representa la tecnología: la innovación, el acceso controlado, la transparencia. Juntos cuentan la historia de {brand}: protección institucional potenciada por tecnología moderna.',
   'about.faq.q3': '¿Qué representa el logo?',
-  'about.faq.a3': 'Dos rectángulos superpuestos que forman una intersección. Representan la dualidad central de Ethoz: privacidad y acceso. Dos capas que coexisten — lo que se protege y lo que se comparte. La transparencia visual del icono refleja la transparencia operativa de la plataforma.',
+  'about.faq.a3': 'Dos rectángulos superpuestos que forman una intersección. Representan la dualidad central de {brand}: privacidad y acceso. Dos capas que coexisten — lo que se protege y lo que se comparte. La transparencia visual del icono refleja la transparencia operativa de la plataforma.',
   'about.faq.q4': '¿Necesito reemplazar mis sistemas actuales?',
-  'about.faq.a4': 'No. Ethoz complementa lo que ya usas. No reemplaza tu sistema académico ni tu plataforma de notas. Se enfoca en lo que esos sistemas no hacen: seguimiento integral del alumno, control de retiros, y cumplimiento normativo de datos personales.',
+  'about.faq.a4': 'No. {brand} complementa lo que ya usas. No reemplaza tu sistema académico ni tu plataforma de notas. Se enfoca en lo que esos sistemas no hacen: seguimiento integral del alumno, control de retiros, y cumplimiento normativo de datos personales.',
 
   'about.cta.title': 'El piloto 2026 tiene cupos limitados',
-  'about.cta.subtitle': 'Si diriges o administras un colegio y quieres ver cómo funciona Ethoz, agenda una demo. Sin compromiso.',
+  'about.cta.subtitle': 'Si diriges o administras un colegio y quieres ver cómo funciona {brand}, agenda una demo. Sin compromiso.',
   'about.cta.primary': 'Unirse al piloto',
 
   // Compliance page
-  'compliance_page.meta.title': 'Cumplimiento normativo — Ethoz',
-  'compliance_page.meta.desc': 'Documentación técnica y normativa del cumplimiento de Ethoz con la Ley 21.719 de Protección de Datos Personales.',
+  'compliance_page.meta.title': 'Cumplimiento normativo — {brand}',
+  'compliance_page.meta.desc': 'Documentación técnica y normativa del cumplimiento de {brand} con la Ley 21.719 de Protección de Datos Personales.',
 
   'compliance_page.hero.badge': 'Ley 21.719 · Diseñado desde el origen',
   'compliance_page.hero.title': 'Cumplimiento normativo construido desde el origen',
-  'compliance_page.hero.subtitle': 'Ethoz fue diseñado para cumplir con la Ley 21.719 desde el primer día, no como una adaptación posterior.',
-  'compliance_page.hero.body': 'Este documento describe la arquitectura técnica y los controles de privacidad implementados en Ethoz para garantizar que los establecimientos educacionales cumplan con sus obligaciones legales ante la Ley de Protección de Datos Personales.',
+  'compliance_page.hero.subtitle': '{brand} fue diseñado para cumplir con la Ley 21.719 desde el primer día, no como una adaptación posterior.',
+  'compliance_page.hero.body': 'Este documento describe la arquitectura técnica y los controles de privacidad implementados en {brand} para garantizar que los establecimientos educacionales cumplan con sus obligaciones legales ante la Ley de Protección de Datos Personales.',
 
   'compliance_page.law_ref.title': 'Ley 21.719 — Protección de Datos Personales',
   'compliance_page.law_ref.desc': 'Regula la protección y el tratamiento de los datos personales y crea la Agencia de Protección de Datos Personales. Publicada en el Diario Oficial el 13 de diciembre de 2024.',
@@ -468,7 +468,7 @@ export const es = {
 
   'compliance_page.timeline.overline': 'Marco temporal normativo',
   'compliance_page.timeline.title': 'Hoja de ruta de la Ley 21.719',
-  'compliance_page.timeline.subtitle': 'Ethoz ya opera en cumplimiento total. Las instituciones que aún no han migrado tienen tiempo limitado.',
+  'compliance_page.timeline.subtitle': '{brand} ya opera en cumplimiento total. Las instituciones que aún no han migrado tienen tiempo limitado.',
   'compliance_page.timeline.now': 'Hoy',
   'compliance_page.timeline.event1.date': 'Dic. 2024',
   'compliance_page.timeline.event1.label': 'Publicación de la Ley 21.719',
@@ -476,11 +476,11 @@ export const es = {
   'compliance_page.timeline.event2.date': 'Dic. 2026',
   'compliance_page.timeline.event2.label': 'Entrada en vigencia',
   'compliance_page.timeline.event2.desc': 'Obligatoriedad para todos los responsables de datos.',
-  'compliance_page.timeline.note': 'Las infracciones a la Ley 21.719 pueden derivar en multas de hasta 20.000 UTM (aprox. $1.200 millones CLP) y sanciones administrativas. Ethoz elimina ese riesgo para los establecimientos educacionales.',
+  'compliance_page.timeline.note': 'Las infracciones a la Ley 21.719 pueden derivar en multas de hasta 20.000 UTM (aprox. $1.200 millones CLP) y sanciones administrativas. {brand} elimina ese riesgo para los establecimientos educacionales.',
 
   'compliance_page.pillars.overline': 'Pilares de cumplimiento',
   'compliance_page.pillars.title': 'Seis controles obligatorios, implementados',
-  'compliance_page.pillars.subtitle': 'Cada pilar representa un requisito explícito de la Ley 21.719. Ethoz los implementa en la capa de infraestructura, no como controles manuales.',
+  'compliance_page.pillars.subtitle': 'Cada pilar representa un requisito explícito de la Ley 21.719. {brand} los implementa en la capa de infraestructura, no como controles manuales.',
 
   'compliance_page.pillar1.title': 'Consentimiento parental',
   'compliance_page.pillar1.desc': 'Gestión estructurada del consentimiento informado para el tratamiento de datos de menores de 14 años y datos sensibles de menores de 16 años. Registro auditable de cada consentimiento otorgado o revocado.',
@@ -508,7 +508,7 @@ export const es = {
 
   'compliance_page.arch.overline': 'Arquitectura de seguridad',
   'compliance_page.arch.title': 'Infraestructura técnica de cumplimiento',
-  'compliance_page.arch.subtitle': 'Los controles de privacidad de Ethoz operan en la capa de infraestructura. No dependen de procedimientos manuales ni de la conducta individual de los usuarios.',
+  'compliance_page.arch.subtitle': 'Los controles de privacidad de {brand} operan en la capa de infraestructura. No dependen de procedimientos manuales ni de la conducta individual de los usuarios.',
   'compliance_page.arch.item1.label': 'Aislamiento de datos: PostgreSQL Row-Level Security',
   'compliance_page.arch.item1.desc': 'Cada fila de cada tabla está marcada con el identificador del establecimiento. La base de datos rechaza automáticamente cualquier consulta que intente acceder a datos de una institución diferente, independientemente de cómo esté construida la aplicación.',
   'compliance_page.arch.item2.label': 'Cifrado en reposo: pgcrypto',
@@ -521,7 +521,7 @@ export const es = {
 
   'compliance_page.certs.overline': 'Certificaciones y estándares',
   'compliance_page.certs.title': 'Cumplimiento verificado',
-  'compliance_page.certs.subtitle': 'Ethoz opera en cumplimiento con la normativa chilena vigente. Las certificaciones internacionales están en proceso de obtención.',
+  'compliance_page.certs.subtitle': '{brand} opera en cumplimiento con la normativa chilena vigente. Las certificaciones internacionales están en proceso de obtención.',
   'compliance_page.certs.cert1.name': 'Ley 21.719',
   'compliance_page.certs.cert1.status': 'Cumplimiento completo · Operativo',
   'compliance_page.certs.cert2.name': 'ISO/IEC 27001',
@@ -555,9 +555,9 @@ export const es = {
   'footer.porters': 'Porteros',
 
   // Hero (additional)
-  'hero.video_long': 'Conoce Ethoz en 2 min',
+  'hero.video_long': 'Conoce {brand} en 2 min',
   'hero.video_short': 'Ver video',
-  'hero.mockup_title': 'Ethoz — Panel de Seguimiento',
+  'hero.mockup_title': '{brand} — Panel de Seguimiento',
   'hero.mockup_demo_label': 'Vista demo',
   'hero.no_alerts': 'Sin alertas',
   'hero.recent_history': 'Historial reciente',
@@ -565,8 +565,8 @@ export const es = {
   // Resources page
   'resources.free_badge': 'Descarga gratuita — sin registro',
   'resources.hero.title': 'Recursos gratuitos para cumplir con la Ley 21.719',
-  'resources.hero.subtitle': 'Plantillas, checklists y guías prácticas desarrolladas por el equipo de Ethoz para ayudar a los colegios chilenos a proteger los datos de sus estudiantes antes de diciembre de 2026.',
-  'resources.cta_title': '¿Quieres que Ethoz gestione esto por ti?',
+  'resources.hero.subtitle': 'Plantillas, checklists y guías prácticas desarrolladas por el equipo de {brand} para ayudar a los colegios chilenos a proteger los datos de sus estudiantes antes de diciembre de 2026.',
+  'resources.cta_title': '¿Quieres que {brand} gestione esto por ti?',
   'resources.cta_desc': 'Nuestra plataforma automatiza el cumplimiento, los retiros seguros y la gestión de accesos para toda tu red de colegios.',
   'resources.download_pdf': 'Descargar PDF',
   'resources.view_online': 'Ver online',
@@ -574,7 +574,7 @@ export const es = {
   'resources.view_all': 'Ver todos los recursos',
 
   // Home page — compliance banner
-  'home.compliance_banner.title': 'Todo Ethoz cumple la Ley 21.719 por diseño',
+  'home.compliance_banner.title': 'Todo {brand} cumple la Ley 21.719 por diseño',
   'home.compliance_banner.desc': 'Cifrado, auditoría, consentimiento parental y aislamiento de datos — integrados en cada función.',
 
   // Home page — countdown CTA hint
@@ -611,7 +611,7 @@ export const es = {
   'home.how.step3.time': 'Día 1',
 
   // Home page — meta
-  'home.meta.title': 'Ethoz — Protección y seguimiento escolar para Chile (Ley 21.719)',
+  'home.meta.title': '{brand} — Protección y seguimiento escolar para Chile (Ley 21.719)',
 
   // Get-started page
   'getstarted.hero.title': 'Fácil de contratar, fácil de implementar',
@@ -622,7 +622,7 @@ export const es = {
   'getstarted.step1.title': 'Agenda una demo de 30 minutos',
   'getstarted.step1.desc': 'Te mostramos la plataforma funcionando con datos reales (anonimizados). Tú haces las preguntas, nosotros te mostramos cómo se resuelve cada problema concreto de tu colegio. Sin compromiso.',
   'getstarted.step1.cta': 'Agendar ahora',
-  'getstarted.step1.alt': 'Demo personalizada de Ethoz',
+  'getstarted.step1.alt': 'Demo personalizada de {brand}',
   'getstarted.step2.overline': 'Paso 2',
   'getstarted.step2.title': 'Elige solo lo que necesitas',
   'getstarted.step2.desc': 'Activa los módulos que resuelven tus problemas hoy. El precio se adapta a tu matrícula y a lo que actives. Sin paquetes inflados ni funciones que no vas a usar.',
@@ -638,7 +638,7 @@ export const es = {
   'getstarted.step4.overline': 'Paso 4',
   'getstarted.step4.title': 'Tu colegio queda protegido',
   'getstarted.step4.desc': 'En menos de un mes, tu establecimiento opera con datos centralizados, acceso controlado por rol y cumplimiento normativo listo para fiscalización. Actualizaciones y nuevas funcionalidades incluidas siempre.',
-  'getstarted.step4.alt': 'Colegio operando con Ethoz',
+  'getstarted.step4.alt': 'Colegio operando con {brand}',
   'getstarted.module.student_profile': 'Perfil integral del alumno',
   'getstarted.module.access_control': 'Control de acceso por roles',
   'getstarted.module.safe_pickups': 'Retiros escolares seguros',
@@ -663,14 +663,14 @@ export const es = {
   'a11y.toggle.show_filled_form': 'Ver formulario completado',
   'a11y.toggle.show_empty_form': 'Ver formulario vacío',
   'a11y.map.region_label': 'Mapa de ubicación del colegio',
-  'a11y.mockup.region_label': 'Vista previa del panel Ethoz',
+  'a11y.mockup.region_label': 'Vista previa del panel {brand}',
   'a11y.carousel.prev_student': 'Ver estudiante anterior',
   'a11y.carousel.next_student': 'Ver siguiente estudiante',
 
   // Feature page: Access Control (Permisos por cargo)
   'featurePage.accessControl.editorial.eyebrow': 'Principio de mínimo privilegio',
   'featurePage.accessControl.editorial.statement': 'El acceso no regulado no es confianza; es un riesgo diferido.',
-  'featurePage.accessControl.editorial.body': 'La Ley 21.719 responsabiliza al establecimiento por quién ve qué. Ethoz hace que la arquitectura responda por ti.',
+  'featurePage.accessControl.editorial.body': 'La Ley 21.719 responsabiliza al establecimiento por quién ve qué. {brand} hace que la arquitectura responda por ti.',
   'featurePage.accessControl.finalCta.eyebrow': 'Gobernanza de datos',
   'featurePage.accessControl.finalCta.title': 'Que cada rol vea exactamente lo que le corresponde.',
   'featurePage.accessControl.finalCta.subtitle': 'Configuramos los permisos de tu equipo completo en menos de 48 horas.',
@@ -678,11 +678,11 @@ export const es = {
   // Feature page: Safe Pickups (Retiros seguros)
   'featurePage.safePickups.editorial.eyebrow': 'La verdad del portón',
   'featurePage.safePickups.editorial.statement': 'El retiro es el único momento del día en que un error se paga con un titular de prensa.',
-  'featurePage.safePickups.editorial.body': 'Ethoz no pide que el portero lo haga bien bajo presión. Lo hace imposible de hacer mal.',
+  'featurePage.safePickups.editorial.body': '{brand} no pide que el portero lo haga bien bajo presión. Lo hace imposible de hacer mal.',
   'featurePage.safePickups.finalCta.eyebrow': 'Portería · El punto de control más visible',
   'featurePage.safePickups.finalCta.title': 'Pon la pantalla entre el portero y la duda.',
   'featurePage.safePickups.finalCta.subtitle': 'Una demo de 20 minutos te muestra el flujo exacto con los apoderados de tu colegio.',
-  'featurePage.safePickups.finalCta.footnote': 'Cero retiros no autorizados registrados en colegios con Ethoz.',
+  'featurePage.safePickups.finalCta.footnote': 'Cero retiros no autorizados registrados en colegios con {brand}.',
 
   // Feature page: Student Profile (Ficha 360°)
   'featurePage.studentProfile.editorial.eyebrow': 'Continuidad del expediente',
@@ -695,7 +695,7 @@ export const es = {
   // Feature page: Smart Search (Búsqueda inteligente)
   'featurePage.smartSearch.editorial.eyebrow': 'Velocidad como garantía',
   'featurePage.smartSearch.editorial.statement': 'En una emergencia, cada segundo buscando un nombre es un segundo sin protocolo.',
-  'featurePage.smartSearch.editorial.body': 'Por eso la búsqueda de Ethoz responde en menos de 50 ms — antes de que el inspector termine de pronunciar el apellido.',
+  'featurePage.smartSearch.editorial.body': 'Por eso la búsqueda de {brand} responde en menos de 50 ms — antes de que el inspector termine de pronunciar el apellido.',
   'featurePage.smartSearch.finalCta.eyebrow': '50 ms — el tiempo real de la operación',
   'featurePage.smartSearch.finalCta.title': 'Encontrar es la primera mitad de proteger.',
   'featurePage.smartSearch.finalCta.subtitle': 'Demo con los alumnos y cursos reales de tu colegio cargados.',
@@ -703,7 +703,7 @@ export const es = {
   // Feature page: Privacy & Compliance
   'featurePage.privacyCompliance.editorial.eyebrow': 'Privacidad por diseño',
   'featurePage.privacyCompliance.editorial.statement': 'Cumplir la Ley 21.719 no es agregar un módulo al final. Es cambiar cómo se almacena cada campo desde el principio.',
-  'featurePage.privacyCompliance.editorial.body': 'Los sistemas que prometen "adaptarse" antes de diciembre 2026 arrastran su arquitectura vieja. Ethoz nació después de la ley, no antes.',
+  'featurePage.privacyCompliance.editorial.body': 'Los sistemas que prometen "adaptarse" antes de diciembre 2026 arrastran su arquitectura vieja. {brand} nació después de la ley, no antes.',
   'featurePage.privacyCompliance.finalCta.eyebrow': 'Ley 21.719 · Vigencia plena en diciembre 2026',
   'featurePage.privacyCompliance.finalCta.title': 'El cumplimiento no se improvisa la semana antes.',
   'featurePage.privacyCompliance.finalCta.subtitle': 'Agenda una evaluación de 30 minutos. Revisamos tu flujo actual de datos y tu exposición real.',
@@ -712,7 +712,7 @@ export const es = {
   // Feature page: Analytics
   'featurePage.analytics.editorial.eyebrow': 'Datos con consecuencia',
   'featurePage.analytics.editorial.statement': 'Un dashboard que solo se mira no vale el minuto que toma cargarlo.',
-  'featurePage.analytics.editorial.body': 'Ethoz no genera reportes: genera decisiones. Cada gráfico existe para responder una pregunta que un director se hace antes de entrar a la sala de reuniones.',
+  'featurePage.analytics.editorial.body': '{brand} no genera reportes: genera decisiones. Cada gráfico existe para responder una pregunta que un director se hace antes de entrar a la sala de reuniones.',
   'featurePage.analytics.finalCta.eyebrow': 'Analytics · Lo que Excel nunca te pudo dar',
   'featurePage.analytics.finalCta.title': 'Deja de gestionar con hojas de cálculo.',
   'featurePage.analytics.finalCta.subtitle': 'Demo con el dashboard cargado con los datos de un colegio similar al tuyo.',
@@ -728,7 +728,7 @@ export const es = {
   // Feature page: Alerts
   'featurePage.alerts.editorial.eyebrow': 'La alerta que nadie leyó',
   'featurePage.alerts.editorial.statement': 'Un correo sin acuse. Una planilla con fecha de hace tres meses. Así se vuelven titulares las cosas que un protocolo digital habría detenido.',
-  'featurePage.alerts.editorial.body': 'Cada alerta en Ethoz tiene un responsable, una fecha de vencimiento y una persona que la revisa. Ninguna queda en el aire.',
+  'featurePage.alerts.editorial.body': 'Cada alerta en {brand} tiene un responsable, una fecha de vencimiento y una persona que la revisa. Ninguna queda en el aire.',
   'featurePage.alerts.finalCta.eyebrow': 'Alertas críticas · Evidencia, no testimonio',
   'featurePage.alerts.finalCta.title': 'Cuando llega el tribunal, o la Superintendencia, habla el registro.',
   'featurePage.alerts.finalCta.subtitle': 'Centralizamos las alertas de tu establecimiento en menos de una semana.',
@@ -736,7 +736,7 @@ export const es = {
   // Feature page: Emergency
   'featurePage.emergency.editorial.eyebrow': 'Chile · País sísmico',
   'featurePage.emergency.editorial.statement': 'La emergencia no avisa a qué hora sucede. El protocolo tampoco puede estar guardado en una carpeta de Inspectoría.',
-  'featurePage.emergency.editorial.body': 'En una evacuación, el protocolo vive en los bolsillos de los docentes o no existe. Ethoz lo pone en su móvil, activable en un toque.',
+  'featurePage.emergency.editorial.body': 'En una evacuación, el protocolo vive en los bolsillos de los docentes o no existe. {brand} lo pone en su móvil, activable en un toque.',
   'featurePage.emergency.finalCta.eyebrow': 'Emergencias · El protocolo no puede ir en papel',
   'featurePage.emergency.finalCta.title': 'Haz que cada segundo cuente.',
   'featurePage.emergency.finalCta.subtitle': 'Activemos un simulacro digital con los datos reales de tu establecimiento.',
@@ -753,15 +753,15 @@ export const es = {
   // Audience page: Directores
   'audience.directores.editorial.eyebrow': 'El lunes a las 07:30',
   'audience.directores.editorial.statement': 'Un director no necesita más información. Necesita la información correcta, antes del primer café.',
-  'audience.directores.editorial.body': 'Ethoz te entrega el día curado: quién faltó, qué alertas están abiertas, qué retiros requieren autorización. No diez dashboards. Uno.',
+  'audience.directores.editorial.body': '{brand} te entrega el día curado: quién faltó, qué alertas están abiertas, qué retiros requieren autorización. No diez dashboards. Uno.',
   'audience.directores.finalCta.eyebrow': 'Dirección · Operación diaria sin Excel',
-  'audience.directores.finalCta.title': 'Así luce tu lunes con Ethoz.',
+  'audience.directores.finalCta.title': 'Así luce tu lunes con {brand}.',
   'audience.directores.finalCta.subtitle': 'Demo personalizada con el contexto de tu establecimiento. No una demo genérica.',
 
   // Audience page: Porteros
   'audience.porteros.editorial.eyebrow': 'La pantalla responde · el portero decide',
   'audience.porteros.editorial.statement': 'El portero no debería cargar con las decisiones legales del colegio a las 14:30.',
-  'audience.porteros.editorial.body': 'Ethoz le muestra lo imprescindible: verde o rojo. El resto —la orden judicial, los datos médicos, el historial— vive en el rol que corresponde.',
+  'audience.porteros.editorial.body': '{brand} le muestra lo imprescindible: verde o rojo. El resto —la orden judicial, los datos médicos, el historial— vive en el rol que corresponde.',
   'audience.porteros.finalCta.eyebrow': 'Portería · Herramienta concreta, 15 segundos por retiro',
   'audience.porteros.finalCta.title': 'Muéstrale la pantalla al equipo. La decisión la toman ellos.',
   'audience.porteros.finalCta.subtitle': 'Demo de 20 minutos para tu portería. Sin consultores, sin mails de seguimiento.',

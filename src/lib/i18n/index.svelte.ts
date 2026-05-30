@@ -1,5 +1,6 @@
 import { es } from './translations/es';
 import { en } from './translations/en';
+import { BRAND, LEGAL_NAME, DOMAIN } from '../brand';
 
 type TranslationKey = keyof typeof es;
 type Locale = 'es' | 'en';
@@ -10,7 +11,11 @@ const translations: Record<Locale, Record<string, string>> = { es, en };
 let locale = $state<Locale>('es');
 
 export function t(key: TranslationKey): string {
-  return translations[locale][key] ?? key;
+  const raw = translations[locale][key] ?? key;
+  // Interpolate brand tokens so all copy stays rebrandable from $lib/brand.
+  return raw.includes('{')
+    ? raw.replace(/\{brand\}/g, BRAND).replace(/\{legal\}/g, LEGAL_NAME).replace(/\{domain\}/g, DOMAIN)
+    : raw;
 }
 
 export function setLocale(newLocale: Locale) {

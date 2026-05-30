@@ -87,7 +87,7 @@ Deno.serve(async (req) => {
       );
       const directData = await directRes.json();
       if (directData.access_token) {
-        page = { id: knownPageId, access_token: directData.access_token, name: directData.name || "Ethoz" };
+        page = { id: knownPageId, access_token: directData.access_token, name: directData.name || (Deno.env.get("BRAND_NAME") || "Ethoz") };
       }
     }
   }
