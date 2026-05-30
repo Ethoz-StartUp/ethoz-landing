@@ -18,7 +18,6 @@ async function getMetaContent(page: any, selector: string): Promise<string> {
 const SEO_PAGES = [
 	'/',
 	'/pitch',
-	'/suggestions',
 	'/contact',
 	'/compliance',
 	'/productos',

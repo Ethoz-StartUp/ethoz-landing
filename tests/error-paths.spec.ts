@@ -36,7 +36,7 @@ test.describe('Contact form — Supabase submission failure', () => {
 		await page.locator('button[type="submit"]').click();
 
 		// Error message should appear
-		const errorEl = page.locator('p.text-destructive');
+		const errorEl = page.locator('[role="alert"]');
 		await expect(errorEl).toBeVisible({ timeout: 10_000 });
 		await expect(errorEl).toContainText('No pudimos enviar tu mensaje');
 	});
@@ -56,7 +56,7 @@ test.describe('Contact form — Supabase submission failure', () => {
 		await page.locator('button[type="submit"]').click();
 
 		// Wait for the error to appear before asserting success is absent
-		await expect(page.locator('p.text-destructive')).toBeVisible({ timeout: 10_000 });
+		await expect(page.locator('[role="alert"]')).toBeVisible({ timeout: 10_000 });
 
 		// Success state (Check icon container) must NOT be visible
 		const successState = page.locator('.text-success').first();
@@ -77,7 +77,7 @@ test.describe('Contact form — Supabase submission failure', () => {
 
 		await page.locator('button[type="submit"]').click();
 
-		await expect(page.locator('p.text-destructive')).toBeVisible({ timeout: 10_000 });
+		await expect(page.locator('[role="alert"]')).toBeVisible({ timeout: 10_000 });
 
 		// Inputs should still be visible and enabled so the user can retry
 		await expect(page.locator('#contact-name')).toBeVisible();
@@ -158,6 +158,6 @@ test.describe('Schedule page — Cal.com embed failure', () => {
 
 		// Nav and heading should be immediately visible regardless of embed state
 		await expect(page.locator('h1')).toBeVisible({ timeout: 5000 });
-		await expect(page.locator('nav')).toBeVisible();
+		await expect(page.locator('nav').first()).toBeVisible();
 	});
 });

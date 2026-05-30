@@ -137,7 +137,7 @@ test.describe('Navigation — desktop NavBar', () => {
 
 	test('Productos dropdown opens on hover and shows product links', async ({ page }) => {
 		await page.goto('/');
-		const dropdownTrigger = page.locator('nav').getByRole('button', { name: /producto|feature/i }).first();
+		const dropdownTrigger = page.locator('nav a[href="/productos"][aria-haspopup="true"]');
 		await dropdownTrigger.hover();
 		await page.waitForTimeout(300);
 		const dropdown = page.locator('[role="menu"]').first();
@@ -148,7 +148,7 @@ test.describe('Navigation — desktop NavBar', () => {
 
 	test('Productos dropdown items navigate correctly', async ({ page }) => {
 		await page.goto('/');
-		const dropdownTrigger = page.locator('nav').getByRole('button', { name: /producto|feature/i }).first();
+		const dropdownTrigger = page.locator('nav a[href="/productos"][aria-haspopup="true"]');
 		await dropdownTrigger.hover();
 		const dropdown = page.locator('nav .absolute').first();
 		await expect(dropdown).toBeVisible({ timeout: 2000 });
@@ -165,13 +165,13 @@ test.describe('Navigation — mobile hamburger', () => {
 
 	test('hamburger button is visible on mobile', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
 		await expect(hamburger).toBeVisible();
 	});
 
 	test('hamburger opens mobile menu', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
 		await hamburger.click();
 		// Mobile menu should be visible
 		await expect(page.locator('nav .md\\:hidden + div, nav [class*="border-t"][class*="bg-background"]').last()).toBeVisible({ timeout: 2000 });
@@ -179,7 +179,7 @@ test.describe('Navigation — mobile hamburger', () => {
 
 	test('mobile menu has all nav links', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
 		await hamburger.click();
 		await page.waitForTimeout(300);
 		// Check for at least 8 links in mobile menu (6 products + 4 nav)
@@ -190,7 +190,7 @@ test.describe('Navigation — mobile hamburger', () => {
 
 	test('mobile menu closes when link is clicked', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
 		await hamburger.click();
 		await page.waitForTimeout(300);
 		// Click Blog link in mobile menu
@@ -201,7 +201,7 @@ test.describe('Navigation — mobile hamburger', () => {
 
 	test('hamburger shows X icon when open', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
 		await hamburger.click();
 		// aria-expanded should be true
 		await expect(hamburger).toHaveAttribute('aria-expanded', 'true');
@@ -856,7 +856,7 @@ test.describe('Responsive — mobile (375×812)', () => {
 
 	test('hamburger menu appears on homepage', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
 		await expect(hamburger).toBeVisible();
 	});
 
@@ -929,7 +929,7 @@ test.describe('Responsive — mobile (375×812)', () => {
 
 	test('mobile hamburger menu shows Integraciones link', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
 		await expect(hamburger).toBeVisible();
 		await hamburger.click();
 		// Wait for slide transition
@@ -940,7 +940,7 @@ test.describe('Responsive — mobile (375×812)', () => {
 
 	test('mobile menu links close menu on click', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-label="Toggle menu"]');
+		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
 		await expect(hamburger).toBeVisible();
 		await hamburger.click();
 		await page.waitForTimeout(500);
@@ -1146,13 +1146,13 @@ test.describe('Demo — manual school entry', () => {
 test.describe('Navbar — products dropdown', () => {
 	test('Productos dropdown button exists', async ({ page }) => {
 		await page.goto('/');
-		const btn = page.locator('nav button', { hasText: /Productos|Funcionalidades/ });
+		const btn = page.locator('nav a[href="/productos"][aria-haspopup="true"]');
 		await expect(btn).toBeVisible();
 	});
 
 	test('dropdown opens on hover and shows product links', async ({ page }) => {
 		await page.goto('/');
-		const btn = page.locator('nav').getByRole('button', { name: /producto|feature/i }).first();
+		const btn = page.locator('nav a[href="/productos"][aria-haspopup="true"]');
 		await btn.hover();
 		await page.waitForTimeout(300);
 		const dropdown = page.locator('[role="menu"]').first();
