@@ -101,6 +101,18 @@ Deno.serve(async (req: Request) => {
       return json({ error: 'Missing required fields: contact_name, contact_email, contact_role' }, 400);
     }
 
+    // SEC-4: bound field lengths (reCAPTCHA filters bots, but a high-score user could still oversize a field).
+    if (
+      payload.contact_name.length > 200 ||
+      payload.contact_email.length > 254 ||
+      payload.contact_role.length > 100 ||
+      (payload.school_name?.length ?? 0) > 200 ||
+      (payload.contact_phone?.length ?? 0) > 30 ||
+      (payload.notes?.length ?? 0) > 2000
+    ) {
+      return json({ error: 'One or more fields exceed the maximum allowed length.' }, 400);
+    }
+
     // Verify reCAPTCHA token
     const token = payload.recaptcha_token;
     if (!token) {

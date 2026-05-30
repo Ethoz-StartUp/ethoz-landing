@@ -29,6 +29,7 @@ export async function sendGa4Event(
   if (!measurementId || !apiSecret || !clientId) return;
 
   try {
+    // SEC-6: api_secret MUST be a query param per the GA4 Measurement Protocol spec; never log this URL.
     await fetch(
       `https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`,
       {

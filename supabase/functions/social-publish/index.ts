@@ -12,6 +12,18 @@ const GOOGLE_CLIENT_SECRET = Deno.env.get("GOOGLE_CLIENT_SECRET") || "";
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
+// SEC-2: block SSRF via the admin-supplied image_url (https only, reject internal hosts).
+function isSafeImageUrl(raw: string): boolean {
+  let u: URL;
+  try { u = new URL(raw); } catch { return false; }
+  if (u.protocol !== "https:") return false;
+  const h = u.hostname.toLowerCase();
+  if (h === "localhost" || h === "0.0.0.0" || h === "::1" || !h.includes(".")) return false;
+  if (/^127\./.test(h) || /^10\./.test(h) || /^192\.168\./.test(h) || /^169\.254\./.test(h)) return false;
+  if (/^172\.(1[6-9]|2\d|3[01])\./.test(h)) return false;
+  return true;
+}
+
 // ── Token refresh helpers ──
 
 async function refreshGoogleToken(token: any): Promise<string> {
@@ -83,6 +95,7 @@ async function publishLinkedIn(post: any, token: any): Promise<string> {
 
       if (uploadUrl && imageUrn) {
         // Download image and upload to LinkedIn
+        if (!isSafeImageUrl(post.image_url)) throw new Error("Unsafe image URL");
         const imgRes = await fetch(post.image_url);
         const imgBlob = await imgRes.blob();
         await fetch(uploadUrl, { method: "PUT", body: imgBlob });
@@ -240,6 +253,12 @@ Deno.serve(async (req) => {
 
     if (tokenErr || !token) {
       return Response.json({ error: `No ${platform} token found. Connect the account first.` }, { status: 400, headers: corsHeaders });
+    }
+
+    // CORR-1: LinkedIn tokens expire (~60d) with no refresh — fail fast with a clear
+    // message instead of a blind 401 that the outer catch turns into a generic 500.
+    if (platform === "linkedin" && token.token_expiry && new Date(token.token_expiry) < new Date()) {
+      return Response.json({ error: "LinkedIn token expired. Reconnect the account." }, { status: 400, headers: corsHeaders });
     }
 
     // Publish based on platform

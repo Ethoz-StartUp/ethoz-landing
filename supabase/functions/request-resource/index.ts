@@ -64,6 +64,18 @@ Deno.serve(async (req: Request) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
     );
 
+    // CORR-7: skip duplicate lead rows when the same email re-downloads the same resource within 24h.
+    const { data: existing } = await supabase.from('leads')
+      .select('id')
+      .eq('contact_email', email)
+      .eq('contact_source', `resource:${slug}`)
+      .gte('created_at', new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString())
+      .limit(1);
+    if (existing && existing.length > 0) {
+      console.info(`[request-resource] Duplicate within 24h, skipping insert: ${slug} → ${maskEmail(email)}`);
+      return json({ ok: true, delivered_to: maskEmail(email), deduped: true });
+    }
+
     const { error: insertError } = await supabase.from('leads').insert([
       {
         school_name: '',
