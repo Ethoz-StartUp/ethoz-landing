@@ -68,6 +68,7 @@ Deno.serve(async (req) => {
       fb_exchange_token: shortToken,
     }),
   });
+  if (!longRes.ok) throw new Error("Meta long-lived token exchange failed: " + longRes.status);
   const { access_token: longToken, expires_in } = await longRes.json();
 
   // Step 4: Get Page Access Token (never expires)

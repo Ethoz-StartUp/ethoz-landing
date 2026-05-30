@@ -13,6 +13,12 @@ function escapeHtml(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+function maskEmail(email: string): string {
+  const [user, domain] = email.split('@');
+  if (!domain) return '***';
+  return `${user.slice(0, 2)}***@${domain}`;
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method !== 'POST') {
     return resp({ error: 'Method not allowed' }, 405);
@@ -38,7 +44,7 @@ Deno.serve(async (req: Request) => {
 
     const isTest = (r.notes || '').includes('[TEST]');
     if (isTest) {
-      console.info('[lead-notify] Skipped test lead:', r.contact_email);
+      console.info('[lead-notify] Skipped test lead:', maskEmail(r.contact_email || ''));
       return resp({ ok: true, skipped: 'test' });
     }
 
@@ -178,7 +184,7 @@ Deno.serve(async (req: Request) => {
 
     if (!gmailUser || !gmailPass || !notifyEmails.length) {
       console.error('[lead-notify] Gmail not configured');
-      console.info('[lead-notify] Lead:', contactName, contactEmail, schoolName);
+      console.info('[lead-notify] Lead:', maskEmail(contactEmail));
       return resp({ ok: true, warning: 'no email credentials' });
     }
 
@@ -197,8 +203,8 @@ Deno.serve(async (req: Request) => {
       html,
     });
 
-    console.info(`[lead-notify] Sent for ${contactEmail} → ${notifyEmails.join(', ')}`);
-    return resp({ ok: true, lead: contactEmail, notified: notifyEmails });
+    console.info(`[lead-notify] Sent for ${maskEmail(contactEmail)} → ${notifyEmails.length} recipient(s)`);
+    return resp({ ok: true, lead: maskEmail(contactEmail), notified: notifyEmails.length });
   } catch (err) {
     console.error('[lead-notify] Error:', err);
     return resp({ error: 'Notification failed' }, 500);

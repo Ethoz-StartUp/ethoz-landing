@@ -262,12 +262,24 @@ Deno.serve(async (req) => {
         return Response.json({ error: `Unknown platform: ${platform}` }, { status: 400, headers: corsHeaders });
     }
 
-    // Update post status
-    await supabase.from("content_posts").update({
+    // Update post status. The post is already live on the platform at this point,
+    // so a failed DB update must NOT be swallowed — otherwise a retry double-posts.
+    const { error: updateErr } = await supabase.from("content_posts").update({
       status: "published",
       published_at: new Date().toISOString(),
       published_url: publishedUrl,
     }).eq("id", post_id);
+
+    if (updateErr) {
+      console.error("[social-publish] status update failed after publish", updateErr);
+      return Response.json(
+        {
+          error: "Post was published to the platform, but the database status update failed. Do NOT retry — mark it published manually.",
+          published_url: publishedUrl,
+        },
+        { status: 500, headers: corsHeaders },
+      );
+    }
 
     return Response.json({ ok: true, published_url: publishedUrl }, { headers: corsHeaders });
   } catch (err) {
