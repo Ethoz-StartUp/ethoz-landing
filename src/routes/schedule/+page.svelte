@@ -7,7 +7,7 @@
   import { browser } from '$app/environment';
   import { trackEvent } from '$lib/utils/analytics';
   import { updateLeadStatus } from '$lib/supabase';
-  import { onMount } from 'svelte';
+  import { onMount, untrack } from 'svelte';
 
   // Read from sessionStorage (preferred) or fall back to URL params for backwards compat
   let scheduleData = $state<Record<string, string>>({});
@@ -43,6 +43,10 @@
   let calLoaded = $state(false);
   let embedRendered = $state(false);
   let calError = $state(false);
+  // One-shot guard: the Cal embed must register Cal('inline') / Cal('on', ...) exactly
+  // once. sessionStorage hydration mutates contactName/contactEmail, which would otherwise
+  // re-trigger this effect and register the booking listeners twice (duplicate analytics + DB writes).
+  let calInitialized = $state(false);
 
   function captureError(err: unknown, context?: Record<string, unknown>) {
     if (!browser) return;
@@ -53,7 +57,8 @@
 
   // Load Cal.com embed script and render inline
   $effect(() => {
-    if (!browser || !calContainer) return;
+    if (calInitialized || !browser || !calContainer) return;
+    calInitialized = true;
 
     // Cal.com embed loader (official snippet)
     const win = window as any;
@@ -90,13 +95,16 @@
     const Cal = win.Cal;
     Cal('init', { origin: 'https://cal.com' });
 
-    // Build config with pre-filled data
+    // Build config with pre-filled data. Read prefill values via untrack so that
+    // sessionStorage hydration mutating contactName/contactEmail never re-triggers this effect.
+    const prefill = untrack(() => ({ name: contactName, email: contactEmail, school: schoolName }));
+
     const config: Record<string, string> = {
       theme: 'light',
       timeFormat: '24',   // Force 24h format (Chile standard)
     };
-    if (contactName) config.name = contactName;
-    if (contactEmail) config.email = contactEmail;
+    if (prefill.name) config.name = prefill.name;
+    if (prefill.email) config.email = prefill.email;
 
     Cal('inline', {
       elementOrSelector: calContainer,
@@ -128,13 +136,13 @@
     Cal('on', {
       action: 'bookingSuccessful',
       callback: () => {
-        trackEvent('demo_booked', { school: schoolName });
+        trackEvent('demo_booked', { school: prefill.school });
 
-        if (contactEmail) {
+        if (prefill.email) {
           updateLeadStatus(
-            contactEmail,
+            prefill.email,
             'demo_scheduled',
-            `Booked via Cal.com | School: ${schoolName}`
+            `Booked via Cal.com | School: ${prefill.school}`
           ).catch((err) => captureError(err, { fn: 'schedule.updateLeadStatus' }));
         }
       }

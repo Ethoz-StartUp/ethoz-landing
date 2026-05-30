@@ -6,6 +6,7 @@
   import { env } from '$env/dynamic/public';
   import { onMount } from 'svelte';
   import { toast } from 'svelte-sonner';
+  import { t } from '$lib/i18n/index.svelte';
   import * as Sheet from '$lib/components/ui/sheet';
   import * as Dialog from '$lib/components/ui/dialog';
   import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
@@ -69,8 +70,8 @@
   let savingId = $state<string | null>(null);
   let deletingId = $state<string | null>(null);
   let search = $state('');
-  let platformFilter = $state<Platform | ''>('');
-  let statusFilter = $state<PostStatus | ''>('');
+  let platformFilter = $state<Platform | 'all'>('all');
+  let statusFilter = $state<PostStatus | 'all'>('all');
 
   // ── Sheet state (create + edit) ──
   let sheetOpen = $state(false);
@@ -161,8 +162,8 @@
   // ── Derived ──
   const filtered = $derived.by(() => {
     let list = posts;
-    if (platformFilter) list = list.filter((p) => p.platform === platformFilter);
-    if (statusFilter) list = list.filter((p) => p.status === statusFilter);
+    if (platformFilter !== 'all') list = list.filter((p) => p.platform === platformFilter);
+    if (statusFilter !== 'all') list = list.filter((p) => p.status === statusFilter);
     if (search.trim()) {
       const q = search.trim().toLowerCase();
       list = list.filter((p) => p.title.toLowerCase().includes(q) || p.body.toLowerCase().includes(q));
@@ -201,11 +202,13 @@
   };
   const ALL_STATUSES: PostStatus[] = ['draft', 'review', 'approved', 'scheduled', 'published', 'archived'];
 
+  // Generic advance flow caps at 'approved'. Social posts publish only via publishPost()
+  // (Edge Function). Non-social posts use the explicit markAsPublished() action below.
   const STATUS_NEXT: Partial<Record<PostStatus, PostStatus>> = {
-    draft: 'review', review: 'approved', approved: 'published',
+    draft: 'review', review: 'approved',
   };
   const STATUS_NEXT_LABEL: Partial<Record<PostStatus, string>> = {
-    draft: 'Enviar a revisión', review: 'Aprobar', approved: 'Publicar',
+    draft: 'Enviar a revisión', review: 'Aprobar',
   };
 
   const SOCIAL_PLATFORM_LABELS: Record<SocialPlatform, string> = {
@@ -327,6 +330,26 @@
       toast.error('Error al actualizar estado', { description: error.message });
     } else {
       posts = posts.map((p) => p.id === post.id ? { ...p, status: next, updated_at: new Date().toISOString() } : p);
+    }
+    savingId = null;
+  }
+
+  // ── Mark as published (non-social platforms: blog/email/whatsapp) ──
+  // Social platforms publish through the Edge Function (publishPost). For the rest there is
+  // no automated channel, so the operator marks them published manually with a real timestamp.
+  async function markAsPublished(post: ContentPost) {
+    if (!supabase) return;
+    savingId = post.id;
+    const publishedAt = new Date().toISOString();
+    const { error } = await supabase
+      .from('content_posts')
+      .update({ status: 'published', published_at: publishedAt, updated_at: publishedAt })
+      .eq('id', post.id);
+    if (error) {
+      toast.error('Error al actualizar estado', { description: error.message });
+    } else {
+      posts = posts.map((p) => p.id === post.id ? { ...p, status: 'published' as PostStatus, published_at: publishedAt, updated_at: publishedAt } : p);
+      toast.success(t('content.mark_published'));
     }
     savingId = null;
   }
@@ -481,10 +504,10 @@
             <Label for="platform-filter" class="mb-1.5 block text-[11px]">Plataforma</Label>
             <Select.Root type="single" bind:value={platformFilter as any}>
               <Select.Trigger id="platform-filter" class="w-full">
-                {platformFilter ? PLATFORM_LABELS[platformFilter as Platform] : 'Todas'}
+                {platformFilter === 'all' ? 'Todas' : PLATFORM_LABELS[platformFilter as Platform]}
               </Select.Trigger>
               <Select.Content>
-                <Select.Item value="">Todas</Select.Item>
+                <Select.Item value="all">Todas</Select.Item>
                 {#each ALL_PLATFORMS as p}
                   <Select.Item value={p}>{PLATFORM_LABELS[p]}</Select.Item>
                 {/each}
@@ -495,10 +518,10 @@
             <Label for="status-filter" class="mb-1.5 block text-[11px]">Estado</Label>
             <Select.Root type="single" bind:value={statusFilter as any}>
               <Select.Trigger id="status-filter" class="w-full">
-                {statusFilter ? STATUS_LABELS[statusFilter as PostStatus] : 'Todos'}
+                {statusFilter === 'all' ? 'Todos' : STATUS_LABELS[statusFilter as PostStatus]}
               </Select.Trigger>
               <Select.Content>
-                <Select.Item value="">Todos</Select.Item>
+                <Select.Item value="all">Todos</Select.Item>
                 {#each ALL_STATUSES as s}
                   <Select.Item value={s}>{STATUS_LABELS[s]}</Select.Item>
                 {/each}
@@ -606,6 +629,14 @@
                       >
                         <Send class="size-3.5" />
                         Publicar en {SOCIAL_PLATFORM_LABELS[post.platform as SocialPlatform]}
+                      </DropdownMenu.Item>
+                    {:else if post.status === 'approved'}
+                      <DropdownMenu.Item
+                        disabled={savingId === post.id}
+                        onclick={() => markAsPublished(post)}
+                      >
+                        <Send class="size-3.5" />
+                        {t('content.mark_published')}
                       </DropdownMenu.Item>
                     {/if}
                     <DropdownMenu.Separator />

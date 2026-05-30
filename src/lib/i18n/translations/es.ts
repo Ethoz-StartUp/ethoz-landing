@@ -778,4 +778,10 @@ export const es = {
   // Conversion flow: Schedule (step 3 — book time)
   'demo.step3.eyebrow': 'Paso 3 de 3 · Último paso',
   'demo.step3.description': 'Te acompañamos en una videollamada de 30 minutos con pantalla compartida. Sin presentaciones genéricas: entramos al sistema con un caso real y resolvemos tus dudas en vivo.',
+
+  // Admin: content manager
+  'content.mark_published': 'Marcar como publicado',
+
+  // Admin: prospecting tracker
+  'prospecting.activity_log_failed': 'No se pudo registrar la actividad. El cambio de estado sí se guardó.',
 } as const;

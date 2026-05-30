@@ -773,4 +773,10 @@ export const en = {
   // Conversion flow: Schedule (step 3 — book time)
   'demo.step3.eyebrow': 'Step 3 of 3 · Last step',
   'demo.step3.description': "We walk you through a 30-minute screen-shared video call. No generic presentations — we go into the system with a real case and answer your questions live.",
+
+  // Admin: content manager
+  'content.mark_published': 'Mark as published',
+
+  // Admin: prospecting tracker
+  'prospecting.activity_log_failed': 'Could not log the activity. The status change was saved.',
 } as const;

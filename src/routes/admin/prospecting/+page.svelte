@@ -12,6 +12,7 @@
   } from '$lib/utils/prospecting';
   import { onMount } from 'svelte';
   import { toast } from 'svelte-sonner';
+  import { t } from '$lib/i18n/index.svelte';
   import * as Tabs from '$lib/components/ui/tabs';
   import * as Table from '$lib/components/ui/table';
   import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
@@ -358,7 +359,7 @@
       toast.success('Estado actualizado', {
         description: `${prospect.sostenedor_name} → ${PROSPECT_STATUS_LABELS[newStatus]}`,
       });
-      await supabase.from('prospect_activities').insert({
+      const { error: actErr } = await supabase.from('prospect_activities').insert({
         prospect_id: prospect.id,
         type: 'status_change',
         description: `Estado: ${PROSPECT_STATUS_LABELS[oldStatus]} → ${PROSPECT_STATUS_LABELS[newStatus]}`,
@@ -367,6 +368,10 @@
         created_by: adminStore.user?.email,
         created_at: new Date().toISOString(),
       });
+      if (actErr) {
+        console.error('[prospecting] activity log failed', actErr);
+        toast.error(t('prospecting.activity_log_failed'));
+      }
     }
     updatingStatusId = null;
   }
@@ -378,7 +383,8 @@
       contact_email: prospect.contact_email,
       contact_phone: prospect.contact_phone,
       contact_role: prospect.contact_role,
-      channel: prospect.channel,
+      // bits-ui v2 can't select an empty-string item; surface a blank channel as 'none'.
+      channel: prospect.channel || 'none',
       notes: prospect.notes,
       next_step: prospect.next_step,
       next_step_date: prospect.next_step_date,
@@ -395,14 +401,19 @@
   async function saveEdit(prospect: Prospect) {
     if (!supabase) return;
     savingEdit = true;
+    // 'none' is the bits-ui v2 sentinel for "Sin canal"; persist it as an empty channel.
+    const payload = {
+      ...editDraft,
+      channel: editDraft.channel === 'none' ? '' : editDraft.channel,
+    };
     const { error } = await supabase
       .from('prospects')
-      .update({ ...editDraft, updated_at: new Date().toISOString() })
+      .update({ ...payload, updated_at: new Date().toISOString() })
       .eq('id', prospect.id);
     if (error) {
       toast.error('Error al guardar', { description: error.message });
     } else {
-      prospects = prospects.map((p) => p.id === prospect.id ? { ...p, ...editDraft } : p);
+      prospects = prospects.map((p) => p.id === prospect.id ? { ...p, ...payload } : p);
       editingId = null;
       editDraft = {};
       toast.success('Prospect actualizado');
@@ -907,10 +918,10 @@
                           <Label class="mb-1 block text-[11px]">Canal</Label>
                           <Select.Root type="single" bind:value={editDraft.channel as string}>
                             <Select.Trigger class="w-full">
-                              {editDraft.channel || 'Sin canal'}
+                              {editDraft.channel && editDraft.channel !== 'none' ? editDraft.channel : 'Sin canal'}
                             </Select.Trigger>
                             <Select.Content>
-                              <Select.Item value="">Sin canal</Select.Item>
+                              <Select.Item value="none">Sin canal</Select.Item>
                               {#each CHANNELS as ch}
                                 <Select.Item value={ch}>{ch}</Select.Item>
                               {/each}
