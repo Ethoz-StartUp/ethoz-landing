@@ -190,23 +190,15 @@ export async function saveLead(lead: Lead, recaptchaToken?: string | null): Prom
     }
   }
 
-  // Fallback: direct insert (for when Supabase is not configured or no token)
+  // No direct-insert fallback: the leads table has no anon insert policy (migration 005),
+  // so the verify-lead Edge Function is the only write path.
   if (!supabase) {
     log.warn('[Leads] Supabase not configured, lead not saved:', lead);
     return { ok: false, error: 'Supabase not configured' };
   }
 
-  const { error } = await supabase.from('leads').insert([{
-    ...payload,
-    created_at: new Date().toISOString(),
-  }]);
-
-  if (error) {
-    log.error('[Leads] ✘ Failed to save:', error.message, { lead: { school: lead.school_name, email: maskEmail(lead.contact_email) } });
-    captureError(error, { fn: 'saveLead', school: lead.school_name, email: maskEmail(lead.contact_email) });
-    return { ok: false, error: error.message };
-  }
-
-  log.info('[Leads] ✔ Lead saved:', { school: lead.school_name, email: maskEmail(lead.contact_email), source: lead.contact_source });
-  return { ok: true };
+  // Reached here with a configured client but no reCAPTCHA token (e.g. adblocker/network
+  // blocked reCAPTCHA). Surface this explicitly instead of attempting a doomed anon insert.
+  log.warn('[Leads] ✘ Lead not saved — reCAPTCHA token unavailable:', { school: lead.school_name, email: maskEmail(lead.contact_email) });
+  return { ok: false, error: 'recaptcha_unavailable' };
 }

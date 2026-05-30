@@ -71,6 +71,7 @@
 
     if (!result.ok) {
       console.error('[Contact] Lead save failed:', result.error);
+      captureError(new Error(result.error ?? 'Lead save failed'), { fn: 'contact.saveLead' });
       errorMessage = 'No pudimos enviar tu mensaje. Por favor intenta de nuevo.';
       submitting = false;
       return;

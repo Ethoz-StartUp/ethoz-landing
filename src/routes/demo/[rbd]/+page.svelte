@@ -204,6 +204,7 @@
 
       if (!result.ok) {
         console.error('[Demo] Lead save failed:', result.error);
+        captureError(new Error(result.error ?? 'Lead save failed'), { fn: 'demo.saveLead' });
         errorMessage = 'No pudimos guardar tu solicitud. Por favor intenta de nuevo.';
         submitting = false;
         return;

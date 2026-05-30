@@ -1,4 +1,4 @@
-import { vi, describe, it, expect, beforeEach } from 'vitest';
+import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
 
 // Mock the supabase client
 const mockInsert = vi.fn();
@@ -57,30 +57,43 @@ beforeEach(() => {
 });
 
 describe('saveLead', () => {
+  // saveLead's only write path is the verify-lead Edge Function, reached via fetch
+  // when a reCAPTCHA token is supplied. Mock the global fetch to exercise it.
+  let fetchMock: ReturnType<typeof vi.fn>;
+
+  beforeEach(() => {
+    fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
   it('returns ok:true on success', async () => {
-    mockInsert.mockResolvedValue({ error: null });
-    const result = await saveLead(baseLead);
+    fetchMock.mockResolvedValue({ ok: true, json: async () => ({ ok: true }) });
+    const result = await saveLead(baseLead, 'tok');
     expect(result).toEqual({ ok: true });
   });
 
   it('returns ok:false with error message on failure', async () => {
-    mockInsert.mockResolvedValue({ error: { message: 'DB error' } });
-    const result = await saveLead(baseLead);
+    fetchMock.mockResolvedValue({ ok: false, json: async () => ({ error: 'DB error' }) });
+    const result = await saveLead(baseLead, 'tok');
     expect(result).toEqual({ ok: false, error: 'DB error' });
   });
 
   it('flags test emails — notes should be "[TEST] Internal team"', async () => {
-    mockInsert.mockResolvedValue({ error: null });
-    await saveLead({ ...baseLead, contact_email: 'ignacioaraya1995@gmail.com' });
-    const insertCall = mockInsert.mock.calls[0][0];
-    expect(insertCall[0].notes).toBe('[TEST] Internal team');
+    fetchMock.mockResolvedValue({ ok: true, json: async () => ({ ok: true }) });
+    await saveLead({ ...baseLead, contact_email: 'ignacioaraya1995@gmail.com' }, 'tok');
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body);
+    expect(body.notes).toBe('[TEST] Internal team');
   });
 
   it('does not flag non-test emails', async () => {
-    mockInsert.mockResolvedValue({ error: null });
-    await saveLead({ ...baseLead, contact_email: 'real@school.cl' });
-    const insertCall = mockInsert.mock.calls[0][0];
-    expect(insertCall[0].notes).not.toBe('[TEST] Internal team');
+    fetchMock.mockResolvedValue({ ok: true, json: async () => ({ ok: true }) });
+    await saveLead({ ...baseLead, contact_email: 'real@school.cl' }, 'tok');
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body);
+    expect(body.notes).not.toBe('[TEST] Internal team');
   });
 });
 

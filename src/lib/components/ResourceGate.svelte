@@ -4,6 +4,7 @@
   import { trackEvent } from '$lib/utils/analytics';
   import { Download, Loader2 } from '@lucide/svelte';
   import { browser } from '$app/environment';
+  import { env } from '$env/dynamic/public';
 
   type Props = {
     open: boolean;
@@ -47,7 +48,7 @@
     }
 
     try {
-      const supabaseUrl = (import.meta.env.VITE_PUBLIC_SUPABASE_URL as string) ?? '';
+      const supabaseUrl = env.PUBLIC_SUPABASE_URL ?? '';
       // Fire-and-forget — deliver PDF even if the request fails.
       if (supabaseUrl) {
         fetch(`${supabaseUrl}/functions/v1/request-resource`, {
