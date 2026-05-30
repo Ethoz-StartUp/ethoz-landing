@@ -27,6 +27,21 @@ const corsHeaders = {
     'authorization, x-client-info, apikey, content-type, x-cal-signature-256',
 };
 
+// Constant-time string compare — avoids an HMAC signature timing oracle.
+function timingSafeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let mismatch = 0;
+  for (let i = 0; i < a.length; i++) mismatch |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return mismatch === 0;
+}
+
+// Mask PII before logging (CLAUDE.md: never log raw emails/phones).
+function maskEmail(email: string): string {
+  if (!email || !email.includes('@')) return 'unknown';
+  const [user, domain] = email.split('@');
+  return `${user.slice(0, 2)}***@${domain}`;
+}
+
 // ── Webhook signature verification ──
 async function verifySignature(
   body: string,
@@ -46,7 +61,7 @@ async function verifySignature(
     const expected = Array.from(new Uint8Array(sig))
       .map((b) => b.toString(16).padStart(2, '0'))
       .join('');
-    return expected === signature;
+    return timingSafeEqual(expected, signature);
   } catch {
     return false;
   }
@@ -153,7 +168,7 @@ Deno.serve(async (req: Request) => {
 
     if (!leads?.length) {
       // Already updated by client-side or no matching lead
-      console.info(`[cal-webhook] No pending lead for ${attendeeEmail}`);
+      console.info(`[cal-webhook] No pending lead for ${maskEmail(attendeeEmail)}`);
       return json({ ok: true, already_updated: true });
     }
 
@@ -200,7 +215,7 @@ Deno.serve(async (req: Request) => {
     }
 
     console.info(
-      `[cal-webhook] Lead ${lead.id} → demo_scheduled (${attendeeEmail})`
+      `[cal-webhook] Lead ${lead.id} → demo_scheduled (${maskEmail(attendeeEmail)})`
     );
     return json({ ok: true, lead_id: lead.id });
   } catch (err) {

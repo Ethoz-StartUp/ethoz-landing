@@ -3,6 +3,10 @@ import { corsHeaders } from "../_shared/cors.ts";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+// Admin-only gate. verify_jwt=false means getUser() alone authenticates ANY valid
+// user; this scopes the function to the single admin (env override, falls back to
+// the canonical admin UUID used across the RLS policies).
+const ADMIN_USER_ID = Deno.env.get("ADMIN_USER_ID") || "169e6037-fcc2-4201-b2af-92547e1d6739";
 const GOOGLE_CLIENT_ID = Deno.env.get("GOOGLE_CLIENT_ID") || "";
 const GOOGLE_CLIENT_SECRET = Deno.env.get("GOOGLE_CLIENT_SECRET") || "";
 
@@ -203,6 +207,10 @@ Deno.serve(async (req) => {
   const { data: { user }, error: authError } = await supabase.auth.getUser(authHeader.replace("Bearer ", ""));
   if (authError || !user) {
     return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+  }
+  // Any valid user passes getUser(); only the admin may read OAuth tokens and publish.
+  if (user.id !== ADMIN_USER_ID) {
+    return new Response(JSON.stringify({ error: "Forbidden" }), { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } });
   }
 
   try {

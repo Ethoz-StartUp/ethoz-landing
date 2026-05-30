@@ -59,8 +59,10 @@ function json(data: Record<string, unknown>, status = 200) {
 
 async function verifyRecaptcha(token: string): Promise<{ success: boolean; score: number }> {
   if (!RECAPTCHA_SECRET) {
-    console.warn('[verify-lead] RECAPTCHA_SECRET_KEY not configured — skipping verification');
-    return { success: true, score: 1.0 };
+    // Fail CLOSED: a missing secret must never bypass verification.
+    // (CLAUDE.md: Edge Functions must verify mandatorily — no if(secret) passthrough.)
+    console.error('[verify-lead] RECAPTCHA_SECRET_KEY not configured — rejecting request');
+    return { success: false, score: 0 };
   }
 
   try {
