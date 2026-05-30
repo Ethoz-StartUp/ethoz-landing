@@ -1,5 +1,6 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { corsHeaders } from "../_shared/cors.ts";
+import { signState, verifyState } from "../_shared/oauth-state.ts";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -22,7 +23,7 @@ Deno.serve(async (req) => {
     authUrl.searchParams.set("client_id", META_APP_ID);
     authUrl.searchParams.set("redirect_uri", REDIRECT_URI);
     authUrl.searchParams.set("scope", "pages_show_list,pages_manage_posts,pages_read_engagement,instagram_basic,instagram_content_publish");
-    const state = `${Date.now()}:${crypto.randomUUID()}`;
+    const state = await signState();
     authUrl.searchParams.set("state", state);
     return Response.redirect(authUrl.toString(), 302);
   }
@@ -32,11 +33,8 @@ Deno.serve(async (req) => {
   if (!state) {
     return new Response("Missing state parameter", { status: 400 });
   }
-  const [tsStr] = state.split(":");
-  const ts = Number(tsStr);
-  const TEN_MINUTES_MS = 10 * 60 * 1000;
-  if (isNaN(ts) || Date.now() - ts > TEN_MINUTES_MS) {
-    console.error("[Meta OAuth] State parameter invalid or expired:", state);
+  if (!(await verifyState(state))) {
+    console.error("[Meta OAuth] Invalid, expired, or unsigned state parameter");
     return new Response("Invalid or expired state parameter", { status: 400 });
   }
 
@@ -80,13 +78,17 @@ Deno.serve(async (req) => {
 
   // Fallback: if no pages returned, try getting token for known Page ID directly
   if (!page) {
-    const knownPageId = "1083964671464526";
-    const directRes = await fetch(
-      `https://graph.facebook.com/v21.0/${knownPageId}?fields=access_token,name&access_token=${longToken}`
-    );
-    const directData = await directRes.json();
-    if (directData.access_token) {
-      page = { id: knownPageId, access_token: directData.access_token, name: directData.name || "Ethoz" };
+    const knownPageId = Deno.env.get("META_PAGE_ID") || "";
+    if (!knownPageId) {
+      console.warn("[Meta OAuth] META_PAGE_ID not set — skipping known-page fallback");
+    } else {
+      const directRes = await fetch(
+        `https://graph.facebook.com/v21.0/${knownPageId}?fields=access_token,name&access_token=${longToken}`
+      );
+      const directData = await directRes.json();
+      if (directData.access_token) {
+        page = { id: knownPageId, access_token: directData.access_token, name: directData.name || "Ethoz" };
+      }
     }
   }
 

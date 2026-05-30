@@ -1,5 +1,6 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { corsHeaders } from "../_shared/cors.ts";
+import { signState, verifyState } from "../_shared/oauth-state.ts";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -23,8 +24,8 @@ Deno.serve(async (req) => {
     authUrl.searchParams.set("client_id", LINKEDIN_CLIENT_ID);
     authUrl.searchParams.set("redirect_uri", REDIRECT_URI);
     authUrl.searchParams.set("scope", "openid profile w_member_social w_organization_social r_organization_social");
-    // State encodes a timestamp so we can verify it wasn't replayed or forged
-    const state = `${Date.now()}:${crypto.randomUUID()}`;
+    // HMAC-signed state binds the CSRF token to a server secret (see _shared/oauth-state.ts)
+    const state = await signState();
     authUrl.searchParams.set("state", state);
     return Response.redirect(authUrl.toString(), 302);
   }
@@ -34,12 +35,8 @@ Deno.serve(async (req) => {
   if (!state) {
     return new Response("Missing state parameter", { status: 400 });
   }
-  const [tsStr] = state.split(":");
-  const ts = Number(tsStr);
-  const TEN_MINUTES_MS = 10 * 60 * 1000;
-  if (isNaN(ts) || Date.now() - ts > TEN_MINUTES_MS) {
-    // SECURITY: state parameter timestamp is expired or invalid
-    console.error("[LinkedIn OAuth] State parameter invalid or expired:", state);
+  if (!(await verifyState(state))) {
+    console.error("[LinkedIn OAuth] Invalid, expired, or unsigned state parameter");
     return new Response("Invalid or expired state parameter", { status: 400 });
   }
 

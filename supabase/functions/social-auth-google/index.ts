@@ -1,5 +1,6 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { corsHeaders } from "../_shared/cors.ts";
+import { signState, verifyState } from "../_shared/oauth-state.ts";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
@@ -25,7 +26,7 @@ Deno.serve(async (req) => {
     authUrl.searchParams.set("scope", "https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube");
     authUrl.searchParams.set("access_type", "offline");
     authUrl.searchParams.set("prompt", "consent");
-    const state = `${Date.now()}:${crypto.randomUUID()}`;
+    const state = await signState();
     authUrl.searchParams.set("state", state);
     return Response.redirect(authUrl.toString(), 302);
   }
@@ -35,11 +36,8 @@ Deno.serve(async (req) => {
   if (!state) {
     return new Response("Missing state parameter", { status: 400 });
   }
-  const [tsStr] = state.split(":");
-  const ts = Number(tsStr);
-  const TEN_MINUTES_MS = 10 * 60 * 1000;
-  if (isNaN(ts) || Date.now() - ts > TEN_MINUTES_MS) {
-    console.error("[Google OAuth] State parameter invalid or expired:", state);
+  if (!(await verifyState(state))) {
+    console.error("[Google OAuth] Invalid, expired, or unsigned state parameter");
     return new Response("Invalid or expired state parameter", { status: 400 });
   }
 
