@@ -6,6 +6,7 @@ type Locale = 'es' | 'en';
 
 const translations: Record<Locale, Record<string, string>> = { es, en };
 
+// Safe only with adapter-static (single render pass). Move locale to context/store before enabling SSR — module-level $state leaks across concurrent server requests.
 let locale = $state<Locale>('es');
 
 export function t(key: TranslationKey): string {

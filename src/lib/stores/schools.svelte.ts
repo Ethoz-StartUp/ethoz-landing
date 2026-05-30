@@ -10,17 +10,7 @@
 // Types
 // ---------------------------------------------------------------------------
 
-interface SchoolRaw {
-	r: number;
-	n: string;
-	rg: number;
-	c: string;
-	s: string;
-	m: number;
-	d: number;
-	lt: number;
-	lg: number;
-}
+import type { SchoolCompact as SchoolRaw } from '$lib/types/school';
 
 interface SchoolData {
 	meta: { totalSchools: number; totalRegions: number; totalCommunes: number };
@@ -119,11 +109,8 @@ function createSchoolStore() {
 		// Search query filter (requires at least 2 characters)
 		const query = searchQuery.trim();
 		if (query.length < 2) {
-			// No search text — return by enrollment desc, capped
-			return pool
-				.slice()
-				.sort((a, b) => b.enrollment - a.enrollment)
-				.slice(0, MAX_RESULTS);
+			// No search text — pool is already enrollment-desc (pre-sorted in load()), just cap.
+			return pool.slice(0, MAX_RESULTS);
 		}
 
 		const normalizedQuery = normalize(query);
@@ -167,7 +154,9 @@ function createSchoolStore() {
 			const data: SchoolData = await response.json();
 
 			regions = data.regions.map((r) => ({ code: r.code, name: r.name }));
-			allSchools = data.schools.map(mapSchool);
+			// Pre-sort by enrollment desc once so the no-query branch (and filtered
+			// subsets, which preserve order) can skip re-sorting on every keystroke.
+			allSchools = data.schools.map(mapSchool).sort((a, b) => b.enrollment - a.enrollment);
 
 			// Build lookup maps for O(1) access
 			schoolsByRbd = new Map(allSchools.map((s) => [s.rbd, s]));

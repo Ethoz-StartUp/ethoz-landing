@@ -6,7 +6,7 @@ import { getDeviceMetadata } from '$lib/utils/device';
 import { readAttribution } from '$lib/utils/attribution';
 import { log } from '$lib/utils/logger';
 
-function maskEmail(email: string): string {
+export function maskEmail(email: string): string {
   const [user, domain] = email.split('@');
   if (!domain) return '***';
   return `${user.slice(0, 2)}***@${domain}`;
@@ -21,7 +21,8 @@ function captureError(err: unknown, context?: Record<string, unknown>): void {
 export async function fetchWithRetryAndTimeout(
   url: string,
   init: RequestInit,
-  opts: { timeoutMs?: number; retries?: number } = {}
+  opts: { timeoutMs?: number; retries?: number } = {},
+  context = 'fetch'
 ): Promise<Response> {
   const { timeoutMs = 10_000, retries = 1 } = opts;
   let lastError: unknown;
@@ -35,7 +36,7 @@ export async function fetchWithRetryAndTimeout(
       import('@sentry/browser').then(Sentry => {
         Sentry.addBreadcrumb({
           category: 'fetch',
-          message: `verify-lead attempt ${attempt + 1}/${retries + 1}`,
+          message: `${context} attempt ${attempt + 1}/${retries + 1}`,
           level: 'info',
           data: { url, attempt: attempt + 1 }
         });
@@ -52,7 +53,7 @@ export async function fetchWithRetryAndTimeout(
       import('@sentry/browser').then(Sentry => {
         Sentry.addBreadcrumb({
           category: 'fetch',
-          message: `verify-lead attempt ${attempt + 1} failed`,
+          message: `${context} attempt ${attempt + 1} failed`,
           level: 'warning',
           data: { url, attempt: attempt + 1, elapsed_ms: elapsed, error: String(err) }
         });
@@ -83,6 +84,7 @@ if (supabase) {
 }
 
 export interface Lead {
+  id?: string;
   school_name: string;
   school_rbd?: number;
   school_commune?: string;
@@ -93,7 +95,10 @@ export interface Lead {
   contact_source?: string;
   notes?: string;
   status: 'new' | 'contacted' | 'demo_scheduled' | 'demo_done' | 'closed';
+  metadata?: Record<string, unknown>;
+  visitor_id?: string;
   created_at?: string;
+  updated_at?: string;
 }
 
 /** Update the most recent lead with this email to a new status (client-side fallback) */
@@ -170,7 +175,8 @@ export async function saveLead(lead: Lead, recaptchaToken?: string | null): Prom
       const res = await fetchWithRetryAndTimeout(
         `${supabaseUrl}/functions/v1/verify-lead`,
         { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) },
-        { timeoutMs: 10_000, retries: 1 }
+        { timeoutMs: 10_000, retries: 1 },
+        'verify-lead'
       );
 
       const data = await res.json();

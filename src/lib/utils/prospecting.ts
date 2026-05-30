@@ -1,16 +1,8 @@
 // ── Types ──
 
-export interface SchoolCompact {
-  r: number;
-  n: string;
-  rg: number;
-  c: string;
-  s: string;
-  m: number;
-  d: number;
-  lt: number;
-  lg: number;
-}
+import type { SchoolCompact } from '$lib/types/school';
+
+export type { SchoolCompact };
 
 export interface Sostenedor {
   name: string;

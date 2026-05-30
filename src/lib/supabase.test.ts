@@ -41,7 +41,7 @@ vi.mock('@supabase/supabase-js', () => ({
 }));
 
 // Import after mock is set up
-const { saveLead, updateLeadStatus } = await import('./supabase');
+const { saveLead, updateLeadStatus, maskEmail } = await import('./supabase');
 
 const baseLead = {
   school_name: 'Colegio Test',
@@ -54,6 +54,20 @@ const baseLead = {
 beforeEach(() => {
   vi.clearAllMocks();
   localStorage.clear();
+});
+
+describe('maskEmail', () => {
+  it('masks a typical email — 2-char prefix + ***@domain', () => {
+    expect(maskEmail('alice@example.com')).toBe('al***@example.com');
+  });
+
+  it('returns *** when there is no domain', () => {
+    expect(maskEmail('noatsign')).toBe('***');
+  });
+
+  it('returns *** for an empty string', () => {
+    expect(maskEmail('')).toBe('***');
+  });
 });
 
 describe('saveLead', () => {
