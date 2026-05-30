@@ -22,6 +22,9 @@
 		"lint:fix": "eslint src supabase/functions --fix",
 		"video:render": "node scripts/generate-pitch-video.mjs"
 	},
+	"engines": {
+		"node": ">=20.18.0 <21"
+	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
 		"@internationalized/date": "^3.12.0",
@@ -42,7 +45,6 @@
 		"svelte-check": "^4.4.2",
 		"svelte-eslint-parser": "^1.6.0",
 		"svelte-sonner": "^1.1.0",
-		"tailwindcss-animate": "^1.0.7",
 		"typescript": "~5.9.3",
 		"typescript-eslint": "^8.58.1",
 		"vite": "^7.3.1",
