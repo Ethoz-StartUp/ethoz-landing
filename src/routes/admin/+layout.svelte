@@ -11,9 +11,19 @@
   const isLoginPage = $derived(page.url.pathname === '/admin');
 
   let mobileMenuOpen = $state(false);
+  let initializing = $state(true);
 
   onMount(async () => {
     await adminStore.init();
+    initializing = false;
+  });
+
+  // Centralized auth guard: once init resolves, bounce unauthenticated users on protected
+  // routes back to the login page. Child pages no longer guard themselves (MAINT-2/SEC-7).
+  $effect(() => {
+    if (!initializing && !adminStore.authenticated && !isLoginPage) {
+      goto('/admin');
+    }
   });
 
   async function handleLogout() {
@@ -144,7 +154,7 @@
   </header>
 {/if}
 
-{#if adminStore.authenticated || isLoginPage}
+{#if isLoginPage || (!initializing && adminStore.authenticated)}
   {@render children()}
 {:else}
   <div class="flex min-h-dvh items-center justify-center">

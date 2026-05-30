@@ -784,4 +784,5 @@ export const es = {
 
   // Admin: prospecting tracker
   'prospecting.activity_log_failed': 'No se pudo registrar la actividad. El cambio de estado sí se guardó.',
+  'prospecting.schools_load_error': 'Error al cargar datos de colegios',
 } as const;

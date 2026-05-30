@@ -779,4 +779,5 @@ export const en = {
 
   // Admin: prospecting tracker
   'prospecting.activity_log_failed': 'Could not log the activity. The status change was saved.',
+  'prospecting.schools_load_error': 'Failed to load school data',
 } as const;

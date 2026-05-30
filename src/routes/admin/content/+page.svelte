@@ -1,7 +1,5 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
   import { page } from '$app/state';
-  import { adminStore } from '$lib/stores/admin.svelte';
   import { supabase } from '$lib/supabase';
   import { env } from '$env/dynamic/public';
   import { onMount } from 'svelte';
@@ -57,11 +55,6 @@
     created_at: string;
     updated_at?: string | null;
   }
-
-  // ── Auth guard ──
-  $effect(() => {
-    if (!adminStore.authenticated) goto('/admin');
-  });
 
   // ── State ──
   let posts = $state<ContentPost[]>([]);
@@ -142,9 +135,8 @@
     loadingConnections = false;
   }
 
+  // Auth is gated by +layout.svelte; this page only renders when authenticated.
   onMount(async () => {
-    await adminStore.init();
-    if (!adminStore.authenticated) { goto('/admin'); return; }
     await Promise.all([loadPosts(), loadConnectedPlatforms()]);
 
     const connected = page.url.searchParams.get('connected');
@@ -394,6 +386,7 @@
     publishingId = null;
   }
 
+  // TODO(image-gen): wire to the generate-images pipeline; the button (~line 680) currently only errors.
   function generateImage(_post: ContentPost) {
     toast.error('Generación de imágenes próximamente');
   }
@@ -404,9 +397,6 @@
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
-{#if !adminStore.authenticated}
-  <!-- Auth guard redirect -->
-{:else}
   <main class="min-h-dvh bg-canvas-strong pt-14">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
 
@@ -499,6 +489,7 @@
           </div>
           <div class="min-w-[160px]">
             <Label for="platform-filter" class="mb-1.5 block text-[11px]">Plataforma</Label>
+            <!-- `as any`: bits-ui v2 single-select types `value` as `string`, but our filter unions narrow it ('all' | Platform); the cast bridges that typing gap. -->
             <Select.Root type="single" bind:value={platformFilter as any}>
               <Select.Trigger id="platform-filter" class="w-full">
                 {platformFilter === 'all' ? 'Todas' : PLATFORM_LABELS[platformFilter as Platform]}
@@ -823,4 +814,3 @@
       </Dialog.Footer>
     </Dialog.Content>
   </Dialog.Root>
-{/if}

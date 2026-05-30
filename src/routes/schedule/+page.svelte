@@ -6,7 +6,6 @@
   import { page } from '$app/state';
   import { browser } from '$app/environment';
   import { trackEvent } from '$lib/utils/analytics';
-  import { updateLeadStatus } from '$lib/supabase';
   import { onMount, untrack } from 'svelte';
 
   // Read from sessionStorage (preferred) or fall back to URL params for backwards compat
@@ -137,14 +136,7 @@
       action: 'bookingSuccessful',
       callback: () => {
         trackEvent('demo_booked', { school: prefill.school });
-
-        if (prefill.email) {
-          updateLeadStatus(
-            prefill.email,
-            'demo_scheduled',
-            `Booked via Cal.com | School: ${prefill.school}`
-          ).catch((err) => captureError(err, { fn: 'schedule.updateLeadStatus' }));
-        }
+        // Lead status → demo_scheduled is set server-side by the cal-webhook (post-migration-005 the anon client can't UPDATE leads under RLS).
       }
     });
 

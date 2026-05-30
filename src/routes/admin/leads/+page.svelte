@@ -1,7 +1,5 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
-  import { adminStore } from '$lib/stores/admin.svelte';
-  import { supabase } from '$lib/supabase';
+  import { supabase, type Lead } from '$lib/supabase';
   import { onMount } from 'svelte';
   import { toast } from 'svelte-sonner';
   import { formatDate, formatDateTime } from '$lib/utils/format';
@@ -28,39 +26,19 @@
   } from '@lucide/svelte';
 
   // ── Types ──
-  interface Lead {
-    id: string;
-    contact_name: string;
-    contact_email: string;
-    contact_phone?: string;
-    contact_role?: string;
-    contact_source?: string;
-    school_name: string;
-    school_rbd?: number;
-    school_commune?: string;
-    status: 'new' | 'contacted' | 'demo_scheduled' | 'demo_done' | 'closed';
-    notes?: string;
-    metadata?: Record<string, unknown>;
-    visitor_id?: string;
-    created_at: string;
-    updated_at?: string;
-  }
-
   type LeadStatus = Lead['status'];
-
-  // ── Auth guard ──
-  $effect(() => {
-    if (!adminStore.authenticated) goto('/admin');
-  });
+  // Rows loaded from the DB always carry the server-generated id + created_at
+  // (the exported Lead leaves them optional because saveLead builds one pre-insert).
+  type LeadRow = Lead & { id: string; created_at: string };
 
   // ── State ──
-  let leads = $state<Lead[]>([]);
+  let leads = $state<LeadRow[]>([]);
   let loading = $state(true);
   let refreshing = $state(false);
   let search = $state('');
   let statusFilter = $state<LeadStatus | 'all'>('all');
   let updatingId = $state<string | null>(null);
-  let detailLead = $state<Lead | null>(null);
+  let detailLead = $state<LeadRow | null>(null);
   let sheetOpen = $state(false);
 
   // ── Load data ──
@@ -76,20 +54,14 @@
     if (error) {
       toast.error('Error al cargar leads', { description: error.message });
     } else if (data) {
-      leads = data as Lead[];
+      leads = data as LeadRow[];
     }
     loading = false;
     refreshing = false;
   }
 
-  onMount(async () => {
-    await adminStore.init();
-    if (!adminStore.authenticated) {
-      goto('/admin');
-      return;
-    }
-    await loadLeads();
-  });
+  // Auth is gated by +layout.svelte; this page only renders when authenticated.
+  onMount(loadLeads);
 
   // ── Derived ──
   const filtered = $derived.by(() => {
@@ -112,6 +84,15 @@
     return list;
   });
 
+  // Single-pass per-status tally for the summary cards (avoids 5× filter().length).
+  const statusCounts = $derived.by(() => {
+    const counts: Record<LeadStatus, number> = {
+      new: 0, contacted: 0, demo_scheduled: 0, demo_done: 0, closed: 0,
+    };
+    for (const l of leads) counts[l.status]++;
+    return counts;
+  });
+
   // ── Status config ──
   const STATUS_LABELS: Record<LeadStatus, string> = {
     new: 'Nuevo',
@@ -132,12 +113,12 @@
   const ALL_STATUSES: LeadStatus[] = ['new', 'contacted', 'demo_scheduled', 'demo_done', 'closed'];
 
   // ── Handlers ──
-  function openDetail(lead: Lead) {
+  function openDetail(lead: LeadRow) {
     detailLead = lead;
     sheetOpen = true;
   }
 
-  async function changeStatus(lead: Lead, newStatus: LeadStatus) {
+  async function changeStatus(lead: LeadRow, newStatus: LeadStatus) {
     if (!supabase || lead.status === newStatus) return;
     updatingId = lead.id;
 
@@ -165,9 +146,6 @@
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
-{#if !adminStore.authenticated}
-  <!-- Auth guard redirect -->
-{:else}
   <main class="min-h-dvh bg-canvas-strong pt-14">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       <!-- Header -->
@@ -187,14 +165,13 @@
       <!-- Status summary cards -->
       <div class="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-5">
         {#each ALL_STATUSES as s}
-          {@const count = leads.filter((l) => l.status === s).length}
           <button
             type="button"
             onclick={() => (statusFilter = statusFilter === s ? 'all' : s)}
             class="rounded-xl border p-4 text-left transition-colors hover:bg-background/80 {statusFilter === s ? 'border-primary bg-primary/5' : 'border-border bg-background'}"
           >
             <p class="text-xs font-medium text-muted-foreground">{STATUS_LABELS[s]}</p>
-            <p class="mt-1 text-2xl font-bold tabular-nums text-foreground">{count}</p>
+            <p class="mt-1 text-2xl font-bold tabular-nums text-foreground">{statusCounts[s]}</p>
           </button>
         {/each}
       </div>
@@ -422,4 +399,3 @@
       </Sheet.Content>
     </Sheet.Root>
   </main>
-{/if}

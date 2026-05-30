@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
   import { adminStore } from '$lib/stores/admin.svelte';
   import { supabase } from '$lib/supabase';
   import {
@@ -10,7 +9,6 @@
     REGION_NAMES,
     type Sostenedor,
   } from '$lib/utils/prospecting';
-  import { onMount } from 'svelte';
   import { toast } from 'svelte-sonner';
   import { t } from '$lib/i18n/index.svelte';
   import { formatDate } from '$lib/utils/format';
@@ -46,11 +44,6 @@
     MoreHorizontal,
   } from '@lucide/svelte';
 
-  // ── Auth guard ──
-  $effect(() => {
-    if (!adminStore.authenticated) goto('/admin');
-  });
-
   // ── Tab state ──
   let activeTab = $state<'scoring' | 'tracker'>('scoring');
 
@@ -66,6 +59,11 @@
       .then((r) => r.json())
       .then((data) => {
         allSostenedores = buildSostenedores(data.schools);
+        loadingScoring = false;
+      })
+      .catch((err) => {
+        console.error(err);
+        toast.error(t('prospecting.schools_load_error'));
         loadingScoring = false;
       });
   });
@@ -100,8 +98,11 @@
       list = list.filter((s) => s.name.toLowerCase().includes(q));
     }
 
+    // buildSostenedores already returns score-desc, so the default sort is a no-op — skip it.
+    if (sortBy === 'score' && sortDir === 'desc') return list;
+
     const dir = sortDir === 'desc' ? -1 : 1;
-    list = [...list].sort((a, b) => {
+    return [...list].sort((a, b) => {
       switch (sortBy) {
         case 'score': return (a.score - b.score) * dir;
         case 'enrollment': return (a.totalEnrollment - b.totalEnrollment) * dir;
@@ -110,8 +111,6 @@
         default: return 0;
       }
     });
-
-    return list;
   });
 
   const stats = $derived({
@@ -140,7 +139,8 @@
   }
 
   function openSostDetail(sost: Sostenedor) {
-    detailSost = sost;
+    // Sort schools once here (enrollment desc) instead of mutating the source on every render.
+    detailSost = { ...sost, schools: [...sost.schools].sort((a, b) => (b.m || 0) - (a.m || 0)) };
     detailSheetOpen = true;
   }
 
@@ -245,7 +245,7 @@
   let importing = $state(false);
 
   let trackerSearch = $state('');
-  let trackerStatusFilter = $state('all');
+  let trackerStatusFilter = $state<ProspectStatus | 'all'>('all');
   let trackerTierFilter = $state('0');
   let trackerChannelFilter = $state('all');
 
@@ -287,14 +287,7 @@
     loadingTracker = false;
   }
 
-  onMount(async () => {
-    await adminStore.init();
-    if (!adminStore.authenticated) {
-      goto('/admin');
-      return;
-    }
-  });
-
+  // Auth is gated by +layout.svelte; this page only renders when authenticated.
   $effect(() => {
     if (activeTab === 'tracker' && prospects.length === 0 && !loadingTracker) {
       loadProspects();
@@ -448,9 +441,6 @@
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
-{#if !adminStore.authenticated}
-  <!-- Auth guard redirect -->
-{:else}
   <main class="min-h-dvh bg-canvas-strong pt-14">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
 
@@ -706,7 +696,7 @@
               </div>
               <div>
                 <Label class="mb-1.5 block text-xs">Estado</Label>
-                <Select.Root type="single" bind:value={trackerStatusFilter}>
+                <Select.Root type="single" bind:value={trackerStatusFilter as any}>
                   <Select.Trigger class="w-40">
                     {trackerStatusFilter === 'all' ? 'Todos' : PROSPECT_STATUS_LABELS[trackerStatusFilter as ProspectStatus]}
                   </Select.Trigger>
@@ -987,7 +977,7 @@
           <div>
             <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{detailSost.schoolCount} colegios</p>
             <div class="space-y-1.5">
-              {#each detailSost.schools.sort((a, b) => (b.m || 0) - (a.m || 0)) as school}
+              {#each detailSost.schools as school}
                 <div class="flex items-center justify-between rounded-lg border border-border bg-muted/30 px-3 py-2 text-xs">
                   <div class="flex items-center gap-2">
                     <GraduationCap class="size-3.5 shrink-0 text-muted-foreground" />
@@ -1006,4 +996,3 @@
       {/if}
     </Sheet.Content>
   </Sheet.Root>
-{/if}
