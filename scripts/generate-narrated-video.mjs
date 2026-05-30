@@ -174,11 +174,13 @@ const context = await browser.newContext({ deviceScaleFactor: 1 });
 const page = await context.newPage();
 await page.setViewportSize(dims);
 
+// Wait for fonts to be fully loaded once before the slide loop
+await page.evaluate(() => document.fonts.ready);
+
 const slideFiles = [];
 for (let i = 0; i < sections.length; i++) {
   const html = makeSlideHTML(sections[i], i, sections.length, format);
   await page.setContent(html, { waitUntil: 'networkidle' });
-  await page.waitForTimeout(800);
   const filePath = resolve(workDir, `slide-${String(i).padStart(2, '0')}.png`);
   await page.screenshot({ path: filePath, type: 'png' });
   slideFiles.push({ path: filePath, duration: sectionDuration });

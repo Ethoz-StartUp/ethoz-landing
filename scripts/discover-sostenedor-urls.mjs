@@ -210,13 +210,29 @@ async function pushToSupabase(rows) {
 
 // ── Main ──
 async function main() {
-  console.log(`[discover] tier=${TIER} limit=${LIMIT} dryRun=${DRY_RUN} push=${PUSH}`);
+  const FORCE = args.includes('--force');
+  console.log(`[discover] tier=${TIER} limit=${LIMIT} dryRun=${DRY_RUN} push=${PUSH} force=${FORCE}`);
   const data = JSON.parse(await fs.readFile(SCHOOLS_JSON, 'utf-8'));
   const sostenedores = buildSostenedores(data.schools);
   console.log(`[discover] ${sostenedores.length} total sostenedores`);
 
+  // Load existing results to skip already-discovered entries
+  let existingNames = new Set();
+  if (!FORCE) {
+    try {
+      const existing = JSON.parse(await fs.readFile(OUTPUT_JSON, 'utf-8'));
+      for (const row of existing.rows ?? []) {
+        if (row.sostenedor_name) existingNames.add(row.sostenedor_name);
+      }
+      console.log(`[discover] skipping ${existingNames.size} already-present sostenedores (use --force to override)`);
+    } catch {
+      // File doesn't exist yet — proceed normally
+    }
+  }
+
   let queue = sostenedores;
   if (TIER !== 'all') queue = queue.filter((s) => s.tier === Number(TIER));
+  if (!FORCE) queue = queue.filter((s) => !existingNames.has(s.name));
   queue = queue.slice(0, LIMIT);
   console.log(`[discover] processing ${queue.length} (tier ${TIER}, limit ${LIMIT})`);
 

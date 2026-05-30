@@ -61,6 +61,8 @@ function getArg(name) {
 
 const postId = getArg('post-id');
 const platformFilter = getArg('platform');
+const limitArg = getArg('limit');
+const LIMIT = limitArg !== null ? Number(limitArg) : 10;
 
 // ── Build image prompt ──
 function buildPrompt(post) {
@@ -179,6 +181,8 @@ async function fetchPosts() {
     filters.push(`platform=eq.${platformFilter}`);
   }
 
+  filters.push(`limit=${LIMIT}`);
+
   const query = filters.map(f => f).join('&');
   const res = await fetch(`${SUPABASE_URL}/rest/v1/content_posts?${query}`, {
     headers: {
@@ -238,37 +242,43 @@ async function run() {
   let success = 0;
   let failed = 0;
 
-  for (const post of posts) {
+  async function processPost(post) {
     const label = post.title || post.id;
     console.log(`▸ "${label}" (${post.platform || 'unknown'})`);
 
     try {
-      // 1. Build prompt
       const prompt = buildPrompt(post);
 
-      // 2. Generate image
       console.log('  Generating image with Gemini...');
       const { base64, mimeType } = await generateImage(prompt);
       console.log('  ✔ Image generated');
 
-      // 3. Upload to Supabase Storage
       const ext = mimeType.includes('jpeg') ? 'jpg' : 'png';
       const filename = `post-${post.id}-${Date.now()}.${ext}`;
       const publicUrl = await uploadImage(filename, base64, mimeType);
       console.log('  ✔ Uploaded to storage');
 
-      // 4. Update post record
       await updateImageUrl(post.id, publicUrl);
       console.log(`  ✔ Generated image for: "${label}" (${post.platform})`);
       console.log(`     ${publicUrl}`);
-
-      success++;
+      console.log('');
+      return { ok: true };
     } catch (err) {
       console.error(`  ✘ Failed for "${label}": ${err.message}`);
-      failed++;
+      console.log('');
+      return { ok: false };
     }
+  }
 
-    console.log('');
+  // Process in chunks of 3 for bounded concurrency
+  const CHUNK = 3;
+  for (let i = 0; i < posts.length; i += CHUNK) {
+    const chunk = posts.slice(i, i + CHUNK);
+    const results = await Promise.allSettled(chunk.map(processPost));
+    for (const r of results) {
+      if (r.status === 'fulfilled' && r.value.ok) success++;
+      else failed++;
+    }
   }
 
   console.log(`✔ Done: ${success} succeeded, ${failed} failed\n`);
