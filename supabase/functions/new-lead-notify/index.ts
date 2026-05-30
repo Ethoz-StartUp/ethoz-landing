@@ -198,7 +198,7 @@ Deno.serve(async (req: Request) => {
     await transporter.sendMail({
       from: `"Ethoz Leads" <${gmailUser}>`,
       to: notifyEmails.join(', '),
-      replyTo: contactEmail,
+      replyTo: r.contact_email || '', // CORR-8: raw email for the SMTP header (escapeHtml is for the HTML body only)
       subject,
       html,
     });
