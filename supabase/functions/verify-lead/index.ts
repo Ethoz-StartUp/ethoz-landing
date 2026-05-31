@@ -18,7 +18,7 @@ import { sendGa4Event } from '../_shared/ga4.ts';
 const RECAPTCHA_SECRET = Deno.env.get('RECAPTCHA_SECRET_KEY') || '';
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!;
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
-const MIN_SCORE = 0.5;
+const MIN_SCORE = 0.3; // 0.5 rejected legit privacy-browser/VPN users (they score ~0.3-0.5); 0.3 keeps bots out while saving real leads
 
 interface LeadPayload {
   school_name: string;
