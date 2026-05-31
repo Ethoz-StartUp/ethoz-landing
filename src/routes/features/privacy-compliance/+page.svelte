@@ -22,12 +22,12 @@
   ];
 
   const dataInventory = [
-    { categoryKey: 'featurePage.privacyCompliance.inventory.cat_identification' as const, itemsKey: 'featurePage.privacyCompliance.inventory.items_identification' as const, law: 'Art. 4', sensitivity: 'Básico', levelKey: 'featurePage.privacyCompliance.inventory.level_basic' as const },
-    { categoryKey: 'featurePage.privacyCompliance.inventory.cat_family_contact' as const, itemsKey: 'featurePage.privacyCompliance.inventory.items_family_contact' as const, law: 'Art. 4', sensitivity: 'Básico', levelKey: 'featurePage.privacyCompliance.inventory.level_basic' as const },
-    { categoryKey: 'featurePage.privacyCompliance.inventory.cat_medical' as const, itemsKey: 'featurePage.privacyCompliance.inventory.items_medical' as const, law: 'Art. 16', sensitivity: 'Sensible', levelKey: 'featurePage.privacyCompliance.inventory.level_sensitive' as const },
-    { categoryKey: 'featurePage.privacyCompliance.inventory.cat_judicial' as const, itemsKey: 'featurePage.privacyCompliance.inventory.items_judicial' as const, law: 'Art. 16', sensitivity: 'Sensible', levelKey: 'featurePage.privacyCompliance.inventory.level_sensitive' as const },
-    { categoryKey: 'featurePage.privacyCompliance.inventory.cat_attendance' as const, itemsKey: 'featurePage.privacyCompliance.inventory.items_attendance' as const, law: 'Art. 4', sensitivity: 'Básico', levelKey: 'featurePage.privacyCompliance.inventory.level_basic' as const },
-    { categoryKey: 'featurePage.privacyCompliance.inventory.cat_conduct' as const, itemsKey: 'featurePage.privacyCompliance.inventory.items_conduct' as const, law: 'Art. 16', sensitivity: 'Confidencial', levelKey: 'featurePage.privacyCompliance.inventory.level_confidential' as const },
+    { categoryKey: 'featurePage.privacyCompliance.inventory.cat_identification' as const, itemsKey: 'featurePage.privacyCompliance.inventory.items_identification' as const, law: 'Art. 4', level: 'basic', levelKey: 'featurePage.privacyCompliance.inventory.level_basic' as const },
+    { categoryKey: 'featurePage.privacyCompliance.inventory.cat_family_contact' as const, itemsKey: 'featurePage.privacyCompliance.inventory.items_family_contact' as const, law: 'Art. 4', level: 'basic', levelKey: 'featurePage.privacyCompliance.inventory.level_basic' as const },
+    { categoryKey: 'featurePage.privacyCompliance.inventory.cat_medical' as const, itemsKey: 'featurePage.privacyCompliance.inventory.items_medical' as const, law: 'Art. 16', level: 'sensitive', levelKey: 'featurePage.privacyCompliance.inventory.level_sensitive' as const },
+    { categoryKey: 'featurePage.privacyCompliance.inventory.cat_judicial' as const, itemsKey: 'featurePage.privacyCompliance.inventory.items_judicial' as const, law: 'Art. 16', level: 'sensitive', levelKey: 'featurePage.privacyCompliance.inventory.level_sensitive' as const },
+    { categoryKey: 'featurePage.privacyCompliance.inventory.cat_attendance' as const, itemsKey: 'featurePage.privacyCompliance.inventory.items_attendance' as const, law: 'Art. 4', level: 'basic', levelKey: 'featurePage.privacyCompliance.inventory.level_basic' as const },
+    { categoryKey: 'featurePage.privacyCompliance.inventory.cat_conduct' as const, itemsKey: 'featurePage.privacyCompliance.inventory.items_conduct' as const, law: 'Art. 16', level: 'confidential', levelKey: 'featurePage.privacyCompliance.inventory.level_confidential' as const },
   ];
 </script>
 
@@ -186,8 +186,8 @@
                   <td class="px-4 py-3 text-xs text-muted-foreground whitespace-nowrap">{row.law}</td>
                   <td class="px-4 py-3">
                     <span class="inline-flex items-center rounded-full px-2 py-0.5 text-mockup-xs font-semibold {
-                      row.sensitivity === 'Sensible' ? 'bg-destructive/10 text-destructive' :
-                      row.sensitivity === 'Confidencial' ? 'bg-warning/10 text-warning-foreground' :
+                      row.level === 'sensitive' ? 'bg-destructive/10 text-destructive' :
+                      row.level === 'confidential' ? 'bg-warning/10 text-warning-foreground' :
                       'bg-muted text-muted-foreground'
                     }">
                       {t(row.levelKey)}
