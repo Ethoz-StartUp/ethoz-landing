@@ -4,128 +4,129 @@
   import { Button } from '$lib/components/ui/button';
   import { Printer, ArrowLeft } from '@lucide/svelte';
   import { BRAND } from '$lib/brand';
+  import { t } from '$lib/i18n/index.svelte';
 
   const sections = [
     {
-      title: 'Gobernanza',
+      title: 'resComplianceChecklist.section_governance' as const,
       color: 'blue',
       items: [
         {
-          title: 'Encargado de Protección de Datos (DPO) designado',
-          detail: 'Persona natural o jurídica responsable de velar por el cumplimiento de la ley dentro del establecimiento.',
+          title: 'resComplianceChecklist.gov_dpo_title' as const,
+          detail: 'resComplianceChecklist.gov_dpo_detail' as const,
           article: 'Art. 48 Ley 21.719'
         },
         {
-          title: 'Inventario de datos personales actualizado',
-          detail: 'Registro de todos los datos tratados, su base legal, finalidad y plazo de retención.',
+          title: 'resComplianceChecklist.gov_inventory_title' as const,
+          detail: 'resComplianceChecklist.gov_inventory_detail' as const,
           article: 'Art. 16 Ley 21.719'
         },
         {
-          title: 'Política de privacidad publicada y accesible',
-          detail: 'Disponible en el sitio web o en la recepción del establecimiento, redactada en lenguaje claro.',
+          title: 'resComplianceChecklist.gov_privacy_policy_title' as const,
+          detail: 'resComplianceChecklist.gov_privacy_policy_detail' as const,
           article: 'Art. 14 Ley 21.719'
         },
         {
-          title: 'Plan de respuesta a brechas de seguridad aprobado',
-          detail: 'Procedimiento documentado para detectar, evaluar y notificar incidentes en 72 horas.',
+          title: 'resComplianceChecklist.gov_breach_plan_title' as const,
+          detail: 'resComplianceChecklist.gov_breach_plan_detail' as const,
           article: 'Art. 30 Ley 21.719'
         }
       ]
     },
     {
-      title: 'Consentimiento',
+      title: 'resComplianceChecklist.section_consent' as const,
       color: 'green',
       items: [
         {
-          title: 'Consentimiento explícito para datos sensibles',
-          detail: 'Datos de salud, biométricos, religiosos o similares requieren consentimiento escrito específico.',
+          title: 'resComplianceChecklist.consent_sensitive_title' as const,
+          detail: 'resComplianceChecklist.consent_sensitive_detail' as const,
           article: 'Art. 16 Ley 21.719'
         },
         {
-          title: 'Consentimiento de menores gestionado a través del apoderado',
-          detail: 'Para alumnos menores de 14 años, el titular del consentimiento es el apoderado legal.',
+          title: 'resComplianceChecklist.consent_minors_title' as const,
+          detail: 'resComplianceChecklist.consent_minors_detail' as const,
           article: 'Art. 20 Ley 21.719'
         },
         {
-          title: 'Mecanismo de renovación de consentimiento implementado',
-          detail: 'Proceso definido para renovar consentimientos vencidos o cuando cambia la finalidad del tratamiento.',
+          title: 'resComplianceChecklist.consent_renewal_title' as const,
+          detail: 'resComplianceChecklist.consent_renewal_detail' as const,
           article: 'Art. 13 Ley 21.719'
         },
         {
-          title: 'Mecanismo de retiro de consentimiento operativo',
-          detail: 'Los titulares pueden retirar su consentimiento en cualquier momento, sin barreras ni penalizaciones.',
+          title: 'resComplianceChecklist.consent_withdrawal_title' as const,
+          detail: 'resComplianceChecklist.consent_withdrawal_detail' as const,
           article: 'Art. 13 Ley 21.719'
         },
         {
-          title: 'Registros de consentimiento almacenados y auditables',
-          detail: 'Se guarda evidencia de cuándo, cómo y para qué se otorgó cada consentimiento.',
+          title: 'resComplianceChecklist.consent_records_title' as const,
+          detail: 'resComplianceChecklist.consent_records_detail' as const,
           article: 'Art. 14 Ley 21.719'
         }
       ]
     },
     {
-      title: 'Seguridad técnica',
+      title: 'resComplianceChecklist.section_technical_security' as const,
       color: 'warning',
       items: [
         {
-          title: 'Cifrado de datos en reposo implementado',
-          detail: 'Bases de datos y archivos que contienen datos personales están cifrados en los servidores.',
+          title: 'resComplianceChecklist.sec_encryption_rest_title' as const,
+          detail: 'resComplianceChecklist.sec_encryption_rest_detail' as const,
           article: 'Art. 27 Ley 21.719'
         },
         {
-          title: 'Cifrado en tránsito (HTTPS/TLS) activo',
-          detail: 'Toda transmisión de datos personales se realiza mediante protocolos seguros (TLS 1.2 o superior).',
+          title: 'resComplianceChecklist.sec_encryption_transit_title' as const,
+          detail: 'resComplianceChecklist.sec_encryption_transit_detail' as const,
           article: 'Art. 27 Ley 21.719'
         },
         {
-          title: 'Control de acceso por rol configurado',
-          detail: 'Cada usuario solo accede a los datos necesarios para su función. Principio de mínimo privilegio.',
+          title: 'resComplianceChecklist.sec_access_control_title' as const,
+          detail: 'resComplianceChecklist.sec_access_control_detail' as const,
           article: 'Art. 27 Ley 21.719'
         },
         {
-          title: 'Registros de auditoría (logs) habilitados',
-          detail: 'Se registran accesos, modificaciones y eliminaciones de datos personales con marca de tiempo y usuario.',
+          title: 'resComplianceChecklist.sec_audit_logs_title' as const,
+          detail: 'resComplianceChecklist.sec_audit_logs_detail' as const,
           article: 'Art. 27 Ley 21.719'
         },
         {
-          title: 'Procedimiento de respaldo y recuperación de datos',
-          detail: 'Backups regulares, probados periódicamente, con tiempo de recuperación definido (RTO/RPO).',
+          title: 'resComplianceChecklist.sec_backup_title' as const,
+          detail: 'resComplianceChecklist.sec_backup_detail' as const,
           article: 'Art. 27 Ley 21.719'
         },
         {
-          title: 'Sistema de detección de incidentes activo',
-          detail: 'Alertas automáticas o revisión periódica que permita detectar accesos no autorizados o brechas.',
+          title: 'resComplianceChecklist.sec_incident_detection_title' as const,
+          detail: 'resComplianceChecklist.sec_incident_detection_detail' as const,
           article: 'Art. 30 Ley 21.719'
         }
       ]
     },
     {
-      title: 'Derechos de los titulares',
+      title: 'resComplianceChecklist.section_data_subject_rights' as const,
       color: 'purple',
       items: [
         {
-          title: 'Procedimiento de acceso a datos documentado (ARCO)',
-          detail: 'Canal habilitado para que titulares soliciten copia de sus datos personales tratados.',
+          title: 'resComplianceChecklist.rights_access_title' as const,
+          detail: 'resComplianceChecklist.rights_access_detail' as const,
           article: 'Art. 35 Ley 21.719'
         },
         {
-          title: 'Procedimiento de rectificación operativo',
-          detail: 'Proceso para corregir datos inexactos o desactualizados a solicitud del titular.',
+          title: 'resComplianceChecklist.rights_rectification_title' as const,
+          detail: 'resComplianceChecklist.rights_rectification_detail' as const,
           article: 'Art. 36 Ley 21.719'
         },
         {
-          title: 'Procedimiento de cancelación/supresión implementado',
-          detail: 'Mecanismo para eliminar datos cuando ya no existe base legal para su tratamiento.',
+          title: 'resComplianceChecklist.rights_cancellation_title' as const,
+          detail: 'resComplianceChecklist.rights_cancellation_detail' as const,
           article: 'Art. 37 Ley 21.719'
         },
         {
-          title: 'Procedimiento de portabilidad disponible',
-          detail: 'Capacidad de entregar datos en formato estructurado, legible por máquina, a solicitud del titular.',
+          title: 'resComplianceChecklist.rights_portability_title' as const,
+          detail: 'resComplianceChecklist.rights_portability_detail' as const,
           article: 'Art. 38 Ley 21.719'
         },
         {
-          title: 'Respuesta a solicitudes dentro del plazo legal',
-          detail: 'Las solicitudes de derechos ARCO+P deben responderse dentro de los plazos establecidos por la ley (máx. 30 días hábiles).',
+          title: 'resComplianceChecklist.rights_response_time_title' as const,
+          detail: 'resComplianceChecklist.rights_response_time_detail' as const,
           article: 'Art. 40 Ley 21.719'
         }
       ]
@@ -141,12 +142,12 @@
 </script>
 
 <svelte:head>
-  <title>Checklist Cumplimiento Ley 21.719 — Descarga gratuita | {BRAND}</title>
-  <meta name="description" content="20 ítems de verificación para saber si tu colegio cumple con la Ley 21.719 de Protección de Datos. Descarga e imprime gratis." />
+  <title>{t('resComplianceChecklist.meta_title')}</title>
+  <meta name="description" content={t('resComplianceChecklist.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/resources/compliance-checklist" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Checklist Cumplimiento Ley 21.719 | ${BRAND}`} />
-  <meta property="og:description" content="20 ítems de verificación para cumplir con la Ley 21.719 en colegios chilenos." />
+  <meta property="og:title" content={t('resComplianceChecklist.og_title')} />
+  <meta property="og:description" content={t('resComplianceChecklist.og_description')} />
   <link rel="canonical" href="https://ethoz.cl/resources/compliance-checklist" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
@@ -168,11 +169,11 @@
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
       <Button href="/resources" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
         <ArrowLeft class="size-4" />
-        Volver a recursos
+        {t('resComplianceChecklist.back_to_resources')}
       </Button>
       <Button href="/downloads/checklist-cumplimiento-ley-21719.pdf" download size="lg" class="gap-2">
         <Printer class="size-4" />
-        Descargar PDF
+        {t('resComplianceChecklist.download_pdf')}
       </Button>
     </div>
   </div>
@@ -181,18 +182,18 @@
     <!-- Header -->
     <div class="mb-12 border-b border-border pb-10">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
-        <span class="text-primary">Plantilla · Cumplimiento</span>
+        <span class="text-primary">{t('resComplianceChecklist.eyebrow_template')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>Ley 21.719</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>20 ítems · 4 secciones</span>
+        <span>{t('resComplianceChecklist.eyebrow_count')}</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Checklist de Cumplimiento Ley 21.719</h1>
+      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">{t('resComplianceChecklist.hero_title')}</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
-        Verifique el estado de cumplimiento de su establecimiento con la Ley de Protección de Datos Personales. Marque cada ítem completado. La ley entra en plena vigencia en <strong class="text-foreground">diciembre de 2026</strong>. Las multas llegan hasta las 20.000 UTM.
+        {t('resComplianceChecklist.hero_intro_pre')} <strong class="text-foreground">{t('resComplianceChecklist.hero_intro_date')}</strong>{t('resComplianceChecklist.hero_intro_post')}
       </p>
-      <p class="mt-4 text-xs text-muted-foreground">Elaborado por el equipo de {BRAND} · ethoz.cl · Uso libre para establecimientos educacionales</p>
+      <p class="mt-4 text-xs text-muted-foreground">{t('resComplianceChecklist.byline')}</p>
     </div>
 
     <!-- Sections -->
@@ -201,8 +202,8 @@
         <div>
           <div class="mb-4 flex items-center gap-3">
             <span class="flex size-7 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">{si + 1}</span>
-            <h2 class="text-lg font-semibold text-foreground">{section.title}</h2>
-            <span class="ml-auto text-xs text-muted-foreground">{section.items.length} ítems</span>
+            <h2 class="text-lg font-semibold text-foreground">{t(section.title)}</h2>
+            <span class="ml-auto text-xs text-muted-foreground">{section.items.length} {t('resComplianceChecklist.items_label')}</span>
           </div>
 
           <div class="space-y-3">
@@ -214,10 +215,10 @@
                 </div>
                 <div class="flex-1 min-w-0">
                   <div class="flex flex-wrap items-start gap-2 mb-1">
-                    <p class="font-medium text-foreground text-sm leading-snug">{item.title}</p>
+                    <p class="font-medium text-foreground text-sm leading-snug">{t(item.title)}</p>
                     <span class="shrink-0 rounded bg-muted px-1.5 py-0.5 text-[10px] text-muted-foreground font-mono">{item.article}</span>
                   </div>
-                  <p class="text-xs text-muted-foreground leading-relaxed">{item.detail}</p>
+                  <p class="text-xs text-muted-foreground leading-relaxed">{t(item.detail)}</p>
                 </div>
               </div>
             {/each}
@@ -228,13 +229,13 @@
 
     <!-- Footer note -->
     <div class="mt-12 rounded-lg border border-border bg-muted/30 p-5 text-sm text-muted-foreground">
-      <p class="font-medium text-foreground mb-1">Nota legal</p>
-      <p>Este checklist es una herramienta orientativa elaborada por {BRAND}. No constituye asesoría jurídica. Para una evaluación de cumplimiento oficial, consulte a un abogado especializado en protección de datos. Referencias basadas en la Ley 21.719 promulgada el 13 de diciembre de 2024.</p>
+      <p class="font-medium text-foreground mb-1">{t('resComplianceChecklist.legal_note_title')}</p>
+      <p>{t('resComplianceChecklist.legal_note_body')}</p>
     </div>
 
     <div class="print:hidden mt-6 text-center">
-      <p class="text-sm text-muted-foreground mb-4">¿Quieres que {BRAND} automatice este cumplimiento?</p>
-      <Button href="/demo">Solicitar demo gratuita</Button>
+      <p class="text-sm text-muted-foreground mb-4">{t('resComplianceChecklist.cta_prompt')}</p>
+      <Button href="/demo">{t('resComplianceChecklist.cta_button')}</Button>
     </div>
   </div>
 </main>

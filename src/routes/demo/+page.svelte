@@ -126,16 +126,16 @@
   <NavBar />
 
   <!-- Step indicator -->
-  <nav aria-label="Progreso del proceso de demo" class="border-b border-border bg-background py-4">
+  <nav aria-label={t('demo.step_indicator.nav_label')} class="border-b border-border bg-background py-4">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <ol class="mx-auto flex max-w-2xl items-center justify-center gap-3">
-      {#each [{ label: 'Busca tu colegio', n: 1 }, { label: 'Completa tus datos', n: 2 }, { label: 'Agenda tu demo', n: 3 }] as s}
+      {#each [{ labelKey: 'demo.step_indicator.step1' as const, n: 1 }, { labelKey: 'demo.step_indicator.step2' as const, n: 2 }, { labelKey: 'demo.step_indicator.step3' as const, n: 3 }] as s}
         <li class="flex items-center gap-2" aria-current={1 === s.n ? 'step' : undefined}>
           <span class="flex size-7 items-center justify-center rounded-full text-xs font-bold {1 >= s.n ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}" aria-hidden="true">
             {s.n}
           </span>
           <span class="hidden text-xs font-medium sm:block {1 >= s.n ? 'text-foreground' : 'text-muted-foreground'}">
-            <span class="sr-only">Paso {s.n}{1 > s.n ? ' (completado)' : 1 === s.n ? ' (actual)' : ''}: </span>{s.label}
+            <span class="sr-only">{t('demo.step_indicator.step_prefix')} {s.n}{1 > s.n ? ` (${t('demo.step_indicator.completed')})` : 1 === s.n ? ` (${t('demo.step_indicator.current')})` : ''}: </span>{t(s.labelKey)}
           </span>
           {#if s.n < 3}
             <span aria-hidden="true" class="ml-1 h-px w-8 {1 > s.n ? 'bg-primary' : 'bg-border'}"></span>

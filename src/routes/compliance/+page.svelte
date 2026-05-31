@@ -105,7 +105,7 @@
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         <span class="text-primary">{t('compliance_page.hero.badge')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>Ley 21.719 · Dic 2026</span>
+        <span>{t('compliance_page.hero.badge_law')}</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
@@ -228,31 +228,31 @@
       <!-- RBAC -->
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p class="text-sm font-bold uppercase tracking-widest text-primary">Control de acceso</p>
+          <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('compliance_page.rbac.overline')}</p>
           <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">
-            Cada rol ve solo lo que necesita
+            {t('compliance_page.rbac.title')}
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-            El director ve indicadores agregados. El docente ve solo sus cursos. El portero ve foto y alertas de retiro. Nadie accede a información que no necesita para su función — y eso es exactamente lo que exige la Ley 21.719.
+            {t('compliance_page.rbac.body')}
           </p>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/compliance-rbac.webp" alt="Control de acceso basado en roles" class="w-full max-w-xs rounded-2xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/compliance-rbac.webp" alt={t('compliance_page.rbac.alt')} class="w-full max-w-xs rounded-2xl mix-blend-multiply" loading="lazy" />
         </div>
       </div>
 
       <!-- Pickups -->
       <div class="mt-20 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
-          <img src="/images/pages/compliance-pickups.webp" alt="Retiros escolares seguros con verificación digital" class="w-full max-w-xs rounded-2xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/compliance-pickups.webp" alt={t('compliance_page.pickups.alt')} class="w-full max-w-xs rounded-2xl mix-blend-multiply" loading="lazy" />
         </div>
         <div class="order-1 lg:order-2">
-          <p class="text-sm font-bold uppercase tracking-widest text-primary">Retiros seguros</p>
+          <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('compliance_page.pickups.overline')}</p>
           <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">
-            Verificación digital en portería
+            {t('compliance_page.pickups.title')}
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-            Cada retiro se valida contra la lista de personas autorizadas. Órdenes de alejamiento, custodia compartida y restricciones judiciales llegan al portero en tiempo real — no al día siguiente.
+            {t('compliance_page.pickups.body')}
           </p>
         </div>
       </div>
@@ -300,16 +300,16 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p class="text-sm font-bold uppercase tracking-widest text-primary">Trazabilidad completa</p>
+          <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('compliance_page.audit.overline')}</p>
           <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">
-            Cada acción queda registrada
+            {t('compliance_page.audit.title')}
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-            Quién accedió a qué dato, cuándo y con qué finalidad. Si la Agencia de Protección de Datos solicita evidencia, su establecimiento puede entregar el registro completo en minutos — no en semanas de búsqueda en cuadernos.
+            {t('compliance_page.audit.body')}
           </p>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/compliance-audit.webp" alt="Registro de auditoría completo y trazable" class="w-full max-w-xs rounded-2xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/compliance-audit.webp" alt={t('compliance_page.audit.alt')} class="w-full max-w-xs rounded-2xl mix-blend-multiply" loading="lazy" />
         </div>
       </div>
     </div>
@@ -402,7 +402,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-compliance">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Evaluación institucional</p>
+      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">{t('compliance_page.cta.overline')}</p>
       <h2 id="final-cta-compliance" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         {t('compliance_page.cta.title')}
       </h2>

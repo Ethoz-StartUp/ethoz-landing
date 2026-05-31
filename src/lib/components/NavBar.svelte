@@ -35,11 +35,11 @@
   });
 
   const products = [
-    { icon: ClipboardList, name: 'Perfil Integral del Alumno', href: '/features/student-profile', desc: 'Ficha 360° que persiste entre años' },
-    { icon: Bell, name: 'Retiros Escolares Seguros', href: '/features/safe-pickups', desc: 'Verificación digital en portería' },
-    { icon: Fingerprint, name: 'Permisos por Cargo', href: '/features/access-control', desc: 'Cada cargo ve solo lo que necesita' },
-    { icon: Search, name: 'Búsqueda Inteligente', href: '/features/smart-search', desc: 'Cualquier alumno en segundos' },
-    { icon: Shield, name: 'Registro de Convivencia', href: '/features/privacy-compliance', desc: 'Seguimiento sin reinicio de marzo' },
+    { icon: ClipboardList, name: 'nav.product_student_profile_name' as const, href: '/features/student-profile', desc: 'nav.product_student_profile_desc' as const },
+    { icon: Bell, name: 'nav.product_safe_pickups_name' as const, href: '/features/safe-pickups', desc: 'nav.product_safe_pickups_desc' as const },
+    { icon: Fingerprint, name: 'nav.product_access_control_name' as const, href: '/features/access-control', desc: 'nav.product_access_control_desc' as const },
+    { icon: Search, name: 'nav.product_smart_search_name' as const, href: '/features/smart-search', desc: 'nav.product_smart_search_desc' as const },
+    { icon: Shield, name: 'nav.product_privacy_compliance_name' as const, href: '/features/privacy-compliance', desc: 'nav.product_privacy_compliance_desc' as const },
   ];
 
   const navLinksBefore = [
@@ -83,9 +83,9 @@
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-center">
           <span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-background/85">Ley 21.719</span>
           <span class="text-background/70" aria-hidden="true">·</span>
-          <span class="text-background">Vigencia plena: Diciembre 2026</span>
+          <span class="text-background">{t('nav.ribbon_full_enforcement')}</span>
           <span class="hidden text-background/70 sm:inline" aria-hidden="true">·</span>
-          <span class="hidden text-background/85 sm:inline">Multas hasta <span class="font-semibold text-background">20.000 UTM</span></span>
+          <span class="hidden text-background/85 sm:inline">{t('nav.ribbon_fines_prefix')} <span class="font-semibold text-background">20.000 UTM</span></span>
         </p>
       </div>
     </div>
@@ -164,8 +164,8 @@
                 >
                   <Icon class="mt-0.5 size-4 shrink-0 text-primary" />
                   <div>
-                    <p class="text-xs font-semibold text-foreground">{product.name}</p>
-                    <p class="text-[11px] text-muted-foreground">{product.desc}</p>
+                    <p class="text-xs font-semibold text-foreground">{t(product.name)}</p>
+                    <p class="text-[11px] text-muted-foreground">{t(product.desc)}</p>
                   </div>
                 </a>
               {/each}

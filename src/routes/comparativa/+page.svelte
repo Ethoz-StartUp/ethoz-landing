@@ -4,6 +4,8 @@
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
   import { BRAND } from '$lib/brand';
+  import { t } from '$lib/i18n/index.svelte';
+  import type { TranslationKey } from '$lib/i18n/index.svelte';
   import { trackEvent } from '$lib/utils/analytics';
   import {
     ShieldCheck,
@@ -26,7 +28,7 @@
   type CellValue = 'yes' | 'no' | 'varies' | 'unknown';
 
   interface Row {
-    label: string;
+    label: TranslationKey;
     ethoz: CellValue;
     napsis: CellValue;
     syscol: CellValue;
@@ -35,44 +37,44 @@
   }
 
   interface Category {
-    label: string;
+    label: TranslationKey;
     rows: Row[];
   }
 
   const categories: Category[] = [
     {
-      label: 'Seguridad y cumplimiento',
+      label: 'comparativa.cat_security',
       rows: [
-        { label: 'Cifrado at-rest de datos', ethoz: 'yes', napsis: 'no', syscol: 'unknown', lirmi: 'unknown', schooltrack: 'unknown' },
-        { label: 'RLS por rol (Row-Level Security)', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
-        { label: 'Audit log nativo', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
-        { label: 'Cumple Ley 21.719 (datos)', ethoz: 'yes', napsis: 'no', syscol: 'unknown', lirmi: 'varies', schooltrack: 'unknown' },
-        { label: 'Cumple Circular N°30 (libro digital)', ethoz: 'yes', napsis: 'varies', syscol: 'no', lirmi: 'yes', schooltrack: 'varies' },
+        { label: 'comparativa.row_encryption_at_rest', ethoz: 'yes', napsis: 'no', syscol: 'unknown', lirmi: 'unknown', schooltrack: 'unknown' },
+        { label: 'comparativa.row_rls_by_role', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
+        { label: 'comparativa.row_native_audit_log', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
+        { label: 'comparativa.row_law_21719', ethoz: 'yes', napsis: 'no', syscol: 'unknown', lirmi: 'varies', schooltrack: 'unknown' },
+        { label: 'comparativa.row_circular_30', ethoz: 'yes', napsis: 'varies', syscol: 'no', lirmi: 'yes', schooltrack: 'varies' },
       ],
     },
     {
-      label: 'Protección escolar operacional',
+      label: 'comparativa.cat_operational_protection',
       rows: [
-        { label: 'Retiros verificados en portería', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'varies' },
-        { label: 'Bloqueo por orden judicial', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'no' },
-        { label: 'Alertas por rol en tiempo real', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'varies' },
-        { label: 'Protocolo de emergencia digital', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'no' },
+        { label: 'comparativa.row_verified_pickups', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'varies' },
+        { label: 'comparativa.row_court_order_block', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'no' },
+        { label: 'comparativa.row_realtime_role_alerts', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'varies' },
+        { label: 'comparativa.row_digital_emergency_protocol', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'no' },
       ],
     },
     {
-      label: 'Gestión de datos del estudiante',
+      label: 'comparativa.cat_student_data',
       rows: [
-        { label: 'Perfil longitudinal unificado', ethoz: 'yes', napsis: 'varies', syscol: 'no', lirmi: 'varies', schooltrack: 'varies' },
-        { label: 'Observaciones por nivel de confidencialidad', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
-        { label: 'Historial de convivencia sin reset anual', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
+        { label: 'comparativa.row_unified_longitudinal_profile', ethoz: 'yes', napsis: 'varies', syscol: 'no', lirmi: 'varies', schooltrack: 'varies' },
+        { label: 'comparativa.row_confidentiality_observations', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
+        { label: 'comparativa.row_no_annual_reset_history', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
       ],
     },
     {
-      label: 'Integraciones y apertura',
+      label: 'comparativa.cat_integrations',
       rows: [
-        { label: 'Conecta con libro de clases existente', ethoz: 'yes', napsis: 'varies', syscol: 'no', lirmi: 'no', schooltrack: 'varies' },
-        { label: 'API abierta para integraciones', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
-        { label: 'Exportación conforme a normativa', ethoz: 'yes', napsis: 'varies', syscol: 'varies', lirmi: 'varies', schooltrack: 'unknown' },
+        { label: 'comparativa.row_connects_existing_classbook', ethoz: 'yes', napsis: 'varies', syscol: 'no', lirmi: 'no', schooltrack: 'varies' },
+        { label: 'comparativa.row_open_api', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
+        { label: 'comparativa.row_compliant_export', ethoz: 'yes', napsis: 'varies', syscol: 'varies', lirmi: 'varies', schooltrack: 'unknown' },
       ],
     },
   ];
@@ -81,15 +83,15 @@
 </script>
 
 <svelte:head>
-  <title>Comparativa: {BRAND} vs sistemas actuales — Seguridad escolar y compliance Ley 21.719</title>
-  <meta name="description" content={`Compara ${BRAND} con Napsis, Syscol, Lirmi y SchoolTrack en seguridad, cumplimiento Ley 21.719, protección escolar e integraciones. Descubre qué cubre cada sistema.`} />
+  <title>{t('comparativa.meta_title')}</title>
+  <meta name="description" content={t('comparativa.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/comparativa" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Comparativa: ${BRAND} vs sistemas actuales`} />
-  <meta property="og:description" content={`Compara ${BRAND} con Napsis, Syscol, Lirmi y SchoolTrack en seguridad, compliance Ley 21.719 y protección escolar.`} />
+  <meta property="og:title" content={t('comparativa.og_title')} />
+  <meta property="og:description" content={t('comparativa.og_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Comparativa: ${BRAND} vs sistemas actuales`} />
-  <meta name="twitter:description" content={`Compara ${BRAND} con Napsis, Syscol, Lirmi y SchoolTrack en seguridad, compliance y protección escolar.`} />
+  <meta name="twitter:title" content={t('comparativa.og_title')} />
+  <meta name="twitter:description" content={t('comparativa.twitter_description')} />
   <link rel="canonical" href="https://ethoz.cl/comparativa" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
@@ -111,16 +113,16 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary shadow-sm">
         <Scale class="size-3.5" />
-        Análisis comparativo
+        {t('comparativa.hero_eyebrow')}
       </div>
       <h1 class="text-foreground">
-        ¿Por qué {BRAND} y no tu sistema actual?
+        {t('comparativa.hero_title')}
       </h1>
       <p class="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl">
-        Los sistemas de gestión escolar existentes nacieron para administrar. {BRAND} nació para <strong class="text-foreground">proteger</strong>. No los reemplaza — los complementa con la capa de seguridad y compliance que nunca tuvieron.
+        {t('comparativa.hero_lede_part1')} <strong class="text-foreground">{t('comparativa.hero_lede_emphasis')}</strong>{t('comparativa.hero_lede_part2')}
       </p>
       <p class="mt-4 text-sm text-muted-foreground">
-        La Ley 21.719 entra en plena vigencia en diciembre de 2026. Tu sistema actual probablemente no está preparado.
+        {t('comparativa.hero_subnote')}
       </p>
     </div>
   </section>
@@ -133,7 +135,7 @@
       <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
         <AlertTriangle class="size-4 shrink-0 text-muted-foreground mt-0.5" />
         <p class="text-xs leading-relaxed text-muted-foreground">
-          <strong class="text-foreground">Metodología:</strong> Esta comparativa se basa en documentación pública, revisiones de sitios web oficiales y reportes de usuarios a abril de 2026. Las celdas marcadas como "○ Varía" indican que el proveedor ofrece funcionalidad parcial o variable según plan. Las celdas "○ No público" indican que no hay documentación pública disponible. Si representas a alguno de estos proveedores y detectas inexactitudes, contáctanos.
+          <strong class="text-foreground">{t('comparativa.disclaimer_label')}</strong> {t('comparativa.disclaimer_body')}
         </p>
       </div>
     </div>
@@ -149,15 +151,15 @@
       <div class="mb-8 flex flex-wrap items-center gap-5">
         <div class="flex items-center gap-1.5 text-xs text-muted-foreground">
           <CheckCircle class="size-4 text-primary" />
-          <span>Incluido</span>
+          <span>{t('comparativa.legend_included')}</span>
         </div>
         <div class="flex items-center gap-1.5 text-xs text-muted-foreground">
           <MinusCircle class="size-4 text-muted-foreground" />
-          <span>Varía / No público</span>
+          <span>{t('comparativa.legend_varies_or_unknown')}</span>
         </div>
         <div class="flex items-center gap-1.5 text-xs text-muted-foreground">
           <XCircle class="size-4 text-destructive" />
-          <span>No incluido</span>
+          <span>{t('comparativa.legend_not_included')}</span>
         </div>
       </div>
 
@@ -168,7 +170,7 @@
           <thead>
             <tr class="border-b border-border bg-muted/50">
               <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground w-56">
-                Funcionalidad
+                {t('comparativa.table_col_feature')}
               </th>
               {#each columns as col, i}
                 <th class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide {i === 0 ? 'text-primary bg-primary/5 border-x border-primary/20' : 'text-muted-foreground'}">
@@ -185,14 +187,14 @@
               <!-- Category header row -->
               <tr class="border-b border-border bg-secondary">
                 <td colspan={columns.length + 1} class="px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                  {cat.label}
+                  {t(cat.label)}
                 </td>
               </tr>
               <!-- Data rows -->
               {#each cat.rows as row, rowIdx}
                 <tr class="border-b border-border {rowIdx % 2 === 0 ? 'bg-background' : 'bg-muted/20'} hover:bg-muted/40 transition-colors">
                   <td class="px-4 py-3 text-sm text-foreground font-medium">
-                    {row.label}
+                    {t(row.label)}
                   </td>
                   <!-- Ethoz -->
                   <td class="px-4 py-3 text-center bg-primary/5 border-x border-primary/20">
@@ -201,7 +203,7 @@
                     {:else if row.ethoz === 'no'}
                       <XCircle class="mx-auto size-5 text-destructive" />
                     {:else}
-                      <span class="text-xs text-muted-foreground">○ Varía</span>
+                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
                     {/if}
                   </td>
                   <!-- Napsis -->
@@ -211,9 +213,9 @@
                     {:else if row.napsis === 'no'}
                       <XCircle class="mx-auto size-5 text-destructive" />
                     {:else if row.napsis === 'varies'}
-                      <span class="text-xs text-muted-foreground">○ Varía</span>
+                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
                     {:else}
-                      <span class="text-xs text-muted-foreground">○ No público</span>
+                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_unknown')}</span>
                     {/if}
                   </td>
                   <!-- Syscol -->
@@ -223,9 +225,9 @@
                     {:else if row.syscol === 'no'}
                       <XCircle class="mx-auto size-5 text-destructive" />
                     {:else if row.syscol === 'varies'}
-                      <span class="text-xs text-muted-foreground">○ Varía</span>
+                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
                     {:else}
-                      <span class="text-xs text-muted-foreground">○ No público</span>
+                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_unknown')}</span>
                     {/if}
                   </td>
                   <!-- Lirmi -->
@@ -235,9 +237,9 @@
                     {:else if row.lirmi === 'no'}
                       <XCircle class="mx-auto size-5 text-destructive" />
                     {:else if row.lirmi === 'varies'}
-                      <span class="text-xs text-muted-foreground">○ Varía</span>
+                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
                     {:else}
-                      <span class="text-xs text-muted-foreground">○ No público</span>
+                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_unknown')}</span>
                     {/if}
                   </td>
                   <!-- SchoolTrack -->
@@ -247,9 +249,9 @@
                     {:else if row.schooltrack === 'no'}
                       <XCircle class="mx-auto size-5 text-destructive" />
                     {:else if row.schooltrack === 'varies'}
-                      <span class="text-xs text-muted-foreground">○ Varía</span>
+                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
                     {:else}
-                      <span class="text-xs text-muted-foreground">○ No público</span>
+                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_unknown')}</span>
                     {/if}
                   </td>
                 </tr>
@@ -267,12 +269,12 @@
   <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">La diferencia clave</p>
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('comparativa.positioning_eyebrow')}</p>
         <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
-          {BRAND} no compite — complementa
+          {t('comparativa.positioning_title')}
         </h2>
         <p class="mt-4 max-w-2xl mx-auto text-base text-muted-foreground">
-          Cada sistema tiene su rol. {BRAND} agrega la capa que ninguno puede construir.
+          {t('comparativa.positioning_lede')}
         </p>
       </div>
 
@@ -280,37 +282,37 @@
         <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
           <div class="mb-3 flex items-center gap-2.5">
             <Database class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base text-foreground">Napsis / Syscol / Lirmi</h3>
+            <h3 class="text-base text-foreground">{t('comparativa.card_erp_title')}</h3>
           </div>
           <p class="text-sm text-muted-foreground leading-relaxed">
-            Gestionan matrícula, notas, comunicaciones y finanzas. Son el núcleo administrativo que ya funciona en tu colegio.
+            {t('comparativa.card_erp_body')}
           </p>
-          <p class="mt-3 text-xs font-semibold text-muted-foreground uppercase tracking-wide">Lo que no tienen</p>
-          <p class="mt-1 text-sm text-muted-foreground">Seguridad operacional en tiempo real ni compliance Ley 21.719 por diseño.</p>
+          <p class="mt-3 text-xs font-semibold text-muted-foreground uppercase tracking-wide">{t('comparativa.card_erp_gap_label')}</p>
+          <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.card_erp_gap_body')}</p>
         </div>
 
         <div class="rounded-xl border border-primary/30 bg-primary/5 p-6 shadow-sm">
           <div class="mb-3 flex items-center gap-2.5">
             <ShieldCheck class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base text-foreground">{BRAND}</h3>
+            <h3 class="text-base text-foreground">{t('comparativa.card_ethoz_title')}</h3>
           </div>
           <p class="text-sm text-muted-foreground leading-relaxed">
-            Agrega la capa de seguridad, privacidad y compliance. Protege a los estudiantes, al personal y al sostenedor ante la Ley 21.719.
+            {t('comparativa.card_ethoz_body')}
           </p>
-          <p class="mt-3 text-xs font-semibold text-primary uppercase tracking-wide">Su rol único</p>
-          <p class="mt-1 text-sm text-foreground font-medium">Retiros seguros, alertas en tiempo real, audit logs y cumplimiento normativo certificable.</p>
+          <p class="mt-3 text-xs font-semibold text-primary uppercase tracking-wide">{t('comparativa.card_ethoz_role_label')}</p>
+          <p class="mt-1 text-sm text-foreground font-medium">{t('comparativa.card_ethoz_role_body')}</p>
         </div>
 
         <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
           <div class="mb-3 flex items-center gap-2.5">
             <Link class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base text-foreground">Juntos</h3>
+            <h3 class="text-base text-foreground">{t('comparativa.card_together_title')}</h3>
           </div>
           <p class="text-sm text-muted-foreground leading-relaxed">
-            Tu sistema actual sigue haciendo lo que hace bien. {BRAND} cubre lo que no puede: la seguridad y el cumplimiento de la nueva ley.
+            {t('comparativa.card_together_body')}
           </p>
-          <p class="mt-3 text-xs font-semibold text-muted-foreground uppercase tracking-wide">API abierta</p>
-          <p class="mt-1 text-sm text-muted-foreground">{BRAND} se integra con los sistemas que ya tienes, sin reemplazarlos.</p>
+          <p class="mt-3 text-xs font-semibold text-muted-foreground uppercase tracking-wide">{t('comparativa.card_together_api_label')}</p>
+          <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.card_together_api_body')}</p>
         </div>
       </div>
     </div>
@@ -325,18 +327,18 @@
         <div class="grid gap-8 sm:grid-cols-3 text-center">
           <div>
             <p class="text-3xl font-bold text-foreground">20.000 UTM</p>
-            <p class="mt-1 text-sm text-muted-foreground">Multa máxima Ley 21.719</p>
+            <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.risk_fine_label')}</p>
             <p class="mt-0.5 text-xs text-muted-foreground">≈ $1.340M CLP</p>
           </div>
           <div>
-            <p class="text-3xl font-bold text-foreground">Dic 2026</p>
-            <p class="mt-1 text-sm text-muted-foreground">Vigencia plena de la ley</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">Tiempo limitado para adecuarse</p>
+            <p class="text-3xl font-bold text-foreground">{t('comparativa.risk_date_value')}</p>
+            <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.risk_date_label')}</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">{t('comparativa.risk_date_note')}</p>
           </div>
           <div>
             <p class="text-3xl font-bold text-foreground">12.038</p>
-            <p class="mt-1 text-sm text-muted-foreground">Colegios en Chile</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">Todos expuestos al mismo riesgo</p>
+            <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.risk_schools_label')}</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">{t('comparativa.risk_schools_note')}</p>
           </div>
         </div>
       </div>
@@ -350,21 +352,21 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <Lock class="mx-auto size-10 text-primary mb-4" />
       <h2 class="text-3xl text-foreground sm:text-4xl">
-        ¿Tu sistema actual te protege?
+        {t('comparativa.cta_title')}
       </h2>
       <p class="mt-4 text-base text-muted-foreground">
-        Te ayudamos a evaluar tu exposición real ante la Ley 21.719 y las brechas de seguridad operacional de tu colegio — sin costo ni compromiso.
+        {t('comparativa.cta_lede')}
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
         <Button size="xl" href="/demo" class="shadow-lg">
-          Solicitar evaluación gratuita
+          {t('comparativa.cta_primary')}
           <ArrowRight class="size-4" />
         </Button>
         <a
           href="/compliance"
           class="text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
-          Ver cumplimiento normativo
+          {t('comparativa.cta_secondary')}
         </a>
       </div>
     </div>

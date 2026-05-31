@@ -32,69 +32,69 @@
   const resources = [
     {
       icon: ClipboardCheck,
-      title: 'Checklist de Cumplimiento Ley 21.719',
-      description: '20 ítems en 4 secciones para verificar tu estado de cumplimiento: gobernanza, consentimiento, seguridad técnica y derechos de los titulares.',
+      titleKey: 'resources.item_checklist_title' as const,
+      descriptionKey: 'resources.item_checklist_description' as const,
       href: '/resources/compliance-checklist',
       pdf: '/downloads/checklist-cumplimiento-ley-21719.pdf',
       slug: 'compliance-checklist',
-      tag: 'Cumplimiento',
-      meta: '20 ítems · 10 min',
-      article: 'Art. 16 Ley 21.719'
+      tagKey: 'resources.item_checklist_tag' as const,
+      metaKey: 'resources.item_checklist_meta' as const,
+      articleKey: 'resources.item_checklist_article' as const
     },
     {
       icon: UserCheck,
-      title: 'Protocolo de Retiros Seguros',
-      description: 'Procedimiento completo de 8 pasos para gestionar retiros de alumnos, incluyendo casos especiales y trazabilidad.',
+      titleKey: 'resources.item_pickup_title' as const,
+      descriptionKey: 'resources.item_pickup_description' as const,
       href: '/resources/pickup-protocol',
       pdf: '/downloads/protocolo-retiros-seguros.pdf',
       slug: 'pickup-protocol',
-      tag: 'Operaciones',
-      meta: '8 pasos · 6 min',
-      article: 'Ley 21.430 · MINEDUC'
+      tagKey: 'resources.item_pickup_tag' as const,
+      metaKey: 'resources.item_pickup_meta' as const,
+      articleKey: 'resources.item_pickup_article' as const
     },
     {
       icon: ShieldAlert,
-      title: 'Modelo de Aviso de Privacidad Escolar',
-      description: 'Plantilla conforme al Art. 14 de la Ley 21.719 lista para adaptar con los datos de tu establecimiento.',
+      titleKey: 'resources.item_privacy_title' as const,
+      descriptionKey: 'resources.item_privacy_description' as const,
       href: '/resources/privacy-notice',
       pdf: '/downloads/aviso-privacidad-escolar.pdf',
       slug: 'privacy-notice',
-      tag: 'Legal',
-      meta: '10 secciones · 12 min',
-      article: 'Art. 14 Ley 21.719'
+      tagKey: 'resources.item_privacy_tag' as const,
+      metaKey: 'resources.item_privacy_meta' as const,
+      articleKey: 'resources.item_privacy_article' as const
     },
     {
       icon: Users,
-      title: 'Guía de Roles y Permisos',
-      description: 'Matriz de permisos recomendada para Director, Inspector, UTP, Orientador, Docente, Portero y Auxiliar.',
+      titleKey: 'resources.item_roles_title' as const,
+      descriptionKey: 'resources.item_roles_description' as const,
       href: '/resources/roles-permissions-guide',
       pdf: '/downloads/guia-roles-permisos.pdf',
       slug: 'roles-permissions-guide',
-      tag: 'Gobernanza',
-      meta: '7 roles · Matriz',
-      article: 'Art. 27 Ley 21.719'
+      tagKey: 'resources.item_roles_tag' as const,
+      metaKey: 'resources.item_roles_meta' as const,
+      articleKey: 'resources.item_roles_article' as const
     },
     {
       icon: Database,
-      title: 'Plantilla de Inventario de Datos Personales',
-      description: 'Inventario estructurado de todas las categorías de datos tratados por el colegio, con base legal y plazos de retención.',
+      titleKey: 'resources.item_inventory_title' as const,
+      descriptionKey: 'resources.item_inventory_description' as const,
       href: '/resources/data-inventory',
       pdf: '/downloads/inventario-datos-personales.pdf',
       slug: 'data-inventory',
-      tag: 'Cumplimiento',
-      meta: '5 categorías · 24 campos',
-      article: 'Art. 16 Ley 21.719'
+      tagKey: 'resources.item_inventory_tag' as const,
+      metaKey: 'resources.item_inventory_meta' as const,
+      articleKey: 'resources.item_inventory_article' as const
     },
     {
       icon: FileWarning,
-      title: 'Plan de Respuesta a Brechas de Datos',
-      description: 'Plantilla completa con equipo de respuesta, clasificación de brechas y procedimiento de notificación en 72 horas (Art. 30).',
+      titleKey: 'resources.item_breach_title' as const,
+      descriptionKey: 'resources.item_breach_description' as const,
       href: '/resources/breach-response-plan',
       pdf: '/downloads/plan-respuesta-brechas.pdf',
       slug: 'breach-response-plan',
-      tag: 'Incidentes',
-      meta: '7 secciones · 72 h',
-      article: 'Art. 30 Ley 21.719'
+      tagKey: 'resources.item_breach_tag' as const,
+      metaKey: 'resources.item_breach_meta' as const,
+      articleKey: 'resources.item_breach_article' as const
     }
   ];
 </script>
@@ -129,9 +129,9 @@
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         <span class="text-primary">{t('resources.free_badge')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>{resources.length} documentos</span>
+        <span>{resources.length} {t('resources.hero_count_suffix')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>Descargables · PDF</span>
+        <span>{t('resources.hero_format')}</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
@@ -152,22 +152,22 @@
             <span class="font-heading text-2xl leading-none text-primary tabular-nums group-hover:text-foreground" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
             <resource.icon class="size-4 shrink-0 text-primary" />
           </div>
-          <h2 class="mt-5 font-heading text-lg leading-tight text-foreground">{resource.title}</h2>
-          <p class="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{resource.description}</p>
+          <h2 class="mt-5 font-heading text-lg leading-tight text-foreground">{t(resource.titleKey)}</h2>
+          <p class="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{t(resource.descriptionKey)}</p>
 
           <!-- Metadata strip -->
           <dl class="mt-5 grid grid-cols-2 gap-3 border-t border-border pt-4 text-[11px]">
             <div>
-              <dt class="font-semibold uppercase tracking-[0.14em] text-muted-foreground">Área</dt>
-              <dd class="mt-0.5 font-medium text-foreground">{resource.tag}</dd>
+              <dt class="font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('resources.meta_label_area')}</dt>
+              <dd class="mt-0.5 font-medium text-foreground">{t(resource.tagKey)}</dd>
             </div>
             <div>
-              <dt class="font-semibold uppercase tracking-[0.14em] text-muted-foreground">Alcance</dt>
-              <dd class="mt-0.5 font-medium text-foreground">{resource.meta}</dd>
+              <dt class="font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('resources.meta_label_scope')}</dt>
+              <dd class="mt-0.5 font-medium text-foreground">{t(resource.metaKey)}</dd>
             </div>
             <div class="col-span-2">
-              <dt class="font-semibold uppercase tracking-[0.14em] text-muted-foreground">Norma</dt>
-              <dd class="mt-0.5 font-medium text-primary">{resource.article}</dd>
+              <dt class="font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('resources.meta_label_norm')}</dt>
+              <dd class="mt-0.5 font-medium text-primary">{t(resource.articleKey)}</dd>
             </div>
           </dl>
 
@@ -176,7 +176,7 @@
             <a
               href={resource.pdf}
               download
-              onclick={(e) => openGate(resource.slug, resource.pdf, resource.title, e)}
+              onclick={(e) => openGate(resource.slug, resource.pdf, t(resource.titleKey), e)}
               class="inline-flex flex-1 items-center justify-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-pressed"
             >
               <Download class="size-4" />
@@ -198,7 +198,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-resources">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Más allá de las plantillas</p>
+      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">{t('resources.cta_eyebrow')}</p>
       <h2 id="final-cta-resources" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         {t('resources.cta_title')}
       </h2>

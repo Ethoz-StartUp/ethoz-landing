@@ -3,6 +3,7 @@
   import { Button } from '$lib/components/ui/button';
   import { Switch } from '$lib/components/ui/switch';
   import { getConsent, setConsent } from '$lib/stores/consent.svelte';
+  import { t } from '$lib/i18n/index.svelte';
 
   let { open = $bindable(false), onsaved }: { open?: boolean; onsaved?: () => void } = $props();
 
@@ -20,52 +21,52 @@
 <Sheet.Root bind:open>
   <Sheet.Content side="right" class="w-full sm:max-w-md">
     <Sheet.Header>
-      <Sheet.Title>Preferencias de cookies</Sheet.Title>
+      <Sheet.Title>{t('consentSheet.title')}</Sheet.Title>
       <Sheet.Description>
-        Elige qué categorías de cookies aceptas. Las cookies esenciales son necesarias para el funcionamiento del sitio y no pueden desactivarse.
+        {t('consentSheet.description')}
       </Sheet.Description>
     </Sheet.Header>
 
     <div class="mt-6 space-y-5">
       <div class="flex items-start justify-between gap-4 rounded-xl border border-border bg-card p-4">
         <div class="flex-1">
-          <p class="text-sm font-medium text-foreground">Esenciales</p>
+          <p class="text-sm font-medium text-foreground">{t('consentSheet.essential_title')}</p>
           <p class="mt-1 text-sm text-muted-foreground">
-            Necesarias para el funcionamiento del sitio, incluido el monitoreo básico de errores.
+            {t('consentSheet.essential_desc')}
           </p>
         </div>
         <span class="flex min-h-[44px] items-center">
-          <Switch checked={true} disabled aria-label="Cookies esenciales (siempre activas)" />
+          <Switch checked={true} disabled aria-label={t('consentSheet.essential_aria')} />
         </span>
       </div>
 
       <div class="flex items-start justify-between gap-4 rounded-xl border border-border bg-card p-4">
         <div class="flex-1">
-          <p class="text-sm font-medium text-foreground">Análisis</p>
+          <p class="text-sm font-medium text-foreground">{t('consentSheet.analytics_title')}</p>
           <p class="mt-1 text-sm text-muted-foreground">
-            Nos ayudan a entender cómo se usa el sitio. Incluye Google Analytics y Microsoft Clarity.
+            {t('consentSheet.analytics_desc')}
           </p>
         </div>
         <span class="flex min-h-[44px] items-center">
-          <Switch bind:checked={analytics} aria-label="Cookies de análisis" />
+          <Switch bind:checked={analytics} aria-label={t('consentSheet.analytics_aria')} />
         </span>
       </div>
 
       <div class="flex items-start justify-between gap-4 rounded-xl border border-border bg-card p-4">
         <div class="flex-1">
-          <p class="text-sm font-medium text-foreground">Marketing</p>
+          <p class="text-sm font-medium text-foreground">{t('consentSheet.marketing_title')}</p>
           <p class="mt-1 text-sm text-muted-foreground">
-            Permiten medir la efectividad de campañas y personalizar el contenido.
+            {t('consentSheet.marketing_desc')}
           </p>
         </div>
         <span class="flex min-h-[44px] items-center">
-          <Switch bind:checked={marketing} aria-label="Cookies de marketing" />
+          <Switch bind:checked={marketing} aria-label={t('consentSheet.marketing_aria')} />
         </span>
       </div>
     </div>
 
     <Sheet.Footer class="mt-6">
-      <Button onclick={save} class="w-full">Guardar preferencias</Button>
+      <Button onclick={save} class="w-full">{t('consentSheet.save')}</Button>
     </Sheet.Footer>
   </Sheet.Content>
 </Sheet.Root>

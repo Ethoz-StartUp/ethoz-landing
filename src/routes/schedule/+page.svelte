@@ -184,16 +184,15 @@
 
   <div id="schedule-main" class="mx-auto w-full max-w-7xl flex-1 px-4 py-12 pt-24 sm:py-16 sm:pt-28">
     <!-- Step indicator -->
-    <nav aria-label="Progreso del proceso de demo" class="mb-8">
+    <nav aria-label={t('agendar.steps_nav_aria')} class="mb-8">
       <ol class="mx-auto flex max-w-lg items-center justify-center gap-3">
-        {#each [{ label: 'Busca tu colegio', n: 1 }, { label: 'Completa tus datos', n: 2 }, { label: 'Agenda tu demo', n: 3 }] as s}
+        {#each [{ labelKey: 'agendar.step_find_school' as const, n: 1 }, { labelKey: 'agendar.step_complete_data' as const, n: 2 }, { labelKey: 'agendar.step_schedule_demo' as const, n: 3 }] as s}
           <li class="flex items-center gap-2" aria-current={3 === s.n ? 'step' : undefined}>
             <span class="flex size-7 items-center justify-center rounded-full text-xs font-bold {3 >= s.n ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}" aria-hidden="true">
               {s.n}
             </span>
             <span class="hidden text-xs font-medium sm:block {3 >= s.n ? 'text-foreground' : 'text-muted-foreground'}">
-              <span class="sr-only">Paso {s.n}{3 > s.n ? ' (completado)' : 3 === s.n ? ' (actual)' : ''}: </span>{s.label}
-            </span>
+              <span class="sr-only">{t('agendar.step_label_prefix')} {s.n}{3 > s.n ? t('agendar.step_completed_suffix') : 3 === s.n ? t('agendar.step_current_suffix') : ''}: </span>{t(s.labelKey)}
             {#if s.n < 3}
               <span aria-hidden="true" class="ml-1 h-px w-8 {3 > s.n ? 'bg-primary' : 'bg-border'}"></span>
             {/if}
@@ -247,7 +246,7 @@
     </div>
 
     <!-- Cal.com inline embed — auto-resizes, no double scroll -->
-    <section aria-label="Calendario de agenda" class="overflow-hidden rounded-xl border border-border bg-background shadow-sm">
+    <section aria-label={t('agendar.calendar_section_aria')} class="overflow-hidden rounded-xl border border-border bg-background shadow-sm">
       {#if !calLoaded}
         <div class="flex items-center justify-center py-20" role="status" aria-live="polite">
           <div class="flex flex-col items-center gap-3">
@@ -260,8 +259,8 @@
         <div class="flex flex-col items-center gap-3 py-12 text-center" role="alert">
           <p class="text-sm text-muted-foreground">{t('a11y.calendar.error')}</p>
           <a href="https://cal.com/ethoz/demo" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-primary underline-offset-4 hover:underline">
-            Agendar directamente en Cal.com
-            <span class="sr-only">(se abre en una pestaña nueva)</span>
+            {t('agendar.cal_fallback_link')}
+            <span class="sr-only">{t('agendar.opens_new_tab')}</span>
           </a>
         </div>
       {/if}

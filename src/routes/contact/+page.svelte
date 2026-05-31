@@ -54,7 +54,7 @@
     } catch (err) {
       captureError(err, { fn: 'contact.executeRecaptcha' });
       recaptchaFailed = true;
-      errorMessage = 'No pudimos verificar que seas humano. Escríbenos directamente al correo indicado arriba.';
+      errorMessage = t('contact.error.recaptcha_failed');
       submitting = false;
       return;
     }
@@ -73,7 +73,7 @@
     if (!result.ok) {
       console.error('[Contact] Lead save failed:', result.error);
       captureError(new Error(result.error ?? 'Lead save failed'), { fn: 'contact.saveLead' });
-      errorMessage = 'No pudimos enviar tu mensaje. Por favor intenta de nuevo.';
+      errorMessage = t('contact.error.send_failed');
       submitting = false;
       return;
     }
@@ -118,9 +118,9 @@
     <!-- HEADING — editorial -->
     <div class="mb-12">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-        <span class="text-primary">Contacto institucional</span>
+        <span class="text-primary">{t('contact.eyebrow_institutional')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>Horario de respuesta · L-V 9:00-18:00 CLT</span>
+        <span>{t('contact.eyebrow_response_hours')}</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <h1 class="mt-6 font-heading text-[2rem] leading-[1.15] text-foreground sm:text-[2.5rem]">
@@ -133,7 +133,7 @@
 
     <!-- Contact methods — editorial grid -->
     <div class="mb-12">
-      <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-4">Canales directos</p>
+      <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-4">{t('contact.channels_label')}</p>
       <div class="grid gap-4 sm:grid-cols-2">
         <a
           href={CONTACT.email.link}
@@ -145,7 +145,7 @@
           </div>
           <p class="text-sm text-muted-foreground">{CONTACT.email.address}</p>
           <span class="mt-auto inline-flex items-center gap-1 border-b border-primary self-start pb-0.5 text-xs font-semibold text-primary group-hover:border-b-2">
-            Escribir correo
+            {t('contact.email.cta')}
           </span>
         </a>
 
@@ -157,9 +157,9 @@
             <CalendarDays class="size-4 shrink-0 text-primary" />
             <p class="text-sm font-semibold text-foreground">{t('contact.demo.label')}</p>
           </div>
-          <p class="text-sm text-muted-foreground">Sesión de 30 minutos con un especialista</p>
+          <p class="text-sm text-muted-foreground">{t('contact.demo.subtext')}</p>
           <span class="mt-auto inline-flex items-center gap-1 border-b border-primary self-start pb-0.5 text-xs font-semibold text-primary group-hover:border-b-2">
-            Agendar demo
+            {t('contact.demo.cta')}
           </span>
         </a>
 
@@ -173,28 +173,28 @@
             <ExternalLink class="size-4 shrink-0 text-primary" />
             <p class="text-sm font-semibold text-foreground">LinkedIn</p>
           </div>
-          <p class="text-sm text-muted-foreground">Seguimiento institucional, novedades normativas</p>
+          <p class="text-sm text-muted-foreground">{t('contact.linkedin.subtext')}</p>
           <span class="mt-auto inline-flex items-center gap-1 border-b border-primary self-start pb-0.5 text-xs font-semibold text-primary group-hover:border-b-2">
-            Seguir en LinkedIn
+            {t('contact.linkedin.cta')}
           </span>
         </a>
 
         <div class="flex flex-col gap-3 rounded-lg border border-border bg-card p-5">
           <div class="flex items-center gap-2.5">
             <Clock class="size-4 shrink-0 text-primary" />
-            <p class="text-sm font-semibold text-foreground">Horario de atención</p>
+            <p class="text-sm font-semibold text-foreground">{t('contact.hours.label')}</p>
           </div>
           <dl class="space-y-1.5 text-sm text-muted-foreground">
-            <div class="flex items-baseline justify-between gap-2"><dt>Lunes a viernes</dt><dd class="font-medium text-foreground">9:00 – 18:00</dd></div>
-            <div class="flex items-baseline justify-between gap-2"><dt>Sábado</dt><dd>10:00 – 13:00</dd></div>
-            <div class="flex items-baseline justify-between gap-2"><dt>Zona horaria</dt><dd class="font-medium text-foreground">CLT · Santiago</dd></div>
+            <div class="flex items-baseline justify-between gap-2"><dt>{t('contact.hours.weekdays')}</dt><dd class="font-medium text-foreground">9:00 – 18:00</dd></div>
+            <div class="flex items-baseline justify-between gap-2"><dt>{t('contact.hours.saturday')}</dt><dd>10:00 – 13:00</dd></div>
+            <div class="flex items-baseline justify-between gap-2"><dt>{t('contact.hours.timezone')}</dt><dd class="font-medium text-foreground">{t('contact.hours.timezone_value')}</dd></div>
           </dl>
         </div>
       </div>
     </div>
 
     <!-- Contact form -->
-    <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-4">Formulario</p>
+    <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-4">{t('contact.form_label')}</p>
     <div class="rounded-lg border border-border bg-card p-6 sm:p-8">
       {#if submitted}
         <div class="flex flex-col items-center gap-3 py-8 text-center" role="status" aria-live="polite">
@@ -278,7 +278,7 @@
                 href={mailtoFallback}
                 class="mt-1 inline-block font-medium underline underline-offset-2 hover:text-destructive/80"
               >
-                Escribir por correo <span aria-hidden="true">→</span>
+                {t('contact.error.write_email')} <span aria-hidden="true">→</span>
               </a>
             {/if}
           </div>

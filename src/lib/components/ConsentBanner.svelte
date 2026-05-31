@@ -2,6 +2,7 @@
   import { slide } from 'svelte/transition';
   import { setConsent, hasDecided } from '$lib/stores/consent.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { t } from '$lib/i18n/index.svelte';
   import ConsentSheet from './ConsentSheet.svelte';
 
   let sheetOpen = $state(false);
@@ -16,7 +17,7 @@
   });
 
   function announceSaved() {
-    announcement = 'Preferencias guardadas.';
+    announcement = t('consentBanner.saved_announcement');
     setTimeout(() => (announcement = ''), 1500);
   }
 
@@ -43,19 +44,19 @@
 {#if !dismissed}
   <div
     role="region"
-    aria-label="Preferencias de cookies"
+    aria-label={t('consentBanner.region_label')}
     transition:slide={{ duration: 300 }}
     class="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background shadow-lg"
   >
     <div class="mx-auto flex max-w-7xl flex-col gap-2.5 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-4">
       <p class="text-xs leading-snug text-muted-foreground sm:flex-1 sm:text-sm sm:leading-normal">
-        Usamos cookies para mejorar tu experiencia y medir el rendimiento del sitio. Puedes aceptar todo, mantener solo las esenciales o personalizar tus preferencias. Revisa nuestra
-        <a href="/privacy" class="font-medium text-foreground underline underline-offset-2 hover:text-primary">política de privacidad</a>.
+        {t('consentBanner.description')}
+        <a href="/privacy" class="font-medium text-foreground underline underline-offset-2 hover:text-primary">{t('consentBanner.privacy_link')}</a>.
       </p>
       <div class="flex shrink-0 flex-wrap gap-2">
-        <Button variant="ghost" onclick={openSheet}>Personalizar</Button>
-        <Button variant="outline" onclick={acceptEssential}>Solo esenciales</Button>
-        <Button bind:ref={acceptAllBtn} onclick={acceptAll}>Aceptar todo</Button>
+        <Button variant="ghost" onclick={openSheet}>{t('consentBanner.cta_customize')}</Button>
+        <Button variant="outline" onclick={acceptEssential}>{t('consentBanner.cta_essential')}</Button>
+        <Button bind:ref={acceptAllBtn} onclick={acceptAll}>{t('consentBanner.cta_accept_all')}</Button>
       </div>
     </div>
   </div>

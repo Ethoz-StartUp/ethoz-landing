@@ -1,5 +1,6 @@
 <script lang="ts">
   import { feedbackStore } from '$lib/stores/feedback.svelte';
+  import { t } from '$lib/i18n/index.svelte';
 
   let description = $state('');
   let textareaEl = $state<HTMLTextAreaElement | null>(null);
@@ -62,7 +63,7 @@
       aria-labelledby="feedback-modal-label"
       class="relative w-full max-w-sm rounded-t-2xl border border-border bg-card p-5 shadow-popover sm:mx-4 sm:rounded-2xl"
     >
-      <h2 id="feedback-modal-label" class="sr-only">Enviar sugerencia de mejora</h2>
+      <h2 id="feedback-modal-label" class="sr-only">{t('feedbackModal.title')}</h2>
       <!-- Context pill -->
       {#if feedbackStore.capturedTarget}
         <div class="mb-3 truncate rounded-lg bg-muted px-3 py-1.5 text-xs text-muted-foreground">
@@ -71,20 +72,20 @@
       {/if}
 
       <!-- Just the textarea -->
-      <label for="feedback-description" class="sr-only">¿Qué mejorarías?</label>
+      <label for="feedback-description" class="sr-only">{t('feedbackModal.description_prompt')}</label>
       <textarea
         id="feedback-description"
         bind:this={textareaEl}
         bind:value={description}
         rows="2"
-        placeholder="¿Qué mejorarías?"
+        placeholder={t('feedbackModal.description_prompt')}
         class="w-full resize-none rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       ></textarea>
 
       <!-- Actions -->
       <div class="mt-3 flex items-center justify-between">
         <span class="text-[10px] text-muted-foreground">
-          <kbd class="rounded bg-muted px-1 py-0.5 font-mono">⌘↵</kbd> para enviar
+          <kbd class="rounded bg-muted px-1 py-0.5 font-mono">⌘↵</kbd> {t('feedbackModal.submit_hint')}
         </span>
         <button
           type="button"
@@ -92,7 +93,7 @@
           disabled={!description.trim()}
           class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:pointer-events-none disabled:opacity-50"
         >
-          Guardar
+          {t('feedbackModal.save')}
         </button>
       </div>
     </div>

@@ -16,8 +16,8 @@
   const searchExamples = [
     {
       query: 'maria jose',
-      label: 'Búsqueda con nombre compuesto',
-      note: 'Encuentra "María José Pérez Soto" aunque se escriba sin tilde',
+      labelKey: 'featurePage.smartSearch.example_compound_label' as const,
+      noteKey: 'featurePage.smartSearch.example_compound_note' as const,
       results: [
         { name: 'María José Pérez Soto', grade: '2° Medio A', teacher: 'Prof. Vargas', alert: null },
         { name: 'María José Contreras', grade: '5° Básico B', teacher: 'Prof. Fuentes', alert: '1 alerta' },
@@ -25,8 +25,8 @@
     },
     {
       query: 'gonzales',
-      label: 'Tolerancia a errores ortográficos',
-      note: '"gonzales" encuentra todos los "González" — sin distinción de tilde',
+      labelKey: 'featurePage.smartSearch.example_typo_label' as const,
+      noteKey: 'featurePage.smartSearch.example_typo_note' as const,
       results: [
         { name: 'Matías González Pérez', grade: '8° Básico A', teacher: 'Prof. Herrera', alert: '2 alertas' },
         { name: 'Fernanda González Rojas', grade: '1° Medio C', teacher: 'Prof. Díaz', alert: null },
@@ -35,8 +35,8 @@
     },
     {
       query: '7b',
-      label: 'Búsqueda por curso',
-      note: 'Filtra por sección directamente — "7b" muestra todos los alumnos de 7° Básico B',
+      labelKey: 'featurePage.smartSearch.example_course_label' as const,
+      noteKey: 'featurePage.smartSearch.example_course_note' as const,
       results: [
         { name: 'Valentina Rojas Sepúlveda', grade: '7° Básico B', teacher: 'Prof. González', alert: null },
         { name: 'Benjamín Torres Muñoz', grade: '7° Básico B', teacher: 'Prof. González', alert: null },
@@ -51,14 +51,14 @@
 
 <svelte:head>
   <title>{BRAND} — {t('features.search.title')}</title>
-  <meta name="description" content="Cualquier alumno, en segundos, con tolerancia a errores tipográficos." />
+  <meta name="description" content={t('featurePage.smartSearch.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/features/smart-search" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content={`${BRAND} — Búsqueda Instantánea y Dashboard Inteligente`} />
-  <meta property="og:description" content="Cualquier alumno, en segundos, con tolerancia a errores tipográficos." />
+  <meta property="og:description" content={t('featurePage.smartSearch.meta_description')} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={`${BRAND} — Búsqueda Instantánea y Dashboard Inteligente`} />
-  <meta name="twitter:description" content="Cualquier alumno, en segundos, con tolerancia a errores tipográficos." />
+  <meta name="twitter:description" content={t('featurePage.smartSearch.meta_description')} />
   <link rel="canonical" href="https://ethoz.cl/features/smart-search" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Búsqueda Inteligente"}]})}</script>`}
 </svelte:head>
@@ -71,7 +71,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href="/#features" class="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
-        Volver a características
+        {t('featurePage.smartSearch.back_to_features')}
       </a>
       <div class="mt-6 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="lg:pt-4">
@@ -87,28 +87,28 @@
           <ul class="mt-6 space-y-3">
             <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
               <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-              Búsqueda fonética y tolerante a tildes — "gonzales" encuentra "González"
+              {t('featurePage.smartSearch.hero_bullet1')}
             </li>
             <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
               <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-              Resultados en menos de 50ms — sin esperar, sin recargar
+              {t('featurePage.smartSearch.hero_bullet2')}
             </li>
             <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
               <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-              Badges de alerta visibles en los resultados — el inspector sabe antes de abrir la ficha
+              {t('featurePage.smartSearch.hero_bullet3')}
             </li>
           </ul>
 
           <!-- Example selector -->
           <div class="mt-6 space-y-2">
-            <p id="search-example-label" class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Probar ejemplos:</p>
+            <p id="search-example-label" class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.smartSearch.try_examples_label')}</p>
             <div class="flex flex-wrap gap-2" role="group" aria-labelledby="search-example-label">
               {#each searchExamples as ex, i}
                 <button
                   type="button"
                   onclick={() => activeExample = i}
                   aria-pressed={activeExample === i}
-                  aria-label={`Ejemplo: ${ex.label}`}
+                  aria-label={`${t('featurePage.smartSearch.example_aria_prefix')} ${t(ex.labelKey)}`}
                   class="text-xs font-medium px-3 py-1.5 rounded-full border transition-colors {activeExample === i ? 'bg-primary text-primary-foreground border-primary' : 'border-border text-muted-foreground hover:text-foreground'}"
                 >
                   "{ex.query}"
@@ -124,7 +124,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Búsqueda inteligente</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{t('featurePage.smartSearch.mockup_titlebar')}</span>
           </div>
           <div class="p-4 sm:p-5">
             <!-- Search bar -->
@@ -133,7 +133,7 @@
               <span class="text-xs text-foreground font-medium">{current.query}</span>
               <span class="animate-pulse text-xs text-primary ml-0.5">|</span>
             </div>
-            <p class="mb-3 text-[9px] text-muted-foreground pl-1">{current.note}</p>
+            <p class="mb-3 text-[9px] text-muted-foreground pl-1">{t(current.noteKey)}</p>
 
             <!-- Results -->
             <div class="space-y-1">
@@ -153,13 +153,13 @@
                     </span>
                   {:else}
                     <span class="shrink-0 inline-flex items-center gap-1 rounded-full bg-success/10 px-1.5 py-0.5 text-[8px] font-medium text-success">
-                      Sin alertas
+                      {t('featurePage.smartSearch.no_alerts')}
                     </span>
                   {/if}
                 </div>
               {/each}
             </div>
-            <p class="mt-2.5 text-center text-[9px] text-muted-foreground">{current.results.length} resultado{current.results.length !== 1 ? 's' : ''} · 0.03s · Colegio Alemán de Concepción</p>
+            <p class="mt-2.5 text-center text-[9px] text-muted-foreground">{current.results.length} {current.results.length !== 1 ? t('featurePage.smartSearch.results_plural') : t('featurePage.smartSearch.results_singular')} · 0.03s · {t('featurePage.smartSearch.sample_school_concepcion')}</p>
           </div>
         </div>
       </div>
@@ -185,22 +185,22 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <div>
-          <h2 class="text-xl text-foreground sm:text-2xl">Dashboard con visión de curso completo</h2>
+          <h2 class="text-xl text-foreground sm:text-2xl">{t('featurePage.smartSearch.dashboard_title')}</h2>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-            El Inspector de piso ve en una pantalla todos los alumnos con alertas activas, ordenados por urgencia. Sin necesidad de buscar uno a uno.
+            {t('featurePage.smartSearch.dashboard_body1')}
           </p>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Los badges cambian en tiempo real cuando un nuevo retiro se registra o una alerta se resuelve — cualquier cambio es inmediatamente visible.
+            {t('featurePage.smartSearch.dashboard_body2')}
           </p>
           <ul class="mt-5 space-y-2">
             {#each [
-              'Filtrar por curso, ciclo o sección',
-              'Ordenar por nombre, alertas o último evento',
-              'Exportar lista con un clic (solo para roles autorizados)',
-            ] as item}
+              'featurePage.smartSearch.dashboard_list_filter',
+              'featurePage.smartSearch.dashboard_list_sort',
+              'featurePage.smartSearch.dashboard_list_export',
+            ] as const as item}
               <li class="flex items-start gap-2 text-sm text-muted-foreground">
                 <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-                {item}
+                {t(item)}
               </li>
             {/each}
           </ul>
@@ -211,18 +211,18 @@
           <div class="border-b border-border px-4 py-3 flex items-center justify-between gap-3">
             <div class="flex items-center gap-2">
               <LayoutDashboard class="size-4 text-primary" />
-              <span class="text-sm font-semibold text-foreground">Alumnos con alertas activas</span>
+              <span class="text-sm font-semibold text-foreground">{t('featurePage.smartSearch.dashboard_mockup_title')}</span>
             </div>
             <span class="inline-flex items-center gap-1 rounded-full bg-warning/10 px-2 py-0.5 text-[10px] font-semibold text-warning-foreground">
-              <AlertTriangle class="size-3" /> 4 alertas
+              <AlertTriangle class="size-3" /> 4 {t('featurePage.smartSearch.alerts_word')}
             </span>
           </div>
           <div class="divide-y divide-border">
             {#each [
-              { name: 'Matías González Pérez', grade: '8° Básico A', alerts: ['Restricción retiro', 'Alerta médica'], urgent: true },
-              { name: 'Isidora Castro Lagos', grade: '7° Básico B', alerts: ['3 atrasos este mes'], urgent: false },
-              { name: 'Sebastián Muñoz Vera', grade: '1° Medio C', alerts: ['Convivencia pendiente'], urgent: false },
-              { name: 'Valentín Araya Torres', grade: '3° Medio A', alerts: ['1 observación activa'], urgent: false },
+              { name: 'Matías González Pérez', grade: '8° Básico A', alerts: ['featurePage.smartSearch.alert_pickup_restriction', 'featurePage.smartSearch.alert_medical'] as const, urgent: true },
+              { name: 'Isidora Castro Lagos', grade: '7° Básico B', alerts: ['featurePage.smartSearch.alert_tardies_month'] as const, urgent: false },
+              { name: 'Sebastián Muñoz Vera', grade: '1° Medio C', alerts: ['featurePage.smartSearch.alert_conduct_pending'] as const, urgent: false },
+              { name: 'Valentín Araya Torres', grade: '3° Medio A', alerts: ['featurePage.smartSearch.alert_observation_active'] as const, urgent: false },
             ] as row}
               <div class="flex items-center gap-3 px-4 py-2.5">
                 <div class="size-7 rounded-full bg-muted flex items-center justify-center shrink-0">
@@ -235,7 +235,7 @@
                 <div class="flex flex-col items-end gap-1">
                   {#each row.alerts as alert}
                     <span class="inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[8px] font-medium {row.urgent ? 'bg-destructive/10 text-destructive' : 'bg-warning/10 text-warning-foreground'}">
-                      {alert}
+                      {t(alert)}
                     </span>
                   {/each}
                 </div>
@@ -243,7 +243,7 @@
             {/each}
           </div>
           <div class="px-4 py-2.5 border-t border-border bg-muted/20">
-            <p class="text-[9px] text-muted-foreground">Colegio San Patricio · Ñuñoa · Actualizado hace 2 min</p>
+            <p class="text-[9px] text-muted-foreground">{t('featurePage.smartSearch.dashboard_mockup_footer')}</p>
           </div>
         </div>
       </div>
@@ -258,7 +258,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Zap class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base text-foreground">Búsqueda tolerante a errores</h2>
+            <h2 class="text-base text-foreground">{t('featurePage.smartSearch.card_typo_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.search.bullet1')}
@@ -268,7 +268,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <LayoutDashboard class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base text-foreground">Dashboard con badges de alerta</h2>
+            <h2 class="text-base text-foreground">{t('featurePage.smartSearch.card_dashboard_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.search.bullet2')}
@@ -278,7 +278,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Filter class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base text-foreground">Filtros precisos de navegación</h2>
+            <h2 class="text-base text-foreground">{t('featurePage.smartSearch.card_filters_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.search.bullet3')}
@@ -305,14 +305,14 @@
           href="/demo"
           class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          Agendar demo
+          {t('featurePage.smartSearch.cta_demo')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/#features"
           class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          Ver todas las funciones
+          {t('featurePage.smartSearch.cta_all_features')}
         </a>
       </div>
     </div>

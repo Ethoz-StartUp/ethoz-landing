@@ -4,7 +4,6 @@
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
   import { t } from '$lib/i18n/index.svelte';
-  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
   import { CalendarCheck, ArrowRight, ArrowLeft, BookOpen, BadgeCheck, AlertTriangle, Clock, CheckCircle2, FileText } from '@lucide/svelte';
 
@@ -36,15 +35,15 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — Control de Asistencia Digital</title>
-  <meta name="description" content="Libro digital de asistencia conforme a Circular N°30. Registro de presencia, atrasos y justificaciones con trazabilidad completa y cumplimiento MINEDUC." />
+  <title>{t('featurePage.attendance.meta_title')}</title>
+  <meta name="description" content={t('featurePage.attendance.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/features/attendance" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} — Control de Asistencia Digital`} />
-  <meta property="og:description" content="Libro digital de asistencia conforme a Circular N°30. Trazabilidad completa y alertas automáticas de inasistencia reiterada." />
+  <meta property="og:title" content={t('featurePage.attendance.meta_title')} />
+  <meta property="og:description" content={t('featurePage.attendance.meta_og_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} — Control de Asistencia Digital`} />
-  <meta name="twitter:description" content="Libro digital de asistencia conforme a Circular N°30. Trazabilidad completa y alertas automáticas de inasistencia reiterada." />
+  <meta name="twitter:title" content={t('featurePage.attendance.meta_title')} />
+  <meta name="twitter:description" content={t('featurePage.attendance.meta_og_description')} />
   <link rel="canonical" href="https://ethoz.cl/features/attendance" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Control de Asistencia"}]})}</script>`}
 </svelte:head>
@@ -57,30 +56,30 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href="/productos" class="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
-        Volver a productos
+        {t('featurePage.attendance.back_to_products')}
       </a>
       <div class="mt-6 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <div class="flex items-center gap-3">
             <CalendarCheck class="size-6 shrink-0 text-primary" />
             <h1 class="text-balance text-foreground">
-              Control de Asistencia Digital
+              {t('featurePage.attendance.hero_title')}
             </h1>
           </div>
           <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Libro digital de clases conforme a Circular N°30. Registra presencia, atrasos y justificaciones con firma electrónica, detecta patrones de inasistencia y genera los reportes que exige el MINEDUC — sin papel.
+            {t('featurePage.attendance.hero_subtitle')}
           </p>
           <div class="mt-6 flex flex-wrap gap-2">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Circular N°30 MINEDUC</span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-success/10 px-3 py-1 text-xs font-medium text-success">Libro digital</span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-warning/15 px-3 py-1 text-xs font-medium text-warning-foreground">Ley 21.719</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{t('featurePage.attendance.hero_badge_circular')}</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-success/10 px-3 py-1 text-xs font-medium text-success">{t('featurePage.attendance.hero_badge_digital_book')}</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-warning/15 px-3 py-1 text-xs font-medium text-warning-foreground">{t('featurePage.attendance.hero_badge_law')}</span>
           </div>
           <div class="mt-8 flex flex-wrap gap-3">
             <Button size="lg" href="/demo">
-              Agendar Demo <ArrowRight class="size-4" />
+              {t('featurePage.attendance.hero_cta_demo')} <ArrowRight class="size-4" />
             </Button>
             <Button size="lg" variant="outline" href="/productos">
-              Ver todos los módulos
+              {t('featurePage.attendance.hero_cta_modules')}
             </Button>
           </div>
         </div>
@@ -91,23 +90,23 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Asistencia · 7°B · Semana 7 abr</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{t('featurePage.attendance.mockup_grid_titlebar')}</span>
           </div>
           <div class="p-3 sm:p-4">
             <!-- KPI bar -->
             <div class="mb-3 flex items-center gap-3">
               <div class="flex-1 rounded-lg bg-success/10 px-2.5 py-1.5 text-center">
                 <p class="text-base font-bold text-success">94,2%</p>
-                <p class="text-[9px] text-muted-foreground">Asistencia abril</p>
+                <p class="text-[9px] text-muted-foreground">{t('featurePage.attendance.mockup_kpi_label')}</p>
               </div>
               <div class="flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-[9px] font-semibold text-primary">
                 <BadgeCheck class="size-3 shrink-0" />
-                Circular N°30
+                {t('featurePage.attendance.mockup_circular_chip')}
               </div>
             </div>
             <!-- Day headers -->
             <div class="grid grid-cols-[1fr_repeat(5,_1.5rem)] gap-1 text-[8px] font-semibold uppercase tracking-wider text-muted-foreground px-1 mb-1">
-              <span>Alumno</span>
+              <span>{t('featurePage.attendance.mockup_col_student')}</span>
               {#each ['L', 'M', 'X', 'J', 'V'] as d}
                 <span class="text-center">{d}</span>
               {/each}
@@ -125,9 +124,9 @@
             </div>
             <!-- Legend -->
             <div class="mt-2 flex flex-wrap gap-2 border-t border-border pt-2">
-              {#each [['P','bg-success','Presente'],['A','bg-destructive','Ausente'],['T','bg-warning','Atraso'],['J','bg-primary/20','Justificado']] as [k,c,l]}
+              {#each ([['P','bg-success','featurePage.attendance.legend_present'],['A','bg-destructive','featurePage.attendance.legend_absent'],['T','bg-warning','featurePage.attendance.legend_late'],['J','bg-primary/20','featurePage.attendance.legend_justified']] as const) as [k,c,l]}
                 <span class="flex items-center gap-1 text-[9px] text-muted-foreground">
-                  <span class="size-3 rounded {c}"></span>{l}
+                  <span class="size-3 rounded {c}"></span>{t(l)}
                 </span>
               {/each}
             </div>
@@ -156,38 +155,38 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
         <div>
-          <h2 class="text-2xl text-foreground sm:text-3xl">Conforme a Circular N°30 desde el primer día</h2>
+          <h2 class="text-2xl text-foreground sm:text-3xl">{t('featurePage.attendance.compliance_title')}</h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-            La Circular N°30 del MINEDUC exige que el libro de clases electrónico cumpla con requisitos de integridad, trazabilidad y respaldo. {BRAND} los cumple todos.
+            {t('featurePage.attendance.compliance_body')}
           </p>
           <div class="mt-6 grid gap-4 sm:grid-cols-2">
             <div class="rounded-xl border border-border bg-card p-4 shadow-sm">
               <div class="flex items-center gap-2">
                 <BadgeCheck class="size-4 shrink-0 text-success" />
-                <h3 class="text-sm font-semibold text-foreground">Firma electrónica</h3>
+                <h3 class="text-sm font-semibold text-foreground">{t('featurePage.attendance.feature_signature_title')}</h3>
               </div>
-              <p class="mt-2 text-xs text-muted-foreground">Cada registro de asistencia queda firmado digitalmente por el docente responsable, con timestamp inmutable.</p>
+              <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.attendance.feature_signature_body')}</p>
             </div>
             <div class="rounded-xl border border-border bg-card p-4 shadow-sm">
               <div class="flex items-center gap-2">
                 <BookOpen class="size-4 shrink-0 text-primary" />
-                <h3 class="text-sm font-semibold text-foreground">Respaldo en nube</h3>
+                <h3 class="text-sm font-semibold text-foreground">{t('featurePage.attendance.feature_backup_title')}</h3>
               </div>
-              <p class="mt-2 text-xs text-muted-foreground">Datos replicados en 3 regiones. Disponibles para la Superintendencia de Educación ante cualquier fiscalización.</p>
+              <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.attendance.feature_backup_body')}</p>
             </div>
             <div class="rounded-xl border border-border bg-card p-4 shadow-sm">
               <div class="flex items-center gap-2">
                 <AlertTriangle class="size-4 shrink-0 text-warning-foreground" />
-                <h3 class="text-sm font-semibold text-foreground">Alertas de riesgo</h3>
+                <h3 class="text-sm font-semibold text-foreground">{t('featurePage.attendance.feature_alerts_title')}</h3>
               </div>
-              <p class="mt-2 text-xs text-muted-foreground">Alerta automática cuando un alumno supera el 15% de inasistencias. Notificación al apoderado y derivación a Orientación.</p>
+              <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.attendance.feature_alerts_body')}</p>
             </div>
             <div class="rounded-xl border border-border bg-card p-4 shadow-sm">
               <div class="flex items-center gap-2">
                 <FileText class="size-4 shrink-0 text-primary" />
-                <h3 class="text-sm font-semibold text-foreground">Reportes MINEDUC</h3>
+                <h3 class="text-sm font-semibold text-foreground">{t('featurePage.attendance.feature_reports_title')}</h3>
               </div>
-              <p class="mt-2 text-xs text-muted-foreground">Genera automáticamente el informe de asistencia mensual en el formato exigido por el MINEDUC para subvención escolar.</p>
+              <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.attendance.feature_reports_body')}</p>
             </div>
           </div>
         </div>
@@ -198,10 +197,10 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Justificar inasistencia</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{t('featurePage.attendance.mockup_justify_titlebar')}</span>
           </div>
           <div class="p-4 sm:p-5">
-            <p class="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-3">Solicitud de justificación</p>
+            <p class="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-3">{t('featurePage.attendance.mockup_justify_heading')}</p>
             <!-- Student info -->
             <div class="flex items-center gap-3 rounded-lg bg-muted/30 p-3 mb-3">
               <div class="size-8 rounded-full bg-primary/20 flex items-center justify-center text-[11px] font-bold text-primary">SR</div>
@@ -212,10 +211,10 @@
             </div>
             <!-- Reason -->
             <div class="space-y-2 mb-3">
-              <p class="text-[10px] font-medium text-foreground">Motivo seleccionado:</p>
+              <p class="text-[10px] font-medium text-foreground">{t('featurePage.attendance.mockup_reason_label')}</p>
               <div class="rounded-lg border-2 border-primary/30 bg-primary/5 px-3 py-2 flex items-center gap-2">
                 <span class="size-1.5 rounded-full bg-primary"></span>
-                <span class="text-xs text-foreground">Enfermedad con certificado médico</span>
+                <span class="text-xs text-foreground">{t('featurePage.attendance.mockup_reason_value')}</span>
               </div>
             </div>
             <!-- Document attached -->
@@ -231,7 +230,7 @@
             <div class="rounded-lg bg-success/10 border border-success/20 px-3 py-2 flex items-center gap-2">
               <CheckCircle2 class="size-3.5 shrink-0 text-success" />
               <div>
-                <p class="text-[11px] font-semibold text-success">Justificación aprobada</p>
+                <p class="text-[11px] font-semibold text-success">{t('featurePage.attendance.mockup_status_approved')}</p>
                 <p class="text-[9px] text-muted-foreground">Inspector J. Contreras · 10 abr 2026, 08:30</p>
               </div>
             </div>
@@ -245,22 +244,22 @@
   <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-2xl text-foreground sm:text-3xl">De la inasistencia al protocolo de intervención</h2>
-        <p class="mt-3 text-base text-muted-foreground">{BRAND} no solo registra — detecta el patrón y activa el flujo correcto.</p>
+        <h2 class="text-2xl text-foreground sm:text-3xl">{t('featurePage.attendance.flow_section_title')}</h2>
+        <p class="mt-3 text-base text-muted-foreground">{t('featurePage.attendance.flow_section_subtitle')}</p>
       </div>
       <div class="mt-10 grid gap-3 sm:grid-cols-4">
         {#each [
-          { n: '1', label: 'Registro diario', desc: 'El docente registra asistencia desde el móvil. Sin papel, sin planilla.' },
-          { n: '2', label: 'Detección automática', desc: 'Al superar 3 días consecutivos o 15% mensual, se activa la alerta.' },
-          { n: '3', label: 'Notificación al apoderado', desc: 'El apoderado recibe un aviso con el detalle y el enlace para justificar.' },
-          { n: '4', label: 'Derivación a Orientación', desc: 'Si el patrón persiste, el caso pasa automáticamente a la dupla psicosocial.' },
+          { n: '1', label: 'featurePage.attendance.flow_step1_label' as const, desc: 'featurePage.attendance.flow_step1_desc' as const },
+          { n: '2', label: 'featurePage.attendance.flow_step2_label' as const, desc: 'featurePage.attendance.flow_step2_desc' as const },
+          { n: '3', label: 'featurePage.attendance.flow_step3_label' as const, desc: 'featurePage.attendance.flow_step3_desc' as const },
+          { n: '4', label: 'featurePage.attendance.flow_step4_label' as const, desc: 'featurePage.attendance.flow_step4_desc' as const },
         ] as step}
           <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
             <div class="flex items-center gap-2.5 mb-3">
               <span class="size-6 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">{step.n}</span>
-              <h3 class="text-sm font-semibold text-foreground">{step.label}</h3>
+              <h3 class="text-sm font-semibold text-foreground">{t(step.label)}</h3>
             </div>
-            <p class="text-xs leading-relaxed text-muted-foreground">{step.desc}</p>
+            <p class="text-xs leading-relaxed text-muted-foreground">{t(step.desc)}</p>
           </div>
         {/each}
       </div>
@@ -273,18 +272,18 @@
       <div class="grid gap-4 sm:grid-cols-3">
         <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
           <p class="text-3xl font-bold text-destructive">20.000</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">UTM de multa máxima</p>
-          <p class="mt-2 text-xs text-muted-foreground">Ley 21.719 — registros de asistencia de menores son datos personales sensibles con protección reforzada desde dic 2026</p>
+          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.attendance.stat_fine_label')}</p>
+          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.attendance.stat_fine_desc')}</p>
         </div>
         <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
           <p class="text-3xl font-bold text-primary">Circular N°30</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">libro electrónico obligatorio</p>
-          <p class="mt-2 text-xs text-muted-foreground">El MINEDUC exige libro de clases electrónico para todos los establecimientos subvencionados desde 2024</p>
+          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.attendance.stat_circular_label')}</p>
+          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.attendance.stat_circular_desc')}</p>
         </div>
         <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
           <p class="text-3xl font-bold text-warning-foreground">15%</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">umbral de inasistencia</p>
-          <p class="mt-2 text-xs text-muted-foreground">El MINEDUC obliga a intervenir antes de que un alumno supere el 15% de inasistencias. {BRAND} lo detecta y activa el protocolo automáticamente.</p>
+          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.attendance.stat_threshold_label')}</p>
+          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.attendance.stat_threshold_desc')}</p>
         </div>
       </div>
     </div>
@@ -306,14 +305,14 @@
           href="/demo"
           class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          Agendar demo
+          {t('featurePage.attendance.finalCta_button_demo')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/productos"
           class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          Ver todos los módulos
+          {t('featurePage.attendance.finalCta_button_modules')}
         </a>
       </div>
     </div>

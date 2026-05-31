@@ -141,8 +141,8 @@
   // Compact countdown label for hero badge
   const heroCountdownLabel = $derived(
     countdownDays > 0
-      ? `Faltan ${countdownDays} días para Ley 21.719`
-      : `Ley 21.719 en vigencia`
+      ? `${t('home.hero_countdown_prefix')} ${countdownDays} ${t('home.hero_countdown_suffix')}`
+      : t('home.hero_countdown_active')
   );
 
   // Supporting feature cards rendered in the features section as a 3-up grid.
@@ -311,8 +311,8 @@
           <!-- Negative margin cancels HeroAppMockupCard's p-6 so title bar and dots are flush -->
           <div class="-m-6"
             role="region"
-            aria-roledescription="carrusel"
-            aria-label={`Vista del panel ${BRAND}`}
+            aria-roledescription={t('home.carousel_roledescription')}
+            aria-label={t('home.carousel_label')}
             onmouseenter={() => (carouselPaused = true)}
             onmouseleave={() => (carouselPaused = false)}
             onfocusin={() => (carouselPaused = true)}
@@ -329,7 +329,7 @@
                   <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
                   <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
                 </span>
-                Datos ficticios · Demo
+                {t('home.demo_data_badge')}
               </span>
             </div>
 
@@ -399,7 +399,7 @@
                 <button
                   onclick={() => { currentStudent = i; }}
                   class="flex min-h-[44px] min-w-[44px] items-center justify-center"
-                  aria-label={`Ver ${student.name}`}
+                  aria-label={`${t('home.carousel_dot_label')} ${student.name}`}
                   aria-current={currentStudent === i ? 'true' : undefined}
                 >
                   <span class="block size-2 rounded-full transition-all {currentStudent === i ? 'w-6 bg-primary' : 'bg-border hover:bg-muted-foreground'}"></span>
@@ -418,7 +418,7 @@
        Label → fact pattern with hairline divisions. Reads like a spec sheet,
        not a badge row.
        ═══════════════════════════════════════════ -->
-  <section class="reveal border-y border-border bg-background py-10" aria-label="Arquitectura verificable">
+  <section class="reveal border-y border-border bg-background py-10" aria-label={t('home.trust_section_label')}>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {t('trust.attribution')}
@@ -509,7 +509,7 @@
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           <span class="text-foreground">{t('problem.overline')}</span>
           <span aria-hidden="true" class="text-muted-foreground/40">·</span>
-          <span>3 fricciones · 1 sistema</span>
+          <span>{t('home.problem_meta')}</span>
         </p>
         <h2 class="mt-4 text-balance text-foreground">
           {t('problem.title')}
@@ -553,7 +553,7 @@
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           <span class="text-foreground">{t('solution.overline')}</span>
           <span aria-hidden="true" class="text-muted-foreground/40">·</span>
-          <span>10 módulos · Activación modular</span>
+          <span>{t('home.solution_meta')}</span>
         </p>
         <h2 class="mt-4 text-balance text-foreground">
           {t('solution.title')}
@@ -655,7 +655,7 @@
       </p>
       <!-- Visually hidden live region announces the countdown to screen readers without flooding on every minute tick -->
       <p class="sr-only" aria-live="polite" aria-atomic="true">
-        Faltan {countdownDays} días, {countdownHours} horas y {countdownMinutes} minutos para que la Ley 21.719 entre plenamente en vigencia.
+        {t('home.countdown_live_prefix')} {countdownDays} {t('home.countdown_live_days')} {countdownHours} {t('home.countdown_live_hours')} {countdownMinutes} {t('home.countdown_live_suffix')}
       </p>
       <div
         class="grid grid-cols-3 gap-2 sm:gap-4"
@@ -710,7 +710,7 @@
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           <span class="text-foreground">{t('how.overline')}</span>
           <span aria-hidden="true" class="text-muted-foreground/40">·</span>
-          <span>3 pasos · 2-4 semanas</span>
+          <span>{t('home.how_meta')}</span>
         </p>
         <h2 class="mt-4 text-balance text-foreground">
           {t('how.title')}
@@ -782,7 +782,7 @@
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           <span class="text-foreground">{t('faq.overline')}</span>
           <span aria-hidden="true" class="text-muted-foreground/40">·</span>
-          <span>7 preguntas · Respuestas directas</span>
+          <span>{t('home.faq_meta')}</span>
         </p>
         <h2 class="mt-4 text-balance text-foreground">
           {t('faq.title')}
@@ -847,7 +847,7 @@
       <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-dark-soft">
         <span class="text-on-dark">{t('cta.urgency_eyebrow')}</span>
         <span aria-hidden="true" class="text-on-dark-soft/40">·</span>
-        <span><span data-numeric class="font-semibold text-on-dark">{countdownDays}</span> días para Ley 21.719</span>
+        <span><span data-numeric class="font-semibold text-on-dark">{countdownDays}</span> {t('home.cta_days_suffix')}</span>
       </p>
       <h2 id="final-cta-heading" class="mt-5 text-balance text-on-dark">
         {t('cta.title')}

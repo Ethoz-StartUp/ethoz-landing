@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { t } from '$lib/i18n/index.svelte';
   import { trackEvent } from '$lib/utils/analytics';
   import {
     TrendingDown,
@@ -32,30 +33,30 @@
     {
       icon: ShieldCheck,
       stat: '100%',
-      label: 'Reducción proyectada en retiros no autorizados',
-      context: 'El sistema bloquea activamente cualquier retiro no autorizado, con verificación biométrica o por QR contra la lista de personas habilitadas.',
-      methodology: `Metodología: El 100% se basa en que el sistema impide físicamente (por diseño de flujo) completar un retiro sin verificación contra la lista autorizada. Si el apoderado no está en la lista, el sistema no permite el retiro y notifica a un directivo. No es una reducción estadística — es una restricción de flujo. Fuente de referencia: modelo operacional de sistemas de control de acceso escolar (benchmarks internacionales, 2024).`,
+      label: 'proyecciones.card_authorized_pickups_label' as const,
+      context: 'proyecciones.card_authorized_pickups_context' as const,
+      methodology: 'proyecciones.card_authorized_pickups_methodology' as const,
     },
     {
       icon: Clock,
       stat: '<3 seg',
-      label: 'Tiempo promedio de verificación de retiro',
-      context: 'Frente a 2–3 minutos del proceso manual actual (buscar listado, validar identidad, registrar en cuaderno).',
-      methodology: `Metodología: El proceso manual de verificación implica: (1) buscar al apoderado en listado físico o planilla Excel (~60 seg), (2) validar documento de identidad (~30 seg), (3) registrar en libro de retiros (~30 seg), (4) notificar al curso (~60 seg). Total estimado: 3–4 minutos por retiro. Con ${BRAND}, la verificación es por código QR o reconocimiento de la app, con confirmación automática en <3 segundos. Fuente: estimación operacional basada en protocolos de portería documentados en 3 establecimientos de referencia.`,
+      label: 'proyecciones.card_verification_time_label' as const,
+      context: 'proyecciones.card_verification_time_context' as const,
+      methodology: 'proyecciones.card_verification_time_methodology' as const,
     },
     {
       icon: BarChart2,
       stat: 'Hasta 20.000 UTM',
-      label: 'Ahorro proyectado en multas Ley 21.719',
-      context: `Un solo incidente de datos mal gestionados puede generar multas de hasta $1.340M CLP. ${BRAND} elimina las brechas estructurales que generan esa exposición.`,
-      methodology: `Metodología: La Ley 21.719 fija multas de hasta 20.000 UTM (~CLP $1.340.000.000 al valor UTM de 2025) para infracciones graves, o el 4% de la facturación anual global si es mayor. Las brechas más frecuentes en colegios incluyen: datos sin cifrar, sin audit log, compartidos por WhatsApp, o sin consentimiento parental documentado. ${BRAND} elimina cada una de estas brechas por diseño arquitectónico. El "ahorro" es la multa que no se paga al no tener brechas. No podemos garantizar que ningún colegio será investigado, pero sí que el colegio que usa ${BRAND} no tendrá las brechas técnicas más comunes. Fuente legal: Ley 21.719, Art. 46, Biblioteca del Congreso Nacional.`,
+      label: 'proyecciones.card_fines_savings_label' as const,
+      context: 'proyecciones.card_fines_savings_context' as const,
+      methodology: 'proyecciones.card_fines_savings_methodology' as const,
     },
     {
       icon: Users,
       stat: '~12 h/semana',
-      label: 'Horas recuperadas para el inspector jefe',
-      context: 'Tiempo actualmente destinado a registros manuales, búsqueda de autorizaciones y seguimiento de protocolos en papel.',
-      methodology: `Metodología: Estimación basada en carga operacional típica de inspector en colegio de 800 alumnos: (1) verificación de retiros: 30 retiros/día × 3 min = 90 min/día = 7,5 h/semana; (2) registro manual de incidencias de convivencia: ~2 h/semana; (3) búsqueda de documentos ante consultas de apoderados: ~2 h/semana. Total: ~11,5 h/semana en tareas que ${BRAND} automatiza. Con ${BRAND}, estas tareas se reducen a revisión de notificaciones (~1–2 h/semana). Diferencia proyectada: ~10–12 h/semana recuperadas. Fuente: encuestas de carga docente-administrativa, Colegio de Profesores de Chile (2024).`,
+      label: 'proyecciones.card_recovered_hours_label' as const,
+      context: 'proyecciones.card_recovered_hours_context' as const,
+      methodology: 'proyecciones.card_recovered_hours_methodology' as const,
     },
   ];
 
@@ -65,17 +66,17 @@
     dailyPickups: 40,
     inspectors: 2,
     rows: [
-      { metric: 'Retiros diarios procesados', before: '40 retiros × 3 min = 2 h', after: '40 retiros × 3 seg = 2 min', savings: '118 min/día' },
-      { metric: 'Horas inspector en verificación', before: '~10 h/semana', after: '~0,5 h/semana', savings: '9,5 h/semana' },
-      { metric: 'Tiempo en documentar incidencia grave', before: '45–60 min (papel + notificaciones)', after: '5–8 min (digital + automático)', savings: '~50 min/incidencia' },
-      { metric: 'Exposición Ley 21.719 (sin cifrado)', before: 'Hasta 20.000 UTM', after: '0 (arquitectura compliant)', savings: 'Riesgo eliminado' },
-      { metric: 'Costo estimado verificación manual anual', before: '~$3.600.000 CLP', after: '~$180.000 CLP', savings: '~$3.420.000 CLP' },
+      { metric: 'proyecciones.row_daily_pickups_metric' as const, before: 'proyecciones.row_daily_pickups_before' as const, after: 'proyecciones.row_daily_pickups_after' as const, savings: 'proyecciones.row_daily_pickups_savings' as const },
+      { metric: 'proyecciones.row_inspector_hours_metric' as const, before: 'proyecciones.row_inspector_hours_before' as const, after: 'proyecciones.row_inspector_hours_after' as const, savings: 'proyecciones.row_inspector_hours_savings' as const },
+      { metric: 'proyecciones.row_incident_doc_metric' as const, before: 'proyecciones.row_incident_doc_before' as const, after: 'proyecciones.row_incident_doc_after' as const, savings: 'proyecciones.row_incident_doc_savings' as const },
+      { metric: 'proyecciones.row_law_exposure_metric' as const, before: 'proyecciones.row_law_exposure_before' as const, after: 'proyecciones.row_law_exposure_after' as const, savings: 'proyecciones.row_law_exposure_savings' as const },
+      { metric: 'proyecciones.row_manual_cost_metric' as const, before: 'proyecciones.row_manual_cost_before' as const, after: 'proyecciones.row_manual_cost_after' as const, savings: 'proyecciones.row_manual_cost_savings' as const },
     ],
   };
 </script>
 
 <svelte:head>
-  <title>Proyecciones de impacto — {BRAND} | Basadas en datos públicos</title>
+  <title>{t('proyecciones.head_title_prefix')} {BRAND} {t('proyecciones.head_title_suffix')}</title>
   <meta name="description" content={`Proyecciones modeladas del impacto de ${BRAND} en colegios chilenos: retiros seguros, tiempo de verificación, ahorro en multas Ley 21.719 y horas recuperadas para inspectores.`} />
   <meta property="og:url" content="https://ethoz.cl/proyecciones" />
   <meta property="og:type" content="website" />
@@ -105,14 +106,14 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary shadow-sm">
         <TrendingDown class="size-3.5" />
-        Proyecciones de impacto
+        {t('proyecciones.hero_eyebrow')}
       </div>
       <h1 class="text-foreground">
-        Proyecciones de impacto
+        {t('proyecciones.hero_title')}
       </h1>
-      <p class="mt-3 text-xl font-semibold text-primary">Basadas en datos públicos</p>
+      <p class="mt-3 text-xl font-semibold text-primary">{t('proyecciones.hero_subtitle')}</p>
       <p class="mt-5 text-lg leading-relaxed text-muted-foreground sm:text-xl">
-        {BRAND} es una plataforma nueva (2026). No tenemos estudios de caso históricos. Lo que sí tenemos son proyecciones modeladas con rigor, basadas en datos públicos del Mineduc, la Superintendencia de Educación y la estructura de multas de la Ley 21.719.
+        {BRAND} {t('proyecciones.hero_description')}
       </p>
     </div>
   </section>
@@ -125,9 +126,9 @@
       <div class="flex items-start gap-3 rounded-xl border border-border bg-card p-5">
         <Info class="size-4 shrink-0 text-primary mt-0.5" />
         <div>
-          <p class="text-sm font-semibold text-foreground">Marco metodológico</p>
+          <p class="text-sm font-semibold text-foreground">{t('proyecciones.framing_title')}</p>
           <p class="mt-1 text-xs leading-relaxed text-muted-foreground">
-            Las proyecciones de esta página se derivan de: (1) datos públicos de incidencias del Mineduc y la Superintendencia de Educación, (2) benchmarks de sistemas de control de acceso escolar comparables, (3) la estructura legal de multas de la Ley 21.719, y (4) modelos de costo operacional de inspectoría. Cada tarjeta incluye el detalle de su metodología. Tus resultados variarán según el tamaño, contexto y operación de tu establecimiento.
+            {t('proyecciones.framing_body')}
           </p>
         </div>
       </div>
@@ -140,9 +141,9 @@
   <section class="py-12 sm:py-14 bg-background">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">Métricas proyectadas</p>
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('proyecciones.metrics_eyebrow')}</p>
         <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
-          Qué cambia cuando {BRAND} entra al colegio
+          {t('proyecciones.metrics_title_prefix')} {BRAND} {t('proyecciones.metrics_title_suffix')}
         </h2>
       </div>
 
@@ -153,11 +154,11 @@
             <div class="p-6">
               <div class="mb-4 flex items-center gap-2.5">
                 <Icon class="size-5 shrink-0 text-primary" />
-                <p class="text-sm font-semibold text-muted-foreground uppercase tracking-wide">Proyección</p>
+                <p class="text-sm font-semibold text-muted-foreground uppercase tracking-wide">{t('proyecciones.card_kicker')}</p>
               </div>
               <p class="text-4xl font-bold tracking-tight text-foreground">{proj.stat}</p>
-              <p class="mt-2 text-base font-semibold text-foreground">{proj.label}</p>
-              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{proj.context}</p>
+              <p class="mt-2 text-base font-semibold text-foreground">{t(proj.label)}</p>
+              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t(proj.context)}</p>
             </div>
             <!-- Expandable methodology -->
             <div class="border-t border-border">
@@ -165,7 +166,7 @@
                 onclick={() => toggleCard(i)}
                 class="flex w-full items-center justify-between px-6 py-3 text-xs font-medium text-primary hover:bg-primary/5 transition-colors"
               >
-                <span>Ver metodología</span>
+                <span>{t('proyecciones.see_methodology')}</span>
                 {#if expandedCards[i]}
                   <ChevronUp class="size-3.5" />
                 {:else}
@@ -174,7 +175,7 @@
               </button>
               {#if expandedCards[i]}
                 <div class="px-6 pb-5">
-                  <p class="text-xs leading-relaxed text-muted-foreground">{proj.methodology}</p>
+                  <p class="text-xs leading-relaxed text-muted-foreground">{t(proj.methodology)}</p>
                 </div>
               {/if}
             </div>
@@ -190,12 +191,12 @@
   <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">Escenario tipo</p>
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('proyecciones.scenario_eyebrow')}</p>
         <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
-          Proyecciones para un colegio de 800 alumnos
+          {t('proyecciones.scenario_title')}
         </h2>
         <p class="mt-4 text-base text-muted-foreground">
-          Colegio particular subvencionado, 2 inspectores, ~40 retiros diarios, datos sensibles (PIE).
+          {t('proyecciones.scenario_subtitle')}
         </p>
       </div>
 
@@ -203,19 +204,19 @@
         <table class="w-full border-collapse text-sm">
           <thead>
             <tr class="border-b border-border bg-muted/50">
-              <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Métrica</th>
-              <th class="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">Sin {BRAND}</th>
-              <th class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-primary bg-primary/5">Con {BRAND}</th>
-              <th class="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">Diferencia proyectada</th>
+              <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('proyecciones.table_head_metric')}</th>
+              <th class="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('proyecciones.table_head_without')} {BRAND}</th>
+              <th class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-primary bg-primary/5">{t('proyecciones.table_head_with')} {BRAND}</th>
+              <th class="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('proyecciones.table_head_diff')}</th>
             </tr>
           </thead>
           <tbody>
             {#each scenario.rows as row, i}
               <tr class="border-b border-border {i % 2 === 0 ? 'bg-background' : 'bg-muted/20'}">
-                <td class="px-4 py-3 text-sm font-medium text-foreground">{row.metric}</td>
-                <td class="px-4 py-3 text-center text-sm text-muted-foreground">{row.before}</td>
-                <td class="px-4 py-3 text-center text-sm font-medium text-primary bg-primary/5">{row.after}</td>
-                <td class="px-4 py-3 text-center text-sm font-semibold text-foreground">{row.savings}</td>
+                <td class="px-4 py-3 text-sm font-medium text-foreground">{t(row.metric)}</td>
+                <td class="px-4 py-3 text-center text-sm text-muted-foreground">{t(row.before)}</td>
+                <td class="px-4 py-3 text-center text-sm font-medium text-primary bg-primary/5">{t(row.after)}</td>
+                <td class="px-4 py-3 text-center text-sm font-semibold text-foreground">{t(row.savings)}</td>
               </tr>
             {/each}
           </tbody>
@@ -223,7 +224,7 @@
       </div>
 
       <p class="mt-4 text-xs text-muted-foreground text-center">
-        Costo por hora inspector estimado en $15.000 CLP/hora. 40 semanas escolares/año.
+        {t('proyecciones.scenario_footnote')}
       </p>
     </div>
   </section>
@@ -235,7 +236,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="rounded-xl border border-border bg-secondary p-5">
         <p class="text-xs leading-relaxed text-muted-foreground text-center">
-          <strong class="text-foreground">Aviso importante:</strong> Estas son proyecciones modeladas, no resultados históricos confirmados. {BRAND} es una plataforma nueva (fundada en 2026) y no cuenta con estudios de caso de implementación a largo plazo. Las proyecciones se basan en datos públicos y modelos operacionales, y deben considerarse como estimaciones referenciales. Tus resultados variarán según el tamaño, contexto operacional y características específicas de tu establecimiento.
+          <strong class="text-foreground">{t('proyecciones.bottom_disclaimer_label')}</strong> {t('proyecciones.bottom_disclaimer_prefix')} {BRAND} {t('proyecciones.bottom_disclaimer_suffix')}
         </p>
       </div>
     </div>
@@ -247,21 +248,21 @@
   <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <h2 class="text-3xl text-foreground sm:text-4xl">
-        ¿Cómo se ven estas proyecciones en tu colegio?
+        {t('proyecciones.cta_title')}
       </h2>
       <p class="mt-4 text-base text-muted-foreground">
-        Usa nuestra calculadora de ROI para una estimación personalizada basada en el tamaño real de tu establecimiento.
+        {t('proyecciones.cta_subtitle')}
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
         <Button size="xl" href="/roi-calculator" class="shadow-lg">
-          Calcular mi exposición al riesgo
+          {t('proyecciones.cta_primary')}
           <ArrowRight class="size-4" />
         </Button>
         <a
           href="/demo"
           class="text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
-          Solicitar demo
+          {t('proyecciones.cta_secondary')}
         </a>
       </div>
     </div>

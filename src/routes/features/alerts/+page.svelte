@@ -33,30 +33,30 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href="/productos" class="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
-        Volver a productos
+        {t('featurePage.alerts.back_to_products')}
       </a>
       <div class="mt-6 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
           <div class="flex items-center gap-3">
             <ShieldAlert class="size-6 shrink-0 text-destructive" />
             <h1 class="text-balance text-foreground">
-              Alertas Críticas Centralizadas
+              {t('featurePage.alerts.hero_title')}
             </h1>
           </div>
           <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Órdenes de alejamiento, restricciones de retiro, riesgo familiar e ideación suicida: toda la información sensible en un solo sistema con acceso controlado por rol y trazabilidad total.
+            {t('featurePage.alerts.hero_subtitle')}
           </p>
           <div class="mt-6 flex flex-wrap gap-2">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-destructive/10 px-3 py-1 text-xs font-medium text-destructive">Ley Aula Segura</span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">Ley 21.719</span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-warning/15 px-3 py-1 text-xs font-medium text-warning-foreground">Protocolos MINEDUC</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-destructive/10 px-3 py-1 text-xs font-medium text-destructive">{t('featurePage.alerts.badge_aula_segura')}</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{t('featurePage.alerts.badge_ley_21719')}</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-warning/15 px-3 py-1 text-xs font-medium text-warning-foreground">{t('featurePage.alerts.badge_protocolos_mineduc')}</span>
           </div>
           <div class="mt-8 flex flex-wrap gap-3">
             <Button size="lg" href="/demo">
-              Agendar Demo <ArrowRight class="size-4" />
+              {t('featurePage.alerts.hero_cta_primary')} <ArrowRight class="size-4" />
             </Button>
             <Button size="lg" variant="outline" href="/productos">
-              Ver todos los módulos
+              {t('featurePage.alerts.cta_all_modules')}
             </Button>
           </div>
         </div>
@@ -67,7 +67,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Alertas Críticas</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — {t('featurePage.alerts.mockup_window_title')}</span>
           </div>
           <div class="p-4 sm:p-5 space-y-3">
             <!-- Critical alert -->
@@ -75,17 +75,17 @@
               <div class="flex items-center justify-between gap-2">
                 <div class="flex items-center gap-2">
                   <Scale class="size-3.5 shrink-0 text-destructive" />
-                  <span class="text-[11px] font-bold uppercase tracking-wide text-destructive">Orden de Alejamiento</span>
+                  <span class="text-[11px] font-bold uppercase tracking-wide text-destructive">{t('featurePage.alerts.mockup_critical_type')}</span>
                 </div>
-                <span class="rounded-full bg-destructive/15 px-2 py-0.5 text-[9px] font-semibold text-destructive">CRÍTICA</span>
+                <span class="rounded-full bg-destructive/15 px-2 py-0.5 text-[9px] font-semibold text-destructive">{t('featurePage.alerts.mockup_level_critical')}</span>
               </div>
-              <p class="mt-1.5 text-[11px] font-semibold text-foreground">Padre biológico — Juan Carlos Rojas Pino</p>
-              <p class="text-[10px] text-muted-foreground">RUT 10.234.567-8 · Alumna: Valentina Rojas Sepúlveda (7°B)</p>
+              <p class="mt-1.5 text-[11px] font-semibold text-foreground">{t('featurePage.alerts.mockup_critical_person')}</p>
+              <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.mockup_critical_student')}</p>
               <div class="mt-2 grid grid-cols-2 gap-1.5 text-[9px] text-muted-foreground">
-                <span><span class="font-medium text-foreground">Tribunal:</span> 3er Juzg. Familia Santiago</span>
-                <span><span class="font-medium text-foreground">RIT:</span> C-4821-2025</span>
-                <span><span class="font-medium text-foreground">Vigencia:</span> hasta 15 ago 2026</span>
-                <span><span class="font-medium text-foreground">Registró:</span> Directora López</span>
+                <span><span class="font-medium text-foreground">{t('featurePage.alerts.mockup_label_tribunal')}</span> {t('featurePage.alerts.mockup_critical_tribunal_value')}</span>
+                <span><span class="font-medium text-foreground">{t('featurePage.alerts.mockup_label_rit')}</span> C-4821-2025</span>
+                <span><span class="font-medium text-foreground">{t('featurePage.alerts.mockup_label_vigencia')}</span> {t('featurePage.alerts.mockup_critical_vigencia_value')}</span>
+                <span><span class="font-medium text-foreground">{t('featurePage.alerts.mockup_label_registro')}</span> {t('featurePage.alerts.mockup_critical_registro_value')}</span>
               </div>
             </div>
             <!-- Warning alert -->
@@ -93,24 +93,24 @@
               <div class="flex items-center justify-between gap-2">
                 <div class="flex items-center gap-2">
                   <AlertTriangle class="size-3.5 shrink-0 text-warning-foreground" />
-                  <span class="text-[11px] font-bold uppercase tracking-wide text-warning-foreground">Riesgo Familiar</span>
+                  <span class="text-[11px] font-bold uppercase tracking-wide text-warning-foreground">{t('featurePage.alerts.mockup_warning_type')}</span>
                 </div>
-                <span class="rounded-full bg-warning/20 px-2 py-0.5 text-[9px] font-semibold text-warning-foreground">ALTA</span>
+                <span class="rounded-full bg-warning/20 px-2 py-0.5 text-[9px] font-semibold text-warning-foreground">{t('featurePage.alerts.mockup_level_high')}</span>
               </div>
-              <p class="mt-1.5 text-[11px] font-semibold text-foreground">Matías González Herrera — 8°A</p>
-              <p class="text-[10px] text-muted-foreground">Derivado a OPD Ñuñoa · Orientadora Sra. Ramos</p>
+              <p class="mt-1.5 text-[11px] font-semibold text-foreground">{t('featurePage.alerts.mockup_warning_person')}</p>
+              <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.mockup_warning_detail')}</p>
             </div>
             <!-- Info alert -->
             <div class="rounded-lg border border-border bg-muted/30 p-3">
               <div class="flex items-center justify-between gap-2">
                 <div class="flex items-center gap-2">
                   <Bell class="size-3.5 shrink-0 text-muted-foreground" />
-                  <span class="text-[11px] font-bold uppercase tracking-wide text-muted-foreground">Suspensión</span>
+                  <span class="text-[11px] font-bold uppercase tracking-wide text-muted-foreground">{t('featurePage.alerts.mockup_info_type')}</span>
                 </div>
-                <span class="rounded-full bg-muted px-2 py-0.5 text-[9px] font-semibold text-muted-foreground">MEDIA</span>
+                <span class="rounded-full bg-muted px-2 py-0.5 text-[9px] font-semibold text-muted-foreground">{t('featurePage.alerts.mockup_level_medium')}</span>
               </div>
-              <p class="mt-1.5 text-[11px] font-semibold text-foreground">Tomás Valdés Muñoz — 6°B · 3 días</p>
-              <p class="text-[10px] text-muted-foreground">Vence: 10 abr 2026 · Inspector J. Contreras</p>
+              <p class="mt-1.5 text-[11px] font-semibold text-foreground">{t('featurePage.alerts.mockup_info_person')}</p>
+              <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.mockup_info_detail')}</p>
             </div>
           </div>
         </div>
@@ -136,81 +136,81 @@
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">Seis tipos críticos</p>
-        <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">Todos los tipos de alerta en un solo lugar</h2>
-        <p class="mt-3 text-base text-muted-foreground">Cada alerta tiene su propio flujo de revisión, nivel de visibilidad y protocolo de actuación.</p>
+        <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('featurePage.alerts.types_eyebrow')}</p>
+        <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">{t('featurePage.alerts.types_title')}</h2>
+        <p class="mt-3 text-base text-muted-foreground">{t('featurePage.alerts.types_subtitle')}</p>
       </div>
       <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 
         <div class="rounded-xl border border-destructive/20 bg-card p-5 shadow-sm">
           <div class="flex items-center gap-2.5">
             <Scale class="size-5 shrink-0 text-destructive" />
-            <h3 class="text-sm font-semibold text-foreground">Orden de alejamiento</h3>
+            <h3 class="text-sm font-semibold text-foreground">{t('featurePage.alerts.type_restraining_title')}</h3>
           </div>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Integra resoluciones del Juzgado de Familia (RIT, tribunal, vigencia). Bloqueo automático en portería al escanear RUT del progenitor restringido.</p>
+          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_restraining_body')}</p>
           <div class="mt-3 flex items-center gap-1.5">
             <span class="size-1.5 rounded-full bg-destructive"></span>
-            <span class="text-[10px] text-muted-foreground">Visibilidad: Directora + Inspectoría + Portería</span>
+            <span class="text-[10px] text-muted-foreground">{t('featurePage.alerts.type_restraining_visibility')}</span>
           </div>
         </div>
 
         <div class="rounded-xl border border-destructive/20 bg-card p-5 shadow-sm">
           <div class="flex items-center gap-2.5">
             <FileWarning class="size-5 shrink-0 text-destructive" />
-            <h3 class="text-sm font-semibold text-foreground">Ideación suicida</h3>
+            <h3 class="text-sm font-semibold text-foreground">{t('featurePage.alerts.type_suicidal_title')}</h3>
           </div>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Protocolo MINEDUC obligatorio. Registro confidencial con seguimiento por Orientación. Notificación inmediata a dupla psicosocial y apoderado.</p>
+          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_suicidal_body')}</p>
           <div class="mt-3 flex items-center gap-1.5">
             <span class="size-1.5 rounded-full bg-destructive"></span>
-            <span class="text-[10px] text-muted-foreground">Visibilidad: Directora + Orientación (restringida)</span>
+            <span class="text-[10px] text-muted-foreground">{t('featurePage.alerts.type_suicidal_visibility')}</span>
           </div>
         </div>
 
         <div class="rounded-xl border border-warning/20 bg-card p-5 shadow-sm">
           <div class="flex items-center gap-2.5">
             <AlertTriangle class="size-5 shrink-0 text-warning-foreground" />
-            <h3 class="text-sm font-semibold text-foreground">Riesgo familiar</h3>
+            <h3 class="text-sm font-semibold text-foreground">{t('featurePage.alerts.type_family_risk_title')}</h3>
           </div>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Vincula con derivaciones a OPD, CESFAM o red de protección. Seguimiento de casos activos con hitos y responsables asignados.</p>
+          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_family_risk_body')}</p>
           <div class="mt-3 flex items-center gap-1.5">
             <span class="size-1.5 rounded-full bg-warning"></span>
-            <span class="text-[10px] text-muted-foreground">Visibilidad: Directora + Orientación</span>
+            <span class="text-[10px] text-muted-foreground">{t('featurePage.alerts.type_family_risk_visibility')}</span>
           </div>
         </div>
 
         <div class="rounded-xl border border-warning/20 bg-card p-5 shadow-sm">
           <div class="flex items-center gap-2.5">
             <Clock class="size-5 shrink-0 text-warning-foreground" />
-            <h3 class="text-sm font-semibold text-foreground">Suspensión</h3>
+            <h3 class="text-sm font-semibold text-foreground">{t('featurePage.alerts.type_suspension_title')}</h3>
           </div>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Registro automático de inicio, duración y vencimiento. Aviso al apoderado con comprobante digital conforme a Ley Aula Segura.</p>
+          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_suspension_body')}</p>
           <div class="mt-3 flex items-center gap-1.5">
             <span class="size-1.5 rounded-full bg-warning"></span>
-            <span class="text-[10px] text-muted-foreground">Visibilidad: Directora + Inspectoría</span>
+            <span class="text-[10px] text-muted-foreground">{t('featurePage.alerts.type_suspension_visibility')}</span>
           </div>
         </div>
 
         <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
           <div class="flex items-center gap-2.5">
             <XCircle class="size-5 shrink-0 text-muted-foreground" />
-            <h3 class="text-sm font-semibold text-foreground">Restricción de retiro</h3>
+            <h3 class="text-sm font-semibold text-foreground">{t('featurePage.alerts.type_pickup_restriction_title')}</h3>
           </div>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Personas específicas marcadas como no autorizadas para retirar al alumno. Se activa en el flujo de verificación de portería en tiempo real.</p>
+          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_pickup_restriction_body')}</p>
           <div class="mt-3 flex items-center gap-1.5">
             <span class="size-1.5 rounded-full bg-muted-foreground"></span>
-            <span class="text-[10px] text-muted-foreground">Visibilidad: Portería + Directora</span>
+            <span class="text-[10px] text-muted-foreground">{t('featurePage.alerts.type_pickup_restriction_visibility')}</span>
           </div>
         </div>
 
         <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
           <div class="flex items-center gap-2.5">
             <CheckCircle2 class="size-5 shrink-0 text-primary" />
-            <h3 class="text-sm font-semibold text-foreground">Alertas personalizadas</h3>
+            <h3 class="text-sm font-semibold text-foreground">{t('featurePage.alerts.type_custom_title')}</h3>
           </div>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Crea tipos de alerta propios según los protocolos internos del colegio. Campos configurables, flujos de aprobación y niveles de acceso.</p>
+          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_custom_body')}</p>
           <div class="mt-3 flex items-center gap-1.5">
             <span class="size-1.5 rounded-full bg-primary"></span>
-            <span class="text-[10px] text-muted-foreground">Visibilidad: Configurable por establecimiento</span>
+            <span class="text-[10px] text-muted-foreground">{t('featurePage.alerts.type_custom_visibility')}</span>
           </div>
         </div>
 
@@ -223,26 +223,26 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <h2 class="text-2xl text-foreground sm:text-3xl">Trazabilidad completa de cada alerta</h2>
+          <h2 class="text-2xl text-foreground sm:text-3xl">{t('featurePage.alerts.traceability_title')}</h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-            Cada alerta registra quién la creó, quién la revisó, qué acción se tomó y cuándo venció. Ante una fiscalización del MINEDUC o un caso judicial, tienes evidencia digital completa.
+            {t('featurePage.alerts.traceability_body')}
           </p>
           <ul class="mt-6 space-y-3">
             <li class="flex items-start gap-2.5">
               <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary"></span>
-              <span class="text-sm text-muted-foreground">Auditoría de accesos: quién vio qué y cuándo</span>
+              <span class="text-sm text-muted-foreground">{t('featurePage.alerts.traceability_point_1')}</span>
             </li>
             <li class="flex items-start gap-2.5">
               <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary"></span>
-              <span class="text-sm text-muted-foreground">Exportación de historial para peritajes o inspecciones</span>
+              <span class="text-sm text-muted-foreground">{t('featurePage.alerts.traceability_point_2')}</span>
             </li>
             <li class="flex items-start gap-2.5">
               <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary"></span>
-              <span class="text-sm text-muted-foreground">Vencimientos automáticos con aviso previo de 7 días</span>
+              <span class="text-sm text-muted-foreground">{t('featurePage.alerts.traceability_point_3')}</span>
             </li>
             <li class="flex items-start gap-2.5">
               <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary"></span>
-              <span class="text-sm text-muted-foreground">Integración con ficha del alumno y módulo de retiros</span>
+              <span class="text-sm text-muted-foreground">{t('featurePage.alerts.traceability_point_4')}</span>
             </li>
           </ul>
         </div>
@@ -252,40 +252,40 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Historial de Alerta #1042</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — {t('featurePage.alerts.timeline_window_title')}</span>
           </div>
           <div class="p-4 sm:p-5">
-            <p class="mb-3 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Orden de alejamiento — Valentina Rojas</p>
+            <p class="mb-3 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.alerts.timeline_subject')}</p>
             <div class="relative space-y-3 pl-4 before:absolute before:left-1.5 before:top-1 before:h-full before:w-px before:bg-border">
               <div class="flex items-start gap-3">
                 <span class="absolute left-0.5 mt-1 size-2 rounded-full bg-destructive ring-2 ring-background"></span>
                 <div class="ml-1">
-                  <p class="text-[11px] font-semibold text-foreground">Alerta creada</p>
-                  <p class="text-[10px] text-muted-foreground">Directora M. López · 3 mar 2026, 09:14</p>
-                  <p class="text-[10px] text-muted-foreground">RIT C-4821-2025 adjuntado</p>
+                  <p class="text-[11px] font-semibold text-foreground">{t('featurePage.alerts.timeline_step1_title')}</p>
+                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step1_meta')}</p>
+                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step1_detail')}</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
                 <span class="absolute left-0.5 mt-1 size-2 rounded-full bg-warning ring-2 ring-background"></span>
                 <div class="ml-1">
-                  <p class="text-[11px] font-semibold text-foreground">Revisada por Inspectoría</p>
-                  <p class="text-[10px] text-muted-foreground">Inspector J. Muñoz · 3 mar 2026, 10:30</p>
-                  <p class="text-[10px] text-muted-foreground">Portería notificada</p>
+                  <p class="text-[11px] font-semibold text-foreground">{t('featurePage.alerts.timeline_step2_title')}</p>
+                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step2_meta')}</p>
+                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step2_detail')}</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
                 <span class="absolute left-0.5 mt-1 size-2 rounded-full bg-destructive ring-2 ring-background"></span>
                 <div class="ml-1">
-                  <p class="text-[11px] font-semibold text-foreground">Intento de retiro bloqueado</p>
-                  <p class="text-[10px] text-muted-foreground">Portería Central · 12 mar 2026, 14:47</p>
-                  <p class="text-[10px] text-muted-foreground">Juan Rojas (RUT 10.234.567-8) — DENEGADO</p>
+                  <p class="text-[11px] font-semibold text-foreground">{t('featurePage.alerts.timeline_step3_title')}</p>
+                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step3_meta')}</p>
+                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step3_detail')}</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
                 <span class="absolute left-0.5 mt-1 size-2 rounded-full bg-muted-foreground ring-2 ring-background"></span>
                 <div class="ml-1">
-                  <p class="text-[11px] font-semibold text-foreground">Vence en 130 días</p>
-                  <p class="text-[10px] text-muted-foreground">Aviso automático programado para 8 ago 2026</p>
+                  <p class="text-[11px] font-semibold text-foreground">{t('featurePage.alerts.timeline_step4_title')}</p>
+                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step4_detail')}</p>
                 </div>
               </div>
             </div>
@@ -299,24 +299,24 @@
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-2xl text-foreground sm:text-3xl">Por qué esto importa ahora</h2>
-        <p class="mt-3 text-base text-muted-foreground">Las consecuencias de una alerta no gestionada van desde sanciones económicas hasta responsabilidad penal del director.</p>
+        <h2 class="text-2xl text-foreground sm:text-3xl">{t('featurePage.alerts.why_title')}</h2>
+        <p class="mt-3 text-base text-muted-foreground">{t('featurePage.alerts.why_subtitle')}</p>
       </div>
       <div class="mt-10 grid gap-4 sm:grid-cols-3">
         <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
           <p class="text-3xl font-bold text-destructive">20.000</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">UTM de multa máxima</p>
-          <p class="mt-2 text-xs text-muted-foreground">Ley 21.719 — infracciones graves al tratamiento de datos sensibles de menores</p>
+          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.alerts.stat_fine_label')}</p>
+          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.alerts.stat_fine_desc')}</p>
         </div>
         <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
           <p class="text-3xl font-bold text-primary">12.038</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">colegios en Chile</p>
-          <p class="mt-2 text-xs text-muted-foreground">Solo el 4% cuenta con sistemas digitales de gestión de alertas críticas según datos MINEDUC 2025</p>
+          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.alerts.stat_schools_label')}</p>
+          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.alerts.stat_schools_desc')}</p>
         </div>
         <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
           <p class="text-3xl font-bold text-warning-foreground">dic 2026</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">plazo Ley 21.719</p>
-          <p class="mt-2 text-xs text-muted-foreground">A partir de esa fecha, la ANIC puede iniciar procedimientos sancionatorios contra establecimientos sin protocolos digitales</p>
+          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.alerts.stat_deadline_label')}</p>
+          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.alerts.stat_deadline_desc')}</p>
         </div>
       </div>
     </div>
@@ -338,14 +338,14 @@
           href="/demo"
           class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          Agendar demo
+          {t('featurePage.alerts.final_cta_primary')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/productos"
           class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          Ver todos los módulos
+          {t('featurePage.alerts.cta_all_modules')}
         </a>
       </div>
     </div>

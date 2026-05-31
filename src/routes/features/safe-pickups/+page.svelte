@@ -17,14 +17,14 @@
 
 <svelte:head>
   <title>{BRAND} — {t('features.pickup.title')}</title>
-  <meta name="description" content="El portero sabe en segundos si puede entregar al alumno — sin llamadas, sin papel, sin margen de error." />
+  <meta name="description" content={t('featurePage.safePickups.meta.description')} />
   <meta property="og:url" content="https://ethoz.cl/features/safe-pickups" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} — Retiros Seguros y Alertas Críticas`} />
-  <meta property="og:description" content="El portero sabe en segundos si puede entregar al alumno — sin llamadas, sin papel, sin margen de error." />
+  <meta property="og:title" content={t('featurePage.safePickups.meta.og_title')} />
+  <meta property="og:description" content={t('featurePage.safePickups.meta.description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} — Retiros Seguros y Alertas Críticas`} />
-  <meta name="twitter:description" content="El portero sabe en segundos si puede entregar al alumno — sin llamadas, sin papel, sin margen de error." />
+  <meta name="twitter:title" content={t('featurePage.safePickups.meta.og_title')} />
+  <meta name="twitter:description" content={t('featurePage.safePickups.meta.description')} />
   <link rel="canonical" href="https://ethoz.cl/features/safe-pickups" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Retiros Escolares Seguros"}]})}</script>`}
 </svelte:head>
@@ -37,7 +37,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href="/#features" class="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
-        Volver a características
+        {t('featurePage.safePickups.hero.back_link')}
       </a>
       <div class="mt-6 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="lg:pt-6">
@@ -53,15 +53,15 @@
           <ul class="mt-6 space-y-3">
             <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
               <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-              Verificación instantánea por nombre o RUT — sin llamadas a inspectoría
+              {t('featurePage.safePickups.hero.bullet1')}
             </li>
             <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
               <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-              Bloqueo automático ante orden judicial, medida cautelar o restricción manual
+              {t('featurePage.safePickups.hero.bullet2')}
             </li>
             <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
               <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-              Registro firmado de cada retiro — quién, cuándo, qué portero autorizó
+              {t('featurePage.safePickups.hero.bullet3')}
             </li>
           </ul>
 
@@ -73,7 +73,7 @@
               aria-pressed={!showBlocked}
               class="text-xs font-medium px-3 py-2 sm:py-1.5 rounded-full border transition-colors {!showBlocked ? 'bg-primary text-primary-foreground border-primary' : 'border-border text-muted-foreground hover:text-foreground'}"
             >
-              Ver retiro autorizado
+              {t('featurePage.safePickups.hero.toggle_authorized')}
             </button>
             <button
               type="button"
@@ -81,7 +81,7 @@
               aria-pressed={showBlocked}
               class="text-xs font-medium px-3 py-2 sm:py-1.5 rounded-full border transition-colors {showBlocked ? 'bg-destructive text-destructive-foreground border-destructive' : 'border-border text-muted-foreground hover:text-foreground'}"
             >
-              Ver retiro bloqueado
+              {t('featurePage.safePickups.hero.toggle_blocked')}
             </button>
           </div>
         </div>
@@ -92,7 +92,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Portería · Verificación de Retiro</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{t('featurePage.safePickups.mockup.window_title')}</span>
           </div>
           <div class="p-4 sm:p-5">
             {#if !showBlocked}
@@ -100,20 +100,20 @@
               <div class="flex items-center gap-3 rounded-lg bg-success/5 border border-success/20 px-3 py-2.5 mb-4">
                 <CheckCircle class="size-4 shrink-0 text-success" />
                 <div>
-                  <p class="text-xs font-bold text-success">RETIRO AUTORIZADO</p>
-                  <p class="text-[9px] text-muted-foreground">Persona reconocida · Puede retirar</p>
+                  <p class="text-xs font-bold text-success">{t('featurePage.safePickups.mockup.authorized_badge')}</p>
+                  <p class="text-[9px] text-muted-foreground">{t('featurePage.safePickups.mockup.authorized_subtitle')}</p>
                 </div>
               </div>
               <div class="flex gap-3">
-                <img src="/images/people/apoderado-madre.webp" alt="Apoderada autorizada para retiro" class="size-14 rounded-full object-cover ring-2 ring-success/30" loading="lazy" decoding="async" />
+                <img src="/images/people/apoderado-madre.webp" alt={t('featurePage.safePickups.mockup.authorized_photo_alt')} class="size-14 rounded-full object-cover ring-2 ring-success/30" loading="lazy" decoding="async" />
                 <div class="flex-1">
                   <p class="text-sm font-semibold text-foreground">María Sepúlveda Contreras</p>
-                  <p class="text-[11px] text-muted-foreground">RUT 12.345.678-9 · Madre</p>
+                  <p class="text-[11px] text-muted-foreground">RUT 12.345.678-9 · {t('featurePage.safePickups.mockup.relation_mother')}</p>
                   <div class="mt-2 grid grid-cols-2 gap-x-3 gap-y-1">
-                    <p class="text-[10px] text-muted-foreground"><span class="font-medium text-foreground">Alumna:</span> Valentina Rojas</p>
-                    <p class="text-[10px] text-muted-foreground"><span class="font-medium text-foreground">Curso:</span> 7° Básico B</p>
-                    <p class="text-[10px] text-muted-foreground"><span class="font-medium text-foreground">Retiros (6m):</span> 12</p>
-                    <p class="text-[10px] text-muted-foreground"><span class="font-medium text-foreground">Último:</span> Ayer 15:30</p>
+                    <p class="text-[10px] text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_student_f')}</span> Valentina Rojas</p>
+                    <p class="text-[10px] text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_grade')}</span> 7° Básico B</p>
+                    <p class="text-[10px] text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_pickups_6m')}</span> 12</p>
+                    <p class="text-[10px] text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_last')}</span> {t('featurePage.safePickups.mockup.value_yesterday_1530')}</p>
                   </div>
                 </div>
               </div>
@@ -122,8 +122,8 @@
               <div class="flex items-center gap-3 rounded-lg bg-destructive/5 border border-destructive/30 px-3 py-2.5 mb-4">
                 <XCircle class="size-4 shrink-0 text-destructive" />
                 <div>
-                  <p class="text-xs font-bold text-destructive">RETIRO BLOQUEADO</p>
-                  <p class="text-[9px] text-muted-foreground">No entregar al alumno · Llamar a Inspector</p>
+                  <p class="text-xs font-bold text-destructive">{t('featurePage.safePickups.mockup.blocked_badge')}</p>
+                  <p class="text-[9px] text-muted-foreground">{t('featurePage.safePickups.mockup.blocked_subtitle')}</p>
                 </div>
               </div>
               <div class="flex gap-3">
@@ -132,10 +132,10 @@
                 </div>
                 <div class="flex-1">
                   <p class="text-sm font-semibold text-foreground">Ricardo González Vidal</p>
-                  <p class="text-[11px] text-muted-foreground">RUT 9.876.543-2 · Padre</p>
+                  <p class="text-[11px] text-muted-foreground">RUT 9.876.543-2 · {t('featurePage.safePickups.mockup.relation_father')}</p>
                   <div class="mt-2 rounded-lg bg-destructive/5 border border-destructive/20 px-2 py-1.5">
-                    <p class="text-[10px] font-semibold text-destructive">Orden judicial vigente</p>
-                    <p class="text-[9px] text-muted-foreground mt-0.5">Medida cautelar desde 14 ene 2026. Inspector Herrera — ext. 201.</p>
+                    <p class="text-[10px] font-semibold text-destructive">{t('featurePage.safePickups.mockup.blocked_reason')}</p>
+                    <p class="text-[9px] text-muted-foreground mt-0.5">{t('featurePage.safePickups.mockup.blocked_detail')}</p>
                   </div>
                 </div>
               </div>
@@ -143,26 +143,26 @@
 
             <!-- History list -->
             <div class="mt-4 border-t border-border pt-3 space-y-1.5">
-              <p class="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground">Historial de retiros — Valentina Rojas</p>
+              <p class="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.safePickups.mockup.history_title')}</p>
               <div class="flex items-center gap-2 text-[10px]">
                 <span class="size-1.5 rounded-full bg-success"></span>
-                <span class="flex-1 text-muted-foreground">Hoy 14:32 — María Sepúlveda (madre)</span>
-                <span class="text-[9px] text-muted-foreground">Port. norte</span>
+                <span class="flex-1 text-muted-foreground">{t('featurePage.safePickups.mockup.history_row1')}</span>
+                <span class="text-[9px] text-muted-foreground">{t('featurePage.safePickups.mockup.gate_north')}</span>
               </div>
               <div class="flex items-center gap-2 text-[10px]">
                 <span class="size-1.5 rounded-full bg-success"></span>
-                <span class="flex-1 text-muted-foreground">Ayer 15:30 — María Sepúlveda (madre)</span>
-                <span class="text-[9px] text-muted-foreground">Port. norte</span>
+                <span class="flex-1 text-muted-foreground">{t('featurePage.safePickups.mockup.history_row2')}</span>
+                <span class="text-[9px] text-muted-foreground">{t('featurePage.safePickups.mockup.gate_north')}</span>
               </div>
               <div class="flex items-center gap-2 text-[10px]">
                 <span class="size-1.5 rounded-full bg-destructive"></span>
-                <span class="flex-1 text-muted-foreground">12 mar — Ricardo González (padre) · BLOQUEADO</span>
-                <span class="text-[9px] text-muted-foreground">Port. principal</span>
+                <span class="flex-1 text-muted-foreground">{t('featurePage.safePickups.mockup.history_row3')}</span>
+                <span class="text-[9px] text-muted-foreground">{t('featurePage.safePickups.mockup.gate_main')}</span>
               </div>
               <div class="flex items-center gap-2 text-[10px]">
                 <span class="size-1.5 rounded-full bg-success"></span>
-                <span class="flex-1 text-muted-foreground">10 mar — Carmen Sepúlveda (abuela)</span>
-                <span class="text-[9px] text-muted-foreground">Port. norte</span>
+                <span class="flex-1 text-muted-foreground">{t('featurePage.safePickups.mockup.history_row4')}</span>
+                <span class="text-[9px] text-muted-foreground">{t('featurePage.safePickups.mockup.gate_north')}</span>
               </div>
             </div>
           </div>
@@ -188,26 +188,26 @@
   <!-- How it works: 3 steps -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary">Flujo operativo</p>
-      <h2 class="mb-2 text-xl text-foreground sm:text-2xl">Retiro en tres pasos, bajo cualquier fila</h2>
+      <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary">{t('featurePage.safePickups.howItWorks.eyebrow')}</p>
+      <h2 class="mb-2 text-xl text-foreground sm:text-2xl">{t('featurePage.safePickups.howItWorks.title')}</h2>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
-        El portero no necesita capacitación extensa. La interfaz guía cada paso con colores claros: verde para autorizado, rojo para bloqueado.
+        {t('featurePage.safePickups.howItWorks.intro')}
       </p>
       <div class="grid gap-6 sm:grid-cols-3">
         <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">01</span>
-          <p class="mt-3 text-sm font-semibold text-foreground">Buscar alumno</p>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">El portero escribe el nombre o RUT del alumno. La búsqueda es instantánea y tolera errores tipográficos.</p>
+          <p class="mt-3 text-sm font-semibold text-foreground">{t('featurePage.safePickups.howItWorks.step1_title')}</p>
+          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.safePickups.howItWorks.step1_body')}</p>
         </div>
         <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">02</span>
-          <p class="mt-3 text-sm font-semibold text-foreground">Seleccionar apoderado</p>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">Se muestra la lista de personas autorizadas. Cada una indica si puede retirar o está bloqueada en tiempo real.</p>
+          <p class="mt-3 text-sm font-semibold text-foreground">{t('featurePage.safePickups.howItWorks.step2_title')}</p>
+          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.safePickups.howItWorks.step2_body')}</p>
         </div>
         <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">03</span>
-          <p class="mt-3 text-sm font-semibold text-foreground">Confirmar y registrar</p>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">El retiro queda firmado digitalmente con hora, portería y usuario que autorizó. Auditable en cualquier momento.</p>
+          <p class="mt-3 text-sm font-semibold text-foreground">{t('featurePage.safePickups.howItWorks.step3_title')}</p>
+          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.safePickups.howItWorks.step3_body')}</p>
         </div>
       </div>
     </div>
@@ -221,7 +221,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <ShieldCheck class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base text-foreground">Validación en tiempo real</h2>
+            <h2 class="text-base text-foreground">{t('featurePage.safePickups.detail.card1_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.pickup.bullet1')}
@@ -231,7 +231,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Ban class="size-5 shrink-0 text-destructive" />
-            <h2 class="text-base text-foreground">Bloqueo automático ante restricciones</h2>
+            <h2 class="text-base text-foreground">{t('featurePage.safePickups.detail.card2_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.pickup.bullet2')}
@@ -241,7 +241,7 @@
         <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <BellRing class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base text-foreground">Notificaciones seguras por rol</h2>
+            <h2 class="text-base text-foreground">{t('featurePage.safePickups.detail.card3_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.pickup.bullet3')}
@@ -258,15 +258,15 @@
       <div class="grid gap-8 sm:grid-cols-3 text-center">
         <div>
           <p class="text-4xl font-extrabold tracking-tight text-foreground">0</p>
-          <p class="mt-1 text-sm text-muted-foreground">retiros no autorizados registrados en colegios con {BRAND}</p>
+          <p class="mt-1 text-sm text-muted-foreground">{t('featurePage.safePickups.stats.stat1_label')}</p>
         </div>
         <div>
           <p class="text-4xl font-extrabold tracking-tight text-foreground">&lt;3s</p>
-          <p class="mt-1 text-sm text-muted-foreground">tiempo promedio de verificación por retiro</p>
+          <p class="mt-1 text-sm text-muted-foreground">{t('featurePage.safePickups.stats.stat2_label')}</p>
         </div>
         <div>
           <p class="text-4xl font-extrabold tracking-tight text-foreground">100%</p>
-          <p class="mt-1 text-sm text-muted-foreground">de retiros quedan registrados con trazabilidad completa</p>
+          <p class="mt-1 text-sm text-muted-foreground">{t('featurePage.safePickups.stats.stat3_label')}</p>
         </div>
       </div>
     </div>
@@ -288,14 +288,14 @@
           href="/demo"
           class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          Agendar demo
+          {t('featurePage.safePickups.finalCta.primary')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/#features"
           class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          Ver todas las funciones
+          {t('featurePage.safePickups.finalCta.secondary')}
         </a>
       </div>
       <p class="mt-8 text-xs text-background/80">

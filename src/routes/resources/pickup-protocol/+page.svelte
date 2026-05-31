@@ -4,21 +4,22 @@
   import { Button } from '$lib/components/ui/button';
   import { Printer, ArrowLeft } from '@lucide/svelte';
   import { BRAND } from '$lib/brand';
+  import { t } from '$lib/i18n/index.svelte';
 </script>
 
 <svelte:head>
-  <title>Protocolo de Retiros Seguros — Plantilla gratuita | {BRAND}</title>
-  <meta name="description" content="Plantilla de protocolo de retiros seguros para colegios chilenos. Procedimiento de 8 pasos, casos especiales y trazabilidad. Descarga gratis." />
+  <title>{t('resPickupProtocol.meta_title')}</title>
+  <meta name="description" content={t('resPickupProtocol.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/resources/pickup-protocol" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Protocolo de Retiros Seguros | ${BRAND}`} />
-  <meta property="og:description" content="Plantilla completa de protocolo de retiros seguros para establecimientos educacionales chilenos." />
+  <meta property="og:title" content={t('resPickupProtocol.og_title')} />
+  <meta property="og:description" content={t('resPickupProtocol.og_description')} />
   <link rel="canonical" href="https://ethoz.cl/resources/pickup-protocol" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": "Protocolo de Retiros Seguros",
-    "description": "Procedimiento completo para gestionar retiros de alumnos en establecimientos educacionales.",
+    "name": t('resPickupProtocol.schema_name'),
+    "description": t('resPickupProtocol.schema_description'),
     "url": "https://ethoz.cl/resources/pickup-protocol",
     "publisher": { "@type": "Organization", "name": BRAND, "url": "https://ethoz.cl" }
   })}</script>`}
@@ -33,11 +34,11 @@
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
       <Button href="/resources" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
         <ArrowLeft class="size-4" />
-        Volver a recursos
+        {t('resPickupProtocol.back_to_resources')}
       </Button>
       <Button href="/downloads/protocolo-retiros-seguros.pdf" download size="lg" class="gap-2">
         <Printer class="size-4" />
-        Descargar PDF
+        {t('resPickupProtocol.download_pdf')}
       </Button>
     </div>
   </div>
@@ -46,16 +47,16 @@
     <!-- Header -->
     <div class="mb-12 border-b border-border pb-10">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
-        <span class="text-primary">Plantilla · Operaciones</span>
+        <span class="text-primary">{t('resPickupProtocol.eyebrow_category')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>8 pasos</span>
+        <span>{t('resPickupProtocol.eyebrow_steps')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>Ley 21.719 · MINEDUC</span>
+        <span>{t('resPickupProtocol.eyebrow_legal')}</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Protocolo de Retiros Seguros</h1>
-      <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Procedimiento oficial para la gestión segura y trazable del retiro de alumnos durante la jornada escolar. Integridad física del estudiante y cumplimiento de deberes legales del establecimiento.</p>
-      <p class="mt-4 text-xs text-muted-foreground">Versión 1.0 · Elaborado por {BRAND} · ethoz.cl · Adapte con los datos de su establecimiento</p>
+      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">{t('resPickupProtocol.hero_title')}</h1>
+      <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">{t('resPickupProtocol.hero_subtitle')}</p>
+      <p class="mt-4 text-xs text-muted-foreground">{t('resPickupProtocol.version_line')}</p>
     </div>
 
     <div class="space-y-10 text-sm leading-relaxed text-foreground">
@@ -64,10 +65,10 @@
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
           <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">1</span>
-          Objetivo
+          {t('resPickupProtocol.s1_title')}
         </h2>
         <p class="text-muted-foreground">
-          Establecer un procedimiento claro, seguro y trazable para el retiro de alumnos del establecimiento durante la jornada escolar, garantizando la integridad física del estudiante y el cumplimiento de los deberes legales del establecimiento conforme a la normativa vigente, incluyendo la Ley 21.719 y la normativa MINEDUC.
+          {t('resPickupProtocol.s1_body')}
         </p>
       </section>
 
@@ -75,14 +76,14 @@
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
           <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">2</span>
-          Alcance
+          {t('resPickupProtocol.s2_title')}
         </h2>
-        <p class="text-muted-foreground mb-2">Este protocolo aplica a:</p>
+        <p class="text-muted-foreground mb-2">{t('resPickupProtocol.s2_intro')}</p>
         <ul class="list-disc pl-6 space-y-1 text-muted-foreground">
-          <li>Todos los alumnos matriculados en el establecimiento, desde Pre-Kínder hasta 4° Medio.</li>
-          <li>Todo el personal que participa en el proceso: portero, inspector, administrativo.</li>
-          <li>Apoderados titulares, apoderados suplentes y terceras personas autorizadas.</li>
-          <li>Situaciones de retiro anticipado, retiro por emergencia o retiro por orden judicial.</li>
+          <li>{t('resPickupProtocol.s2_item1')}</li>
+          <li>{t('resPickupProtocol.s2_item2')}</li>
+          <li>{t('resPickupProtocol.s2_item3')}</li>
+          <li>{t('resPickupProtocol.s2_item4')}</li>
         </ul>
       </section>
 
@@ -90,36 +91,36 @@
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
           <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">3</span>
-          Responsables
+          {t('resPickupProtocol.s3_title')}
         </h2>
         <div class="overflow-x-auto rounded-lg border border-border">
           <table class="w-full text-sm">
             <thead>
               <tr class="border-b border-border bg-muted/50">
-                <th class="px-4 py-3 text-left font-medium text-foreground">Rol</th>
-                <th class="px-4 py-3 text-left font-medium text-foreground">Responsabilidad</th>
+                <th class="px-4 py-3 text-left font-medium text-foreground">{t('resPickupProtocol.s3_th_role')}</th>
+                <th class="px-4 py-3 text-left font-medium text-foreground">{t('resPickupProtocol.s3_th_responsibility')}</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-border">
               <tr>
-                <td class="px-4 py-3 font-medium">Portero / Guardia</td>
-                <td class="px-4 py-3 text-muted-foreground">Primera línea: recibe la solicitud, verifica identidad, registra el retiro.</td>
+                <td class="px-4 py-3 font-medium">{t('resPickupProtocol.s3_role1')}</td>
+                <td class="px-4 py-3 text-muted-foreground">{t('resPickupProtocol.s3_resp1')}</td>
               </tr>
               <tr>
-                <td class="px-4 py-3 font-medium">Inspector General</td>
-                <td class="px-4 py-3 text-muted-foreground">Autoriza retiros de alumnos menores. Resuelve casos especiales y conflictos.</td>
+                <td class="px-4 py-3 font-medium">{t('resPickupProtocol.s3_role2')}</td>
+                <td class="px-4 py-3 text-muted-foreground">{t('resPickupProtocol.s3_resp2')}</td>
               </tr>
               <tr>
-                <td class="px-4 py-3 font-medium">Administrativo / Secretaría</td>
-                <td class="px-4 py-3 text-muted-foreground">Mantiene actualizado el registro de apoderados y personas autorizadas en el sistema.</td>
+                <td class="px-4 py-3 font-medium">{t('resPickupProtocol.s3_role3')}</td>
+                <td class="px-4 py-3 text-muted-foreground">{t('resPickupProtocol.s3_resp3')}</td>
               </tr>
               <tr>
-                <td class="px-4 py-3 font-medium">Docente de aula</td>
-                <td class="px-4 py-3 text-muted-foreground">Libera al alumno una vez confirmada la autorización del inspector.</td>
+                <td class="px-4 py-3 font-medium">{t('resPickupProtocol.s3_role4')}</td>
+                <td class="px-4 py-3 text-muted-foreground">{t('resPickupProtocol.s3_resp4')}</td>
               </tr>
               <tr>
-                <td class="px-4 py-3 font-medium">Director(a)</td>
-                <td class="px-4 py-3 text-muted-foreground">Resuelve situaciones de orden judicial o emergencias médicas graves.</td>
+                <td class="px-4 py-3 font-medium">{t('resPickupProtocol.s3_role5')}</td>
+                <td class="px-4 py-3 text-muted-foreground">{t('resPickupProtocol.s3_resp5')}</td>
               </tr>
             </tbody>
           </table>
@@ -130,24 +131,24 @@
       <section>
         <h2 class="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
           <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">4</span>
-          Procedimiento Estándar (8 pasos)
+          {t('resPickupProtocol.s4_title')}
         </h2>
         <div class="space-y-4">
           {#each [
-            { n: 1, title: 'Recepción de la solicitud', detail: 'El apoderado o persona autorizada se presenta en la recepción/portería e indica el nombre del alumno que desea retirar. El portero solicita la cédula de identidad o documento equivalente.' },
-            { n: 2, title: 'Identificación de la persona', detail: 'El portero verifica la identidad comparando el documento presentado con la foto y RUT registrado en el sistema. Si la persona no está registrada, se niega el retiro y se notifica al inspector.' },
-            { n: 3, title: 'Verificación en el sistema', detail: 'Se consulta el registro del alumno para confirmar que la persona está autorizada. Se verifica la existencia de alertas judiciales, restricciones de visita u otras anotaciones críticas.' },
-            { n: 4, title: 'Contacto de emergencia (si aplica)', detail: 'Si se trata de una persona no habitual o si hay alguna inconsistencia, el portero llama al apoderado titular para confirmar autorización antes de proceder.' },
-            { n: 5, title: 'Notificación al curso', detail: 'El portero o inspector contacta al docente a cargo del alumno para notificar el retiro inminente. El docente confirma la asistencia del alumno en ese momento.' },
-            { n: 6, title: 'Retiro del alumno del aula', detail: 'El inspector o un funcionario autorizado acompaña al alumno desde el aula hasta la recepción. No se permite que el alumno se traslade solo al área de retiro.' },
-            { n: 7, title: 'Entrega y firma', detail: 'El alumno es entregado a la persona autorizada. Esta firma el libro de retiros o el sistema electrónico, indicando hora, nombre y RUT. Se toma foto del documento si el sistema lo permite.' },
-            { n: 8, title: 'Registro final', detail: 'Se registra el retiro en el sistema de gestión escolar con: nombre del alumno, hora de retiro, nombre y RUT de quien retira, motivo declarado y nombre del funcionario que autorizó.' }
+            { n: 1, titleKey: 'resPickupProtocol.s4_step1_title' as const, detailKey: 'resPickupProtocol.s4_step1_detail' as const },
+            { n: 2, titleKey: 'resPickupProtocol.s4_step2_title' as const, detailKey: 'resPickupProtocol.s4_step2_detail' as const },
+            { n: 3, titleKey: 'resPickupProtocol.s4_step3_title' as const, detailKey: 'resPickupProtocol.s4_step3_detail' as const },
+            { n: 4, titleKey: 'resPickupProtocol.s4_step4_title' as const, detailKey: 'resPickupProtocol.s4_step4_detail' as const },
+            { n: 5, titleKey: 'resPickupProtocol.s4_step5_title' as const, detailKey: 'resPickupProtocol.s4_step5_detail' as const },
+            { n: 6, titleKey: 'resPickupProtocol.s4_step6_title' as const, detailKey: 'resPickupProtocol.s4_step6_detail' as const },
+            { n: 7, titleKey: 'resPickupProtocol.s4_step7_title' as const, detailKey: 'resPickupProtocol.s4_step7_detail' as const },
+            { n: 8, titleKey: 'resPickupProtocol.s4_step8_title' as const, detailKey: 'resPickupProtocol.s4_step8_detail' as const }
           ] as step}
             <div class="flex gap-4 rounded-lg border border-border bg-card p-4">
               <div class="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold mt-0.5">{step.n}</div>
               <div>
-                <p class="font-medium text-foreground mb-1">{step.title}</p>
-                <p class="text-muted-foreground text-sm">{step.detail}</p>
+                <p class="font-medium text-foreground mb-1">{t(step.titleKey)}</p>
+                <p class="text-muted-foreground text-sm">{t(step.detailKey)}</p>
               </div>
             </div>
           {/each}
@@ -158,24 +159,24 @@
       <section>
         <h2 class="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
           <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">5</span>
-          Casos Especiales
+          {t('resPickupProtocol.s5_title')}
         </h2>
         <div class="space-y-4">
           <div class="rounded-lg border border-warning/20 bg-warning/10 p-4">
-            <p class="font-medium text-warning-foreground mb-1">Orden judicial de restricción de visitas</p>
-            <p class="text-sm text-warning-foreground">El sistema debe tener alerta activa. El portero no entrega al alumno bajo ninguna circunstancia. Contacta inmediatamente al director y, si hay presión o amenaza, llama a Carabineros (133).</p>
+            <p class="font-medium text-warning-foreground mb-1">{t('resPickupProtocol.s5_case1_title')}</p>
+            <p class="text-sm text-warning-foreground">{t('resPickupProtocol.s5_case1_body')}</p>
           </div>
           <div class="rounded-lg border border-destructive/20 bg-destructive/10   p-4">
-            <p class="font-medium text-destructive mb-1">Menor intenta salir sin autorización</p>
-            <p class="text-sm text-destructive">El portero retiene al alumno con respeto y notifica al inspector. Se contacta al apoderado titular. Se deja registro del incidente. No se usa fuerza física.</p>
+            <p class="font-medium text-destructive mb-1">{t('resPickupProtocol.s5_case2_title')}</p>
+            <p class="text-sm text-destructive">{t('resPickupProtocol.s5_case2_body')}</p>
           </div>
           <div class="rounded-lg border border-primary/20 bg-primary/10   p-4">
-            <p class="font-medium text-primary mb-1">Emergencia médica</p>
-            <p class="text-sm text-primary">Si el alumno requiere atención médica urgente, el director o inspector autoriza la salida con SAMU o ambulancia. Se notifica inmediatamente al apoderado titular y se deja registro completo del traslado.</p>
+            <p class="font-medium text-primary mb-1">{t('resPickupProtocol.s5_case3_title')}</p>
+            <p class="text-sm text-primary">{t('resPickupProtocol.s5_case3_body')}</p>
           </div>
           <div class="rounded-lg border border-muted bg-muted/30 p-4">
-            <p class="font-medium text-foreground mb-1">Persona no reconocida que afirma ser familiar</p>
-            <p class="text-sm text-muted-foreground">No se entrega al alumno. Se solicita documento de identidad, se llama al apoderado titular para verificar, y se espera confirmación antes de cualquier acción. Si no hay respuesta, el alumno permanece en el establecimiento.</p>
+            <p class="font-medium text-foreground mb-1">{t('resPickupProtocol.s5_case4_title')}</p>
+            <p class="text-sm text-muted-foreground">{t('resPickupProtocol.s5_case4_body')}</p>
           </div>
         </div>
       </section>
@@ -184,49 +185,49 @@
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
           <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">6</span>
-          Registro y Trazabilidad
+          {t('resPickupProtocol.s6_title')}
         </h2>
-        <p class="text-muted-foreground mb-3">Todo retiro debe quedar registrado con los siguientes campos mínimos:</p>
+        <p class="text-muted-foreground mb-3">{t('resPickupProtocol.s6_intro')}</p>
         <div class="rounded-lg border border-border bg-muted/30 p-4">
           <ul class="space-y-1.5 text-muted-foreground">
-            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> Fecha y hora exacta del retiro</li>
-            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> Nombre completo y RUT del alumno</li>
-            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> Nombre completo y RUT de quien retira</li>
-            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> Relación con el alumno (apoderado titular, suplente, autorizado)</li>
-            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> Motivo declarado del retiro</li>
-            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> Funcionario que autorizó y ejecutó el retiro</li>
-            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> Observaciones relevantes (si aplica)</li>
+            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> {t('resPickupProtocol.s6_field1')}</li>
+            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> {t('resPickupProtocol.s6_field2')}</li>
+            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> {t('resPickupProtocol.s6_field3')}</li>
+            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> {t('resPickupProtocol.s6_field4')}</li>
+            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> {t('resPickupProtocol.s6_field5')}</li>
+            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> {t('resPickupProtocol.s6_field6')}</li>
+            <li class="flex items-start gap-2"><span class="text-primary mt-0.5">→</span> {t('resPickupProtocol.s6_field7')}</li>
           </ul>
         </div>
-        <p class="mt-3 text-xs text-muted-foreground">Los registros deben conservarse por al menos 5 años conforme a las obligaciones de trazabilidad de la Ley 21.719.</p>
+        <p class="mt-3 text-xs text-muted-foreground">{t('resPickupProtocol.s6_note')}</p>
       </section>
 
       <!-- 7. Revisión anual -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
           <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">7</span>
-          Revisión Anual del Protocolo
+          {t('resPickupProtocol.s7_title')}
         </h2>
-        <p class="text-muted-foreground mb-3">Este protocolo debe ser revisado anualmente por el Inspector General y el Director, idealmente en enero de cada año escolar. En la revisión se debe verificar:</p>
+        <p class="text-muted-foreground mb-3">{t('resPickupProtocol.s7_intro')}</p>
         <ul class="list-disc pl-6 space-y-1 text-muted-foreground">
-          <li>Actualización del registro de apoderados y personas autorizadas.</li>
-          <li>Incorporación de cambios legales o normativos relevantes.</li>
-          <li>Evaluación de incidentes ocurridos durante el año anterior.</li>
-          <li>Capacitación del personal nuevo en el procedimiento.</li>
-          <li>Verificación de que el sistema de registro funcione correctamente.</li>
+          <li>{t('resPickupProtocol.s7_item1')}</li>
+          <li>{t('resPickupProtocol.s7_item2')}</li>
+          <li>{t('resPickupProtocol.s7_item3')}</li>
+          <li>{t('resPickupProtocol.s7_item4')}</li>
+          <li>{t('resPickupProtocol.s7_item5')}</li>
         </ul>
         <div class="mt-4 rounded-lg border border-border bg-card p-4 text-xs text-muted-foreground">
-          <p><strong class="text-foreground">Fecha de aprobación:</strong> ___________________________</p>
-          <p class="mt-1"><strong class="text-foreground">Firma Director(a):</strong> ___________________________</p>
-          <p class="mt-1"><strong class="text-foreground">Firma Inspector(a) General:</strong> ___________________________</p>
-          <p class="mt-1"><strong class="text-foreground">Próxima revisión:</strong> ___________________________</p>
+          <p><strong class="text-foreground">{t('resPickupProtocol.s7_signoff_approval_date')}</strong> ___________________________</p>
+          <p class="mt-1"><strong class="text-foreground">{t('resPickupProtocol.s7_signoff_director')}</strong> ___________________________</p>
+          <p class="mt-1"><strong class="text-foreground">{t('resPickupProtocol.s7_signoff_inspector')}</strong> ___________________________</p>
+          <p class="mt-1"><strong class="text-foreground">{t('resPickupProtocol.s7_signoff_next_review')}</strong> ___________________________</p>
         </div>
       </section>
     </div>
 
     <div class="print:hidden mt-10 text-center">
-      <p class="text-sm text-muted-foreground mb-4">{BRAND} digitaliza y automatiza este protocolo en tiempo real.</p>
-      <Button href="/demo">Solicitar demo gratuita</Button>
+      <p class="text-sm text-muted-foreground mb-4">{t('resPickupProtocol.cta_text')}</p>
+      <Button href="/demo">{t('resPickupProtocol.cta_button')}</Button>
     </div>
   </div>
 </main>

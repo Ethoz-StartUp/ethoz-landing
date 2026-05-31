@@ -4,11 +4,25 @@
   import { Button } from '$lib/components/ui/button';
   import { Printer, ArrowLeft } from '@lucide/svelte';
   import { BRAND } from '$lib/brand';
+  import { t } from '$lib/i18n/index.svelte';
+
+  const permLabels = {
+    'Datos identificación': 'resRolesGuide.perm_id' as const,
+    'Datos apoderados': 'resRolesGuide.perm_guardians' as const,
+    'Notas y asistencia': 'resRolesGuide.perm_grades' as const,
+    'Obs. convivencia': 'resRolesGuide.perm_conduct' as const,
+    'Obs. pedagógicas': 'resRolesGuide.perm_pedagogical' as const,
+    'Obs. emocionales': 'resRolesGuide.perm_emotional' as const,
+    'Datos médicos sens.': 'resRolesGuide.perm_medical' as const,
+    'Alertas judiciales': 'resRolesGuide.perm_judicial' as const,
+    'Registros de retiro': 'resRolesGuide.perm_pickups' as const,
+    'Logs de auditoría': 'resRolesGuide.perm_audit' as const,
+  };
 
   const roles = [
     {
-      role: 'Director(a)',
-      description: 'Acceso completo al sistema excepto datos médicos sensibles clasificados como confidenciales por el orientador.',
+      role: 'resRolesGuide.role_director' as const,
+      description: 'resRolesGuide.role_director_desc' as const,
       perms: {
         'Datos identificación': true,
         'Datos apoderados': true,
@@ -21,11 +35,11 @@
         'Registros de retiro': true,
         'Logs de auditoría': true,
       },
-      recommendations: 'Debe tener acceso de emergencia a todos los datos vía autenticación de doble factor. Los datos médicos sensibles requieren solicitud formal al orientador.'
+      recommendations: 'resRolesGuide.role_director_rec' as const
     },
     {
-      role: 'Inspector General',
-      description: 'Gestiona convivencia escolar, asistencia, retiros y observaciones. No accede a datos académicos detallados ni médicos.',
+      role: 'resRolesGuide.role_inspector' as const,
+      description: 'resRolesGuide.role_inspector_desc' as const,
       perms: {
         'Datos identificación': true,
         'Datos apoderados': true,
@@ -38,11 +52,11 @@
         'Registros de retiro': true,
         'Logs de auditoría': false,
       },
-      recommendations: 'Rol crítico para el protocolo de retiros. Debe tener acceso móvil con autenticación para validar retiros en terreno.'
+      recommendations: 'resRolesGuide.role_inspector_rec' as const
     },
     {
-      role: 'UTP',
-      description: 'Accede a datos académicos, pedagógicos y de rendimiento. No accede a datos de convivencia ni médicos.',
+      role: 'resRolesGuide.role_utp' as const,
+      description: 'resRolesGuide.role_utp_desc' as const,
       perms: {
         'Datos identificación': true,
         'Datos apoderados': false,
@@ -55,11 +69,11 @@
         'Registros de retiro': false,
         'Logs de auditoría': false,
       },
-      recommendations: 'Solo accede a datos de su área. Las observaciones pedagógicas deben ser visibles para todos los docentes del alumno.'
+      recommendations: 'resRolesGuide.role_utp_rec' as const
     },
     {
-      role: 'Orientador(a)',
-      description: 'Accede a observaciones emocionales y alertas de riesgo. Custodia datos sensibles de salud mental y situación familiar.',
+      role: 'resRolesGuide.role_counselor' as const,
+      description: 'resRolesGuide.role_counselor_desc' as const,
       perms: {
         'Datos identificación': true,
         'Datos apoderados': true,
@@ -72,11 +86,11 @@
         'Registros de retiro': false,
         'Logs de auditoría': false,
       },
-      recommendations: 'Las observaciones emocionales son confidenciales. Solo el director puede solicitar acceso de emergencia. Requiere consentimiento explícito del apoderado para datos sensibles de salud mental.'
+      recommendations: 'resRolesGuide.role_counselor_rec' as const
     },
     {
-      role: 'Docente',
-      description: 'Accede solo a los alumnos de sus cursos asignados. Puede registrar observaciones pedagógicas y asistencia.',
+      role: 'resRolesGuide.role_teacher' as const,
+      description: 'resRolesGuide.role_teacher_desc' as const,
       perms: {
         'Datos identificación': true,
         'Datos apoderados': false,
@@ -89,11 +103,11 @@
         'Registros de retiro': false,
         'Logs de auditoría': false,
       },
-      recommendations: 'El acceso está segmentado por curso. Un docente no puede ver datos de alumnos de cursos que no le corresponden. Principio de mínimo privilegio.'
+      recommendations: 'resRolesGuide.role_teacher_rec' as const
     },
     {
-      role: 'Portero / Guardia',
-      description: 'Acceso mínimo: búsqueda rápida por nombre/RUT, verificación de apoderados autorizados, alertas críticas de seguridad.',
+      role: 'resRolesGuide.role_gatekeeper' as const,
+      description: 'resRolesGuide.role_gatekeeper_desc' as const,
       perms: {
         'Datos identificación': true,
         'Datos apoderados': true,
@@ -106,11 +120,11 @@
         'Registros de retiro': true,
         'Logs de auditoría': false,
       },
-      recommendations: 'Rol crítico para seguridad física. Solo ve alertas activas (ej: "persona no autorizada para retirar") sin acceder al detalle. Interfaz simplificada, preferentemente en dispositivo fijo.'
+      recommendations: 'resRolesGuide.role_gatekeeper_rec' as const
     },
     {
-      role: 'Auxiliar',
-      description: 'Acceso de lectura muy limitado. Solo puede ver el nombre y foto de alumnos para reconocimiento básico.',
+      role: 'resRolesGuide.role_aide' as const,
+      description: 'resRolesGuide.role_aide_desc' as const,
       perms: {
         'Datos identificación': true,
         'Datos apoderados': false,
@@ -123,20 +137,20 @@
         'Registros de retiro': false,
         'Logs de auditoría': false,
       },
-      recommendations: 'Acceso de solo lectura para reconocimiento básico. No puede realizar acciones sobre datos. Ideal para un módulo visual simplificado.'
+      recommendations: 'resRolesGuide.role_aide_rec' as const
     }
   ];
 
-  const permKeys = Object.keys(roles[0].perms);
+  const permKeys = Object.keys(roles[0].perms) as (keyof typeof permLabels)[];
 </script>
 
 <svelte:head>
-  <title>Guía de Roles y Permisos para Colegios — Descarga gratuita | {BRAND}</title>
-  <meta name="description" content="Matriz de permisos recomendada para establecimientos educacionales chilenos. Director, Inspector, UTP, Orientador, Docente, Portero. Descarga gratis." />
+  <title>{t('resRolesGuide.meta_title')}</title>
+  <meta name="description" content={t('resRolesGuide.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/resources/roles-permissions-guide" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Guía de Roles y Permisos para Colegios | ${BRAND}`} />
-  <meta property="og:description" content="Matriz de acceso a datos por rol para colegios chilenos conforme a la Ley 21.719." />
+  <meta property="og:title" content={t('resRolesGuide.og_title')} />
+  <meta property="og:description" content={t('resRolesGuide.og_description')} />
   <link rel="canonical" href="https://ethoz.cl/resources/roles-permissions-guide" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
@@ -157,11 +171,11 @@
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
       <Button href="/resources" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
         <ArrowLeft class="size-4" />
-        Volver a recursos
+        {t('resRolesGuide.back_to_resources')}
       </Button>
       <Button href="/downloads/guia-roles-permisos.pdf" download size="lg" class="gap-2">
         <Printer class="size-4" />
-        Descargar PDF
+        {t('resRolesGuide.download_pdf')}
       </Button>
     </div>
   </div>
@@ -169,45 +183,45 @@
   <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <div class="mb-12 border-b border-border pb-10">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
-        <span class="text-primary">Plantilla · Gobernanza</span>
+        <span class="text-primary">{t('resRolesGuide.eyebrow_category')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>Art. 27 Ley 21.719</span>
+        <span>{t('resRolesGuide.eyebrow_law')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>7 roles · Matriz</span>
+        <span>{t('resRolesGuide.eyebrow_roles')}</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Guía de Roles y Permisos para Colegios</h1>
-      <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Matriz de acceso a datos personales recomendada para establecimientos educacionales chilenos. Basada en el principio de mínimo privilegio exigido por la Ley 21.719.</p>
-      <p class="mt-4 text-xs text-muted-foreground">Elaborado por {BRAND} · ethoz.cl · Adaptable según el sistema de gestión escolar utilizado</p>
+      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">{t('resRolesGuide.hero_title')}</h1>
+      <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">{t('resRolesGuide.hero_subtitle')}</p>
+      <p class="mt-4 text-xs text-muted-foreground">{t('resRolesGuide.byline')}</p>
     </div>
 
     <!-- Principles -->
     <div class="mb-8 rounded-lg border border-border bg-muted/30 p-5">
-      <h2 class="font-semibold text-foreground mb-3 text-sm">Principios base (Ley 21.719)</h2>
+      <h2 class="font-semibold text-foreground mb-3 text-sm">{t('resRolesGuide.principles_title')}</h2>
       <div class="grid gap-2 sm:grid-cols-3 text-xs text-muted-foreground">
-        <div><strong class="text-foreground">Mínimo privilegio:</strong> cada usuario accede solo a los datos necesarios para su función.</div>
-        <div><strong class="text-foreground">Proporcionalidad:</strong> el nivel de acceso es proporcional a la responsabilidad del cargo.</div>
-        <div><strong class="text-foreground">Trazabilidad:</strong> todo acceso a datos sensibles debe quedar registrado en logs de auditoría.</div>
+        <div><strong class="text-foreground">{t('resRolesGuide.principle_min_label')}</strong> {t('resRolesGuide.principle_min_text')}</div>
+        <div><strong class="text-foreground">{t('resRolesGuide.principle_prop_label')}</strong> {t('resRolesGuide.principle_prop_text')}</div>
+        <div><strong class="text-foreground">{t('resRolesGuide.principle_trace_label')}</strong> {t('resRolesGuide.principle_trace_text')}</div>
       </div>
     </div>
 
     <!-- Matrix table -->
     <div class="mb-10">
-      <h2 class="font-semibold text-foreground mb-4">Matriz de Permisos</h2>
+      <h2 class="font-semibold text-foreground mb-4">{t('resRolesGuide.matrix_title')}</h2>
       <div class="overflow-x-auto rounded-xl border border-border">
         <table class="w-full text-xs">
           <thead>
             <tr class="border-b border-border bg-muted/50">
-              <th class="px-3 py-3 text-left font-semibold text-foreground min-w-[120px]">Rol</th>
+              <th class="px-3 py-3 text-left font-semibold text-foreground min-w-[120px]">{t('resRolesGuide.col_role')}</th>
               {#each permKeys as key}
-                <th class="px-2 py-3 text-center font-medium text-muted-foreground whitespace-nowrap">{key}</th>
+                <th class="px-2 py-3 text-center font-medium text-muted-foreground whitespace-nowrap">{t(permLabels[key])}</th>
               {/each}
             </tr>
           </thead>
           <tbody class="divide-y divide-border">
             {#each roles as r}
               <tr class="hover:bg-muted/40 transition-colors">
-                <td class="px-3 py-3 font-medium text-foreground">{r.role}</td>
+                <td class="px-3 py-3 font-medium text-foreground">{t(r.role)}</td>
                 {#each permKeys as key}
                   <td class="px-2 py-3 text-center">
                     {#if r.perms[key as keyof typeof r.perms]}
@@ -222,21 +236,21 @@
           </tbody>
         </table>
       </div>
-      <p class="mt-2 text-xs text-muted-foreground">✓ = acceso habilitado &nbsp;·&nbsp; — = sin acceso</p>
+      <p class="mt-2 text-xs text-muted-foreground">✓ = {t('resRolesGuide.legend_enabled')} &nbsp;·&nbsp; — = {t('resRolesGuide.legend_disabled')}</p>
     </div>
 
     <!-- Role detail cards -->
     <div class="space-y-6">
-      <h2 class="font-semibold text-foreground">Detalle por Rol y Recomendaciones</h2>
+      <h2 class="font-semibold text-foreground">{t('resRolesGuide.detail_title')}</h2>
       {#each roles as r}
         <div class="rounded-xl border border-border bg-card p-5">
           <div class="flex items-start justify-between gap-4 mb-2">
-            <h3 class="font-semibold text-foreground">{r.role}</h3>
-            <span class="shrink-0 text-xs text-muted-foreground">{Object.values(r.perms).filter(Boolean).length}/{permKeys.length} permisos</span>
+            <h3 class="font-semibold text-foreground">{t(r.role)}</h3>
+            <span class="shrink-0 text-xs text-muted-foreground">{Object.values(r.perms).filter(Boolean).length}/{permKeys.length} {t('resRolesGuide.permissions_suffix')}</span>
           </div>
-          <p class="text-sm text-muted-foreground mb-3">{r.description}</p>
+          <p class="text-sm text-muted-foreground mb-3">{t(r.description)}</p>
           <div class="rounded-lg bg-muted/30 px-4 py-3 text-xs text-muted-foreground">
-            <span class="font-medium text-foreground">Recomendación: </span>{r.recommendations}
+            <span class="font-medium text-foreground">{t('resRolesGuide.recommendation_label')} </span>{t(r.recommendations)}
           </div>
         </div>
       {/each}
@@ -244,13 +258,13 @@
 
     <!-- Implementation note -->
     <div class="mt-10 rounded-lg border border-border bg-muted/30 p-5 text-sm text-muted-foreground">
-      <p class="font-medium text-foreground mb-1">Nota de implementación</p>
-      <p>Esta matriz es una recomendación basada en las mejores prácticas para colegios chilenos. Cada establecimiento debe adaptar los permisos según su estructura organizacional, sistema de gestión escolar utilizado y evaluación de riesgos específica. La configuración final debe ser aprobada por el Director y el DPO del establecimiento.</p>
+      <p class="font-medium text-foreground mb-1">{t('resRolesGuide.impl_note_title')}</p>
+      <p>{t('resRolesGuide.impl_note_text')}</p>
     </div>
 
     <div class="print:hidden mt-8 text-center">
-      <p class="text-sm text-muted-foreground mb-4">{BRAND} implementa esta matriz de permisos automáticamente en su plataforma.</p>
-      <Button href="/demo">Solicitar demo gratuita</Button>
+      <p class="text-sm text-muted-foreground mb-4">{t('resRolesGuide.cta_text')}</p>
+      <Button href="/demo">{t('resRolesGuide.cta_button')}</Button>
     </div>
   </div>
 </main>

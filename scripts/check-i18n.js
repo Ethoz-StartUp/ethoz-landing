@@ -123,8 +123,12 @@ for (const f of files) {
   checkFile(f);
 }
 
-// Baseline: known existing hardcoded strings (update after each i18n cleanup pass)
-const BASELINE = 1274;
+// Baseline: known existing hardcoded strings (update after each i18n cleanup pass).
+// Post-sweep 2026-05-31: 1274 -> 56. The remaining 56 are non-translatable by design —
+// mock demo data (sample student/teacher names, grades, timestamps), technical identifiers
+// (TLS 1.3, RLS Postgres, product names), units/numbers, and regex false-positives on inline
+// JS expressions. Real UI copy is fully extracted to t(). Gated in test:ci to block regression.
+const BASELINE = 56;
 
 console.log(`\n  Found: ${totalIssues} hardcoded string(s) in ${filesWithIssues} file(s) (baseline: ${BASELINE})`);
 console.log(`  Scanned ${files.length} .svelte files\n`);
