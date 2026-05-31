@@ -79,9 +79,9 @@
        No CTA here — the NavBar below already has "Agendar Demo". -->
   {#if !page.url.pathname.startsWith('/admin')}
     <div class="border-b border-border bg-foreground text-background">
-      <div class="mx-auto flex max-w-7xl items-center justify-center px-4 py-1.5 text-[12px] sm:px-6 lg:px-8">
+      <div class="mx-auto flex max-w-7xl items-center justify-center px-4 py-1.5 text-xs sm:px-6 lg:px-8">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-center">
-          <span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-background/85">Ley 21.719</span>
+          <span class="text-mockup-xs font-semibold uppercase tracking-[0.14em] text-background/85">Ley 21.719</span>
           <span class="text-background/70" aria-hidden="true">·</span>
           <span class="text-background">{t('nav.ribbon_full_enforcement')}</span>
           <span class="hidden text-background/70 sm:inline" aria-hidden="true">·</span>
@@ -165,14 +165,14 @@
                   <Icon class="mt-0.5 size-4 shrink-0 text-primary" />
                   <div>
                     <p class="text-xs font-semibold text-foreground">{t(product.name)}</p>
-                    <p class="text-[11px] text-muted-foreground">{t(product.desc)}</p>
+                    <p class="text-mockup-sm text-muted-foreground">{t(product.desc)}</p>
                   </div>
                 </a>
               {/each}
             </div>
             <a
               href="/productos"
-              class="mt-2 block border-t border-border pt-2 text-center text-[11px] font-medium text-primary transition-colors hover:text-primary"
+              class="mt-2 block border-t border-border pt-2 text-center text-mockup-sm font-medium text-primary transition-colors hover:text-primary"
               onclick={() => (productsOpen = false)}
             >
               {t('nav.all_products')}

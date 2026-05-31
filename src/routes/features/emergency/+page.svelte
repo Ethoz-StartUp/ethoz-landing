@@ -67,17 +67,17 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{t('featurePage.emergency.mockup_window_label')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{t('featurePage.emergency.mockup_window_label')}</span>
           </div>
           <div class="p-4 sm:p-5">
             <!-- Active emergency banner -->
             <div class="rounded-lg border border-destructive/40 bg-destructive/10 p-3 mb-3">
               <div class="flex items-center gap-2">
                 <span class="size-2 rounded-full bg-destructive animate-pulse"></span>
-                <span class="text-[11px] font-bold uppercase tracking-wide text-destructive">{t('featurePage.emergency.mockup_banner_status')}</span>
-                <span class="ml-auto text-[10px] text-muted-foreground">14:23:07</span>
+                <span class="text-mockup-sm font-bold uppercase tracking-wide text-destructive">{t('featurePage.emergency.mockup_banner_status')}</span>
+                <span class="ml-auto text-mockup-xs text-muted-foreground">14:23:07</span>
               </div>
-              <p class="mt-1 text-[10px] text-muted-foreground">{t('featurePage.emergency.mockup_banner_activated_by')}</p>
+              <p class="mt-1 text-mockup-xs text-muted-foreground">{t('featurePage.emergency.mockup_banner_activated_by')}</p>
             </div>
             <!-- Phase flow -->
             <div class="flex items-center gap-1 mb-3">
@@ -90,11 +90,11 @@
               ] as phase, i}
                 <div class="flex items-center gap-1 flex-1">
                   <div class="flex-1 flex flex-col items-center gap-0.5">
-                    <span class="size-4 rounded-full flex items-center justify-center text-[8px] font-bold
+                    <span class="size-4 rounded-full flex items-center justify-center text-mockup-3xs font-bold
                       {i === 0 ? 'bg-success text-success-foreground' :
                        i === 1 ? 'bg-destructive text-destructive-foreground animate-pulse' :
                        'bg-muted text-muted-foreground'}">{i + 1}</span>
-                    <span class="text-[7px] text-center text-muted-foreground leading-tight">{t(phase.labelKey)}</span>
+                    <span class="text-mockup-3xs text-center text-muted-foreground leading-tight">{t(phase.labelKey)}</span>
                   </div>
                   {#if i < 4}
                     <div class="h-px flex-1 {i < 1 ? 'bg-success' : 'bg-muted'} mb-3"></div>
@@ -104,14 +104,14 @@
             </div>
             <!-- Rollcall progress -->
             <div>
-              <p class="mb-1.5 text-[9px] font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.emergency.mockup_rollcall_title')}</p>
+              <p class="mb-1.5 text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.emergency.mockup_rollcall_title')}</p>
               <div class="space-y-1.5">
                 {#each [
                   { curso: '7°A', total: 32, present: 31, teacher: 'Prof. Soto' },
                   { curso: '7°B', total: 30, present: 30, teacher: 'Prof. García' },
                   { curso: '8°A', total: 28, present: 25, teacher: 'Prof. Martínez' },
                 ] as row}
-                  <div class="flex items-center gap-2 text-[10px]">
+                  <div class="flex items-center gap-2 text-mockup-xs">
                     <span class="w-7 font-medium text-foreground">{row.curso}</span>
                     <div class="flex-1 rounded-full bg-muted h-1.5">
                       <div class="h-1.5 rounded-full {row.present === row.total ? 'bg-success' : 'bg-warning'}"
@@ -122,7 +122,7 @@
                   </div>
                 {/each}
               </div>
-              <div class="mt-2 rounded-lg bg-warning/10 px-2 py-1.5 text-[10px] text-warning-foreground">
+              <div class="mt-2 rounded-lg bg-warning/10 px-2 py-1.5 text-mockup-xs text-warning-foreground">
                 {t('featurePage.emergency.mockup_rollcall_warning')}
               </div>
             </div>
@@ -136,7 +136,7 @@
   <section class="py-12 sm:py-14" aria-labelledby="emergency-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="emergency-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.emergency.editorial.eyebrow')}</p>
+      <p id="emergency-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.emergency.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.emergency.editorial.statement')}
       </blockquote>
@@ -169,7 +169,7 @@
               { labelKey: 'featurePage.emergency.protocol_sismo_feat_3' as const },
               { labelKey: 'featurePage.emergency.protocol_sismo_feat_4' as const },
             ] as f}
-              <li class="flex items-center gap-1.5 text-[10px] text-muted-foreground">
+              <li class="flex items-center gap-1.5 text-mockup-xs text-muted-foreground">
                 <CheckCircle2 class="size-2.5 shrink-0 text-success" />
                 {t(f.labelKey)}
               </li>
@@ -190,7 +190,7 @@
               { labelKey: 'featurePage.emergency.protocol_incendio_feat_3' as const },
               { labelKey: 'featurePage.emergency.protocol_incendio_feat_4' as const },
             ] as f}
-              <li class="flex items-center gap-1.5 text-[10px] text-muted-foreground">
+              <li class="flex items-center gap-1.5 text-mockup-xs text-muted-foreground">
                 <CheckCircle2 class="size-2.5 shrink-0 text-success" />
                 {t(f.labelKey)}
               </li>
@@ -211,7 +211,7 @@
               { labelKey: 'featurePage.emergency.protocol_intruso_feat_3' as const },
               { labelKey: 'featurePage.emergency.protocol_intruso_feat_4' as const },
             ] as f}
-              <li class="flex items-center gap-1.5 text-[10px] text-muted-foreground">
+              <li class="flex items-center gap-1.5 text-mockup-xs text-muted-foreground">
                 <CheckCircle2 class="size-2.5 shrink-0 text-success" />
                 {t(f.labelKey)}
               </li>
@@ -232,7 +232,7 @@
               { labelKey: 'featurePage.emergency.protocol_medica_feat_3' as const },
               { labelKey: 'featurePage.emergency.protocol_medica_feat_4' as const },
             ] as f}
-              <li class="flex items-center gap-1.5 text-[10px] text-muted-foreground">
+              <li class="flex items-center gap-1.5 text-mockup-xs text-muted-foreground">
                 <CheckCircle2 class="size-2.5 shrink-0 text-success" />
                 {t(f.labelKey)}
               </li>
@@ -277,27 +277,27 @@
           <div class="rounded-xl border border-border bg-card shadow-card-hover overflow-hidden">
             <!-- Phone top bar -->
             <div class="bg-muted/50 px-4 py-2 flex items-center justify-between">
-              <span class="text-[10px] font-medium text-muted-foreground">14:24</span>
-              <span class="text-[10px] text-muted-foreground">{BRAND}</span>
+              <span class="text-mockup-xs font-medium text-muted-foreground">14:24</span>
+              <span class="text-mockup-xs text-muted-foreground">{BRAND}</span>
             </div>
             <!-- Notification cards -->
             <div class="p-3 space-y-2">
               <div class="rounded-xl bg-destructive/10 border border-destructive/20 p-3">
                 <div class="flex items-center gap-2 mb-1">
                   <Siren class="size-3.5 shrink-0 text-destructive" />
-                  <span class="text-[11px] font-bold text-destructive">{t('featurePage.emergency.notif_alert_title')}</span>
+                  <span class="text-mockup-sm font-bold text-destructive">{t('featurePage.emergency.notif_alert_title')}</span>
                 </div>
-                <p class="text-[10px] text-foreground font-medium">Colegio Alemán de Concepción</p>
-                <p class="text-[10px] text-muted-foreground">{t('featurePage.emergency.notif_alert_body')}</p>
-                <p class="text-[9px] text-muted-foreground mt-1">{t('featurePage.emergency.notif_alert_time')}</p>
+                <p class="text-mockup-xs text-foreground font-medium">Colegio Alemán de Concepción</p>
+                <p class="text-mockup-xs text-muted-foreground">{t('featurePage.emergency.notif_alert_body')}</p>
+                <p class="text-mockup-2xs text-muted-foreground mt-1">{t('featurePage.emergency.notif_alert_time')}</p>
               </div>
               <div class="rounded-xl bg-success/10 border border-success/20 p-3">
                 <div class="flex items-center gap-2 mb-1">
                   <CheckCircle2 class="size-3.5 shrink-0 text-success" />
-                  <span class="text-[11px] font-bold text-success">{t('featurePage.emergency.notif_safe_title')}</span>
+                  <span class="text-mockup-sm font-bold text-success">{t('featurePage.emergency.notif_safe_title')}</span>
                 </div>
-                <p class="text-[10px] text-muted-foreground">{t('featurePage.emergency.notif_safe_body')}</p>
-                <p class="text-[9px] text-muted-foreground mt-1">{t('featurePage.emergency.notif_safe_time')}</p>
+                <p class="text-mockup-xs text-muted-foreground">{t('featurePage.emergency.notif_safe_body')}</p>
+                <p class="text-mockup-2xs text-muted-foreground mt-1">{t('featurePage.emergency.notif_safe_time')}</p>
               </div>
             </div>
           </div>
@@ -333,7 +333,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="emergency-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.emergency.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.emergency.finalCta.eyebrow')}</p>
       <h2 id="emergency-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.emergency.finalCta.title')}
       </h2>

@@ -153,7 +153,7 @@
         <div class="mx-auto mb-4 flex size-14 items-center justify-center rounded-full bg-primary/10">
           <GraduationCap class="size-7 text-primary" />
         </div>
-        <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step1.eyebrow')}</p>
+        <p class="mb-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step1.eyebrow')}</p>
         <h1 class="text-2xl text-foreground">
           {t('demo.step1.title')}
         </h1>
@@ -285,7 +285,7 @@
     </div>
   </div>
 
-  <footer class="border-t border-border bg-background py-4 text-center text-[11px] text-muted-foreground">
+  <footer class="border-t border-border bg-background py-4 text-center text-mockup-sm text-muted-foreground">
     &copy; {new Date().getFullYear()} {BRAND}
   </footer>
 </main>

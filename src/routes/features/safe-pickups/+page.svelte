@@ -92,7 +92,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{t('featurePage.safePickups.mockup.window_title')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{t('featurePage.safePickups.mockup.window_title')}</span>
           </div>
           <div class="p-4 sm:p-5">
             {#if !showBlocked}
@@ -101,19 +101,19 @@
                 <CheckCircle class="size-4 shrink-0 text-success" />
                 <div>
                   <p class="text-xs font-bold text-success">{t('featurePage.safePickups.mockup.authorized_badge')}</p>
-                  <p class="text-[9px] text-muted-foreground">{t('featurePage.safePickups.mockup.authorized_subtitle')}</p>
+                  <p class="text-mockup-2xs text-muted-foreground">{t('featurePage.safePickups.mockup.authorized_subtitle')}</p>
                 </div>
               </div>
               <div class="flex gap-3">
                 <img src="/images/people/apoderado-madre.webp" alt={t('featurePage.safePickups.mockup.authorized_photo_alt')} class="size-14 rounded-full object-cover ring-2 ring-success/30" loading="lazy" decoding="async" />
                 <div class="flex-1">
                   <p class="text-sm font-semibold text-foreground">María Sepúlveda Contreras</p>
-                  <p class="text-[11px] text-muted-foreground">RUT 12.345.678-9 · {t('featurePage.safePickups.mockup.relation_mother')}</p>
+                  <p class="text-mockup-sm text-muted-foreground">RUT 12.345.678-9 · {t('featurePage.safePickups.mockup.relation_mother')}</p>
                   <div class="mt-2 grid grid-cols-2 gap-x-3 gap-y-1">
-                    <p class="text-[10px] text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_student_f')}</span> Valentina Rojas</p>
-                    <p class="text-[10px] text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_grade')}</span> 7° Básico B</p>
-                    <p class="text-[10px] text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_pickups_6m')}</span> 12</p>
-                    <p class="text-[10px] text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_last')}</span> {t('featurePage.safePickups.mockup.value_yesterday_1530')}</p>
+                    <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_student_f')}</span> Valentina Rojas</p>
+                    <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_grade')}</span> 7° Básico B</p>
+                    <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_pickups_6m')}</span> 12</p>
+                    <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_last')}</span> {t('featurePage.safePickups.mockup.value_yesterday_1530')}</p>
                   </div>
                 </div>
               </div>
@@ -123,7 +123,7 @@
                 <XCircle class="size-4 shrink-0 text-destructive" />
                 <div>
                   <p class="text-xs font-bold text-destructive">{t('featurePage.safePickups.mockup.blocked_badge')}</p>
-                  <p class="text-[9px] text-muted-foreground">{t('featurePage.safePickups.mockup.blocked_subtitle')}</p>
+                  <p class="text-mockup-2xs text-muted-foreground">{t('featurePage.safePickups.mockup.blocked_subtitle')}</p>
                 </div>
               </div>
               <div class="flex gap-3">
@@ -132,10 +132,10 @@
                 </div>
                 <div class="flex-1">
                   <p class="text-sm font-semibold text-foreground">Ricardo González Vidal</p>
-                  <p class="text-[11px] text-muted-foreground">RUT 9.876.543-2 · {t('featurePage.safePickups.mockup.relation_father')}</p>
+                  <p class="text-mockup-sm text-muted-foreground">RUT 9.876.543-2 · {t('featurePage.safePickups.mockup.relation_father')}</p>
                   <div class="mt-2 rounded-lg bg-destructive/5 border border-destructive/20 px-2 py-1.5">
-                    <p class="text-[10px] font-semibold text-destructive">{t('featurePage.safePickups.mockup.blocked_reason')}</p>
-                    <p class="text-[9px] text-muted-foreground mt-0.5">{t('featurePage.safePickups.mockup.blocked_detail')}</p>
+                    <p class="text-mockup-xs font-semibold text-destructive">{t('featurePage.safePickups.mockup.blocked_reason')}</p>
+                    <p class="text-mockup-2xs text-muted-foreground mt-0.5">{t('featurePage.safePickups.mockup.blocked_detail')}</p>
                   </div>
                 </div>
               </div>
@@ -143,26 +143,26 @@
 
             <!-- History list -->
             <div class="mt-4 border-t border-border pt-3 space-y-1.5">
-              <p class="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.safePickups.mockup.history_title')}</p>
-              <div class="flex items-center gap-2 text-[10px]">
+              <p class="text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.safePickups.mockup.history_title')}</p>
+              <div class="flex items-center gap-2 text-mockup-xs">
                 <span class="size-1.5 rounded-full bg-success"></span>
                 <span class="flex-1 text-muted-foreground">{t('featurePage.safePickups.mockup.history_row1')}</span>
-                <span class="text-[9px] text-muted-foreground">{t('featurePage.safePickups.mockup.gate_north')}</span>
+                <span class="text-mockup-2xs text-muted-foreground">{t('featurePage.safePickups.mockup.gate_north')}</span>
               </div>
-              <div class="flex items-center gap-2 text-[10px]">
+              <div class="flex items-center gap-2 text-mockup-xs">
                 <span class="size-1.5 rounded-full bg-success"></span>
                 <span class="flex-1 text-muted-foreground">{t('featurePage.safePickups.mockup.history_row2')}</span>
-                <span class="text-[9px] text-muted-foreground">{t('featurePage.safePickups.mockup.gate_north')}</span>
+                <span class="text-mockup-2xs text-muted-foreground">{t('featurePage.safePickups.mockup.gate_north')}</span>
               </div>
-              <div class="flex items-center gap-2 text-[10px]">
+              <div class="flex items-center gap-2 text-mockup-xs">
                 <span class="size-1.5 rounded-full bg-destructive"></span>
                 <span class="flex-1 text-muted-foreground">{t('featurePage.safePickups.mockup.history_row3')}</span>
-                <span class="text-[9px] text-muted-foreground">{t('featurePage.safePickups.mockup.gate_main')}</span>
+                <span class="text-mockup-2xs text-muted-foreground">{t('featurePage.safePickups.mockup.gate_main')}</span>
               </div>
-              <div class="flex items-center gap-2 text-[10px]">
+              <div class="flex items-center gap-2 text-mockup-xs">
                 <span class="size-1.5 rounded-full bg-success"></span>
                 <span class="flex-1 text-muted-foreground">{t('featurePage.safePickups.mockup.history_row4')}</span>
-                <span class="text-[9px] text-muted-foreground">{t('featurePage.safePickups.mockup.gate_north')}</span>
+                <span class="text-mockup-2xs text-muted-foreground">{t('featurePage.safePickups.mockup.gate_north')}</span>
               </div>
             </div>
           </div>
@@ -175,7 +175,7 @@
   <section class="py-12 sm:py-14" aria-labelledby="pickup-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="pickup-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.safePickups.editorial.eyebrow')}</p>
+      <p id="pickup-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.safePickups.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.safePickups.editorial.statement')}
       </blockquote>
@@ -276,7 +276,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="pickup-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.safePickups.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.safePickups.finalCta.eyebrow')}</p>
       <h2 id="pickup-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.safePickups.finalCta.title')}
       </h2>

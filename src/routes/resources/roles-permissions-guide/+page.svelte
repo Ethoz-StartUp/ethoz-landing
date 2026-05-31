@@ -182,7 +182,7 @@
 
   <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <div class="mb-12 border-b border-border pb-10">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
         <span class="text-primary">{t('resRolesGuide.eyebrow_category')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('resRolesGuide.eyebrow_law')}</span>
@@ -225,9 +225,9 @@
                 {#each permKeys as key}
                   <td class="px-2 py-3 text-center">
                     {#if r.perms[key as keyof typeof r.perms]}
-                      <span class="inline-flex size-5 items-center justify-center rounded-full bg-success/15 text-success font-bold text-[11px]">✓</span>
+                      <span class="inline-flex size-5 items-center justify-center rounded-full bg-success/15 text-success font-bold text-mockup-sm">✓</span>
                     {:else}
-                      <span class="inline-flex size-5 items-center justify-center rounded-full bg-muted text-muted-foreground text-[11px]">—</span>
+                      <span class="inline-flex size-5 items-center justify-center rounded-full bg-muted text-muted-foreground text-mockup-sm">—</span>
                     {/if}
                   </td>
                 {/each}

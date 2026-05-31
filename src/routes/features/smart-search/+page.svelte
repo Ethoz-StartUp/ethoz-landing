@@ -124,7 +124,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{t('featurePage.smartSearch.mockup_titlebar')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{t('featurePage.smartSearch.mockup_titlebar')}</span>
           </div>
           <div class="p-4 sm:p-5">
             <!-- Search bar -->
@@ -133,7 +133,7 @@
               <span class="text-xs text-foreground font-medium">{current.query}</span>
               <span class="animate-pulse text-xs text-primary ml-0.5">|</span>
             </div>
-            <p class="mb-3 text-[9px] text-muted-foreground pl-1">{t(current.noteKey)}</p>
+            <p class="mb-3 text-mockup-2xs text-muted-foreground pl-1">{t(current.noteKey)}</p>
 
             <!-- Results -->
             <div class="space-y-1">
@@ -143,23 +143,23 @@
                     <GraduationCap class="size-4 text-muted-foreground" />
                   </div>
                   <div class="flex-1 min-w-0">
-                    <p class="text-[11px] font-medium text-foreground">{result.name}</p>
-                    <p class="text-[9px] text-muted-foreground">{result.grade} · {result.teacher}</p>
+                    <p class="text-mockup-sm font-medium text-foreground">{result.name}</p>
+                    <p class="text-mockup-2xs text-muted-foreground">{result.grade} · {result.teacher}</p>
                   </div>
                   {#if result.alert}
-                    <span class="shrink-0 inline-flex items-center gap-1 rounded-full bg-warning/10 px-1.5 py-0.5 text-[8px] font-semibold text-warning-foreground">
+                    <span class="shrink-0 inline-flex items-center gap-1 rounded-full bg-warning/10 px-1.5 py-0.5 text-mockup-3xs font-semibold text-warning-foreground">
                       <AlertTriangle class="size-2.5" />
                       {result.alert}
                     </span>
                   {:else}
-                    <span class="shrink-0 inline-flex items-center gap-1 rounded-full bg-success/10 px-1.5 py-0.5 text-[8px] font-medium text-success">
+                    <span class="shrink-0 inline-flex items-center gap-1 rounded-full bg-success/10 px-1.5 py-0.5 text-mockup-3xs font-medium text-success">
                       {t('featurePage.smartSearch.no_alerts')}
                     </span>
                   {/if}
                 </div>
               {/each}
             </div>
-            <p class="mt-2.5 text-center text-[9px] text-muted-foreground">{current.results.length} {current.results.length !== 1 ? t('featurePage.smartSearch.results_plural') : t('featurePage.smartSearch.results_singular')} · 0.03s · {t('featurePage.smartSearch.sample_school_concepcion')}</p>
+            <p class="mt-2.5 text-center text-mockup-2xs text-muted-foreground">{current.results.length} {current.results.length !== 1 ? t('featurePage.smartSearch.results_plural') : t('featurePage.smartSearch.results_singular')} · 0.03s · {t('featurePage.smartSearch.sample_school_concepcion')}</p>
           </div>
         </div>
       </div>
@@ -170,7 +170,7 @@
   <section class="py-12 sm:py-14" aria-labelledby="search-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="search-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.smartSearch.editorial.eyebrow')}</p>
+      <p id="search-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.smartSearch.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.smartSearch.editorial.statement')}
       </blockquote>
@@ -213,7 +213,7 @@
               <LayoutDashboard class="size-4 text-primary" />
               <span class="text-sm font-semibold text-foreground">{t('featurePage.smartSearch.dashboard_mockup_title')}</span>
             </div>
-            <span class="inline-flex items-center gap-1 rounded-full bg-warning/10 px-2 py-0.5 text-[10px] font-semibold text-warning-foreground">
+            <span class="inline-flex items-center gap-1 rounded-full bg-warning/10 px-2 py-0.5 text-mockup-xs font-semibold text-warning-foreground">
               <AlertTriangle class="size-3" /> 4 {t('featurePage.smartSearch.alerts_word')}
             </span>
           </div>
@@ -230,11 +230,11 @@
                 </div>
                 <div class="flex-1 min-w-0">
                   <p class="text-xs font-medium text-foreground">{row.name}</p>
-                  <p class="text-[10px] text-muted-foreground">{row.grade}</p>
+                  <p class="text-mockup-xs text-muted-foreground">{row.grade}</p>
                 </div>
                 <div class="flex flex-col items-end gap-1">
                   {#each row.alerts as alert}
-                    <span class="inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[8px] font-medium {row.urgent ? 'bg-destructive/10 text-destructive' : 'bg-warning/10 text-warning-foreground'}">
+                    <span class="inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-mockup-3xs font-medium {row.urgent ? 'bg-destructive/10 text-destructive' : 'bg-warning/10 text-warning-foreground'}">
                       {t(alert)}
                     </span>
                   {/each}
@@ -243,7 +243,7 @@
             {/each}
           </div>
           <div class="px-4 py-2.5 border-t border-border bg-muted/20">
-            <p class="text-[9px] text-muted-foreground">{t('featurePage.smartSearch.dashboard_mockup_footer')}</p>
+            <p class="text-mockup-2xs text-muted-foreground">{t('featurePage.smartSearch.dashboard_mockup_footer')}</p>
           </div>
         </div>
       </div>
@@ -293,7 +293,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="search-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.smartSearch.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.smartSearch.finalCta.eyebrow')}</p>
       <h2 id="search-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.smartSearch.finalCta.title')}
       </h2>

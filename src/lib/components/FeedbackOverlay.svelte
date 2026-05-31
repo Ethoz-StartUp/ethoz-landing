@@ -212,7 +212,7 @@
   <div data-feedback-overlay class="fixed top-0 left-0 right-0 z-[200] flex items-center justify-center bg-primary px-4 py-1.5 text-xs font-medium text-primary-foreground">
     {t('feedbackOverlay.banner_shift_click')}
     <span class="mx-2">·</span>
-    <kbd class="rounded bg-primary-foreground/20 px-1.5 py-0.5 text-[10px] font-mono">Esc</kbd>
+    <kbd class="rounded bg-primary-foreground/20 px-1.5 py-0.5 text-mockup-xs font-mono">Esc</kbd>
   </div>
 {/if}
 
@@ -295,7 +295,7 @@
 
       <!-- Pending badge -->
       {#if pendingCount > 0}
-        <span class="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-destructive text-[10px] font-bold text-destructive-foreground shadow">
+        <span class="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-destructive text-mockup-xs font-bold text-destructive-foreground shadow">
           {pendingCount > 9 ? '9+' : pendingCount}
         </span>
       {/if}

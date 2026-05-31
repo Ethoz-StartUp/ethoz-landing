@@ -124,7 +124,7 @@
   <section class="pt-28 pb-12 sm:pt-32 sm:pb-16 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <!-- Editorial eyebrow — Cal-flavored, mirrors the /get-started pattern -->
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         <span class="text-primary">{t('productos.hero_eyebrow_catalog')}</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span class="hidden sm:inline">{t('productos.hero_eyebrow_count')}</span>
@@ -175,7 +175,7 @@
                 <div class="size-2.5 rounded-full bg-destructive/60"></div>
                 <div class="size-2.5 rounded-full bg-warning/60"></div>
                 <div class="size-2.5 rounded-full bg-success/60"></div>
-                <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — {t(product.nameKey)}</span>
+                <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{BRAND} — {t(product.nameKey)}</span>
               </div>
               {#if product.id === 'student-profile'}
                 <div class="p-5">
@@ -187,12 +187,12 @@
                     </div>
                   </div>
                   <div class="mt-3 flex gap-1 border-t border-border pt-3">
-                    <span class="border-b-2 border-primary px-2.5 py-1.5 text-[10px] font-semibold text-primary">{t('productos.mock_tab_history')}</span>
-                    <span class="px-2.5 py-1.5 text-[10px] text-muted-foreground">{t('productos.mock_tab_pickups')}</span>
-                    <span class="px-2.5 py-1.5 text-[10px] text-muted-foreground">{t('productos.mock_tab_coexistence')}</span>
-                    <span class="px-2.5 py-1.5 text-[10px] text-muted-foreground">{t('productos.mock_tab_alerts')}</span>
+                    <span class="border-b-2 border-primary px-2.5 py-1.5 text-mockup-xs font-semibold text-primary">{t('productos.mock_tab_history')}</span>
+                    <span class="px-2.5 py-1.5 text-mockup-xs text-muted-foreground">{t('productos.mock_tab_pickups')}</span>
+                    <span class="px-2.5 py-1.5 text-mockup-xs text-muted-foreground">{t('productos.mock_tab_coexistence')}</span>
+                    <span class="px-2.5 py-1.5 text-mockup-xs text-muted-foreground">{t('productos.mock_tab_alerts')}</span>
                   </div>
-                  <div class="mt-3 space-y-1.5 text-[10px] text-muted-foreground">
+                  <div class="mt-3 space-y-1.5 text-mockup-xs text-muted-foreground">
                     <div class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-primary"></span>{t('productos.mock_profile_updated')}</div>
                     <div class="flex items-center gap-2"><span class="size-1.5 rounded-full bg-success"></span>{t('productos.mock_pickup_authorized')} · 14:32</div>
                   </div>
@@ -207,12 +207,12 @@
                     <img src="/images/people/apoderado-madre.webp" alt={t('productos.mock_alt_guardian_mother')} class="size-10 rounded-full object-cover" loading="lazy" decoding="async" />
                     <div>
                       <p class="text-xs font-medium text-foreground">María Sepúlveda · {t('productos.mock_role_mother')}</p>
-                      <p class="text-[10px] text-muted-foreground">Valentina Rojas · 7° Básico B · 14:32</p>
+                      <p class="text-mockup-xs text-muted-foreground">Valentina Rojas · 7° Básico B · 14:32</p>
                     </div>
                   </div>
                   <div class="mt-3 rounded-lg border border-dashed border-destructive/30 bg-destructive/5 px-3 py-2">
-                    <p class="text-[10px] font-medium text-destructive">Juan Rojas · {t('productos.mock_role_father')} — {t('productos.mock_status_blocked')}</p>
-                    <p class="text-[9px] text-muted-foreground">{t('productos.mock_restraining_order')}</p>
+                    <p class="text-mockup-xs font-medium text-destructive">Juan Rojas · {t('productos.mock_role_father')} — {t('productos.mock_status_blocked')}</p>
+                    <p class="text-mockup-2xs text-muted-foreground">{t('productos.mock_restraining_order')}</p>
                   </div>
                 </div>
               {:else if product.id === 'access-control'}
@@ -222,7 +222,7 @@
                     {#each [{nameKey:'productos.mock_role_principal' as const,img:'/images/people/director-mujer.webp',dots:[true,true,true,true]},{nameKey:'productos.mock_role_teacher' as const,img:'/images/people/docente-mujer.webp',dots:[true,false,true,false]},{nameKey:'productos.mock_role_doorman' as const,img:'/images/people/portero-hombre.webp',dots:[false,true,false,false]}] as role}
                       <div class="flex items-center gap-2">
                         <img src={role.img} alt={t(role.nameKey)} class="size-5 rounded-full object-cover" loading="lazy" decoding="async" />
-                        <span class="w-16 text-[10px] font-medium text-foreground">{t(role.nameKey)}</span>
+                        <span class="w-16 text-mockup-xs font-medium text-foreground">{t(role.nameKey)}</span>
                         {#each role.dots as d}
                           <span class="size-2.5 rounded-full {d ? 'bg-success' : 'bg-muted'} mx-auto"></span>
                         {/each}
@@ -238,41 +238,41 @@
                       <img src="/images/students/girl-12.webp" alt={t('productos.mock_alt_student_girl')} class="size-7 rounded-full object-cover" loading="lazy" decoding="async" />
                       <div>
                         <span class="text-xs text-foreground"><mark class="bg-primary/20 font-semibold">Val</mark>entina Rojas</span>
-                        <p class="text-[10px] text-muted-foreground">7° Básico B</p>
+                        <p class="text-mockup-xs text-muted-foreground">7° Básico B</p>
                       </div>
                     </div>
                     <div class="flex items-center gap-2.5 rounded-lg px-3 py-2 hover:bg-muted/50">
                       <img src="/images/students/kid-14.webp" alt={t('productos.mock_alt_student_boy')} class="size-7 rounded-full object-cover" loading="lazy" decoding="async" />
                       <div>
                         <span class="text-xs text-foreground"><mark class="bg-primary/20 font-semibold">Val</mark>dés, Tomás</span>
-                        <p class="text-[10px] text-muted-foreground">8° Básico A</p>
+                        <p class="text-mockup-xs text-muted-foreground">8° Básico A</p>
                       </div>
                     </div>
                   </div>
                 </div>
               {:else if product.id === 'coexistence'}
                 <div class="p-5">
-                  <p class="mb-2 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">{t('productos.mock_latest_observations')}</p>
+                  <p class="mb-2 text-mockup-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('productos.mock_latest_observations')}</p>
                   <div class="space-y-2.5">
                     <div class="flex items-start gap-2.5 text-xs">
                       <span class="mt-1 size-2 shrink-0 rounded-full bg-warning"></span>
                       <div>
                         <span class="font-medium text-foreground">{t('productos.mock_incident_minor')} — 8°A</span>
-                        <p class="text-[10px] text-muted-foreground">Hace 2h · Prof. A. Martínez</p>
+                        <p class="text-mockup-xs text-muted-foreground">Hace 2h · Prof. A. Martínez</p>
                       </div>
                     </div>
                     <div class="flex items-start gap-2.5 text-xs">
                       <span class="mt-1 size-2 shrink-0 rounded-full bg-destructive"></span>
                       <div>
                         <span class="font-medium text-foreground">{t('productos.mock_incident_serious')} — 7°B</span>
-                        <p class="text-[10px] text-muted-foreground">Ayer · Inspector J. Muñoz</p>
+                        <p class="text-mockup-xs text-muted-foreground">Ayer · Inspector J. Muñoz</p>
                       </div>
                     </div>
                     <div class="flex items-start gap-2.5 text-xs">
                       <span class="mt-1 size-2 shrink-0 rounded-full bg-success"></span>
                       <div>
                         <span class="font-medium text-foreground">{t('productos.mock_intervention_closed')} — 6°A</span>
-                        <p class="text-[10px] text-muted-foreground">Hace 3 días · Orientadora</p>
+                        <p class="text-mockup-xs text-muted-foreground">Hace 3 días · Orientadora</p>
                       </div>
                     </div>
                   </div>
@@ -282,11 +282,11 @@
                   <div class="grid grid-cols-2 gap-3">
                     <div class="rounded-lg bg-success/5 px-3 py-3 text-center">
                       <p class="text-lg font-bold text-success">98%</p>
-                      <p class="text-[10px] text-muted-foreground">{t('productos.mock_consents')}</p>
+                      <p class="text-mockup-xs text-muted-foreground">{t('productos.mock_consents')}</p>
                     </div>
                     <div class="rounded-lg bg-success/5 px-3 py-3 text-center">
                       <p class="text-lg font-bold text-success">0</p>
-                      <p class="text-[10px] text-muted-foreground">{t('productos.mock_irregularities')}</p>
+                      <p class="text-mockup-xs text-muted-foreground">{t('productos.mock_irregularities')}</p>
                     </div>
                   </div>
                   <div class="mt-3 rounded-lg bg-primary/5 px-3 py-2 text-center">

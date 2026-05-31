@@ -98,22 +98,22 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{t('featurePage.privacyCompliance.dashboard.chrome_label')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{t('featurePage.privacyCompliance.dashboard.chrome_label')}</span>
           </div>
           <div class="p-4 sm:p-5">
             <!-- KPI row -->
             <div class="grid grid-cols-3 gap-2 mb-4">
               <div class="rounded-lg bg-success/5 border border-success/20 px-2.5 py-2.5 text-center">
                 <p class="text-xl font-bold text-success">98%</p>
-                <p class="text-[9px] text-muted-foreground leading-tight mt-0.5">{t('featurePage.privacyCompliance.dashboard.kpi_consents')}</p>
+                <p class="text-mockup-2xs text-muted-foreground leading-tight mt-0.5">{t('featurePage.privacyCompliance.dashboard.kpi_consents')}</p>
               </div>
               <div class="rounded-lg bg-success/5 border border-success/20 px-2.5 py-2.5 text-center">
                 <p class="text-xl font-bold text-success">0</p>
-                <p class="text-[9px] text-muted-foreground leading-tight mt-0.5">{t('featurePage.privacyCompliance.dashboard.kpi_irregular_access')}</p>
+                <p class="text-mockup-2xs text-muted-foreground leading-tight mt-0.5">{t('featurePage.privacyCompliance.dashboard.kpi_irregular_access')}</p>
               </div>
               <div class="rounded-lg bg-warning/5 border border-warning/20 px-2.5 py-2.5 text-center">
                 <p class="text-xl font-bold text-warning-foreground">1</p>
-                <p class="text-[9px] text-muted-foreground leading-tight mt-0.5">{t('featurePage.privacyCompliance.dashboard.kpi_arco_pending')}</p>
+                <p class="text-mockup-2xs text-muted-foreground leading-tight mt-0.5">{t('featurePage.privacyCompliance.dashboard.kpi_arco_pending')}</p>
               </div>
             </div>
 
@@ -121,21 +121,21 @@
             <div class="rounded-lg border border-warning/20 bg-warning/5 px-3 py-2 mb-3 flex items-center gap-2">
               <AlertTriangle class="size-3.5 shrink-0 text-warning-foreground" />
               <div class="flex-1 min-w-0">
-                <p class="text-[10px] font-semibold text-warning-foreground">{t('featurePage.privacyCompliance.dashboard.consent_pending_title')}</p>
-                <p class="text-[9px] text-muted-foreground">{t('featurePage.privacyCompliance.dashboard.consent_pending_body')}</p>
+                <p class="text-mockup-xs font-semibold text-warning-foreground">{t('featurePage.privacyCompliance.dashboard.consent_pending_title')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">{t('featurePage.privacyCompliance.dashboard.consent_pending_body')}</p>
               </div>
             </div>
 
             <!-- Audit log -->
-            <p class="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">{t('featurePage.privacyCompliance.dashboard.audit_log_heading')}</p>
+            <p class="text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">{t('featurePage.privacyCompliance.dashboard.audit_log_heading')}</p>
             <div class="space-y-1.5">
               {#each auditLog.slice(0, 3) as entry}
-                <div class="flex items-center gap-2 text-[10px]">
+                <div class="flex items-center gap-2 text-mockup-xs">
                   <div class="size-5 rounded-full bg-muted flex items-center justify-center shrink-0">
                     <entry.icon class="size-2.5 {entry.color}" />
                   </div>
                   <span class="flex-1 text-muted-foreground truncate">{t(entry.userKey)} — {t(entry.actionKey)}</span>
-                  <span class="text-[9px] text-muted-foreground shrink-0">{t(entry.timeKey)}</span>
+                  <span class="text-mockup-2xs text-muted-foreground shrink-0">{t(entry.timeKey)}</span>
                 </div>
               {/each}
             </div>
@@ -149,7 +149,7 @@
   <section class="py-12 sm:py-14" aria-labelledby="privacy-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="privacy-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.privacyCompliance.editorial.eyebrow')}</p>
+      <p id="privacy-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.privacyCompliance.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.privacyCompliance.editorial.statement')}
       </blockquote>
@@ -185,7 +185,7 @@
                   <td class="px-4 py-3 text-xs text-muted-foreground hidden sm:table-cell">{t(row.itemsKey)}</td>
                   <td class="px-4 py-3 text-xs text-muted-foreground whitespace-nowrap">{row.law}</td>
                   <td class="px-4 py-3">
-                    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold {
+                    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-mockup-xs font-semibold {
                       row.sensitivity === 'Sensible' ? 'bg-destructive/10 text-destructive' :
                       row.sensitivity === 'Confidencial' ? 'bg-warning/10 text-warning-foreground' :
                       'bg-muted text-muted-foreground'
@@ -199,7 +199,7 @@
           </table>
         </div>
         <div class="border-t border-border px-4 py-2.5 bg-muted/20">
-          <p class="text-[10px] text-muted-foreground">{t('featurePage.privacyCompliance.inventory.footer_caption')}</p>
+          <p class="text-mockup-xs text-muted-foreground">{t('featurePage.privacyCompliance.inventory.footer_caption')}</p>
         </div>
       </div>
     </div>
@@ -223,7 +223,7 @@
           <div class="group rounded-lg border border-border bg-card p-4 text-center transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
             <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">{item.letter}</span>
             <p class="mt-3 text-sm font-semibold text-foreground">{t(item.rightKey)}</p>
-            <p class="mt-1 text-[11px] leading-relaxed text-muted-foreground">{t(item.descKey)}</p>
+            <p class="mt-1 text-mockup-sm leading-relaxed text-muted-foreground">{t(item.descKey)}</p>
           </div>
         {/each}
       </div>
@@ -273,7 +273,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="privacy-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.privacyCompliance.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.privacyCompliance.finalCta.eyebrow')}</p>
       <h2 id="privacy-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.privacyCompliance.finalCta.title')}
       </h2>

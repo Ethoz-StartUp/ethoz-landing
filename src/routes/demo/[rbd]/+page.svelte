@@ -285,7 +285,7 @@
       {@const school = isManual ? null : schoolStore.selectedSchool}
       <div class="space-y-8">
         <div class="text-center">
-          <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step2.eyebrow')}</p>
+          <p class="mb-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step2.eyebrow')}</p>
           <h1 class="text-2xl text-foreground">
             {t('demo.step2.title')}
           </h1>
@@ -351,35 +351,35 @@
                 <div class="flex items-start gap-2.5 bg-background px-4 py-3">
                   <MapPin class="mt-0.5 size-3.5 shrink-0 text-muted-foreground" />
                   <div class="min-w-0">
-                    <p class="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{t('demo.commune')}</p>
+                    <p class="text-mockup-xs font-medium uppercase tracking-wide text-muted-foreground">{t('demo.commune')}</p>
                     <p class="truncate text-sm text-foreground">{school?.commune}</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-2.5 bg-background px-4 py-3">
                   <MapPin class="mt-0.5 size-3.5 shrink-0 text-muted-foreground" />
                   <div class="min-w-0">
-                    <p class="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{t('demo.region')}</p>
+                    <p class="text-mockup-xs font-medium uppercase tracking-wide text-muted-foreground">{t('demo.region')}</p>
                     <p class="truncate text-sm text-foreground">{regionName(school?.regionCode ?? 0)}</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-2.5 bg-background px-4 py-3">
                   <Users class="mt-0.5 size-3.5 shrink-0 text-muted-foreground" />
                   <div class="min-w-0">
-                    <p class="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{t('demo.enrollment.label')}</p>
+                    <p class="text-mockup-xs font-medium uppercase tracking-wide text-muted-foreground">{t('demo.enrollment.label')}</p>
                     <p class="text-sm text-foreground">{school?.enrollment.toLocaleString('es-CL')} {t('demo.enrollment')}</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-2.5 bg-background px-4 py-3">
                   <Building class="mt-0.5 size-3.5 shrink-0 text-muted-foreground" />
                   <div class="min-w-0">
-                    <p class="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{t('demo.dependencia')}</p>
+                    <p class="text-mockup-xs font-medium uppercase tracking-wide text-muted-foreground">{t('demo.dependencia')}</p>
                     <p class="text-sm text-foreground">{depTypeLabel(school?.depType ?? 0)}</p>
                   </div>
                 </div>
                 <div class="col-span-2 flex items-start gap-2.5 bg-background px-4 py-3">
                   <Building class="mt-0.5 size-3.5 shrink-0 text-muted-foreground" />
                   <div class="min-w-0">
-                    <p class="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{t('demo.sostenedor')}</p>
+                    <p class="text-mockup-xs font-medium uppercase tracking-wide text-muted-foreground">{t('demo.sostenedor')}</p>
                     <p class="truncate text-sm text-foreground">{school?.sostenedor}</p>
                   </div>
                 </div>
@@ -529,7 +529,7 @@
               {#if errorMessage}
                 <p class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-destructive" role="alert">{errorMessage}</p>
               {/if}
-              <p class="mt-2 text-center text-[10px] text-muted-foreground">
+              <p class="mt-2 text-center text-mockup-xs text-muted-foreground">
                 {t('demo.recaptcha_notice')}
               </p>
             </form>
@@ -539,7 +539,7 @@
     {/if}
   </div>
 
-  <footer class="border-t border-border bg-background py-4 text-center text-[11px] text-muted-foreground">
+  <footer class="border-t border-border bg-background py-4 text-center text-mockup-sm text-muted-foreground">
     &copy; {new Date().getFullYear()} {BRAND}
   </footer>
 </main>

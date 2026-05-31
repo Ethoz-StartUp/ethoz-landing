@@ -84,7 +84,7 @@
 
       <!-- Actions -->
       <div class="mt-3 flex items-center justify-between">
-        <span class="text-[10px] text-muted-foreground">
+        <span class="text-mockup-xs text-muted-foreground">
           <kbd class="rounded bg-muted px-1 py-0.5 font-mono">⌘↵</kbd> {t('feedbackModal.submit_hint')}
         </span>
         <button

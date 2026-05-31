@@ -67,7 +67,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — {t('featurePage.alerts.mockup_window_title')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{BRAND} — {t('featurePage.alerts.mockup_window_title')}</span>
           </div>
           <div class="p-4 sm:p-5 space-y-3">
             <!-- Critical alert -->
@@ -75,13 +75,13 @@
               <div class="flex items-center justify-between gap-2">
                 <div class="flex items-center gap-2">
                   <Scale class="size-3.5 shrink-0 text-destructive" />
-                  <span class="text-[11px] font-bold uppercase tracking-wide text-destructive">{t('featurePage.alerts.mockup_critical_type')}</span>
+                  <span class="text-mockup-sm font-bold uppercase tracking-wide text-destructive">{t('featurePage.alerts.mockup_critical_type')}</span>
                 </div>
-                <span class="rounded-full bg-destructive/15 px-2 py-0.5 text-[9px] font-semibold text-destructive">{t('featurePage.alerts.mockup_level_critical')}</span>
+                <span class="rounded-full bg-destructive/15 px-2 py-0.5 text-mockup-2xs font-semibold text-destructive">{t('featurePage.alerts.mockup_level_critical')}</span>
               </div>
-              <p class="mt-1.5 text-[11px] font-semibold text-foreground">{t('featurePage.alerts.mockup_critical_person')}</p>
-              <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.mockup_critical_student')}</p>
-              <div class="mt-2 grid grid-cols-2 gap-1.5 text-[9px] text-muted-foreground">
+              <p class="mt-1.5 text-mockup-sm font-semibold text-foreground">{t('featurePage.alerts.mockup_critical_person')}</p>
+              <p class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.mockup_critical_student')}</p>
+              <div class="mt-2 grid grid-cols-2 gap-1.5 text-mockup-2xs text-muted-foreground">
                 <span><span class="font-medium text-foreground">{t('featurePage.alerts.mockup_label_tribunal')}</span> {t('featurePage.alerts.mockup_critical_tribunal_value')}</span>
                 <span><span class="font-medium text-foreground">{t('featurePage.alerts.mockup_label_rit')}</span> C-4821-2025</span>
                 <span><span class="font-medium text-foreground">{t('featurePage.alerts.mockup_label_vigencia')}</span> {t('featurePage.alerts.mockup_critical_vigencia_value')}</span>
@@ -93,24 +93,24 @@
               <div class="flex items-center justify-between gap-2">
                 <div class="flex items-center gap-2">
                   <AlertTriangle class="size-3.5 shrink-0 text-warning-foreground" />
-                  <span class="text-[11px] font-bold uppercase tracking-wide text-warning-foreground">{t('featurePage.alerts.mockup_warning_type')}</span>
+                  <span class="text-mockup-sm font-bold uppercase tracking-wide text-warning-foreground">{t('featurePage.alerts.mockup_warning_type')}</span>
                 </div>
-                <span class="rounded-full bg-warning/20 px-2 py-0.5 text-[9px] font-semibold text-warning-foreground">{t('featurePage.alerts.mockup_level_high')}</span>
+                <span class="rounded-full bg-warning/20 px-2 py-0.5 text-mockup-2xs font-semibold text-warning-foreground">{t('featurePage.alerts.mockup_level_high')}</span>
               </div>
-              <p class="mt-1.5 text-[11px] font-semibold text-foreground">{t('featurePage.alerts.mockup_warning_person')}</p>
-              <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.mockup_warning_detail')}</p>
+              <p class="mt-1.5 text-mockup-sm font-semibold text-foreground">{t('featurePage.alerts.mockup_warning_person')}</p>
+              <p class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.mockup_warning_detail')}</p>
             </div>
             <!-- Info alert -->
             <div class="rounded-lg border border-border bg-muted/30 p-3">
               <div class="flex items-center justify-between gap-2">
                 <div class="flex items-center gap-2">
                   <Bell class="size-3.5 shrink-0 text-muted-foreground" />
-                  <span class="text-[11px] font-bold uppercase tracking-wide text-muted-foreground">{t('featurePage.alerts.mockup_info_type')}</span>
+                  <span class="text-mockup-sm font-bold uppercase tracking-wide text-muted-foreground">{t('featurePage.alerts.mockup_info_type')}</span>
                 </div>
-                <span class="rounded-full bg-muted px-2 py-0.5 text-[9px] font-semibold text-muted-foreground">{t('featurePage.alerts.mockup_level_medium')}</span>
+                <span class="rounded-full bg-muted px-2 py-0.5 text-mockup-2xs font-semibold text-muted-foreground">{t('featurePage.alerts.mockup_level_medium')}</span>
               </div>
-              <p class="mt-1.5 text-[11px] font-semibold text-foreground">{t('featurePage.alerts.mockup_info_person')}</p>
-              <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.mockup_info_detail')}</p>
+              <p class="mt-1.5 text-mockup-sm font-semibold text-foreground">{t('featurePage.alerts.mockup_info_person')}</p>
+              <p class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.mockup_info_detail')}</p>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
   <section class="py-12 sm:py-14" aria-labelledby="alerts-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="alerts-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.alerts.editorial.eyebrow')}</p>
+      <p id="alerts-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.alerts.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.alerts.editorial.statement')}
       </blockquote>
@@ -150,7 +150,7 @@
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_restraining_body')}</p>
           <div class="mt-3 flex items-center gap-1.5">
             <span class="size-1.5 rounded-full bg-destructive"></span>
-            <span class="text-[10px] text-muted-foreground">{t('featurePage.alerts.type_restraining_visibility')}</span>
+            <span class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.type_restraining_visibility')}</span>
           </div>
         </div>
 
@@ -162,7 +162,7 @@
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_suicidal_body')}</p>
           <div class="mt-3 flex items-center gap-1.5">
             <span class="size-1.5 rounded-full bg-destructive"></span>
-            <span class="text-[10px] text-muted-foreground">{t('featurePage.alerts.type_suicidal_visibility')}</span>
+            <span class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.type_suicidal_visibility')}</span>
           </div>
         </div>
 
@@ -174,7 +174,7 @@
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_family_risk_body')}</p>
           <div class="mt-3 flex items-center gap-1.5">
             <span class="size-1.5 rounded-full bg-warning"></span>
-            <span class="text-[10px] text-muted-foreground">{t('featurePage.alerts.type_family_risk_visibility')}</span>
+            <span class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.type_family_risk_visibility')}</span>
           </div>
         </div>
 
@@ -186,7 +186,7 @@
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_suspension_body')}</p>
           <div class="mt-3 flex items-center gap-1.5">
             <span class="size-1.5 rounded-full bg-warning"></span>
-            <span class="text-[10px] text-muted-foreground">{t('featurePage.alerts.type_suspension_visibility')}</span>
+            <span class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.type_suspension_visibility')}</span>
           </div>
         </div>
 
@@ -198,7 +198,7 @@
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_pickup_restriction_body')}</p>
           <div class="mt-3 flex items-center gap-1.5">
             <span class="size-1.5 rounded-full bg-muted-foreground"></span>
-            <span class="text-[10px] text-muted-foreground">{t('featurePage.alerts.type_pickup_restriction_visibility')}</span>
+            <span class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.type_pickup_restriction_visibility')}</span>
           </div>
         </div>
 
@@ -210,7 +210,7 @@
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_custom_body')}</p>
           <div class="mt-3 flex items-center gap-1.5">
             <span class="size-1.5 rounded-full bg-primary"></span>
-            <span class="text-[10px] text-muted-foreground">{t('featurePage.alerts.type_custom_visibility')}</span>
+            <span class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.type_custom_visibility')}</span>
           </div>
         </div>
 
@@ -252,40 +252,40 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — {t('featurePage.alerts.timeline_window_title')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{BRAND} — {t('featurePage.alerts.timeline_window_title')}</span>
           </div>
           <div class="p-4 sm:p-5">
-            <p class="mb-3 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.alerts.timeline_subject')}</p>
+            <p class="mb-3 text-mockup-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.alerts.timeline_subject')}</p>
             <div class="relative space-y-3 pl-4 before:absolute before:left-1.5 before:top-1 before:h-full before:w-px before:bg-border">
               <div class="flex items-start gap-3">
                 <span class="absolute left-0.5 mt-1 size-2 rounded-full bg-destructive ring-2 ring-background"></span>
                 <div class="ml-1">
-                  <p class="text-[11px] font-semibold text-foreground">{t('featurePage.alerts.timeline_step1_title')}</p>
-                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step1_meta')}</p>
-                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step1_detail')}</p>
+                  <p class="text-mockup-sm font-semibold text-foreground">{t('featurePage.alerts.timeline_step1_title')}</p>
+                  <p class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.timeline_step1_meta')}</p>
+                  <p class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.timeline_step1_detail')}</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
                 <span class="absolute left-0.5 mt-1 size-2 rounded-full bg-warning ring-2 ring-background"></span>
                 <div class="ml-1">
-                  <p class="text-[11px] font-semibold text-foreground">{t('featurePage.alerts.timeline_step2_title')}</p>
-                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step2_meta')}</p>
-                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step2_detail')}</p>
+                  <p class="text-mockup-sm font-semibold text-foreground">{t('featurePage.alerts.timeline_step2_title')}</p>
+                  <p class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.timeline_step2_meta')}</p>
+                  <p class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.timeline_step2_detail')}</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
                 <span class="absolute left-0.5 mt-1 size-2 rounded-full bg-destructive ring-2 ring-background"></span>
                 <div class="ml-1">
-                  <p class="text-[11px] font-semibold text-foreground">{t('featurePage.alerts.timeline_step3_title')}</p>
-                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step3_meta')}</p>
-                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step3_detail')}</p>
+                  <p class="text-mockup-sm font-semibold text-foreground">{t('featurePage.alerts.timeline_step3_title')}</p>
+                  <p class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.timeline_step3_meta')}</p>
+                  <p class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.timeline_step3_detail')}</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
                 <span class="absolute left-0.5 mt-1 size-2 rounded-full bg-muted-foreground ring-2 ring-background"></span>
                 <div class="ml-1">
-                  <p class="text-[11px] font-semibold text-foreground">{t('featurePage.alerts.timeline_step4_title')}</p>
-                  <p class="text-[10px] text-muted-foreground">{t('featurePage.alerts.timeline_step4_detail')}</p>
+                  <p class="text-mockup-sm font-semibold text-foreground">{t('featurePage.alerts.timeline_step4_title')}</p>
+                  <p class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.timeline_step4_detail')}</p>
                 </div>
               </div>
             </div>
@@ -326,7 +326,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="alerts-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.alerts.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.alerts.finalCta.eyebrow')}</p>
       <h2 id="alerts-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.alerts.finalCta.title')}
       </h2>

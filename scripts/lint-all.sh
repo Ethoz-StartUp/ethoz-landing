@@ -16,6 +16,7 @@ bash scripts/lint-pastel-on-cta.sh
 bash scripts/lint-newsreader-scope.sh
 bash scripts/lint-icon-box-wrapper.sh
 bash scripts/lint-cal-sans-weights.sh
+bash scripts/lint-arbitrary-text-px.sh
 
 echo ""
 echo "✓ All design-system lints passed"

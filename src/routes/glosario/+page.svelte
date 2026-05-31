@@ -125,7 +125,7 @@
   <!-- HERO -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         <span class="text-primary">{t('glosario.eyebrow')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span><span data-numeric>{totalTerms}</span> {t('glosario.count_terms')}</span>
@@ -172,7 +172,7 @@
         <section id={letter}>
           <div class="flex items-baseline justify-between border-b border-border pb-4">
             <h2 class="font-heading text-6xl leading-none text-foreground sm:text-7xl">{letter}</h2>
-            <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground" data-numeric>
+            <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground" data-numeric>
               {glossary[letter].length} {glossary[letter].length === 1 ? t('glosario.count_term_singular') : t('glosario.count_terms')}
             </span>
           </div>
@@ -182,7 +182,7 @@
                 <dt>
                   <dfn class="font-heading text-lg not-italic text-foreground">{item.term}</dfn>
                   {#if item.tag}
-                    <p class="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] {tagColors[item.tag] ?? 'text-muted-foreground'}">{item.tag}</p>
+                    <p class="mt-1 text-mockup-sm font-semibold uppercase tracking-[0.14em] {tagColors[item.tag] ?? 'text-muted-foreground'}">{item.tag}</p>
                   {/if}
                 </dt>
                 <dd>
@@ -206,7 +206,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-glossary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">{t('glosario.cta_eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('glosario.cta_eyebrow')}</p>
       <h2 id="final-cta-glossary" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         {t('glosario.cta_title')}
       </h2>
@@ -230,7 +230,7 @@
 
   <section class="py-12 bg-background border-t border-border">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-5">{t('glosario.related_eyebrow')}</p>
+      <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-5">{t('glosario.related_eyebrow')}</p>
       <div class="flex flex-wrap gap-3">
         {#each [
           { href: '/ley-21719', label: 'glosario.related_ley21719' as const },

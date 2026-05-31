@@ -90,22 +90,22 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{t('featurePage.attendance.mockup_grid_titlebar')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{t('featurePage.attendance.mockup_grid_titlebar')}</span>
           </div>
           <div class="p-3 sm:p-4">
             <!-- KPI bar -->
             <div class="mb-3 flex items-center gap-3">
               <div class="flex-1 rounded-lg bg-success/10 px-2.5 py-1.5 text-center">
                 <p class="text-base font-bold text-success">94,2%</p>
-                <p class="text-[9px] text-muted-foreground">{t('featurePage.attendance.mockup_kpi_label')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">{t('featurePage.attendance.mockup_kpi_label')}</p>
               </div>
-              <div class="flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-[9px] font-semibold text-primary">
+              <div class="flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-mockup-2xs font-semibold text-primary">
                 <BadgeCheck class="size-3 shrink-0" />
                 {t('featurePage.attendance.mockup_circular_chip')}
               </div>
             </div>
             <!-- Day headers -->
-            <div class="grid grid-cols-[1fr_repeat(5,_1.5rem)] gap-1 text-[8px] font-semibold uppercase tracking-wider text-muted-foreground px-1 mb-1">
+            <div class="grid grid-cols-[1fr_repeat(5,_1.5rem)] gap-1 text-mockup-3xs font-semibold uppercase tracking-wider text-muted-foreground px-1 mb-1">
               <span>{t('featurePage.attendance.mockup_col_student')}</span>
               {#each ['L', 'M', 'X', 'J', 'V'] as d}
                 <span class="text-center">{d}</span>
@@ -115,9 +115,9 @@
             <div class="space-y-0.5 max-h-52 overflow-y-auto">
               {#each students as s}
                 <div class="grid grid-cols-[1fr_repeat(5,_1.5rem)] gap-1 items-center rounded px-1 py-0.5 hover:bg-muted/40">
-                  <span class="truncate text-[10px] text-foreground">{s.name}</span>
+                  <span class="truncate text-mockup-xs text-foreground">{s.name}</span>
                   {#each s.days as d}
-                    <span class="size-5 rounded text-[8px] font-bold flex items-center justify-center {dayColor(d)}">{d}</span>
+                    <span class="size-5 rounded text-mockup-3xs font-bold flex items-center justify-center {dayColor(d)}">{d}</span>
                   {/each}
                 </div>
               {/each}
@@ -125,7 +125,7 @@
             <!-- Legend -->
             <div class="mt-2 flex flex-wrap gap-2 border-t border-border pt-2">
               {#each ([['P','bg-success','featurePage.attendance.legend_present'],['A','bg-destructive','featurePage.attendance.legend_absent'],['T','bg-warning','featurePage.attendance.legend_late'],['J','bg-primary/20','featurePage.attendance.legend_justified']] as const) as [k,c,l]}
-                <span class="flex items-center gap-1 text-[9px] text-muted-foreground">
+                <span class="flex items-center gap-1 text-mockup-2xs text-muted-foreground">
                   <span class="size-3 rounded {c}"></span>{t(l)}
                 </span>
               {/each}
@@ -140,7 +140,7 @@
   <section class="py-12 sm:py-14" aria-labelledby="attendance-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="attendance-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.attendance.editorial.eyebrow')}</p>
+      <p id="attendance-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.attendance.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.attendance.editorial.statement')}
       </blockquote>
@@ -197,21 +197,21 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{t('featurePage.attendance.mockup_justify_titlebar')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{t('featurePage.attendance.mockup_justify_titlebar')}</span>
           </div>
           <div class="p-4 sm:p-5">
-            <p class="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-3">{t('featurePage.attendance.mockup_justify_heading')}</p>
+            <p class="text-mockup-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">{t('featurePage.attendance.mockup_justify_heading')}</p>
             <!-- Student info -->
             <div class="flex items-center gap-3 rounded-lg bg-muted/30 p-3 mb-3">
-              <div class="size-8 rounded-full bg-primary/20 flex items-center justify-center text-[11px] font-bold text-primary">SR</div>
+              <div class="size-8 rounded-full bg-primary/20 flex items-center justify-center text-mockup-sm font-bold text-primary">SR</div>
               <div>
                 <p class="text-xs font-semibold text-foreground">Sebastián Pino Rojas</p>
-                <p class="text-[10px] text-muted-foreground">7°B · Ausente: 9 y 10 abr 2026</p>
+                <p class="text-mockup-xs text-muted-foreground">7°B · Ausente: 9 y 10 abr 2026</p>
               </div>
             </div>
             <!-- Reason -->
             <div class="space-y-2 mb-3">
-              <p class="text-[10px] font-medium text-foreground">{t('featurePage.attendance.mockup_reason_label')}</p>
+              <p class="text-mockup-xs font-medium text-foreground">{t('featurePage.attendance.mockup_reason_label')}</p>
               <div class="rounded-lg border-2 border-primary/30 bg-primary/5 px-3 py-2 flex items-center gap-2">
                 <span class="size-1.5 rounded-full bg-primary"></span>
                 <span class="text-xs text-foreground">{t('featurePage.attendance.mockup_reason_value')}</span>
@@ -221,8 +221,8 @@
             <div class="rounded-lg border border-border bg-muted/20 px-3 py-2 mb-3 flex items-center gap-2">
               <FileText class="size-4 shrink-0 text-muted-foreground" />
               <div class="flex-1 min-w-0">
-                <p class="text-[10px] font-medium text-foreground truncate">certificado_dr_varela_09abr.pdf</p>
-                <p class="text-[9px] text-muted-foreground">CESFAM Ñuñoa · Dr. R. Varela · 247 KB</p>
+                <p class="text-mockup-xs font-medium text-foreground truncate">certificado_dr_varela_09abr.pdf</p>
+                <p class="text-mockup-2xs text-muted-foreground">CESFAM Ñuñoa · Dr. R. Varela · 247 KB</p>
               </div>
               <CheckCircle2 class="size-3.5 shrink-0 text-success" />
             </div>
@@ -230,8 +230,8 @@
             <div class="rounded-lg bg-success/10 border border-success/20 px-3 py-2 flex items-center gap-2">
               <CheckCircle2 class="size-3.5 shrink-0 text-success" />
               <div>
-                <p class="text-[11px] font-semibold text-success">{t('featurePage.attendance.mockup_status_approved')}</p>
-                <p class="text-[9px] text-muted-foreground">Inspector J. Contreras · 10 abr 2026, 08:30</p>
+                <p class="text-mockup-sm font-semibold text-success">{t('featurePage.attendance.mockup_status_approved')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">Inspector J. Contreras · 10 abr 2026, 08:30</p>
               </div>
             </div>
           </div>
@@ -293,7 +293,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="attendance-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.attendance.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.attendance.finalCta.eyebrow')}</p>
       <h2 id="attendance-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.attendance.finalCta.title')}
       </h2>

@@ -102,7 +102,7 @@
        ══════════════════════════════════════ -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         <span class="text-primary">{t('compliance_page.hero.badge')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('compliance_page.hero.badge_law')}</span>
@@ -140,7 +140,7 @@
           <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">
             {t('compliance_page.law_ref.desc')}
           </p>
-          <p class="mt-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">
+          <p class="mt-2 text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">
             {t('compliance_page.law_ref.source')}
           </p>
         </div>
@@ -286,7 +286,7 @@
               <h3 class="text-base font-semibold text-foreground leading-snug">{t(pillar.titleKey)}</h3>
             </div>
             <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t(pillar.descKey)}</p>
-            <p class="mt-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">{t(pillar.articleKey)} · Ley 21.719</p>
+            <p class="mt-4 text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t(pillar.articleKey)} · Ley 21.719</p>
           </div>
         {/each}
       </div>
@@ -374,7 +374,7 @@
             <ShieldCheck class="size-4 shrink-0 text-primary" />
             <p class="text-sm font-semibold text-foreground">{t('compliance_page.certs.cert1.name')}</p>
           </div>
-          <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">{t('compliance_page.certs.cert1.status')}</p>
+          <p class="mt-3 text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('compliance_page.certs.cert1.status')}</p>
         </div>
         <!-- ISO 27001 placeholder -->
         <div class="rounded-lg border border-dashed border-border bg-card p-5">
@@ -382,7 +382,7 @@
             <Lock class="size-4 shrink-0 text-muted-foreground" />
             <p class="text-sm font-semibold text-foreground">{t('compliance_page.certs.cert2.name')}</p>
           </div>
-          <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('compliance_page.certs.cert2.status')}</p>
+          <p class="mt-3 text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('compliance_page.certs.cert2.status')}</p>
         </div>
         <!-- SOC 2 placeholder -->
         <div class="rounded-lg border border-dashed border-border bg-card p-5">
@@ -390,7 +390,7 @@
             <FileText class="size-4 shrink-0 text-muted-foreground" />
             <p class="text-sm font-semibold text-foreground">{t('compliance_page.certs.cert3.name')}</p>
           </div>
-          <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('compliance_page.certs.cert3.status')}</p>
+          <p class="mt-3 text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('compliance_page.certs.cert3.status')}</p>
         </div>
       </div>
     </div>
@@ -402,7 +402,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-compliance">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">{t('compliance_page.cta.overline')}</p>
+      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('compliance_page.cta.overline')}</p>
       <h2 id="final-cta-compliance" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         {t('compliance_page.cta.title')}
       </h2>

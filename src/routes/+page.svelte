@@ -324,7 +324,7 @@
               <div class="size-3 rounded-full bg-warning/60"></div>
               <div class="size-3 rounded-full bg-success/60"></div>
               <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
-              <span class="ml-auto inline-flex items-center gap-1.5 border border-border bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <span class="ml-auto inline-flex items-center gap-1.5 border border-border bg-muted px-2 py-0.5 text-mockup-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 <span class="relative flex size-1.5">
                   <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
                   <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
@@ -420,28 +420,28 @@
        ═══════════════════════════════════════════ -->
   <section class="reveal border-y border-border bg-background py-10" aria-label={t('home.trust_section_label')}>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="text-center text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {t('trust.attribution')}
       </p>
       <dl class="mt-8 grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.data')}</dt>
+          <dt class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.data')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.servers')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.encryption')}</dt>
+          <dt class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.encryption')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.encryption')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.integration')}</dt>
+          <dt class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.integration')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.integration')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.compliance')}</dt>
+          <dt class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.compliance')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.compliance')}</dd>
         </div>
       </dl>
@@ -470,7 +470,7 @@
           <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat1_number')}
           </dd>
-          <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <p class="mt-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
             {t('editorial.stat1_label')}
           </p>
         </div>
@@ -479,7 +479,7 @@
           <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat2_number')}
           </dd>
-          <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <p class="mt-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
             {t('editorial.stat2_label')}
           </p>
         </div>
@@ -488,7 +488,7 @@
           <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat3_number')}
           </dd>
-          <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <p class="mt-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
             {t('editorial.stat3_label')}
           </p>
         </div>
@@ -506,7 +506,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           <span class="text-foreground">{t('problem.overline')}</span>
           <span aria-hidden="true" class="text-muted-foreground/40">·</span>
           <span>{t('home.problem_meta')}</span>
@@ -550,7 +550,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           <span class="text-foreground">{t('solution.overline')}</span>
           <span aria-hidden="true" class="text-muted-foreground/40">·</span>
           <span>{t('home.solution_meta')}</span>
@@ -631,7 +631,7 @@
   <SectionDark variant="compliance" id="compliance">
     <!-- Section header — editorial eyebrow pattern -->
     <div class="mx-auto max-w-2xl text-center">
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-dark-soft">
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-on-dark-soft">
         <span class="text-on-dark">{t('compliance.overline')}</span>
         <span aria-hidden="true" class="text-on-dark-soft/40">·</span>
         <span>{t('compliance.overline_detail')}</span>
@@ -672,7 +672,7 @@
             <span class="font-heading block text-6xl tabular-nums leading-none tracking-[-0.03em] text-on-dark sm:text-8xl">
               {box.value}
             </span>
-            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-on-dark-soft sm:text-xs">
+            <span class="mt-3 block text-mockup-xs font-semibold uppercase tracking-[0.18em] text-on-dark-soft sm:text-xs">
               {t(box.labelKey as TranslationKey)}
             </span>
           </div>
@@ -707,7 +707,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           <span class="text-foreground">{t('how.overline')}</span>
           <span aria-hidden="true" class="text-muted-foreground/40">·</span>
           <span>{t('home.how_meta')}</span>
@@ -728,7 +728,7 @@
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
               <span class="font-heading text-4xl leading-none text-foreground" data-numeric>01</span>
-              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step1.time')}</span>
+              <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step1.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step1.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step1.desc')}</p>
@@ -738,7 +738,7 @@
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
               <span class="font-heading text-4xl leading-none text-foreground" data-numeric>02</span>
-              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step2.time')}</span>
+              <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step2.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step2.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step2.desc')}</p>
@@ -748,7 +748,7 @@
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
               <span class="font-heading text-4xl leading-none text-foreground" data-numeric>03</span>
-              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step3.time')}</span>
+              <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step3.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step3.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step3.desc')}</p>
@@ -779,7 +779,7 @@
   <section class="reveal bg-muted py-16 sm:py-20 lg:py-24" id="faq">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           <span class="text-foreground">{t('faq.overline')}</span>
           <span aria-hidden="true" class="text-muted-foreground/40">·</span>
           <span>{t('home.faq_meta')}</span>
@@ -844,7 +844,7 @@
        Pacing: navy → deeper-navy footer closes the editorial dark passage. -->
   <SectionDark variant="cta" id="cta" aria-labelledby="final-cta-heading">
     <div class="text-center">
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-dark-soft">
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-on-dark-soft">
         <span class="text-on-dark">{t('cta.urgency_eyebrow')}</span>
         <span aria-hidden="true" class="text-on-dark-soft/40">·</span>
         <span><span data-numeric class="font-semibold text-on-dark">{countdownDays}</span> {t('home.cta_days_suffix')}</span>

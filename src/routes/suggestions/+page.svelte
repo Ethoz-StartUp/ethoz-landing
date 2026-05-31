@@ -224,7 +224,7 @@
         >
           {tab.label}
           {#if countByStatus(tab.key) > 0}
-            <span class="flex size-4 items-center justify-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
+            <span class="flex size-4 items-center justify-center rounded-full bg-primary/10 text-mockup-xs font-bold text-primary">
               {countByStatus(tab.key)}
             </span>
           {/if}

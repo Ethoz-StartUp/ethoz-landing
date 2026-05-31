@@ -153,6 +153,16 @@
   --font-heading: "Cal Sans", "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
+  /* ─── Product-mockup micro type ───
+     Sub-12px sizes used ONLY inside decorative product-UI mockups embedded in marketing
+     cards (miniature app chrome — labels, table cells, badges). Tokenized so the miniature
+     scale stays consistent and lint-arbitrary-text-px.sh can block raw text-[Npx] drift.
+     NOT for real body copy (would fail WCAG minimum readable size). */
+  --text-mockup-3xs: 8px;
+  --text-mockup-2xs: 9px;
+  --text-mockup-xs: 10px;
+  --text-mockup-sm: 11px;
+
   /* ─── Radii — project scale (CLAUDE.md "8/12/16 progression": buttons/pills = md 8px, cards = xl 12px, hero = 2xl 16px).
      Intentionally smaller than Cal DESIGN.md (lg 12 / xl 16) — the codebase's rounded-xl cards were authored for 12px. ─── */
   --radius-xs: 4px;

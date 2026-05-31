@@ -30,7 +30,7 @@
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           <span class="text-primary">{t('integrations.eyebrow')}</span>
           <span aria-hidden="true" class="text-border">·</span>
           <span>Napsis · Syscol · SchoolTrack · Lirmi</span>
@@ -94,7 +94,7 @@
                   <p class="text-sm font-medium text-foreground">{system.name}</p>
                   <p class="text-xs text-muted-foreground">{t(system.descKey)}</p>
                 </div>
-                <span class="shrink-0 rounded-full px-2.5 py-0.5 text-[10px] font-medium {system.status === 'available' ? 'bg-success/10 text-success' : 'bg-warning/10 text-warning-foreground'}">
+                <span class="shrink-0 rounded-full px-2.5 py-0.5 text-mockup-xs font-medium {system.status === 'available' ? 'bg-success/10 text-success' : 'bg-warning/10 text-warning-foreground'}">
                   {t(system.statusLabelKey)}
                 </span>
               </div>
@@ -116,7 +116,7 @@
               <div class="size-2.5 rounded-full bg-destructive/60"></div>
               <div class="size-2.5 rounded-full bg-warning/60"></div>
               <div class="size-2.5 rounded-full bg-success/60"></div>
-              <span class="ml-2 text-[11px] font-medium text-muted-foreground">{t('integrations.basic_module_card_label')}</span>
+              <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{t('integrations.basic_module_card_label')}</span>
             </div>
             <div class="space-y-2.5">
               <div class="flex items-center justify-between rounded-lg bg-muted/50 px-3 py-2">
@@ -136,7 +136,7 @@
                 <Check class="size-3.5 text-success" />
               </div>
             </div>
-            <p class="mt-4 text-center text-[10px] text-muted-foreground">{t('integrations.basic_module_included_note')}</p>
+            <p class="mt-4 text-center text-mockup-xs text-muted-foreground">{t('integrations.basic_module_included_note')}</p>
           </div>
         </div>
 

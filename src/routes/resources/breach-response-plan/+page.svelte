@@ -45,7 +45,7 @@
 
   <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <div class="mb-12 border-b border-border pb-10">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
         <span class="text-primary">{t('resBreachResponse.eyebrow_kind')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('resBreachResponse.eyebrow_law')}</span>
@@ -96,21 +96,21 @@
         <div class="space-y-3">
           <div class="rounded-lg border border-success/20 bg-success/10   p-4">
             <div class="flex items-center gap-2 mb-2">
-              <span class="rounded-full bg-success px-2.5 py-0.5 text-[11px] font-bold text-white">{t('resBreachResponse.s2_level_low')}</span>
+              <span class="rounded-full bg-success px-2.5 py-0.5 text-mockup-sm font-bold text-white">{t('resBreachResponse.s2_level_low')}</span>
               <span class="text-xs text-muted-foreground">{t('resBreachResponse.s2_low_obligation')}</span>
             </div>
             <p class="text-sm text-muted-foreground">{t('resBreachResponse.s2_low_desc')}</p>
           </div>
           <div class="rounded-lg border border-warning/20 bg-warning/10 p-4">
             <div class="flex items-center gap-2 mb-2">
-              <span class="rounded-full bg-warning px-2.5 py-0.5 text-[11px] font-bold text-white">{t('resBreachResponse.s2_level_serious')}</span>
+              <span class="rounded-full bg-warning px-2.5 py-0.5 text-mockup-sm font-bold text-white">{t('resBreachResponse.s2_level_serious')}</span>
               <span class="text-xs text-muted-foreground">{t('resBreachResponse.s2_serious_obligation')}</span>
             </div>
             <p class="text-sm text-muted-foreground">{t('resBreachResponse.s2_serious_desc')}</p>
           </div>
           <div class="rounded-lg border border-destructive/20 bg-destructive/10   p-4">
             <div class="flex items-center gap-2 mb-2">
-              <span class="rounded-full bg-destructive px-2.5 py-0.5 text-[11px] font-bold text-white">{t('resBreachResponse.s2_level_critical')}</span>
+              <span class="rounded-full bg-destructive px-2.5 py-0.5 text-mockup-sm font-bold text-white">{t('resBreachResponse.s2_level_critical')}</span>
               <span class="text-xs text-muted-foreground">{t('resBreachResponse.s2_critical_obligation')}</span>
             </div>
             <p class="text-sm text-muted-foreground">{t('resBreachResponse.s2_critical_desc')}</p>

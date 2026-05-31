@@ -114,7 +114,7 @@
 
   <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <div class="mb-12 border-b border-border pb-10">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
         <span class="text-primary">{t('resDataInventory.eyebrow_category')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('resDataInventory.eyebrow_legal')}</span>
@@ -140,7 +140,7 @@
         <div>
           <div class="mb-3 flex items-center gap-3">
             <h2 class="text-base font-semibold text-foreground">{t(section.categoryKey)}</h2>
-            <span class="rounded-full px-2.5 py-0.5 text-[11px] font-medium {sensitivityStyle[section.sensitivityColor]}">{t(section.sensitivityKey)}</span>
+            <span class="rounded-full px-2.5 py-0.5 text-mockup-sm font-medium {sensitivityStyle[section.sensitivityColor]}">{t(section.sensitivityKey)}</span>
           </div>
           <div class="overflow-x-auto rounded-xl border border-border">
             <table class="w-full text-xs">

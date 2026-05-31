@@ -88,51 +88,51 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{t('audience.directores.kpi_panel_header')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{t('audience.directores.kpi_panel_header')}</span>
           </div>
           <div class="p-4">
-            <p class="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-3">{t('audience.directores.kpi_greeting')}</p>
+            <p class="text-mockup-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">{t('audience.directores.kpi_greeting')}</p>
             <!-- KPI grid -->
             <div class="grid grid-cols-2 gap-2 mb-3">
               <div class="rounded-lg border border-border bg-background p-3">
                 <div class="flex items-center gap-1.5 mb-1">
                   <Users class="size-3.5 text-primary" />
-                  <p class="text-[10px] font-semibold text-foreground">{t('audience.directores.kpi_attendance_label')}</p>
+                  <p class="text-mockup-xs font-semibold text-foreground">{t('audience.directores.kpi_attendance_label')}</p>
                 </div>
                 <p class="text-xl font-extrabold text-foreground">94,2%</p>
-                <p class="text-[9px] text-muted-foreground">{t('audience.directores.kpi_attendance_detail')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">{t('audience.directores.kpi_attendance_detail')}</p>
               </div>
               <div class="rounded-lg border border-destructive/30 bg-destructive/5 p-3">
                 <div class="flex items-center gap-1.5 mb-1">
                   <AlertTriangle class="size-3.5 text-destructive" />
-                  <p class="text-[10px] font-semibold text-destructive">{t('audience.directores.kpi_alerts_label')}</p>
+                  <p class="text-mockup-xs font-semibold text-destructive">{t('audience.directores.kpi_alerts_label')}</p>
                 </div>
                 <p class="text-xl font-extrabold text-destructive">3</p>
-                <p class="text-[9px] text-muted-foreground">{t('audience.directores.kpi_alerts_detail')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">{t('audience.directores.kpi_alerts_detail')}</p>
               </div>
               <div class="rounded-lg border border-border bg-background p-3">
                 <div class="flex items-center gap-1.5 mb-1">
                   <Clock class="size-3.5 text-warning-foreground" />
-                  <p class="text-[10px] font-semibold text-foreground">{t('audience.directores.kpi_pickups_label')}</p>
+                  <p class="text-mockup-xs font-semibold text-foreground">{t('audience.directores.kpi_pickups_label')}</p>
                 </div>
                 <p class="text-xl font-extrabold text-foreground">2</p>
-                <p class="text-[9px] text-muted-foreground">{t('audience.directores.kpi_pickups_detail')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">{t('audience.directores.kpi_pickups_detail')}</p>
               </div>
               <div class="rounded-lg border border-border bg-background p-3">
                 <div class="flex items-center gap-1.5 mb-1">
                   <Activity class="size-3.5 text-primary" />
-                  <p class="text-[10px] font-semibold text-foreground">{t('audience.directores.kpi_convivencia_label')}</p>
+                  <p class="text-mockup-xs font-semibold text-foreground">{t('audience.directores.kpi_convivencia_label')}</p>
                 </div>
                 <p class="text-xl font-extrabold text-foreground">5</p>
-                <p class="text-[9px] text-muted-foreground">{t('audience.directores.kpi_convivencia_detail')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">{t('audience.directores.kpi_convivencia_detail')}</p>
               </div>
             </div>
             <!-- Priority action -->
             <div class="rounded-lg border border-warning/30 bg-warning/5 px-3 py-2 flex items-start gap-2">
               <Bell class="mt-0.5 size-3.5 shrink-0 text-warning-foreground" />
               <div>
-                <p class="text-[10px] font-semibold text-warning-foreground">{t('audience.directores.kpi_recommended_label')}</p>
-                <p class="text-[9px] text-muted-foreground">{t('audience.directores.kpi_recommended_detail')}</p>
+                <p class="text-mockup-xs font-semibold text-warning-foreground">{t('audience.directores.kpi_recommended_label')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">{t('audience.directores.kpi_recommended_detail')}</p>
               </div>
             </div>
           </div>
@@ -145,7 +145,7 @@
   <section class="py-12 sm:py-14" aria-labelledby="director-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="director-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.directores.editorial.eyebrow')}</p>
+      <p id="director-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.directores.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('audience.directores.editorial.statement')}
       </blockquote>
@@ -200,55 +200,55 @@
           </div>
           <div class="p-4 space-y-3">
             <div>
-              <p class="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground mb-1">{t('audience.directores.form_field_student')}</p>
+              <p class="text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">{t('audience.directores.form_field_student')}</p>
               <div class="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2">
                 {#if activeObs}
-                  <div class="size-6 rounded-full bg-primary/10 flex items-center justify-center text-[9px] font-bold text-primary">MS</div>
+                  <div class="size-6 rounded-full bg-primary/10 flex items-center justify-center text-mockup-2xs font-bold text-primary">MS</div>
                   <div>
-                    <p class="text-[11px] font-semibold text-foreground">{t('audience.directores.form_student_name')}</p>
-                    <p class="text-[9px] text-muted-foreground">{t('audience.directores.form_student_meta')}</p>
+                    <p class="text-mockup-sm font-semibold text-foreground">{t('audience.directores.form_student_name')}</p>
+                    <p class="text-mockup-2xs text-muted-foreground">{t('audience.directores.form_student_meta')}</p>
                   </div>
                 {:else}
-                  <p class="text-[11px] text-muted-foreground">{t('audience.directores.form_student_placeholder')}</p>
+                  <p class="text-mockup-sm text-muted-foreground">{t('audience.directores.form_student_placeholder')}</p>
                 {/if}
               </div>
             </div>
             <div class="grid grid-cols-2 gap-2">
               <div>
-                <p class="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground mb-1">{t('audience.directores.form_field_category')}</p>
+                <p class="text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">{t('audience.directores.form_field_category')}</p>
                 <div class="rounded-lg border border-border bg-background px-3 py-2">
-                  <p class="text-[11px] {activeObs ? 'text-foreground font-medium' : 'text-muted-foreground'}">
+                  <p class="text-mockup-sm {activeObs ? 'text-foreground font-medium' : 'text-muted-foreground'}">
                     {activeObs ? t('audience.directores.form_category_value') : t('audience.directores.form_select_placeholder')}
                   </p>
                 </div>
               </div>
               <div>
-                <p class="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground mb-1">{t('audience.directores.form_field_confidentiality')}</p>
+                <p class="text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">{t('audience.directores.form_field_confidentiality')}</p>
                 <div class="rounded-lg border {activeObs ? 'border-warning/30 bg-warning/5' : 'border-border bg-background'} px-3 py-2">
-                  <p class="text-[11px] {activeObs ? 'text-warning-foreground font-medium' : 'text-muted-foreground'}">
+                  <p class="text-mockup-sm {activeObs ? 'text-warning-foreground font-medium' : 'text-muted-foreground'}">
                     {activeObs ? t('audience.directores.form_confidentiality_value') : t('audience.directores.form_select_placeholder')}
                   </p>
                 </div>
               </div>
             </div>
             <div>
-              <p class="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground mb-1">{t('audience.directores.form_field_description')}</p>
+              <p class="text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">{t('audience.directores.form_field_description')}</p>
               <div class="min-h-[60px] rounded-lg border border-border bg-background px-3 py-2">
                 {#if activeObs}
-                  <p class="text-[11px] text-foreground">{t('audience.directores.form_description_value')}</p>
+                  <p class="text-mockup-sm text-foreground">{t('audience.directores.form_description_value')}</p>
                 {:else}
-                  <p class="text-[11px] text-muted-foreground">{t('audience.directores.form_description_placeholder')}</p>
+                  <p class="text-mockup-sm text-muted-foreground">{t('audience.directores.form_description_placeholder')}</p>
                 {/if}
               </div>
             </div>
             <div>
-              <p class="text-[9px] font-semibold uppercase tracking-wider text-muted-foreground mb-1">{t('audience.directores.form_field_notification')}</p>
+              <p class="text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">{t('audience.directores.form_field_notification')}</p>
               <div class="flex items-center gap-2 rounded-lg border {activeObs ? 'border-success/20 bg-success/5' : 'border-border bg-background'} px-3 py-2">
                 {#if activeObs}
                   <CheckCircle class="size-3.5 shrink-0 text-success" />
-                  <p class="text-[11px] text-success">{t('audience.directores.form_notification_value')}</p>
+                  <p class="text-mockup-sm text-success">{t('audience.directores.form_notification_value')}</p>
                 {:else}
-                  <p class="text-[11px] text-muted-foreground">{t('audience.directores.form_notification_placeholder')}</p>
+                  <p class="text-mockup-sm text-muted-foreground">{t('audience.directores.form_notification_placeholder')}</p>
                 {/if}
               </div>
             </div>
@@ -273,11 +273,11 @@
             <div class="flex items-end gap-1.5 h-28 mb-2">
               {#each convivenciaMeses as mes}
                 <div class="flex-1 flex flex-col items-center gap-1">
-                  <p class="text-[8px] text-foreground font-semibold">{mes.valor}</p>
+                  <p class="text-mockup-3xs text-foreground font-semibold">{mes.valor}</p>
                   <div class="w-full rounded-t-sm {mes.alerta ? 'bg-destructive/60' : 'bg-primary/40'}" style="height: {(mes.valor / maxVal) * 80}px"></div>
-                  <p class="text-[8px] text-muted-foreground">{t(mes.mesKey)}</p>
+                  <p class="text-mockup-3xs text-muted-foreground">{t(mes.mesKey)}</p>
                   {#if mes.cursoKey}
-                    <p class="text-[7px] text-muted-foreground">{t(mes.cursoKey)}</p>
+                    <p class="text-mockup-3xs text-muted-foreground">{t(mes.cursoKey)}</p>
                   {/if}
                 </div>
               {/each}
@@ -285,20 +285,20 @@
             <div class="flex items-center gap-3 mt-1">
               <div class="flex items-center gap-1.5">
                 <div class="size-2 rounded-full bg-destructive/60"></div>
-                <p class="text-[9px] text-muted-foreground">{t('audience.directores.chart_legend_peak')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">{t('audience.directores.chart_legend_peak')}</p>
               </div>
               <div class="flex items-center gap-1.5">
                 <div class="size-2 rounded-full bg-primary/40"></div>
-                <p class="text-[9px] text-muted-foreground">{t('audience.directores.chart_legend_normal')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">{t('audience.directores.chart_legend_normal')}</p>
               </div>
             </div>
             <!-- Insight card -->
             <div class="mt-3 rounded-lg border border-warning/20 bg-warning/5 px-3 py-2">
               <div class="flex items-center gap-1.5 mb-1">
                 <TrendingUp class="size-3 text-warning-foreground" />
-                <p class="text-[9px] font-semibold text-warning-foreground">{t('audience.directores.chart_insight_label')}</p>
+                <p class="text-mockup-2xs font-semibold text-warning-foreground">{t('audience.directores.chart_insight_label')}</p>
               </div>
-              <p class="text-[9px] text-muted-foreground">{t('audience.directores.chart_insight_body')}</p>
+              <p class="text-mockup-2xs text-muted-foreground">{t('audience.directores.chart_insight_body')}</p>
             </div>
           </div>
         </div>
@@ -355,7 +355,7 @@
                 { aspectoKey: 'audience.directores.compare_row3_aspect' as TranslationKey, tradKey: 'audience.directores.compare_row3_trad' as TranslationKey, ethozKey: 'audience.directores.compare_row3_ethoz' as TranslationKey },
                 { aspectoKey: 'audience.directores.compare_row4_aspect' as TranslationKey, tradKey: 'audience.directores.compare_row4_trad' as TranslationKey, ethozKey: 'audience.directores.compare_row4_ethoz' as TranslationKey },
               ] as row}
-                <div class="grid grid-cols-3 gap-2 text-[10px]">
+                <div class="grid grid-cols-3 gap-2 text-mockup-xs">
                   <p class="text-muted-foreground font-medium">{t(row.aspectoKey)}</p>
                   <p class="text-destructive">{t(row.tradKey)}</p>
                   <p class="text-success font-medium">{t(row.ethozKey)}</p>
@@ -370,12 +370,12 @@
           <div class="border-b border-border px-4 py-3 flex items-center gap-2">
             <ShieldCheck class="size-4 text-destructive" />
             <span class="text-sm font-semibold text-foreground">{t('audience.directores.emergency_header')}</span>
-            <span class="ml-auto inline-flex items-center rounded-full bg-destructive/10 px-2 py-0.5 text-[9px] font-semibold text-destructive">{t('audience.directores.emergency_status_badge')}</span>
+            <span class="ml-auto inline-flex items-center rounded-full bg-destructive/10 px-2 py-0.5 text-mockup-2xs font-semibold text-destructive">{t('audience.directores.emergency_status_badge')}</span>
           </div>
           <div class="p-4 space-y-3">
             <div class="rounded-lg border border-destructive/20 bg-destructive/5 px-3 py-2">
-              <p class="text-[10px] font-bold text-destructive">{t('audience.directores.emergency_title')}</p>
-              <p class="text-[9px] text-muted-foreground">{t('audience.directores.emergency_meta')}</p>
+              <p class="text-mockup-xs font-bold text-destructive">{t('audience.directores.emergency_title')}</p>
+              <p class="text-mockup-2xs text-muted-foreground">{t('audience.directores.emergency_meta')}</p>
             </div>
             <div class="space-y-2">
               {#each [
@@ -386,15 +386,15 @@
               ] as sector}
                 <div class="flex items-center gap-3 rounded-lg {sector.ok ? 'bg-success/5 border border-success/20' : 'bg-warning/5 border border-warning/20'} px-3 py-2">
                   <div class="flex-1 min-w-0">
-                    <p class="text-[10px] font-semibold text-foreground">{t(sector.sectorKey)}</p>
-                    <p class="text-[9px] text-muted-foreground">{t(sector.responsableKey)} · {sector.alumnos} {t('audience.directores.emergency_students_suffix')}</p>
+                    <p class="text-mockup-xs font-semibold text-foreground">{t(sector.sectorKey)}</p>
+                    <p class="text-mockup-2xs text-muted-foreground">{t(sector.responsableKey)} · {sector.alumnos} {t('audience.directores.emergency_students_suffix')}</p>
                   </div>
-                  <span class="text-[9px] font-semibold {sector.ok ? 'text-success' : 'text-warning-foreground'}">{t(sector.estadoKey)}</span>
+                  <span class="text-mockup-2xs font-semibold {sector.ok ? 'text-success' : 'text-warning-foreground'}">{t(sector.estadoKey)}</span>
                 </div>
               {/each}
             </div>
             <div class="flex items-center justify-between pt-1">
-              <p class="text-[9px] text-muted-foreground">{t('audience.directores.emergency_counted')}</p>
+              <p class="text-mockup-2xs text-muted-foreground">{t('audience.directores.emergency_counted')}</p>
               <div class="h-1.5 w-24 rounded-full bg-border overflow-hidden">
                 <div class="h-full w-[75%] rounded-full bg-warning"></div>
               </div>
@@ -429,7 +429,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="director-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('audience.directores.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-background/85">{t('audience.directores.finalCta.eyebrow')}</p>
       <h2 id="director-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('audience.directores.finalCta.title')}
       </h2>

@@ -91,7 +91,7 @@
   <!-- HERO -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         <span class="text-primary">{t('seguridadDatos.hero_eyebrow_doc')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('seguridadDatos.hero_eyebrow_topic')}</span>
@@ -111,19 +111,19 @@
 
       <dl class="mt-10 grid grid-cols-2 gap-6 border-t border-border pt-6 sm:grid-cols-4">
         <div>
-          <dt class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.hero_stat_transit_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.hero_stat_transit_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">TLS 1.3</dd>
         </div>
         <div>
-          <dt class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.hero_stat_atrest_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.hero_stat_atrest_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">AES-256</dd>
         </div>
         <div>
-          <dt class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.hero_stat_isolation_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.hero_stat_isolation_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">RLS Postgres</dd>
         </div>
         <div>
-          <dt class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.hero_stat_region_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.hero_stat_region_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">São Paulo</dd>
         </div>
       </dl>
@@ -135,7 +135,7 @@
     <div class="grid gap-12 lg:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] lg:gap-16">
 
       <aside class="lg:sticky lg:top-24 lg:self-start">
-        <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.toc_heading')}</p>
+        <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.toc_heading')}</p>
         <nav class="mt-4 border-l border-border" aria-label={t('seguridadDatos.toc_aria_label')}>
           <ol class="space-y-1">
             {#each toc as item}
@@ -154,7 +154,7 @@
 
         <!-- CIFRADO -->
         <section id="cifrado">
-          <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>01 · {t('seguridadDatos.cifrado_eyebrow')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>01 · {t('seguridadDatos.cifrado_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('seguridadDatos.cifrado_title')}</h2>
           <div class="mt-8 grid gap-5 sm:grid-cols-2">
             <div class="border border-border bg-card p-5 rounded-lg">
@@ -180,7 +180,7 @@
 
         <!-- RLS -->
         <section id="rls">
-          <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>02 · {t('seguridadDatos.rls_eyebrow')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>02 · {t('seguridadDatos.rls_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('seguridadDatos.rls_title')}</h2>
           <p class="mt-6 text-base leading-relaxed text-muted-foreground">
             {t('seguridadDatos.rls_body')}
@@ -190,7 +190,7 @@
             {t('seguridadDatos.rls_quote')}
           </blockquote>
 
-          <h3 class="mt-10 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.rls_how_heading')}</h3>
+          <h3 class="mt-10 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.rls_how_heading')}</h3>
           <ul class="mt-4 space-y-3 border-l border-border pl-6">
             <li class="text-sm leading-relaxed text-muted-foreground"><strong class="text-foreground">{t('seguridadDatos.rls_li1_strong')}</strong> {t('seguridadDatos.rls_li1_rest')}</li>
             <li class="text-sm leading-relaxed text-muted-foreground"><strong class="text-foreground">{t('seguridadDatos.rls_li2_strong')}</strong> {t('seguridadDatos.rls_li2_rest')}</li>
@@ -205,7 +205,7 @@
 
         <!-- AUTENTICACIÓN -->
         <section id="autenticacion">
-          <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>03 · {t('seguridadDatos.auth_eyebrow')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>03 · {t('seguridadDatos.auth_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('seguridadDatos.auth_title')}</h2>
           <dl class="mt-8 divide-y divide-border border-y border-border">
             {#each [
@@ -228,7 +228,7 @@
 
         <!-- AUDIT LOG -->
         <section id="audit-log">
-          <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>04 · {t('seguridadDatos.audit_eyebrow')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>04 · {t('seguridadDatos.audit_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('seguridadDatos.audit_title')}</h2>
           <p class="mt-6 text-base leading-relaxed text-muted-foreground">
             {t('seguridadDatos.audit_body')}
@@ -236,7 +236,7 @@
 
           <div class="mt-8 border border-border bg-card rounded-lg overflow-hidden">
             <div class="border-b border-border bg-muted/50 px-5 py-3">
-              <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.audit_entry_structure_label')}</p>
+              <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.audit_entry_structure_label')}</p>
             </div>
             <div class="p-5">
               <pre class="text-xs leading-relaxed text-muted-foreground overflow-x-auto"><code>{`{
@@ -280,12 +280,12 @@
 
         <!-- AISLAMIENTO -->
         <section id="aislamiento">
-          <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>05 · {t('seguridadDatos.aislamiento_eyebrow')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>05 · {t('seguridadDatos.aislamiento_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('seguridadDatos.aislamiento_title')}</h2>
           <p class="mt-6 text-base leading-relaxed text-muted-foreground">
             {t('seguridadDatos.aislamiento_body')}
           </p>
-          <h3 class="mt-8 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.aislamiento_hierarchy_heading')}</h3>
+          <h3 class="mt-8 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.aislamiento_hierarchy_heading')}</h3>
           <dl class="mt-4 divide-y divide-border border-y border-border">
             {#each [
               { level: 'seguridadDatos.aislamiento_sostenedor_level' as const, desc: 'seguridadDatos.aislamiento_sostenedor_desc' as const },
@@ -294,7 +294,7 @@
               { level: 'seguridadDatos.aislamiento_rol_level' as const, desc: 'seguridadDatos.aislamiento_rol_desc' as const },
             ] as item}
               <div class="grid gap-3 py-4 sm:grid-cols-[minmax(0,8rem)_minmax(0,1fr)] sm:gap-8">
-                <dt class="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">{t(item.level)}</dt>
+                <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t(item.level)}</dt>
                 <dd class="text-sm leading-relaxed text-muted-foreground">{t(item.desc)}</dd>
               </div>
             {/each}
@@ -303,7 +303,7 @@
 
         <!-- RESPALDO -->
         <section id="respaldo">
-          <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>06 · {t('seguridadDatos.respaldo_eyebrow')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>06 · {t('seguridadDatos.respaldo_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('seguridadDatos.respaldo_title')}</h2>
           <div class="mt-8 grid gap-4 sm:grid-cols-2">
             {#each [
@@ -322,16 +322,16 @@
 
         <!-- INFRAESTRUCTURA -->
         <section id="infraestructura">
-          <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>07 · {t('seguridadDatos.infra_eyebrow')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>07 · {t('seguridadDatos.infra_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('seguridadDatos.infra_title')}</h2>
           <p class="mt-6 text-base leading-relaxed text-muted-foreground">
             {t('seguridadDatos.infra_body')}
           </p>
           <div class="mt-8 border-y border-border">
             <div class="grid grid-cols-3 gap-4 py-3 border-b border-border">
-              <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.infra_col_componente')}</p>
-              <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.infra_col_ubicacion')}</p>
-              <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.infra_col_funcion')}</p>
+              <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.infra_col_componente')}</p>
+              <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.infra_col_ubicacion')}</p>
+              <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.infra_col_funcion')}</p>
             </div>
             {#each infraItems as item, i}
               <div class="grid grid-cols-3 gap-4 py-4 {i !== infraItems.length - 1 ? 'border-b border-border' : ''}">
@@ -348,7 +348,7 @@
 
         <!-- CUMPLIMIENTO -->
         <section id="cumplimiento">
-          <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>08 · {t('seguridadDatos.cumplimiento_eyebrow')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>08 · {t('seguridadDatos.cumplimiento_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('seguridadDatos.cumplimiento_title')}</h2>
           <dl class="mt-8 divide-y divide-border border-y border-border">
             {#each complianceItems as item}
@@ -365,7 +365,7 @@
 
         <!-- DIVULGACIÓN -->
         <section id="divulgacion">
-          <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>09 · {t('seguridadDatos.divulgacion_eyebrow')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>09 · {t('seguridadDatos.divulgacion_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('seguridadDatos.divulgacion_title')}</h2>
           <p class="mt-6 text-base leading-relaxed text-muted-foreground">
             {t('seguridadDatos.divulgacion_body')}
@@ -399,7 +399,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-sec">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">{t('seguridadDatos.cta_eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('seguridadDatos.cta_eyebrow')}</p>
       <h2 id="final-cta-sec" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         {t('seguridadDatos.cta_title')}
       </h2>
@@ -423,7 +423,7 @@
 
   <section class="py-12 bg-background border-t border-border">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-5">{t('seguridadDatos.related_heading')}</p>
+      <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-5">{t('seguridadDatos.related_heading')}</p>
       <div class="flex flex-wrap gap-3">
         {#each [
           { href: '/ley-21719', label: 'seguridadDatos.related_ley' as const },

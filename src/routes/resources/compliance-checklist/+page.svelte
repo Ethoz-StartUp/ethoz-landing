@@ -181,7 +181,7 @@
   <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <!-- Header -->
     <div class="mb-12 border-b border-border pb-10">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
         <span class="text-primary">{t('resComplianceChecklist.eyebrow_template')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>Ley 21.719</span>
@@ -216,7 +216,7 @@
                 <div class="flex-1 min-w-0">
                   <div class="flex flex-wrap items-start gap-2 mb-1">
                     <p class="font-medium text-foreground text-sm leading-snug">{t(item.title)}</p>
-                    <span class="shrink-0 rounded bg-muted px-1.5 py-0.5 text-[10px] text-muted-foreground font-mono">{item.article}</span>
+                    <span class="shrink-0 rounded bg-muted px-1.5 py-0.5 text-mockup-xs text-muted-foreground font-mono">{item.article}</span>
                   </div>
                   <p class="text-xs text-muted-foreground leading-relaxed">{t(item.detail)}</p>
                 </div>

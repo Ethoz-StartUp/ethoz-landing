@@ -91,7 +91,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{t('audience.sostenedores.mockup_panel_title')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{t('audience.sostenedores.mockup_panel_title')}</span>
           </div>
           <div class="p-4">
             <!-- Summary KPIs -->
@@ -105,7 +105,7 @@
                 <div class="rounded-lg border border-border bg-background px-2 py-2 text-center">
                   <kpi.icon class="mx-auto mb-1 size-3.5 {kpi.danger ? 'text-destructive' : 'text-primary'}" />
                   <p class="text-sm font-bold {kpi.danger ? 'text-destructive' : 'text-foreground'}">{kpi.value}</p>
-                  <p class="text-[9px] text-muted-foreground">{t(kpi.label)}</p>
+                  <p class="text-mockup-2xs text-muted-foreground">{t(kpi.label)}</p>
                 </div>
               {/each}
             </div>
@@ -114,17 +114,17 @@
               {#each colegios as col}
                 <div class="flex items-center gap-3 rounded-lg border border-border bg-background px-3 py-2">
                   <div class="flex-1 min-w-0">
-                    <p class="text-[11px] font-semibold text-foreground truncate">{col.nombre}</p>
-                    <p class="text-[9px] text-muted-foreground">{t('audience.sostenedores.mockup_rbd_label')} {col.rbd} · {col.alumnos.toLocaleString('es-CL')} {t('audience.sostenedores.mockup_alumnos_suffix')}</p>
+                    <p class="text-mockup-sm font-semibold text-foreground truncate">{col.nombre}</p>
+                    <p class="text-mockup-2xs text-muted-foreground">{t('audience.sostenedores.mockup_rbd_label')} {col.rbd} · {col.alumnos.toLocaleString('es-CL')} {t('audience.sostenedores.mockup_alumnos_suffix')}</p>
                   </div>
                   <div class="flex items-center gap-3">
                     <div class="text-center">
-                      <p class="text-[10px] font-bold {col.alertas > 3 ? 'text-destructive' : col.alertas > 0 ? 'text-warning-foreground' : 'text-success'}">{col.alertas}</p>
-                      <p class="text-[8px] text-muted-foreground">{t('audience.sostenedores.mockup_alertas_label')}</p>
+                      <p class="text-mockup-xs font-bold {col.alertas > 3 ? 'text-destructive' : col.alertas > 0 ? 'text-warning-foreground' : 'text-success'}">{col.alertas}</p>
+                      <p class="text-mockup-3xs text-muted-foreground">{t('audience.sostenedores.mockup_alertas_label')}</p>
                     </div>
                     <div class="text-center">
-                      <p class="text-[10px] font-bold text-foreground">{col.incidentes}</p>
-                      <p class="text-[8px] text-muted-foreground">{t('audience.sostenedores.mockup_incidentes_label')}</p>
+                      <p class="text-mockup-xs font-bold text-foreground">{col.incidentes}</p>
+                      <p class="text-mockup-3xs text-muted-foreground">{t('audience.sostenedores.mockup_incidentes_label')}</p>
                     </div>
                     <div class="flex items-center gap-1">
                       <div class="h-1.5 w-12 rounded-full bg-border overflow-hidden">
@@ -133,7 +133,7 @@
                           style="width: {col.cumplimiento}%"
                         ></div>
                       </div>
-                      <p class="text-[9px] font-semibold {col.cumplimiento >= 90 ? 'text-success' : col.cumplimiento >= 80 ? 'text-warning-foreground' : 'text-destructive'}">{col.cumplimiento}%</p>
+                      <p class="text-mockup-2xs font-semibold {col.cumplimiento >= 90 ? 'text-success' : col.cumplimiento >= 80 ? 'text-warning-foreground' : 'text-destructive'}">{col.cumplimiento}%</p>
                     </div>
                   </div>
                 </div>
@@ -149,7 +149,7 @@
   <section class="py-12 sm:py-14" aria-labelledby="sostenedor-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="sostenedor-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.sostenedores.editorial.eyebrow')}</p>
+      <p id="sostenedor-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.sostenedores.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('audience.sostenedores.editorial.statement')}
       </blockquote>
@@ -237,7 +237,7 @@
                 <p class="text-xs font-bold text-destructive">{t('audience.sostenedores.exposure_sim_row_hasta')} {row.monto}</p>
               </div>
             {/each}
-            <p class="mt-2 text-[10px] text-muted-foreground">{t('audience.sostenedores.exposure_sim_footnote')}</p>
+            <p class="mt-2 text-mockup-xs text-muted-foreground">{t('audience.sostenedores.exposure_sim_footnote')}</p>
           </div>
         </div>
 
@@ -249,14 +249,14 @@
           </div>
           <div class="p-4 space-y-3">
             <div class="rounded-lg border border-destructive/20 bg-destructive/5 p-3">
-              <p class="text-[10px] font-semibold text-destructive mb-2">{t('audience.sostenedores.finance_without_title')}</p>
+              <p class="text-mockup-xs font-semibold text-destructive mb-2">{t('audience.sostenedores.finance_without_title')}</p>
               <div class="space-y-1.5">
                 {#each [
                   { item: 'audience.sostenedores.finance_without_item1' as const, valor: 'audience.sostenedores.finance_without_valor1' as const },
                   { item: 'audience.sostenedores.finance_without_item2' as const, valor: 'audience.sostenedores.finance_without_valor2' as const },
                   { item: 'audience.sostenedores.finance_without_item3' as const, valor: 'audience.sostenedores.finance_without_valor3' as const },
                 ] as row}
-                  <div class="flex justify-between text-[10px]">
+                  <div class="flex justify-between text-mockup-xs">
                     <span class="text-muted-foreground">{t(row.item)}</span>
                     <span class="font-semibold text-destructive">{t(row.valor)}</span>
                   </div>
@@ -264,14 +264,14 @@
               </div>
             </div>
             <div class="rounded-lg border border-success/20 bg-success/5 p-3">
-              <p class="text-[10px] font-semibold text-success mb-2">{t('audience.sostenedores.finance_with_title')}</p>
+              <p class="text-mockup-xs font-semibold text-success mb-2">{t('audience.sostenedores.finance_with_title')}</p>
               <div class="space-y-1.5">
                 {#each [
                   { item: 'audience.sostenedores.finance_with_item1' as const, valor: 'audience.sostenedores.finance_with_valor1' as const },
                   { item: 'audience.sostenedores.finance_with_item2' as const, valor: 'audience.sostenedores.finance_with_valor2' as const },
                   { item: 'audience.sostenedores.finance_with_item3' as const, valor: 'audience.sostenedores.finance_with_valor3' as const },
                 ] as row}
-                  <div class="flex justify-between text-[10px]">
+                  <div class="flex justify-between text-mockup-xs">
                     <span class="text-muted-foreground">{t(row.item)}</span>
                     <span class="font-semibold text-success">{t(row.valor)}</span>
                   </div>
@@ -322,12 +322,12 @@
           <div class="divide-y divide-border">
             {#each auditLog as entry}
               <div class="flex items-start gap-3 px-4 py-2.5">
-                <span class="mt-0.5 shrink-0 text-[9px] font-mono text-muted-foreground w-8">{entry.hora}</span>
+                <span class="mt-0.5 shrink-0 text-mockup-2xs font-mono text-muted-foreground w-8">{entry.hora}</span>
                 <div class="flex-1 min-w-0">
-                  <p class="text-[11px] font-medium {entry.nivel === 'critical' ? 'text-destructive' : entry.nivel === 'warning' ? 'text-warning-foreground' : 'text-foreground'} truncate">{t(entry.accion)}</p>
+                  <p class="text-mockup-sm font-medium {entry.nivel === 'critical' ? 'text-destructive' : entry.nivel === 'warning' ? 'text-warning-foreground' : 'text-foreground'} truncate">{t(entry.accion)}</p>
                   <div class="flex items-center gap-2 mt-0.5">
-                    <span class="inline-flex items-center rounded-full bg-primary/10 px-1.5 py-0.5 text-[9px] font-medium text-primary">{entry.colegio}</span>
-                    <span class="text-[9px] text-muted-foreground">{t(entry.usuario)}</span>
+                    <span class="inline-flex items-center rounded-full bg-primary/10 px-1.5 py-0.5 text-mockup-2xs font-medium text-primary">{entry.colegio}</span>
+                    <span class="text-mockup-2xs text-muted-foreground">{t(entry.usuario)}</span>
                   </div>
                 </div>
                 {#if entry.nivel === 'critical'}
@@ -341,8 +341,8 @@
             {/each}
           </div>
           <div class="border-t border-border px-4 py-2 flex items-center justify-between">
-            <p class="text-[9px] text-muted-foreground">{t('audience.sostenedores.auditlog_footer')}</p>
-            <button class="text-[9px] font-medium text-primary hover:underline">{t('audience.sostenedores.auditlog_view_full')}</button>
+            <p class="text-mockup-2xs text-muted-foreground">{t('audience.sostenedores.auditlog_footer')}</p>
+            <button class="text-mockup-2xs font-medium text-primary hover:underline">{t('audience.sostenedores.auditlog_view_full')}</button>
           </div>
         </div>
       </div>
@@ -376,7 +376,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="sostenedor-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('audience.sostenedores.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-background/85">{t('audience.sostenedores.finalCta.eyebrow')}</p>
       <h2 id="sostenedor-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('audience.sostenedores.finalCta.title')}
       </h2>

@@ -67,37 +67,37 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — {t('featurePage.analytics.mockup_dashboard_title')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{BRAND} — {t('featurePage.analytics.mockup_dashboard_title')}</span>
           </div>
           <!-- Filter bar mockup -->
           <div class="flex items-center gap-2 border-b border-border px-4 py-2 bg-muted/20">
             <Filter class="size-3 text-muted-foreground" />
-            <span class="text-[10px] text-muted-foreground">{t('featurePage.analytics.mockup_filter_summary')}</span>
-            <span class="ml-auto rounded bg-primary/10 px-2 py-0.5 text-[9px] font-medium text-primary">{t('featurePage.analytics.mockup_filter_apply')}</span>
+            <span class="text-mockup-xs text-muted-foreground">{t('featurePage.analytics.mockup_filter_summary')}</span>
+            <span class="ml-auto rounded bg-primary/10 px-2 py-0.5 text-mockup-2xs font-medium text-primary">{t('featurePage.analytics.mockup_filter_apply')}</span>
           </div>
           <div class="p-4 sm:p-5">
             <!-- KPI row -->
             <div class="grid grid-cols-2 gap-2 sm:grid-cols-4">
               <div class="rounded-lg bg-muted/30 p-2.5 text-center">
                 <p class="text-lg font-bold text-foreground">487</p>
-                <p class="text-[9px] text-muted-foreground">{t('featurePage.analytics.mockup_kpi_students')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">{t('featurePage.analytics.mockup_kpi_students')}</p>
               </div>
               <div class="rounded-lg bg-destructive/5 p-2.5 text-center">
                 <p class="text-lg font-bold text-destructive">7</p>
-                <p class="text-[9px] text-muted-foreground">{t('featurePage.analytics.mockup_kpi_active_alerts')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">{t('featurePage.analytics.mockup_kpi_active_alerts')}</p>
               </div>
               <div class="rounded-lg bg-warning/5 p-2.5 text-center">
                 <p class="text-lg font-bold text-warning-foreground">12</p>
-                <p class="text-[9px] text-muted-foreground">{t('featurePage.analytics.mockup_kpi_pickups_today')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">{t('featurePage.analytics.mockup_kpi_pickups_today')}</p>
               </div>
               <div class="rounded-lg bg-success/5 p-2.5 text-center">
                 <p class="text-lg font-bold text-success">98%</p>
-                <p class="text-[9px] text-muted-foreground">{t('featurePage.analytics.mockup_kpi_compliance')}</p>
+                <p class="text-mockup-2xs text-muted-foreground">{t('featurePage.analytics.mockup_kpi_compliance')}</p>
               </div>
             </div>
             <!-- Bar chart mockup -->
             <div class="mt-3">
-              <p class="mb-2 text-[9px] font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.analytics.chart_observations_caption')}</p>
+              <p class="mb-2 text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.analytics.chart_observations_caption')}</p>
               <div class="flex items-end gap-1 h-16">
                 {#each [
                   { labelKey: 'featurePage.analytics.month_mar' as const, h: 35, color: 'bg-primary/40' },
@@ -111,7 +111,7 @@
                 ] as bar}
                   <div class="flex flex-1 flex-col items-center gap-0.5">
                     <div class="w-full rounded-t {bar.color}" style="height: {bar.h}%"></div>
-                    <span class="text-[8px] text-muted-foreground">{t(bar.labelKey)}</span>
+                    <span class="text-mockup-3xs text-muted-foreground">{t(bar.labelKey)}</span>
                   </div>
                 {/each}
               </div>
@@ -126,7 +126,7 @@
   <section class="py-12 sm:py-14" aria-labelledby="analytics-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="analytics-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.analytics.editorial.eyebrow')}</p>
+      <p id="analytics-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.analytics.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.analytics.editorial.statement')}
       </blockquote>
@@ -176,7 +176,7 @@
               </svg>
               <span class="absolute inset-0 flex flex-col items-center justify-center">
                 <span class="text-lg font-bold text-foreground">234</span>
-                <span class="text-[9px] text-muted-foreground">{t('featurePage.analytics.donut_total')}</span>
+                <span class="text-mockup-2xs text-muted-foreground">{t('featurePage.analytics.donut_total')}</span>
               </span>
             </div>
             <!-- Legend -->
@@ -207,7 +207,7 @@
             <h3 class="text-base font-semibold text-foreground">{t('featurePage.analytics.risk_table_title')}</h3>
           </div>
           <div class="space-y-2">
-            <div class="grid grid-cols-[1fr_auto_auto] gap-2 text-[9px] font-semibold uppercase tracking-wider text-muted-foreground px-1 pb-1 border-b border-border">
+            <div class="grid grid-cols-[1fr_auto_auto] gap-2 text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground px-1 pb-1 border-b border-border">
               <span>{t('featurePage.analytics.risk_table_col_student')}</span>
               <span class="text-center">{t('featurePage.analytics.risk_table_col_obs')}</span>
               <span class="text-center">{t('featurePage.analytics.risk_table_col_risk')}</span>
@@ -222,10 +222,10 @@
               <div class="grid grid-cols-[1fr_auto_auto] gap-2 items-center rounded-lg px-1 py-1.5 hover:bg-muted transition-colors">
                 <div>
                   <p class="text-xs font-medium text-foreground">{row.name}</p>
-                  <p class="text-[9px] text-muted-foreground">{row.curso}</p>
+                  <p class="text-mockup-2xs text-muted-foreground">{row.curso}</p>
                 </div>
                 <span class="text-center text-sm font-bold text-foreground">{row.obs}</span>
-                <span class="rounded-full px-2 py-0.5 text-[9px] font-semibold {row.riskColor}">{t(row.riskKey)}</span>
+                <span class="rounded-full px-2 py-0.5 text-mockup-2xs font-semibold {row.riskColor}">{t(row.riskKey)}</span>
               </div>
             {/each}
           </div>
@@ -316,7 +316,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="analytics-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.analytics.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.analytics.finalCta.eyebrow')}</p>
       <h2 id="analytics-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.analytics.finalCta.title')}
       </h2>
