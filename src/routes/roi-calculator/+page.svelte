@@ -305,7 +305,7 @@
         {t('roiCalculator.cta_body')}
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href={demoUrl} onclick={handleCTAClick} class="shadow-lg">
+        <Button size="xl" href={demoUrl} onclick={handleCTAClick}>
           {t('roiCalculator.cta_primary')}
           <ArrowRight class="size-4" />
         </Button>

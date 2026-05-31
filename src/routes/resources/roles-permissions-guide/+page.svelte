@@ -197,7 +197,7 @@
 
     <!-- Principles -->
     <div class="mb-8 rounded-xl border border-border bg-muted/30 p-5">
-      <h2 class="font-semibold text-foreground mb-3 text-sm">{t('resRolesGuide.principles_title')}</h2>
+      <h2 class="font-heading text-foreground mb-3 text-sm">{t('resRolesGuide.principles_title')}</h2>
       <div class="grid gap-2 sm:grid-cols-3 text-xs text-muted-foreground">
         <div><strong class="text-foreground">{t('resRolesGuide.principle_min_label')}</strong> {t('resRolesGuide.principle_min_text')}</div>
         <div><strong class="text-foreground">{t('resRolesGuide.principle_prop_label')}</strong> {t('resRolesGuide.principle_prop_text')}</div>
@@ -207,7 +207,7 @@
 
     <!-- Matrix table -->
     <div class="mb-10">
-      <h2 class="font-semibold text-foreground mb-4">{t('resRolesGuide.matrix_title')}</h2>
+      <h2 class="font-heading text-foreground mb-4">{t('resRolesGuide.matrix_title')}</h2>
       <div class="overflow-x-auto rounded-xl border border-border">
         <table class="w-full text-xs">
           <thead>
@@ -241,11 +241,11 @@
 
     <!-- Role detail cards -->
     <div class="space-y-6">
-      <h2 class="font-semibold text-foreground">{t('resRolesGuide.detail_title')}</h2>
+      <h2 class="font-heading text-foreground">{t('resRolesGuide.detail_title')}</h2>
       {#each roles as r}
         <div class="rounded-xl border border-border bg-card p-5">
           <div class="flex items-start justify-between gap-4 mb-2">
-            <h3 class="font-semibold text-foreground">{t(r.role)}</h3>
+            <h3 class="font-heading text-foreground">{t(r.role)}</h3>
             <span class="shrink-0 text-xs text-muted-foreground">{Object.values(r.perms).filter(Boolean).length}/{permKeys.length} {t('resRolesGuide.permissions_suffix')}</span>
           </div>
           <p class="text-sm text-muted-foreground mb-3">{t(r.description)}</p>

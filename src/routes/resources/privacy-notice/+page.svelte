@@ -71,7 +71,7 @@
     <div class="space-y-8 text-sm leading-relaxed">
 
       <!-- Header of document -->
-      <div class="rounded-lg border-2 border-border bg-muted/20 p-6 text-center">
+      <div class="rounded-xl border-2 border-border bg-muted/20 p-6 text-center">
         <p class="text-xs uppercase tracking-widest text-muted-foreground mb-2">{t('resPrivacyNotice.doc_kicker')}</p>
         <h2 class="text-xl text-foreground">{t('resPrivacyNotice.doc_establishment_placeholder')}</h2>
         <p class="text-muted-foreground text-xs mt-1">{t('resPrivacyNotice.doc_rbd_rut')}</p>
@@ -110,7 +110,7 @@
 
       <section>
         <h3 class="font-semibold text-foreground mb-2">{t('resPrivacyNotice.s4_title')}</h3>
-        <div class="overflow-x-auto rounded-lg border border-border">
+        <div class="overflow-x-auto rounded-xl border border-border">
           <table class="w-full text-sm">
             <thead>
               <tr class="border-b border-border bg-muted/50">

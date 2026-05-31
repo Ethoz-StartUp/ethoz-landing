@@ -1,6 +1,7 @@
 <script lang="ts">
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
+  import EditorialSection from '$lib/components/EditorialSection.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
   import { t } from '$lib/i18n/index.svelte';
@@ -133,18 +134,12 @@
   </section>
 
   <!-- Editorial anchor — seconds matter thesis -->
-  <section class="py-12 sm:py-14" aria-labelledby="emergency-editorial">
-    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="emergency-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.emergency.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
-        {t('featurePage.emergency.editorial.statement')}
-      </blockquote>
-      <p class="mt-6 text-sm text-muted-foreground">
-        {t('featurePage.emergency.editorial.body')}
-      </p>
-    </div>
-  </section>
+  <EditorialSection
+    id="emergency-editorial"
+    eyebrow={t('featurePage.emergency.editorial.eyebrow')}
+    statement={t('featurePage.emergency.editorial.statement')}
+    body={t('featurePage.emergency.editorial.body')}
+  />
 
   <!-- Protocol cards -->
   <section class="py-12 sm:py-14">

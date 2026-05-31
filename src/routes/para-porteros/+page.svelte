@@ -372,15 +372,15 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 sm:grid-cols-3 text-center">
         <div>
-          <p class="text-4xl font-extrabold tracking-tight text-foreground">&lt;3s</p>
+          <p class="text-4xl font-heading text-foreground">&lt;3s</p>
           <p class="mt-1 text-sm text-muted-foreground">{t('audience.porteros.stat1_caption')}</p>
         </div>
         <div>
-          <p class="text-4xl font-extrabold tracking-tight text-foreground">0</p>
+          <p class="text-4xl font-heading text-foreground">0</p>
           <p class="mt-1 text-sm text-muted-foreground">{t('audience.porteros.stat2_caption')}</p>
         </div>
         <div>
-          <p class="text-4xl font-extrabold tracking-tight text-foreground">15 min</p>
+          <p class="text-4xl font-heading text-foreground">15 min</p>
           <p class="mt-1 text-sm text-muted-foreground">{t('audience.porteros.stat3_caption')}</p>
         </div>
       </div>

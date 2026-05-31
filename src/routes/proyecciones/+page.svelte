@@ -156,7 +156,7 @@
                 <Icon class="size-5 shrink-0 text-primary" />
                 <p class="text-sm font-semibold text-muted-foreground uppercase tracking-wide">{t('proyecciones.card_kicker')}</p>
               </div>
-              <p class="text-4xl font-bold tracking-tight text-foreground">{proj.stat}</p>
+              <p class="text-4xl font-heading text-foreground">{proj.stat}</p>
               <p class="mt-2 text-base font-semibold text-foreground">{t(proj.label)}</p>
               <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t(proj.context)}</p>
             </div>
@@ -254,7 +254,7 @@
         {t('proyecciones.cta_subtitle')}
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href="/roi-calculator" class="shadow-lg">
+        <Button size="xl" href="/roi-calculator">
           {t('proyecciones.cta_primary')}
           <ArrowRight class="size-4" />
         </Button>

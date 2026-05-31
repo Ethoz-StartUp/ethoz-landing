@@ -1,6 +1,7 @@
 <script lang="ts">
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
+  import EditorialSection from '$lib/components/EditorialSection.svelte';
   import { t } from '$lib/i18n/index.svelte';
   import { BRAND } from '$lib/brand';
   import { Button } from '$lib/components/ui/button';
@@ -172,18 +173,12 @@
   </section>
 
   <!-- Editorial anchor — thesis on why pickup is the load-bearing moment -->
-  <section class="py-12 sm:py-14" aria-labelledby="pickup-editorial">
-    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="pickup-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.safePickups.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
-        {t('featurePage.safePickups.editorial.statement')}
-      </blockquote>
-      <p class="mt-6 text-sm text-muted-foreground">
-        {t('featurePage.safePickups.editorial.body')}
-      </p>
-    </div>
-  </section>
+  <EditorialSection
+    id="pickup-editorial"
+    eyebrow={t('featurePage.safePickups.editorial.eyebrow')}
+    statement={t('featurePage.safePickups.editorial.statement')}
+    body={t('featurePage.safePickups.editorial.body')}
+  />
 
   <!-- How it works: 3 steps -->
   <section class="py-12 sm:py-14">

@@ -369,7 +369,7 @@
         {t('comparativa.cta_lede')}
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href="/demo" class="shadow-lg">
+        <Button size="xl" href="/demo">
           {t('comparativa.cta_primary')}
           <ArrowRight class="size-4" />
         </Button>
