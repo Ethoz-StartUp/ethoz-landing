@@ -261,7 +261,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="profile-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.studentProfile.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-snug text-foreground sm:text-3xl lg:text-4xl lg:leading-tight">
         {t('featurePage.studentProfile.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">

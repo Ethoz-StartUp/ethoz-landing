@@ -3,10 +3,10 @@
   Variants aligned to accent token system (mustard/brick/sage/navy).
   Used on metadata + category tags ONLY. NEVER on CTAs (lint rule blocks misuse).
 
-  Contrast notes (all AAA-large at badge size):
-    mustard: navy ink on mustard bg — 7.1:1 AAA body
-    brick:   cream on brick bg — 5.3:1 AAA-large only (short badge text → OK)
-    sage:    cream on sage bg — 5.5:1 AAA-large only
+  Contrast notes (badge size):
+    mustard: foreground ink on mustard bg — 7.1:1 AAA body
+    brick:   dark ink on light error tint — AAA body (was white-on-error-red 3.76:1, failed AAA/AA)
+    sage:    dark ink on light success tint — AAA body (was white-on-success-green 2.54:1, failed AAA/AA)
     navy:    cream on navy bg — 15.8:1 AAA body
 -->
 <script lang="ts">
@@ -23,8 +23,8 @@
 
   const VARIANT_CLASS: Record<Variant, string> = {
     mustard: 'bg-accent-mustard text-foreground', // foreground on mustard
-    brick:   'bg-accent-brick text-on-dark',      // white on brick
-    sage:    'bg-accent-sage text-on-dark',       // white on sage
+    brick:   'bg-error/15 text-foreground',       // dark ink on light error tint (AAA)
+    sage:    'bg-success/15 text-foreground',      // dark ink on light success tint (AAA)
     navy:    'bg-surface-dark text-on-dark',      // Cal dark badge
     neutral: 'bg-muted text-foreground',          // muted bg with foreground ink
   };

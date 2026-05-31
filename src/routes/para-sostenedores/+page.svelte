@@ -5,7 +5,7 @@
   import { t } from '$lib/i18n/index.svelte';
   import {
     Building2, ArrowRight, ShieldAlert, BarChart3, BadgeCheck,
-    AlertTriangle, FileSearch, TrendingDown, Scale, CheckCircle,
+    AlertTriangle, FileSearch, TrendingDown, Scale, CheckCircle, XCircle,
     Users, DollarSign, Activity, ClipboardCheck
   } from '@lucide/svelte';
   import { trackEvent } from '$lib/utils/analytics';
@@ -150,7 +150,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="sostenedor-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.sostenedores.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-3xl lg:text-4xl lg:leading-[1.3]">
         {t('audience.sostenedores.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
@@ -170,7 +170,7 @@
         {t('audience.sostenedores.problem_intro')}
       </p>
       <div class="grid gap-6 sm:grid-cols-2">
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <Scale class="size-5 shrink-0 text-destructive" />
             <h3 class="text-base text-foreground">{t('audience.sostenedores.problem_card1_title')}</h3>
@@ -179,7 +179,7 @@
             {t('audience.sostenedores.problem_card1_body_p1')} <strong class="text-foreground">{t('audience.sostenedores.problem_card1_body_strong1')}</strong>{t('audience.sostenedores.problem_card1_body_p2')} <strong class="text-foreground">{t('audience.sostenedores.problem_card1_body_strong2')}</strong>{t('audience.sostenedores.problem_card1_body_p3')}
           </p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <TrendingDown class="size-5 shrink-0 text-warning-foreground" />
             <h3 class="text-base text-foreground">{t('audience.sostenedores.problem_card2_title')}</h3>
@@ -188,7 +188,7 @@
             {t('audience.sostenedores.problem_card2_body')}
           </p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <BarChart3 class="size-5 shrink-0 text-primary" />
             <h3 class="text-base text-foreground">{t('audience.sostenedores.problem_card3_title')}</h3>
@@ -197,7 +197,7 @@
             {t('audience.sostenedores.problem_card3_body')}
           </p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <FileSearch class="size-5 shrink-0 text-primary" />
             <h3 class="text-base text-foreground">{t('audience.sostenedores.problem_card4_title')}</h3>
@@ -249,7 +249,7 @@
           </div>
           <div class="p-4 space-y-3">
             <div class="rounded-lg border border-destructive/20 bg-destructive/5 p-3">
-              <p class="text-mockup-xs font-semibold text-destructive mb-2">{t('audience.sostenedores.finance_without_title')}</p>
+              <p class="flex items-center gap-1.5 text-mockup-xs font-semibold text-foreground mb-2"><XCircle class="size-3.5 shrink-0 text-destructive" />{t('audience.sostenedores.finance_without_title')}</p>
               <div class="space-y-1.5">
                 {#each [
                   { item: 'audience.sostenedores.finance_without_item1' as const, valor: 'audience.sostenedores.finance_without_valor1' as const },
@@ -258,13 +258,13 @@
                 ] as row}
                   <div class="flex justify-between text-mockup-xs">
                     <span class="text-muted-foreground">{t(row.item)}</span>
-                    <span class="font-semibold text-destructive">{t(row.valor)}</span>
+                    <span class="font-semibold text-foreground">{t(row.valor)}</span>
                   </div>
                 {/each}
               </div>
             </div>
             <div class="rounded-lg border border-success/20 bg-success/5 p-3">
-              <p class="text-mockup-xs font-semibold text-success mb-2">{t('audience.sostenedores.finance_with_title')}</p>
+              <p class="flex items-center gap-1.5 text-mockup-xs font-semibold text-foreground mb-2"><CheckCircle class="size-3.5 shrink-0 text-success" />{t('audience.sostenedores.finance_with_title')}</p>
               <div class="space-y-1.5">
                 {#each [
                   { item: 'audience.sostenedores.finance_with_item1' as const, valor: 'audience.sostenedores.finance_with_valor1' as const },
@@ -273,7 +273,7 @@
                 ] as row}
                   <div class="flex justify-between text-mockup-xs">
                     <span class="text-muted-foreground">{t(row.item)}</span>
-                    <span class="font-semibold text-success">{t(row.valor)}</span>
+                    <span class="font-semibold text-foreground">{t(row.valor)}</span>
                   </div>
                 {/each}
               </div>
@@ -356,15 +356,15 @@
         <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{t('audience.sostenedores.tam_eyebrow')}</p>
         <div class="grid gap-8 sm:grid-cols-3">
           <div>
-            <p class="text-4xl font-extrabold tracking-tight text-foreground">402</p>
+            <p data-numeric class="font-heading text-4xl text-foreground">402</p>
             <p class="mt-1 text-sm text-muted-foreground">{t('audience.sostenedores.tam_stat1_label')}</p>
           </div>
           <div>
-            <p class="text-4xl font-extrabold tracking-tight text-foreground">12.038</p>
+            <p data-numeric class="font-heading text-4xl text-foreground">12.038</p>
             <p class="mt-1 text-sm text-muted-foreground">{t('audience.sostenedores.tam_stat2_label')}</p>
           </div>
           <div>
-            <p class="text-4xl font-extrabold tracking-tight text-foreground">5.777</p>
+            <p data-numeric class="font-heading text-4xl text-foreground">5.777</p>
             <p class="mt-1 text-sm text-muted-foreground">{t('audience.sostenedores.tam_stat3_label')}</p>
           </div>
         </div>

@@ -148,7 +148,7 @@
         {#each allLetters as letter}
           <a
             href="#{letter}"
-            class="flex size-9 items-center justify-center border border-border bg-card font-heading text-sm text-muted-foreground transition-colors hover:bg-muted/40 hover:border-foreground hover:text-foreground rounded-md"
+            class="flex size-11 sm:size-9 items-center justify-center border border-border bg-card font-heading text-sm text-muted-foreground transition-colors hover:bg-muted/40 hover:border-foreground hover:text-foreground rounded-md"
           >
             {letter}
           </a>

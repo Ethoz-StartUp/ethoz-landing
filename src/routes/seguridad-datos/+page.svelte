@@ -157,7 +157,7 @@
           <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>01 · {t('seguridadDatos.cifrado_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('seguridadDatos.cifrado_title')}</h2>
           <div class="mt-8 grid gap-5 sm:grid-cols-2">
-            <div class="border border-border bg-card p-5 rounded-lg">
+            <div class="border border-border bg-card p-5 rounded-xl">
               <div class="flex items-center gap-2.5">
                 <Globe class="size-4 shrink-0 text-primary" />
                 <h3 class="text-sm font-semibold text-foreground">{t('seguridadDatos.cifrado_card_transit_title')}</h3>
@@ -166,7 +166,7 @@
                 {t('seguridadDatos.cifrado_card_transit_body_pre')} <strong class="text-foreground">TLS 1.3</strong>{t('seguridadDatos.cifrado_card_transit_body_post')}
               </p>
             </div>
-            <div class="border border-border bg-card p-5 rounded-lg">
+            <div class="border border-border bg-card p-5 rounded-xl">
               <div class="flex items-center gap-2.5">
                 <Database class="size-4 shrink-0 text-primary" />
                 <h3 class="text-sm font-semibold text-foreground">{t('seguridadDatos.cifrado_card_atrest_title')}</h3>
@@ -234,7 +234,7 @@
             {t('seguridadDatos.audit_body')}
           </p>
 
-          <div class="mt-8 border border-border bg-card rounded-lg overflow-hidden">
+          <div class="mt-8 border border-border bg-card rounded-xl overflow-hidden">
             <div class="border-b border-border bg-muted/50 px-5 py-3">
               <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.audit_entry_structure_label')}</p>
             </div>
@@ -312,7 +312,7 @@
               { title: 'seguridadDatos.respaldo_rto_title' as const, desc: 'seguridadDatos.respaldo_rto_desc' as const },
               { title: 'seguridadDatos.respaldo_continuity_title' as const, desc: 'seguridadDatos.respaldo_continuity_desc' as const },
             ] as rtoItem}
-              <div class="border border-border bg-card p-5 rounded-lg">
+              <div class="border border-border bg-card p-5 rounded-xl">
                 <h3 class="text-sm font-semibold text-foreground">{t(rtoItem.title)}</h3>
                 <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t(rtoItem.desc)}</p>
               </div>

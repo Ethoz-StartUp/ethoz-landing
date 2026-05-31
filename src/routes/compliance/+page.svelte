@@ -154,7 +154,7 @@
   <section class="py-12 sm:py-14 bg-background">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">
+        <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">
           {t('compliance_page.timeline.overline')}
         </p>
         <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
@@ -228,7 +228,7 @@
       <!-- RBAC -->
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('compliance_page.rbac.overline')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('compliance_page.rbac.overline')}</p>
           <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">
             {t('compliance_page.rbac.title')}
           </h2>
@@ -237,17 +237,17 @@
           </p>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/compliance-rbac.webp" alt={t('compliance_page.rbac.alt')} class="w-full max-w-xs rounded-2xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/compliance-rbac.webp" alt={t('compliance_page.rbac.alt')} class="w-full max-w-xs rounded-2xl" loading="lazy" />
         </div>
       </div>
 
       <!-- Pickups -->
       <div class="mt-20 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
-          <img src="/images/pages/compliance-pickups.webp" alt={t('compliance_page.pickups.alt')} class="w-full max-w-xs rounded-2xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/compliance-pickups.webp" alt={t('compliance_page.pickups.alt')} class="w-full max-w-xs rounded-2xl" loading="lazy" />
         </div>
         <div class="order-1 lg:order-2">
-          <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('compliance_page.pickups.overline')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('compliance_page.pickups.overline')}</p>
           <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">
             {t('compliance_page.pickups.title')}
           </h2>
@@ -265,7 +265,7 @@
   <section class="py-12 sm:py-14 bg-background">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">
+        <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">
           {t('compliance_page.pillars.overline')}
         </p>
         <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
@@ -300,7 +300,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('compliance_page.audit.overline')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('compliance_page.audit.overline')}</p>
           <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">
             {t('compliance_page.audit.title')}
           </h2>
@@ -309,7 +309,7 @@
           </p>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/compliance-audit.webp" alt={t('compliance_page.audit.alt')} class="w-full max-w-xs rounded-2xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/compliance-audit.webp" alt={t('compliance_page.audit.alt')} class="w-full max-w-xs rounded-2xl" loading="lazy" />
         </div>
       </div>
     </div>
@@ -321,7 +321,7 @@
   <section class="py-12 sm:py-14 bg-background">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">
+        <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">
           {t('compliance_page.arch.overline')}
         </p>
         <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
@@ -356,7 +356,7 @@
   <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">
+        <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">
           {t('compliance_page.certs.overline')}
         </p>
         <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">

@@ -170,9 +170,9 @@
             <p class="font-medium text-destructive mb-1">{t('resPickupProtocol.s5_case2_title')}</p>
             <p class="text-sm text-destructive">{t('resPickupProtocol.s5_case2_body')}</p>
           </div>
-          <div class="rounded-lg border border-primary/20 bg-primary/10   p-4">
-            <p class="font-medium text-primary mb-1">{t('resPickupProtocol.s5_case3_title')}</p>
-            <p class="text-sm text-primary">{t('resPickupProtocol.s5_case3_body')}</p>
+          <div class="rounded-lg border border-border bg-card p-4">
+            <p class="font-medium text-foreground mb-1">{t('resPickupProtocol.s5_case3_title')}</p>
+            <p class="text-sm text-muted-foreground">{t('resPickupProtocol.s5_case3_body')}</p>
           </div>
           <div class="rounded-lg border border-muted bg-muted/30 p-4">
             <p class="font-medium text-foreground mb-1">{t('resPickupProtocol.s5_case4_title')}</p>

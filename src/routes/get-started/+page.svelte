@@ -123,7 +123,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('getstarted.step1.overline')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('getstarted.step1.overline')}</p>
           <h2 class="mt-2 text-balance text-2xl text-foreground sm:text-3xl">
             {t('getstarted.step1.title')}
           </h2>
@@ -136,7 +136,7 @@
           </Button>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/step-1-demo.webp" alt={t('getstarted.step1.alt')} class="w-full max-w-sm rounded-2xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/step-1-demo.webp" alt={t('getstarted.step1.alt')} class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
         </div>
       </div>
     </div>
@@ -147,10 +147,10 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
-          <img src="/images/pages/step-2-configure.webp" alt={t('getstarted.step2.alt')} class="w-full max-w-sm rounded-2xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/step-2-configure.webp" alt={t('getstarted.step2.alt')} class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
         </div>
         <div class="order-1 lg:order-2">
-          <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('getstarted.step2.overline')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('getstarted.step2.overline')}</p>
           <h2 class="mt-2 text-balance text-2xl text-foreground sm:text-3xl">
             {t('getstarted.step2.title')}
           </h2>
@@ -176,7 +176,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('getstarted.step3.overline')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('getstarted.step3.overline')}</p>
           <h2 class="mt-2 text-balance text-2xl text-foreground sm:text-3xl">
             {t('getstarted.step3.title')}
           </h2>
@@ -193,7 +193,7 @@
           </ul>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/step-3-migrate.webp" alt={t('getstarted.step3.alt')} class="w-full max-w-sm rounded-2xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/step-3-migrate.webp" alt={t('getstarted.step3.alt')} class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
         </div>
       </div>
     </div>
@@ -204,10 +204,10 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
-          <img src="/images/pages/step-4-live.webp" alt={t('getstarted.step4.alt')} class="w-full max-w-sm rounded-2xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/step-4-live.webp" alt={t('getstarted.step4.alt')} class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
         </div>
         <div class="order-1 lg:order-2">
-          <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('getstarted.step4.overline')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('getstarted.step4.overline')}</p>
           <h2 class="mt-2 text-balance text-2xl text-foreground sm:text-3xl">
             {t('getstarted.step4.title')}
           </h2>

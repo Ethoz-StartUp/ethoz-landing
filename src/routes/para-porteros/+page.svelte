@@ -68,16 +68,18 @@
               type="button"
               onclick={() => retiroState = 'normal'}
               aria-pressed={retiroState === 'normal'}
-              class="text-xs font-medium px-3 py-1.5 rounded-full border transition-colors {retiroState === 'normal' ? 'bg-success text-white border-success' : 'border-border text-muted-foreground hover:text-foreground'}"
+              class="inline-flex items-center gap-1.5 text-xs font-medium min-h-11 px-4 py-2.5 rounded-full border transition-colors {retiroState === 'normal' ? 'bg-success/15 text-foreground border-success/40' : 'border-border text-muted-foreground hover:text-foreground'}"
             >
+              <CheckCircle class="size-3.5 shrink-0 text-success" />
               {t('audience.porteros.hero_toggle_authorized')}
             </button>
             <button
               type="button"
               onclick={() => retiroState = 'bloqueado'}
               aria-pressed={retiroState === 'bloqueado'}
-              class="text-xs font-medium px-3 py-1.5 rounded-full border transition-colors {retiroState === 'bloqueado' ? 'bg-destructive text-destructive-foreground border-destructive' : 'border-border text-muted-foreground hover:text-foreground'}"
+              class="inline-flex items-center gap-1.5 text-xs font-medium min-h-11 px-4 py-2.5 rounded-full border transition-colors {retiroState === 'bloqueado' ? 'bg-destructive/15 text-foreground border-destructive/40' : 'border-border text-muted-foreground hover:text-foreground'}"
             >
+              <Ban class="size-3.5 shrink-0 text-destructive" />
               {t('audience.porteros.hero_toggle_blocked')}
             </button>
           </div>
@@ -108,7 +110,7 @@
               <div class="flex items-center gap-3 rounded-lg bg-success/10 border border-success/30 px-3 py-2.5 mb-4">
                 <CheckCircle class="size-5 shrink-0 text-success" />
                 <div>
-                  <p class="text-sm font-bold text-success">{t('audience.porteros.mock_status_authorized')}</p>
+                  <p class="text-sm font-bold text-foreground">{t('audience.porteros.mock_status_authorized')}</p>
                   <p class="text-mockup-2xs text-muted-foreground">{t('audience.porteros.mock_status_authorized_detail')}</p>
                 </div>
               </div>
@@ -130,7 +132,7 @@
                   { nombreKey: 'audience.porteros.mock_guardian3_name' as TranslationKey, relKey: 'audience.porteros.mock_guardian3_rel' as TranslationKey, foto: 'R', ok: true },
                 ] as g}
                   <div class="flex items-center gap-2 rounded-lg bg-success/5 border border-success/15 px-3 py-2 cursor-pointer hover:bg-success/10 transition-colors">
-                    <div class="size-7 rounded-full bg-success/20 flex items-center justify-center text-mockup-xs font-bold text-success shrink-0">{g.foto}</div>
+                    <div class="size-7 rounded-full bg-success/20 flex items-center justify-center text-mockup-xs font-bold text-foreground shrink-0">{g.foto}</div>
                     <div class="flex-1 min-w-0">
                       <p class="text-mockup-sm font-semibold text-foreground">{t(g.nombreKey)}</p>
                       <p class="text-mockup-2xs text-muted-foreground">{t(g.relKey)}</p>
@@ -269,7 +271,7 @@
             <div class="p-4">
               <div class="flex items-center gap-2 mb-3">
                 <Eye class="size-4 text-success" />
-                <p class="text-mockup-sm font-bold text-success">{t('audience.porteros.sees_title')}</p>
+                <p class="text-mockup-sm font-bold text-foreground">{t('audience.porteros.sees_title')}</p>
               </div>
               <div class="space-y-2">
                 {#each [

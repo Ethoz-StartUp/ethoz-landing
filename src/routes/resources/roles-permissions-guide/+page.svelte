@@ -196,7 +196,7 @@
     </div>
 
     <!-- Principles -->
-    <div class="mb-8 rounded-lg border border-border bg-muted/30 p-5">
+    <div class="mb-8 rounded-xl border border-border bg-muted/30 p-5">
       <h2 class="font-semibold text-foreground mb-3 text-sm">{t('resRolesGuide.principles_title')}</h2>
       <div class="grid gap-2 sm:grid-cols-3 text-xs text-muted-foreground">
         <div><strong class="text-foreground">{t('resRolesGuide.principle_min_label')}</strong> {t('resRolesGuide.principle_min_text')}</div>
@@ -249,7 +249,7 @@
             <span class="shrink-0 text-xs text-muted-foreground">{Object.values(r.perms).filter(Boolean).length}/{permKeys.length} {t('resRolesGuide.permissions_suffix')}</span>
           </div>
           <p class="text-sm text-muted-foreground mb-3">{t(r.description)}</p>
-          <div class="rounded-lg bg-muted/30 px-4 py-3 text-xs text-muted-foreground">
+          <div class="rounded-xl bg-muted/30 px-4 py-3 text-xs text-muted-foreground">
             <span class="font-medium text-foreground">{t('resRolesGuide.recommendation_label')} </span>{t(r.recommendations)}
           </div>
         </div>
@@ -257,7 +257,7 @@
     </div>
 
     <!-- Implementation note -->
-    <div class="mt-10 rounded-lg border border-border bg-muted/30 p-5 text-sm text-muted-foreground">
+    <div class="mt-10 rounded-xl border border-border bg-muted/30 p-5 text-sm text-muted-foreground">
       <p class="font-medium text-foreground mb-1">{t('resRolesGuide.impl_note_title')}</p>
       <p>{t('resRolesGuide.impl_note_text')}</p>
     </div>

@@ -94,21 +94,21 @@
           {t('resBreachResponse.s2_title')}
         </h2>
         <div class="space-y-3">
-          <div class="rounded-lg border border-success/20 bg-success/10   p-4">
+          <div class="rounded-xl border border-success/20 bg-success/10   p-4">
             <div class="flex items-center gap-2 mb-2">
-              <span class="rounded-full bg-success px-2.5 py-0.5 text-mockup-sm font-bold text-white">{t('resBreachResponse.s2_level_low')}</span>
+              <span class="rounded-full bg-success px-2.5 py-0.5 text-mockup-sm font-bold text-foreground">{t('resBreachResponse.s2_level_low')}</span>
               <span class="text-xs text-muted-foreground">{t('resBreachResponse.s2_low_obligation')}</span>
             </div>
             <p class="text-sm text-muted-foreground">{t('resBreachResponse.s2_low_desc')}</p>
           </div>
-          <div class="rounded-lg border border-warning/20 bg-warning/10 p-4">
+          <div class="rounded-xl border border-warning/20 bg-warning/10 p-4">
             <div class="flex items-center gap-2 mb-2">
-              <span class="rounded-full bg-warning px-2.5 py-0.5 text-mockup-sm font-bold text-white">{t('resBreachResponse.s2_level_serious')}</span>
+              <span class="rounded-full bg-warning px-2.5 py-0.5 text-mockup-sm font-bold text-warning-foreground">{t('resBreachResponse.s2_level_serious')}</span>
               <span class="text-xs text-muted-foreground">{t('resBreachResponse.s2_serious_obligation')}</span>
             </div>
             <p class="text-sm text-muted-foreground">{t('resBreachResponse.s2_serious_desc')}</p>
           </div>
-          <div class="rounded-lg border border-destructive/20 bg-destructive/10   p-4">
+          <div class="rounded-xl border border-destructive/20 bg-destructive/10   p-4">
             <div class="flex items-center gap-2 mb-2">
               <span class="rounded-full bg-destructive px-2.5 py-0.5 text-mockup-sm font-bold text-white">{t('resBreachResponse.s2_level_critical')}</span>
               <span class="text-xs text-muted-foreground">{t('resBreachResponse.s2_critical_obligation')}</span>
@@ -134,7 +134,7 @@
             { time: 'resBreachResponse.s3_t5_time' as const, title: 'resBreachResponse.s3_t5_title' as const, detail: 'resBreachResponse.s3_t5_detail' as const },
             { time: 'resBreachResponse.s3_t6_time' as const, title: 'resBreachResponse.s3_t6_title' as const, detail: 'resBreachResponse.s3_t6_detail' as const },
           ] as step}
-            <div class="flex gap-4 rounded-lg border border-border bg-card p-4">
+            <div class="flex gap-4 rounded-xl border border-border bg-card p-4">
               <div class="shrink-0 w-12 text-right">
                 <span class="text-xs font-mono font-bold text-primary">{t(step.time)}</span>
               </div>
@@ -199,7 +199,7 @@
           {t('resBreachResponse.s6_title')}
         </h2>
         <p class="text-muted-foreground mb-3">{t('resBreachResponse.s6_intro')}</p>
-        <div class="rounded-lg border border-border bg-card p-4 space-y-1.5 text-xs text-muted-foreground">
+        <div class="rounded-xl border border-border bg-card p-4 space-y-1.5 text-xs text-muted-foreground">
           <p><strong class="text-foreground">{t('resBreachResponse.s6_f1')}</strong> ___________________________</p>
           <p><strong class="text-foreground">{t('resBreachResponse.s6_f2')}</strong> ___________________________</p>
           <p><strong class="text-foreground">{t('resBreachResponse.s6_f3')}</strong> ___________________________</p>

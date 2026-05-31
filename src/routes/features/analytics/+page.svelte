@@ -157,21 +157,21 @@
             <!-- Donut -->
             <div class="relative shrink-0 size-28">
               <svg viewBox="0 0 36 36" class="size-28 -rotate-90">
-                <circle cx="18" cy="18" r="14" fill="none" stroke="hsl(var(--muted))" stroke-width="4" />
+                <circle cx="18" cy="18" r="14" fill="none" stroke="var(--muted)" stroke-width="4" />
                 <!-- Académico 32% -->
-                <circle cx="18" cy="18" r="14" fill="none" stroke="hsl(var(--primary))" stroke-width="4"
+                <circle cx="18" cy="18" r="14" fill="none" stroke="var(--primary)" stroke-width="4"
                   stroke-dasharray="28 88" stroke-dashoffset="0" />
                 <!-- Conductual 24% -->
-                <circle cx="18" cy="18" r="14" fill="none" stroke="hsl(var(--destructive))" stroke-width="4"
+                <circle cx="18" cy="18" r="14" fill="none" stroke="var(--destructive)" stroke-width="4"
                   stroke-dasharray="21 95" stroke-dashoffset="-28" />
                 <!-- Emocional 20% -->
-                <circle cx="18" cy="18" r="14" fill="none" stroke="hsl(var(--warning))" stroke-width="4"
+                <circle cx="18" cy="18" r="14" fill="none" stroke="var(--warning)" stroke-width="4"
                   stroke-dasharray="18 98" stroke-dashoffset="-49" />
                 <!-- Familiar 14% -->
-                <circle cx="18" cy="18" r="14" fill="none" stroke="hsl(var(--success))" stroke-width="4"
+                <circle cx="18" cy="18" r="14" fill="none" stroke="var(--success)" stroke-width="4"
                   stroke-dasharray="12 104" stroke-dashoffset="-67" />
                 <!-- Asistencia 10% -->
-                <circle cx="18" cy="18" r="14" fill="none" stroke="hsl(var(--muted-foreground))" stroke-width="4"
+                <circle cx="18" cy="18" r="14" fill="none" stroke="var(--muted-foreground)" stroke-width="4"
                   stroke-dasharray="9 107" stroke-dashoffset="-79" />
               </svg>
               <span class="absolute inset-0 flex flex-col items-center justify-center">
@@ -243,42 +243,42 @@
         <p class="mt-3 text-base text-muted-foreground">{t('featurePage.analytics.features_subtitle')}</p>
       </div>
       <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <TrendingUp class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">{t('featurePage.analytics.feature_trends_title')}</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('featurePage.analytics.feature_trends_body')}</p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Users class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">{t('featurePage.analytics.feature_segmentation_title')}</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('featurePage.analytics.feature_segmentation_body')}</p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <BarChart3 class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">{t('featurePage.analytics.feature_multisite_title')}</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('featurePage.analytics.feature_multisite_body')}</p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <ShieldAlert class="size-5 shrink-0 text-destructive" />
             <h3 class="text-base font-semibold text-foreground">{t('featurePage.analytics.feature_compliance_title')}</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('featurePage.analytics.feature_compliance_body')}</p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <ClipboardList class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">{t('featurePage.analytics.feature_export_title')}</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('featurePage.analytics.feature_export_body')}</p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Filter class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">{t('featurePage.analytics.feature_thresholds_title')}</h3>

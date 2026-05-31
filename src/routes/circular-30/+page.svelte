@@ -250,7 +250,7 @@
             { title: 'circular30.s4_card_3_title' as const, desc: 'circular30.s4_card_3_desc' as const },
             { title: 'circular30.s4_card_4_title' as const, desc: 'circular30.s4_card_4_desc' as const },
           ] as item}
-            <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover rounded-lg">
+            <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
               <h3 class="font-semibold text-foreground">{t(item.title)}</h3>
               <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t(item.desc)}</p>
             </div>

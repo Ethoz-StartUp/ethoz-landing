@@ -129,9 +129,9 @@
 
     <!-- Legend -->
     <div class="mb-8 flex flex-wrap gap-3 text-xs">
-      <div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm bg-success/100/20"></span> {t('resDataInventory.legend_basic')}</div>
-      <div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm bg-destructive/100/20"></span> {t('resDataInventory.legend_sensitive')}</div>
-      <div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm bg-primary/100/20"></span> {t('resDataInventory.legend_technical')}</div>
+      <div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm bg-success/20"></span> {t('resDataInventory.legend_basic')}</div>
+      <div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm bg-destructive/20"></span> {t('resDataInventory.legend_sensitive')}</div>
+      <div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm bg-primary/20"></span> {t('resDataInventory.legend_technical')}</div>
     </div>
 
     <!-- Inventory sections -->

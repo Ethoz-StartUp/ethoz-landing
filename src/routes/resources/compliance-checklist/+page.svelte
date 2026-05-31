@@ -208,7 +208,7 @@
 
           <div class="space-y-3">
             {#each section.items as item, ii}
-              <div class="flex gap-4 rounded-lg border border-border bg-card p-4">
+              <div class="flex gap-4 rounded-xl border border-border bg-card p-4">
                 <!-- Checkbox -->
                 <div class="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded border-2 border-border print:border-foreground/40">
                   <span class="hidden print:block text-xs">☐</span>
@@ -228,7 +228,7 @@
     </div>
 
     <!-- Footer note -->
-    <div class="mt-12 rounded-lg border border-border bg-muted/30 p-5 text-sm text-muted-foreground">
+    <div class="mt-12 rounded-xl border border-border bg-muted/30 p-5 text-sm text-muted-foreground">
       <p class="font-medium text-foreground mb-1">{t('resComplianceChecklist.legal_note_title')}</p>
       <p>{t('resComplianceChecklist.legal_note_body')}</p>
     </div>

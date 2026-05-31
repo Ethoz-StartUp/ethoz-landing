@@ -279,7 +279,7 @@
         </h1>
 
         <!-- Subtitle -->
-        <p class="animate-fade-in-up animate-delay-200 mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p class="animate-fade-in-up animate-delay-200 mt-5 max-w-xl text-base leading-relaxed text-body sm:text-lg">
           {t('hero.subtitle')}
         </p>
 
@@ -565,7 +565,7 @@
 
       <!-- Featured hero card: Ficha 360° — Cal black left-rule, asymmetric treatment -->
       <div class="mx-auto mt-10 max-w-5xl">
-        <a href="/features/student-profile" class="group block rounded-lg border-l-2 border-foreground bg-card p-8 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover sm:p-10 lg:p-12">
+        <a href="/features/student-profile" class="group block rounded-xl border-l-2 border-foreground bg-card p-8 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover sm:p-10 lg:p-12">
           <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
             <div>
               <span class="font-heading block text-5xl tabular-nums leading-none text-foreground sm:text-6xl">01</span>
@@ -600,7 +600,7 @@
       <!-- Supporting features — 3-column grid, compact cards (driven by supportingFeatures array) -->
       <div class="mx-auto mt-5 grid max-w-5xl gap-5 sm:grid-cols-3">
         {#each supportingFeatures as feat (feat.href)}
-          <a href={feat.href} class="group flex flex-col rounded-lg border-l-2 border-foreground bg-card p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover">
+          <a href={feat.href} class="group flex flex-col rounded-xl border-l-2 border-foreground bg-card p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover">
             <span class="font-heading block text-3xl tabular-nums leading-none text-foreground">{feat.numeral}</span>
             <h3 class="mt-3 font-heading text-lg leading-tight text-foreground">{t(feat.titleKey)}</h3>
             <p class="mt-2 flex-1 text-sm leading-relaxed text-body">{t(feat.descKey)}</p>
@@ -613,7 +613,7 @@
 
       <!-- Cross-cutting: privacy is not a product, it's how everything works -->
       <div class="mx-auto mt-8 max-w-4xl">
-        <a href="/compliance" class="group flex items-center gap-4 rounded-lg border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground/30 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover">
+        <a href="/compliance" class="group flex items-center gap-4 rounded-xl border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground/30 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover">
           <Shield class="size-5 shrink-0 text-foreground transition-transform group-hover:rotate-6" />
           <div class="flex-1">
             <p class="text-sm font-semibold text-foreground">{t('home.compliance_banner.title')}</p>
@@ -789,7 +789,7 @@
         </h2>
       </div>
 
-      <div class="mt-10 divide-y divide-border rounded-2xl border border-border bg-card shadow-sm">
+      <div class="mt-10 divide-y divide-border rounded-xl border border-border bg-card shadow-card">
         {#each [1, 2, 11, 3, 15, 4, 12] as n, i}
           <div>
             <button

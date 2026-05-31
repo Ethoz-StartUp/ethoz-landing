@@ -332,7 +332,7 @@
           </p>
           <div class="mt-8 grid gap-4 sm:grid-cols-2">
             {#each rights as right}
-              <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover rounded-lg">
+              <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
                 <div class="flex items-baseline gap-3">
                   <span class="font-heading text-2xl leading-none text-primary group-hover:text-foreground">{right.letter}</span>
                   <h3 class="text-base font-semibold text-foreground">{t(right.nameKey)}</h3>
@@ -458,7 +458,7 @@
               { titleKey: 'ley21719.s9_f3_title' as const, descKey: 'ley21719.s9_f3_desc' as const, link: '/compliance' },
               { titleKey: 'ley21719.s9_f4_title' as const, descKey: 'ley21719.s9_f4_desc' as const, link: '/integrations' },
             ] as item}
-              <a href={item.link} class="group block border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover rounded-lg">
+              <a href={item.link} class="group block rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
                 <h3 class="font-semibold text-foreground">{t(item.titleKey)}</h3>
                 <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t(item.descKey)}</p>
                 <span class="mt-4 inline-flex items-center gap-1 border-b border-primary pb-0.5 text-sm font-semibold text-primary group-hover:border-b-2">

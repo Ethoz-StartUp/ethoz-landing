@@ -150,9 +150,7 @@
   <div id="demo-search-main" class="mx-auto flex w-full max-w-xl flex-1 flex-col justify-center px-4 py-12 sm:py-16">
     <div class="space-y-6">
       <div class="text-center">
-        <div class="mx-auto mb-4 flex size-14 items-center justify-center rounded-full bg-primary/10">
-          <GraduationCap class="size-7 text-primary" />
-        </div>
+        <GraduationCap class="mx-auto mb-4 size-8 text-primary" />
         <p class="mb-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step1.eyebrow')}</p>
         <h1 class="text-2xl text-foreground">
           {t('demo.step1.title')}
@@ -191,7 +189,7 @@
               aria-expanded={hasResults}
               aria-activedescendant={hasResults && highlightIndex >= 0 ? `school-opt-${highlightIndex}` : undefined}
               aria-describedby="demo-search-instructions"
-              class="w-full rounded-xl border border-border bg-background py-4 pl-11 pr-4 text-base text-foreground shadow-sm outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
+              class="w-full rounded-md border border-border bg-background py-4 pl-11 pr-4 text-base text-foreground shadow-sm outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
             />
           </div>
         </div>
@@ -230,7 +228,7 @@
                   type="button"
                   tabindex="-1"
                   onclick={() => selectSchool(school)}
-                  class="flex w-full items-center gap-3 rounded-xl border bg-background px-4 py-3 text-left shadow-sm transition-all hover:border-primary/30 hover:shadow-md {highlightIndex === i ? 'border-primary/30 shadow-md' : 'border-border'}"
+                  class="flex w-full items-center gap-3 rounded-md border bg-background px-4 py-3 text-left shadow-sm transition-all hover:border-primary/30 hover:shadow-md {highlightIndex === i ? 'border-primary/30 shadow-md' : 'border-border'}"
                 >
                   <Building aria-hidden="true" class="size-4 shrink-0 text-muted-foreground" />
                   <div class="min-w-0 flex-1">

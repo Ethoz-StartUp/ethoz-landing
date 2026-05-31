@@ -358,7 +358,10 @@
                 <div class="grid grid-cols-3 gap-2 text-mockup-xs">
                   <p class="text-muted-foreground font-medium">{t(row.aspectoKey)}</p>
                   <p class="text-destructive">{t(row.tradKey)}</p>
-                  <p class="text-success font-medium">{t(row.ethozKey)}</p>
+                  <p class="flex items-center gap-1 text-foreground font-medium">
+                    <CheckCircle class="size-3 shrink-0 text-success" aria-hidden="true" />
+                    {t(row.ethozKey)}
+                  </p>
                 </div>
               {/each}
             </div>
@@ -410,15 +413,15 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 sm:grid-cols-3 text-center">
         <div>
-          <p class="text-4xl font-extrabold tracking-tight text-foreground">70,8%</p>
+          <p class="text-4xl font-heading text-foreground">70,8%</p>
           <p class="mt-1 text-sm text-muted-foreground">{t('audience.directores.stat1_caption')}</p>
         </div>
         <div>
-          <p class="text-4xl font-extrabold tracking-tight text-foreground">&lt;5 min</p>
+          <p class="text-4xl font-heading text-foreground">&lt;5 min</p>
           <p class="mt-1 text-sm text-muted-foreground">{t('audience.directores.stat2_caption')}</p>
         </div>
         <div>
-          <p class="text-4xl font-extrabold tracking-tight text-foreground">100%</p>
+          <p class="text-4xl font-heading text-foreground">100%</p>
           <p class="mt-1 text-sm text-muted-foreground">{t('audience.directores.stat3_caption')}</p>
         </div>
       </div>

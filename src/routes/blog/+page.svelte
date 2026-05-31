@@ -74,7 +74,7 @@
               {/each}
             </div>
 
-            <h2 class="text-[0.95rem] font-semibold leading-snug text-foreground group-hover:text-primary transition-colors">
+            <h2 class="text-base font-semibold leading-snug text-foreground">
               {post.title}
             </h2>
 

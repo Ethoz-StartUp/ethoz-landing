@@ -334,9 +334,7 @@
               <!-- Card header -->
               <div class="border-b border-border px-5 py-4">
                 <div class="flex items-start gap-3">
-                  <div class="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                    <GraduationCap class="size-5 text-primary" />
-                  </div>
+                  <GraduationCap class="mt-0.5 size-5 shrink-0 text-primary" />
                   <div class="min-w-0 flex-1">
                     <h2 class="text-base font-semibold leading-snug text-foreground">{school?.name}</h2>
                     <Badge variant="outline" class="mt-1 font-mono text-xs">
