@@ -7,8 +7,6 @@ const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 // user; this scopes the function to the single admin (env override, falls back to
 // the canonical admin UUID used across the RLS policies).
 const ADMIN_USER_ID = Deno.env.get("ADMIN_USER_ID") || "169e6037-fcc2-4201-b2af-92547e1d6739";
-const GOOGLE_CLIENT_ID = Deno.env.get("GOOGLE_CLIENT_ID") || "";
-const GOOGLE_CLIENT_SECRET = Deno.env.get("GOOGLE_CLIENT_SECRET") || "";
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
@@ -22,36 +20,6 @@ function isSafeImageUrl(raw: string): boolean {
   if (/^127\./.test(h) || /^10\./.test(h) || /^192\.168\./.test(h) || /^169\.254\./.test(h)) return false;
   if (/^172\.(1[6-9]|2\d|3[01])\./.test(h)) return false;
   return true;
-}
-
-// ── Token refresh helpers ──
-
-async function refreshGoogleToken(token: any): Promise<string> {
-  if (!token.refresh_token) throw new Error("No Google refresh token");
-  if (token.token_expiry && new Date(token.token_expiry) > new Date()) {
-    return token.access_token;
-  }
-
-  const res = await fetch("https://oauth2.googleapis.com/token", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({
-      client_id: GOOGLE_CLIENT_ID,
-      client_secret: GOOGLE_CLIENT_SECRET,
-      refresh_token: token.refresh_token,
-      grant_type: "refresh_token",
-    }),
-  });
-
-  const data = await res.json();
-  if (!data.access_token) throw new Error("Failed to refresh Google token");
-
-  await supabase.from("social_tokens").update({
-    access_token: data.access_token,
-    token_expiry: new Date(Date.now() + data.expires_in * 1000).toISOString(),
-  }).eq("platform", "google");
-
-  return data.access_token;
 }
 
 // ── Platform publishers ──

@@ -105,7 +105,7 @@
     <!-- Desktop nav -->
     <div class="hidden items-center gap-0.5 md:flex">
       <!-- Links before dropdown (¿Qué es?) -->
-      {#each navLinksBefore as link}
+      {#each navLinksBefore as link (link.href)}
         <a
           href={link.href}
           class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
@@ -156,7 +156,7 @@
             onmouseleave={closeProducts}
           >
             <div class="grid grid-cols-2 gap-1">
-              {#each products as product}
+              {#each products as product (product.href)}
                 {@const Icon = product.icon}
                 <a
                   href={product.href}
@@ -183,7 +183,7 @@
       </div>
 
       <!-- Links after dropdown -->
-      {#each navLinksAfter as link}
+      {#each navLinksAfter as link (link.href)}
         <a
           href={link.href}
           class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
@@ -236,7 +236,7 @@
       aria-label={t('nav.menu_label')}>
       <div class="flex flex-col gap-0.5">
         <!-- ¿Qué es? -->
-        {#each navLinksBefore as link}
+        {#each navLinksBefore as link (link.href)}
           <a
             href={link.href}
             class="rounded-lg px-3 py-3 text-sm font-medium transition-colors

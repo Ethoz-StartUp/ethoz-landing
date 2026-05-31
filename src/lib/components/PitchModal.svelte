@@ -308,7 +308,7 @@
     <div class="progress" onclick={handleProgressClick} onkeydown={(e) => { if (e.key === 'ArrowRight') { e.preventDefault(); seekTo(Math.min(currentTime + 5, duration)); } if (e.key === 'ArrowLeft') { e.preventDefault(); seekTo(Math.max(currentTime - 5, 0)); } }} role="slider" tabindex={0} aria-label={t('pitchModal.progress_label')} aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100}>
       <div class="track">
         <div class="fill" style="width:{progress}%"></div>
-        {#each slides as s, i}
+        {#each slides as s, i (s.start)}
           {#if i > 0}
             <div class="marker" class:active={i <= currentSlideIndex} style="left:{duration ? (s.start / duration) * 100 : 0}%"></div>
           {/if}
@@ -331,7 +331,7 @@
       </div>
     </div>
     <div class="dots">
-      {#each slides as _, i}
+      {#each slides as s, i (s.start)}
         <button class="dot" class:active={i === currentSlideIndex} onclick={() => goToSlide(i)} aria-label={`${t('pitchModal.slide_label')} ${i+1}`}></button>
       {/each}
     </div>

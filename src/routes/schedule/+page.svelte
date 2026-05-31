@@ -196,6 +196,7 @@
             {#if s.n < 3}
               <span aria-hidden="true" class="ml-1 h-px w-8 {3 > s.n ? 'bg-primary' : 'bg-border'}"></span>
             {/if}
+            </span>
           </li>
         {/each}
       </ol>

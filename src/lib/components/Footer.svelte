@@ -52,7 +52,7 @@
         </p>
         <!-- Social icons -->
         <div class="mt-6 flex items-center gap-3">
-          {#each social as s}
+          {#each social as s (s.name)}
             <a
               href={s.href}
               target="_blank"
