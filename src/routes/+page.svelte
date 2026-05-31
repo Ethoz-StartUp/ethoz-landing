@@ -631,22 +631,22 @@
   <SectionDark variant="compliance" id="compliance">
     <!-- Section header — editorial eyebrow pattern -->
     <div class="mx-auto max-w-2xl text-center">
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-on-dark-soft">
-        <span class="text-on-dark">{t('compliance.overline')}</span>
-        <span aria-hidden="true" class="text-on-dark-soft/40">·</span>
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <span class="text-primary">{t('compliance.overline')}</span>
+        <span aria-hidden="true" class="text-border">·</span>
         <span>{t('compliance.overline_detail')}</span>
       </p>
-      <h2 class="mt-4 text-balance text-on-dark">
+      <h2 class="mt-4 text-balance text-foreground">
         {t('compliance.title')}
       </h2>
-      <p class="mt-4 text-lg text-on-dark-soft">
+      <p class="mt-4 text-lg text-muted-foreground">
         {t('compliance.subtitle')}
       </p>
     </div>
 
     <!-- Countdown — dramatic editorial treatment -->
     <div class="mx-auto mt-10 max-w-3xl">
-      <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-on-dark-soft">
+      <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
         <span class="relative flex size-2">
           <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
           <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
@@ -667,25 +667,24 @@
           { value: countdownHours, labelKey: 'compliance.countdown.hours' },
           { value: countdownMinutes, labelKey: 'compliance.countdown.minutes' },
         ] as box (box.labelKey)}
-          <div class="group relative rounded-lg border border-on-dark-soft/30 bg-on-dark/5 p-5 text-center transition-colors hover:border-on-dark sm:p-8" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-on-dark"></div>
-            <span class="font-heading block text-6xl tabular-nums leading-none tracking-[-0.03em] text-on-dark sm:text-8xl">
+          <div class="group relative rounded-xl border border-hairline bg-card p-5 text-center shadow-card transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-foreground"></div>
+            <span class="font-heading block text-6xl tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
               {box.value}
             </span>
-            <span class="mt-3 block text-mockup-xs font-semibold uppercase tracking-[0.18em] text-on-dark-soft sm:text-xs">
+            <span class="mt-3 block text-mockup-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
               {t(box.labelKey as TranslationKey)}
             </span>
           </div>
         {/each}
       </div>
-      <!-- CTA under countdown — inverted Cal primary: white pill on dark surface -->
+      <!-- CTA under countdown — standard Cal primary on the light band -->
       <div class="mt-10 text-center">
-        <Button size="xl" href="/demo"
-                class="bg-on-dark text-surface-dark hover:bg-on-dark/90">
+        <Button size="xl" href="/demo">
           {t('hero.cta.primary')}
           <ArrowRight class="size-5" />
         </Button>
-        <p class="mt-4 text-xs text-on-dark-soft">{t('home.countdown.cta_hint')}</p>
+        <p class="mt-4 text-xs text-muted-foreground">{t('home.countdown.cta_hint')}</p>
       </div>
     </div>
 
@@ -693,8 +692,8 @@
     <div class="mx-auto mt-12 grid max-w-3xl gap-x-8 gap-y-4 sm:grid-cols-2">
       {#each ['compliance.item1', 'compliance.item2', 'compliance.item3', 'compliance.item4', 'compliance.item5', 'compliance.item6'] as item}
         <div class="flex items-start gap-3">
-          <Check class="mt-0.5 size-5 shrink-0 text-on-dark" />
-          <span class="text-sm leading-relaxed text-on-dark-soft">{t(item as TranslationKey)}</span>
+          <Check class="mt-0.5 size-5 shrink-0 text-primary" />
+          <span class="text-sm leading-relaxed text-muted-foreground">{t(item as TranslationKey)}</span>
         </div>
       {/each}
     </div>
