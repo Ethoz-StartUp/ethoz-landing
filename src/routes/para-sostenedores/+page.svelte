@@ -164,7 +164,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-2">
         <AlertTriangle class="size-5 shrink-0 text-destructive" />
-        <h2 class="text-xl text-foreground sm:text-2xl">{t('audience.sostenedores.problem_title')}</h2>
+        <h2 class="font-heading text-xl text-foreground sm:text-2xl">{t('audience.sostenedores.problem_title')}</h2>
       </div>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         {t('audience.sostenedores.problem_intro')}
@@ -173,7 +173,7 @@
         <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <Scale class="size-5 shrink-0 text-destructive" />
-            <h3 class="text-base text-foreground">{t('audience.sostenedores.problem_card1_title')}</h3>
+            <h3 class="font-heading text-base text-foreground">{t('audience.sostenedores.problem_card1_title')}</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
             {t('audience.sostenedores.problem_card1_body_p1')} <strong class="text-foreground">{t('audience.sostenedores.problem_card1_body_strong1')}</strong>{t('audience.sostenedores.problem_card1_body_p2')} <strong class="text-foreground">{t('audience.sostenedores.problem_card1_body_strong2')}</strong>{t('audience.sostenedores.problem_card1_body_p3')}
@@ -182,7 +182,7 @@
         <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <TrendingDown class="size-5 shrink-0 text-warning-foreground" />
-            <h3 class="text-base text-foreground">{t('audience.sostenedores.problem_card2_title')}</h3>
+            <h3 class="font-heading text-base text-foreground">{t('audience.sostenedores.problem_card2_title')}</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
             {t('audience.sostenedores.problem_card2_body')}
@@ -191,7 +191,7 @@
         <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <BarChart3 class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base text-foreground">{t('audience.sostenedores.problem_card3_title')}</h3>
+            <h3 class="font-heading text-base text-foreground">{t('audience.sostenedores.problem_card3_title')}</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
             {t('audience.sostenedores.problem_card3_body')}
@@ -200,7 +200,7 @@
         <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <FileSearch class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base text-foreground">{t('audience.sostenedores.problem_card4_title')}</h3>
+            <h3 class="font-heading text-base text-foreground">{t('audience.sostenedores.problem_card4_title')}</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
             {t('audience.sostenedores.problem_card4_body')}
@@ -217,7 +217,7 @@
         <div>
           <div class="flex items-center gap-3 mb-2">
             <Scale class="size-5 shrink-0 text-destructive" />
-            <h2 class="text-xl text-foreground sm:text-2xl">{t('audience.sostenedores.exposure_title')}</h2>
+            <h2 class="font-heading text-xl text-foreground sm:text-2xl">{t('audience.sostenedores.exposure_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('audience.sostenedores.exposure_body1_p1')} <strong class="text-foreground">{t('audience.sostenedores.exposure_body1_strong')}</strong>{t('audience.sostenedores.exposure_body1_p2')}
@@ -291,7 +291,7 @@
         <div>
           <div class="flex items-center gap-3 mb-2">
             <ClipboardCheck class="size-5 shrink-0 text-primary" />
-            <h2 class="text-xl text-foreground sm:text-2xl">{t('audience.sostenedores.audit_title')}</h2>
+            <h2 class="font-heading text-xl text-foreground sm:text-2xl">{t('audience.sostenedores.audit_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('audience.sostenedores.audit_body1')}

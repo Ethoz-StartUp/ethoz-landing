@@ -1,6 +1,7 @@
 <script lang="ts">
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
+  import StatCard from '$lib/components/StatCard.svelte';
   import EditorialSection from '$lib/components/EditorialSection.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
@@ -10,6 +11,15 @@
   import { ShieldAlert, ArrowRight, ArrowLeft, AlertTriangle, Bell, FileWarning, Clock, CheckCircle2, XCircle, Scale } from '@lucide/svelte';
 
   $effect(() => { trackEvent('feature_page_viewed', { feature: 'alerts' }); });
+
+  const alertTypes = [
+    { icon: Scale, borderClass: 'border-destructive/20', iconClass: 'text-destructive', dotClass: 'bg-destructive', titleKey: 'featurePage.alerts.type_restraining_title', bodyKey: 'featurePage.alerts.type_restraining_body', visibilityKey: 'featurePage.alerts.type_restraining_visibility' },
+    { icon: FileWarning, borderClass: 'border-destructive/20', iconClass: 'text-destructive', dotClass: 'bg-destructive', titleKey: 'featurePage.alerts.type_suicidal_title', bodyKey: 'featurePage.alerts.type_suicidal_body', visibilityKey: 'featurePage.alerts.type_suicidal_visibility' },
+    { icon: AlertTriangle, borderClass: 'border-warning/20', iconClass: 'text-warning-foreground', dotClass: 'bg-warning', titleKey: 'featurePage.alerts.type_family_risk_title', bodyKey: 'featurePage.alerts.type_family_risk_body', visibilityKey: 'featurePage.alerts.type_family_risk_visibility' },
+    { icon: Clock, borderClass: 'border-warning/20', iconClass: 'text-warning-foreground', dotClass: 'bg-warning', titleKey: 'featurePage.alerts.type_suspension_title', bodyKey: 'featurePage.alerts.type_suspension_body', visibilityKey: 'featurePage.alerts.type_suspension_visibility' },
+    { icon: XCircle, borderClass: 'border-border', iconClass: 'text-muted-foreground', dotClass: 'bg-muted-foreground', titleKey: 'featurePage.alerts.type_pickup_restriction_title', bodyKey: 'featurePage.alerts.type_pickup_restriction_body', visibilityKey: 'featurePage.alerts.type_pickup_restriction_visibility' },
+    { icon: CheckCircle2, borderClass: 'border-border', iconClass: 'text-primary', dotClass: 'bg-primary', titleKey: 'featurePage.alerts.type_custom_title', bodyKey: 'featurePage.alerts.type_custom_body', visibilityKey: 'featurePage.alerts.type_custom_visibility' },
+  ] as const;
 </script>
 
 <svelte:head>
@@ -137,77 +147,20 @@
       </div>
       <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="rounded-xl border border-destructive/20 bg-card p-5 shadow-sm">
-          <div class="flex items-center gap-2.5">
-            <Scale class="size-5 shrink-0 text-destructive" />
-            <h3 class="text-sm font-semibold text-foreground">{t('featurePage.alerts.type_restraining_title')}</h3>
+        {#each alertTypes as a}
+          {@const Icon = a.icon}
+          <div class="rounded-xl border {a.borderClass} bg-card p-5 shadow-sm">
+            <div class="flex items-center gap-2.5">
+              <Icon class="size-5 shrink-0 {a.iconClass}" />
+              <h3 class="text-sm font-semibold text-foreground">{t(a.titleKey)}</h3>
+            </div>
+            <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t(a.bodyKey)}</p>
+            <div class="mt-3 flex items-center gap-1.5">
+              <span class="size-1.5 rounded-full {a.dotClass}"></span>
+              <span class="text-mockup-xs text-muted-foreground">{t(a.visibilityKey)}</span>
+            </div>
           </div>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_restraining_body')}</p>
-          <div class="mt-3 flex items-center gap-1.5">
-            <span class="size-1.5 rounded-full bg-destructive"></span>
-            <span class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.type_restraining_visibility')}</span>
-          </div>
-        </div>
-
-        <div class="rounded-xl border border-destructive/20 bg-card p-5 shadow-sm">
-          <div class="flex items-center gap-2.5">
-            <FileWarning class="size-5 shrink-0 text-destructive" />
-            <h3 class="text-sm font-semibold text-foreground">{t('featurePage.alerts.type_suicidal_title')}</h3>
-          </div>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_suicidal_body')}</p>
-          <div class="mt-3 flex items-center gap-1.5">
-            <span class="size-1.5 rounded-full bg-destructive"></span>
-            <span class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.type_suicidal_visibility')}</span>
-          </div>
-        </div>
-
-        <div class="rounded-xl border border-warning/20 bg-card p-5 shadow-sm">
-          <div class="flex items-center gap-2.5">
-            <AlertTriangle class="size-5 shrink-0 text-warning-foreground" />
-            <h3 class="text-sm font-semibold text-foreground">{t('featurePage.alerts.type_family_risk_title')}</h3>
-          </div>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_family_risk_body')}</p>
-          <div class="mt-3 flex items-center gap-1.5">
-            <span class="size-1.5 rounded-full bg-warning"></span>
-            <span class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.type_family_risk_visibility')}</span>
-          </div>
-        </div>
-
-        <div class="rounded-xl border border-warning/20 bg-card p-5 shadow-sm">
-          <div class="flex items-center gap-2.5">
-            <Clock class="size-5 shrink-0 text-warning-foreground" />
-            <h3 class="text-sm font-semibold text-foreground">{t('featurePage.alerts.type_suspension_title')}</h3>
-          </div>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_suspension_body')}</p>
-          <div class="mt-3 flex items-center gap-1.5">
-            <span class="size-1.5 rounded-full bg-warning"></span>
-            <span class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.type_suspension_visibility')}</span>
-          </div>
-        </div>
-
-        <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
-          <div class="flex items-center gap-2.5">
-            <XCircle class="size-5 shrink-0 text-muted-foreground" />
-            <h3 class="text-sm font-semibold text-foreground">{t('featurePage.alerts.type_pickup_restriction_title')}</h3>
-          </div>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_pickup_restriction_body')}</p>
-          <div class="mt-3 flex items-center gap-1.5">
-            <span class="size-1.5 rounded-full bg-muted-foreground"></span>
-            <span class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.type_pickup_restriction_visibility')}</span>
-          </div>
-        </div>
-
-        <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
-          <div class="flex items-center gap-2.5">
-            <CheckCircle2 class="size-5 shrink-0 text-primary" />
-            <h3 class="text-sm font-semibold text-foreground">{t('featurePage.alerts.type_custom_title')}</h3>
-          </div>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.alerts.type_custom_body')}</p>
-          <div class="mt-3 flex items-center gap-1.5">
-            <span class="size-1.5 rounded-full bg-primary"></span>
-            <span class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.type_custom_visibility')}</span>
-          </div>
-        </div>
+        {/each}
 
       </div>
     </div>
@@ -298,21 +251,24 @@
         <p class="mt-3 text-base text-muted-foreground">{t('featurePage.alerts.why_subtitle')}</p>
       </div>
       <div class="mt-10 grid gap-4 sm:grid-cols-3">
-        <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
-          <p class="text-3xl font-bold text-destructive">20.000</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.alerts.stat_fine_label')}</p>
-          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.alerts.stat_fine_desc')}</p>
-        </div>
-        <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
-          <p class="text-3xl font-bold text-primary">12.038</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.alerts.stat_schools_label')}</p>
-          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.alerts.stat_schools_desc')}</p>
-        </div>
-        <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
-          <p class="text-3xl font-bold text-warning-foreground">dic 2026</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.alerts.stat_deadline_label')}</p>
-          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.alerts.stat_deadline_desc')}</p>
-        </div>
+        <StatCard
+          value="20.000"
+          valueClass="text-destructive"
+          label={t('featurePage.alerts.stat_fine_label')}
+          description={t('featurePage.alerts.stat_fine_desc')}
+        />
+        <StatCard
+          value="12.038"
+          valueClass="text-primary"
+          label={t('featurePage.alerts.stat_schools_label')}
+          description={t('featurePage.alerts.stat_schools_desc')}
+        />
+        <StatCard
+          value="dic 2026"
+          valueClass="text-warning-foreground"
+          label={t('featurePage.alerts.stat_deadline_label')}
+          description={t('featurePage.alerts.stat_deadline_desc')}
+        />
       </div>
     </div>
   </section>

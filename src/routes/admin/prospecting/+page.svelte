@@ -631,7 +631,7 @@
                           <ChevronRight class="size-3.5" />
                         </Table.Cell>
                         <Table.Cell>
-                          <Badge variant={tierBadgeVariant(sost.tier)} class="text-[10px] font-bold">T{sost.tier}</Badge>
+                          <Badge variant={tierBadgeVariant(sost.tier)} class="text-mockup-xs font-bold">T{sost.tier}</Badge>
                         </Table.Cell>
                         <Table.Cell class="max-w-[300px] truncate font-medium">{sost.name}</Table.Cell>
                         <Table.Cell class="text-right tabular-nums">{sost.schoolCount}</Table.Cell>
@@ -664,7 +664,7 @@
               {/if}
             </div>
 
-            <div class="mt-4 flex flex-wrap items-center gap-4 text-[11px] text-muted-foreground">
+            <div class="mt-4 flex flex-wrap items-center gap-4 text-mockup-sm text-muted-foreground">
               <span><span class="inline-block size-2 rounded-full bg-primary/60"></span> Tier 1 (score 60+): Whale accounts — multi-school, high enrollment, private</span>
               <span><span class="inline-block size-2 rounded-full bg-warning/60"></span> Tier 2 (score 35-59): Mid-market — growth targets</span>
               <span><span class="inline-block size-2 rounded-full bg-muted-foreground/40"></span> Tier 3 (&lt;35): Long-tail — smaller/public</span>
@@ -767,7 +767,7 @@
                   <!-- Prospect header row -->
                   <div class="flex flex-wrap items-center gap-3 p-4">
                     <div class="flex min-w-0 flex-1 items-center gap-3">
-                      <Badge variant={tierBadgeVariant(prospect.tier)} class="shrink-0 text-[10px] font-bold">T{prospect.tier}</Badge>
+                      <Badge variant={tierBadgeVariant(prospect.tier)} class="shrink-0 text-mockup-xs font-bold">T{prospect.tier}</Badge>
                       <span class="min-w-0 truncate font-medium text-foreground">{prospect.sostenedor_name}</span>
                       <span class="hidden shrink-0 text-xs text-muted-foreground sm:inline">{prospect.school_count} colegios · {prospect.total_enrollment.toLocaleString()} alumnos</span>
                     </div>
@@ -887,23 +887,23 @@
                     <div class="border-t border-border p-4">
                       <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                         <div>
-                          <Label for="edit-contact-name-{prospect.id}" class="mb-1 block text-[11px]">Contacto</Label>
+                          <Label for="edit-contact-name-{prospect.id}" class="mb-1 block text-mockup-sm">Contacto</Label>
                           <Input id="edit-contact-name-{prospect.id}" type="text" bind:value={editDraft.contact_name} placeholder="Nombre" />
                         </div>
                         <div>
-                          <Label for="edit-contact-role-{prospect.id}" class="mb-1 block text-[11px]">Rol</Label>
+                          <Label for="edit-contact-role-{prospect.id}" class="mb-1 block text-mockup-sm">Rol</Label>
                           <Input id="edit-contact-role-{prospect.id}" type="text" bind:value={editDraft.contact_role} placeholder="Director, Administrador..." />
                         </div>
                         <div>
-                          <Label for="edit-contact-email-{prospect.id}" class="mb-1 block text-[11px]">Email</Label>
+                          <Label for="edit-contact-email-{prospect.id}" class="mb-1 block text-mockup-sm">Email</Label>
                           <Input id="edit-contact-email-{prospect.id}" type="email" bind:value={editDraft.contact_email} placeholder="correo@colegio.cl" />
                         </div>
                         <div>
-                          <Label for="edit-contact-phone-{prospect.id}" class="mb-1 block text-[11px]">Teléfono</Label>
+                          <Label for="edit-contact-phone-{prospect.id}" class="mb-1 block text-mockup-sm">Teléfono</Label>
                           <Input id="edit-contact-phone-{prospect.id}" type="tel" bind:value={editDraft.contact_phone} placeholder="+56 9..." />
                         </div>
                         <div>
-                          <Label class="mb-1 block text-[11px]">Canal</Label>
+                          <Label class="mb-1 block text-mockup-sm">Canal</Label>
                           <Select.Root type="single" bind:value={editDraft.channel as string}>
                             <Select.Trigger class="w-full">
                               {editDraft.channel && editDraft.channel !== 'none' ? editDraft.channel : 'Sin canal'}
@@ -917,19 +917,19 @@
                           </Select.Root>
                         </div>
                         <div>
-                          <Label for="edit-linkedin-{prospect.id}" class="mb-1 block text-[11px]">LinkedIn</Label>
+                          <Label for="edit-linkedin-{prospect.id}" class="mb-1 block text-mockup-sm">LinkedIn</Label>
                           <Input id="edit-linkedin-{prospect.id}" type="url" bind:value={editDraft.linkedin_url} placeholder="https://linkedin.com/..." />
                         </div>
                         <div class="sm:col-span-2">
-                          <Label for="edit-next-step-{prospect.id}" class="mb-1 block text-[11px]">Próximo paso</Label>
+                          <Label for="edit-next-step-{prospect.id}" class="mb-1 block text-mockup-sm">Próximo paso</Label>
                           <Input id="edit-next-step-{prospect.id}" type="text" bind:value={editDraft.next_step} placeholder="Enviar propuesta, llamar..." />
                         </div>
                         <div>
-                          <Label for="edit-next-step-date-{prospect.id}" class="mb-1 block text-[11px]">Fecha próximo paso</Label>
+                          <Label for="edit-next-step-date-{prospect.id}" class="mb-1 block text-mockup-sm">Fecha próximo paso</Label>
                           <Input id="edit-next-step-date-{prospect.id}" type="date" bind:value={editDraft.next_step_date} />
                         </div>
                         <div class="sm:col-span-2 lg:col-span-3">
-                          <Label for="edit-notes-{prospect.id}" class="mb-1 block text-[11px]">Notas</Label>
+                          <Label for="edit-notes-{prospect.id}" class="mb-1 block text-mockup-sm">Notas</Label>
                           <textarea
                             id="edit-notes-{prospect.id}"
                             bind:value={editDraft.notes}
@@ -987,7 +987,7 @@
                   <div class="flex items-center gap-3 text-muted-foreground">
                     <span class="flex items-center gap-1"><MapPin class="size-3" />{school.c}</span>
                     <span class="tabular-nums">{(school.m || 0).toLocaleString()}</span>
-                    <span class="rounded bg-muted px-1.5 py-0.5 text-[10px]">RBD {school.r}</span>
+                    <span class="rounded bg-muted px-1.5 py-0.5 text-mockup-xs">RBD {school.r}</span>
                   </div>
                 </div>
               {/each}

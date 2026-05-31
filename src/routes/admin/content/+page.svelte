@@ -461,7 +461,7 @@
               {#if !isConnected}
                 <a
                   href={SOCIAL_AUTH_URLS[platform]}
-                  class="inline-flex items-center gap-1 rounded-md bg-muted px-2 py-0.5 text-[11px] font-medium text-foreground transition-colors hover:bg-muted/70"
+                  class="inline-flex items-center gap-1 rounded-md bg-muted px-2 py-0.5 text-mockup-sm font-medium text-foreground transition-colors hover:bg-muted/70"
                 >
                   <Link class="size-3" />
                   Conectar
@@ -476,7 +476,7 @@
       <div class="mb-4 rounded-xl border border-border bg-background p-4">
         <div class="flex flex-wrap items-end gap-3">
           <div class="min-w-[200px] flex-1">
-            <Label for="search" class="mb-1.5 block text-[11px]">Buscar</Label>
+            <Label for="search" class="mb-1.5 block text-mockup-sm">Buscar</Label>
             <div class="relative">
               <Search class="pointer-events-none absolute left-3 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
               <Input
@@ -489,7 +489,7 @@
             </div>
           </div>
           <div class="min-w-[160px]">
-            <Label for="platform-filter" class="mb-1.5 block text-[11px]">Plataforma</Label>
+            <Label for="platform-filter" class="mb-1.5 block text-mockup-sm">Plataforma</Label>
             <!-- `as any`: bits-ui v2 single-select types `value` as `string`, but our filter unions narrow it ('all' | Platform); the cast bridges that typing gap. -->
             <Select.Root type="single" bind:value={platformFilter as any}>
               <Select.Trigger id="platform-filter" class="w-full">
@@ -504,7 +504,7 @@
             </Select.Root>
           </div>
           <div class="min-w-[160px]">
-            <Label for="status-filter" class="mb-1.5 block text-[11px]">Estado</Label>
+            <Label for="status-filter" class="mb-1.5 block text-mockup-sm">Estado</Label>
             <Select.Root type="single" bind:value={statusFilter as any}>
               <Select.Trigger id="status-filter" class="w-full">
                 {statusFilter === 'all' ? 'Todos' : STATUS_LABELS[statusFilter as PostStatus]}
@@ -568,10 +568,10 @@
                   onclick={() => { expandedId = expandedId === post.id ? null : post.id; }}
                 >
                   <div class="flex flex-wrap items-center gap-2 mb-1">
-                    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold {PLATFORM_CLASSES[post.platform]}">
+                    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-mockup-sm font-semibold {PLATFORM_CLASSES[post.platform]}">
                       {PLATFORM_LABELS[post.platform]}
                     </span>
-                    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold {STATUS_CLASSES[post.status]}">
+                    <span class="inline-flex items-center rounded-full px-2 py-0.5 text-mockup-sm font-semibold {STATUS_CLASSES[post.status]}">
                       {STATUS_LABELS[post.status]}
                     </span>
                   </div>
@@ -581,13 +581,13 @@
                   </p>
                   <div class="mt-2 flex flex-wrap items-center gap-3">
                     {#if post.hashtags && post.hashtags.length > 0}
-                      <span class="flex items-center gap-1 text-[11px] text-muted-foreground">
+                      <span class="flex items-center gap-1 text-mockup-sm text-muted-foreground">
                         <Hash class="size-3" />
                         {post.hashtags.slice(0, 3).map((t) => `#${t}`).join(' ')}
                         {#if post.hashtags.length > 3}<span>+{post.hashtags.length - 3}</span>{/if}
                       </span>
                     {/if}
-                    <span class="flex items-center gap-1 text-[11px] text-muted-foreground">
+                    <span class="flex items-center gap-1 text-mockup-sm text-muted-foreground">
                       <Calendar class="size-3" />
                       {formatDate(post.created_at)}
                     </span>
@@ -644,13 +644,13 @@
               {#if expandedId === post.id}
                 <div class="border-t border-border bg-muted/20 px-5 py-4 space-y-4">
                   <div>
-                    <p class="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Contenido completo</p>
+                    <p class="text-mockup-sm font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Contenido completo</p>
                     <p class="whitespace-pre-wrap text-sm text-foreground">{cleanBody(post.body)}</p>
                   </div>
 
                   {#if post.hashtags && post.hashtags.length > 0}
                     <div>
-                      <p class="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Hashtags</p>
+                      <p class="text-mockup-sm font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Hashtags</p>
                       <div class="flex flex-wrap gap-1.5">
                         {#each post.hashtags as tag}
                           <Badge variant="secondary">#{tag}</Badge>
@@ -660,7 +660,7 @@
                   {/if}
 
                   <div>
-                    <p class="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Imagen</p>
+                    <p class="text-mockup-sm font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">Imagen</p>
                     {#if post.image_url}
                       <img src={post.image_url} alt={`Imagen de portada: ${post.title}`} class="h-24 w-auto rounded-lg border border-border object-cover" />
                     {:else}
@@ -676,7 +676,7 @@
 
                   {#if post.published_url}
                     <div>
-                      <p class="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">URL publicada</p>
+                      <p class="text-mockup-sm font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">URL publicada</p>
                       <a href={post.published_url} target="_blank" rel="noopener noreferrer" class="text-sm text-primary hover:underline break-all">
                         {post.published_url}
                       </a>

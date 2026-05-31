@@ -206,7 +206,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-2">
         <Clock class="size-5 shrink-0 text-primary" />
-        <h2 class="text-xl text-foreground sm:text-2xl">{t('audience.porteros.scenario_title')}</h2>
+        <h2 class="font-heading text-xl text-foreground sm:text-2xl">{t('audience.porteros.scenario_title')}</h2>
       </div>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         {t('audience.porteros.scenario_intro')}
@@ -256,7 +256,7 @@
         <div>
           <div class="flex items-center gap-3 mb-2">
             <Eye class="size-5 shrink-0 text-primary" />
-            <h2 class="text-xl text-foreground sm:text-2xl">{t('audience.porteros.privacy_title')}</h2>
+            <h2 class="font-heading text-xl text-foreground sm:text-2xl">{t('audience.porteros.privacy_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('audience.porteros.privacy_body1')}
@@ -323,7 +323,7 @@
         <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
           <div class="flex items-center gap-2.5 mb-3">
             <UserCheck class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base text-foreground">{t('audience.porteros.training_title')}</h3>
+            <h3 class="font-heading text-base text-foreground">{t('audience.porteros.training_title')}</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground mb-4">
             {t('audience.porteros.training_body')}
@@ -345,7 +345,7 @@
         <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
           <div class="flex items-center gap-2.5 mb-3">
             <WifiOff class="size-5 shrink-0 text-warning-foreground" />
-            <h3 class="text-base text-foreground">{t('audience.porteros.offline_title')}</h3>
+            <h3 class="font-heading text-base text-foreground">{t('audience.porteros.offline_title')}</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground mb-4">
             {t('audience.porteros.offline_body')}

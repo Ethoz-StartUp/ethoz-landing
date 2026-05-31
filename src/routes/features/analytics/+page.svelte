@@ -1,6 +1,7 @@
 <script lang="ts">
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
+  import StatCard from '$lib/components/StatCard.svelte';
   import EditorialSection from '$lib/components/EditorialSection.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
@@ -288,21 +289,24 @@
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 sm:grid-cols-3">
-        <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
-          <p class="text-3xl font-bold text-primary">5.777</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.analytics.stat_holders_label')}</p>
-          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.analytics.stat_holders_body')}</p>
-        </div>
-        <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
-          <p class="text-3xl font-bold text-destructive">4%</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.analytics.stat_revenue_label')}</p>
-          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.analytics.stat_revenue_body')}</p>
-        </div>
-        <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
-          <p class="text-3xl font-bold text-success">100%</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.analytics.stat_ownership_label')}</p>
-          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.analytics.stat_ownership_body')}</p>
-        </div>
+        <StatCard
+          value="5.777"
+          valueClass="text-primary"
+          label={t('featurePage.analytics.stat_holders_label')}
+          description={t('featurePage.analytics.stat_holders_body')}
+        />
+        <StatCard
+          value="4%"
+          valueClass="text-destructive"
+          label={t('featurePage.analytics.stat_revenue_label')}
+          description={t('featurePage.analytics.stat_revenue_body')}
+        />
+        <StatCard
+          value="100%"
+          valueClass="text-success"
+          label={t('featurePage.analytics.stat_ownership_label')}
+          description={t('featurePage.analytics.stat_ownership_body')}
+        />
       </div>
     </div>
   </section>

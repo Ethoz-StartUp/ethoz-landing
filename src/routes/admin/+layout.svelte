@@ -51,7 +51,7 @@
           </svg>
           <span class="text-lg font-bold tracking-tight"><span class="text-foreground">Etho</span><span class="text-primary">z</span></span>
         </a>
-        <span class="rounded-md bg-primary/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary">Admin</span>
+        <span class="rounded-md bg-primary/10 px-2 py-0.5 text-mockup-xs font-bold uppercase tracking-wider text-primary">Admin</span>
       </div>
       <nav class="hidden items-center gap-1 sm:flex">
         <a

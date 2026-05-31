@@ -108,7 +108,7 @@
       </form>
     </div>
 
-    <p class="mt-4 text-center text-[11px] text-muted-foreground">
+    <p class="mt-4 text-center text-mockup-sm text-muted-foreground">
       <a href="/" class="transition-colors hover:text-foreground">Volver al sitio</a>
     </p>
   </div>

@@ -1,6 +1,7 @@
 <script lang="ts">
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
+  import StatCard from '$lib/components/StatCard.svelte';
   import EditorialSection from '$lib/components/EditorialSection.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
@@ -265,21 +266,24 @@
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-4 sm:grid-cols-3">
-        <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
-          <p class="text-3xl font-bold text-destructive">20.000</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.attendance.stat_fine_label')}</p>
-          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.attendance.stat_fine_desc')}</p>
-        </div>
-        <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
-          <p class="text-3xl font-bold text-primary">Circular N°30</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.attendance.stat_circular_label')}</p>
-          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.attendance.stat_circular_desc')}</p>
-        </div>
-        <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
-          <p class="text-3xl font-bold text-warning-foreground">15%</p>
-          <p class="mt-1 text-sm font-semibold text-foreground">{t('featurePage.attendance.stat_threshold_label')}</p>
-          <p class="mt-2 text-xs text-muted-foreground">{t('featurePage.attendance.stat_threshold_desc')}</p>
-        </div>
+        <StatCard
+          value="20.000"
+          valueClass="text-destructive"
+          label={t('featurePage.attendance.stat_fine_label')}
+          description={t('featurePage.attendance.stat_fine_desc')}
+        />
+        <StatCard
+          value="Circular N°30"
+          valueClass="text-primary"
+          label={t('featurePage.attendance.stat_circular_label')}
+          description={t('featurePage.attendance.stat_circular_desc')}
+        />
+        <StatCard
+          value="15%"
+          valueClass="text-warning-foreground"
+          label={t('featurePage.attendance.stat_threshold_label')}
+          description={t('featurePage.attendance.stat_threshold_desc')}
+        />
       </div>
     </div>
   </section>

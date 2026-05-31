@@ -16,10 +16,6 @@ export function formatDateTime(dateStr: string): string {
   });
 }
 
-export function truncateText(text: string, limit: number, suffix = '...'): string {
-  return text.length > limit ? text.slice(0, limit) + suffix : text;
-}
-
 export function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
