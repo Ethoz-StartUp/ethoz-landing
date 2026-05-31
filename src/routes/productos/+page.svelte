@@ -116,8 +116,8 @@
       <!-- Editorial eyebrow — Cal-flavored, mirrors the /get-started pattern -->
       <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         <span class="text-primary">Catálogo de módulos</span>
-        <span aria-hidden="true" class="text-border">·</span>
-        <span>10 productos · Activa solo los que necesitas</span>
+        <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
+        <span class="hidden sm:inline">10 productos · Activa solo los que necesitas</span>
       </p>
       <h1 class="mt-4 text-balance text-foreground">
         Diez módulos. Un solo objetivo.

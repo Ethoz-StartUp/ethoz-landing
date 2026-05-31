@@ -47,8 +47,8 @@
     transition:slide={{ duration: 300 }}
     class="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background shadow-lg"
   >
-    <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-      <p class="text-sm text-muted-foreground sm:flex-1">
+    <div class="mx-auto flex max-w-7xl flex-col gap-2.5 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-4">
+      <p class="text-xs leading-snug text-muted-foreground sm:flex-1 sm:text-sm sm:leading-normal">
         Usamos cookies para mejorar tu experiencia y medir el rendimiento del sitio. Puedes aceptar todo, mantener solo las esenciales o personalizar tus preferencias. Revisa nuestra
         <a href="/privacy" class="font-medium text-foreground underline underline-offset-2 hover:text-primary">política de privacidad</a>.
       </p>

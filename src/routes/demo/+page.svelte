@@ -147,7 +147,7 @@
   </nav>
 
   <!-- Content -->
-  <div id="demo-search-main" class="mx-auto flex-1 w-full max-w-xl px-4 py-12 sm:py-16">
+  <div id="demo-search-main" class="mx-auto flex w-full max-w-xl flex-1 flex-col justify-center px-4 py-12 sm:py-16">
     <div class="space-y-6">
       <div class="text-center">
         <div class="mx-auto mb-4 flex size-14 items-center justify-center rounded-full bg-primary/10">
