@@ -237,14 +237,18 @@
           </p>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/compliance-rbac.webp" alt={t('compliance_page.rbac.alt')} class="w-full max-w-xs rounded-2xl" loading="lazy" />
+          <div class="w-full max-w-xs overflow-hidden rounded-2xl border border-hairline bg-card shadow-card">
+            <img src="/images/pages/compliance-rbac.webp" alt={t('compliance_page.rbac.alt')} class="w-full" loading="lazy" />
+          </div>
         </div>
       </div>
 
       <!-- Pickups -->
       <div class="mt-20 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
-          <img src="/images/pages/compliance-pickups.webp" alt={t('compliance_page.pickups.alt')} class="w-full max-w-xs rounded-2xl" loading="lazy" />
+          <div class="w-full max-w-xs overflow-hidden rounded-2xl border border-hairline bg-card shadow-card">
+            <img src="/images/pages/compliance-pickups.webp" alt={t('compliance_page.pickups.alt')} class="w-full" loading="lazy" />
+          </div>
         </div>
         <div class="order-1 lg:order-2">
           <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('compliance_page.pickups.overline')}</p>
@@ -309,7 +313,9 @@
           </p>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/compliance-audit.webp" alt={t('compliance_page.audit.alt')} class="w-full max-w-xs rounded-2xl" loading="lazy" />
+          <div class="w-full max-w-xs overflow-hidden rounded-2xl border border-hairline bg-card shadow-card">
+            <img src="/images/pages/compliance-audit.webp" alt={t('compliance_page.audit.alt')} class="w-full" loading="lazy" />
+          </div>
         </div>
       </div>
     </div>
