@@ -4,15 +4,25 @@
   import { Button } from '$lib/components/ui/button';
   import { Printer, ArrowLeft } from '@lucide/svelte';
   import { BRAND } from '$lib/brand';
+  import { t } from '$lib/i18n/index.svelte';
+
+  const rights = [
+    { rightKey: 'resPrivacyNotice.right_access_label' as const, descKey: 'resPrivacyNotice.right_access_desc' as const },
+    { rightKey: 'resPrivacyNotice.right_rectification_label' as const, descKey: 'resPrivacyNotice.right_rectification_desc' as const },
+    { rightKey: 'resPrivacyNotice.right_cancellation_label' as const, descKey: 'resPrivacyNotice.right_cancellation_desc' as const },
+    { rightKey: 'resPrivacyNotice.right_opposition_label' as const, descKey: 'resPrivacyNotice.right_opposition_desc' as const },
+    { rightKey: 'resPrivacyNotice.right_portability_label' as const, descKey: 'resPrivacyNotice.right_portability_desc' as const },
+    { rightKey: 'resPrivacyNotice.right_revocation_label' as const, descKey: 'resPrivacyNotice.right_revocation_desc' as const }
+  ];
 </script>
 
 <svelte:head>
-  <title>Modelo de Aviso de Privacidad Escolar — Plantilla gratuita | {BRAND}</title>
-  <meta name="description" content="Plantilla de aviso de privacidad conforme al Art. 14 de la Ley 21.719 para establecimientos educacionales chilenos. Descarga gratis." />
+  <title>{t('resPrivacyNotice.meta_title')}</title>
+  <meta name="description" content={t('resPrivacyNotice.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/resources/privacy-notice" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Modelo de Aviso de Privacidad Escolar | ${BRAND}`} />
-  <meta property="og:description" content="Plantilla conforme a la Ley 21.719 para publicar el aviso de privacidad en tu colegio." />
+  <meta property="og:title" content={t('resPrivacyNotice.og_title')} />
+  <meta property="og:description" content={t('resPrivacyNotice.og_description')} />
   <link rel="canonical" href="https://ethoz.cl/resources/privacy-notice" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
@@ -33,28 +43,28 @@
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
       <Button href="/resources" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
         <ArrowLeft class="size-4" />
-        Volver a recursos
+        {t('resPrivacyNotice.back_to_resources')}
       </Button>
       <Button href="/downloads/aviso-privacidad-escolar.pdf" download size="lg" class="gap-2">
         <Printer class="size-4" />
-        Descargar PDF
+        {t('resPrivacyNotice.download_pdf')}
       </Button>
     </div>
   </div>
 
   <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <div class="mb-12 border-b border-border pb-10">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
-        <span class="text-primary">Plantilla · Legal</span>
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
+        <span class="text-primary">{t('resPrivacyNotice.eyebrow_category')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>Art. 14 Ley 21.719</span>
+        <span>{t('resPrivacyNotice.eyebrow_article')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>10 secciones</span>
+        <span>{t('resPrivacyNotice.eyebrow_sections')}</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Modelo de Aviso de Privacidad Escolar</h1>
-      <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Complete los campos marcados con <span class="font-medium text-primary">[corchetes]</span> con la información de su establecimiento. Este aviso debe publicarse en el sitio web institucional y estar disponible físicamente en la recepción.</p>
-      <p class="mt-4 text-xs text-muted-foreground">Elaborado por {BRAND} · ethoz.cl · Basado en Ley 21.719 promulgada el 13 de diciembre de 2024</p>
+      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">{t('resPrivacyNotice.page_title')}</h1>
+      <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">{t('resPrivacyNotice.intro_before_brackets')} <span class="font-medium text-primary">{t('resPrivacyNotice.intro_brackets')}</span> {t('resPrivacyNotice.intro_after_brackets')}</p>
+      <p class="mt-4 text-xs text-muted-foreground">{t('resPrivacyNotice.attribution')}</p>
     </div>
 
     <!-- Document -->
@@ -62,142 +72,135 @@
 
       <!-- Header of document -->
       <div class="rounded-lg border-2 border-border bg-muted/20 p-6 text-center">
-        <p class="text-xs uppercase tracking-widest text-muted-foreground mb-2">Aviso de Privacidad</p>
-        <h2 class="text-xl text-foreground">[NOMBRE DEL ESTABLECIMIENTO EDUCACIONAL]</h2>
-        <p class="text-muted-foreground text-xs mt-1">RBD: [___________] · RUT: [___________]</p>
-        <p class="text-muted-foreground text-xs">Dirección: [___________], [Comuna], [Región], Chile</p>
-        <p class="text-xs text-muted-foreground mt-3">Vigente desde: [DD/MM/AAAA] · Versión [1.0]</p>
+        <p class="text-xs uppercase tracking-widest text-muted-foreground mb-2">{t('resPrivacyNotice.doc_kicker')}</p>
+        <h2 class="text-xl text-foreground">{t('resPrivacyNotice.doc_establishment_placeholder')}</h2>
+        <p class="text-muted-foreground text-xs mt-1">{t('resPrivacyNotice.doc_rbd_rut')}</p>
+        <p class="text-muted-foreground text-xs">{t('resPrivacyNotice.doc_address')}</p>
+        <p class="text-xs text-muted-foreground mt-3">{t('resPrivacyNotice.doc_validity')}</p>
       </div>
 
       <section>
-        <h3 class="font-semibold text-foreground mb-2">1. Identidad y datos del Responsable del Tratamiento</h3>
-        <p class="text-muted-foreground">El responsable del tratamiento de sus datos personales es <strong>[NOMBRE DEL ESTABLECIMIENTO]</strong>, RUT <strong>[__________]</strong>, con domicilio en <strong>[dirección completa]</strong>, comuna de <strong>[comuna]</strong>, región de <strong>[región]</strong>. Correo electrónico de contacto: <strong>[email institucional]</strong>. Teléfono: <strong>[teléfono]</strong>.</p>
+        <h3 class="font-semibold text-foreground mb-2">{t('resPrivacyNotice.s1_title')}</h3>
+        <p class="text-muted-foreground">{t('resPrivacyNotice.s1_p_a')} <strong>{t('resPrivacyNotice.s1_ph_establishment')}</strong>{t('resPrivacyNotice.s1_p_b')} <strong>{t('resPrivacyNotice.s1_ph_rut')}</strong>{t('resPrivacyNotice.s1_p_c')} <strong>{t('resPrivacyNotice.s1_ph_address')}</strong>{t('resPrivacyNotice.s1_p_d')} <strong>{t('resPrivacyNotice.s1_ph_commune')}</strong>{t('resPrivacyNotice.s1_p_e')} <strong>{t('resPrivacyNotice.s1_ph_region')}</strong>{t('resPrivacyNotice.s1_p_f')} <strong>{t('resPrivacyNotice.s1_ph_email')}</strong>{t('resPrivacyNotice.s1_p_g')} <strong>{t('resPrivacyNotice.s1_ph_phone')}</strong>{t('resPrivacyNotice.s1_p_h')}</p>
       </section>
 
       <section>
-        <h3 class="font-semibold text-foreground mb-2">2. Finalidades del Tratamiento</h3>
-        <p class="text-muted-foreground mb-3">Sus datos personales son tratados para las siguientes finalidades:</p>
+        <h3 class="font-semibold text-foreground mb-2">{t('resPrivacyNotice.s2_title')}</h3>
+        <p class="text-muted-foreground mb-3">{t('resPrivacyNotice.s2_intro')}</p>
         <ul class="space-y-2 text-muted-foreground">
-          <li class="flex items-start gap-2"><span class="text-primary mt-0.5 shrink-0">a)</span> <span><strong>Gestión educativa:</strong> matrícula, registros académicos, notas, asistencia, observaciones de convivencia escolar.</span></li>
-          <li class="flex items-start gap-2"><span class="text-primary mt-0.5 shrink-0">b)</span> <span><strong>Comunicación con apoderados:</strong> notificaciones sobre rendimiento, asistencia, eventos institucionales y situaciones de emergencia.</span></li>
-          <li class="flex items-start gap-2"><span class="text-primary mt-0.5 shrink-0">c)</span> <span><strong>Seguridad del establecimiento:</strong> control de accesos, registro de retiros de alumnos, verificación de identidad en ingreso.</span></li>
-          <li class="flex items-start gap-2"><span class="text-primary mt-0.5 shrink-0">d)</span> <span><strong>Cumplimiento legal:</strong> reporte de datos al Ministerio de Educación (MINEDUC), JUNAEB, organismos supervisores y otras obligaciones legales.</span></li>
-          <li class="flex items-start gap-2"><span class="text-primary mt-0.5 shrink-0">e)</span> <span><strong>Salud y bienestar del alumno:</strong> gestión de ficha médica, alergias, condiciones especiales y coordinación con centros de salud cuando corresponda.</span></li>
-          <li class="flex items-start gap-2"><span class="text-primary mt-0.5 shrink-0">f)</span> <span><strong>Proceso de admisión:</strong> evaluación y asignación de vacantes conforme al Sistema de Admisión Escolar (SAE).</span></li>
+          <li class="flex items-start gap-2"><span class="text-primary mt-0.5 shrink-0">a)</span> <span><strong>{t('resPrivacyNotice.s2_a_label')}</strong> {t('resPrivacyNotice.s2_a_desc')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-primary mt-0.5 shrink-0">b)</span> <span><strong>{t('resPrivacyNotice.s2_b_label')}</strong> {t('resPrivacyNotice.s2_b_desc')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-primary mt-0.5 shrink-0">c)</span> <span><strong>{t('resPrivacyNotice.s2_c_label')}</strong> {t('resPrivacyNotice.s2_c_desc')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-primary mt-0.5 shrink-0">d)</span> <span><strong>{t('resPrivacyNotice.s2_d_label')}</strong> {t('resPrivacyNotice.s2_d_desc')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-primary mt-0.5 shrink-0">e)</span> <span><strong>{t('resPrivacyNotice.s2_e_label')}</strong> {t('resPrivacyNotice.s2_e_desc')}</span></li>
+          <li class="flex items-start gap-2"><span class="text-primary mt-0.5 shrink-0">f)</span> <span><strong>{t('resPrivacyNotice.s2_f_label')}</strong> {t('resPrivacyNotice.s2_f_desc')}</span></li>
         </ul>
       </section>
 
       <section>
-        <h3 class="font-semibold text-foreground mb-2">3. Base Legal del Tratamiento</h3>
-        <p class="text-muted-foreground">El tratamiento de sus datos personales se basa en las siguientes fuentes de legitimidad conforme a la Ley 21.719:</p>
+        <h3 class="font-semibold text-foreground mb-2">{t('resPrivacyNotice.s3_title')}</h3>
+        <p class="text-muted-foreground">{t('resPrivacyNotice.s3_intro')}</p>
         <ul class="mt-2 space-y-1.5 text-muted-foreground list-disc pl-6">
-          <li><strong>Consentimiento del titular o apoderado</strong> (Art. 13): para datos sensibles, comunicaciones opcionales y finalidades adicionales.</li>
-          <li><strong>Ejecución de relación contractual</strong> (Art. 13 b): derivado del contrato de matrícula suscrito anualmente.</li>
-          <li><strong>Cumplimiento de obligaciones legales</strong> (Art. 13 c): reportes a MINEDUC, JUNAEB, Registro Civil, organismos judiciales y de salud.</li>
-          <li><strong>Interés legítimo</strong> (Art. 13 e): seguridad del establecimiento, comunicaciones institucionales y mejora del servicio educativo.</li>
+          <li><strong>{t('resPrivacyNotice.s3_a_label')}</strong> {t('resPrivacyNotice.s3_a_desc')}</li>
+          <li><strong>{t('resPrivacyNotice.s3_b_label')}</strong> {t('resPrivacyNotice.s3_b_desc')}</li>
+          <li><strong>{t('resPrivacyNotice.s3_c_label')}</strong> {t('resPrivacyNotice.s3_c_desc')}</li>
+          <li><strong>{t('resPrivacyNotice.s3_d_label')}</strong> {t('resPrivacyNotice.s3_d_desc')}</li>
         </ul>
       </section>
 
       <section>
-        <h3 class="font-semibold text-foreground mb-2">4. Categorías de Datos Tratados</h3>
+        <h3 class="font-semibold text-foreground mb-2">{t('resPrivacyNotice.s4_title')}</h3>
         <div class="overflow-x-auto rounded-lg border border-border">
           <table class="w-full text-sm">
             <thead>
               <tr class="border-b border-border bg-muted/50">
-                <th class="px-4 py-2.5 text-left font-medium">Categoría</th>
-                <th class="px-4 py-2.5 text-left font-medium">Ejemplos</th>
-                <th class="px-4 py-2.5 text-left font-medium">¿Sensibles?</th>
+                <th class="px-4 py-2.5 text-left font-medium">{t('resPrivacyNotice.s4_col_category')}</th>
+                <th class="px-4 py-2.5 text-left font-medium">{t('resPrivacyNotice.s4_col_examples')}</th>
+                <th class="px-4 py-2.5 text-left font-medium">{t('resPrivacyNotice.s4_col_sensitive')}</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-border text-muted-foreground">
-              <tr><td class="px-4 py-2.5">Identificación del alumno</td><td class="px-4 py-2.5">Nombre, RUT, fecha de nacimiento, fotografía</td><td class="px-4 py-2.5">No</td></tr>
-              <tr><td class="px-4 py-2.5">Identificación del apoderado</td><td class="px-4 py-2.5">Nombre, RUT, correo, teléfono, parentesco</td><td class="px-4 py-2.5">No</td></tr>
-              <tr><td class="px-4 py-2.5">Datos académicos</td><td class="px-4 py-2.5">Notas, asistencia, observaciones pedagógicas</td><td class="px-4 py-2.5">No</td></tr>
-              <tr><td class="px-4 py-2.5">Datos de salud</td><td class="px-4 py-2.5">Alergias, diagnósticos, medicamentos, PIE</td><td class="px-4 py-2.5"><span class="text-warning-foreground font-medium">Sí</span></td></tr>
-              <tr><td class="px-4 py-2.5">Datos socioeconómicos</td><td class="px-4 py-2.5">Situación JUNAEB, beneficios, becas</td><td class="px-4 py-2.5">Parcial</td></tr>
-              <tr><td class="px-4 py-2.5">Datos de seguridad</td><td class="px-4 py-2.5">Registros de acceso, retiros, alertas</td><td class="px-4 py-2.5">No</td></tr>
+              <tr><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_r1_cat')}</td><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_r1_ex')}</td><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_sensitive_no')}</td></tr>
+              <tr><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_r2_cat')}</td><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_r2_ex')}</td><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_sensitive_no')}</td></tr>
+              <tr><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_r3_cat')}</td><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_r3_ex')}</td><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_sensitive_no')}</td></tr>
+              <tr><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_r4_cat')}</td><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_r4_ex')}</td><td class="px-4 py-2.5"><span class="text-warning-foreground font-medium">{t('resPrivacyNotice.s4_sensitive_yes')}</span></td></tr>
+              <tr><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_r5_cat')}</td><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_r5_ex')}</td><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_sensitive_partial')}</td></tr>
+              <tr><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_r6_cat')}</td><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_r6_ex')}</td><td class="px-4 py-2.5">{t('resPrivacyNotice.s4_sensitive_no')}</td></tr>
             </tbody>
           </table>
         </div>
       </section>
 
       <section>
-        <h3 class="font-semibold text-foreground mb-2">5. Destinatarios de los Datos</h3>
-        <p class="text-muted-foreground mb-2">Sus datos pueden ser comunicados a los siguientes destinatarios, siempre en el marco de las finalidades declaradas:</p>
+        <h3 class="font-semibold text-foreground mb-2">{t('resPrivacyNotice.s5_title')}</h3>
+        <p class="text-muted-foreground mb-2">{t('resPrivacyNotice.s5_intro')}</p>
         <ul class="list-disc pl-6 space-y-1 text-muted-foreground">
-          <li>Ministerio de Educación (MINEDUC) y organismos dependientes (JUNAEB, JUNJI, CPEIP).</li>
-          <li>Proveedores tecnológicos del establecimiento que actúan como encargados del tratamiento, bajo contrato de confidencialidad.</li>
-          <li>Servicios de salud, cuando la situación del alumno lo requiera.</li>
-          <li>Organismos judiciales o Carabineros de Chile, ante requerimiento legal.</li>
-          <li><strong>[Nombre del sostenedor o red de colegios, si aplica]</strong>, en su calidad de sostenedor.</li>
+          <li>{t('resPrivacyNotice.s5_item1')}</li>
+          <li>{t('resPrivacyNotice.s5_item2')}</li>
+          <li>{t('resPrivacyNotice.s5_item3')}</li>
+          <li>{t('resPrivacyNotice.s5_item4')}</li>
+          <li><strong>{t('resPrivacyNotice.s5_item5_ph')}</strong>{t('resPrivacyNotice.s5_item5_rest')}</li>
         </ul>
       </section>
 
       <section>
-        <h3 class="font-semibold text-foreground mb-2">6. Transferencias Internacionales</h3>
+        <h3 class="font-semibold text-foreground mb-2">{t('resPrivacyNotice.s6_title')}</h3>
         <p class="text-muted-foreground">
-          [Opción A — sin transferencias:] El establecimiento no realiza transferencias internacionales de datos personales.<br/>
-          [Opción B — con transferencias:] Algunos de nuestros proveedores tecnológicos procesan datos en servidores ubicados fuera de Chile (principalmente en Estados Unidos y/o Europa). Dichas transferencias se realizan bajo las garantías exigidas por la Ley 21.719 y los contratos suscritos incluyen cláusulas de protección equivalentes.
+          {t('resPrivacyNotice.s6_option_a')}<br/>
+          {t('resPrivacyNotice.s6_option_b')}
         </p>
       </section>
 
       <section>
-        <h3 class="font-semibold text-foreground mb-2">7. Plazo de Conservación</h3>
-        <p class="text-muted-foreground">Los datos serán conservados durante el tiempo necesario para cumplir con las finalidades declaradas y las obligaciones legales aplicables:</p>
+        <h3 class="font-semibold text-foreground mb-2">{t('resPrivacyNotice.s7_title')}</h3>
+        <p class="text-muted-foreground">{t('resPrivacyNotice.s7_intro')}</p>
         <ul class="mt-2 list-disc pl-6 space-y-1 text-muted-foreground">
-          <li>Datos de matrícula y académicos: durante la vigencia de la relación educativa y <strong>5 años adicionales</strong> tras el egreso.</li>
-          <li>Datos de salud sensibles: durante la vigencia de la relación y <strong>10 años</strong> tras el egreso (conforme normativa sanitaria).</li>
-          <li>Registros de seguridad y acceso: <strong>2 años</strong> desde la fecha de registro.</li>
-          <li>Datos de procesos judiciales o disciplinarios: mientras exista obligación legal de conservarlos.</li>
+          <li>{t('resPrivacyNotice.s7_item1_pre')} <strong>{t('resPrivacyNotice.s7_item1_strong')}</strong> {t('resPrivacyNotice.s7_item1_post')}</li>
+          <li>{t('resPrivacyNotice.s7_item2_pre')} <strong>{t('resPrivacyNotice.s7_item2_strong')}</strong> {t('resPrivacyNotice.s7_item2_post')}</li>
+          <li>{t('resPrivacyNotice.s7_item3_pre')} <strong>{t('resPrivacyNotice.s7_item3_strong')}</strong> {t('resPrivacyNotice.s7_item3_post')}</li>
+          <li>{t('resPrivacyNotice.s7_item4')}</li>
         </ul>
       </section>
 
       <section>
-        <h3 class="font-semibold text-foreground mb-2">8. Derechos del Titular (ARCO+P)</h3>
-        <p class="text-muted-foreground mb-3">Conforme a la Ley 21.719, usted tiene los siguientes derechos respecto de sus datos personales:</p>
+        <h3 class="font-semibold text-foreground mb-2">{t('resPrivacyNotice.s8_title')}</h3>
+        <p class="text-muted-foreground mb-3">{t('resPrivacyNotice.s8_intro')}</p>
         <div class="grid gap-3 sm:grid-cols-2">
-          {#each [
-            { right: 'Acceso (A)', desc: 'Solicitar información sobre qué datos suyos tratamos, para qué finalidad y por cuánto tiempo.' },
-            { right: 'Rectificación (R)', desc: 'Solicitar la corrección de datos inexactos, incompletos o desactualizados.' },
-            { right: 'Cancelación / Supresión (C)', desc: 'Solicitar la eliminación de sus datos cuando ya no exista base legal para su tratamiento.' },
-            { right: 'Oposición (O)', desc: 'Oponerse al tratamiento de sus datos para finalidades específicas, en particular para marketing o comunicaciones.' },
-            { right: 'Portabilidad (P)', desc: 'Solicitar una copia de sus datos en formato estructurado, legible por máquina.' },
-            { right: 'Revocación del consentimiento', desc: 'Retirar en cualquier momento el consentimiento otorgado, sin que ello afecte el tratamiento previo a la revocación.' }
-          ] as r}
-            <div class="rounded-lg border border-border bg-card p-3">
-              <p class="font-medium text-foreground text-xs mb-1">{r.right}</p>
-              <p class="text-xs text-muted-foreground">{r.desc}</p>
+          {#each rights as r}
+            <div class="rounded-xl border border-border bg-card p-3">
+              <p class="font-medium text-foreground text-xs mb-1">{t(r.rightKey)}</p>
+              <p class="text-xs text-muted-foreground">{t(r.descKey)}</p>
             </div>
           {/each}
         </div>
       </section>
 
       <section>
-        <h3 class="font-semibold text-foreground mb-2">9. Cómo Ejercer sus Derechos</h3>
-        <p class="text-muted-foreground">Para ejercer cualquiera de los derechos anteriores, el titular o su representante legal puede:</p>
+        <h3 class="font-semibold text-foreground mb-2">{t('resPrivacyNotice.s9_title')}</h3>
+        <p class="text-muted-foreground">{t('resPrivacyNotice.s9_intro')}</p>
         <ul class="mt-2 list-disc pl-6 space-y-1 text-muted-foreground">
-          <li>Enviar un correo a: <strong>[email del DPO o secretaría]</strong> con el asunto "Ejercicio de Derechos ARCO+P".</li>
-          <li>Presentar una solicitud escrita en la secretaría del establecimiento, adjuntando copia de cédula de identidad.</li>
-          <li>Utilizar el formulario disponible en: <strong>[URL del formulario, si existe]</strong></li>
+          <li>{t('resPrivacyNotice.s9_item1_pre')} <strong>{t('resPrivacyNotice.s9_item1_ph')}</strong> {t('resPrivacyNotice.s9_item1_post')}</li>
+          <li>{t('resPrivacyNotice.s9_item2')}</li>
+          <li>{t('resPrivacyNotice.s9_item3_pre')} <strong>{t('resPrivacyNotice.s9_item3_ph')}</strong></li>
         </ul>
-        <p class="mt-3 text-muted-foreground">El establecimiento responderá en un plazo máximo de <strong>30 días hábiles</strong> desde la recepción de la solicitud (Art. 40, Ley 21.719). En caso de rechazo, se informarán los motivos y las vías de reclamación disponibles.</p>
+        <p class="mt-3 text-muted-foreground">{t('resPrivacyNotice.s9_response_pre')} <strong>{t('resPrivacyNotice.s9_response_strong')}</strong> {t('resPrivacyNotice.s9_response_post')}</p>
       </section>
 
       <section>
-        <h3 class="font-semibold text-foreground mb-2">10. Encargado de Protección de Datos (DPO)</h3>
-        <div class="rounded-lg border border-border bg-card p-4 text-muted-foreground">
-          <p><strong class="text-foreground">Nombre:</strong> [Nombre del DPO designado]</p>
-          <p><strong class="text-foreground">Correo:</strong> [dpo@establecimiento.cl]</p>
-          <p><strong class="text-foreground">Teléfono:</strong> [+56 X XXXX XXXX]</p>
-          <p class="mt-2 text-xs">Si considera que sus derechos han sido vulnerados, puede presentar un reclamo ante la <strong>Agencia de Protección de Datos Personales</strong> de Chile una vez que esta entre en funciones.</p>
+        <h3 class="font-semibold text-foreground mb-2">{t('resPrivacyNotice.s10_title')}</h3>
+        <div class="rounded-xl border border-border bg-card p-4 text-muted-foreground">
+          <p><strong class="text-foreground">{t('resPrivacyNotice.s10_name_label')}</strong> {t('resPrivacyNotice.s10_name_ph')}</p>
+          <p><strong class="text-foreground">{t('resPrivacyNotice.s10_email_label')}</strong> {t('resPrivacyNotice.s10_email_ph')}</p>
+          <p><strong class="text-foreground">{t('resPrivacyNotice.s10_phone_label')}</strong> {t('resPrivacyNotice.s10_phone_ph')}</p>
+          <p class="mt-2 text-xs">{t('resPrivacyNotice.s10_complaint_pre')} <strong>{t('resPrivacyNotice.s10_complaint_strong')}</strong> {t('resPrivacyNotice.s10_complaint_post')}</p>
         </div>
       </section>
 
     </div>
 
     <div class="print:hidden mt-10 text-center">
-      <p class="text-sm text-muted-foreground mb-4">{BRAND} genera y gestiona este aviso automáticamente para su establecimiento.</p>
-      <Button href="/demo">Solicitar demo gratuita</Button>
+      <p class="text-sm text-muted-foreground mb-4">{t('resPrivacyNotice.cta_text')}</p>
+      <Button href="/demo">{t('resPrivacyNotice.cta_button')}</Button>
     </div>
   </div>
 </main>

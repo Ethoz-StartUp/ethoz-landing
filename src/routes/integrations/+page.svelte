@@ -2,23 +2,23 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
-  import { BRAND } from '$lib/brand';
   import { ArrowRight, Upload, Database, Check, Zap, Building } from '@lucide/svelte';
   import { trackEvent } from '$lib/utils/analytics';
+  import { t } from '$lib/i18n/index.svelte';
 
   $effect(() => { trackEvent('integrations_page_viewed'); });
 </script>
 
 <svelte:head>
-  <title>Integraciones — {BRAND}</title>
-  <meta name="description" content={`${BRAND} se conecta con tu sistema actual o te ofrece un módulo básico de gestión escolar. Migramos tus datos sin que pierdas nada.`} />
+  <title>{t('integrations.meta_title')}</title>
+  <meta name="description" content={t('integrations.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/integrations" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Integraciones — ${BRAND}`} />
-  <meta property="og:description" content={`Conecta ${BRAND} con Napsis, Syscol, SIGE o cualquier sistema. Si no tienes uno, tenemos un módulo básico incluido.`} />
+  <meta property="og:title" content={t('integrations.meta_title')} />
+  <meta property="og:description" content={t('integrations.meta_og_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Integraciones — ${BRAND}`} />
-  <meta name="twitter:description" content={`Conecta ${BRAND} con tu sistema actual o usa nuestro módulo básico de gestión escolar.`} />
+  <meta name="twitter:title" content={t('integrations.meta_title')} />
+  <meta name="twitter:description" content={t('integrations.meta_twitter_description')} />
   <link rel="canonical" href="https://ethoz.cl/integrations" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Integraciones"}]})}</script>`}
 </svelte:head>
@@ -30,17 +30,17 @@
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-primary">Integraciones</span>
+        <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <span class="text-primary">{t('integrations.eyebrow')}</span>
           <span aria-hidden="true" class="text-border">·</span>
           <span>Napsis · Syscol · SchoolTrack · Lirmi</span>
         </p>
         <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
         <h1 class="mt-6 font-heading text-[2rem] leading-[1.15] text-foreground sm:text-[2.5rem] lg:text-[3rem]">
-          Se conecta con lo que ya usas
+          {t('integrations.hero_title')}
         </h1>
         <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
-          {BRAND} no reemplaza tu sistema académico — lo complementa. Si ya usas Napsis, Syscol, SchoolTrack u otra plataforma, nos integramos. Si no tienes sistema digital, tenemos un módulo básico incluido para que no te falte nada.
+          {t('integrations.hero_subtitle')}
         </p>
       </div>
     </div>
@@ -53,49 +53,49 @@
         <div>
           <span class="text-xs font-bold tabular-nums tracking-wider text-primary">01</span>
           <h2 class="mt-1.5 text-2xl text-foreground sm:text-3xl">
-            Integración con tu sistema actual
+            {t('integrations.opt1_title')}
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-            Si tu colegio ya tiene un sistema de gestión académica, {BRAND} se conecta sin reemplazarlo. Notas, asistencia y matrícula siguen donde están — {BRAND} agrega lo que falta: seguimiento integral, retiros seguros y cumplimiento normativo.
+            {t('integrations.opt1_body')}
           </p>
           <div class="mt-6 space-y-3">
             <div class="flex items-start gap-2.5">
               <Check class="mt-0.5 size-4 shrink-0 text-primary" />
-              <span class="text-sm text-muted-foreground">Importación desde Excel, CSV o cualquier formato estructurado</span>
+              <span class="text-sm text-muted-foreground">{t('integrations.opt1_bullet1')}</span>
             </div>
             <div class="flex items-start gap-2.5">
               <Check class="mt-0.5 size-4 shrink-0 text-primary" />
-              <span class="text-sm text-muted-foreground">Conexión con Napsis, Syscol, SchoolTrack y otros</span>
+              <span class="text-sm text-muted-foreground">{t('integrations.opt1_bullet2')}</span>
             </div>
             <div class="flex items-start gap-2.5">
               <Check class="mt-0.5 size-4 shrink-0 text-primary" />
-              <span class="text-sm text-muted-foreground">Integración con SIGE para matrícula y asistencia (en desarrollo)</span>
+              <span class="text-sm text-muted-foreground">{t('integrations.opt1_bullet3')}</span>
             </div>
             <div class="flex items-start gap-2.5">
               <Check class="mt-0.5 size-4 shrink-0 text-primary" />
-              <span class="text-sm text-muted-foreground">Sin doble digitación — los datos fluyen automáticamente</span>
+              <span class="text-sm text-muted-foreground">{t('integrations.opt1_bullet4')}</span>
             </div>
           </div>
         </div>
 
         <!-- Visual: compatible systems -->
         <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
-          <p class="mb-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">Sistemas compatibles</p>
+          <p class="mb-4 text-xs font-bold uppercase tracking-wider text-muted-foreground">{t('integrations.compatible_systems_label')}</p>
           <div class="space-y-3">
             {#each [
-              { name: 'Napsis', desc: 'Libro de clases y asistencia', status: 'Disponible' },
-              { name: 'Syscol', desc: 'Gestión académica', status: 'Disponible' },
-              { name: 'SchoolTrack', desc: 'Gestión escolar', status: 'Disponible' },
-              { name: 'SIGE / MINEDUC', desc: 'Matrícula y datos institucionales', status: 'En desarrollo' },
-              { name: 'Excel / CSV', desc: 'Cualquier formato estructurado', status: 'Disponible' },
+              { name: 'Napsis', descKey: 'integrations.system_napsis_desc' as const, status: 'available', statusLabelKey: 'integrations.status_available' as const },
+              { name: 'Syscol', descKey: 'integrations.system_syscol_desc' as const, status: 'available', statusLabelKey: 'integrations.status_available' as const },
+              { name: 'SchoolTrack', descKey: 'integrations.system_schooltrack_desc' as const, status: 'available', statusLabelKey: 'integrations.status_available' as const },
+              { name: 'SIGE / MINEDUC', descKey: 'integrations.system_sige_desc' as const, status: 'in_dev', statusLabelKey: 'integrations.status_in_dev' as const },
+              { name: 'Excel / CSV', descKey: 'integrations.system_excel_desc' as const, status: 'available', statusLabelKey: 'integrations.status_available' as const },
             ] as system}
               <div class="flex items-center justify-between rounded-lg border border-border px-4 py-3">
                 <div>
                   <p class="text-sm font-medium text-foreground">{system.name}</p>
-                  <p class="text-xs text-muted-foreground">{system.desc}</p>
+                  <p class="text-xs text-muted-foreground">{t(system.descKey)}</p>
                 </div>
-                <span class="shrink-0 rounded-full px-2.5 py-0.5 text-[10px] font-medium {system.status === 'Disponible' ? 'bg-success/10 text-success' : 'bg-warning/10 text-warning-foreground'}">
-                  {system.status}
+                <span class="shrink-0 rounded-full px-2.5 py-0.5 text-mockup-xs font-medium {system.status === 'available' ? 'bg-success/10 text-success' : 'bg-warning/10 text-warning-foreground'}">
+                  {t(system.statusLabelKey)}
                 </span>
               </div>
             {/each}
@@ -116,54 +116,54 @@
               <div class="size-2.5 rounded-full bg-destructive/60"></div>
               <div class="size-2.5 rounded-full bg-warning/60"></div>
               <div class="size-2.5 rounded-full bg-success/60"></div>
-              <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Gestión Básica</span>
+              <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{t('integrations.basic_module_card_label')}</span>
             </div>
             <div class="space-y-2.5">
               <div class="flex items-center justify-between rounded-lg bg-muted/50 px-3 py-2">
-                <span class="text-xs font-medium text-foreground">Libro de clases digital</span>
+                <span class="text-xs font-medium text-foreground">{t('integrations.basic_feature_logbook')}</span>
                 <Check class="size-3.5 text-success" />
               </div>
               <div class="flex items-center justify-between rounded-lg bg-muted/50 px-3 py-2">
-                <span class="text-xs font-medium text-foreground">Registro de asistencia</span>
+                <span class="text-xs font-medium text-foreground">{t('integrations.basic_feature_attendance')}</span>
                 <Check class="size-3.5 text-success" />
               </div>
               <div class="flex items-center justify-between rounded-lg bg-muted/50 px-3 py-2">
-                <span class="text-xs font-medium text-foreground">Conforme a Circular N°30</span>
+                <span class="text-xs font-medium text-foreground">{t('integrations.basic_feature_circular30')}</span>
                 <Check class="size-3.5 text-success" />
               </div>
               <div class="flex items-center justify-between rounded-lg bg-muted/50 px-3 py-2">
-                <span class="text-xs font-medium text-foreground">Exportación para SIGE</span>
+                <span class="text-xs font-medium text-foreground">{t('integrations.basic_feature_sige_export')}</span>
                 <Check class="size-3.5 text-success" />
               </div>
             </div>
-            <p class="mt-4 text-center text-[10px] text-muted-foreground">Incluido sin costo adicional en todos los planes</p>
+            <p class="mt-4 text-center text-mockup-xs text-muted-foreground">{t('integrations.basic_module_included_note')}</p>
           </div>
         </div>
 
         <div class="order-1 lg:order-2">
           <span class="text-xs font-bold tabular-nums tracking-wider text-primary">02</span>
           <h2 class="mt-1.5 text-2xl text-foreground sm:text-3xl">
-            ¿No tienes sistema? No es problema.
+            {t('integrations.opt2_title')}
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-            Si tu colegio todavía trabaja con planillas, cuadernos o no tiene un sistema digital, {BRAND} incluye un módulo básico de gestión escolar conforme a la Circular N°30. No buscamos reemplazar a nadie — pero si necesitas tener todo en un solo lugar, estamos preparados.
+            {t('integrations.opt2_body')}
           </p>
           <div class="mt-6 space-y-3">
             <div class="flex items-start gap-2.5">
               <Check class="mt-0.5 size-4 shrink-0 text-primary" />
-              <span class="text-sm text-muted-foreground">Libro de clases digital básico</span>
+              <span class="text-sm text-muted-foreground">{t('integrations.opt2_bullet1')}</span>
             </div>
             <div class="flex items-start gap-2.5">
               <Check class="mt-0.5 size-4 shrink-0 text-primary" />
-              <span class="text-sm text-muted-foreground">Registro de asistencia y observaciones</span>
+              <span class="text-sm text-muted-foreground">{t('integrations.opt2_bullet2')}</span>
             </div>
             <div class="flex items-start gap-2.5">
               <Check class="mt-0.5 size-4 shrink-0 text-primary" />
-              <span class="text-sm text-muted-foreground">Incluido sin costo adicional en todos los planes</span>
+              <span class="text-sm text-muted-foreground">{t('integrations.opt2_bullet3')}</span>
             </div>
             <div class="flex items-start gap-2.5">
               <Check class="mt-0.5 size-4 shrink-0 text-primary" />
-              <span class="text-sm text-muted-foreground">Si después contratas otro sistema, nos integramos sin perder datos</span>
+              <span class="text-sm text-muted-foreground">{t('integrations.opt2_bullet4')}</span>
             </div>
           </div>
         </div>
@@ -176,32 +176,32 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <div class="flex items-center justify-center gap-3">
         <Upload class="size-5 text-primary" />
-        <h2 class="text-2xl text-foreground sm:text-3xl">Nosotros migramos tus datos</h2>
+        <h2 class="text-2xl text-foreground sm:text-3xl">{t('integrations.migration_title')}</h2>
       </div>
       <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-        No tienes que mover un dedo. Nuestro equipo se encarga de importar tus datos históricos — desde Excel, desde tu sistema actual, o incluso desde registros en papel. En menos de 2 semanas tu colegio está operando con toda su información disponible.
+        {t('integrations.migration_body')}
       </p>
       <div class="mt-8 grid gap-4 sm:grid-cols-3">
         <div class="rounded-xl border border-border bg-card p-5">
           <div class="flex items-center gap-2.5">
             <Database class="size-5 shrink-0 text-primary" />
-            <p class="text-sm font-semibold text-foreground">Datos históricos</p>
+            <p class="text-sm font-semibold text-foreground">{t('integrations.migration_card1_title')}</p>
           </div>
-          <p class="mt-2 text-xs text-muted-foreground">Fichas de alumnos, observaciones, retiros — nada se pierde.</p>
+          <p class="mt-2 text-xs text-muted-foreground">{t('integrations.migration_card1_desc')}</p>
         </div>
         <div class="rounded-xl border border-border bg-card p-5">
           <div class="flex items-center gap-2.5">
             <Zap class="size-5 shrink-0 text-primary" />
-            <p class="text-sm font-semibold text-foreground">2 semanas</p>
+            <p class="text-sm font-semibold text-foreground">{t('integrations.migration_card2_title')}</p>
           </div>
-          <p class="mt-2 text-xs text-muted-foreground">Tiempo promedio de migración completa con datos verificados.</p>
+          <p class="mt-2 text-xs text-muted-foreground">{t('integrations.migration_card2_desc')}</p>
         </div>
         <div class="rounded-xl border border-border bg-card p-5">
           <div class="flex items-center gap-2.5">
             <Building class="size-5 shrink-0 text-primary" />
-            <p class="text-sm font-semibold text-foreground">Sin interrupciones</p>
+            <p class="text-sm font-semibold text-foreground">{t('integrations.migration_card3_title')}</p>
           </div>
-          <p class="mt-2 text-xs text-muted-foreground">El colegio sigue operando normal mientras migramos en paralelo.</p>
+          <p class="mt-2 text-xs text-muted-foreground">{t('integrations.migration_card3_desc')}</p>
         </div>
       </div>
     </div>
@@ -210,16 +210,16 @@
   <!-- CTA -->
   <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <h2 class="text-2xl text-foreground sm:text-3xl">¿Tienes dudas sobre la integración?</h2>
+      <h2 class="text-2xl text-foreground sm:text-3xl">{t('integrations.cta_title')}</h2>
       <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-        Agenda una demo y revisamos juntos cómo conectar {BRAND} con lo que tu colegio ya tiene. Sin compromiso.
+        {t('integrations.cta_body')}
       </p>
       <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <Button size="lg" href="/demo">
-          Agendar Demo <ArrowRight class="size-4" />
+          {t('integrations.cta_primary')} <ArrowRight class="size-4" />
         </Button>
         <Button size="lg" variant="outline" href="/productos">
-          Ver todos los productos
+          {t('integrations.cta_secondary')}
         </Button>
       </div>
     </div>

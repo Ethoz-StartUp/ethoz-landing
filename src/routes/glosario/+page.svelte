@@ -3,6 +3,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
   import { BRAND } from '$lib/brand';
+  import { t } from '$lib/i18n/index.svelte';
   import { trackEvent } from '$lib/utils/analytics';
   import { ArrowRight } from '@lucide/svelte';
 
@@ -90,10 +91,10 @@
 </script>
 
 <svelte:head>
-  <title>Glosario {BRAND} — términos clave para la protección escolar | {BRAND}</title>
-  <meta name="description" content="Glosario completo de términos de protección escolar y cumplimiento normativo en Chile: Ley 21.719, Circular N°30, ARCO+P, RLS, DPO, RBD, sostenedor y más." />
-  <meta property="og:title" content={`Glosario ${BRAND} — términos de protección escolar`} />
-  <meta property="og:description" content="Glosario completo de términos de protección escolar y cumplimiento normativo en Chile: Ley 21.719, Circular N°30, ARCO+P, RLS, DPO, RBD, sostenedor y más." />
+  <title>{t('glosario.meta_title')}</title>
+  <meta name="description" content={t('glosario.meta_description')} />
+  <meta property="og:title" content={t('glosario.og_title')} />
+  <meta property="og:description" content={t('glosario.meta_description')} />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://ethoz.cl/glosario" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -124,30 +125,30 @@
   <!-- HERO -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-        <span class="text-primary">Referencia</span>
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <span class="text-primary">{t('glosario.eyebrow')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span><span data-numeric>{totalTerms}</span> términos</span>
+        <span><span data-numeric>{totalTerms}</span> {t('glosario.count_terms')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>{allLetters.length} secciones</span>
+        <span>{allLetters.length} {t('glosario.count_sections')}</span>
       </p>
 
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
 
       <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
-        El vocabulario precede al cumplimiento.
+        {t('glosario.hero_title')}
       </h1>
 
       <p class="mt-8 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
-        Términos clave para entender la protección escolar, el cumplimiento normativo y la seguridad de datos en establecimientos educacionales chilenos. Cada definición incluye la norma que la respalda y enlaces a los documentos donde se aplica.
+        {t('glosario.hero_intro')}
       </p>
 
       <!-- Alphabet nav -->
-      <nav class="mt-10 flex flex-wrap gap-1.5" aria-label="Navegación alfabética">
+      <nav class="mt-10 flex flex-wrap gap-1.5" aria-label={t('glosario.nav_alphabet_label')}>
         {#each allLetters as letter}
           <a
             href="#{letter}"
-            class="flex size-9 items-center justify-center border border-border bg-card font-heading text-sm text-muted-foreground transition-colors hover:bg-muted/40 hover:border-foreground hover:text-foreground rounded-md"
+            class="flex size-11 sm:size-9 items-center justify-center border border-border bg-card font-heading text-sm text-muted-foreground transition-colors hover:bg-muted/40 hover:border-foreground hover:text-foreground rounded-md"
           >
             {letter}
           </a>
@@ -171,8 +172,8 @@
         <section id={letter}>
           <div class="flex items-baseline justify-between border-b border-border pb-4">
             <h2 class="font-heading text-6xl leading-none text-foreground sm:text-7xl">{letter}</h2>
-            <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground" data-numeric>
-              {glossary[letter].length} {glossary[letter].length === 1 ? 'término' : 'términos'}
+            <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground" data-numeric>
+              {glossary[letter].length} {glossary[letter].length === 1 ? t('glosario.count_term_singular') : t('glosario.count_terms')}
             </span>
           </div>
           <dl class="mt-8 divide-y divide-border border-b border-border">
@@ -181,14 +182,14 @@
                 <dt>
                   <dfn class="font-heading text-lg not-italic text-foreground">{item.term}</dfn>
                   {#if item.tag}
-                    <p class="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] {tagColors[item.tag] ?? 'text-muted-foreground'}">{item.tag}</p>
+                    <p class="mt-1 text-mockup-sm font-semibold uppercase tracking-[0.14em] {tagColors[item.tag] ?? 'text-muted-foreground'}">{item.tag}</p>
                   {/if}
                 </dt>
                 <dd>
                   <p class="text-sm leading-relaxed text-muted-foreground">{item.def}</p>
                   {#if item.link}
                     <a href={item.link} class="mt-3 inline-flex items-center gap-1 border-b border-primary pb-0.5 text-xs font-semibold text-primary hover:border-b-2">
-                      Ver documento <ArrowRight class="size-3" />
+                      {t('glosario.see_document')} <ArrowRight class="size-3" />
                     </a>
                   {/if}
                 </dd>
@@ -205,23 +206,23 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-glossary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-background/85">Consulta especializada</p>
+      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('glosario.cta_eyebrow')}</p>
       <h2 id="final-cta-glossary" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
-        ¿Hay un término que no encontró?
+        {t('glosario.cta_title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
-        Este glosario se actualiza continuamente. Si tiene dudas sobre normativa escolar o protección de datos, nuestro equipo puede responderlas directamente.
+        {t('glosario.cta_body')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
           class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-background px-10 text-base font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          Hablar con un especialista
+          {t('glosario.cta_primary')}
           <ArrowRight class="size-5" />
         </a>
         <a href="/ley-21719" class="inline-flex items-center gap-1 border-b border-background/60 pb-0.5 text-sm font-medium text-background/80 transition-colors hover:border-background hover:text-background">
-          Guía Ley 21.719
+          {t('glosario.cta_secondary')}
         </a>
       </div>
     </div>
@@ -229,17 +230,17 @@
 
   <section class="py-12 bg-background border-t border-border">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-5">También puede interesarle</p>
+      <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-5">{t('glosario.related_eyebrow')}</p>
       <div class="flex flex-wrap gap-3">
         {#each [
-          { href: '/ley-21719', label: 'Ley 21.719 — guía completa' },
-          { href: '/circular-30', label: 'Circular N°30 — libro de clases digital' },
-          { href: '/seguridad-datos', label: `Seguridad de datos en ${BRAND}` },
-          { href: '/comparativa', label: 'Comparativa de plataformas' },
-          { href: '/compliance', label: 'Cumplimiento normativo' },
+          { href: '/ley-21719', label: 'glosario.related_ley21719' as const },
+          { href: '/circular-30', label: 'glosario.related_circular30' as const },
+          { href: '/seguridad-datos', label: 'glosario.related_seguridad_datos' as const },
+          { href: '/comparativa', label: 'glosario.related_comparativa' as const },
+          { href: '/compliance', label: 'glosario.related_compliance' as const },
         ] as item}
           <a href={item.href} class="border border-border bg-card px-4 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted/40 hover:border-foreground hover:text-foreground rounded-md">
-            {item.label}
+            {t(item.label)}
           </a>
         {/each}
       </div>

@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { feedbackStore } from '$lib/stores/feedback.svelte';
   import FeedbackModal from '$lib/components/FeedbackModal.svelte';
+  import { t } from '$lib/i18n/index.svelte';
   import { MessageSquare, X, ExternalLink } from '@lucide/svelte';
 
   onMount(() => {
@@ -209,9 +210,9 @@
 <!-- Feedback banner — BEFORE navbar, pushes everything down -->
 {#if feedbackStore.active}
   <div data-feedback-overlay class="fixed top-0 left-0 right-0 z-[200] flex items-center justify-center bg-primary px-4 py-1.5 text-xs font-medium text-primary-foreground">
-    Shift+Click en cualquier elemento
+    {t('feedbackOverlay.banner_shift_click')}
     <span class="mx-2">·</span>
-    <kbd class="rounded bg-primary-foreground/20 px-1.5 py-0.5 text-[10px] font-mono">Esc</kbd>
+    <kbd class="rounded bg-primary-foreground/20 px-1.5 py-0.5 text-mockup-xs font-mono">Esc</kbd>
   </div>
 {/if}
 
@@ -231,13 +232,13 @@
         <div class="flex items-center justify-between rounded-t-2xl border-b border-border bg-primary px-4 py-3">
           <div class="flex items-center gap-2">
             <MessageSquare class="size-4 text-primary-foreground" />
-            <span class="text-sm font-semibold text-primary-foreground">Feedback</span>
+            <span class="text-sm font-semibold text-primary-foreground">{t('feedbackOverlay.panel_title')}</span>
           </div>
           <button
             type="button"
             onclick={() => (panelOpen = false)}
             class="rounded-lg p-1 text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground"
-            aria-label="Cerrar panel"
+            aria-label={t('feedbackOverlay.close_panel_aria')}
           >
             <X class="size-3.5" />
           </button>
@@ -246,7 +247,7 @@
         <!-- Panel body -->
         <div class="px-4 py-4 space-y-4">
           <p class="text-sm leading-relaxed text-muted-foreground">
-            Shift+Click en cualquier elemento para dejar feedback sobre esa sección.
+            {t('feedbackOverlay.panel_instructions')}
           </p>
 
           <!-- Toggle feedback mode -->
@@ -258,22 +259,22 @@
                 ? 'bg-primary/10 text-primary ring-1 ring-primary'
                 : 'bg-primary text-primary-foreground hover:bg-primary/90'}"
           >
-            {feedbackStore.active ? 'Modo activo — Esc para salir' : 'Activar modo feedback'}
+            {feedbackStore.active ? t('feedbackOverlay.toggle_active') : t('feedbackOverlay.toggle_inactive')}
           </button>
 
           <!-- Stats row -->
           {#if feedbackStore.items.length > 0}
             <div class="flex items-center justify-between rounded-lg bg-muted/50 px-3 py-2 text-xs text-muted-foreground">
-              <span>{feedbackStore.items.length} ítem{feedbackStore.items.length !== 1 ? 's' : ''} guardado{feedbackStore.items.length !== 1 ? 's' : ''}</span>
+              <span>{feedbackStore.items.length} {t('feedbackOverlay.stats_item')}{feedbackStore.items.length !== 1 ? 's' : ''} {t('feedbackOverlay.stats_saved')}{feedbackStore.items.length !== 1 ? 's' : ''}</span>
               <a
                 href="/suggestions"
                 class="flex items-center gap-1 font-medium text-primary hover:underline"
               >
-                Ver todos <ExternalLink class="size-3" />
+                {t('feedbackOverlay.view_all')} <ExternalLink class="size-3" />
               </a>
             </div>
           {:else}
-            <p class="text-center text-xs text-muted-foreground/60">Sin feedback aún</p>
+            <p class="text-center text-xs text-muted-foreground/60">{t('feedbackOverlay.empty_state')}</p>
           {/if}
         </div>
       </div>
@@ -287,14 +288,14 @@
         {feedbackStore.active
           ? 'bg-primary text-primary-foreground scale-105'
           : 'bg-card border border-border text-foreground hover:shadow-card-hover'}"
-      aria-label="Feedback"
-      title="Feedback"
+      aria-label={t('feedbackOverlay.fab_aria')}
+      title={t('feedbackOverlay.fab_aria')}
     >
       <MessageSquare class="size-6" />
 
       <!-- Pending badge -->
       {#if pendingCount > 0}
-        <span class="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-destructive text-[10px] font-bold text-destructive-foreground shadow">
+        <span class="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-destructive text-mockup-xs font-bold text-destructive-foreground shadow">
           {pendingCount > 9 ? '9+' : pendingCount}
         </span>
       {/if}

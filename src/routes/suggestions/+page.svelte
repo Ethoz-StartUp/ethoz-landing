@@ -224,7 +224,7 @@
         >
           {tab.label}
           {#if countByStatus(tab.key) > 0}
-            <span class="flex size-4 items-center justify-center rounded-full bg-primary/10 text-[10px] font-bold text-primary">
+            <span class="flex size-4 items-center justify-center rounded-full bg-primary/10 text-mockup-xs font-bold text-primary">
               {countByStatus(tab.key)}
             </span>
           {/if}
@@ -234,14 +234,14 @@
 
     <!-- Item list -->
     {#if filteredItems.length === 0}
-      <div class="flex flex-col items-center justify-center rounded-2xl border border-dashed border-border bg-muted/20 py-16 text-center">
+      <div class="flex flex-col items-center justify-center rounded-xl border border-dashed border-border bg-muted/20 py-16 text-center">
         <p class="text-sm font-medium text-muted-foreground">Sin ítems en esta categoría</p>
         <p class="mt-1 text-xs text-muted-foreground/60">Los ítems aparecerán aquí cuando uses Shift+Click en la página</p>
       </div>
     {:else}
       <div class="flex flex-col gap-4">
         {#each filteredItems as item (item.id)}
-          <div class="rounded-2xl border border-border bg-card p-5 shadow-sm">
+          <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
             <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
 
               <!-- Left: content -->

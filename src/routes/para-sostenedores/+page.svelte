@@ -5,10 +5,9 @@
   import { t } from '$lib/i18n/index.svelte';
   import {
     Building2, ArrowRight, ShieldAlert, BarChart3, BadgeCheck,
-    AlertTriangle, FileSearch, TrendingDown, Scale, CheckCircle,
+    AlertTriangle, FileSearch, TrendingDown, Scale, CheckCircle, XCircle,
     Users, DollarSign, Activity, ClipboardCheck
   } from '@lucide/svelte';
-  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
 
   $effect(() => { trackEvent('audience_page_viewed', { audience: 'sostenedores' }); });
@@ -22,24 +21,24 @@
   ];
 
   const auditLog = [
-    { hora: '09:14', colegio: 'Esc. La Esperanza', accion: 'Retiro bloqueado — orden judicial', usuario: 'Portero Soto', nivel: 'critical' },
-    { hora: '08:52', colegio: 'Col. San Patricio', accion: 'Incidente convivencia cerrado', usuario: 'Inspect. Herrera', nivel: 'info' },
-    { hora: '08:31', colegio: 'Lic. Santa María', accion: 'Protocolo PIE activado — 3° Medio A', usuario: 'Dir. Ramírez', nivel: 'info' },
-    { hora: '07:58', colegio: 'Inst. Bicentenario', accion: 'Alerta médica: crisis epiléptica', usuario: 'Sistem. automático', nivel: 'warning' },
-    { hora: '07:44', colegio: 'Col. Los Andes', accion: 'Datos exportados para Superintendencia', usuario: 'Dir. Fuentes', nivel: 'info' },
+    { hora: '09:14', colegio: 'Esc. La Esperanza', accion: 'audience.sostenedores.auditlog_accion1' as const, usuario: 'audience.sostenedores.auditlog_usuario1' as const, nivel: 'critical' },
+    { hora: '08:52', colegio: 'Col. San Patricio', accion: 'audience.sostenedores.auditlog_accion2' as const, usuario: 'audience.sostenedores.auditlog_usuario2' as const, nivel: 'info' },
+    { hora: '08:31', colegio: 'Lic. Santa María', accion: 'audience.sostenedores.auditlog_accion3' as const, usuario: 'audience.sostenedores.auditlog_usuario3' as const, nivel: 'info' },
+    { hora: '07:58', colegio: 'Inst. Bicentenario', accion: 'audience.sostenedores.auditlog_accion4' as const, usuario: 'audience.sostenedores.auditlog_usuario4' as const, nivel: 'warning' },
+    { hora: '07:44', colegio: 'Col. Los Andes', accion: 'audience.sostenedores.auditlog_accion5' as const, usuario: 'audience.sostenedores.auditlog_usuario5' as const, nivel: 'info' },
   ];
 </script>
 
 <svelte:head>
-  <title>{BRAND} para Sostenedores — Gestión multi-colegio y cumplimiento Ley 21.719</title>
-  <meta name="description" content="Gestiona la protección de todos tus establecimientos desde un solo panel. Cumplimiento Ley 21.719, visibilidad multi-sede y auditoría centralizada." />
+  <title>{t('audience.sostenedores.meta_title')}</title>
+  <meta name="description" content={t('audience.sostenedores.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/para-sostenedores" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} para Sostenedores — Gestión multi-colegio`} />
-  <meta property="og:description" content="Gestiona la protección de todos tus establecimientos desde un solo panel. Cumplimiento Ley 21.719, visibilidad multi-sede y auditoría centralizada." />
+  <meta property="og:title" content={t('audience.sostenedores.meta_og_title')} />
+  <meta property="og:description" content={t('audience.sostenedores.meta_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} para Sostenedores — Gestión multi-colegio`} />
-  <meta name="twitter:description" content="Gestiona la protección de todos tus establecimientos desde un solo panel. Cumplimiento Ley 21.719, visibilidad multi-sede y auditoría centralizada." />
+  <meta name="twitter:title" content={t('audience.sostenedores.meta_og_title')} />
+  <meta name="twitter:description" content={t('audience.sostenedores.meta_description')} />
   <link rel="canonical" href="https://ethoz.cl/para-sostenedores" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Para Sostenedores","item":"https://ethoz.cl/para-sostenedores"}]})}</script>`}
 </svelte:head>
@@ -54,34 +53,34 @@
         <div class="lg:pt-6">
           <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
             <Building2 class="size-3.5 text-primary" />
-            Para operadores multi-colegio
+            {t('audience.sostenedores.hero_badge')}
           </div>
           <div class="flex items-start gap-3">
             <Building2 class="mt-1 size-7 shrink-0 text-primary" />
             <h1 class="text-balance text-foreground">
-              Gestiona la protección de 5 colegios desde un solo panel
+              {t('audience.sostenedores.hero_title')}
             </h1>
           </div>
           <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
-            La Ley 21.719 entra en plena vigencia en diciembre de 2026. Las multas alcanzan hasta 20.000 UTM por establecimiento. Con múltiples sedes, tu exposición se multiplica — y también tu capacidad de control con {BRAND}.
+            {t('audience.sostenedores.hero_subtitle')}
           </p>
           <ul class="mt-6 space-y-3">
             <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
               <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-              Visibilidad en tiempo real de todos tus establecimientos en una pantalla
+              {t('audience.sostenedores.hero_bullet1')}
             </li>
             <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
               <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-              Auditoría centralizada — quién hizo qué, en qué sede, a qué hora
+              {t('audience.sostenedores.hero_bullet2')}
             </li>
             <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
               <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-              Un contrato, una licencia consolidada — no N sistemas distintos
+              {t('audience.sostenedores.hero_bullet3')}
             </li>
           </ul>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button size="lg" href="/demo">
-              Agenda una evaluación de tu portafolio <ArrowRight class="size-4" />
+              {t('audience.sostenedores.hero_cta')} <ArrowRight class="size-4" />
             </Button>
           </div>
         </div>
@@ -92,21 +91,21 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Panel Sostenedor · Red de 5 establecimientos</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{t('audience.sostenedores.mockup_panel_title')}</span>
           </div>
           <div class="p-4">
             <!-- Summary KPIs -->
             <div class="mb-3 grid grid-cols-4 gap-2">
               {#each [
-                { label: 'Alumnos', value: '5.018', icon: Users },
-                { label: 'Alertas', value: '11', icon: AlertTriangle, danger: true },
-                { label: 'Incidentes', value: '17', icon: Activity },
-                { label: 'Cumplim.', value: '89%', icon: CheckCircle },
+                { label: 'audience.sostenedores.kpi_alumnos' as const, value: '5.018', icon: Users },
+                { label: 'audience.sostenedores.kpi_alertas' as const, value: '11', icon: AlertTriangle, danger: true },
+                { label: 'audience.sostenedores.kpi_incidentes' as const, value: '17', icon: Activity },
+                { label: 'audience.sostenedores.kpi_cumplimiento' as const, value: '89%', icon: CheckCircle },
               ] as kpi}
                 <div class="rounded-lg border border-border bg-background px-2 py-2 text-center">
                   <kpi.icon class="mx-auto mb-1 size-3.5 {kpi.danger ? 'text-destructive' : 'text-primary'}" />
                   <p class="text-sm font-bold {kpi.danger ? 'text-destructive' : 'text-foreground'}">{kpi.value}</p>
-                  <p class="text-[9px] text-muted-foreground">{kpi.label}</p>
+                  <p class="text-mockup-2xs text-muted-foreground">{t(kpi.label)}</p>
                 </div>
               {/each}
             </div>
@@ -115,17 +114,17 @@
               {#each colegios as col}
                 <div class="flex items-center gap-3 rounded-lg border border-border bg-background px-3 py-2">
                   <div class="flex-1 min-w-0">
-                    <p class="text-[11px] font-semibold text-foreground truncate">{col.nombre}</p>
-                    <p class="text-[9px] text-muted-foreground">RBD {col.rbd} · {col.alumnos.toLocaleString('es-CL')} alumnos</p>
+                    <p class="text-mockup-sm font-semibold text-foreground truncate">{col.nombre}</p>
+                    <p class="text-mockup-2xs text-muted-foreground">{t('audience.sostenedores.mockup_rbd_label')} {col.rbd} · {col.alumnos.toLocaleString('es-CL')} {t('audience.sostenedores.mockup_alumnos_suffix')}</p>
                   </div>
                   <div class="flex items-center gap-3">
                     <div class="text-center">
-                      <p class="text-[10px] font-bold {col.alertas > 3 ? 'text-destructive' : col.alertas > 0 ? 'text-warning-foreground' : 'text-success'}">{col.alertas}</p>
-                      <p class="text-[8px] text-muted-foreground">alertas</p>
+                      <p class="text-mockup-xs font-bold {col.alertas > 3 ? 'text-destructive' : col.alertas > 0 ? 'text-warning-foreground' : 'text-success'}">{col.alertas}</p>
+                      <p class="text-mockup-3xs text-muted-foreground">{t('audience.sostenedores.mockup_alertas_label')}</p>
                     </div>
                     <div class="text-center">
-                      <p class="text-[10px] font-bold text-foreground">{col.incidentes}</p>
-                      <p class="text-[8px] text-muted-foreground">incid./mes</p>
+                      <p class="text-mockup-xs font-bold text-foreground">{col.incidentes}</p>
+                      <p class="text-mockup-3xs text-muted-foreground">{t('audience.sostenedores.mockup_incidentes_label')}</p>
                     </div>
                     <div class="flex items-center gap-1">
                       <div class="h-1.5 w-12 rounded-full bg-border overflow-hidden">
@@ -134,7 +133,7 @@
                           style="width: {col.cumplimiento}%"
                         ></div>
                       </div>
-                      <p class="text-[9px] font-semibold {col.cumplimiento >= 90 ? 'text-success' : col.cumplimiento >= 80 ? 'text-warning-foreground' : 'text-destructive'}">{col.cumplimiento}%</p>
+                      <p class="text-mockup-2xs font-semibold {col.cumplimiento >= 90 ? 'text-success' : col.cumplimiento >= 80 ? 'text-warning-foreground' : 'text-destructive'}">{col.cumplimiento}%</p>
                     </div>
                   </div>
                 </div>
@@ -150,8 +149,8 @@
   <section class="py-12 sm:py-14" aria-labelledby="sostenedor-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="sostenedor-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.sostenedores.editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <p id="sostenedor-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.sostenedores.editorial.eyebrow')}</p>
+      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-3xl lg:text-4xl lg:leading-[1.3]">
         {t('audience.sostenedores.editorial.statement')}
       </blockquote>
       <p class="mt-6 text-sm text-muted-foreground">
@@ -165,46 +164,46 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-2">
         <AlertTriangle class="size-5 shrink-0 text-destructive" />
-        <h2 class="text-xl text-foreground sm:text-2xl">El problema del sostenedor en 2026</h2>
+        <h2 class="text-xl text-foreground sm:text-2xl">{t('audience.sostenedores.problem_title')}</h2>
       </div>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
-        Operar múltiples establecimientos con sistemas distintos no es solo ineficiente — es un riesgo legal concreto con fecha de vencimiento.
+        {t('audience.sostenedores.problem_intro')}
       </p>
       <div class="grid gap-6 sm:grid-cols-2">
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <Scale class="size-5 shrink-0 text-destructive" />
-            <h3 class="text-base text-foreground">Ley 21.719 — plazo real</h3>
+            <h3 class="text-base text-foreground">{t('audience.sostenedores.problem_card1_title')}</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
-            La ley de protección de datos personales entra en plena vigencia en <strong class="text-foreground">diciembre de 2026</strong>. Las multas llegan a <strong class="text-foreground">20.000 UTM (~$1.300M CLP)</strong> o el 4% de la facturación anual — lo que sea mayor. Por establecimiento.
+            {t('audience.sostenedores.problem_card1_body_p1')} <strong class="text-foreground">{t('audience.sostenedores.problem_card1_body_strong1')}</strong>{t('audience.sostenedores.problem_card1_body_p2')} <strong class="text-foreground">{t('audience.sostenedores.problem_card1_body_strong2')}</strong>{t('audience.sostenedores.problem_card1_body_p3')}
           </p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <TrendingDown class="size-5 shrink-0 text-warning-foreground" />
-            <h3 class="text-base text-foreground">Sistemas fragmentados por sede</h3>
+            <h3 class="text-base text-foreground">{t('audience.sostenedores.problem_card2_title')}</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
-            Cada colegio lleva su propio Excel, su propio cuaderno de portería y sus propios protocolos. No hay estándar, no hay visibilidad cruzada y en una fiscalización, cada sede responde sola.
+            {t('audience.sostenedores.problem_card2_body')}
           </p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <BarChart3 class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base text-foreground">Consolidación manual imposible</h3>
+            <h3 class="text-base text-foreground">{t('audience.sostenedores.problem_card3_title')}</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
-            Pedir un reporte de incidentes a tus 5 directores tarda días. Para cuando llega la información, ya cambió. Las decisiones se toman con datos de la semana pasada, cuando los problemas ya escalaron.
+            {t('audience.sostenedores.problem_card3_body')}
           </p>
         </div>
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <FileSearch class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base text-foreground">Exposición en auditorías</h3>
+            <h3 class="text-base text-foreground">{t('audience.sostenedores.problem_card4_title')}</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground">
-            Cuando la Superintendencia llega a un establecimiento, la pregunta no es si pasaron cosas. La pregunta es si puedes demostrar que tienes el control. Sin un sistema, la respuesta es no.
+            {t('audience.sostenedores.problem_card4_body')}
           </p>
         </div>
       </div>
@@ -218,27 +217,27 @@
         <div>
           <div class="flex items-center gap-3 mb-2">
             <Scale class="size-5 shrink-0 text-destructive" />
-            <h2 class="text-xl text-foreground sm:text-2xl">Tu exposición legal se multiplica</h2>
+            <h2 class="text-xl text-foreground sm:text-2xl">{t('audience.sostenedores.exposure_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Las multas de la Ley 21.719 aplican <strong class="text-foreground">por infracción, por establecimiento</strong>. Operar 5 sedes sin cumplimiento no es un riesgo de 20.000 UTM — es un riesgo de 100.000 UTM.
+            {t('audience.sostenedores.exposure_body1_p1')} <strong class="text-foreground">{t('audience.sostenedores.exposure_body1_strong')}</strong>{t('audience.sostenedores.exposure_body1_p2')}
           </p>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-            El 70,8% de los requerimientos a la Superintendencia son de convivencia escolar. Tu red no es la excepción.
+            {t('audience.sostenedores.exposure_body2')}
           </p>
           <div class="mt-6 rounded-xl border border-destructive/20 bg-destructive/5 p-4">
-            <p class="text-xs font-semibold text-destructive mb-3">Simulación de exposición — red de 5 establecimientos</p>
+            <p class="text-xs font-semibold text-destructive mb-3">{t('audience.sostenedores.exposure_sim_title')}</p>
             {#each [
               { sedes: 1, monto: '20.000 UTM' },
               { sedes: 3, monto: '60.000 UTM' },
               { sedes: 5, monto: '100.000 UTM' },
             ] as row}
               <div class="flex items-center justify-between py-1.5 border-b border-destructive/10 last:border-0">
-                <p class="text-xs text-muted-foreground">{row.sedes} establecimiento{row.sedes > 1 ? 's' : ''} sin cumplimiento</p>
-                <p class="text-xs font-bold text-destructive">hasta {row.monto}</p>
+                <p class="text-xs text-muted-foreground">{row.sedes} {row.sedes > 1 ? t('audience.sostenedores.exposure_sim_row_establecimientos') : t('audience.sostenedores.exposure_sim_row_establecimiento')} {t('audience.sostenedores.exposure_sim_row_suffix')}</p>
+                <p class="text-xs font-bold text-destructive">{t('audience.sostenedores.exposure_sim_row_hasta')} {row.monto}</p>
               </div>
             {/each}
-            <p class="mt-2 text-[10px] text-muted-foreground">1 UTM = aprox. $65.000 CLP (abril 2026)</p>
+            <p class="mt-2 text-mockup-xs text-muted-foreground">{t('audience.sostenedores.exposure_sim_footnote')}</p>
           </div>
         </div>
 
@@ -246,35 +245,35 @@
         <div class="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
           <div class="border-b border-border px-4 py-3 flex items-center gap-2">
             <DollarSign class="size-4 text-primary" />
-            <span class="text-sm font-semibold text-foreground">Consolidación financiera — {BRAND} vs. soluciones separadas</span>
+            <span class="text-sm font-semibold text-foreground">{t('audience.sostenedores.finance_title')}</span>
           </div>
           <div class="p-4 space-y-3">
             <div class="rounded-lg border border-destructive/20 bg-destructive/5 p-3">
-              <p class="text-[10px] font-semibold text-destructive mb-2">Sin {BRAND} — 5 sistemas distintos</p>
+              <p class="flex items-center gap-1.5 text-mockup-xs font-semibold text-foreground mb-2"><XCircle class="size-3.5 shrink-0 text-destructive" />{t('audience.sostenedores.finance_without_title')}</p>
               <div class="space-y-1.5">
                 {#each [
-                  { item: 'Licencias individuales × 5', valor: '$4.500.000/año' },
-                  { item: 'Consolidación manual (horas/mes)', valor: '$1.200.000/año' },
-                  { item: 'Riesgo multa Ley 21.719', valor: 'hasta $6.500M' },
+                  { item: 'audience.sostenedores.finance_without_item1' as const, valor: 'audience.sostenedores.finance_without_valor1' as const },
+                  { item: 'audience.sostenedores.finance_without_item2' as const, valor: 'audience.sostenedores.finance_without_valor2' as const },
+                  { item: 'audience.sostenedores.finance_without_item3' as const, valor: 'audience.sostenedores.finance_without_valor3' as const },
                 ] as row}
-                  <div class="flex justify-between text-[10px]">
-                    <span class="text-muted-foreground">{row.item}</span>
-                    <span class="font-semibold text-destructive">{row.valor}</span>
+                  <div class="flex justify-between text-mockup-xs">
+                    <span class="text-muted-foreground">{t(row.item)}</span>
+                    <span class="font-semibold text-foreground">{t(row.valor)}</span>
                   </div>
                 {/each}
               </div>
             </div>
             <div class="rounded-lg border border-success/20 bg-success/5 p-3">
-              <p class="text-[10px] font-semibold text-success mb-2">Con {BRAND} — licencia red consolidada</p>
+              <p class="flex items-center gap-1.5 text-mockup-xs font-semibold text-foreground mb-2"><CheckCircle class="size-3.5 shrink-0 text-success" />{t('audience.sostenedores.finance_with_title')}</p>
               <div class="space-y-1.5">
                 {#each [
-                  { item: 'Licencia red 5 sedes', valor: '$2.800.000/año' },
-                  { item: 'Consolidación automática', valor: '$0' },
-                  { item: 'Exposición Ley 21.719', valor: 'Cubierta' },
+                  { item: 'audience.sostenedores.finance_with_item1' as const, valor: 'audience.sostenedores.finance_with_valor1' as const },
+                  { item: 'audience.sostenedores.finance_with_item2' as const, valor: 'audience.sostenedores.finance_with_valor2' as const },
+                  { item: 'audience.sostenedores.finance_with_item3' as const, valor: 'audience.sostenedores.finance_with_valor3' as const },
                 ] as row}
-                  <div class="flex justify-between text-[10px]">
-                    <span class="text-muted-foreground">{row.item}</span>
-                    <span class="font-semibold text-success">{row.valor}</span>
+                  <div class="flex justify-between text-mockup-xs">
+                    <span class="text-muted-foreground">{t(row.item)}</span>
+                    <span class="font-semibold text-foreground">{t(row.valor)}</span>
                   </div>
                 {/each}
               </div>
@@ -292,23 +291,23 @@
         <div>
           <div class="flex items-center gap-3 mb-2">
             <ClipboardCheck class="size-5 shrink-0 text-primary" />
-            <h2 class="text-xl text-foreground sm:text-2xl">Auditoría centralizada — todas las sedes</h2>
+            <h2 class="text-xl text-foreground sm:text-2xl">{t('audience.sostenedores.audit_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Cada acción en cualquier colegio de tu red queda registrada con sello de tiempo, usuario y sede. Cuando llega la Superintendencia, exportas el reporte en un clic — no llamas a 5 directores.
+            {t('audience.sostenedores.audit_body1')}
           </p>
           <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
-            El log de auditoría es inmutable. Ningún director puede editar un registro ya enviado. Esa garantía protege al sostenedor ante demandas y fiscalizaciones.
+            {t('audience.sostenedores.audit_body2')}
           </p>
           <div class="mt-6 space-y-3">
             {#each [
-              { icon: CheckCircle, text: 'Exportación XLSX/PDF para la Superintendencia en un clic' },
-              { icon: CheckCircle, text: 'Filtros por sede, rol, tipo de evento y rango de fechas' },
-              { icon: CheckCircle, text: 'Alertas automáticas al sostenedor si una sede supera umbrales críticos' },
+              { icon: CheckCircle, text: 'audience.sostenedores.audit_feature1' as const },
+              { icon: CheckCircle, text: 'audience.sostenedores.audit_feature2' as const },
+              { icon: CheckCircle, text: 'audience.sostenedores.audit_feature3' as const },
             ] as item}
               <div class="flex items-start gap-2.5 text-sm text-muted-foreground">
                 <item.icon class="mt-0.5 size-4 shrink-0 text-primary" />
-                {item.text}
+                {t(item.text)}
               </div>
             {/each}
           </div>
@@ -318,17 +317,17 @@
         <div class="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
           <div class="border-b border-border px-4 py-3 flex items-center gap-2">
             <FileSearch class="size-4 text-primary" />
-            <span class="text-sm font-semibold text-foreground">Log de auditoría — hoy — 5 establecimientos</span>
+            <span class="text-sm font-semibold text-foreground">{t('audience.sostenedores.auditlog_header')}</span>
           </div>
           <div class="divide-y divide-border">
             {#each auditLog as entry}
               <div class="flex items-start gap-3 px-4 py-2.5">
-                <span class="mt-0.5 shrink-0 text-[9px] font-mono text-muted-foreground w-8">{entry.hora}</span>
+                <span class="mt-0.5 shrink-0 text-mockup-2xs font-mono text-muted-foreground w-8">{entry.hora}</span>
                 <div class="flex-1 min-w-0">
-                  <p class="text-[11px] font-medium {entry.nivel === 'critical' ? 'text-destructive' : entry.nivel === 'warning' ? 'text-warning-foreground' : 'text-foreground'} truncate">{entry.accion}</p>
+                  <p class="text-mockup-sm font-medium {entry.nivel === 'critical' ? 'text-destructive' : entry.nivel === 'warning' ? 'text-warning-foreground' : 'text-foreground'} truncate">{t(entry.accion)}</p>
                   <div class="flex items-center gap-2 mt-0.5">
-                    <span class="inline-flex items-center rounded-full bg-primary/10 px-1.5 py-0.5 text-[9px] font-medium text-primary">{entry.colegio}</span>
-                    <span class="text-[9px] text-muted-foreground">{entry.usuario}</span>
+                    <span class="inline-flex items-center rounded-full bg-primary/10 px-1.5 py-0.5 text-mockup-2xs font-medium text-primary">{entry.colegio}</span>
+                    <span class="text-mockup-2xs text-muted-foreground">{t(entry.usuario)}</span>
                   </div>
                 </div>
                 {#if entry.nivel === 'critical'}
@@ -342,8 +341,8 @@
             {/each}
           </div>
           <div class="border-t border-border px-4 py-2 flex items-center justify-between">
-            <p class="text-[9px] text-muted-foreground">Mostrando últimas 5 de 347 acciones hoy</p>
-            <button class="text-[9px] font-medium text-primary hover:underline">Ver reporte completo</button>
+            <p class="text-mockup-2xs text-muted-foreground">{t('audience.sostenedores.auditlog_footer')}</p>
+            <button class="text-mockup-2xs font-medium text-primary hover:underline">{t('audience.sostenedores.auditlog_view_full')}</button>
           </div>
         </div>
       </div>
@@ -354,19 +353,19 @@
   <section class="bg-secondary py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="rounded-xl border border-border bg-card p-8 text-center shadow-sm">
-        <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">El mercado que protegemos</p>
+        <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{t('audience.sostenedores.tam_eyebrow')}</p>
         <div class="grid gap-8 sm:grid-cols-3">
           <div>
-            <p class="text-4xl font-extrabold tracking-tight text-foreground">402</p>
-            <p class="mt-1 text-sm text-muted-foreground">operadores multi-colegio en Chile (Tier 1)</p>
+            <p data-numeric class="font-heading text-4xl text-foreground">402</p>
+            <p class="mt-1 text-sm text-muted-foreground">{t('audience.sostenedores.tam_stat1_label')}</p>
           </div>
           <div>
-            <p class="text-4xl font-extrabold tracking-tight text-foreground">12.038</p>
-            <p class="mt-1 text-sm text-muted-foreground">establecimientos educacionales en el país</p>
+            <p data-numeric class="font-heading text-4xl text-foreground">12.038</p>
+            <p class="mt-1 text-sm text-muted-foreground">{t('audience.sostenedores.tam_stat2_label')}</p>
           </div>
           <div>
-            <p class="text-4xl font-extrabold tracking-tight text-foreground">5.777</p>
-            <p class="mt-1 text-sm text-muted-foreground">sostenedores que responden ante la ley</p>
+            <p data-numeric class="font-heading text-4xl text-foreground">5.777</p>
+            <p class="mt-1 text-sm text-muted-foreground">{t('audience.sostenedores.tam_stat3_label')}</p>
           </div>
         </div>
       </div>
@@ -377,7 +376,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="sostenedor-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('audience.sostenedores.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-background/85">{t('audience.sostenedores.finalCta.eyebrow')}</p>
       <h2 id="sostenedor-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('audience.sostenedores.finalCta.title')}
       </h2>
@@ -389,14 +388,14 @@
           href="/demo"
           class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          Agendar evaluación de portafolio
+          {t('audience.sostenedores.finalCta_button_primary')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/#features"
           class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          Ver todas las funciones
+          {t('audience.sostenedores.finalCta_button_secondary')}
         </a>
       </div>
       <p class="mt-8 text-xs text-background/80">

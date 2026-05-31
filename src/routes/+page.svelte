@@ -141,8 +141,8 @@
   // Compact countdown label for hero badge
   const heroCountdownLabel = $derived(
     countdownDays > 0
-      ? `Faltan ${countdownDays} días para Ley 21.719`
-      : `Ley 21.719 en vigencia`
+      ? `${t('home.hero_countdown_prefix')} ${countdownDays} ${t('home.hero_countdown_suffix')}`
+      : t('home.hero_countdown_active')
   );
 
   // Supporting feature cards rendered in the features section as a 3-up grid.
@@ -279,7 +279,7 @@
         </h1>
 
         <!-- Subtitle -->
-        <p class="animate-fade-in-up animate-delay-200 mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p class="animate-fade-in-up animate-delay-200 mt-5 max-w-xl text-base leading-relaxed text-body sm:text-lg">
           {t('hero.subtitle')}
         </p>
 
@@ -311,8 +311,8 @@
           <!-- Negative margin cancels HeroAppMockupCard's p-6 so title bar and dots are flush -->
           <div class="-m-6"
             role="region"
-            aria-roledescription="carrusel"
-            aria-label={`Vista del panel ${BRAND}`}
+            aria-roledescription={t('home.carousel_roledescription')}
+            aria-label={t('home.carousel_label')}
             onmouseenter={() => (carouselPaused = true)}
             onmouseleave={() => (carouselPaused = false)}
             onfocusin={() => (carouselPaused = true)}
@@ -324,12 +324,12 @@
               <div class="size-3 rounded-full bg-warning/60"></div>
               <div class="size-3 rounded-full bg-success/60"></div>
               <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
-              <span class="ml-auto inline-flex items-center gap-1.5 border border-border bg-muted px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <span class="ml-auto inline-flex items-center gap-1.5 border border-border bg-muted px-2 py-0.5 text-mockup-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 <span class="relative flex size-1.5">
                   <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
                   <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
                 </span>
-                Datos ficticios · Demo
+                {t('home.demo_data_badge')}
               </span>
             </div>
 
@@ -399,7 +399,7 @@
                 <button
                   onclick={() => { currentStudent = i; }}
                   class="flex min-h-[44px] min-w-[44px] items-center justify-center"
-                  aria-label={`Ver ${student.name}`}
+                  aria-label={`${t('home.carousel_dot_label')} ${student.name}`}
                   aria-current={currentStudent === i ? 'true' : undefined}
                 >
                   <span class="block size-2 rounded-full transition-all {currentStudent === i ? 'w-6 bg-primary' : 'bg-border hover:bg-muted-foreground'}"></span>
@@ -418,30 +418,30 @@
        Label → fact pattern with hairline divisions. Reads like a spec sheet,
        not a badge row.
        ═══════════════════════════════════════════ -->
-  <section class="reveal border-y border-border bg-background py-10" aria-label="Arquitectura verificable">
+  <section class="reveal border-y border-border bg-background py-10" aria-label={t('home.trust_section_label')}>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="text-center text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {t('trust.attribution')}
       </p>
       <dl class="mt-8 grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.data')}</dt>
+          <dt class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.data')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.servers')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.encryption')}</dt>
+          <dt class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.encryption')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.encryption')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.integration')}</dt>
+          <dt class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.integration')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.integration')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-[10px] font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.compliance')}</dt>
+          <dt class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.compliance')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.compliance')}</dd>
         </div>
       </dl>
@@ -470,7 +470,7 @@
           <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat1_number')}
           </dd>
-          <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <p class="mt-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
             {t('editorial.stat1_label')}
           </p>
         </div>
@@ -479,7 +479,7 @@
           <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat2_number')}
           </dd>
-          <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <p class="mt-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
             {t('editorial.stat2_label')}
           </p>
         </div>
@@ -488,7 +488,7 @@
           <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat3_number')}
           </dd>
-          <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <p class="mt-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
             {t('editorial.stat3_label')}
           </p>
         </div>
@@ -506,10 +506,10 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           <span class="text-foreground">{t('problem.overline')}</span>
           <span aria-hidden="true" class="text-muted-foreground/40">·</span>
-          <span>3 fricciones · 1 sistema</span>
+          <span>{t('home.problem_meta')}</span>
         </p>
         <h2 class="mt-4 text-balance text-foreground">
           {t('problem.title')}
@@ -550,10 +550,10 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           <span class="text-foreground">{t('solution.overline')}</span>
           <span aria-hidden="true" class="text-muted-foreground/40">·</span>
-          <span>10 módulos · Activación modular</span>
+          <span>{t('home.solution_meta')}</span>
         </p>
         <h2 class="mt-4 text-balance text-foreground">
           {t('solution.title')}
@@ -565,7 +565,7 @@
 
       <!-- Featured hero card: Ficha 360° — Cal black left-rule, asymmetric treatment -->
       <div class="mx-auto mt-10 max-w-5xl">
-        <a href="/features/student-profile" class="group block rounded-lg border-l-2 border-foreground bg-card p-8 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover sm:p-10 lg:p-12">
+        <a href="/features/student-profile" class="group block rounded-xl border-l-2 border-foreground bg-card p-8 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover sm:p-10 lg:p-12">
           <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
             <div>
               <span class="font-heading block text-5xl tabular-nums leading-none text-foreground sm:text-6xl">01</span>
@@ -600,7 +600,7 @@
       <!-- Supporting features — 3-column grid, compact cards (driven by supportingFeatures array) -->
       <div class="mx-auto mt-5 grid max-w-5xl gap-5 sm:grid-cols-3">
         {#each supportingFeatures as feat (feat.href)}
-          <a href={feat.href} class="group flex flex-col rounded-lg border-l-2 border-foreground bg-card p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover">
+          <a href={feat.href} class="group flex flex-col rounded-xl border-l-2 border-foreground bg-card p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover">
             <span class="font-heading block text-3xl tabular-nums leading-none text-foreground">{feat.numeral}</span>
             <h3 class="mt-3 font-heading text-lg leading-tight text-foreground">{t(feat.titleKey)}</h3>
             <p class="mt-2 flex-1 text-sm leading-relaxed text-body">{t(feat.descKey)}</p>
@@ -613,7 +613,7 @@
 
       <!-- Cross-cutting: privacy is not a product, it's how everything works -->
       <div class="mx-auto mt-8 max-w-4xl">
-        <a href="/compliance" class="group flex items-center gap-4 rounded-lg border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground/30 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover">
+        <a href="/compliance" class="group flex items-center gap-4 rounded-xl border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground/30 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover">
           <Shield class="size-5 shrink-0 text-foreground transition-transform group-hover:rotate-6" />
           <div class="flex-1">
             <p class="text-sm font-semibold text-foreground">{t('home.compliance_banner.title')}</p>
@@ -631,22 +631,22 @@
   <SectionDark variant="compliance" id="compliance">
     <!-- Section header — editorial eyebrow pattern -->
     <div class="mx-auto max-w-2xl text-center">
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-dark-soft">
-        <span class="text-on-dark">{t('compliance.overline')}</span>
-        <span aria-hidden="true" class="text-on-dark-soft/40">·</span>
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <span class="text-primary">{t('compliance.overline')}</span>
+        <span aria-hidden="true" class="text-border">·</span>
         <span>{t('compliance.overline_detail')}</span>
       </p>
-      <h2 class="mt-4 text-balance text-on-dark">
+      <h2 class="mt-4 text-balance text-foreground">
         {t('compliance.title')}
       </h2>
-      <p class="mt-4 text-lg text-on-dark-soft">
+      <p class="mt-4 text-lg text-muted-foreground">
         {t('compliance.subtitle')}
       </p>
     </div>
 
     <!-- Countdown — dramatic editorial treatment -->
     <div class="mx-auto mt-10 max-w-3xl">
-      <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-on-dark-soft">
+      <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
         <span class="relative flex size-2">
           <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
           <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
@@ -655,7 +655,7 @@
       </p>
       <!-- Visually hidden live region announces the countdown to screen readers without flooding on every minute tick -->
       <p class="sr-only" aria-live="polite" aria-atomic="true">
-        Faltan {countdownDays} días, {countdownHours} horas y {countdownMinutes} minutos para que la Ley 21.719 entre plenamente en vigencia.
+        {t('home.countdown_live_prefix')} {countdownDays} {t('home.countdown_live_days')} {countdownHours} {t('home.countdown_live_hours')} {countdownMinutes} {t('home.countdown_live_suffix')}
       </p>
       <div
         class="grid grid-cols-3 gap-2 sm:gap-4"
@@ -667,25 +667,24 @@
           { value: countdownHours, labelKey: 'compliance.countdown.hours' },
           { value: countdownMinutes, labelKey: 'compliance.countdown.minutes' },
         ] as box (box.labelKey)}
-          <div class="group relative rounded-lg border border-on-dark-soft/30 bg-on-dark/5 p-5 text-center transition-colors hover:border-on-dark sm:p-8" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-on-dark"></div>
-            <span class="font-heading block text-6xl tabular-nums leading-none tracking-[-0.03em] text-on-dark sm:text-8xl">
+          <div class="group relative rounded-xl border border-hairline bg-card p-5 text-center shadow-card transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
+            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-foreground"></div>
+            <span class="font-heading block text-6xl tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
               {box.value}
             </span>
-            <span class="mt-3 block text-[10px] font-semibold uppercase tracking-[0.18em] text-on-dark-soft sm:text-xs">
+            <span class="mt-3 block text-mockup-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
               {t(box.labelKey as TranslationKey)}
             </span>
           </div>
         {/each}
       </div>
-      <!-- CTA under countdown — inverted Cal primary: white pill on dark surface -->
+      <!-- CTA under countdown — standard Cal primary on the light band -->
       <div class="mt-10 text-center">
-        <Button size="xl" href="/demo"
-                class="bg-on-dark text-surface-dark hover:bg-on-dark/90">
+        <Button size="xl" href="/demo">
           {t('hero.cta.primary')}
           <ArrowRight class="size-5" />
         </Button>
-        <p class="mt-4 text-xs text-on-dark-soft">{t('home.countdown.cta_hint')}</p>
+        <p class="mt-4 text-xs text-muted-foreground">{t('home.countdown.cta_hint')}</p>
       </div>
     </div>
 
@@ -693,8 +692,8 @@
     <div class="mx-auto mt-12 grid max-w-3xl gap-x-8 gap-y-4 sm:grid-cols-2">
       {#each ['compliance.item1', 'compliance.item2', 'compliance.item3', 'compliance.item4', 'compliance.item5', 'compliance.item6'] as item}
         <div class="flex items-start gap-3">
-          <Check class="mt-0.5 size-5 shrink-0 text-on-dark" />
-          <span class="text-sm leading-relaxed text-on-dark-soft">{t(item as TranslationKey)}</span>
+          <Check class="mt-0.5 size-5 shrink-0 text-primary" />
+          <span class="text-sm leading-relaxed text-muted-foreground">{t(item as TranslationKey)}</span>
         </div>
       {/each}
     </div>
@@ -707,10 +706,10 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           <span class="text-foreground">{t('how.overline')}</span>
           <span aria-hidden="true" class="text-muted-foreground/40">·</span>
-          <span>3 pasos · 2-4 semanas</span>
+          <span>{t('home.how_meta')}</span>
         </p>
         <h2 class="mt-4 text-balance text-foreground">
           {t('how.title')}
@@ -728,7 +727,7 @@
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
               <span class="font-heading text-4xl leading-none text-foreground" data-numeric>01</span>
-              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step1.time')}</span>
+              <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step1.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step1.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step1.desc')}</p>
@@ -738,7 +737,7 @@
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
               <span class="font-heading text-4xl leading-none text-foreground" data-numeric>02</span>
-              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step2.time')}</span>
+              <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step2.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step2.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step2.desc')}</p>
@@ -748,7 +747,7 @@
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
               <span class="font-heading text-4xl leading-none text-foreground" data-numeric>03</span>
-              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step3.time')}</span>
+              <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step3.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step3.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step3.desc')}</p>
@@ -779,17 +778,17 @@
   <section class="reveal bg-muted py-16 sm:py-20 lg:py-24" id="faq">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           <span class="text-foreground">{t('faq.overline')}</span>
           <span aria-hidden="true" class="text-muted-foreground/40">·</span>
-          <span>7 preguntas · Respuestas directas</span>
+          <span>{t('home.faq_meta')}</span>
         </p>
         <h2 class="mt-4 text-balance text-foreground">
           {t('faq.title')}
         </h2>
       </div>
 
-      <div class="mt-10 divide-y divide-border rounded-2xl border border-border bg-card shadow-sm">
+      <div class="mt-10 divide-y divide-border rounded-xl border border-border bg-card shadow-card">
         {#each [1, 2, 11, 3, 15, 4, 12] as n, i}
           <div>
             <button
@@ -844,10 +843,10 @@
        Pacing: navy → deeper-navy footer closes the editorial dark passage. -->
   <SectionDark variant="cta" id="cta" aria-labelledby="final-cta-heading">
     <div class="text-center">
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-on-dark-soft">
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-on-dark-soft">
         <span class="text-on-dark">{t('cta.urgency_eyebrow')}</span>
         <span aria-hidden="true" class="text-on-dark-soft/40">·</span>
-        <span><span data-numeric class="font-semibold text-on-dark">{countdownDays}</span> días para Ley 21.719</span>
+        <span><span data-numeric class="font-semibold text-on-dark">{countdownDays}</span> {t('home.cta_days_suffix')}</span>
       </p>
       <h2 id="final-cta-heading" class="mt-5 text-balance text-on-dark">
         {t('cta.title')}

@@ -126,16 +126,16 @@
   <NavBar />
 
   <!-- Step indicator -->
-  <nav aria-label="Progreso del proceso de demo" class="border-b border-border bg-background py-4">
+  <nav aria-label={t('demo.step_indicator.nav_label')} class="border-b border-border bg-background py-4">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <ol class="mx-auto flex max-w-2xl items-center justify-center gap-3">
-      {#each [{ label: 'Busca tu colegio', n: 1 }, { label: 'Completa tus datos', n: 2 }, { label: 'Agenda tu demo', n: 3 }] as s}
+      {#each [{ labelKey: 'demo.step_indicator.step1' as const, n: 1 }, { labelKey: 'demo.step_indicator.step2' as const, n: 2 }, { labelKey: 'demo.step_indicator.step3' as const, n: 3 }] as s}
         <li class="flex items-center gap-2" aria-current={1 === s.n ? 'step' : undefined}>
           <span class="flex size-7 items-center justify-center rounded-full text-xs font-bold {1 >= s.n ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}" aria-hidden="true">
             {s.n}
           </span>
           <span class="hidden text-xs font-medium sm:block {1 >= s.n ? 'text-foreground' : 'text-muted-foreground'}">
-            <span class="sr-only">Paso {s.n}{1 > s.n ? ' (completado)' : 1 === s.n ? ' (actual)' : ''}: </span>{s.label}
+            <span class="sr-only">{t('demo.step_indicator.step_prefix')} {s.n}{1 > s.n ? ` (${t('demo.step_indicator.completed')})` : 1 === s.n ? ` (${t('demo.step_indicator.current')})` : ''}: </span>{t(s.labelKey)}
           </span>
           {#if s.n < 3}
             <span aria-hidden="true" class="ml-1 h-px w-8 {1 > s.n ? 'bg-primary' : 'bg-border'}"></span>
@@ -150,10 +150,8 @@
   <div id="demo-search-main" class="mx-auto flex w-full max-w-xl flex-1 flex-col justify-center px-4 py-12 sm:py-16">
     <div class="space-y-6">
       <div class="text-center">
-        <div class="mx-auto mb-4 flex size-14 items-center justify-center rounded-full bg-primary/10">
-          <GraduationCap class="size-7 text-primary" />
-        </div>
-        <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step1.eyebrow')}</p>
+        <GraduationCap class="mx-auto mb-4 size-8 text-primary" />
+        <p class="mb-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step1.eyebrow')}</p>
         <h1 class="text-2xl text-foreground">
           {t('demo.step1.title')}
         </h1>
@@ -191,7 +189,7 @@
               aria-expanded={hasResults}
               aria-activedescendant={hasResults && highlightIndex >= 0 ? `school-opt-${highlightIndex}` : undefined}
               aria-describedby="demo-search-instructions"
-              class="w-full rounded-xl border border-border bg-background py-4 pl-11 pr-4 text-base text-foreground shadow-sm outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
+              class="w-full rounded-md border border-border bg-background py-4 pl-11 pr-4 text-base text-foreground shadow-sm outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
             />
           </div>
         </div>
@@ -230,7 +228,7 @@
                   type="button"
                   tabindex="-1"
                   onclick={() => selectSchool(school)}
-                  class="flex w-full items-center gap-3 rounded-xl border bg-background px-4 py-3 text-left shadow-sm transition-all hover:border-primary/30 hover:shadow-md {highlightIndex === i ? 'border-primary/30 shadow-md' : 'border-border'}"
+                  class="flex w-full items-center gap-3 rounded-md border bg-background px-4 py-3 text-left shadow-sm transition-all hover:border-primary/30 hover:shadow-md {highlightIndex === i ? 'border-primary/30 shadow-md' : 'border-border'}"
                 >
                   <Building aria-hidden="true" class="size-4 shrink-0 text-muted-foreground" />
                   <div class="min-w-0 flex-1">
@@ -285,7 +283,7 @@
     </div>
   </div>
 
-  <footer class="border-t border-border bg-background py-4 text-center text-[11px] text-muted-foreground">
+  <footer class="border-t border-border bg-background py-4 text-center text-mockup-sm text-muted-foreground">
     &copy; {new Date().getFullYear()} {BRAND}
   </footer>
 </main>

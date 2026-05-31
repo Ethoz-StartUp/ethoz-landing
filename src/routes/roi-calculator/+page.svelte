@@ -3,6 +3,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
   import { BRAND } from '$lib/brand';
+  import { t } from '$lib/i18n/index.svelte';
   import { trackEvent } from '$lib/utils/analytics';
   import {
     Calculator,
@@ -110,14 +111,14 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary shadow-sm">
         <Calculator class="size-3.5" />
-        Calculadora de exposición
+        {t('roiCalculator.hero_eyebrow')}
       </div>
       <h1 class="text-foreground">
-        Calcula tu exposición al riesgo
+        {t('roiCalculator.hero_title')}
       </h1>
-      <p class="mt-3 text-lg font-semibold text-primary">En 30 segundos</p>
+      <p class="mt-3 text-lg font-semibold text-primary">{t('roiCalculator.hero_subtitle')}</p>
       <p class="mt-5 text-lg leading-relaxed text-muted-foreground sm:text-xl">
-        Ingresa los datos de tu establecimiento y calcula tu exposición máxima ante la Ley 21.719, el costo operacional actual de verificación manual y el valor total en riesgo.
+        {t('roiCalculator.hero_lead')}
       </p>
     </div>
   </section>
@@ -131,13 +132,13 @@
 
         <!-- LEFT: Inputs -->
         <div>
-          <h2 class="text-xl text-foreground mb-6">Datos de tu establecimiento</h2>
+          <h2 class="text-xl text-foreground mb-6">{t('roiCalculator.inputs_heading')}</h2>
 
           <!-- Número de alumnos -->
           <div class="mb-8">
             <div class="mb-2 flex items-center justify-between">
               <label for="students-slider" class="text-sm font-semibold text-foreground">
-                Número de alumnos
+                {t('roiCalculator.input_students_label')}
               </label>
               <span class="text-sm font-bold text-primary">{students.toLocaleString('es-CL')}</span>
             </div>
@@ -159,7 +160,7 @@
           <!-- Número de sedes -->
           <div class="mb-8">
             <label for="sedes-input" class="mb-2 flex items-center justify-between">
-              <span class="text-sm font-semibold text-foreground">Número de sedes</span>
+              <span class="text-sm font-semibold text-foreground">{t('roiCalculator.input_sedes_label')}</span>
               <span class="text-sm font-bold text-primary">{sedes}</span>
             </label>
             <input
@@ -169,16 +170,16 @@
               max="50"
               bind:value={sedes}
               class="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-              placeholder="Ej: 3"
+              placeholder={t('roiCalculator.input_sedes_placeholder')}
             />
-            <p class="mt-1 text-xs text-muted-foreground">Sostenedores multi-colegio tienen mayor exposición regulatoria.</p>
+            <p class="mt-1 text-xs text-muted-foreground">{t('roiCalculator.input_sedes_help')}</p>
           </div>
 
           <!-- Retiros diarios -->
           <div class="mb-8">
             <div class="mb-2 flex items-center justify-between">
               <label for="pickups-slider" class="text-sm font-semibold text-foreground">
-                Retiros diarios promedio
+                {t('roiCalculator.input_pickups_label')}
               </label>
               <span class="text-sm font-bold text-primary">{dailyPickups}</span>
             </div>
@@ -206,9 +207,9 @@
                 class="mt-0.5 size-4 rounded border-border accent-primary cursor-pointer"
               />
               <div>
-                <p class="text-sm font-semibold text-foreground">Procesamos datos sensibles</p>
+                <p class="text-sm font-semibold text-foreground">{t('roiCalculator.input_sensitive_label')}</p>
                 <p class="mt-0.5 text-xs leading-relaxed text-muted-foreground">
-                  Incluye datos médicos, diagnósticos psicológicos, informes clínicos, órdenes judiciales o registros PIE. Aumenta la exposición al riesgo bajo el Art. 16 bis de la Ley 21.719.
+                  {t('roiCalculator.input_sensitive_help')}
                 </p>
               </div>
             </label>
@@ -217,22 +218,22 @@
 
         <!-- RIGHT: Results -->
         <div>
-          <h2 class="text-xl text-foreground mb-6">Tu exposición estimada</h2>
+          <h2 class="text-xl text-foreground mb-6">{t('roiCalculator.results_heading')}</h2>
 
           <!-- Fine exposure -->
           <div class="mb-4 rounded-xl border border-border bg-card p-5 shadow-sm">
             <div class="mb-2 flex items-center gap-2">
               <ShieldAlert class="size-5 shrink-0 text-destructive" />
-              <p class="text-sm font-semibold text-foreground">Exposición máxima Ley 21.719</p>
+              <p class="text-sm font-semibold text-foreground">{t('roiCalculator.result_fine_label')}</p>
             </div>
             <p class="text-3xl font-bold tracking-tight text-foreground">{formatUTM(maxFineUTM)}</p>
             <p class="mt-0.5 text-sm text-muted-foreground">≈ {formatCLP(maxFineCLP)}</p>
             <p class="mt-2 text-xs text-muted-foreground">
-              Calculado sobre la estructura de multas de la Ley 21.719 (hasta 20.000 UTM o 4% facturación anual). Esta es la exposición máxima teórica — no la multa probable.
+              {t('roiCalculator.result_fine_note')}
             </p>
             {#if hasSensitiveData}
               <p class="mt-2 text-xs font-semibold text-destructive">
-                ↑ Multiplicador activo: datos sensibles (Art. 16 bis)
+                {t('roiCalculator.result_fine_multiplier')}
               </p>
             {/if}
           </div>
@@ -241,14 +242,14 @@
           <div class="mb-4 rounded-xl border border-border bg-card p-5 shadow-sm">
             <div class="mb-2 flex items-center gap-2">
               <Clock class="size-5 shrink-0 text-primary" />
-              <p class="text-sm font-semibold text-foreground">Horas/semana en verificación manual</p>
+              <p class="text-sm font-semibold text-foreground">{t('roiCalculator.result_hours_label')}</p>
             </div>
             <p class="text-3xl font-bold tracking-tight text-foreground">{weeklyHours} h</p>
             <p class="mt-0.5 text-sm text-muted-foreground">
-              {dailyPickups} retiros/día × 2 min × 5 días ÷ 60
+              {dailyPickups} {t('roiCalculator.result_hours_formula')}
             </p>
             <p class="mt-2 text-xs text-muted-foreground">
-              Basado en tiempo estimado de verificación manual: buscar apoderado en listado, validar identidad, registrar en libro.
+              {t('roiCalculator.result_hours_note')}
             </p>
           </div>
 
@@ -256,14 +257,14 @@
           <div class="mb-4 rounded-xl border border-border bg-card p-5 shadow-sm">
             <div class="mb-2 flex items-center gap-2">
               <Banknote class="size-5 shrink-0 text-primary" />
-              <p class="text-sm font-semibold text-foreground">Costo operacional anual estimado</p>
+              <p class="text-sm font-semibold text-foreground">{t('roiCalculator.result_cost_label')}</p>
             </div>
             <p class="text-3xl font-bold tracking-tight text-foreground">{formatCLP(annualOpCost)}</p>
             <p class="mt-0.5 text-sm text-muted-foreground">
-              {weeklyHours} h × $15.000/h × 40 semanas
+              {weeklyHours} {t('roiCalculator.result_cost_formula')}
             </p>
             <p class="mt-2 text-xs text-muted-foreground">
-              Solo en verificación de retiros. No incluye documentación de incidencias ni búsqueda de autorizaciones.
+              {t('roiCalculator.result_cost_note')}
             </p>
           </div>
 
@@ -271,11 +272,11 @@
           <div class="rounded-xl border border-primary/30 bg-primary/5 p-5 shadow-sm">
             <div class="mb-2 flex items-center gap-2">
               <AlertTriangle class="size-5 shrink-0 text-primary" />
-              <p class="text-sm font-bold text-foreground">Valor en riesgo total (estimado)</p>
+              <p class="text-sm font-bold text-foreground">{t('roiCalculator.result_total_label')}</p>
             </div>
             <p class="text-4xl font-bold tracking-tight text-primary">{formatCLP(valueAtRisk)}</p>
             <p class="mt-1 text-xs text-muted-foreground">
-              Combinación ponderada: fracción de exposición regulatoria + costo operacional anual.
+              {t('roiCalculator.result_total_note')}
             </p>
           </div>
         </div>
@@ -285,7 +286,7 @@
       <div class="mt-10 flex items-start gap-3 rounded-xl border border-border bg-secondary p-5">
         <Info class="size-4 shrink-0 text-muted-foreground mt-0.5" />
         <p class="text-xs leading-relaxed text-muted-foreground">
-          <strong class="text-foreground">Nota metodológica:</strong> Esta calculadora usa modelos simplificados para ilustrar la magnitud del riesgo. La exposición Ley 21.719 se escala según tamaño del establecimiento y número de sedes, con techo en 20.000 UTM. El costo operacional se basa en 2 minutos de verificación manual por retiro a $15.000 CLP/hora. El "valor en riesgo total" combina el 15% de la exposición máxima (fracción ponderada de probabilidad de multa) con el costo operacional anual. Los resultados son estimaciones referenciales y no constituyen asesoría legal ni financiera. Para un análisis personalizado, solicita una evaluación con nuestro equipo.
+          <strong class="text-foreground">{t('roiCalculator.methodology_label')}</strong> {t('roiCalculator.methodology_body')}
         </p>
       </div>
     </div>
@@ -298,25 +299,25 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <Calculator class="mx-auto size-10 text-primary mb-4" />
       <h2 class="text-3xl text-foreground sm:text-4xl">
-        ¿Quieres un análisis más preciso?
+        {t('roiCalculator.cta_heading')}
       </h2>
       <p class="mt-4 text-base text-muted-foreground">
-        Esta calculadora usa supuestos generales. Nuestro equipo puede hacer una evaluación específica para tu establecimiento — sin costo ni compromiso.
+        {t('roiCalculator.cta_body')}
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
         <Button size="xl" href={demoUrl} onclick={handleCTAClick} class="shadow-lg">
-          Solicita una evaluación personalizada
+          {t('roiCalculator.cta_primary')}
           <ArrowRight class="size-4" />
         </Button>
         <a
           href="/proyecciones"
           class="text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
-          Ver proyecciones de impacto
+          {t('roiCalculator.cta_secondary')}
         </a>
       </div>
       <p class="mt-6 text-xs text-muted-foreground">
-        Los resultados de esta calculadora se enviarán pre-completados en el formulario de demo para agilizar la conversación.
+        {t('roiCalculator.cta_footnote')}
       </p>
     </div>
   </section>

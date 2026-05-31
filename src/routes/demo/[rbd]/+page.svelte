@@ -160,10 +160,10 @@
 
   function depTypeLabel(depType: number): string {
     const labels: Record<number, string> = {
-      1: 'Municipal',
-      2: 'Part. Subvencionado',
-      3: 'Part. Pagado',
-      4: 'Corp. Adm. Delegada'
+      1: t('demo.dep_type.municipal'),
+      2: t('demo.dep_type.subsidized'),
+      3: t('demo.dep_type.paid'),
+      4: t('demo.dep_type.delegated')
     };
     return labels[depType] ?? '';
   }
@@ -183,7 +183,7 @@
       } catch (err) {
         captureError(err, { fn: 'demo.executeRecaptcha' });
         recaptchaFailed = true;
-        errorMessage = 'No pudimos verificar que seas humano. Escríbenos a hola@ethoz.cl o intenta más tarde.';
+        errorMessage = t('demo.error.recaptcha_failed');
         submitting = false;
         return;
       }
@@ -206,7 +206,7 @@
       if (!result.ok) {
         console.error('[Demo] Lead save failed:', result.error);
         captureError(new Error(result.error ?? 'Lead save failed'), { fn: 'demo.saveLead' });
-        errorMessage = 'No pudimos guardar tu solicitud. Por favor intenta de nuevo.';
+        errorMessage = t('demo.error.save_failed');
         submitting = false;
         return;
       }
@@ -255,17 +255,16 @@
   <NavBar />
 
   <!-- Step indicator -->
-  <nav aria-label="Progreso del proceso de demo" class="border-b border-border bg-background py-4">
+  <nav aria-label={t('demo.progress.aria_label')} class="border-b border-border bg-background py-4">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <ol class="mx-auto flex max-w-2xl items-center justify-center gap-3">
-      {#each [{ label: 'Busca tu colegio', n: 1 }, { label: 'Completa tus datos', n: 2 }, { label: 'Agenda tu demo', n: 3 }] as s}
+      {#each [{ labelKey: 'demo.steps.search' as const, n: 1 }, { labelKey: 'demo.steps.contact' as const, n: 2 }, { labelKey: 'demo.steps.schedule' as const, n: 3 }] as s}
         <li class="flex items-center gap-2" aria-current={2 === s.n ? 'step' : undefined}>
           <span class="flex size-7 items-center justify-center rounded-full text-xs font-bold {2 >= s.n ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}" aria-hidden="true">
             {s.n}
           </span>
           <span class="hidden text-xs font-medium sm:block {2 >= s.n ? 'text-foreground' : 'text-muted-foreground'}">
-            <span class="sr-only">Paso {s.n}{2 > s.n ? ' (completado)' : 2 === s.n ? ' (actual)' : ''}: </span>{s.label}
-          </span>
+            <span class="sr-only">{t('demo.step.prefix')} {s.n}{2 > s.n ? ` ${t('demo.step.completed')}` : 2 === s.n ? ` ${t('demo.step.current')}` : ''}: </span>{t(s.labelKey)}
           {#if s.n < 3}
             <span aria-hidden="true" class="ml-1 h-px w-8 {2 > s.n ? 'bg-primary' : 'bg-border'}"></span>
           {/if}
@@ -286,7 +285,7 @@
       {@const school = isManual ? null : schoolStore.selectedSchool}
       <div class="space-y-8">
         <div class="text-center">
-          <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step2.eyebrow')}</p>
+          <p class="mb-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step2.eyebrow')}</p>
           <h1 class="text-2xl text-foreground">
             {t('demo.step2.title')}
           </h1>
@@ -307,26 +306,26 @@
               <div class="rounded-xl border border-border bg-background p-5 shadow-sm">
                 <div class="flex items-center gap-2.5 mb-4">
                   <GraduationCap class="size-5 shrink-0 text-primary" />
-                  <h2 class="text-base font-semibold text-foreground">Datos del colegio</h2>
+                  <h2 class="text-base font-semibold text-foreground">{t('demo.manual.school_title')}</h2>
                 </div>
                 <div class="space-y-3">
                   <div class="space-y-1.5">
                     <label for="manual-school" class="block text-sm font-medium text-foreground">
-                      Nombre del colegio <span class="text-destructive">*</span>
+                      {t('demo.manual.school_name_label')} <span class="text-destructive">*</span>
                     </label>
                     <input
                       id="manual-school"
                       type="text"
                       required
                       bind:value={manualSchoolName}
-                      placeholder="Ej: Colegio San Patricio"
+                      placeholder={t('demo.manual.school_name_placeholder')}
                       autocapitalize="words"
                       class="w-full rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
                     />
                   </div>
                 </div>
                 <p class="mt-3 text-xs text-muted-foreground">
-                  No te preocupes si no encontraste tu colegio en el buscador. Completa los datos y nos pondremos en contacto contigo.
+                  {t('demo.manual.fallback_note')}
                 </p>
               </div>
             {:else}
@@ -335,9 +334,7 @@
               <!-- Card header -->
               <div class="border-b border-border px-5 py-4">
                 <div class="flex items-start gap-3">
-                  <div class="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                    <GraduationCap class="size-5 text-primary" />
-                  </div>
+                  <GraduationCap class="mt-0.5 size-5 shrink-0 text-primary" />
                   <div class="min-w-0 flex-1">
                     <h2 class="text-base font-semibold leading-snug text-foreground">{school?.name}</h2>
                     <Badge variant="outline" class="mt-1 font-mono text-xs">
@@ -352,35 +349,35 @@
                 <div class="flex items-start gap-2.5 bg-background px-4 py-3">
                   <MapPin class="mt-0.5 size-3.5 shrink-0 text-muted-foreground" />
                   <div class="min-w-0">
-                    <p class="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{t('demo.commune')}</p>
+                    <p class="text-mockup-xs font-medium uppercase tracking-wide text-muted-foreground">{t('demo.commune')}</p>
                     <p class="truncate text-sm text-foreground">{school?.commune}</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-2.5 bg-background px-4 py-3">
                   <MapPin class="mt-0.5 size-3.5 shrink-0 text-muted-foreground" />
                   <div class="min-w-0">
-                    <p class="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{t('demo.region')}</p>
+                    <p class="text-mockup-xs font-medium uppercase tracking-wide text-muted-foreground">{t('demo.region')}</p>
                     <p class="truncate text-sm text-foreground">{regionName(school?.regionCode ?? 0)}</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-2.5 bg-background px-4 py-3">
                   <Users class="mt-0.5 size-3.5 shrink-0 text-muted-foreground" />
                   <div class="min-w-0">
-                    <p class="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{t('demo.enrollment.label')}</p>
+                    <p class="text-mockup-xs font-medium uppercase tracking-wide text-muted-foreground">{t('demo.enrollment.label')}</p>
                     <p class="text-sm text-foreground">{school?.enrollment.toLocaleString('es-CL')} {t('demo.enrollment')}</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-2.5 bg-background px-4 py-3">
                   <Building class="mt-0.5 size-3.5 shrink-0 text-muted-foreground" />
                   <div class="min-w-0">
-                    <p class="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">Dependencia</p>
+                    <p class="text-mockup-xs font-medium uppercase tracking-wide text-muted-foreground">{t('demo.dependencia')}</p>
                     <p class="text-sm text-foreground">{depTypeLabel(school?.depType ?? 0)}</p>
                   </div>
                 </div>
                 <div class="col-span-2 flex items-start gap-2.5 bg-background px-4 py-3">
                   <Building class="mt-0.5 size-3.5 shrink-0 text-muted-foreground" />
                   <div class="min-w-0">
-                    <p class="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{t('demo.sostenedor')}</p>
+                    <p class="text-mockup-xs font-medium uppercase tracking-wide text-muted-foreground">{t('demo.sostenedor')}</p>
                     <p class="truncate text-sm text-foreground">{school?.sostenedor}</p>
                   </div>
                 </div>
@@ -392,7 +389,7 @@
             {#if school?.lat !== 0}
               {#if mapFailed}
                 <div class="hidden rounded-xl border border-border bg-background p-4 text-sm text-muted-foreground lg:block">
-                  <p class="font-medium text-foreground">Ubicación</p>
+                  <p class="font-medium text-foreground">{t('demo.location')}</p>
                   <p class="mt-1">{school?.commune}{school ? `, ${regionName(school.regionCode)}` : ''}</p>
                   {#if school?.name}
                     <a
@@ -401,7 +398,7 @@
                       rel="noopener noreferrer"
                       class="mt-2 inline-block text-primary underline-offset-2 hover:underline"
                     >
-                      Ver en Google Maps →
+                      {t('demo.view_google_maps')} →
                     </a>
                   {/if}
                 </div>
@@ -530,8 +527,8 @@
               {#if errorMessage}
                 <p class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-destructive" role="alert">{errorMessage}</p>
               {/if}
-              <p class="mt-2 text-center text-[10px] text-muted-foreground">
-                Protegido por reCAPTCHA de Google.
+              <p class="mt-2 text-center text-mockup-xs text-muted-foreground">
+                {t('demo.recaptcha_notice')}
               </p>
             </form>
           </div>
@@ -540,7 +537,7 @@
     {/if}
   </div>
 
-  <footer class="border-t border-border bg-background py-4 text-center text-[11px] text-muted-foreground">
+  <footer class="border-t border-border bg-background py-4 text-center text-mockup-sm text-muted-foreground">
     &copy; {new Date().getFullYear()} {BRAND}
   </footer>
 </main>

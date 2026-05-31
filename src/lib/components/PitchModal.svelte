@@ -4,6 +4,7 @@
   import { trackEvent } from '$lib/utils/analytics';
   import { pitchSlides as slides, getDaysUntilEnforcement } from '$lib/data/pitch-slides';
   import { BRAND } from '$lib/brand';
+  import { t } from '$lib/i18n/index.svelte';
   import {
     Shield, Lock, FileSpreadsheet, Smartphone, BookOpen, AlertTriangle,
     Bell, UserCheck, Eye, Zap, MapPin, Calendar, Play, Pause, Volume2,
@@ -108,7 +109,7 @@
 <div class="modal-backdrop" transition:fade={{ duration: 250 }} onclick={(e) => { if (e.target === e.currentTarget) handleClose(); }} onkeydown={handleKeydown}>
   <div class="modal-content">
   <!-- Close button -->
-  <button class="close-btn" onclick={handleClose} aria-label="Cerrar">
+  <button class="close-btn" onclick={handleClose} aria-label={t('pitchModal.close_label')}>
     <X size={24} />
   </button>
 
@@ -122,71 +123,71 @@
             <div in:scale={{ duration: 700, easing: backOut, delay: 250 }}>
               <img src="/logos/ethoz-final-light.svg" alt={BRAND} class="logo-hero" />
             </div>
-            <p class="sub" in:fly={{ y: 16, duration: 500, delay: 500 }}>El Escudo Digital Escolar</p>
-            <span class="pill" in:scale={{ duration: 400, delay: 700 }}>Cumple con Ley 21.719</span>
+            <p class="sub" in:fly={{ y: 16, duration: 500, delay: 500 }}>{t('pitchModal.intro_sub')}</p>
+            <span class="pill" in:scale={{ duration: 400, delay: 700 }}>{t('pitchModal.intro_pill')}</span>
           </div>
 
         {:else if currentSlide.id === 'problem'}
           <div class="sc">
-            <h2 class="heading">¿Dónde está la información<br/>más sensible?</h2>
+            <h2 class="heading">{t('pitchModal.problem_heading_l1')}<br/>{t('pitchModal.problem_heading_l2')}</h2>
             <div class="row gap-6">
               <div class="icon-col" in:fly={{ x: -40, duration: 500, delay: 250 }}>
                 <div class="icon-box warn"><FileSpreadsheet size={28} /></div>
-                <span class="icon-label">Planillas</span>
+                <span class="icon-label">{t('pitchModal.problem_label_spreadsheets')}</span>
               </div>
               <div class="icon-col" in:fly={{ y: -30, duration: 500, delay: 400 }}>
                 <div class="icon-box warn"><BookOpen size={28} /></div>
-                <span class="icon-label">Libretas</span>
+                <span class="icon-label">{t('pitchModal.problem_label_notebooks')}</span>
               </div>
               <div class="icon-col" in:fly={{ x: 40, duration: 500, delay: 550 }}>
                 <div class="icon-box warn"><Smartphone size={28} /></div>
-                <span class="icon-label">WhatsApp</span>
+                <span class="icon-label">{t('pitchModal.problem_label_whatsapp')}</span>
               </div>
             </div>
             <div class="callout danger" in:fly={{ y: 16, duration: 500, delay: 700 }}>
               <AlertTriangle size={18} />
-              <span>Órdenes de alejamiento que no llegan · Retiros no autorizados</span>
+              <span>{t('pitchModal.problem_callout')}</span>
             </div>
           </div>
 
         {:else if currentSlide.id === 'law'}
           <div class="sc">
             <div class="icon-accent" in:scale={{ duration: 500, delay: 250 }}><Gavel size={48} strokeWidth={1.5} /></div>
-            <h2 class="heading">Ley 21.719</h2>
-            <p class="sub">Protección de Datos Personales</p>
+            <h2 class="heading">{t('pitchModal.law_heading')}</h2>
+            <p class="sub">{t('pitchModal.law_sub')}</p>
             <div class="card-light" in:fly={{ y: 16, duration: 500, delay: 500 }}>
-              <p class="card-text">Cambia las reglas del juego<br/><strong>para todos los colegios</strong></p>
+              <p class="card-text">{t('pitchModal.law_card_l1')}<br/><strong>{t('pitchModal.law_card_l2')}</strong></p>
             </div>
           </div>
 
         {:else if currentSlide.id === 'fines'}
           <div class="sc">
             <div class="label-row warn-text" in:fly={{ y: -16, duration: 400, delay: 200 }}>
-              <Clock size={18} /><span>Cuenta regresiva</span>
+              <Clock size={18} /><span>{t('pitchModal.fines_countdown_label')}</span>
             </div>
             <div in:scale={{ duration: 600, delay: 350, easing: backOut }}>
-              <p class="big-text">Diciembre 2026</p>
-              <p class="sub-num warn-text">{countdownDays} días restantes</p>
+              <p class="big-text">{t('pitchModal.fines_date')}</p>
+              <p class="sub-num warn-text">{countdownDays} {t('pitchModal.fines_days_remaining')}</p>
             </div>
             <div in:fly={{ y: 24, duration: 600, delay: 600 }}>
               <p class="big-number danger-text">20.000 <span class="unit">UTM</span></p>
               <p class="sub">= <strong class="danger-text">$1.200 millones CLP</strong></p>
             </div>
-            <p class="muted-sm" in:fade={{ duration: 400, delay: 850 }}>Multa máxima por infracciones gravísimas</p>
+            <p class="muted-sm" in:fade={{ duration: 400, delay: 850 }}>{t('pitchModal.fines_caption')}</p>
           </div>
 
         {:else if currentSlide.id === 'classification'}
           <div class="sc">
-            <h2 class="heading">Clasificación de Faltas</h2>
+            <h2 class="heading">{t('pitchModal.classification_heading')}</h2>
             <div class="severity-list">
               <div class="sev-row" in:fly={{ x: -30, duration: 450, delay: 250 }}>
-                <span class="sev-dot leve"></span><span class="sev-name leve-text">Leve</span><span class="sev-range">1 – 100 UTM</span>
+                <span class="sev-dot leve"></span><span class="sev-name leve-text">{t('pitchModal.classification_minor')}</span><span class="sev-range">1 – 100 UTM</span>
               </div>
               <div class="sev-row" in:fly={{ x: -30, duration: 450, delay: 400 }}>
-                <span class="sev-dot grave"></span><span class="sev-name grave-text">Grave</span><span class="sev-range">101 – 5.000 UTM</span>
+                <span class="sev-dot grave"></span><span class="sev-name grave-text">{t('pitchModal.classification_serious')}</span><span class="sev-range">101 – 5.000 UTM</span>
               </div>
               <div class="sev-row" in:fly={{ x: -30, duration: 450, delay: 550 }}>
-                <span class="sev-dot gravisima"></span><span class="sev-name gravisima-text">Gravísima</span><span class="sev-range">5.001 – 20.000 UTM</span>
+                <span class="sev-dot gravisima"></span><span class="sev-name gravisima-text">{t('pitchModal.classification_critical')}</span><span class="sev-range">5.001 – 20.000 UTM</span>
               </div>
             </div>
           </div>
@@ -196,8 +197,8 @@
             <div class="shield-glow" in:scale={{ duration: 700, easing: backOut, delay: 200 }}>
               <Shield size={80} strokeWidth={1.2} />
             </div>
-            <h2 class="heading primary-text" in:fly={{ y: 16, duration: 500, delay: 450 }}>Tu Escudo Digital</h2>
-            <p class="sub" in:fly={{ y: 16, duration: 500, delay: 600 }}>Protege al colegio y cumple la ley</p>
+            <h2 class="heading primary-text" in:fly={{ y: 16, duration: 500, delay: 450 }}>{t('pitchModal.solution_heading')}</h2>
+            <p class="sub" in:fly={{ y: 16, duration: 500, delay: 600 }}>{t('pitchModal.solution_sub')}</p>
           </div>
 
         {:else if currentSlide.id === 'features-a'}
@@ -205,13 +206,13 @@
             <div class="card-grid">
               <div class="fcard" in:fly={{ x: -40, duration: 500, delay: 250 }}>
                 <div class="ficon primary-bg"><ClipboardList size={32} strokeWidth={1.5} /></div>
-                <h3>Ficha 360°</h3>
-                <p>Todo centralizado por alumno. Nada se pierde.</p>
+                <h3>{t('pitchModal.feature_record_title')}</h3>
+                <p>{t('pitchModal.feature_record_desc')}</p>
               </div>
               <div class="fcard" in:fly={{ x: 40, duration: 500, delay: 400 }}>
                 <div class="ficon danger-bg"><Bell size={32} strokeWidth={1.5} /></div>
-                <h3>Alertas Críticas</h3>
-                <p>Al instante, solo a quien debe saber.</p>
+                <h3>{t('pitchModal.feature_alerts_title')}</h3>
+                <p>{t('pitchModal.feature_alerts_desc')}</p>
               </div>
             </div>
           </div>
@@ -221,37 +222,37 @@
             <div class="card-grid">
               <div class="fcard" in:fly={{ x: -40, duration: 500, delay: 250 }}>
                 <div class="ficon success-bg"><UserCheck size={32} strokeWidth={1.5} /></div>
-                <h3>Retiro Seguro</h3>
-                <p>Validación en segundos, sin papeles.</p>
+                <h3>{t('pitchModal.feature_pickup_title')}</h3>
+                <p>{t('pitchModal.feature_pickup_desc')}</p>
               </div>
               <div class="fcard" in:fly={{ x: 40, duration: 500, delay: 400 }}>
                 <div class="ficon primary-bg"><Eye size={32} strokeWidth={1.5} /></div>
-                <h3>Control por Rol</h3>
-                <p>Cada persona ve solo lo que necesita.</p>
+                <h3>{t('pitchModal.feature_roles_title')}</h3>
+                <p>{t('pitchModal.feature_roles_desc')}</p>
               </div>
             </div>
           </div>
 
         {:else if currentSlide.id === 'implementation'}
           <div class="sc">
-            <h2 class="heading">Implementación Simple</h2>
+            <h2 class="heading">{t('pitchModal.implementation_heading')}</h2>
             <div class="row gap-0 items-center">
               <div class="step-col" in:fly={{ y: 24, duration: 450, delay: 250 }}>
                 <div class="ficon primary-bg"><Building size={24} /></div>
-                <span class="icon-label">Conectamos</span>
+                <span class="icon-label">{t('pitchModal.implementation_step_connect')}</span>
               </div>
               <div class="connector" in:scale={{ duration: 300, delay: 400 }}></div>
               <div class="step-col" in:fly={{ y: 24, duration: 450, delay: 450 }}>
                 <div class="ficon primary-bg"><Server size={24} /></div>
-                <span class="icon-label">Migramos</span>
+                <span class="icon-label">{t('pitchModal.implementation_step_migrate')}</span>
               </div>
               <div class="connector" in:scale={{ duration: 300, delay: 600 }}></div>
               <div class="step-col" in:fly={{ y: 24, duration: 450, delay: 650 }}>
                 <div class="ficon primary-bg"><Zap size={24} /></div>
-                <span class="icon-label">Operamos</span>
+                <span class="icon-label">{t('pitchModal.implementation_step_operate')}</span>
               </div>
             </div>
-            <p class="success-text fw-500" in:fade={{ duration: 400, delay: 850 }}>En semanas, no meses.</p>
+            <p class="success-text fw-500" in:fade={{ duration: 400, delay: 850 }}>{t('pitchModal.implementation_timeline')}</p>
           </div>
 
         {:else if currentSlide.id === 'security'}
@@ -260,21 +261,21 @@
               <div class="ficon primary-bg lg"><Lock size={36} strokeWidth={1.5} /></div>
               <div class="ficon primary-bg lg"><Fingerprint size={36} strokeWidth={1.5} /></div>
             </div>
-            <h2 class="heading">Cifrado Nivel Bancario</h2>
+            <h2 class="heading">{t('pitchModal.security_heading')}</h2>
             <div class="check-list">
-              <div class="check-item" in:fly={{ y: 16, duration: 400, delay: 450 }}><Check size={16} /><span>Encriptación AES-256</span></div>
-              <div class="check-item" in:fly={{ y: 16, duration: 400, delay: 550 }}><MapPin size={16} /><span>Datos almacenados en Chile</span></div>
-              <div class="check-item" in:fly={{ y: 16, duration: 400, delay: 650 }}><Shield size={16} /><span>Cumplimiento normativo total</span></div>
+              <div class="check-item" in:fly={{ y: 16, duration: 400, delay: 450 }}><Check size={16} /><span>{t('pitchModal.security_encryption')}</span></div>
+              <div class="check-item" in:fly={{ y: 16, duration: 400, delay: 550 }}><MapPin size={16} /><span>{t('pitchModal.security_storage')}</span></div>
+              <div class="check-item" in:fly={{ y: 16, duration: 400, delay: 650 }}><Shield size={16} /><span>{t('pitchModal.security_compliance')}</span></div>
             </div>
           </div>
 
         {:else if currentSlide.id === 'urgency'}
           <div class="sc">
             <div class="icon-accent warn-icon" in:scale={{ duration: 500, delay: 200 }}><Calendar size={48} strokeWidth={1.5} /></div>
-            <h2 class="heading" in:fly={{ y: 16, duration: 500, delay: 350 }}>La ley no espera</h2>
-            <p class="sub" in:fly={{ y: 16, duration: 500, delay: 500 }}>Prepararse hoy significa<br/>estar tranquilos mañana</p>
+            <h2 class="heading" in:fly={{ y: 16, duration: 500, delay: 350 }}>{t('pitchModal.urgency_heading')}</h2>
+            <p class="sub" in:fly={{ y: 16, duration: 500, delay: 500 }}>{t('pitchModal.urgency_sub_l1')}<br/>{t('pitchModal.urgency_sub_l2')}</p>
             <span class="pill warn-pill" in:scale={{ duration: 400, delay: 650 }}>
-              <Zap size={14} /> Programa Piloto 2026 — Cupos Limitados
+              <Zap size={14} /> {t('pitchModal.urgency_pill')}
             </span>
           </div>
 
@@ -283,10 +284,10 @@
             <div in:scale={{ duration: 700, easing: backOut, delay: 200 }}>
               <img src="/logos/ethoz-final-light.svg" alt={BRAND} class="logo-cta" />
             </div>
-            <h2 class="heading" in:fly={{ y: 16, duration: 500, delay: 350 }}>Agenda tu Demo</h2>
-            <p class="sub" in:fly={{ y: 16, duration: 500, delay: 500 }}>Sé de los primeros en cumplir</p>
+            <h2 class="heading" in:fly={{ y: 16, duration: 500, delay: 350 }}>{t('pitchModal.cta_heading')}</h2>
+            <p class="sub" in:fly={{ y: 16, duration: 500, delay: 500 }}>{t('pitchModal.cta_sub')}</p>
             <a href="/demo" class="cta-btn" in:scale={{ duration: 400, delay: 650 }} onclick={handleClose}>
-              Agendar Demo <ArrowRight size={18} />
+              {t('pitchModal.cta_button')} <ArrowRight size={18} />
             </a>
           </div>
         {/if}
@@ -304,7 +305,7 @@
 
   <!-- Controls -->
   <div class="controls">
-    <div class="progress" onclick={handleProgressClick} onkeydown={(e) => { if (e.key === 'ArrowRight') { e.preventDefault(); seekTo(Math.min(currentTime + 5, duration)); } if (e.key === 'ArrowLeft') { e.preventDefault(); seekTo(Math.max(currentTime - 5, 0)); } }} role="slider" tabindex={0} aria-label="Progreso" aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100}>
+    <div class="progress" onclick={handleProgressClick} onkeydown={(e) => { if (e.key === 'ArrowRight') { e.preventDefault(); seekTo(Math.min(currentTime + 5, duration)); } if (e.key === 'ArrowLeft') { e.preventDefault(); seekTo(Math.max(currentTime - 5, 0)); } }} role="slider" tabindex={0} aria-label={t('pitchModal.progress_label')} aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100}>
       <div class="track">
         <div class="fill" style="width:{progress}%"></div>
         {#each slides as s, i}
@@ -317,21 +318,21 @@
     <div class="ctrl-row">
       <span class="time">{fmt(currentTime)} / {fmt(duration)}</span>
       <div class="ctrl-center">
-        <button class="cb" onclick={() => goToSlide(currentSlideIndex - 1)} disabled={currentSlideIndex === 0} aria-label="Anterior"><SkipBack size={18} /></button>
-        <button class="cb play" onclick={togglePlay} aria-label={playing ? 'Pausar' : 'Reproducir'}>
+        <button class="cb" onclick={() => goToSlide(currentSlideIndex - 1)} disabled={currentSlideIndex === 0} aria-label={t('pitchModal.prev_label')}><SkipBack size={18} /></button>
+        <button class="cb play" onclick={togglePlay} aria-label={playing ? t('pitchModal.pause_label') : t('pitchModal.play_label')}>
           {#if playing}<Pause size={24} />{:else}<Play size={24} />{/if}
         </button>
-        <button class="cb" onclick={() => goToSlide(currentSlideIndex + 1)} disabled={currentSlideIndex === slides.length - 1} aria-label="Siguiente"><SkipForward size={18} /></button>
+        <button class="cb" onclick={() => goToSlide(currentSlideIndex + 1)} disabled={currentSlideIndex === slides.length - 1} aria-label={t('pitchModal.next_label')}><SkipForward size={18} /></button>
       </div>
       <div class="ctrl-right">
-        <button class="cb" onclick={() => { muted = !muted; if (audioEl) audioEl.muted = muted; }} aria-label="Mute">
+        <button class="cb" onclick={() => { muted = !muted; if (audioEl) audioEl.muted = muted; }} aria-label={t('pitchModal.mute_label')}>
           {#if muted}<VolumeX size={16} />{:else}<Volume2 size={16} />{/if}
         </button>
       </div>
     </div>
     <div class="dots">
       {#each slides as _, i}
-        <button class="dot" class:active={i === currentSlideIndex} onclick={() => goToSlide(i)} aria-label="Slide {i+1}"></button>
+        <button class="dot" class:active={i === currentSlideIndex} onclick={() => goToSlide(i)} aria-label={`${t('pitchModal.slide_label')} ${i+1}`}></button>
       {/each}
     </div>
   </div>

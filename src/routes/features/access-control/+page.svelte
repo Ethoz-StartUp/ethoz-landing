@@ -14,22 +14,22 @@
 
   // Roles and permissions matrix
   const roles = [
-    { name: 'Director/a', abbr: 'DIR', color: 'text-primary' },
-    { name: 'Inspector/a', abbr: 'INS', color: 'text-foreground' },
-    { name: 'Orientador/a', abbr: 'ORI', color: 'text-foreground' },
-    { name: 'Docente', abbr: 'DOC', color: 'text-foreground' },
-    { name: 'UTP', abbr: 'UTP', color: 'text-foreground' },
-    { name: 'Portero/a', abbr: 'POR', color: 'text-muted-foreground' },
+    { nameKey: 'featurePage.accessControl.role_director' as const, abbr: 'DIR', color: 'text-primary' },
+    { nameKey: 'featurePage.accessControl.role_inspector' as const, abbr: 'INS', color: 'text-foreground' },
+    { nameKey: 'featurePage.accessControl.role_counselor' as const, abbr: 'ORI', color: 'text-foreground' },
+    { nameKey: 'featurePage.accessControl.role_teacher' as const, abbr: 'DOC', color: 'text-foreground' },
+    { nameKey: 'featurePage.accessControl.role_utp' as const, abbr: 'UTP', color: 'text-foreground' },
+    { nameKey: 'featurePage.accessControl.role_doorkeeper' as const, abbr: 'POR', color: 'text-muted-foreground' },
   ];
 
   const permissions = [
-    { label: 'Ver ficha básica',        values: [true,  true,  true,  true,  true,  false] },
-    { label: 'Ver alertas médicas',     values: [true,  false, true,  false, false, false] },
-    { label: 'Ver datos judiciales',    values: [true,  true,  true,  false, false, false] },
-    { label: 'Registrar retiro',        values: [true,  true,  false, false, false, true]  },
-    { label: 'Agregar observación',     values: [true,  true,  true,  true,  false, false] },
-    { label: 'Exportar datos',          values: [true,  false, false, false, true,  false] },
-    { label: 'Gestionar usuarios',      values: [true,  false, false, false, false, false] },
+    { labelKey: 'featurePage.accessControl.perm_view_basic' as const,    values: [true,  true,  true,  true,  true,  false] },
+    { labelKey: 'featurePage.accessControl.perm_view_medical' as const,  values: [true,  false, true,  false, false, false] },
+    { labelKey: 'featurePage.accessControl.perm_view_judicial' as const, values: [true,  true,  true,  false, false, false] },
+    { labelKey: 'featurePage.accessControl.perm_register_pickup' as const, values: [true,  true,  false, false, false, true]  },
+    { labelKey: 'featurePage.accessControl.perm_add_note' as const,      values: [true,  true,  true,  true,  false, false] },
+    { labelKey: 'featurePage.accessControl.perm_export_data' as const,   values: [true,  false, false, false, true,  false] },
+    { labelKey: 'featurePage.accessControl.perm_manage_users' as const,  values: [true,  false, false, false, false, false] },
   ];
 
   let activeRole = $state<string | null>(null);
@@ -57,7 +57,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href="/#features" class="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
-        Volver a características
+        {t('featurePage.accessControl.back_link')}
       </a>
       <div class="mt-6 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="lg:pt-4">
@@ -73,15 +73,15 @@
           <ul class="mt-6 space-y-3">
             <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
               <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-              6 roles preconfigurados para el ecosistema escolar chileno: Director, Inspector, Orientador, Docente, UTP y Portero
+              {t('featurePage.accessControl.hero_bullet1')}
             </li>
             <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
               <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-              El portero solo ve lo estrictamente necesario para verificar retiros — ningún dato sensible en pantalla
+              {t('featurePage.accessControl.hero_bullet2')}
             </li>
             <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
               <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-              Cambios de rol aplicados en tiempo real, sin necesidad de reinicio del sistema
+              {t('featurePage.accessControl.hero_bullet3')}
             </li>
           </ul>
         </div>
@@ -92,31 +92,31 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Matriz de Permisos por Rol</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{t('featurePage.accessControl.matrix_titlebar')}</span>
           </div>
           <div class="overflow-x-auto">
-            <table class="w-full text-[10px]">
-              <caption class="sr-only">Matriz de permisos por rol: detalla qué acciones puede realizar cada rol (Director, Inspector, Orientador, Docente, UTP, Portero) en {BRAND}.</caption>
+            <table class="w-full text-mockup-xs">
+              <caption class="sr-only">{t('featurePage.accessControl.matrix_caption')}</caption>
               <thead>
                 <tr class="border-b border-border bg-muted/30">
-                  <th scope="col" class="px-3 py-2 text-left font-semibold text-muted-foreground">Permiso</th>
+                  <th scope="col" class="px-3 py-2 text-left font-semibold text-muted-foreground">{t('featurePage.accessControl.matrix_col_permission')}</th>
                   {#each roles as role}
-                    <th scope="col" class="px-2 py-2 text-center font-semibold {role.color}" title={role.name}>{role.abbr}</th>
+                    <th scope="col" class="px-2 py-2 text-center font-semibold {role.color}" title={t(role.nameKey)}>{role.abbr}</th>
                   {/each}
                 </tr>
               </thead>
               <tbody class="divide-y divide-border">
                 {#each permissions as perm}
                   <tr class="hover:bg-muted transition-colors">
-                    <th scope="row" class="px-3 py-2 text-left font-normal text-muted-foreground whitespace-nowrap">{perm.label}</th>
+                    <th scope="row" class="px-3 py-2 text-left font-normal text-muted-foreground whitespace-nowrap">{t(perm.labelKey)}</th>
                     {#each perm.values as val, vi}
                       <td class="px-2 py-2 text-center">
                         {#if val}
-                          <span class="inline-flex items-center justify-center size-4 rounded-full bg-success/10 mx-auto" aria-label={`${roles[vi].name}: permitido`}>
+                          <span class="inline-flex items-center justify-center size-4 rounded-full bg-success/10 mx-auto" aria-label={`${t(roles[vi].nameKey)}: ${t('featurePage.accessControl.matrix_allowed')}`}>
                             <Check aria-hidden="true" class="size-2.5 text-success" />
                           </span>
                         {:else}
-                          <span class="inline-flex items-center justify-center size-4 rounded-full bg-muted mx-auto" aria-label={`${roles[vi].name}: no permitido`}>
+                          <span class="inline-flex items-center justify-center size-4 rounded-full bg-muted mx-auto" aria-label={`${t(roles[vi].nameKey)}: ${t('featurePage.accessControl.matrix_denied')}`}>
                             <X aria-hidden="true" class="size-2.5 text-muted-foreground" />
                           </span>
                         {/if}
@@ -128,7 +128,7 @@
             </table>
           </div>
           <div class="px-4 py-2.5 border-t border-border bg-muted/20">
-            <p class="text-[9px] text-muted-foreground">Permisos configurables por el Director del establecimiento. Cambios auditados.</p>
+            <p class="text-mockup-2xs text-muted-foreground">{t('featurePage.accessControl.matrix_footnote')}</p>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@
   <section class="py-12 sm:py-14" aria-labelledby="rbac-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="rbac-editorial" class="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.accessControl.editorial.eyebrow')}</p>
+      <p id="rbac-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('featurePage.accessControl.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('featurePage.accessControl.editorial.statement')}
       </blockquote>
@@ -152,46 +152,58 @@
   <!-- Role cards section -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary">Por rol</p>
-      <h2 class="mb-2 text-xl text-foreground sm:text-2xl">Cada rol, una interfaz distinta</h2>
+      <p class="mb-2 text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('featurePage.accessControl.byrole_eyebrow')}</p>
+      <h2 class="mb-2 text-xl text-foreground sm:text-2xl">{t('featurePage.accessControl.byrole_title')}</h2>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
-        {BRAND} no oculta campos en una interfaz genérica. Cada cargo tiene una vista construida para su tarea específica, reduciendo el error humano y la sobrecarga de información.
+        {t('featurePage.accessControl.byrole_intro')}
       </p>
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {#each [
           {
-            role: 'Director/a',
+            roleKey: 'featurePage.accessControl.role_director' as const,
             icon: ShieldCheck,
             color: 'text-primary',
-            desc: 'Acceso completo a todos los módulos. Configura roles, aprueba protocolos y recibe resúmenes ejecutivos del establecimiento.',
-            can: ['Ver todo el expediente', 'Gestionar usuarios y roles', 'Exportar informes completos'],
+            descKey: 'featurePage.accessControl.card_director_desc' as const,
+            can: [
+              'featurePage.accessControl.card_director_can1',
+              'featurePage.accessControl.card_director_can2',
+              'featurePage.accessControl.card_director_can3',
+            ] as const,
           },
           {
-            role: 'Inspector/a',
+            roleKey: 'featurePage.accessControl.role_inspector' as const,
             icon: Users,
             color: 'text-foreground',
-            desc: 'Gestiona retiros, atrasos y el libro de clases. Ve alertas de convivencia sin acceder a datos médicos confidenciales.',
-            can: ['Registrar retiros y atrasos', 'Ver alertas de convivencia', 'No ve datos médicos'],
+            descKey: 'featurePage.accessControl.card_inspector_desc' as const,
+            can: [
+              'featurePage.accessControl.card_inspector_can1',
+              'featurePage.accessControl.card_inspector_can2',
+              'featurePage.accessControl.card_inspector_can3',
+            ] as const,
           },
           {
-            role: 'Portero/a',
+            roleKey: 'featurePage.accessControl.role_doorkeeper' as const,
             icon: Lock,
             color: 'text-foreground',
-            desc: 'Interfaz ultra-simplificada: solo búsqueda de alumno, lista de autorizados y botón de confirmar. Nada más en pantalla.',
-            can: ['Buscar alumno', 'Ver lista de autorizados', 'Confirmar retiro'],
+            descKey: 'featurePage.accessControl.card_doorkeeper_desc' as const,
+            can: [
+              'featurePage.accessControl.card_doorkeeper_can1',
+              'featurePage.accessControl.card_doorkeeper_can2',
+              'featurePage.accessControl.card_doorkeeper_can3',
+            ] as const,
           },
         ] as card}
-          <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+          <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
             <div class="flex items-center gap-2.5 mb-3">
               <card.icon class="size-5 shrink-0 {card.color}" />
-              <h3 class="text-sm font-semibold text-foreground">{card.role}</h3>
+              <h3 class="text-sm font-semibold text-foreground">{t(card.roleKey)}</h3>
             </div>
-            <p class="text-xs leading-relaxed text-muted-foreground mb-3">{card.desc}</p>
+            <p class="text-xs leading-relaxed text-muted-foreground mb-3">{t(card.descKey)}</p>
             <ul class="space-y-1">
               {#each card.can as item}
-                <li class="flex items-center gap-2 text-[11px] text-muted-foreground">
+                <li class="flex items-center gap-2 text-mockup-sm text-muted-foreground">
                   <Check class="size-3 shrink-0 text-success" />
-                  {item}
+                  {t(item)}
                 </li>
               {/each}
             </ul>
@@ -206,30 +218,30 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <UserCog class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base font-semibold text-foreground">Vistas personalizadas por cargo</h2>
+            <h2 class="text-base font-semibold text-foreground">{t('featurePage.accessControl.detail_views_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.rbac.bullet1')}
           </p>
         </div>
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <GanttChartSquare class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base font-semibold text-foreground">Interfaz de portería ultra-restringida</h2>
+            <h2 class="text-base font-semibold text-foreground">{t('featurePage.accessControl.detail_gate_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.rbac.bullet2')}
           </p>
         </div>
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <EyeOff class="size-5 shrink-0 text-primary" />
-            <h2 class="text-base font-semibold text-foreground">Confidencialidad filtrada por rol</h2>
+            <h2 class="text-base font-semibold text-foreground">{t('featurePage.accessControl.detail_confidential_title')}</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             {t('features.rbac.bullet3')}
@@ -244,7 +256,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="rbac-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.accessControl.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.accessControl.finalCta.eyebrow')}</p>
       <h2 id="rbac-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.accessControl.finalCta.title')}
       </h2>
@@ -256,14 +268,14 @@
           href="/demo"
           class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          Agendar demo
+          {t('featurePage.accessControl.cta_primary')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/#features"
           class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          Ver todas las funciones
+          {t('featurePage.accessControl.cta_secondary')}
         </a>
       </div>
     </div>

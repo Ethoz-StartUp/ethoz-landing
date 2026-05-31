@@ -5,6 +5,7 @@
   import { Download, Loader2 } from '@lucide/svelte';
   import { browser } from '$app/environment';
   import { env } from '$env/dynamic/public';
+  import { t } from '$lib/i18n/index.svelte';
 
   type Props = {
     open: boolean;
@@ -42,7 +43,7 @@
 
     const trimmed = email.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
-      error = 'Ingresa un correo válido.';
+      error = t('resourceGate.error_invalid_email');
       submitting = false;
       return;
     }
@@ -77,23 +78,23 @@
 <Dialog.Root bind:open>
   <Dialog.Content class="sm:max-w-md">
     <Dialog.Header>
-      <Dialog.Title>Descargar: {title}</Dialog.Title>
+      <Dialog.Title>{t('resourceGate.dialog_title_prefix')} {title}</Dialog.Title>
       <Dialog.Description>
-        Déjanos tu correo y te enviaremos el PDF junto con material complementario. Sin spam.
+        {t('resourceGate.dialog_description')}
       </Dialog.Description>
     </Dialog.Header>
 
     <form onsubmit={handleSubmit} class="mt-4 space-y-4" aria-busy={submitting}>
       <div class="space-y-1.5">
         <label for="resource-email" class="block text-sm font-medium text-foreground">
-          Correo electrónico
+          {t('resourceGate.email_label')}
         </label>
         <input
           id="resource-email"
           type="email"
           required
           bind:value={email}
-          placeholder="tucorreo@colegio.cl"
+          placeholder={t('resourceGate.email_placeholder')}
           autocomplete="email"
           aria-invalid={error ? 'true' : undefined}
           aria-describedby={error ? 'resource-email-error' : undefined}
@@ -107,10 +108,10 @@
       <Button type="submit" class="w-full gap-2" disabled={submitting}>
         {#if submitting}
           <Loader2 class="size-4 animate-spin" />
-          Enviando…
+          {t('resourceGate.submit_sending')}
         {:else}
           <Download class="size-4" />
-          Enviar y descargar
+          {t('resourceGate.submit_cta')}
         {/if}
       </Button>
 
@@ -119,7 +120,7 @@
         onclick={skip}
         class="block w-full text-center text-sm text-muted-foreground underline underline-offset-2 transition-colors hover:text-foreground"
       >
-        No gracias, descargar igual
+        {t('resourceGate.skip_cta')}
       </button>
     </form>
   </Dialog.Content>

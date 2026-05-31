@@ -31,7 +31,7 @@
   <div class="mx-auto flex-1 max-w-7xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
     <!-- Editorial header — McK pattern: eyebrow · meta · short rule · Playfair italic h1 · subtitle -->
     <header class="mb-12 max-w-3xl sm:mb-16">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         <span class="text-primary">Publicaciones</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>Protección de datos, seguridad y cumplimiento</span>
@@ -70,11 +70,11 @@
           <div class="flex flex-1 flex-col p-5">
             <div class="mb-2.5 flex flex-wrap gap-1.5">
               {#each post.tags.slice(0, 2) as tag}
-                <Badge variant="secondary" class="text-[10px]">{tag}</Badge>
+                <Badge variant="secondary" class="text-mockup-xs">{tag}</Badge>
               {/each}
             </div>
 
-            <h2 class="text-[0.95rem] font-semibold leading-snug text-foreground group-hover:text-primary transition-colors">
+            <h2 class="text-base font-semibold leading-snug text-foreground">
               {post.title}
             </h2>
 

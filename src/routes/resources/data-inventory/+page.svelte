@@ -4,11 +4,12 @@
   import { Button } from '$lib/components/ui/button';
   import { Printer, ArrowLeft } from '@lucide/svelte';
   import { BRAND } from '$lib/brand';
+  import { t } from '$lib/i18n/index.svelte';
 
   const inventory = [
     {
-      category: 'Identificación del alumno',
-      sensitivity: 'Básico',
+      categoryKey: 'resDataInventory.cat_student_id' as const,
+      sensitivityKey: 'resDataInventory.sens_basic' as const,
       sensitivityColor: 'green',
       fields: [
         { field: 'Nombre completo', baseLegal: 'Art. 13 b) — Contrato matrícula', finalidad: 'Gestión educativa, comunicaciones', retention: '5 años post egreso' },
@@ -19,8 +20,8 @@
       ]
     },
     {
-      category: 'Datos de apoderados',
-      sensitivity: 'Básico',
+      categoryKey: 'resDataInventory.cat_guardians' as const,
+      sensitivityKey: 'resDataInventory.sens_basic' as const,
       sensitivityColor: 'green',
       fields: [
         { field: 'Nombre completo apoderado titular', baseLegal: 'Art. 13 b) — Contrato matrícula', finalidad: 'Contacto principal, autorizaciones', retention: '5 años post egreso' },
@@ -32,8 +33,8 @@
       ]
     },
     {
-      category: 'Datos académicos',
-      sensitivity: 'Básico',
+      categoryKey: 'resDataInventory.cat_academic' as const,
+      sensitivityKey: 'resDataInventory.sens_basic' as const,
       sensitivityColor: 'green',
       fields: [
         { field: 'Notas y calificaciones', baseLegal: 'Art. 13 b) / Art. 13 c) — Ley General de Educación', finalidad: 'Evaluación aprendizaje, informes MINEDUC', retention: '5 años post egreso' },
@@ -44,8 +45,8 @@
       ]
     },
     {
-      category: 'Datos sensibles (salud, médicos, familiares)',
-      sensitivity: 'Sensible',
+      categoryKey: 'resDataInventory.cat_sensitive' as const,
+      sensitivityKey: 'resDataInventory.sens_sensitive' as const,
       sensitivityColor: 'red',
       fields: [
         { field: 'Diagnósticos médicos y condiciones de salud', baseLegal: 'Art. 13 a) — Consentimiento explícito', finalidad: 'Atención primaria, primeros auxilios', retention: '10 años post egreso' },
@@ -56,8 +57,8 @@
       ]
     },
     {
-      category: 'Datos de navegación y auditoría',
-      sensitivity: 'Técnico',
+      categoryKey: 'resDataInventory.cat_audit' as const,
+      sensitivityKey: 'resDataInventory.sens_technical' as const,
       sensitivityColor: 'blue',
       fields: [
         { field: 'Logs de acceso al sistema', baseLegal: 'Art. 27 — Seguridad técnica', finalidad: 'Trazabilidad, detección de incidentes', retention: '2 años' },
@@ -76,12 +77,12 @@
 </script>
 
 <svelte:head>
-  <title>Inventario de Datos Personales para Colegios — Plantilla gratuita | {BRAND}</title>
-  <meta name="description" content="Plantilla de inventario de datos personales para establecimientos educacionales chilenos. Bases legales, finalidades y plazos de retención. Descarga gratis." />
+  <title>{t('resDataInventory.meta_title')}</title>
+  <meta name="description" content={t('resDataInventory.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/resources/data-inventory" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Inventario de Datos Personales para Colegios | ${BRAND}`} />
-  <meta property="og:description" content="Plantilla completa de inventario de datos conforme a la Ley 21.719 para colegios chilenos." />
+  <meta property="og:title" content={t('resDataInventory.og_title')} />
+  <meta property="og:description" content={t('resDataInventory.og_description')} />
   <link rel="canonical" href="https://ethoz.cl/resources/data-inventory" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
@@ -102,35 +103,35 @@
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
       <Button href="/resources" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
         <ArrowLeft class="size-4" />
-        Volver a recursos
+        {t('resDataInventory.back_to_resources')}
       </Button>
       <Button href="/downloads/inventario-datos-personales.pdf" download size="lg" class="gap-2">
         <Printer class="size-4" />
-        Descargar PDF
+        {t('resDataInventory.download_pdf')}
       </Button>
     </div>
   </div>
 
   <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <div class="mb-12 border-b border-border pb-10">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
-        <span class="text-primary">Plantilla · Cumplimiento</span>
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
+        <span class="text-primary">{t('resDataInventory.eyebrow_category')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>Art. 16 Ley 21.719</span>
+        <span>{t('resDataInventory.eyebrow_legal')}</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>5 categorías · 24 campos</span>
+        <span>{t('resDataInventory.eyebrow_count')}</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Inventario de Datos Personales</h1>
-      <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Registro estructurado de todas las categorías de datos personales tratados por establecimientos educacionales chilenos, con base legal, finalidad y plazos de retención conformes a la Ley 21.719.</p>
-      <p class="mt-4 text-xs text-muted-foreground">Elaborado por {BRAND} · ethoz.cl · Versión 1.0 · Complete con [Nombre del Establecimiento] y RBD</p>
+      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">{t('resDataInventory.hero_title')}</h1>
+      <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">{t('resDataInventory.hero_subtitle')}</p>
+      <p class="mt-4 text-xs text-muted-foreground">{t('resDataInventory.version_line')}</p>
     </div>
 
     <!-- Legend -->
     <div class="mb-8 flex flex-wrap gap-3 text-xs">
-      <div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm bg-success/100/20"></span> Datos básicos</div>
-      <div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm bg-destructive/100/20"></span> Datos sensibles (requieren consentimiento explícito)</div>
-      <div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm bg-primary/100/20"></span> Datos técnicos / auditoría</div>
+      <div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm bg-success/20"></span> {t('resDataInventory.legend_basic')}</div>
+      <div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm bg-destructive/20"></span> {t('resDataInventory.legend_sensitive')}</div>
+      <div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm bg-primary/20"></span> {t('resDataInventory.legend_technical')}</div>
     </div>
 
     <!-- Inventory sections -->
@@ -138,17 +139,17 @@
       {#each inventory as section}
         <div>
           <div class="mb-3 flex items-center gap-3">
-            <h2 class="text-base font-semibold text-foreground">{section.category}</h2>
-            <span class="rounded-full px-2.5 py-0.5 text-[11px] font-medium {sensitivityStyle[section.sensitivityColor]}">{section.sensitivity}</span>
+            <h2 class="text-base font-semibold text-foreground">{t(section.categoryKey)}</h2>
+            <span class="rounded-full px-2.5 py-0.5 text-mockup-sm font-medium {sensitivityStyle[section.sensitivityColor]}">{t(section.sensitivityKey)}</span>
           </div>
           <div class="overflow-x-auto rounded-xl border border-border">
             <table class="w-full text-xs">
               <thead>
                 <tr class="border-b border-border bg-muted/50">
-                  <th class="px-4 py-2.5 text-left font-medium text-foreground min-w-[160px]">Campo</th>
-                  <th class="px-4 py-2.5 text-left font-medium text-foreground min-w-[200px]">Base legal</th>
-                  <th class="px-4 py-2.5 text-left font-medium text-foreground min-w-[200px]">Finalidad</th>
-                  <th class="px-4 py-2.5 text-left font-medium text-foreground min-w-[140px]">Retención</th>
+                  <th class="px-4 py-2.5 text-left font-medium text-foreground min-w-[160px]">{t('resDataInventory.th_field')}</th>
+                  <th class="px-4 py-2.5 text-left font-medium text-foreground min-w-[200px]">{t('resDataInventory.th_legal_basis')}</th>
+                  <th class="px-4 py-2.5 text-left font-medium text-foreground min-w-[200px]">{t('resDataInventory.th_purpose')}</th>
+                  <th class="px-4 py-2.5 text-left font-medium text-foreground min-w-[140px]">{t('resDataInventory.th_retention')}</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-border">
@@ -170,18 +171,18 @@
     <!-- Notes -->
     <div class="mt-10 space-y-4">
       <div class="rounded-lg border border-warning/20 bg-warning/10 p-4 text-sm">
-        <p class="font-medium text-warning-foreground mb-1">Datos sensibles — requisitos especiales</p>
-        <p class="text-warning-foreground text-xs">Los datos médicos, de salud mental y situación familiar requieren consentimiento explícito, por escrito, con finalidad específica. No pueden usarse para finalidades distintas a las declaradas sin nuevo consentimiento. Deben tener controles de acceso reforzados y logs de auditoría.</p>
+        <p class="font-medium text-warning-foreground mb-1">{t('resDataInventory.sensitive_note_title')}</p>
+        <p class="text-warning-foreground text-xs">{t('resDataInventory.sensitive_note_body')}</p>
       </div>
       <div class="rounded-lg border border-border bg-muted/30 p-4 text-sm text-muted-foreground">
-        <p class="font-medium text-foreground mb-1">Nota legal</p>
-        <p class="text-xs">Este inventario es una plantilla orientativa. Cada establecimiento debe completarlo con todos sus sistemas reales: ERP escolar (Napsis, Syscol, Lirmi, etc.), plataformas de comunicación, sistemas de CCTV y control de acceso. El inventario debe actualizarse cada vez que se incorpore un nuevo tratamiento de datos.</p>
+        <p class="font-medium text-foreground mb-1">{t('resDataInventory.legal_note_title')}</p>
+        <p class="text-xs">{t('resDataInventory.legal_note_body')}</p>
       </div>
     </div>
 
     <div class="print:hidden mt-8 text-center">
-      <p class="text-sm text-muted-foreground mb-4">{BRAND} mantiene este inventario actualizado automáticamente para su establecimiento.</p>
-      <Button href="/demo">Solicitar demo gratuita</Button>
+      <p class="text-sm text-muted-foreground mb-4">{t('resDataInventory.cta_text')}</p>
+      <Button href="/demo">{t('resDataInventory.cta_button')}</Button>
     </div>
   </div>
 </main>

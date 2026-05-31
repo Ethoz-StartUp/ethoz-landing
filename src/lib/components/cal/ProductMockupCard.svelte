@@ -19,7 +19,7 @@
   {#if eyebrow || title}
     <div class="border-b border-hairline-soft px-6 py-4">
       {#if eyebrow}
-        <p class="text-[11px] font-medium uppercase tracking-wider text-body">{eyebrow}</p>
+        <p class="text-mockup-sm font-medium uppercase tracking-wider text-body">{eyebrow}</p>
       {/if}
       {#if title}
         <h4 class="mt-0.5 text-sm font-semibold text-foreground">{title}</h4>

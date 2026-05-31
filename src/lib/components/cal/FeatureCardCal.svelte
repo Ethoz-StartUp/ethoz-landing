@@ -52,7 +52,7 @@
           accent === 'sage'    ? 'border-accent-sage'    :
           'border-foreground',  // navy
           'transition-all duration-200',
-          'hover:border-l-4 hover:-translate-y-px',
+          'hover:-translate-y-px hover:bg-surface-card hover:shadow-card-hover',
         ].join(' ')
   );
 </script>
