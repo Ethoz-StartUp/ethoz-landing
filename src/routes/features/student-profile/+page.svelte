@@ -273,7 +273,7 @@
   <!-- Timeline section -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary">{t('featurePage.studentProfile.timeline_eyebrow')}</p>
+      <p class="mb-2 text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('featurePage.studentProfile.timeline_eyebrow')}</p>
       <h2 class="mb-2 text-xl text-foreground sm:text-2xl">{t('featurePage.studentProfile.timeline_title')}</h2>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         {t('featurePage.studentProfile.timeline_subtitle')}
@@ -322,7 +322,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <History class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.studentProfile.card1_title')}</h2>
@@ -332,7 +332,7 @@
           </p>
         </div>
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Lock class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.studentProfile.card2_title')}</h2>
@@ -342,7 +342,7 @@
           </p>
         </div>
 
-        <div class="group rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <BadgeCheck class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.studentProfile.card3_title')}</h2>

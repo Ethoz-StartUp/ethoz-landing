@@ -137,7 +137,7 @@
       <div class="grid gap-4 sm:grid-cols-2">
         <a
           href={CONTACT.email.link}
-          class="group flex flex-col gap-3 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover"
+          class="group flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover"
         >
           <div class="flex items-center gap-2.5">
             <Mail class="size-4 shrink-0 text-primary" />
@@ -151,7 +151,7 @@
 
         <a
           href="/demo"
-          class="group flex flex-col gap-3 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover"
+          class="group flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover"
         >
           <div class="flex items-center gap-2.5">
             <CalendarDays class="size-4 shrink-0 text-primary" />
@@ -167,7 +167,7 @@
           href="https://www.linkedin.com/company/ethozcl/"
           target="_blank"
           rel="noopener noreferrer"
-          class="group flex flex-col gap-3 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover"
+          class="group flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover"
         >
           <div class="flex items-center gap-2.5">
             <ExternalLink class="size-4 shrink-0 text-primary" />
@@ -179,7 +179,7 @@
           </span>
         </a>
 
-        <div class="flex flex-col gap-3 rounded-lg border border-border bg-card p-5">
+        <div class="flex flex-col gap-3 rounded-xl border border-border bg-card p-5">
           <div class="flex items-center gap-2.5">
             <Clock class="size-4 shrink-0 text-primary" />
             <p class="text-sm font-semibold text-foreground">{t('contact.hours.label')}</p>
@@ -195,7 +195,7 @@
 
     <!-- Contact form -->
     <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-4">{t('contact.form_label')}</p>
-    <div class="rounded-lg border border-border bg-card p-6 sm:p-8">
+    <div class="rounded-xl border border-border bg-card p-6 sm:p-8">
       {#if submitted}
         <div class="flex flex-col items-center gap-3 py-8 text-center" role="status" aria-live="polite">
           <div class="flex size-12 items-center justify-center rounded-full bg-success/10" aria-hidden="true">

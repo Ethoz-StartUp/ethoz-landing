@@ -129,7 +129,7 @@
         href="https://www.bcn.cl/leychile/navegar?idNorma=1209272"
         target="_blank"
         rel="noopener noreferrer"
-        class="group flex items-start gap-4 rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover"
+        class="group flex items-start gap-4 rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover"
       >
         <Scale class="size-5 shrink-0 text-primary" />
         <div class="min-w-0 flex-1">
@@ -279,7 +279,7 @@
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {#each pillars as pillar, i}
           {@const Icon = pillar.icon}
-          <div class="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+          <div class="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
             <span class="font-heading text-2xl leading-none text-primary tabular-nums" data-numeric>0{i + 1}</span>
             <div class="mt-4 flex items-center gap-2.5">
               <Icon class="size-4 shrink-0 text-primary" />
@@ -369,7 +369,7 @@
 
       <div class="grid gap-5 sm:grid-cols-3">
         <!-- Ley 21.719 -->
-        <div class="rounded-lg border border-border bg-card p-5">
+        <div class="rounded-xl border border-border bg-card p-5">
           <div class="flex items-center gap-2.5">
             <ShieldCheck class="size-4 shrink-0 text-primary" />
             <p class="text-sm font-semibold text-foreground">{t('compliance_page.certs.cert1.name')}</p>

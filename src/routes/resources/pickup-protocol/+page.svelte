@@ -144,7 +144,7 @@
             { n: 7, titleKey: 'resPickupProtocol.s4_step7_title' as const, detailKey: 'resPickupProtocol.s4_step7_detail' as const },
             { n: 8, titleKey: 'resPickupProtocol.s4_step8_title' as const, detailKey: 'resPickupProtocol.s4_step8_detail' as const }
           ] as step}
-            <div class="flex gap-4 rounded-lg border border-border bg-card p-4">
+            <div class="flex gap-4 rounded-xl border border-border bg-card p-4">
               <div class="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold mt-0.5">{step.n}</div>
               <div>
                 <p class="font-medium text-foreground mb-1">{t(step.titleKey)}</p>
@@ -170,7 +170,7 @@
             <p class="font-medium text-destructive mb-1">{t('resPickupProtocol.s5_case2_title')}</p>
             <p class="text-sm text-destructive">{t('resPickupProtocol.s5_case2_body')}</p>
           </div>
-          <div class="rounded-lg border border-border bg-card p-4">
+          <div class="rounded-xl border border-border bg-card p-4">
             <p class="font-medium text-foreground mb-1">{t('resPickupProtocol.s5_case3_title')}</p>
             <p class="text-sm text-muted-foreground">{t('resPickupProtocol.s5_case3_body')}</p>
           </div>
@@ -216,7 +216,7 @@
           <li>{t('resPickupProtocol.s7_item4')}</li>
           <li>{t('resPickupProtocol.s7_item5')}</li>
         </ul>
-        <div class="mt-4 rounded-lg border border-border bg-card p-4 text-xs text-muted-foreground">
+        <div class="mt-4 rounded-xl border border-border bg-card p-4 text-xs text-muted-foreground">
           <p><strong class="text-foreground">{t('resPickupProtocol.s7_signoff_approval_date')}</strong> ___________________________</p>
           <p class="mt-1"><strong class="text-foreground">{t('resPickupProtocol.s7_signoff_director')}</strong> ___________________________</p>
           <p class="mt-1"><strong class="text-foreground">{t('resPickupProtocol.s7_signoff_inspector')}</strong> ___________________________</p>

@@ -167,7 +167,7 @@
         <p class="text-muted-foreground mb-3">{t('resPrivacyNotice.s8_intro')}</p>
         <div class="grid gap-3 sm:grid-cols-2">
           {#each rights as r}
-            <div class="rounded-lg border border-border bg-card p-3">
+            <div class="rounded-xl border border-border bg-card p-3">
               <p class="font-medium text-foreground text-xs mb-1">{t(r.rightKey)}</p>
               <p class="text-xs text-muted-foreground">{t(r.descKey)}</p>
             </div>
@@ -188,7 +188,7 @@
 
       <section>
         <h3 class="font-semibold text-foreground mb-2">{t('resPrivacyNotice.s10_title')}</h3>
-        <div class="rounded-lg border border-border bg-card p-4 text-muted-foreground">
+        <div class="rounded-xl border border-border bg-card p-4 text-muted-foreground">
           <p><strong class="text-foreground">{t('resPrivacyNotice.s10_name_label')}</strong> {t('resPrivacyNotice.s10_name_ph')}</p>
           <p><strong class="text-foreground">{t('resPrivacyNotice.s10_email_label')}</strong> {t('resPrivacyNotice.s10_email_ph')}</p>
           <p><strong class="text-foreground">{t('resPrivacyNotice.s10_phone_label')}</strong> {t('resPrivacyNotice.s10_phone_ph')}</p>

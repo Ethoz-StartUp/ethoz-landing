@@ -140,7 +140,7 @@
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-sm font-bold uppercase tracking-widest text-primary">{t('featurePage.analytics.charts_eyebrow')}</p>
+        <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('featurePage.analytics.charts_eyebrow')}</p>
         <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">{t('featurePage.analytics.charts_title')}</h2>
         <p class="mt-3 text-base text-muted-foreground">{t('featurePage.analytics.charts_subtitle')}</p>
       </div>
