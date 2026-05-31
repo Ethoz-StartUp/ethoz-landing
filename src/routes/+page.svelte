@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Button } from '$lib/components/ui/button';
+  import { BRAND, LEGAL_NAME } from '$lib/brand';
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
   import HeroAppMockupCard from '$lib/components/cal/HeroAppMockupCard.svelte';
@@ -166,21 +167,21 @@
 
 <svelte:head>
   <title>{t('home.meta.title')}</title>
-  <meta name="description" content="Ethoz — Software de gestión y protección de datos escolares para colegios de Chile. Cumple con la Ley 21.719 antes del plazo de diciembre 2026." />
+  <meta name="description" content={`${BRAND} — Software de gestión y protección de datos escolares para colegios de Chile. Cumple con la Ley 21.719 antes del plazo de diciembre 2026.`} />
   <meta property="og:url" content="https://ethoz.cl/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz — Gestión y cumplimiento para colegios" />
+  <meta property="og:title" content={`${BRAND} — Gestión y cumplimiento para colegios`} />
   <meta property="og:description" content="Plataforma de gestión y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz — Gestión y cumplimiento para colegios" />
+  <meta name="twitter:title" content={`${BRAND} — Gestión y cumplimiento para colegios`} />
   <meta name="twitter:description" content="Plataforma de gestión y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
   <link rel="canonical" href="https://ethoz.cl/" />
   {@html `<script type="application/ld+json">${JSON.stringify([
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Ethoz",
-      "legalName": "ETHOZ SpA",
+      "name": BRAND,
+      "legalName": LEGAL_NAME,
       "url": "https://ethoz.cl",
       "logo": "https://ethoz.cl/favicon.svg",
       "description": "Plataforma de gestión y protección de datos escolares para colegios de Chile",
@@ -207,7 +208,7 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Ethoz",
+      "name": BRAND,
       "url": "https://ethoz.cl",
       "potentialAction": {
         "@type": "SearchAction",
@@ -218,7 +219,7 @@
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Ethoz",
+      "name": BRAND,
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
       "description": "Plataforma de gestión y protección de datos escolares para colegios de Chile. Cumplimiento Ley 21.719.",
@@ -311,7 +312,7 @@
           <div class="-m-6"
             role="region"
             aria-roledescription="carrusel"
-            aria-label="Vista del panel Ethoz"
+            aria-label={`Vista del panel ${BRAND}`}
             onmouseenter={() => (carouselPaused = true)}
             onmouseleave={() => (carouselPaused = false)}
             onfocusin={() => (carouselPaused = true)}

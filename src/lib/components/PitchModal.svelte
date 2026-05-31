@@ -3,6 +3,7 @@
   import { quintOut, backOut } from 'svelte/easing';
   import { trackEvent } from '$lib/utils/analytics';
   import { pitchSlides as slides, getDaysUntilEnforcement } from '$lib/data/pitch-slides';
+  import { BRAND } from '$lib/brand';
   import {
     Shield, Lock, FileSpreadsheet, Smartphone, BookOpen, AlertTriangle,
     Bell, UserCheck, Eye, Zap, MapPin, Calendar, Play, Pause, Volume2,
@@ -119,7 +120,7 @@
         {#if currentSlide.id === 'intro'}
           <div class="sc">
             <div in:scale={{ duration: 700, easing: backOut, delay: 250 }}>
-              <img src="/logos/ethoz-final-light.svg" alt="Ethoz" class="logo-hero" />
+              <img src="/logos/ethoz-final-light.svg" alt={BRAND} class="logo-hero" />
             </div>
             <p class="sub" in:fly={{ y: 16, duration: 500, delay: 500 }}>El Escudo Digital Escolar</p>
             <span class="pill" in:scale={{ duration: 400, delay: 700 }}>Cumple con Ley 21.719</span>
@@ -280,7 +281,7 @@
         {:else if currentSlide.id === 'cta'}
           <div class="sc">
             <div in:scale={{ duration: 700, easing: backOut, delay: 200 }}>
-              <img src="/logos/ethoz-final-light.svg" alt="Ethoz" class="logo-cta" />
+              <img src="/logos/ethoz-final-light.svg" alt={BRAND} class="logo-cta" />
             </div>
             <h2 class="heading" in:fly={{ y: 16, duration: 500, delay: 350 }}>Agenda tu Demo</h2>
             <p class="sub" in:fly={{ y: 16, duration: 500, delay: 500 }}>Sé de los primeros en cumplir</p>

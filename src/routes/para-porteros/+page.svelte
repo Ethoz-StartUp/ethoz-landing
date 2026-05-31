@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { BRAND } from '$lib/brand';
   import { t } from '$lib/i18n/index.svelte';
   import {
     DoorOpen, ArrowRight, BadgeCheck, CheckCircle, XCircle,
@@ -15,14 +16,14 @@
 </script>
 
 <svelte:head>
-  <title>Ethoz para Porteros — La pantalla que reemplaza la planilla Excel en portería</title>
+  <title>{BRAND} para Porteros — La pantalla que reemplaza la planilla Excel en portería</title>
   <meta name="description" content="Verifica retiros en segundos. Foto del alumno, lista de autorizados, alertas activas. Sin llamadas, sin ambigüedad, sin papel." />
   <meta property="og:url" content="https://ethoz.cl/para-porteros" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz para Porteros — Retiros seguros en segundos" />
+  <meta property="og:title" content={`${BRAND} para Porteros — Retiros seguros en segundos`} />
   <meta property="og:description" content="Verifica retiros en segundos. Foto del alumno, lista de autorizados, alertas activas. Sin llamadas, sin ambigüedad, sin papel." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz para Porteros — Retiros seguros en segundos" />
+  <meta name="twitter:title" content={`${BRAND} para Porteros — Retiros seguros en segundos`} />
   <meta name="twitter:description" content="Verifica retiros en segundos. Foto del alumno, lista de autorizados, alertas activas. Sin llamadas, sin ambigüedad, sin papel." />
   <link rel="canonical" href="https://ethoz.cl/para-porteros" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Para Porteros","item":"https://ethoz.cl/para-porteros"}]})}</script>`}
@@ -94,7 +95,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Portería Principal · 14:31</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Portería Principal · 14:31</span>
           </div>
           <div class="p-4">
             <!-- Search bar -->
@@ -257,7 +258,7 @@
             <h2 class="text-xl text-foreground sm:text-2xl">Solo lo que el portero necesita</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-            La privacidad es parte del diseño. El portero no necesita saber el diagnóstico médico de un alumno para decidir si puede retirarle. Ethoz le muestra exactamente lo que necesita — y nada más.
+            La privacidad es parte del diseño. El portero no necesita saber el diagnóstico médico de un alumno para decidir si puede retirarle. {BRAND} le muestra exactamente lo que necesita — y nada más.
           </p>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             Esto además protege al portero ante la Ley 21.719: si no tiene acceso a datos sensibles, no puede incurrir en una infracción de datos que recaiga sobre él.
@@ -346,7 +347,7 @@
             <h3 class="text-base text-foreground">Si falla la luz o el internet</h3>
           </div>
           <p class="text-sm leading-relaxed text-muted-foreground mb-4">
-            Ethoz tiene modo offline. Los datos del día se sincronizan al recuperar conexión. Además, el establecimiento puede imprimir el listado de autorizados por curso como respaldo físico.
+            {BRAND} tiene modo offline. Los datos del día se sincronizan al recuperar conexión. Además, el establecimiento puede imprimir el listado de autorizados por curso como respaldo físico.
           </p>
           <div class="space-y-2">
             {#each [
@@ -375,7 +376,7 @@
         </div>
         <div>
           <p class="text-4xl font-extrabold tracking-tight text-foreground">0</p>
-          <p class="mt-1 text-sm text-muted-foreground">llamadas a inspectoría por retiro en colegios con Ethoz</p>
+          <p class="mt-1 text-sm text-muted-foreground">llamadas a inspectoría por retiro en colegios con {BRAND}</p>
         </div>
         <div>
           <p class="text-4xl font-extrabold tracking-tight text-foreground">15 min</p>

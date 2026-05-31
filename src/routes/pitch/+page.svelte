@@ -34,6 +34,7 @@
     ChevronLeft,
     Captions
   } from '@lucide/svelte';
+  import { BRAND } from '$lib/brand';
 
   import { pitchSlides as slides, getDaysUntilEnforcement } from '$lib/data/pitch-slides';
   import { trackEvent } from '$lib/utils/analytics';
@@ -132,16 +133,16 @@
 </script>
 
 <svelte:head>
-  <title>Pitch — Ethoz</title>
-  <meta name="description" content="Presentación ejecutiva Ethoz: protección escolar inteligente y cumplimiento Ley 21.719 para colegios chilenos." />
+  <title>Pitch — {BRAND}</title>
+  <meta name="description" content={`Presentación ejecutiva ${BRAND}: protección escolar inteligente y cumplimiento Ley 21.719 para colegios chilenos.`} />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Pitch — Ethoz" />
-  <meta property="og:description" content="Presentación ejecutiva Ethoz: protección escolar inteligente y cumplimiento Ley 21.719 para colegios chilenos." />
+  <meta property="og:title" content={`Pitch — ${BRAND}`} />
+  <meta property="og:description" content={`Presentación ejecutiva ${BRAND}: protección escolar inteligente y cumplimiento Ley 21.719 para colegios chilenos.`} />
   <meta property="og:url" content="https://ethoz.cl/pitch" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pitch — Ethoz" />
-  <meta name="twitter:description" content="Presentación ejecutiva Ethoz: protección escolar inteligente y cumplimiento Ley 21.719 para colegios chilenos." />
+  <meta name="twitter:title" content={`Pitch — ${BRAND}`} />
+  <meta name="twitter:description" content={`Presentación ejecutiva ${BRAND}: protección escolar inteligente y cumplimiento Ley 21.719 para colegios chilenos.`} />
   <link rel="canonical" href="https://ethoz.cl/pitch" />
 </svelte:head>
 
@@ -168,7 +169,7 @@
   onclick={resetControlsTimeout}
   onkeydown={resetControlsTimeout}
   role="application"
-  aria-label="Presentación interactiva Ethoz"
+  aria-label={`Presentación interactiva ${BRAND}`}
 >
   <!-- Back button -->
   <a
@@ -191,7 +192,7 @@
         {#if currentSlide.id === 'intro'}
           <div class="slide-content slide-intro">
             <div class="intro-logo" in:scale={{ duration: 800, easing: backOut, delay: 300 }}>
-              <img src="/logos/ethoz-final-light.svg" alt="Ethoz" class="logo-main" />
+              <img src="/logos/ethoz-final-light.svg" alt={BRAND} class="logo-main" />
             </div>
             <p class="intro-subtitle" in:fly={{ y: 20, duration: 600, delay: 600 }}>
               El Escudo Digital Escolar
@@ -408,7 +409,7 @@
         {:else if currentSlide.id === 'cta'}
           <div class="slide-content slide-cta">
             <div class="cta-logo" in:scale={{ duration: 800, easing: backOut, delay: 200 }}>
-              <img src="/logos/ethoz-final-light.svg" alt="Ethoz" class="logo-cta" />
+              <img src="/logos/ethoz-final-light.svg" alt={BRAND} class="logo-cta" />
             </div>
             <h2 class="cta-title" in:fly={{ y: 20, duration: 600, delay: 400 }}>
               Agenda tu Demo

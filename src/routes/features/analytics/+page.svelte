@@ -4,6 +4,7 @@
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
   import { t } from '$lib/i18n/index.svelte';
+  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
   import { BarChart3, ArrowRight, ArrowLeft, TrendingUp, Users, ShieldAlert, ClipboardList, Filter } from '@lucide/svelte';
 
@@ -11,14 +12,14 @@
 </script>
 
 <svelte:head>
-  <title>Ethoz — Analytics y KPIs Escolares</title>
+  <title>{BRAND} — Analytics y KPIs Escolares</title>
   <meta name="description" content="Dashboard de analytics para directivos: KPIs de convivencia, alertas activas, tendencias de asistencia y cumplimiento Ley 21.719 en tiempo real." />
   <meta property="og:url" content="https://ethoz.cl/features/analytics" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz — Analytics y KPIs Escolares" />
+  <meta property="og:title" content={`${BRAND} — Analytics y KPIs Escolares`} />
   <meta property="og:description" content="Indicadores clave de convivencia, alertas y asistencia para directivos y sostenedores." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz — Analytics y KPIs Escolares" />
+  <meta name="twitter:title" content={`${BRAND} — Analytics y KPIs Escolares`} />
   <meta name="twitter:description" content="Indicadores clave de convivencia, alertas y asistencia para directivos y sostenedores." />
   <link rel="canonical" href="https://ethoz.cl/features/analytics" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Analytics y KPIs"}]})}</script>`}
@@ -66,7 +67,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Dashboard · Colegio San Patricio</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Dashboard · Colegio San Patricio</span>
           </div>
           <!-- Filter bar mockup -->
           <div class="flex items-center gap-2 border-b border-border px-4 py-2 bg-muted/20">
@@ -295,7 +296,7 @@
         <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
           <p class="text-3xl font-bold text-primary">5.777</p>
           <p class="mt-1 text-sm font-semibold text-foreground">sostenedores en Chile</p>
-          <p class="mt-2 text-xs text-muted-foreground">Solo los 402 operadores multi-sede tienen acceso a datos consolidados hoy — con Ethoz, cualquier colegio los tiene</p>
+          <p class="mt-2 text-xs text-muted-foreground">Solo los 402 operadores multi-sede tienen acceso a datos consolidados hoy — con {BRAND}, cualquier colegio los tiene</p>
         </div>
         <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
           <p class="text-3xl font-bold text-destructive">4%</p>
@@ -305,7 +306,7 @@
         <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
           <p class="text-3xl font-bold text-success">100%</p>
           <p class="mt-1 text-sm font-semibold text-foreground">datos propios del colegio</p>
-          <p class="mt-2 text-xs text-muted-foreground">Ethoz no vende ni comparte estadísticas de tu establecimiento. Los datos son tuyos, siempre exportables.</p>
+          <p class="mt-2 text-xs text-muted-foreground">{BRAND} no vende ni comparte estadísticas de tu establecimiento. Los datos son tuyos, siempre exportables.</p>
         </div>
       </div>
     </div>

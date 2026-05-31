@@ -1,4 +1,5 @@
 import type { BlogPost } from './types';
+import { BRAND } from '$lib/brand';
 
 export const post: BlogPost = {
 	slug: 'ciberacoso-escolar-chile-estadisticas',
@@ -6,7 +7,7 @@ export const post: BlogPost = {
 	description:
 		'El ciberacoso escolar en Chile creció un 15,5% en 2024, con 664 casos en el tercer trimestre. Afecta el bienestar psicológico más allá del horario escolar y exige respuestas institucionales concretas.',
 	date: '2026-04-07',
-	author: 'Equipo Ethoz',
+	author: `Equipo ${BRAND}`,
 	readTime: '8 min',
 	tags: ['Ciberacoso', 'Convivencia Escolar', 'Seguridad Digital'],
 	coverImage: '/images/blog/ciberacoso-escolar-chile-estadisticas.webp',
@@ -66,22 +67,22 @@ export const post: BlogPost = {
 <p>En la mayoría de los establecimientos chilenos, el registro de incidentes de convivencia tiene una vida útil de un año escolar. En marzo, el historial se reinicia. Un estudiante que fue víctima de ciberacoso sostenido durante el segundo semestre del año anterior llega en marzo como si fuera su primera semana en el colegio. El orientador nuevo no sabe. El profesor jefe nuevo no sabe. El encargado de convivencia tiene que reconstruir el contexto desde cero, si es que lo reconstruye.</p>
 <p>Este problema no es solo operacional: es una falla de seguridad. Los patrones de comportamiento de acoso tienen alta tasa de reincidencia. Un agresor que no enfrenta consecuencias documentadas el año anterior tiene altas probabilidades de reactivar el comportamiento. El registro longitudinal —la capacidad de mantener y consultar el historial a lo largo de la trayectoria escolar completa del estudiante— es el instrumento más básico de prevención. El tema del reinicio de datos se aborda en detalle en <a href="/blog/reinicio-de-marzo-seguridad-escolar">El reinicio de marzo: el mayor riesgo de seguridad escolar que nadie discute</a>.</p>
 
-<h2>Cómo Ethoz aborda el ciberacoso de manera estructural</h2>
-<p>Ethoz no es una herramienta de moderación de redes sociales ni un sistema de monitoreo de dispositivos. Su aporte al problema del ciberacoso opera en tres dimensiones institucionales:</p>
+<h2>Cómo ${BRAND} aborda el ciberacoso de manera estructural</h2>
+<p>${BRAND} no es una herramienta de moderación de redes sociales ni un sistema de monitoreo de dispositivos. Su aporte al problema del ciberacoso opera en tres dimensiones institucionales:</p>
 <h3>Registro seguro de incidentes</h3>
-<p>Cuando un estudiante, docente o apoderado reporta una situación de ciberacoso, Ethoz permite registrarlo con <strong>control de acceso por rol</strong>. El detalle del incidente —incluyendo evidencia adjunta como capturas de pantalla— queda en un registro con niveles de visibilidad diferenciados: estándar, restringido o privado. No todos los actores del establecimiento ven la misma información. El orientador ve el expediente completo; el profesor jefe ve los hechos relevantes para su rol; el directivo ve el resumen de gestión.</p>
+<p>Cuando un estudiante, docente o apoderado reporta una situación de ciberacoso, ${BRAND} permite registrarlo con <strong>control de acceso por rol</strong>. El detalle del incidente —incluyendo evidencia adjunta como capturas de pantalla— queda en un registro con niveles de visibilidad diferenciados: estándar, restringido o privado. No todos los actores del establecimiento ven la misma información. El orientador ve el expediente completo; el profesor jefe ve los hechos relevantes para su rol; el directivo ve el resumen de gestión.</p>
 <h3>Notificaciones push sin exposición de datos</h3>
-<p>Ethoz reemplaza el WhatsApp con un sistema de <strong>notificaciones push que transmite solo metadatos</strong>: "hay una situación registrada que requiere su atención" en lugar de "el alumno X fue víctima de Y con estas imágenes adjuntas". El contenido sensible queda en la plataforma, protegido, y solo quien tiene acceso puede consultarlo con autenticación.</p>
+<p>${BRAND} reemplaza el WhatsApp con un sistema de <strong>notificaciones push que transmite solo metadatos</strong>: "hay una situación registrada que requiere su atención" en lugar de "el alumno X fue víctima de Y con estas imágenes adjuntas". El contenido sensible queda en la plataforma, protegido, y solo quien tiene acceso puede consultarlo con autenticación.</p>
 <h3>Historial longitudinal sin reinicio</h3>
-<p>El registro de convivencia en Ethoz <strong>no se borra en marzo</strong>. El historial de incidentes, intervenciones y seguimientos de cada estudiante persiste a lo largo de su trayectoria en el establecimiento. Cuando el orientador nuevo se incorpora en marzo, accede al historial completo. La institución tiene memoria aunque las personas cambien.</p>
+<p>El registro de convivencia en ${BRAND} <strong>no se borra en marzo</strong>. El historial de incidentes, intervenciones y seguimientos de cada estudiante persiste a lo largo de su trayectoria en el establecimiento. Cuando el orientador nuevo se incorpora en marzo, accede al historial completo. La institución tiene memoria aunque las personas cambien.</p>
 
 <h2>Conclusión</h2>
 <p>Los 664 casos del tercer trimestre de 2024 son la punta de un iceberg. El ciberacoso escolar en Chile crece, afecta el bienestar psicológico de manera profunda y opera en espacios que los protocolos presenciales no alcanzan. La respuesta institucional no puede ser un protocolo escrito sin infraestructura de registro. Requiere canales seguros, historiales que persistan y controles de acceso que protejan a los estudiantes de las consecuencias secundarias de una mala gestión de sus datos sensibles.</p>
 <p>Un establecimiento que gestiona bien el ciberacoso no es uno que lo elimina —eso está fuera de su alcance— sino uno que lo detecta temprano, lo registra correctamente, interviene con evidencia y puede demostrarlo ante cualquier fiscalización.</p>
 
 <div style="background: var(--secondary); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;">
-<h3 style="margin-top: 0;">Conozca cómo Ethoz protege a sus estudiantes</h3>
-<p>Si su establecimiento necesita registros longitudinales seguros, notificaciones sin WhatsApp y control de acceso por rol para gestionar situaciones de ciberacoso, Ethoz fue diseñado exactamente para eso.</p>
+<h3 style="margin-top: 0;">Conozca cómo ${BRAND} protege a sus estudiantes</h3>
+<p>Si su establecimiento necesita registros longitudinales seguros, notificaciones sin WhatsApp y control de acceso por rol para gestionar situaciones de ciberacoso, ${BRAND} fue diseñado exactamente para eso.</p>
 <a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Solicitar demo gratuita</a>
 </div>
 `

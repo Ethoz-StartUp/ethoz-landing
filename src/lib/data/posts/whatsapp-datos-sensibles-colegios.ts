@@ -1,4 +1,5 @@
 import type { BlogPost } from './types';
+import { BRAND } from '$lib/brand';
 
 export const post: BlogPost = {
 	slug: 'whatsapp-datos-sensibles-colegios',
@@ -6,7 +7,7 @@ export const post: BlogPost = {
 	description:
 		'Compartir datos de estudiantes por WhatsApp viola la Ley 21.719 y expone al sostenedor a multas de hasta 20.000 UTM. El Art. 16 bis prohíbe datos clínicos por canales informales. Existen alternativas seguras.',
 	date: '2026-04-07',
-	author: 'Equipo Ethoz',
+	author: `Equipo ${BRAND}`,
 	readTime: '8 min',
 	tags: ['Protección de Datos', 'WhatsApp', 'Privacidad'],
 	coverImage: '/images/blog/whatsapp-datos-sensibles-colegios.webp',
@@ -60,11 +61,11 @@ export const post: BlogPost = {
 
 <h2>La alternativa: notificaciones push con solo metadatos</h2>
 <p>La solución no es volver a las circulares en papel ni eliminar la comunicación digital. Es comunicar de manera que los datos sensibles permanezcan protegidos y solo el contenido de menor riesgo viaje por canales externos.</p>
-<p>El modelo que Ethoz implementa funciona de la siguiente manera:</p>
+<p>El modelo que ${BRAND} implementa funciona de la siguiente manera:</p>
 <ul>
   <li>Cuando ocurre un evento que requiere la atención de un actor del establecimiento, el sistema envía una <strong>notificación push</strong> al dispositivo de esa persona.</li>
   <li>La notificación contiene <strong>solo metadatos</strong>: "Hay una situación registrada que requiere su revisión" o "Se ha generado una alerta de asistencia que requiere acción".</li>
-  <li>El contenido específico —quién, qué ocurrió, cuáles son los detalles— permanece en la plataforma Ethoz, accesible solo mediante autenticación y solo para quien tiene el nivel de acceso correspondiente.</li>
+  <li>El contenido específico —quién, qué ocurrió, cuáles son los detalles— permanece en la plataforma ${BRAND}, accesible solo mediante autenticación y solo para quien tiene el nivel de acceso correspondiente.</li>
   <li>Quien recibe la notificación accede a la plataforma con sus credenciales, ve la información según su rol y registra las acciones que adopta.</li>
 </ul>
 <p>Este modelo reemplaza funcionalmente el WhatsApp para la coordinación institucional: la misma inmediatez, sin los riesgos. El docente sabe que hay algo que atender. El orientador sabe que debe revisar un caso. El directivo sabe que hay una situación en curso. Pero los datos sensibles nunca salieron de la plataforma protegida.</p>
@@ -85,7 +86,7 @@ export const post: BlogPost = {
 
 <div style="background: var(--secondary); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;">
 <h3 style="margin-top: 0;">Reemplace el WhatsApp con comunicación segura y trazable</h3>
-<p>Ethoz ofrece notificaciones push institucionales que mantienen los datos sensibles dentro de la plataforma protegida. La coordinación no se pierde: los riesgos, sí. Conozca cómo funciona en su establecimiento.</p>
+<p>${BRAND} ofrece notificaciones push institucionales que mantienen los datos sensibles dentro de la plataforma protegida. La coordinación no se pierde: los riesgos, sí. Conozca cómo funciona en su establecimiento.</p>
 <a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Solicitar demo gratuita</a>
 </div>
 `

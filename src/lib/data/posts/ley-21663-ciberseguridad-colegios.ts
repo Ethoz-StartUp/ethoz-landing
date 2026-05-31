@@ -1,4 +1,5 @@
 import type { BlogPost } from './types';
+import { BRAND } from '$lib/brand';
 
 export const post: BlogPost = {
 	slug: 'ley-21663-ciberseguridad-colegios',
@@ -6,14 +7,14 @@ export const post: BlogPost = {
 	description:
 		'La Ley 21.663 de Ciberseguridad impone obligaciones técnicas concretas a los establecimientos educacionales: cifrado, reporte de incidentes y auditoría. Lo que todo sostenedor debe saber.',
 	date: '2026-04-07',
-	author: 'Equipo Ethoz',
+	author: `Equipo ${BRAND}`,
 	readTime: '9 min',
 	tags: ['Ciberseguridad', 'Ley 21.663', 'Cumplimiento'],
 	coverImage: '/images/blog/ley-21663-ciberseguridad-colegios.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
-<p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">La Ley 21.663 de Ciberseguridad, vigente desde 2024, impone obligaciones técnicas directas a los operadores de infraestructura digital en Chile, categoría en la que entran los establecimientos educacionales que gestionan datos de menores. Cifrado obligatorio, reporte de incidentes en 72 horas y registros de auditoría son las tres exigencias centrales. Ethoz cumple nativamente con las tres mediante pgcrypto, RLS y pgAudit en Supabase.</p>
+<p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">La Ley 21.663 de Ciberseguridad, vigente desde 2024, impone obligaciones técnicas directas a los operadores de infraestructura digital en Chile, categoría en la que entran los establecimientos educacionales que gestionan datos de menores. Cifrado obligatorio, reporte de incidentes en 72 horas y registros de auditoría son las tres exigencias centrales. ${BRAND} cumple nativamente con las tres mediante pgcrypto, RLS y pgAudit en Supabase.</p>
 </div>
 
 <h2>Una ley que los colegios no esperaban</h2>
@@ -79,14 +80,14 @@ export const post: BlogPost = {
 </ul>
 <p>Adicionalmente, la ley contempla la <strong>responsabilidad personal de los directivos</strong> que hayan tenido conocimiento de vulnerabilidades y no hayan adoptado medidas. En el contexto educacional, esto apunta directamente al director del establecimiento y al sostenedor.</p>
 
-<h2>Cómo Ethoz cumple nativamente con la Ley 21.663</h2>
-<p>Ethoz fue diseñado desde su arquitectura base con las exigencias de la Ley 21.663 como requisito no negociable. Las tres obligaciones técnicas centrales están cubiertas de manera nativa:</p>
+<h2>Cómo ${BRAND} cumple nativamente con la Ley 21.663</h2>
+<p>${BRAND} fue diseñado desde su arquitectura base con las exigencias de la Ley 21.663 como requisito no negociable. Las tres obligaciones técnicas centrales están cubiertas de manera nativa:</p>
 <h3>Cifrado con pgcrypto</h3>
-<p>Ethoz utiliza <strong>pgcrypto</strong>, la extensión de cifrado nativa de PostgreSQL, para cifrar los datos en reposo. Esto significa que los datos sensibles de los estudiantes —incluyendo fichas médicas, registros de convivencia y documentos adjuntos— están cifrados a nivel de base de datos, no solo a nivel de transporte. Incluso si alguien obtuviera acceso directo a los archivos de la base de datos, los datos serían ilegibles sin las claves de cifrado.</p>
+<p>${BRAND} utiliza <strong>pgcrypto</strong>, la extensión de cifrado nativa de PostgreSQL, para cifrar los datos en reposo. Esto significa que los datos sensibles de los estudiantes —incluyendo fichas médicas, registros de convivencia y documentos adjuntos— están cifrados a nivel de base de datos, no solo a nivel de transporte. Incluso si alguien obtuviera acceso directo a los archivos de la base de datos, los datos serían ilegibles sin las claves de cifrado.</p>
 <h3>Control de acceso con Row-Level Security (RLS)</h3>
 <p>El <strong>Row-Level Security (RLS) de Supabase/PostgreSQL</strong> implementa control de acceso a nivel de fila. Esto significa que las políticas de acceso no se gestionan solo en la capa de aplicación —que puede ser vulnerada— sino en la base de datos misma. Un usuario que accede con credenciales válidas pero sin los permisos correctos simplemente no ve los datos, aunque intente consultarlos directamente. Esta es la implementación más robusta posible del principio de mínimo privilegio que la Ley 21.663 exige.</p>
 <h3>Auditoría completa con pgAudit</h3>
-<p><strong>pgAudit</strong> es la extensión de auditoría para PostgreSQL que registra todas las operaciones sobre los datos: quién accedió, qué consultó, qué modificó y cuándo. En Ethoz, este registro es inmutable desde la perspectiva del usuario de la aplicación: ni el administrador del colegio puede alterar los logs. En caso de un incidente de ciberseguridad, el establecimiento puede presentar a la ANCI un log completo, íntegro y cronológico de toda la actividad del sistema.</p>
+<p><strong>pgAudit</strong> es la extensión de auditoría para PostgreSQL que registra todas las operaciones sobre los datos: quién accedió, qué consultó, qué modificó y cuándo. En ${BRAND}, este registro es inmutable desde la perspectiva del usuario de la aplicación: ni el administrador del colegio puede alterar los logs. En caso de un incidente de ciberseguridad, el establecimiento puede presentar a la ANCI un log completo, íntegro y cronológico de toda la actividad del sistema.</p>
 
 <h2>Conclusión</h2>
 <p>La Ley 21.663 no es una ley del futuro: es una ley vigente con sanciones reales. Los establecimientos educacionales que gestionan datos de estudiantes en sistemas digitales —es decir, prácticamente todos— son sujetos obligados. Las tres exigencias centrales (cifrado, reporte en 72 horas y registros de auditoría) requieren infraestructura técnica específica que la mayoría de las plataformas de gestión escolar actuales no tienen.</p>
@@ -94,7 +95,7 @@ export const post: BlogPost = {
 
 <div style="background: var(--secondary); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;">
 <h3 style="margin-top: 0;">Verifique si su plataforma cumple la Ley 21.663</h3>
-<p>Ethoz es la única plataforma de gestión escolar en Chile diseñada con cifrado pgcrypto, RLS y auditoría pgAudit desde su arquitectura base. Solicite una demostración técnica y revise el cumplimiento de su establecimiento.</p>
+<p>${BRAND} es la única plataforma de gestión escolar en Chile diseñada con cifrado pgcrypto, RLS y auditoría pgAudit desde su arquitectura base. Solicite una demostración técnica y revise el cumplimiento de su establecimiento.</p>
 <a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Solicitar demo gratuita</a>
 </div>
 `

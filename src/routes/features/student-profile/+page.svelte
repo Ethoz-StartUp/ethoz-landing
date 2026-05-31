@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { t } from '$lib/i18n/index.svelte';
+  import { BRAND } from '$lib/brand';
   import { Button } from '$lib/components/ui/button';
   import {
     ClipboardList, ArrowRight, ArrowLeft, History, Lock, BadgeCheck,
@@ -33,14 +34,14 @@
 </script>
 
 <svelte:head>
-  <title>Ethoz — {t('features.record.title')}</title>
+  <title>{BRAND} — {t('features.record.title')}</title>
   <meta name="description" content="Un perfil longitudinal que sigue al alumno año a año, con acceso estrictamente controlado por rol." />
   <meta property="og:url" content="https://ethoz.cl/features/student-profile" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz — Ficha Integral 360° del Alumno" />
+  <meta property="og:title" content={`${BRAND} — Ficha Integral 360° del Alumno`} />
   <meta property="og:description" content="Un perfil longitudinal que sigue al alumno año a año, con acceso estrictamente controlado por rol." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz — Ficha Integral 360° del Alumno" />
+  <meta name="twitter:title" content={`${BRAND} — Ficha Integral 360° del Alumno`} />
   <meta name="twitter:description" content="Un perfil longitudinal que sigue al alumno año a año, con acceso estrictamente controlado por rol." />
   <link rel="canonical" href="https://ethoz.cl/features/student-profile" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Perfil Integral del Alumno"}]})}</script>`}
@@ -89,13 +90,13 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Ficha del Alumno</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Ficha del Alumno</span>
           </div>
           <div class="p-4 sm:p-5">
             <!-- Student header -->
             <div class="flex gap-4">
               <div class="flex flex-col items-center gap-2">
-                <img src="/images/students/girl-12.webp" alt="Perfil de alumna en Ethoz" class="size-14 rounded-full object-cover ring-2 ring-primary/20" loading="lazy" decoding="async" />
+                <img src="/images/students/girl-12.webp" alt={`Perfil de alumna en ${BRAND}`} class="size-14 rounded-full object-cover ring-2 ring-primary/20" loading="lazy" decoding="async" />
                 <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2 py-0.5 text-[10px] font-medium text-success">Sin alertas</span>
               </div>
               <div class="flex-1 min-w-0">

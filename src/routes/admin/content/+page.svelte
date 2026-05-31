@@ -5,6 +5,7 @@
   import { onMount } from 'svelte';
   import { toast } from 'svelte-sonner';
   import { t } from '$lib/i18n/index.svelte';
+  import { BRAND } from '$lib/brand';
   import { formatDate } from '$lib/utils/format';
   import * as Sheet from '$lib/components/ui/sheet';
   import * as Dialog from '$lib/components/ui/dialog';
@@ -393,7 +394,7 @@
 </script>
 
 <svelte:head>
-  <title>Content — Ethoz Admin</title>
+  <title>Content — {BRAND} Admin</title>
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 

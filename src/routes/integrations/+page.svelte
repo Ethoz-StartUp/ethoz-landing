@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { BRAND } from '$lib/brand';
   import { ArrowRight, Upload, Database, Check, Zap, Building } from '@lucide/svelte';
   import { trackEvent } from '$lib/utils/analytics';
 
@@ -9,15 +10,15 @@
 </script>
 
 <svelte:head>
-  <title>Integraciones — Ethoz</title>
-  <meta name="description" content="Ethoz se conecta con tu sistema actual o te ofrece un módulo básico de gestión escolar. Migramos tus datos sin que pierdas nada." />
+  <title>Integraciones — {BRAND}</title>
+  <meta name="description" content={`${BRAND} se conecta con tu sistema actual o te ofrece un módulo básico de gestión escolar. Migramos tus datos sin que pierdas nada.`} />
   <meta property="og:url" content="https://ethoz.cl/integrations" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Integraciones — Ethoz" />
-  <meta property="og:description" content="Conecta Ethoz con Napsis, Syscol, SIGE o cualquier sistema. Si no tienes uno, tenemos un módulo básico incluido." />
+  <meta property="og:title" content={`Integraciones — ${BRAND}`} />
+  <meta property="og:description" content={`Conecta ${BRAND} con Napsis, Syscol, SIGE o cualquier sistema. Si no tienes uno, tenemos un módulo básico incluido.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Integraciones — Ethoz" />
-  <meta name="twitter:description" content="Conecta Ethoz con tu sistema actual o usa nuestro módulo básico de gestión escolar." />
+  <meta name="twitter:title" content={`Integraciones — ${BRAND}`} />
+  <meta name="twitter:description" content={`Conecta ${BRAND} con tu sistema actual o usa nuestro módulo básico de gestión escolar.`} />
   <link rel="canonical" href="https://ethoz.cl/integrations" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Integraciones"}]})}</script>`}
 </svelte:head>
@@ -39,7 +40,7 @@
           Se conecta con lo que ya usas
         </h1>
         <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Ethoz no reemplaza tu sistema académico — lo complementa. Si ya usas Napsis, Syscol, SchoolTrack u otra plataforma, nos integramos. Si no tienes sistema digital, tenemos un módulo básico incluido para que no te falte nada.
+          {BRAND} no reemplaza tu sistema académico — lo complementa. Si ya usas Napsis, Syscol, SchoolTrack u otra plataforma, nos integramos. Si no tienes sistema digital, tenemos un módulo básico incluido para que no te falte nada.
         </p>
       </div>
     </div>
@@ -55,7 +56,7 @@
             Integración con tu sistema actual
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-            Si tu colegio ya tiene un sistema de gestión académica, Ethoz se conecta sin reemplazarlo. Notas, asistencia y matrícula siguen donde están — Ethoz agrega lo que falta: seguimiento integral, retiros seguros y cumplimiento normativo.
+            Si tu colegio ya tiene un sistema de gestión académica, {BRAND} se conecta sin reemplazarlo. Notas, asistencia y matrícula siguen donde están — {BRAND} agrega lo que falta: seguimiento integral, retiros seguros y cumplimiento normativo.
           </p>
           <div class="mt-6 space-y-3">
             <div class="flex items-start gap-2.5">
@@ -115,7 +116,7 @@
               <div class="size-2.5 rounded-full bg-destructive/60"></div>
               <div class="size-2.5 rounded-full bg-warning/60"></div>
               <div class="size-2.5 rounded-full bg-success/60"></div>
-              <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Gestión Básica</span>
+              <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Gestión Básica</span>
             </div>
             <div class="space-y-2.5">
               <div class="flex items-center justify-between rounded-lg bg-muted/50 px-3 py-2">
@@ -145,7 +146,7 @@
             ¿No tienes sistema? No es problema.
           </h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-            Si tu colegio todavía trabaja con planillas, cuadernos o no tiene un sistema digital, Ethoz incluye un módulo básico de gestión escolar conforme a la Circular N°30. No buscamos reemplazar a nadie — pero si necesitas tener todo en un solo lugar, estamos preparados.
+            Si tu colegio todavía trabaja con planillas, cuadernos o no tiene un sistema digital, {BRAND} incluye un módulo básico de gestión escolar conforme a la Circular N°30. No buscamos reemplazar a nadie — pero si necesitas tener todo en un solo lugar, estamos preparados.
           </p>
           <div class="mt-6 space-y-3">
             <div class="flex items-start gap-2.5">
@@ -211,7 +212,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <h2 class="text-2xl text-foreground sm:text-3xl">¿Tienes dudas sobre la integración?</h2>
       <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-        Agenda una demo y revisamos juntos cómo conectar Ethoz con lo que tu colegio ya tiene. Sin compromiso.
+        Agenda una demo y revisamos juntos cómo conectar {BRAND} con lo que tu colegio ya tiene. Sin compromiso.
       </p>
       <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <Button size="lg" href="/demo">

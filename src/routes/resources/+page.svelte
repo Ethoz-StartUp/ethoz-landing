@@ -4,6 +4,7 @@
   import ResourceGate from '$lib/components/ResourceGate.svelte';
   import { Button } from '$lib/components/ui/button';
   import { t } from '$lib/i18n/index.svelte';
+  import { BRAND } from '$lib/brand';
   import {
     ClipboardCheck,
     UserCheck,
@@ -99,14 +100,14 @@
 </script>
 
 <svelte:head>
-  <title>Recursos gratuitos — Ley 21.719 para colegios | Ethoz</title>
+  <title>Recursos gratuitos — Ley 21.719 para colegios | {BRAND}</title>
   <meta name="description" content="Descarga plantillas, checklists y guías gratuitas para cumplir con la Ley 21.719 de Protección de Datos Personales en tu colegio." />
   <meta property="og:url" content="https://ethoz.cl/resources" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Recursos gratuitos — Ley 21.719 para colegios | Ethoz" />
+  <meta property="og:title" content={`Recursos gratuitos — Ley 21.719 para colegios | ${BRAND}`} />
   <meta property="og:description" content="Descarga plantillas, checklists y guías gratuitas para cumplir con la Ley 21.719 de Protección de Datos Personales en tu colegio." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Recursos gratuitos Ley 21.719 | Ethoz" />
+  <meta name="twitter:title" content={`Recursos gratuitos Ley 21.719 | ${BRAND}`} />
   <meta name="twitter:description" content="Plantillas y checklists gratuitos para protección de datos en colegios chilenos." />
   <link rel="canonical" href="https://ethoz.cl/resources" />
   {@html `<script type="application/ld+json">${JSON.stringify({
@@ -115,7 +116,7 @@
     "name": "Recursos gratuitos Ley 21.719",
     "description": "Plantillas, checklists y guías para cumplir con la Ley 21.719 en colegios chilenos.",
     "url": "https://ethoz.cl/resources",
-    "publisher": { "@type": "Organization", "name": "Ethoz", "url": "https://ethoz.cl" }
+    "publisher": { "@type": "Organization", "name": BRAND, "url": "https://ethoz.cl" }
   })}</script>`}
 </svelte:head>
 

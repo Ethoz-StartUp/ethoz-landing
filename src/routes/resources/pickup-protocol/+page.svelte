@@ -3,14 +3,15 @@
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Printer, ArrowLeft } from '@lucide/svelte';
+  import { BRAND } from '$lib/brand';
 </script>
 
 <svelte:head>
-  <title>Protocolo de Retiros Seguros — Plantilla gratuita | Ethoz</title>
+  <title>Protocolo de Retiros Seguros — Plantilla gratuita | {BRAND}</title>
   <meta name="description" content="Plantilla de protocolo de retiros seguros para colegios chilenos. Procedimiento de 8 pasos, casos especiales y trazabilidad. Descarga gratis." />
   <meta property="og:url" content="https://ethoz.cl/resources/pickup-protocol" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Protocolo de Retiros Seguros | Ethoz" />
+  <meta property="og:title" content={`Protocolo de Retiros Seguros | ${BRAND}`} />
   <meta property="og:description" content="Plantilla completa de protocolo de retiros seguros para establecimientos educacionales chilenos." />
   <link rel="canonical" href="https://ethoz.cl/resources/pickup-protocol" />
   {@html `<script type="application/ld+json">${JSON.stringify({
@@ -19,7 +20,7 @@
     "name": "Protocolo de Retiros Seguros",
     "description": "Procedimiento completo para gestionar retiros de alumnos en establecimientos educacionales.",
     "url": "https://ethoz.cl/resources/pickup-protocol",
-    "publisher": { "@type": "Organization", "name": "Ethoz", "url": "https://ethoz.cl" }
+    "publisher": { "@type": "Organization", "name": BRAND, "url": "https://ethoz.cl" }
   })}</script>`}
 </svelte:head>
 
@@ -54,7 +55,7 @@
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
       <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Protocolo de Retiros Seguros</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Procedimiento oficial para la gestión segura y trazable del retiro de alumnos durante la jornada escolar. Integridad física del estudiante y cumplimiento de deberes legales del establecimiento.</p>
-      <p class="mt-4 text-xs text-muted-foreground">Versión 1.0 · Elaborado por Ethoz · ethoz.cl · Adapte con los datos de su establecimiento</p>
+      <p class="mt-4 text-xs text-muted-foreground">Versión 1.0 · Elaborado por {BRAND} · ethoz.cl · Adapte con los datos de su establecimiento</p>
     </div>
 
     <div class="space-y-10 text-sm leading-relaxed text-foreground">
@@ -224,7 +225,7 @@
     </div>
 
     <div class="print:hidden mt-10 text-center">
-      <p class="text-sm text-muted-foreground mb-4">Ethoz digitaliza y automatiza este protocolo en tiempo real.</p>
+      <p class="text-sm text-muted-foreground mb-4">{BRAND} digitaliza y automatiza este protocolo en tiempo real.</p>
       <Button href="/demo">Solicitar demo gratuita</Button>
     </div>
   </div>

@@ -1,4 +1,5 @@
 import type { BlogPost } from './types';
+import { BRAND } from '$lib/brand';
 
 export const post: BlogPost = {
 	slug: 'desercion-escolar-chile-prevencion',
@@ -6,7 +7,7 @@ export const post: BlogPost = {
 	description:
 		'Chile tiene 10.000 estudiantes más desvinculados que en 2019. El 27% en LATAM no completa la secundaria. La inteligencia artificial y la ficha integral pueden anticipar el riesgo antes de que sea irreversible.',
 	date: '2026-04-07',
-	author: 'Equipo Ethoz',
+	author: `Equipo ${BRAND}`,
 	readTime: '9 min',
 	tags: ['Deserción Escolar', 'Alerta Temprana', 'Prevención'],
 	coverImage: '/images/blog/desercion-escolar-chile-prevencion.webp',
@@ -82,7 +83,7 @@ export const post: BlogPost = {
 <h2>Por qué los sistemas actuales no detectan el riesgo a tiempo</h2>
 <p>La mayoría de los sistemas de gestión escolar en Chile fueron diseñados para registrar, no para alertar. Capturan datos, pero no los cruzan. Guardan información de asistencia, pero no generan una alerta cuando un estudiante acumula tres semanas por debajo del umbral de riesgo. Registran incidentes de convivencia, pero no conectan ese registro con el historial académico del mismo estudiante.</p>
 <p>El resultado es que la información existe fragmentada en múltiples módulos del sistema y en la memoria de distintos actores del establecimiento, pero nunca se convierte en inteligencia accionable. El orientador que podría intervenir no sabe que necesita intervenir, porque nadie le está mostrando el patrón.</p>
-<p>Esta es la brecha que Ethoz busca cerrar: no agregar más burocracia de registro, sino hacer visible la información que ya existe en el establecimiento de una manera que permita actuar antes de que sea tarde.</p>
+<p>Esta es la brecha que ${BRAND} busca cerrar: no agregar más burocracia de registro, sino hacer visible la información que ya existe en el establecimiento de una manera que permita actuar antes de que sea tarde.</p>
 
 <h2>Conclusión</h2>
 <p>Los 10.000 estudiantes adicionales desvinculados del sistema en 2023 respecto a 2019 no son una estadística abstracta: son personas cuya trayectoria de vida se verá afectada por un abandono que, en muchos casos, fue detectable semanas o meses antes de que ocurriera. El caso de Mendoza demuestra que la intervención temprana funciona. El requisito es tener los datos correctos, integrados y visibles en el momento correcto.</p>
@@ -90,7 +91,7 @@ export const post: BlogPost = {
 
 <div style="background: var(--secondary); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;">
 <h3 style="margin-top: 0;">Detecte el riesgo de deserción antes de que sea irreversible</h3>
-<p>Ethoz consolida asistencia, convivencia e historial longitudinal en la ficha 360° de cada estudiante, entregando al orientador el contexto completo para intervenir a tiempo. Conozca cómo funciona en su establecimiento.</p>
+<p>${BRAND} consolida asistencia, convivencia e historial longitudinal en la ficha 360° de cada estudiante, entregando al orientador el contexto completo para intervenir a tiempo. Conozca cómo funciona en su establecimiento.</p>
 <a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Solicitar demo gratuita</a>
 </div>
 `

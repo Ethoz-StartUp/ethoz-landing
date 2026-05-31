@@ -4,6 +4,7 @@
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
   import { t } from '$lib/i18n/index.svelte';
+  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
   import { CalendarCheck, ArrowRight, ArrowLeft, BookOpen, BadgeCheck, AlertTriangle, Clock, CheckCircle2, FileText } from '@lucide/svelte';
 
@@ -35,14 +36,14 @@
 </script>
 
 <svelte:head>
-  <title>Ethoz — Control de Asistencia Digital</title>
+  <title>{BRAND} — Control de Asistencia Digital</title>
   <meta name="description" content="Libro digital de asistencia conforme a Circular N°30. Registro de presencia, atrasos y justificaciones con trazabilidad completa y cumplimiento MINEDUC." />
   <meta property="og:url" content="https://ethoz.cl/features/attendance" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz — Control de Asistencia Digital" />
+  <meta property="og:title" content={`${BRAND} — Control de Asistencia Digital`} />
   <meta property="og:description" content="Libro digital de asistencia conforme a Circular N°30. Trazabilidad completa y alertas automáticas de inasistencia reiterada." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz — Control de Asistencia Digital" />
+  <meta name="twitter:title" content={`${BRAND} — Control de Asistencia Digital`} />
   <meta name="twitter:description" content="Libro digital de asistencia conforme a Circular N°30. Trazabilidad completa y alertas automáticas de inasistencia reiterada." />
   <link rel="canonical" href="https://ethoz.cl/features/attendance" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Control de Asistencia"}]})}</script>`}
@@ -90,7 +91,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Asistencia · 7°B · Semana 7 abr</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Asistencia · 7°B · Semana 7 abr</span>
           </div>
           <div class="p-3 sm:p-4">
             <!-- KPI bar -->
@@ -157,7 +158,7 @@
         <div>
           <h2 class="text-2xl text-foreground sm:text-3xl">Conforme a Circular N°30 desde el primer día</h2>
           <p class="mt-4 text-base leading-relaxed text-muted-foreground">
-            La Circular N°30 del MINEDUC exige que el libro de clases electrónico cumpla con requisitos de integridad, trazabilidad y respaldo. Ethoz los cumple todos.
+            La Circular N°30 del MINEDUC exige que el libro de clases electrónico cumpla con requisitos de integridad, trazabilidad y respaldo. {BRAND} los cumple todos.
           </p>
           <div class="mt-6 grid gap-4 sm:grid-cols-2">
             <div class="rounded-xl border border-border bg-card p-4 shadow-sm">
@@ -197,7 +198,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Justificar inasistencia</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Justificar inasistencia</span>
           </div>
           <div class="p-4 sm:p-5">
             <p class="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-3">Solicitud de justificación</p>
@@ -245,7 +246,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <h2 class="text-2xl text-foreground sm:text-3xl">De la inasistencia al protocolo de intervención</h2>
-        <p class="mt-3 text-base text-muted-foreground">Ethoz no solo registra — detecta el patrón y activa el flujo correcto.</p>
+        <p class="mt-3 text-base text-muted-foreground">{BRAND} no solo registra — detecta el patrón y activa el flujo correcto.</p>
       </div>
       <div class="mt-10 grid gap-3 sm:grid-cols-4">
         {#each [
@@ -283,7 +284,7 @@
         <div class="rounded-xl border border-border bg-card p-6 text-center shadow-sm">
           <p class="text-3xl font-bold text-warning-foreground">15%</p>
           <p class="mt-1 text-sm font-semibold text-foreground">umbral de inasistencia</p>
-          <p class="mt-2 text-xs text-muted-foreground">El MINEDUC obliga a intervenir antes de que un alumno supere el 15% de inasistencias. Ethoz lo detecta y activa el protocolo automáticamente.</p>
+          <p class="mt-2 text-xs text-muted-foreground">El MINEDUC obliga a intervenir antes de que un alumno supere el 15% de inasistencias. {BRAND} lo detecta y activa el protocolo automáticamente.</p>
         </div>
       </div>
     </div>

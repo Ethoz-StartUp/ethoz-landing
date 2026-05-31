@@ -1,4 +1,5 @@
 import type { BlogPost } from './types';
+import { BRAND } from '$lib/brand';
 
 export const post: BlogPost = {
 	slug: 'gestion-escolar-vs-proteccion-escolar',
@@ -45,12 +46,12 @@ export const post: BlogPost = {
 
 <h2>¿Se puede tener ambas?</h2>
 <p>La respuesta es sí, y esa es exactamente la forma correcta de plantearlo. Un colegio no debería elegir entre gestionar y proteger: debería poder hacer ambas cosas con herramientas diseñadas para cada propósito.</p>
-<p>Ethoz no reemplaza la plataforma de gestión que su establecimiento ya usa. No hay por qué migrar el libro de clases, ni abandonar los flujos de trabajo que el equipo docente ya conoce. La capa de protección opera de forma complementaria: importa datos desde Excel, Napsis o cualquier formato existente, y convive con los sistemas actuales sin requerir una transición traumática.</p>
+<p>${BRAND} no reemplaza la plataforma de gestión que su establecimiento ya usa. No hay por qué migrar el libro de clases, ni abandonar los flujos de trabajo que el equipo docente ya conoce. La capa de protección opera de forma complementaria: importa datos desde Excel, Napsis o cualquier formato existente, y convive con los sistemas actuales sin requerir una transición traumática.</p>
 <p>La pregunta que vale hacerse es más simple: <em>¿su plataforma actual puede demostrar, ante una fiscalización de la Agencia de Protección de Datos, que nadie accedió a información que no le correspondía? ¿Puede mostrar quién autorizó el retiro de cada alumno en los últimos seis meses? ¿Puede acreditar que el portero estaba informado sobre la restricción judicial activa el día que llegó el padre sin custodia?</em></p>
 <p>Si la respuesta a cualquiera de esas preguntas es no, la gestión funciona. La protección, no.</p>
 
 <h2>Y lo que viene</h2>
-<p>Ethoz está desarrollando integración directa con SIGE y la plataforma del MINEDUC, una aplicación móvil para apoderados y porteros que permite autorizar retiros y recibir alertas en tiempo real, y un módulo financiero básico para sostenedores que quieran consolidar más operaciones en una sola plataforma. Pero el ADN del producto siempre será la protección: de los alumnos, de sus datos y de la institución que los recibe cada día.</p>
+<p>${BRAND} está desarrollando integración directa con SIGE y la plataforma del MINEDUC, una aplicación móvil para apoderados y porteros que permite autorizar retiros y recibir alertas en tiempo real, y un módulo financiero básico para sostenedores que quieran consolidar más operaciones en una sola plataforma. Pero el ADN del producto siempre será la protección: de los alumnos, de sus datos y de la institución que los recibe cada día.</p>
 <p>Crecer en funcionalidad no significa perder el foco. Significa que la capa de protección estará disponible para más establecimientos, en más contextos, con menos fricciones de integración.</p>
 
 <h2>Conclusión</h2>

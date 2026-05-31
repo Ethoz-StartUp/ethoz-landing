@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { t } from '$lib/i18n/index.svelte';
+  import { BRAND } from '$lib/brand';
   import { Button } from '$lib/components/ui/button';
   import {
     Shield, ArrowRight, ArrowLeft, Building2, KeyRound, Users,
@@ -31,14 +32,14 @@
 </script>
 
 <svelte:head>
-  <title>Ethoz — {t('features.privacy.title')}</title>
+  <title>{BRAND} — {t('features.privacy.title')}</title>
   <meta name="description" content="Construida para la Ley 21.719 desde el primer día — no como un parche posterior." />
   <meta property="og:url" content="https://ethoz.cl/features/privacy-compliance" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz — Arquitectura de Privacidad y Cumplimiento" />
+  <meta property="og:title" content={`${BRAND} — Arquitectura de Privacidad y Cumplimiento`} />
   <meta property="og:description" content="Construida para la Ley 21.719 desde el primer día — no como un parche posterior." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz — Arquitectura de Privacidad y Cumplimiento" />
+  <meta name="twitter:title" content={`${BRAND} — Arquitectura de Privacidad y Cumplimiento`} />
   <meta name="twitter:description" content="Construida para la Ley 21.719 desde el primer día — no como un parche posterior." />
   <link rel="canonical" href="https://ethoz.cl/features/privacy-compliance" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Privacidad y Cumplimiento"}]})}</script>`}
@@ -97,7 +98,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Panel de Cumplimiento Ley 21.719</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Panel de Cumplimiento Ley 21.719</span>
           </div>
           <div class="p-4 sm:p-5">
             <!-- KPI row -->
@@ -164,7 +165,7 @@
       <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary">Registro de tratamiento</p>
       <h2 class="mb-2 text-xl text-foreground sm:text-2xl">Inventario de datos categorizados</h2>
       <p class="mb-8 text-sm leading-relaxed text-muted-foreground max-w-2xl">
-        Ethoz genera automáticamente el inventario de datos personales que la Ley 21.719 exige documentar. Cada categoría tiene su base legal y nivel de sensibilidad asignado.
+        {BRAND} genera automáticamente el inventario de datos personales que la Ley 21.719 exige documentar. Cada categoría tiene su base legal y nivel de sensibilidad asignado.
       </p>
       <div class="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
         <div class="overflow-x-auto">
@@ -209,7 +210,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 class="mb-2 text-xl text-foreground sm:text-2xl">Derechos ARCO+P integrados</h2>
       <p class="mb-8 text-sm leading-relaxed text-muted-foreground max-w-2xl">
-        Cuando un apoderado solicita ejercer sus derechos, Ethoz genera el flujo de atención, registra cada paso y asegura que la respuesta se entregue dentro del plazo legal de 15 días hábiles.
+        Cuando un apoderado solicita ejercer sus derechos, {BRAND} genera el flujo de atención, registra cada paso y asegura que la respuesta se entregue dentro del plazo legal de 15 días hábiles.
       </p>
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {#each [

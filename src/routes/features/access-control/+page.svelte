@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { t } from '$lib/i18n/index.svelte';
+  import { BRAND } from '$lib/brand';
   import { Button } from '$lib/components/ui/button';
   import {
     Fingerprint, ArrowRight, ArrowLeft, UserCog, GanttChartSquare, EyeOff,
@@ -35,14 +36,14 @@
 </script>
 
 <svelte:head>
-  <title>Ethoz — {t('features.rbac.title')}</title>
+  <title>{BRAND} — {t('features.rbac.title')}</title>
   <meta name="description" content="Cada persona ve exactamente lo que necesita, ni más ni menos." />
   <meta property="og:url" content="https://ethoz.cl/features/access-control" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz — Control de Acceso Granular por Roles" />
+  <meta property="og:title" content={`${BRAND} — Control de Acceso Granular por Roles`} />
   <meta property="og:description" content="Cada persona ve exactamente lo que necesita, ni más ni menos." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz — Control de Acceso Granular por Roles" />
+  <meta name="twitter:title" content={`${BRAND} — Control de Acceso Granular por Roles`} />
   <meta name="twitter:description" content="Cada persona ve exactamente lo que necesita, ni más ni menos." />
   <link rel="canonical" href="https://ethoz.cl/features/access-control" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Control de Acceso por Roles"}]})}</script>`}
@@ -91,11 +92,11 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Matriz de Permisos por Rol</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Matriz de Permisos por Rol</span>
           </div>
           <div class="overflow-x-auto">
             <table class="w-full text-[10px]">
-              <caption class="sr-only">Matriz de permisos por rol: detalla qué acciones puede realizar cada rol (Director, Inspector, Orientador, Docente, UTP, Portero) en Ethoz.</caption>
+              <caption class="sr-only">Matriz de permisos por rol: detalla qué acciones puede realizar cada rol (Director, Inspector, Orientador, Docente, UTP, Portero) en {BRAND}.</caption>
               <thead>
                 <tr class="border-b border-border bg-muted/30">
                   <th scope="col" class="px-3 py-2 text-left font-semibold text-muted-foreground">Permiso</th>
@@ -154,7 +155,7 @@
       <p class="mb-2 text-sm font-bold uppercase tracking-widest text-primary">Por rol</p>
       <h2 class="mb-2 text-xl text-foreground sm:text-2xl">Cada rol, una interfaz distinta</h2>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
-        Ethoz no oculta campos en una interfaz genérica. Cada cargo tiene una vista construida para su tarea específica, reduciendo el error humano y la sobrecarga de información.
+        {BRAND} no oculta campos en una interfaz genérica. Cada cargo tiene una vista construida para su tarea específica, reduciendo el error humano y la sobrecarga de información.
       </p>
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {#each [

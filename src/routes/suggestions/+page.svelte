@@ -3,6 +3,7 @@
   import { goto } from '$app/navigation';
   import { env } from '$env/dynamic/public';
   import { feedbackStore, type FeedbackItem } from '$lib/stores/feedback.svelte';
+  import { BRAND } from '$lib/brand';
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Trash2, Download, RefreshCw, Copy, Check } from '@lucide/svelte';
@@ -93,7 +94,7 @@
   function buildPrompt(item: FeedbackItem): string {
     const typeLabel = typeMeta[item.type].label;
     const lines: string[] = [
-      `Tengo un ${typeLabel.toLowerCase()} sobre la landing page de Ethoz.`,
+      `Tengo un ${typeLabel.toLowerCase()} sobre la landing page de ${BRAND}.`,
       ``,
       `**Página:** ${item.pageRoute}`,
       item.sectionName ? `**Sección:** ${item.sectionName}` : '',
@@ -131,16 +132,16 @@
 </script>
 
 <svelte:head>
-  <title>Sugerencias — Ethoz</title>
-  <meta name="description" content="Sugerencias para mejorar Ethoz. Comparte ideas con el equipo de producto." />
+  <title>Sugerencias — {BRAND}</title>
+  <meta name="description" content={`Sugerencias para mejorar ${BRAND}. Comparte ideas con el equipo de producto.`} />
   <meta name="robots" content="noindex, nofollow" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Sugerencias — Ethoz" />
-  <meta property="og:description" content="Sugerencias para mejorar Ethoz. Comparte ideas con el equipo de producto." />
+  <meta property="og:title" content={`Sugerencias — ${BRAND}`} />
+  <meta property="og:description" content={`Sugerencias para mejorar ${BRAND}. Comparte ideas con el equipo de producto.`} />
   <meta property="og:url" content="https://ethoz.cl/suggestions" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Sugerencias — Ethoz" />
-  <meta name="twitter:description" content="Sugerencias para mejorar Ethoz. Comparte ideas con el equipo de producto." />
+  <meta name="twitter:title" content={`Sugerencias — ${BRAND}`} />
+  <meta name="twitter:description" content={`Sugerencias para mejorar ${BRAND}. Comparte ideas con el equipo de producto.`} />
   <link rel="canonical" href="https://ethoz.cl/suggestions" />
 </svelte:head>
 

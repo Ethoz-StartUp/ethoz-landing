@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { BRAND, LEGAL_NAME } from '$lib/brand';
   import { t } from '$lib/i18n/index.svelte';
   import { ArrowRight, ChevronDown } from '@lucide/svelte';
   import { trackEvent } from '$lib/utils/analytics';
@@ -23,23 +24,23 @@
 
   // Institutional roadmap — quarters in which the thesis manifests
   const roadmap = [
-    { period: '2026 · Q2', label: 'Fundación', body: 'ETHOZ SpA se constituye en abril de 2026 con tesis explícita: proteger los datos de los colegios chilenos antes de que la Ley 21.719 entre en vigencia plena.', state: 'done' as const },
+    { period: '2026 · Q2', label: 'Fundación', body: `${LEGAL_NAME} se constituye en abril de 2026 con tesis explícita: proteger los datos de los colegios chilenos antes de que la Ley 21.719 entre en vigencia plena.`, state: 'done' as const },
     { period: '2026 · Q3', label: 'Primeros sostenedores', body: 'Implementación con sostenedores piloto: redes multi-colegio del Tier 1 con necesidades concretas de compliance. Integración con Napsis, Syscol y Lirmi.', state: 'active' as const },
-    { period: '2026 · Q4', label: 'Ley 21.719 en vigencia', body: 'Diciembre de 2026: enforcement pleno por el Consejo para la Transparencia. Ethoz opera como capa de compliance para sostenedores ya implementados.', state: 'upcoming' as const },
+    { period: '2026 · Q4', label: 'Ley 21.719 en vigencia', body: `Diciembre de 2026: enforcement pleno por el Consejo para la Transparencia. ${BRAND} opera como capa de compliance para sostenedores ya implementados.`, state: 'upcoming' as const },
     { period: '2027 · H1', label: 'SOC 2 Type II', body: 'Certificación SOC 2 Type II en curso. Controles técnicos ya implementados; el proceso de auditoría cierra el roadmap de compliance institucional.', state: 'upcoming' as const },
   ];
 </script>
 
 <svelte:head>
-  <title>Ethoz — {t('about.title')}</title>
-  <meta name="description" content="Ethoz: plataforma de seguimiento integral y seguridad escolar construida en Chile." />
+  <title>{BRAND} — {t('about.title')}</title>
+  <meta name="description" content={`${BRAND}: plataforma de seguimiento integral y seguridad escolar construida en Chile.`} />
   <meta property="og:url" content="https://ethoz.cl/about" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz — Construido en Chile, para colegios chilenos" />
-  <meta property="og:description" content="Conoce Ethoz, la plataforma de gestión y protección de datos escolares para Chile." />
+  <meta property="og:title" content={`${BRAND} — Construido en Chile, para colegios chilenos`} />
+  <meta property="og:description" content={`Conoce ${BRAND}, la plataforma de gestión y protección de datos escolares para Chile.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz — Construido en Chile, para colegios chilenos" />
-  <meta name="twitter:description" content="Conoce Ethoz, la plataforma de gestión y protección de datos escolares para Chile." />
+  <meta name="twitter:title" content={`${BRAND} — Construido en Chile, para colegios chilenos`} />
+  <meta name="twitter:description" content={`Conoce ${BRAND}, la plataforma de gestión y protección de datos escolares para Chile.`} />
   <link rel="canonical" href="https://ethoz.cl/about" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Nosotros"}]})}</script>`}
 </svelte:head>
@@ -53,7 +54,7 @@
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         <span class="text-primary">Institucional</span>
         <span aria-hidden="true" class="text-border">·</span>
-        <span>ETHOZ SpA</span>
+        <span>{LEGAL_NAME}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>Fundada en 2026</span>
       </p>
@@ -115,7 +116,7 @@
   <!-- MISSION — what Ethoz is NOT, and what it IS -->
   <section class="py-16 sm:py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>01 · Qué es Ethoz</p>
+      <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>01 · Qué es {BRAND}</p>
       <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">
         {t('about.mission_title')}
       </h2>
@@ -126,7 +127,7 @@
       <!-- Contrast: what Ethoz complements vs. what it is -->
       <div class="mt-10 grid gap-6 border-y border-border py-10 sm:grid-cols-2 sm:gap-10">
         <div>
-          <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Ethoz no es</p>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{BRAND} no es</p>
           <ul class="mt-4 space-y-3 text-sm text-muted-foreground">
             <li class="flex gap-3"><span class="text-border" aria-hidden="true">—</span><span>Un reemplazo de Napsis, Syscol o Lirmi.</span></li>
             <li class="flex gap-3"><span class="text-border" aria-hidden="true">—</span><span>Un ERP escolar ni un sistema de gestión académica.</span></li>
@@ -134,7 +135,7 @@
           </ul>
         </div>
         <div>
-          <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">Ethoz es</p>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary">{BRAND} es</p>
           <ul class="mt-4 space-y-3 text-sm text-foreground">
             <li class="flex gap-3"><span class="text-primary" aria-hidden="true">→</span><span>La capa de seguridad, compliance y trazabilidad sobre lo que ya usa el colegio.</span></li>
             <li class="flex gap-3"><span class="text-primary" aria-hidden="true">→</span><span>Una plataforma diseñada por defecto para la Ley 21.719 y la Circular N°30.</span></li>
@@ -153,7 +154,7 @@
         Hoja de ruta institucional
       </h2>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
-        Un proyecto joven se juzga por la precisión de su plan, no por la cantidad de valores en su página "Nosotros". Estas son las fechas en las que se compromete Ethoz.
+        Un proyecto joven se juzga por la precisión de su plan, no por la cantidad de valores en su página "Nosotros". Estas son las fechas en las que se compromete {BRAND}.
       </p>
 
       <ol class="mt-10 divide-y divide-border border-y border-border">

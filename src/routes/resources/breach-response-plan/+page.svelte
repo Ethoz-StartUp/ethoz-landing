@@ -3,14 +3,15 @@
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Printer, ArrowLeft } from '@lucide/svelte';
+  import { BRAND } from '$lib/brand';
 </script>
 
 <svelte:head>
-  <title>Plan de Respuesta a Brechas de Datos — Plantilla gratuita | Ethoz</title>
+  <title>Plan de Respuesta a Brechas de Datos — Plantilla gratuita | {BRAND}</title>
   <meta name="description" content="Plantilla de plan de respuesta a brechas de datos personales para colegios chilenos. Notificación en 72 horas según Art. 30 Ley 21.719. Descarga gratis." />
   <meta property="og:url" content="https://ethoz.cl/resources/breach-response-plan" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Plan de Respuesta a Brechas de Datos | Ethoz" />
+  <meta property="og:title" content={`Plan de Respuesta a Brechas de Datos | ${BRAND}`} />
   <meta property="og:description" content="Plantilla completa para gestionar brechas de datos en colegios chilenos conforme a la Ley 21.719." />
   <link rel="canonical" href="https://ethoz.cl/resources/breach-response-plan" />
   {@html `<script type="application/ld+json">${JSON.stringify({
@@ -19,7 +20,7 @@
     "name": "Plan de Respuesta a Brechas de Datos",
     "description": "Plantilla para gestionar brechas de datos personales en colegios chilenos conforme al Art. 30 de la Ley 21.719.",
     "url": "https://ethoz.cl/resources/breach-response-plan",
-    "publisher": { "@type": "Organization", "name": "Ethoz", "url": "https://ethoz.cl" }
+    "publisher": { "@type": "Organization", "name": BRAND, "url": "https://ethoz.cl" }
   })}</script>`}
 </svelte:head>
 
@@ -53,7 +54,7 @@
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
       <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Plan de Respuesta a Brechas de Datos</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Plantilla para gestionar incidentes de seguridad que involucren datos personales. La Ley 21.719 exige notificación a la autoridad competente dentro de <strong class="text-foreground">72 horas</strong> desde que se detecta la brecha.</p>
-      <p class="mt-4 text-xs text-muted-foreground">Elaborado por Ethoz · ethoz.cl · Complete los campos [en corchetes] con datos de su establecimiento</p>
+      <p class="mt-4 text-xs text-muted-foreground">Elaborado por {BRAND} · ethoz.cl · Complete los campos [en corchetes] con datos de su establecimiento</p>
     </div>
 
     <div class="space-y-10 text-sm leading-relaxed">
@@ -235,7 +236,7 @@
     </div>
 
     <div class="print:hidden mt-10 text-center">
-      <p class="text-sm text-muted-foreground mb-4">Ethoz detecta y gestiona brechas automáticamente, con alertas en tiempo real.</p>
+      <p class="text-sm text-muted-foreground mb-4">{BRAND} detecta y gestiona brechas automáticamente, con alertas en tiempo real.</p>
       <Button href="/demo">Solicitar demo gratuita</Button>
     </div>
   </div>

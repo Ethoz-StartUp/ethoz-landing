@@ -1,12 +1,13 @@
 <svelte:head>
-  <meta property="og:site_name" content="Ethoz" />
+  <meta property="og:site_name" content={BRAND} />
   <meta property="og:locale" content="es_CL" />
-  <meta name="application-name" content="Ethoz" />
+  <meta name="application-name" content={BRAND} />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 </svelte:head>
 
 <script lang="ts">
   import '../app.css';
+  import { BRAND } from '$lib/brand';
   import { env } from '$env/dynamic/public';
   import { checkInternalFlag, checkInternalIP, isInternal } from '$lib/utils/internal';
   import { identifyVisitor } from '$lib/utils/visitor';

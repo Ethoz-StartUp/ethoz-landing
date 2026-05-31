@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
+  import { BRAND } from '$lib/brand';
   import { t } from '$lib/i18n/index.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
@@ -18,7 +19,7 @@
 </script>
 
 <svelte:head>
-  <title>{post.title} — Ethoz Blog</title>
+  <title>{post.title} — {BRAND} Blog</title>
   <meta name="description" content={post.description} />
   <meta property="og:title" content={post.title} />
   <meta property="og:description" content={post.description} />
@@ -41,7 +42,7 @@
       "description": post.description,
       "datePublished": post.date,
       "author": { "@type": "Person", "name": post.author },
-      "publisher": { "@type": "Organization", "name": "Ethoz", "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }},
+      "publisher": { "@type": "Organization", "name": BRAND, "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }},
       "image": post.coverImage ? `https://ethoz.cl${post.coverImage}` : undefined,
       "url": `https://ethoz.cl/blog/${post.slug}`,
       "mainEntityOfPage": `https://ethoz.cl/blog/${post.slug}`

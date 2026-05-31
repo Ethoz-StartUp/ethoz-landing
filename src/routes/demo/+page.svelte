@@ -1,6 +1,7 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { onDestroy } from 'svelte';
+  import { BRAND } from '$lib/brand';
   import NavBar from '$lib/components/NavBar.svelte';
   import { t } from '$lib/i18n/index.svelte';
   import { schoolStore, type School } from '$lib/stores/schools.svelte';
@@ -101,15 +102,15 @@
 <svelte:window onkeydown={handleKeydown} />
 
 <svelte:head>
-  <title>Ethoz — {t('nav.cta')}</title>
-  <meta name="description" content="Solicita una demo personalizada de Ethoz para tu colegio. Busca tu establecimiento y agenda una presentación." />
+  <title>{BRAND} — {t('nav.cta')}</title>
+  <meta name="description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio. Busca tu establecimiento y agenda una presentación.`} />
   <meta property="og:url" content="https://ethoz.cl/demo" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Demo — Ethoz" />
-  <meta property="og:description" content="Solicita una demo personalizada de Ethoz para tu colegio." />
+  <meta property="og:title" content={`Demo — ${BRAND}`} />
+  <meta property="og:description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Demo — Ethoz" />
-  <meta name="twitter:description" content="Solicita una demo personalizada de Ethoz para tu colegio." />
+  <meta name="twitter:title" content={`Demo — ${BRAND}`} />
+  <meta name="twitter:description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio.`} />
   <link rel="canonical" href="https://ethoz.cl/demo" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Demo"}]})}</script>`}
 </svelte:head>
@@ -285,7 +286,7 @@
   </div>
 
   <footer class="border-t border-border bg-background py-4 text-center text-[11px] text-muted-foreground">
-    &copy; {new Date().getFullYear()} Ethoz
+    &copy; {new Date().getFullYear()} {BRAND}
   </footer>
 </main>
 

@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { t } from '$lib/i18n/index.svelte';
+  import { BRAND } from '$lib/brand';
   import { Button } from '$lib/components/ui/button';
   import {
     Search, ArrowRight, ArrowLeft, Zap, LayoutDashboard, Filter,
@@ -49,14 +50,14 @@
 </script>
 
 <svelte:head>
-  <title>Ethoz — {t('features.search.title')}</title>
+  <title>{BRAND} — {t('features.search.title')}</title>
   <meta name="description" content="Cualquier alumno, en segundos, con tolerancia a errores tipográficos." />
   <meta property="og:url" content="https://ethoz.cl/features/smart-search" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz — Búsqueda Instantánea y Dashboard Inteligente" />
+  <meta property="og:title" content={`${BRAND} — Búsqueda Instantánea y Dashboard Inteligente`} />
   <meta property="og:description" content="Cualquier alumno, en segundos, con tolerancia a errores tipográficos." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz — Búsqueda Instantánea y Dashboard Inteligente" />
+  <meta name="twitter:title" content={`${BRAND} — Búsqueda Instantánea y Dashboard Inteligente`} />
   <meta name="twitter:description" content="Cualquier alumno, en segundos, con tolerancia a errores tipográficos." />
   <link rel="canonical" href="https://ethoz.cl/features/smart-search" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Búsqueda Inteligente"}]})}</script>`}
@@ -123,7 +124,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Búsqueda inteligente</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Búsqueda inteligente</span>
           </div>
           <div class="p-4 sm:p-5">
             <!-- Search bar -->

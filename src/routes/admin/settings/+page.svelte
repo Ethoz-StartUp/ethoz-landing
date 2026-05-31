@@ -2,6 +2,7 @@
   import { goto } from '$app/navigation';
   import { page } from '$app/state';
   import { adminStore } from '$lib/stores/admin.svelte';
+  import { BRAND } from '$lib/brand';
   import { supabase } from '$lib/supabase';
   import { env } from '$env/dynamic/public';
   import { onMount } from 'svelte';
@@ -207,7 +208,7 @@
 </script>
 
 <svelte:head>
-  <title>Settings — Ethoz Admin</title>
+  <title>Settings — {BRAND} Admin</title>
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 

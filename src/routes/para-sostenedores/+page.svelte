@@ -8,6 +8,7 @@
     AlertTriangle, FileSearch, TrendingDown, Scale, CheckCircle,
     Users, DollarSign, Activity, ClipboardCheck
   } from '@lucide/svelte';
+  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
 
   $effect(() => { trackEvent('audience_page_viewed', { audience: 'sostenedores' }); });
@@ -30,14 +31,14 @@
 </script>
 
 <svelte:head>
-  <title>Ethoz para Sostenedores — Gestión multi-colegio y cumplimiento Ley 21.719</title>
+  <title>{BRAND} para Sostenedores — Gestión multi-colegio y cumplimiento Ley 21.719</title>
   <meta name="description" content="Gestiona la protección de todos tus establecimientos desde un solo panel. Cumplimiento Ley 21.719, visibilidad multi-sede y auditoría centralizada." />
   <meta property="og:url" content="https://ethoz.cl/para-sostenedores" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz para Sostenedores — Gestión multi-colegio" />
+  <meta property="og:title" content={`${BRAND} para Sostenedores — Gestión multi-colegio`} />
   <meta property="og:description" content="Gestiona la protección de todos tus establecimientos desde un solo panel. Cumplimiento Ley 21.719, visibilidad multi-sede y auditoría centralizada." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz para Sostenedores — Gestión multi-colegio" />
+  <meta name="twitter:title" content={`${BRAND} para Sostenedores — Gestión multi-colegio`} />
   <meta name="twitter:description" content="Gestiona la protección de todos tus establecimientos desde un solo panel. Cumplimiento Ley 21.719, visibilidad multi-sede y auditoría centralizada." />
   <link rel="canonical" href="https://ethoz.cl/para-sostenedores" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Para Sostenedores","item":"https://ethoz.cl/para-sostenedores"}]})}</script>`}
@@ -62,7 +63,7 @@
             </h1>
           </div>
           <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
-            La Ley 21.719 entra en plena vigencia en diciembre de 2026. Las multas alcanzan hasta 20.000 UTM por establecimiento. Con múltiples sedes, tu exposición se multiplica — y también tu capacidad de control con Ethoz.
+            La Ley 21.719 entra en plena vigencia en diciembre de 2026. Las multas alcanzan hasta 20.000 UTM por establecimiento. Con múltiples sedes, tu exposición se multiplica — y también tu capacidad de control con {BRAND}.
           </p>
           <ul class="mt-6 space-y-3">
             <li class="flex items-start gap-2.5 text-sm text-muted-foreground">
@@ -91,7 +92,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Panel Sostenedor · Red de 5 establecimientos</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Panel Sostenedor · Red de 5 establecimientos</span>
           </div>
           <div class="p-4">
             <!-- Summary KPIs -->
@@ -245,11 +246,11 @@
         <div class="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
           <div class="border-b border-border px-4 py-3 flex items-center gap-2">
             <DollarSign class="size-4 text-primary" />
-            <span class="text-sm font-semibold text-foreground">Consolidación financiera — Ethoz vs. soluciones separadas</span>
+            <span class="text-sm font-semibold text-foreground">Consolidación financiera — {BRAND} vs. soluciones separadas</span>
           </div>
           <div class="p-4 space-y-3">
             <div class="rounded-lg border border-destructive/20 bg-destructive/5 p-3">
-              <p class="text-[10px] font-semibold text-destructive mb-2">Sin Ethoz — 5 sistemas distintos</p>
+              <p class="text-[10px] font-semibold text-destructive mb-2">Sin {BRAND} — 5 sistemas distintos</p>
               <div class="space-y-1.5">
                 {#each [
                   { item: 'Licencias individuales × 5', valor: '$4.500.000/año' },
@@ -264,7 +265,7 @@
               </div>
             </div>
             <div class="rounded-lg border border-success/20 bg-success/5 p-3">
-              <p class="text-[10px] font-semibold text-success mb-2">Con Ethoz — licencia red consolidada</p>
+              <p class="text-[10px] font-semibold text-success mb-2">Con {BRAND} — licencia red consolidada</p>
               <div class="space-y-1.5">
                 {#each [
                   { item: 'Licencia red 5 sedes', valor: '$2.800.000/año' },

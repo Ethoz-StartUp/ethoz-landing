@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
   import { ArrowRight } from '@lucide/svelte';
 
@@ -53,14 +54,14 @@
       { term: 'Orden de alejamiento', def: 'Medida judicial que prohíbe a una persona acercarse a otra. El colegio debe registrar y actuar conforme a órdenes de alejamiento en el sistema de control de acceso y retiros.', tag: 'Seguridad' },
     ],
     P: [
-      { term: 'Portería', def: 'Punto de control de acceso físico del establecimiento. En Ethoz, la portería es un módulo con verificación de identidad, control de retiros y alertas en tiempo real para el personal autorizado.', tag: 'Seguridad' },
+      { term: 'Portería', def: `Punto de control de acceso físico del establecimiento. En ${BRAND}, la portería es un módulo con verificación de identidad, control de retiros y alertas en tiempo real para el personal autorizado.`, tag: 'Seguridad' },
       { term: 'Privacidad por diseño', def: 'Principio que exige incorporar la protección de datos desde el diseño de sistemas y procesos, no como añadido posterior. Obligación implícita de la Ley 21.719 y estándar de buenas prácticas internacionales.', link: '/seguridad-datos', tag: 'Ley 21.719' },
       { term: 'Protocolo de retiro', def: 'Procedimiento documentado que establece cómo se autoriza, verifica y registra el retiro de un estudiante. Debe incluir verificación de identidad del adulto y registro del responsable que autorizó.', tag: 'Seguridad' },
     ],
     R: [
       { term: 'RBD', def: 'Rol Base de Datos. Identificador único asignado por el Ministerio de Educación a cada establecimiento educacional en Chile. Número de referencia estándar en todos los sistemas del sector educacional.', tag: 'Educación' },
-      { term: 'Retiro escolar', def: 'Proceso de salida de un estudiante del establecimiento durante la jornada escolar. Requiere autorización del apoderado y verificación de identidad del adulto que retira. Ethoz digitaliza y audita este proceso.', tag: 'Seguridad' },
-      { term: 'RLS', def: 'Row-Level Security. Mecanismo de seguridad en bases de datos que filtra los datos que cada usuario puede ver a nivel de fila, según su rol. Implementado en Ethoz vía Supabase.', link: '/seguridad-datos', tag: 'Seguridad' },
+      { term: 'Retiro escolar', def: `Proceso de salida de un estudiante del establecimiento durante la jornada escolar. Requiere autorización del apoderado y verificación de identidad del adulto que retira. ${BRAND} digitaliza y audita este proceso.`, tag: 'Seguridad' },
+      { term: 'RLS', def: `Row-Level Security. Mecanismo de seguridad en bases de datos que filtra los datos que cada usuario puede ver a nivel de fila, según su rol. Implementado en ${BRAND} vía Supabase.`, link: '/seguridad-datos', tag: 'Seguridad' },
     ],
     S: [
       { term: 'Seudonimización', def: 'Técnica que reemplaza identificadores directos (nombre, RUT) por seudónimos, reduciendo el riesgo de re-identificación. Los datos seudonimizados siguen siendo datos personales bajo la Ley 21.719.', tag: 'Ley 21.719' },
@@ -89,9 +90,9 @@
 </script>
 
 <svelte:head>
-  <title>Glosario Ethoz — términos clave para la protección escolar | Ethoz</title>
+  <title>Glosario {BRAND} — términos clave para la protección escolar | {BRAND}</title>
   <meta name="description" content="Glosario completo de términos de protección escolar y cumplimiento normativo en Chile: Ley 21.719, Circular N°30, ARCO+P, RLS, DPO, RBD, sostenedor y más." />
-  <meta property="og:title" content="Glosario Ethoz — términos de protección escolar" />
+  <meta property="og:title" content={`Glosario ${BRAND} — términos de protección escolar`} />
   <meta property="og:description" content="Glosario completo de términos de protección escolar y cumplimiento normativo en Chile: Ley 21.719, Circular N°30, ARCO+P, RLS, DPO, RBD, sostenedor y más." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://ethoz.cl/glosario" />
@@ -101,10 +102,10 @@
     {
       "@context": "https://schema.org",
       "@type": "DefinedTermSet",
-      "name": "Glosario Ethoz — protección escolar y cumplimiento normativo",
+      "name": `Glosario ${BRAND} — protección escolar y cumplimiento normativo`,
       "description": "Glosario completo de términos de protección escolar y cumplimiento normativo en Chile.",
       "url": "https://ethoz.cl/glosario",
-      "publisher": { "@type": "Organization", "name": "Ethoz", "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }}
+      "publisher": { "@type": "Organization", "name": BRAND, "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }}
     },
     {
       "@context": "https://schema.org",
@@ -233,7 +234,7 @@
         {#each [
           { href: '/ley-21719', label: 'Ley 21.719 — guía completa' },
           { href: '/circular-30', label: 'Circular N°30 — libro de clases digital' },
-          { href: '/seguridad-datos', label: 'Seguridad de datos en Ethoz' },
+          { href: '/seguridad-datos', label: `Seguridad de datos en ${BRAND}` },
           { href: '/comparativa', label: 'Comparativa de plataformas' },
           { href: '/compliance', label: 'Cumplimiento normativo' },
         ] as item}

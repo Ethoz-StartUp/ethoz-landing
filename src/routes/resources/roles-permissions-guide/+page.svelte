@@ -3,6 +3,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Printer, ArrowLeft } from '@lucide/svelte';
+  import { BRAND } from '$lib/brand';
 
   const roles = [
     {
@@ -130,11 +131,11 @@
 </script>
 
 <svelte:head>
-  <title>Guía de Roles y Permisos para Colegios — Descarga gratuita | Ethoz</title>
+  <title>Guía de Roles y Permisos para Colegios — Descarga gratuita | {BRAND}</title>
   <meta name="description" content="Matriz de permisos recomendada para establecimientos educacionales chilenos. Director, Inspector, UTP, Orientador, Docente, Portero. Descarga gratis." />
   <meta property="og:url" content="https://ethoz.cl/resources/roles-permissions-guide" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Guía de Roles y Permisos para Colegios | Ethoz" />
+  <meta property="og:title" content={`Guía de Roles y Permisos para Colegios | ${BRAND}`} />
   <meta property="og:description" content="Matriz de acceso a datos por rol para colegios chilenos conforme a la Ley 21.719." />
   <link rel="canonical" href="https://ethoz.cl/resources/roles-permissions-guide" />
   {@html `<script type="application/ld+json">${JSON.stringify({
@@ -143,7 +144,7 @@
     "name": "Guía de Roles y Permisos para Colegios",
     "description": "Matriz de permisos recomendada para establecimientos educacionales chilenos conforme a la Ley 21.719.",
     "url": "https://ethoz.cl/resources/roles-permissions-guide",
-    "publisher": { "@type": "Organization", "name": "Ethoz", "url": "https://ethoz.cl" }
+    "publisher": { "@type": "Organization", "name": BRAND, "url": "https://ethoz.cl" }
   })}</script>`}
 </svelte:head>
 
@@ -177,7 +178,7 @@
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
       <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Guía de Roles y Permisos para Colegios</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Matriz de acceso a datos personales recomendada para establecimientos educacionales chilenos. Basada en el principio de mínimo privilegio exigido por la Ley 21.719.</p>
-      <p class="mt-4 text-xs text-muted-foreground">Elaborado por Ethoz · ethoz.cl · Adaptable según el sistema de gestión escolar utilizado</p>
+      <p class="mt-4 text-xs text-muted-foreground">Elaborado por {BRAND} · ethoz.cl · Adaptable según el sistema de gestión escolar utilizado</p>
     </div>
 
     <!-- Principles -->
@@ -248,7 +249,7 @@
     </div>
 
     <div class="print:hidden mt-8 text-center">
-      <p class="text-sm text-muted-foreground mb-4">Ethoz implementa esta matriz de permisos automáticamente en su plataforma.</p>
+      <p class="text-sm text-muted-foreground mb-4">{BRAND} implementa esta matriz de permisos automáticamente en su plataforma.</p>
       <Button href="/demo">Solicitar demo gratuita</Button>
     </div>
   </div>

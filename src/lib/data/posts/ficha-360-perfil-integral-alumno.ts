@@ -1,4 +1,5 @@
 import type { BlogPost } from './types';
+import { BRAND } from '$lib/brand';
 
 export const post: BlogPost = {
 	slug: 'ficha-360-perfil-integral-alumno',
@@ -6,7 +7,7 @@ export const post: BlogPost = {
 	description:
 		'El reinicio de marzo borra el contexto acumulado de cada estudiante. La ficha 360° con historial longitudinal, RLS por rol y trazabilidad continua es el instrumento que los colegios necesitan pero casi ninguno tiene.',
 	date: '2026-04-07',
-	author: 'Equipo Ethoz',
+	author: `Equipo ${BRAND}`,
 	readTime: '8 min',
 	tags: ['Ficha 360', 'Perfil Alumno', 'Trazabilidad'],
 	coverImage: '/images/blog/ficha-360-perfil-integral-alumno.webp',
@@ -59,7 +60,7 @@ export const post: BlogPost = {
 
 <h2>Control de acceso por rol: quién ve qué</h2>
 <p>La ficha 360° integra información de alta sensibilidad. Hay datos que el profesor jefe necesita conocer para gestionar su curso. Hay datos que solo el orientador debería ver. Hay datos cuya sensibilidad es tan alta que solo el director y el sostenedor deberían tener acceso. La solución no es no registrar esa información: es registrarla con el nivel de privacidad correcto y controlar el acceso de manera estricta.</p>
-<p>Ethoz implementa tres niveles de visibilidad para los registros de la ficha 360°:</p>
+<p>${BRAND} implementa tres niveles de visibilidad para los registros de la ficha 360°:</p>
 <ul>
   <li><strong>Estándar:</strong> visible para todos los actores del establecimiento con acceso al sistema (docentes, inspectores, asistentes de la educación). Incluye datos académicos, asistencia e incidentes de convivencia generales.</li>
   <li><strong>Restringido:</strong> visible solo para orientadores, psicólogos y directivos. Incluye registros de entrevistas, alertas de bienestar y situaciones familiares.</li>
@@ -81,8 +82,8 @@ export const post: BlogPost = {
   <li>La persistencia entre años requiere una decisión de diseño deliberada. Muchos sistemas simplifican el reinicio de año borrando o archivando los datos del período anterior.</li>
 </ul>
 
-<h2>Cómo implementa Ethoz la ficha 360°</h2>
-<p>Ethoz construyó la ficha 360° como el objeto central de su arquitectura, no como un módulo adicional. Cada entidad del sistema —incidente de convivencia, registro de entrevista, alerta de asistencia, derivación a profesional— está vinculada al perfil del estudiante y persiste entre períodos académicos.</p>
+<h2>Cómo implementa ${BRAND} la ficha 360°</h2>
+<p>${BRAND} construyó la ficha 360° como el objeto central de su arquitectura, no como un módulo adicional. Cada entidad del sistema —incidente de convivencia, registro de entrevista, alerta de asistencia, derivación a profesional— está vinculada al perfil del estudiante y persiste entre períodos académicos.</p>
 <p>Las dimensiones técnicas clave son:</p>
 <ul>
   <li><strong>Persistencia longitudinal:</strong> los datos no se borran ni se archivan inaccesiblemente en el cambio de año. El historial completo está siempre disponible para quienes tienen el nivel de acceso correspondiente.</li>
@@ -96,8 +97,8 @@ export const post: BlogPost = {
 <p>El reinicio de marzo puede ser el inicio de un nuevo año escolar. No tiene que ser el inicio de la ignorancia institucional sobre cada estudiante.</p>
 
 <div style="background: var(--secondary); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;">
-<h3 style="margin-top: 0;">Conozca la ficha 360° de Ethoz en acción</h3>
-<p>Ethoz consolida el historial académico, conductual, emocional y familiar de cada estudiante en un perfil que persiste entre años y respeta el control de acceso por rol. Solicite una demostración y vea qué información tiene hoy sobre sus estudiantes.</p>
+<h3 style="margin-top: 0;">Conozca la ficha 360° de ${BRAND} en acción</h3>
+<p>${BRAND} consolida el historial académico, conductual, emocional y familiar de cada estudiante en un perfil que persiste entre años y respeta el control de acceso por rol. Solicite una demostración y vea qué información tiene hoy sobre sus estudiantes.</p>
 <a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Solicitar demo gratuita</a>
 </div>
 `

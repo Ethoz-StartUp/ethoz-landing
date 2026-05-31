@@ -5,6 +5,8 @@
  * Used by the content pipeline to generate platform-appropriate content.
  */
 
+import { BRAND, DOMAIN } from '$lib/brand';
+
 export interface PlatformConfig {
   id: 'linkedin' | 'facebook' | 'instagram' | 'youtube';
   name: string;
@@ -116,10 +118,10 @@ export const CONTENT_PILLARS = [
   },
   {
     id: 'product',
-    name: 'Producto Ethoz',
+    name: `Producto ${BRAND}`,
     description: 'Demos, features, integraciones, casos de uso.',
     platforms: ['youtube', 'linkedin', 'instagram'],
-    keywords: ['Ethoz', 'demo', 'plataforma', 'funcionalidades'],
+    keywords: [BRAND, 'demo', 'plataforma', 'funcionalidades'],
   },
 ];
 
@@ -134,11 +136,11 @@ export function buildKimiPrompt(opts: {
 }): string {
   const { platform, pillar, format, topic, count = 1 } = opts;
 
-  return `Eres un content strategist para Ethoz, una plataforma de protección escolar para colegios chilenos.
+  return `Eres un content strategist para ${BRAND}, una plataforma de protección escolar para colegios chilenos.
 
-MARCA: Ethoz — "Protección escolar inteligente"
-WEB: ethoz.cl
-DEMO: ethoz.cl/demo
+MARCA: ${BRAND} — "Protección escolar inteligente"
+WEB: ${DOMAIN}
+DEMO: ${DOMAIN}/demo
 
 PLATAFORMA: ${platform.name}
 AUDIENCIA: ${platform.audience}
@@ -165,7 +167,7 @@ REGLAS:
 - NO inventes datos — si no estás seguro, sé general
 - La Ley 21.719 es la Ley de Protección de Datos Personales de Chile
 - Las multas pueden llegar a 20.000 UTM (~$1.300 millones CLP)
-- Ethoz complementa sistemas existentes (Napsis, Syscol), no los reemplaza
+- ${BRAND} complementa sistemas existentes (Napsis, Syscol), no los reemplaza
 
 ${count > 1 ? 'Separa cada post con "---"' : ''}
 

@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { t } from '$lib/i18n/index.svelte';
+  import { BRAND } from '$lib/brand';
   import { Button } from '$lib/components/ui/button';
   import {
     Bell, ArrowRight, ArrowLeft, ShieldCheck, Ban, BellRing,
@@ -15,14 +16,14 @@
 </script>
 
 <svelte:head>
-  <title>Ethoz — {t('features.pickup.title')}</title>
+  <title>{BRAND} — {t('features.pickup.title')}</title>
   <meta name="description" content="El portero sabe en segundos si puede entregar al alumno — sin llamadas, sin papel, sin margen de error." />
   <meta property="og:url" content="https://ethoz.cl/features/safe-pickups" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz — Retiros Seguros y Alertas Críticas" />
+  <meta property="og:title" content={`${BRAND} — Retiros Seguros y Alertas Críticas`} />
   <meta property="og:description" content="El portero sabe en segundos si puede entregar al alumno — sin llamadas, sin papel, sin margen de error." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz — Retiros Seguros y Alertas Críticas" />
+  <meta name="twitter:title" content={`${BRAND} — Retiros Seguros y Alertas Críticas`} />
   <meta name="twitter:description" content="El portero sabe en segundos si puede entregar al alumno — sin llamadas, sin papel, sin margen de error." />
   <link rel="canonical" href="https://ethoz.cl/features/safe-pickups" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Retiros Escolares Seguros"}]})}</script>`}
@@ -91,7 +92,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Portería · Verificación de Retiro</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Portería · Verificación de Retiro</span>
           </div>
           <div class="p-4 sm:p-5">
             {#if !showBlocked}
@@ -257,7 +258,7 @@
       <div class="grid gap-8 sm:grid-cols-3 text-center">
         <div>
           <p class="text-4xl font-extrabold tracking-tight text-foreground">0</p>
-          <p class="mt-1 text-sm text-muted-foreground">retiros no autorizados registrados en colegios con Ethoz</p>
+          <p class="mt-1 text-sm text-muted-foreground">retiros no autorizados registrados en colegios con {BRAND}</p>
         </div>
         <div>
           <p class="text-4xl font-extrabold tracking-tight text-foreground">&lt;3s</p>

@@ -3,6 +3,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
+  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
   import {
     ShieldCheck,
@@ -76,19 +77,19 @@
     },
   ];
 
-  const columns = ['Ethoz', 'Napsis', 'Syscol', 'Lirmi', 'SchoolTrack'];
+  const columns = [BRAND, 'Napsis', 'Syscol', 'Lirmi', 'SchoolTrack'];
 </script>
 
 <svelte:head>
-  <title>Comparativa: Ethoz vs sistemas actuales — Seguridad escolar y compliance Ley 21.719</title>
-  <meta name="description" content="Compara Ethoz con Napsis, Syscol, Lirmi y SchoolTrack en seguridad, cumplimiento Ley 21.719, protección escolar e integraciones. Descubre qué cubre cada sistema." />
+  <title>Comparativa: {BRAND} vs sistemas actuales — Seguridad escolar y compliance Ley 21.719</title>
+  <meta name="description" content={`Compara ${BRAND} con Napsis, Syscol, Lirmi y SchoolTrack en seguridad, cumplimiento Ley 21.719, protección escolar e integraciones. Descubre qué cubre cada sistema.`} />
   <meta property="og:url" content="https://ethoz.cl/comparativa" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Comparativa: Ethoz vs sistemas actuales" />
-  <meta property="og:description" content="Compara Ethoz con Napsis, Syscol, Lirmi y SchoolTrack en seguridad, compliance Ley 21.719 y protección escolar." />
+  <meta property="og:title" content={`Comparativa: ${BRAND} vs sistemas actuales`} />
+  <meta property="og:description" content={`Compara ${BRAND} con Napsis, Syscol, Lirmi y SchoolTrack en seguridad, compliance Ley 21.719 y protección escolar.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Comparativa: Ethoz vs sistemas actuales" />
-  <meta name="twitter:description" content="Compara Ethoz con Napsis, Syscol, Lirmi y SchoolTrack en seguridad, compliance y protección escolar." />
+  <meta name="twitter:title" content={`Comparativa: ${BRAND} vs sistemas actuales`} />
+  <meta name="twitter:description" content={`Compara ${BRAND} con Napsis, Syscol, Lirmi y SchoolTrack en seguridad, compliance y protección escolar.`} />
   <link rel="canonical" href="https://ethoz.cl/comparativa" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
@@ -113,10 +114,10 @@
         Análisis comparativo
       </div>
       <h1 class="text-foreground">
-        ¿Por qué Ethoz y no tu sistema actual?
+        ¿Por qué {BRAND} y no tu sistema actual?
       </h1>
       <p class="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl">
-        Los sistemas de gestión escolar existentes nacieron para administrar. Ethoz nació para <strong class="text-foreground">proteger</strong>. No los reemplaza — los complementa con la capa de seguridad y compliance que nunca tuvieron.
+        Los sistemas de gestión escolar existentes nacieron para administrar. {BRAND} nació para <strong class="text-foreground">proteger</strong>. No los reemplaza — los complementa con la capa de seguridad y compliance que nunca tuvieron.
       </p>
       <p class="mt-4 text-sm text-muted-foreground">
         La Ley 21.719 entra en plena vigencia en diciembre de 2026. Tu sistema actual probablemente no está preparado.
@@ -268,10 +269,10 @@
       <div class="mb-12 text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">La diferencia clave</p>
         <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
-          Ethoz no compite — complementa
+          {BRAND} no compite — complementa
         </h2>
         <p class="mt-4 max-w-2xl mx-auto text-base text-muted-foreground">
-          Cada sistema tiene su rol. Ethoz agrega la capa que ninguno puede construir.
+          Cada sistema tiene su rol. {BRAND} agrega la capa que ninguno puede construir.
         </p>
       </div>
 
@@ -291,7 +292,7 @@
         <div class="rounded-xl border border-primary/30 bg-primary/5 p-6 shadow-sm">
           <div class="mb-3 flex items-center gap-2.5">
             <ShieldCheck class="size-5 shrink-0 text-primary" />
-            <h3 class="text-base text-foreground">Ethoz</h3>
+            <h3 class="text-base text-foreground">{BRAND}</h3>
           </div>
           <p class="text-sm text-muted-foreground leading-relaxed">
             Agrega la capa de seguridad, privacidad y compliance. Protege a los estudiantes, al personal y al sostenedor ante la Ley 21.719.
@@ -306,10 +307,10 @@
             <h3 class="text-base text-foreground">Juntos</h3>
           </div>
           <p class="text-sm text-muted-foreground leading-relaxed">
-            Tu sistema actual sigue haciendo lo que hace bien. Ethoz cubre lo que no puede: la seguridad y el cumplimiento de la nueva ley.
+            Tu sistema actual sigue haciendo lo que hace bien. {BRAND} cubre lo que no puede: la seguridad y el cumplimiento de la nueva ley.
           </p>
           <p class="mt-3 text-xs font-semibold text-muted-foreground uppercase tracking-wide">API abierta</p>
-          <p class="mt-1 text-sm text-muted-foreground">Ethoz se integra con los sistemas que ya tienes, sin reemplazarlos.</p>
+          <p class="mt-1 text-sm text-muted-foreground">{BRAND} se integra con los sistemas que ya tienes, sin reemplazarlos.</p>
         </div>
       </div>
     </div>

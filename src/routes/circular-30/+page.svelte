@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
   import {
     ShieldCheck,
@@ -49,9 +50,9 @@
 </script>
 
 <svelte:head>
-  <title>Circular N°30: libro de clases digital obligatorio — guía completa | Ethoz</title>
+  <title>Circular N°30: libro de clases digital obligatorio — guía completa | {BRAND}</title>
   <meta name="description" content="Circular N°30 libro de clases digital: qué exige, qué sistemas cumplen, autodiagnóstico para colegios chilenos. Trazabilidad, Clave Única y Ley 21.719." />
-  <meta property="og:title" content="Circular N°30: libro de clases digital — Ethoz" />
+  <meta property="og:title" content={`Circular N°30: libro de clases digital — ${BRAND}`} />
   <meta property="og:description" content="Circular N°30 libro de clases digital: qué exige, qué sistemas cumplen, autodiagnóstico para colegios chilenos." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://ethoz.cl/circular-30" />
@@ -65,8 +66,8 @@
       "description": "Circular N°30 libro de clases digital: qué exige, qué sistemas cumplen, autodiagnóstico para colegios chilenos.",
       "datePublished": "2026-04-07",
       "dateModified": "2026-04-07",
-      "author": { "@type": "Organization", "name": "Ethoz" },
-      "publisher": { "@type": "Organization", "name": "Ethoz", "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }},
+      "author": { "@type": "Organization", "name": BRAND },
+      "publisher": { "@type": "Organization", "name": BRAND, "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }},
       "url": "https://ethoz.cl/circular-30",
       "mainEntityOfPage": "https://ethoz.cl/circular-30",
       "keywords": "circular 30, libro de clases digital chile, libro digital colegio, superintendencia educacion"
@@ -181,7 +182,7 @@
           <div class="grid grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_auto] gap-4 py-3 border-b border-border">
             <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Requisito</p>
             <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Por qué importa</p>
-            <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">Ethoz</p>
+            <p class="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{BRAND}</p>
           </div>
           {#each requirements as r, i}
             <div class="grid grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_auto] gap-4 py-4 {i !== requirements.length - 1 ? 'border-b border-border' : ''}">
@@ -237,16 +238,16 @@
       <!-- SECCIÓN 4: INTEGRACIÓN CON ETHOZ -->
       <section id="integracion-ethoz">
         <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>04 · Integración</p>
-        <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Integración con Ethoz</h2>
+        <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Integración con {BRAND}</h2>
         <p class="mt-6 text-base leading-relaxed text-muted-foreground">
-          Ethoz no reemplaza el sistema de gestión que usa su colegio hoy. Agrega la capa de trazabilidad, control de acceso y cumplimiento normativo que le falta al libro de clases existente.
+          {BRAND} no reemplaza el sistema de gestión que usa su colegio hoy. Agrega la capa de trazabilidad, control de acceso y cumplimiento normativo que le falta al libro de clases existente.
         </p>
         <div class="mt-8 grid gap-4 sm:grid-cols-2">
           {#each [
             { title: 'Audit log nativo', desc: 'Cada registro pedagógico queda inmutablemente documentado: quién lo creó, quién lo modificó y cuándo. Compatible con los requisitos de la Circular N°30.' },
             { title: 'Control de acceso granular', desc: 'Los docentes acceden solo a su propio libro de clases. Inspectores y directivos ven solo lo que su rol permite. Sin excepciones.' },
-            { title: 'Integración con sistemas actuales', desc: 'Ethoz se conecta con Napsis, Syscol y Lirmi mediante API. No migra datos — los complementa con la capa de seguridad que falta.' },
-            { title: 'Cumplimiento cruzado Ley 21.719', desc: 'Cada dato del libro de clases es un dato personal protegido por la Ley 21.719. Ethoz garantiza que ambas normativas se cumplan simultáneamente.' },
+            { title: 'Integración con sistemas actuales', desc: `${BRAND} se conecta con Napsis, Syscol y Lirmi mediante API. No migra datos — los complementa con la capa de seguridad que falta.` },
+            { title: 'Cumplimiento cruzado Ley 21.719', desc: `Cada dato del libro de clases es un dato personal protegido por la Ley 21.719. ${BRAND} garantiza que ambas normativas se cumplan simultáneamente.` },
           ] as item}
             <div class="group rounded-lg border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover rounded-lg">
               <h3 class="font-semibold text-foreground">{item.title}</h3>
@@ -291,7 +292,7 @@
       <div class="flex flex-wrap gap-3">
         {#each [
           { href: '/ley-21719', label: 'Ley 21.719 — guía completa' },
-          { href: '/seguridad-datos', label: 'Seguridad de datos en Ethoz' },
+          { href: '/seguridad-datos', label: `Seguridad de datos en ${BRAND}` },
           { href: '/glosario', label: 'Glosario normativo' },
           { href: '/comparativa', label: 'Comparativa de plataformas' },
         ] as item}

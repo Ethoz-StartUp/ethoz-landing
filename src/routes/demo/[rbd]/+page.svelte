@@ -2,6 +2,7 @@
   import { goto } from '$app/navigation';
   import { page } from '$app/state';
   import { browser } from '$app/environment';
+  import { BRAND } from '$lib/brand';
   import NavBar from '$lib/components/NavBar.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
@@ -234,12 +235,12 @@
 </script>
 
 <svelte:head>
-  <title>Ethoz — {t('nav.cta')}</title>
-  <meta name="description" content="Solicita una demo personalizada de Ethoz para tu colegio. Agenda una presentación con nuestro equipo." />
+  <title>{BRAND} — {t('nav.cta')}</title>
+  <meta name="description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio. Agenda una presentación con nuestro equipo.`} />
   <meta property="og:url" content="https://ethoz.cl/demo" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Demo — Ethoz" />
-  <meta property="og:description" content="Solicita una demo personalizada de Ethoz para tu colegio." />
+  <meta property="og:title" content={`Demo — ${BRAND}`} />
+  <meta property="og:description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio.`} />
   <link rel="canonical" href="https://ethoz.cl/demo" />
 </svelte:head>
 
@@ -540,6 +541,6 @@
   </div>
 
   <footer class="border-t border-border bg-background py-4 text-center text-[11px] text-muted-foreground">
-    &copy; {new Date().getFullYear()} Ethoz
+    &copy; {new Date().getFullYear()} {BRAND}
   </footer>
 </main>

@@ -1,21 +1,22 @@
 <script lang="ts">
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
+  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
 
   $effect(() => { trackEvent('privacy_viewed'); });
 </script>
 
 <svelte:head>
-  <title>Política de Privacidad — Ethoz</title>
-  <meta name="description" content="Política de privacidad de Ethoz. Información sobre el tratamiento de datos personales conforme a la Ley 21.719." />
+  <title>Política de Privacidad — {BRAND}</title>
+  <meta name="description" content={`Política de privacidad de ${BRAND}. Información sobre el tratamiento de datos personales conforme a la Ley 21.719.`} />
   <meta property="og:url" content="https://ethoz.cl/privacy" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Política de Privacidad — Ethoz" />
-  <meta property="og:description" content="Política de privacidad de Ethoz. Información sobre el tratamiento de datos personales conforme a la Ley 21.719." />
+  <meta property="og:title" content={`Política de Privacidad — ${BRAND}`} />
+  <meta property="og:description" content={`Política de privacidad de ${BRAND}. Información sobre el tratamiento de datos personales conforme a la Ley 21.719.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Política de Privacidad — Ethoz" />
-  <meta name="twitter:description" content="Política de privacidad de Ethoz. Información sobre el tratamiento de datos personales conforme a la Ley 21.719." />
+  <meta name="twitter:title" content={`Política de Privacidad — ${BRAND}`} />
+  <meta name="twitter:description" content={`Política de privacidad de ${BRAND}. Información sobre el tratamiento de datos personales conforme a la Ley 21.719.`} />
   <link rel="canonical" href="https://ethoz.cl/privacy" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Política de Privacidad"}]})}</script>`}
 </svelte:head>
@@ -32,7 +33,7 @@
       <section>
         <h2 class="text-lg font-semibold text-foreground">1. Responsable del tratamiento</h2>
         <p class="mt-2">
-          Ethoz SpA, RUT 78.394.522-3, con domicilio en Santiago de Chile, constituida el 6 de abril de 2026, es responsable del tratamiento de los datos personales recopilados a través de la plataforma ethoz.cl y sus servicios asociados.
+          {BRAND} SpA, RUT 78.394.522-3, con domicilio en Santiago de Chile, constituida el 6 de abril de 2026, es responsable del tratamiento de los datos personales recopilados a través de la plataforma ethoz.cl y sus servicios asociados.
         </p>
       </section>
 
@@ -45,7 +46,7 @@
           <li><strong class="text-foreground">Datos de uso:</strong> información técnica sobre cómo se utiliza la plataforma para mejorar el servicio.</li>
         </ul>
         <p class="mt-3">
-          Ethoz <strong class="text-foreground">no recopila datos personales de alumnos ni apoderados</strong> a través de este sitio web. Los datos de alumnos son gestionados exclusivamente por el establecimiento educacional dentro de la plataforma, bajo la responsabilidad del colegio como responsable del tratamiento.
+          {BRAND} <strong class="text-foreground">no recopila datos personales de alumnos ni apoderados</strong> a través de este sitio web. Los datos de alumnos son gestionados exclusivamente por el establecimiento educacional dentro de la plataforma, bajo la responsabilidad del colegio como responsable del tratamiento.
         </p>
       </section>
 

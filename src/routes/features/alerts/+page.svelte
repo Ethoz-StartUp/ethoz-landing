@@ -4,6 +4,7 @@
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
   import { t } from '$lib/i18n/index.svelte';
+  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
   import { ShieldAlert, ArrowRight, ArrowLeft, AlertTriangle, Bell, FileWarning, Clock, CheckCircle2, XCircle, Scale } from '@lucide/svelte';
 
@@ -11,14 +12,14 @@
 </script>
 
 <svelte:head>
-  <title>Ethoz — Sistema de Alertas Críticas</title>
-  <meta name="description" content="Órdenes de alejamiento, suspensiones, riesgo familiar e ideación suicida: Ethoz centraliza todas las alertas críticas del colegio con seguimiento y trazabilidad completa." />
+  <title>{BRAND} — Sistema de Alertas Críticas</title>
+  <meta name="description" content={`Órdenes de alejamiento, suspensiones, riesgo familiar e ideación suicida: ${BRAND} centraliza todas las alertas críticas del colegio con seguimiento y trazabilidad completa.`} />
   <meta property="og:url" content="https://ethoz.cl/features/alerts" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz — Sistema de Alertas Críticas" />
+  <meta property="og:title" content={`${BRAND} — Sistema de Alertas Críticas`} />
   <meta property="og:description" content="Gestiona alertas críticas con trazabilidad completa: órdenes judiciales, riesgo familiar, ideación suicida y más." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz — Sistema de Alertas Críticas" />
+  <meta name="twitter:title" content={`${BRAND} — Sistema de Alertas Críticas`} />
   <meta name="twitter:description" content="Gestiona alertas críticas con trazabilidad completa: órdenes judiciales, riesgo familiar, ideación suicida y más." />
   <link rel="canonical" href="https://ethoz.cl/features/alerts" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Sistema de Alertas Críticas"}]})}</script>`}
@@ -66,7 +67,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Alertas Críticas</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Alertas Críticas</span>
           </div>
           <div class="p-4 sm:p-5 space-y-3">
             <!-- Critical alert -->
@@ -251,7 +252,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Historial de Alerta #1042</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Historial de Alerta #1042</span>
           </div>
           <div class="p-4 sm:p-5">
             <p class="mb-3 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Orden de alejamiento — Valentina Rojas</p>

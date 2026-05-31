@@ -1,4 +1,5 @@
 import type { BlogPost } from './types';
+import { BRAND } from '$lib/brand';
 
 export const post: BlogPost = {
 	slug: 'comparativa-plataformas-gestion-escolar',
@@ -6,14 +7,14 @@ export const post: BlogPost = {
 	description:
 		'Lirmi, Colegium, WebClass, Napsis, Syscol, Kimche, U-Planner e Integratepie: análisis crítico de cada plataforma y el gap que ninguna cubre en protección de datos y convivencia escolar.',
 	date: '2026-04-07',
-	author: 'Equipo Ethoz',
+	author: `Equipo ${BRAND}`,
 	readTime: '10 min',
 	tags: ['Comparativa', 'Software Escolar', 'Gestión Escolar'],
 	coverImage: '/images/blog/comparativa-plataformas-gestion-escolar.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
-<p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Las ocho plataformas de gestión escolar más usadas en Chile tienen limitaciones estructurales para el cumplimiento normativo de 2026: API cerradas, datos sin cifrado adecuado, vendor lock-in, deuda técnica acumulada o escope reducido a un segmento. Ninguna fue diseñada con las exigencias de la Ley 21.719 ni la Ley 21.663 como requisito base. El gap que queda sin cubrir es precisamente el que Ethoz aborda: protección, convivencia y trazabilidad longitudinal con arquitectura de seguridad nativa.</p>
+<p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Las ocho plataformas de gestión escolar más usadas en Chile tienen limitaciones estructurales para el cumplimiento normativo de 2026: API cerradas, datos sin cifrado adecuado, vendor lock-in, deuda técnica acumulada o escope reducido a un segmento. Ninguna fue diseñada con las exigencias de la Ley 21.719 ni la Ley 21.663 como requisito base. El gap que queda sin cubrir es precisamente el que ${BRAND} aborda: protección, convivencia y trazabilidad longitudinal con arquitectura de seguridad nativa.</p>
 </div>
 
 <h2>El mercado de software escolar en Chile en 2026</h2>
@@ -110,14 +111,14 @@ export const post: BlogPost = {
   <li><strong>Gestión de convivencia con historial longitudinal</strong> que persiste entre años y permite detectar patrones de riesgo.</li>
   <li><strong>Trazabilidad de auditoría completa</strong> que permita responder ante una fiscalización con evidencia de qué datos existen, quién los accedió y qué acciones se adoptaron.</li>
 </ol>
-<p>Este es el espacio que Ethoz ocupa: no como una plataforma de gestión académica más, sino como el sistema especializado en protección escolar y cumplimiento normativo que los establecimientos chilenos necesitan en el contexto regulatorio de 2026.</p>
+<p>Este es el espacio que ${BRAND} ocupa: no como una plataforma de gestión académica más, sino como el sistema especializado en protección escolar y cumplimiento normativo que los establecimientos chilenos necesitan en el contexto regulatorio de 2026.</p>
 
 <h2>Conclusión</h2>
 <p>La elección de plataforma de gestión escolar en 2026 no puede hacerse con los criterios de 2015. El contexto normativo cambió de manera fundamental: ya no es suficiente con que el sistema funcione operativamente. Debe cumplir con estándares técnicos de seguridad que la mayoría de las plataformas vigentes no alcanza. Los sostenedores que evalúen o renueven sus contratos de software escolar en 2026 deben hacer tres preguntas concretas: ¿los datos están cifrados en reposo? ¿Existe control de acceso a nivel de base de datos? ¿Hay un log de auditoría inmutable? Si la respuesta a cualquiera de las tres es no, el establecimiento está expuesto.</p>
 
 <div style="background: var(--secondary); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;">
 <h3 style="margin-top: 0;">Conozca la alternativa diseñada para el contexto normativo de 2026</h3>
-<p>Ethoz fue construido desde cero con cifrado pgcrypto, Row-Level Security y auditoría pgAudit como requisitos no negociables. Solicite una demostración técnica y compare con lo que tiene hoy.</p>
+<p>${BRAND} fue construido desde cero con cifrado pgcrypto, Row-Level Security y auditoría pgAudit como requisitos no negociables. Solicite una demostración técnica y compare con lo que tiene hoy.</p>
 <a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Solicitar demo gratuita</a>
 </div>
 `

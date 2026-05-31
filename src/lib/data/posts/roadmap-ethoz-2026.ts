@@ -1,24 +1,25 @@
 import type { BlogPost } from './types';
+import { BRAND } from '$lib/brand';
 
 export const post: BlogPost = {
 	slug: 'roadmap-ethoz-2026',
-	title: 'Lo que viene: el roadmap de Ethoz para 2026',
+	title: `Lo que viene: el roadmap de ${BRAND} para 2026`,
 	description:
-		'Somos transparentes sobre lo que hemos construido y lo que falta. Este es el roadmap de Ethoz: los módulos fundacionales, lo que viene y lo que no vamos a hacer.',
+		'Somos transparentes sobre lo que hemos construido y lo que falta. Este es el roadmap de ${BRAND}: los módulos fundacionales, lo que viene y lo que no vamos a hacer.',
 	date: '2026-04-02',
 	author: 'Ignacio Araya',
 	readTime: '6 min',
-	tags: ['Ethoz', 'Producto', 'Roadmap'],
+	tags: [BRAND, 'Producto', 'Roadmap'],
 	coverImage: '/images/blog/roadmap-ethoz-2026.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
-<p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Ethoz ya tiene cinco módulos funcionando: ficha del alumno, retiros seguros, cumplimiento de la Ley 21.719, permisos por cargo y búsqueda instantánea. En 2026 construiremos app móvil, integración con SIGE, módulo financiero básico, comunicación con familias y un dashboard de cumplimiento normativo. Todo con el mismo filtro: ¿protege al alumno, sus datos o la institución?</p>
+<p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">${BRAND} ya tiene cinco módulos funcionando: ficha del alumno, retiros seguros, cumplimiento de la Ley 21.719, permisos por cargo y búsqueda instantánea. En 2026 construiremos app móvil, integración con SIGE, módulo financiero básico, comunicación con familias y un dashboard de cumplimiento normativo. Todo con el mismo filtro: ¿protege al alumno, sus datos o la institución?</p>
 </div>
 
 <h2>Construir diferente desde el principio</h2>
-<p>Ethoz nació para resolver lo que el mercado escolar chileno no resuelve: la seguridad del alumno en tiempo real y la privacidad de sus datos conforme a la <a href="/blog/ley-21719-que-deben-saber-los-colegios">Ley 21.719</a>. Mientras los sistemas tradicionales se enfocaron en el libro de clases y la gestión académica, el problema de quién retira a un niño, quién puede ver su ficha y qué datos se pueden almacenar legalmente quedó sin respuesta.</p>
-<p>Pero sabemos que un colegio necesita más que seguridad y privacidad. Necesita operar. Necesita comunicarse con las familias. Necesita controlar sus finanzas. Por eso estamos construyendo en fases, sin perder nuestro ADN. Este artículo es nuestra forma de ser transparentes con los colegios que evalúan Ethoz: lo que ya existe, lo que viene y lo que no vamos a hacer.</p>
+<p>${BRAND} nació para resolver lo que el mercado escolar chileno no resuelve: la seguridad del alumno en tiempo real y la privacidad de sus datos conforme a la <a href="/blog/ley-21719-que-deben-saber-los-colegios">Ley 21.719</a>. Mientras los sistemas tradicionales se enfocaron en el libro de clases y la gestión académica, el problema de quién retira a un niño, quién puede ver su ficha y qué datos se pueden almacenar legalmente quedó sin respuesta.</p>
+<p>Pero sabemos que un colegio necesita más que seguridad y privacidad. Necesita operar. Necesita comunicarse con las familias. Necesita controlar sus finanzas. Por eso estamos construyendo en fases, sin perder nuestro ADN. Este artículo es nuestra forma de ser transparentes con los colegios que evalúan ${BRAND}: lo que ya existe, lo que viene y lo que no vamos a hacer.</p>
 
 <h2>Lo que ya está: los cinco módulos fundacionales</h2>
 <p>El programa piloto de 2026 opera sobre cinco módulos que forman el núcleo de la plataforma:</p>
@@ -38,7 +39,7 @@ export const post: BlogPost = {
 <p>Los apoderados necesitan visibilidad desde el teléfono: saber que su hijo fue retirado, autorizar un retiro de emergencia, actualizar la lista de personas autorizadas. Los porteros necesitan verificar retiros sin estar frente a un computador de escritorio en una garita. La aplicación móvil elimina la fricción en ambos extremos del proceso y cierra la última brecha analógica del flujo de retiros. Está en desarrollo activo.</p>
 
 <h3 style="font-size: 1.125rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.5rem;">Integración directa con SIGE y plataforma MINEDUC</h3>
-<p>La doble digitación es uno de los principales puntos de fricción en la adopción de cualquier sistema nuevo. Un establecimiento que ya opera con SIGE no debería tener que ingresar manualmente la matrícula, la asistencia o los datos institucionales en Ethoz. La integración sincronizará los datos en una sola dirección: desde SIGE hacia Ethoz, sin que el equipo directivo deba coordinar dos plataformas. Estamos trabajando en la especificación técnica con los equipos del programa piloto.</p>
+<p>La doble digitación es uno de los principales puntos de fricción en la adopción de cualquier sistema nuevo. Un establecimiento que ya opera con SIGE no debería tener que ingresar manualmente la matrícula, la asistencia o los datos institucionales en ${BRAND}. La integración sincronizará los datos en una sola dirección: desde SIGE hacia ${BRAND}, sin que el equipo directivo deba coordinar dos plataformas. Estamos trabajando en la especificación técnica con los equipos del programa piloto.</p>
 
 <h3 style="font-size: 1.125rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.5rem;">Módulo financiero básico</h3>
 <p>Control de pagos, estado de morosidad y reportes por período. No es un sistema contable completo —ese no es nuestro foco— pero sí la información operativa que un director o administrador necesita para tomar decisiones: qué familias tienen cuotas pendientes, cuál es el índice de morosidad del mes y qué acciones de seguimiento están en curso. Lo estamos diseñando para que se integre con la ficha del alumno sin agregar complejidad innecesaria.</p>
@@ -50,13 +51,13 @@ export const post: BlogPost = {
 <p>Métricas en tiempo real sobre el estado de cumplimiento de la Ley 21.719: consentimientos pendientes de renovación, accesos sin auditar, brechas detectadas en la configuración de permisos, campos de datos sin base legal documentada. El objetivo es que cualquier sostenedor pueda responder a una inspección de la Agencia de Protección de Datos con evidencia generada automáticamente por el sistema, sin depender de un proceso de auditoría manual. Para entender qué está en juego, lea sobre las <a href="/blog/multas-proteccion-datos-sostenedores">multas de hasta 20.000 UTM para sostenedores</a>.</p>
 
 <h2>Lo que NO vamos a hacer</h2>
-<p>La transparencia también implica definir los límites. Hay funcionalidades que el mercado espera de un sistema de gestión escolar y que Ethoz no construirá, al menos no en su forma clásica:</p>
+<p>La transparencia también implica definir los límites. Hay funcionalidades que el mercado espera de un sistema de gestión escolar y que ${BRAND} no construirá, al menos no en su forma clásica:</p>
 <ul>
   <li><strong>No vamos a construir un libro de clases digital.</strong> Hay plataformas maduras —algunas con años de integración con el Mineduc— que resuelven bien ese problema. Replicarlo solo para ser un sistema completo diluiría nuestro foco y no agregaría valor real.</li>
-  <li><strong>No vamos a reemplazar tu sistema actual.</strong> Ethoz está diseñado para complementar lo que ya existe, no para obligar a un colegio a migrar todo en un proceso traumático. La integración con SIGE es parte de ese principio.</li>
-  <li><strong>No vamos a agregar funciones que diluyan nuestro foco en seguridad y privacidad.</strong> Cada módulo nuevo que se incorpore a Ethoz pasa por un filtro antes de entrar al roadmap: ¿protege al alumno, protege sus datos o protege a la institución ante un riesgo real? Si la respuesta es no, la funcionalidad no entra.</li>
+  <li><strong>No vamos a reemplazar tu sistema actual.</strong> ${BRAND} está diseñado para complementar lo que ya existe, no para obligar a un colegio a migrar todo en un proceso traumático. La integración con SIGE es parte de ese principio.</li>
+  <li><strong>No vamos a agregar funciones que diluyan nuestro foco en seguridad y privacidad.</strong> Cada módulo nuevo que se incorpore a ${BRAND} pasa por un filtro antes de entrar al roadmap: ¿protege al alumno, protege sus datos o protege a la institución ante un riesgo real? Si la respuesta es no, la funcionalidad no entra.</li>
 </ul>
-<p>Este filtro no es marketing. Es la razón por la que Ethoz existe. La industria tiene suficientes sistemas que intentan hacer todo y terminan sin hacer nada bien.</p>
+<p>Este filtro no es marketing. Es la razón por la que ${BRAND} existe. La industria tiene suficientes sistemas que intentan hacer todo y terminan sin hacer nada bien.</p>
 
 <h2>Un roadmap construido con colegios, no en un laboratorio</h2>
 <p>Cada módulo en este roadmap fue validado con equipos directivos reales antes de comenzar el desarrollo. Los colegios del programa piloto no son usuarios beta que prueban código inestable: son colaboradores activos que definieron qué problemas merecen una solución y en qué orden.</p>
@@ -69,7 +70,7 @@ export const post: BlogPost = {
 
 <div style="margin-top: 2.5rem; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem 1.5rem; background: var(--secondary);">
   <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">Programa Piloto 2026</p>
-  <p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Los colegios del piloto tienen acceso anticipado a cada módulo, participan en la validación de nuevas funciones y reciben soporte directo del equipo de Ethoz. Los cupos son limitados.</p>
+  <p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Los colegios del piloto tienen acceso anticipado a cada módulo, participan en la validación de nuevas funciones y reciben soporte directo del equipo de ${BRAND}. Los cupos son limitados.</p>
   <p style="margin-top: 0.75rem; margin-bottom: 0;"><a href="/demo" style="font-size: 0.875rem; font-weight: 600; color: var(--primary); text-decoration: underline; text-underline-offset: 3px;">Solicitar acceso al piloto →</a></p>
 </div>
 `

@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { BRAND } from '$lib/brand';
   import { t } from '$lib/i18n/index.svelte';
   import { Users, Shield, MapPin, Search, ClipboardList, Eye, ArrowRight, ShieldAlert, BarChart3, Siren, CalendarCheck } from '@lucide/svelte';
   import { trackEvent } from '$lib/utils/analytics';
@@ -93,15 +94,15 @@
 </script>
 
 <svelte:head>
-  <title>Productos — Ethoz</title>
-  <meta name="description" content="Conoce los módulos de Ethoz: perfil integral, retiros seguros, permisos por cargo, búsqueda inteligente, convivencia y libro de clases digital." />
+  <title>Productos — {BRAND}</title>
+  <meta name="description" content={`Conoce los módulos de ${BRAND}: perfil integral, retiros seguros, permisos por cargo, búsqueda inteligente, convivencia y libro de clases digital.`} />
   <meta property="og:url" content="https://ethoz.cl/productos" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Productos — Ethoz" />
-  <meta property="og:description" content="Conoce todos los módulos de Ethoz: perfil integral, retiros seguros, permisos por cargo, y más." />
+  <meta property="og:title" content={`Productos — ${BRAND}`} />
+  <meta property="og:description" content={`Conoce todos los módulos de ${BRAND}: perfil integral, retiros seguros, permisos por cargo, y más.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Productos — Ethoz" />
-  <meta name="twitter:description" content="Conoce todos los módulos de Ethoz: perfil integral, retiros seguros, permisos por cargo, y más." />
+  <meta name="twitter:title" content={`Productos — ${BRAND}`} />
+  <meta name="twitter:description" content={`Conoce todos los módulos de ${BRAND}: perfil integral, retiros seguros, permisos por cargo, y más.`} />
   <link rel="canonical" href="https://ethoz.cl/productos" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos"}]})}</script>`}
 </svelte:head>
@@ -164,7 +165,7 @@
                 <div class="size-2.5 rounded-full bg-destructive/60"></div>
                 <div class="size-2.5 rounded-full bg-warning/60"></div>
                 <div class="size-2.5 rounded-full bg-success/60"></div>
-                <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — {product.name}</span>
+                <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — {product.name}</span>
               </div>
               {#if product.name === 'Perfil Integral del Alumno'}
                 <div class="p-5">

@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
   import {
     ShieldCheck,
@@ -50,10 +51,10 @@
 </script>
 
 <svelte:head>
-  <title>Seguridad de datos en Ethoz — por diseño, no por parche | Ethoz</title>
-  <meta name="description" content="Cómo Ethoz protege los datos de su colegio: TLS 1.3, cifrado at-rest, Row-Level Security, audit log, backups diarios y cumplimiento Ley 21.719 por diseño." />
-  <meta property="og:title" content="Seguridad de datos en Ethoz — por diseño, no por parche" />
-  <meta property="og:description" content="Cómo Ethoz protege los datos de su colegio: TLS 1.3, cifrado at-rest, Row-Level Security, audit log, backups diarios y Ley 21.719." />
+  <title>Seguridad de datos en {BRAND} — por diseño, no por parche | {BRAND}</title>
+  <meta name="description" content={`Cómo ${BRAND} protege los datos de su colegio: TLS 1.3, cifrado at-rest, Row-Level Security, audit log, backups diarios y cumplimiento Ley 21.719 por diseño.`} />
+  <meta property="og:title" content={`Seguridad de datos en ${BRAND} — por diseño, no por parche`} />
+  <meta property="og:description" content={`Cómo ${BRAND} protege los datos de su colegio: TLS 1.3, cifrado at-rest, Row-Level Security, audit log, backups diarios y Ley 21.719.`} />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://ethoz.cl/seguridad-datos" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -62,12 +63,12 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Seguridad de datos en Ethoz — por diseño, no por parche",
-      "description": "Cómo Ethoz protege los datos de su colegio: TLS 1.3, cifrado at-rest, Row-Level Security, audit log, backups diarios y Ley 21.719.",
+      "headline": `Seguridad de datos en ${BRAND} — por diseño, no por parche`,
+      "description": `Cómo ${BRAND} protege los datos de su colegio: TLS 1.3, cifrado at-rest, Row-Level Security, audit log, backups diarios y Ley 21.719.`,
       "datePublished": "2026-04-07",
       "dateModified": "2026-04-07",
-      "author": { "@type": "Organization", "name": "Ethoz" },
-      "publisher": { "@type": "Organization", "name": "Ethoz", "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }},
+      "author": { "@type": "Organization", "name": BRAND },
+      "publisher": { "@type": "Organization", "name": BRAND, "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }},
       "url": "https://ethoz.cl/seguridad-datos",
       "mainEntityOfPage": "https://ethoz.cl/seguridad-datos",
       "keywords": "seguridad datos ethoz, como protege ethoz datos, cifrado datos colegio, row level security educacion"
@@ -104,7 +105,7 @@
       </h1>
 
       <p class="mt-8 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
-        Por diseño, no por parche. Cada decisión de arquitectura en Ethoz —cifrado, aislamiento por colegio, Row-Level Security, audit log inmutable— tiene un fundamento en la protección de los datos de su comunidad escolar. Este documento describe esas decisiones con el detalle suficiente para una revisión técnica institucional.
+        Por diseño, no por parche. Cada decisión de arquitectura en {BRAND} —cifrado, aislamiento por colegio, Row-Level Security, audit log inmutable— tiene un fundamento en la protección de los datos de su comunidad escolar. Este documento describe esas decisiones con el detalle suficiente para una revisión técnica institucional.
       </p>
 
       <dl class="mt-10 grid grid-cols-2 gap-6 border-t border-border pt-6 sm:grid-cols-4">
@@ -161,7 +162,7 @@
                 <h3 class="text-sm font-semibold text-foreground">En tránsito · TLS 1.3</h3>
               </div>
               <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Toda comunicación entre el navegador del usuario y los servidores de Ethoz utiliza <strong class="text-foreground">TLS 1.3</strong>. Cloudflare actúa como capa de terminación TLS, con certificados gestionados automáticamente y renovación antes de vencimiento.
+                Toda comunicación entre el navegador del usuario y los servidores de {BRAND} utiliza <strong class="text-foreground">TLS 1.3</strong>. Cloudflare actúa como capa de terminación TLS, con certificados gestionados automáticamente y renovación antes de vencimiento.
               </p>
             </div>
             <div class="border border-border bg-card p-5 rounded-lg">
@@ -181,7 +182,7 @@
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>02 · Control de acceso</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Row-Level Security</h2>
           <p class="mt-6 text-base leading-relaxed text-muted-foreground">
-            Row-Level Security es el mecanismo de control de acceso más granular disponible en bases de datos relacionales. En Ethoz, cada consulta es evaluada por una política RLS antes de retornar cualquier resultado.
+            Row-Level Security es el mecanismo de control de acceso más granular disponible en bases de datos relacionales. En {BRAND}, cada consulta es evaluada por una política RLS antes de retornar cualquier resultado.
           </p>
 
           <blockquote class="mt-10 border-l-2 border-primary pl-6 font-heading text-[1.5rem] leading-[1.4] text-foreground">
@@ -256,7 +257,7 @@
           <dl class="mt-10 divide-y divide-border border-y border-border">
             {#each [
               { label: 'Qué acciones se registran', items: ['Modificaciones al libro de clases', 'Retiros de estudiantes', 'Cambios de contraseña', 'Acceso a datos sensibles', 'Exportaciones de datos'] },
-              { label: 'Quién puede consultar el log', items: ['Director del establecimiento', 'Sostenedor (vista agregada)', 'Autoridades de fiscalización', 'Ethoz (soporte técnico)'] },
+              { label: 'Quién puede consultar el log', items: ['Director del establecimiento', 'Sostenedor (vista agregada)', 'Autoridades de fiscalización', `${BRAND} (soporte técnico)`] },
               { label: 'Retención', items: ['Mínimo 5 años por defecto', 'Configurable por sostenedor', 'Cumple plazos Ley 21.719', 'Exportable en CSV/JSON'] },
             ] as auditItem}
               <div class="grid gap-3 py-6 sm:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] sm:gap-8">
@@ -308,7 +309,7 @@
               { title: 'Backups diarios automáticos', desc: 'Supabase realiza snapshots completos de la base cada 24 horas. Los backups se almacenan en S3 con cifrado AES-256 y replicación en múltiples zonas.' },
               { title: 'Point-in-time recovery', desc: 'Es posible restaurar la base a cualquier punto en el tiempo dentro de la ventana de retención (hasta 30 días). Crítico ante ransomware o eliminación accidental.' },
               { title: 'RTO y RPO', desc: 'Recovery Time Objective: menos de 4 horas para incidentes mayores. Recovery Point Objective: máximo 24 horas de pérdida (un ciclo de backup).' },
-              { title: 'Plan de continuidad', desc: 'Ethoz mantiene un plan de recuperación ante desastres documentado. Los colegios son notificados ante cualquier incidente que afecte la disponibilidad.' },
+              { title: 'Plan de continuidad', desc: `${BRAND} mantiene un plan de recuperación ante desastres documentado. Los colegios son notificados ante cualquier incidente que afecte la disponibilidad.` },
             ] as rtoItem}
               <div class="border border-border bg-card p-5 rounded-lg">
                 <h3 class="text-sm font-semibold text-foreground">{rtoItem.title}</h3>
@@ -323,7 +324,7 @@
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>07 · Stack</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Infraestructura</h2>
           <p class="mt-6 text-base leading-relaxed text-muted-foreground">
-            Ethoz opera sobre infraestructura de clase empresarial, seleccionada por su madurez en seguridad, disponibilidad geográfica en la región y compliance con estándares internacionales.
+            {BRAND} opera sobre infraestructura de clase empresarial, seleccionada por su madurez en seguridad, disponibilidad geográfica en la región y compliance con estándares internacionales.
           </p>
           <div class="mt-8 border-y border-border">
             <div class="grid grid-cols-3 gap-4 py-3 border-b border-border">
@@ -366,7 +367,7 @@
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>09 · Reporte</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">Divulgación responsable</h2>
           <p class="mt-6 text-base leading-relaxed text-muted-foreground">
-            Si descubre una vulnerabilidad de seguridad en Ethoz, le pedimos que la reporte de forma responsable antes de divulgarla públicamente.
+            Si descubre una vulnerabilidad de seguridad en {BRAND}, le pedimos que la reporte de forma responsable antes de divulgarla públicamente.
           </p>
           <dl class="mt-8 divide-y divide-border border-y border-border">
             <div class="grid gap-3 py-6 sm:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] sm:gap-8">

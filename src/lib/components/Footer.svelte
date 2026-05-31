@@ -1,6 +1,7 @@
 <script lang="ts">
   import { t, toggleLocale, getLocale } from '$lib/i18n/index.svelte';
   import { Globe } from '@lucide/svelte';
+  import { BRAND } from '$lib/brand';
 
   const social = [
     {
@@ -44,7 +45,7 @@
             <rect x="2" y="7" width="18" height="22" rx="4.5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-on-dark"/>
             <rect x="12" y="3" width="18" height="22" rx="4.5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-on-dark"/>
           </svg>
-          <span class="text-lg font-semibold tracking-tight text-on-dark">Ethoz</span>
+          <span class="text-lg font-semibold tracking-tight text-on-dark">{BRAND}</span>
         </a>
         <p class="mt-4 max-w-xs text-sm leading-relaxed text-on-dark-soft">
           {t('footer.tagline')}

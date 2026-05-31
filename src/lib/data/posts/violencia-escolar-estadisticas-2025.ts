@@ -1,4 +1,5 @@
 import type { BlogPost } from './types';
+import { BRAND } from '$lib/brand';
 
 export const post: BlogPost = {
 	slug: 'violencia-escolar-estadisticas-2025',
@@ -6,7 +7,7 @@ export const post: BlogPost = {
 	description:
 		'Entre enero y septiembre de 2025, Chile registró 11.091 denuncias de violencia escolar, un alza del 25%. El 32,4% de los estudiantes ha sido agredido físicamente. Los datos exigen una respuesta preventiva, no reactiva.',
 	date: '2026-04-07',
-	author: 'Equipo Ethoz',
+	author: `Equipo ${BRAND}`,
 	readTime: '9 min',
 	tags: ['Violencia Escolar', 'Estadísticas', 'Superintendencia'],
 	coverImage: '/images/blog/violencia-escolar-estadisticas-2025.webp',
@@ -64,8 +65,8 @@ export const post: BlogPost = {
   <li><strong>Clima docente:</strong> los profesores que trabajan en establecimientos con alta violencia muestran tasas de burnout y rotación significativamente mayores, generando un costo de reemplazo y un deterioro del capital institucional.</li>
 </ul>
 
-<h2>Ethoz como escudo preventivo</h2>
-<p>Ethoz no elimina la violencia escolar: ningún sistema puede hacerlo. Lo que Ethoz hace es transformar la capacidad del establecimiento de <strong>ver los patrones antes de que escalen</strong>, <strong>registrar con evidencia</strong> que permita responder ante una fiscalización y <strong>mantener el historial</strong> que hace que el contexto no se pierda en marzo.</p>
+<h2>${BRAND} como escudo preventivo</h2>
+<p>${BRAND} no elimina la violencia escolar: ningún sistema puede hacerlo. Lo que ${BRAND} hace es transformar la capacidad del establecimiento de <strong>ver los patrones antes de que escalen</strong>, <strong>registrar con evidencia</strong> que permita responder ante una fiscalización y <strong>mantener el historial</strong> que hace que el contexto no se pierda en marzo.</p>
 <p>Los mecanismos concretos son:</p>
 <ul>
   <li>Registro estructurado de incidentes con nivel de severidad, actores involucrados y acciones adoptadas.</li>
@@ -81,7 +82,7 @@ export const post: BlogPost = {
 
 <div style="background: var(--secondary); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;">
 <h3 style="margin-top: 0;">Construya la capacidad preventiva que su establecimiento necesita</h3>
-<p>Ethoz transforma los datos de convivencia de su establecimiento en inteligencia accionable: patrones visibles, alertas tempranas e historial persistente que sobrevive al reinicio de marzo. Solicite una demostración.</p>
+<p>${BRAND} transforma los datos de convivencia de su establecimiento en inteligencia accionable: patrones visibles, alertas tempranas e historial persistente que sobrevive al reinicio de marzo. Solicite una demostración.</p>
 <a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Solicitar demo gratuita</a>
 </div>
 `

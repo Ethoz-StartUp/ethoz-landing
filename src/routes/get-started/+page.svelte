@@ -2,6 +2,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { BRAND } from '$lib/brand';
   import { t, type TranslationKey } from '$lib/i18n/index.svelte';
   import { slide } from 'svelte/transition';
   import { trackEvent } from '$lib/utils/analytics';
@@ -42,16 +43,16 @@
 </script>
 
 <svelte:head>
-  <title>¿Cómo contratar? — Ethoz</title>
-  <meta name="description" content="Contrata Ethoz en 4 pasos: agenda una demo, elige tus módulos, migramos tus datos y tu colegio queda protegido." />
+  <title>¿Cómo contratar? — {BRAND}</title>
+  <meta name="description" content={`Contrata ${BRAND} en 4 pasos: agenda una demo, elige tus módulos, migramos tus datos y tu colegio queda protegido.`} />
   <link rel="canonical" href="https://ethoz.cl/get-started" />
   <meta property="og:url" content="https://ethoz.cl/get-started" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="¿Cómo contratar? — Ethoz" />
-  <meta property="og:description" content="Conoce cómo implementar Ethoz en tu colegio. Proceso consultivo paso a paso." />
+  <meta property="og:title" content={`¿Cómo contratar? — ${BRAND}`} />
+  <meta property="og:description" content={`Conoce cómo implementar ${BRAND} en tu colegio. Proceso consultivo paso a paso.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="¿Cómo contratar? — Ethoz" />
-  <meta name="twitter:description" content="Contrata Ethoz en 4 pasos: agenda una demo, elige tus módulos, migramos tus datos y tu colegio queda protegido." />
+  <meta name="twitter:title" content={`¿Cómo contratar? — ${BRAND}`} />
+  <meta name="twitter:description" content={`Contrata ${BRAND} en 4 pasos: agenda una demo, elige tus módulos, migramos tus datos y tu colegio queda protegido.`} />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",

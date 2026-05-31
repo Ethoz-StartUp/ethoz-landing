@@ -3,14 +3,15 @@
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Printer, ArrowLeft } from '@lucide/svelte';
+  import { BRAND } from '$lib/brand';
 </script>
 
 <svelte:head>
-  <title>Modelo de Aviso de Privacidad Escolar — Plantilla gratuita | Ethoz</title>
+  <title>Modelo de Aviso de Privacidad Escolar — Plantilla gratuita | {BRAND}</title>
   <meta name="description" content="Plantilla de aviso de privacidad conforme al Art. 14 de la Ley 21.719 para establecimientos educacionales chilenos. Descarga gratis." />
   <meta property="og:url" content="https://ethoz.cl/resources/privacy-notice" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Modelo de Aviso de Privacidad Escolar | Ethoz" />
+  <meta property="og:title" content={`Modelo de Aviso de Privacidad Escolar | ${BRAND}`} />
   <meta property="og:description" content="Plantilla conforme a la Ley 21.719 para publicar el aviso de privacidad en tu colegio." />
   <link rel="canonical" href="https://ethoz.cl/resources/privacy-notice" />
   {@html `<script type="application/ld+json">${JSON.stringify({
@@ -19,7 +20,7 @@
     "name": "Modelo de Aviso de Privacidad Escolar",
     "description": "Plantilla de aviso de privacidad conforme al Art. 14 de la Ley 21.719.",
     "url": "https://ethoz.cl/resources/privacy-notice",
-    "publisher": { "@type": "Organization", "name": "Ethoz", "url": "https://ethoz.cl" }
+    "publisher": { "@type": "Organization", "name": BRAND, "url": "https://ethoz.cl" }
   })}</script>`}
 </svelte:head>
 
@@ -53,7 +54,7 @@
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
       <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Modelo de Aviso de Privacidad Escolar</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Complete los campos marcados con <span class="font-medium text-primary">[corchetes]</span> con la información de su establecimiento. Este aviso debe publicarse en el sitio web institucional y estar disponible físicamente en la recepción.</p>
-      <p class="mt-4 text-xs text-muted-foreground">Elaborado por Ethoz · ethoz.cl · Basado en Ley 21.719 promulgada el 13 de diciembre de 2024</p>
+      <p class="mt-4 text-xs text-muted-foreground">Elaborado por {BRAND} · ethoz.cl · Basado en Ley 21.719 promulgada el 13 de diciembre de 2024</p>
     </div>
 
     <!-- Document -->
@@ -195,7 +196,7 @@
     </div>
 
     <div class="print:hidden mt-10 text-center">
-      <p class="text-sm text-muted-foreground mb-4">Ethoz genera y gestiona este aviso automáticamente para su establecimiento.</p>
+      <p class="text-sm text-muted-foreground mb-4">{BRAND} genera y gestiona este aviso automáticamente para su establecimiento.</p>
       <Button href="/demo">Solicitar demo gratuita</Button>
     </div>
   </div>

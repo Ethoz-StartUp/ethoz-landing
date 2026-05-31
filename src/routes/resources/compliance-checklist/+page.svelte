@@ -3,6 +3,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Printer, ArrowLeft } from '@lucide/svelte';
+  import { BRAND } from '$lib/brand';
 
   const sections = [
     {
@@ -140,11 +141,11 @@
 </script>
 
 <svelte:head>
-  <title>Checklist Cumplimiento Ley 21.719 — Descarga gratuita | Ethoz</title>
+  <title>Checklist Cumplimiento Ley 21.719 — Descarga gratuita | {BRAND}</title>
   <meta name="description" content="20 ítems de verificación para saber si tu colegio cumple con la Ley 21.719 de Protección de Datos. Descarga e imprime gratis." />
   <meta property="og:url" content="https://ethoz.cl/resources/compliance-checklist" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Checklist Cumplimiento Ley 21.719 | Ethoz" />
+  <meta property="og:title" content={`Checklist Cumplimiento Ley 21.719 | ${BRAND}`} />
   <meta property="og:description" content="20 ítems de verificación para cumplir con la Ley 21.719 en colegios chilenos." />
   <link rel="canonical" href="https://ethoz.cl/resources/compliance-checklist" />
   {@html `<script type="application/ld+json">${JSON.stringify({
@@ -153,7 +154,7 @@
     "name": "Checklist de Cumplimiento Ley 21.719",
     "description": "20 ítems para verificar el cumplimiento de la Ley 21.719 en establecimientos educacionales chilenos.",
     "url": "https://ethoz.cl/resources/compliance-checklist",
-    "publisher": { "@type": "Organization", "name": "Ethoz", "url": "https://ethoz.cl" }
+    "publisher": { "@type": "Organization", "name": BRAND, "url": "https://ethoz.cl" }
   })}</script>`}
 </svelte:head>
 
@@ -191,7 +192,7 @@
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
         Verifique el estado de cumplimiento de su establecimiento con la Ley de Protección de Datos Personales. Marque cada ítem completado. La ley entra en plena vigencia en <strong class="text-foreground">diciembre de 2026</strong>. Las multas llegan hasta las 20.000 UTM.
       </p>
-      <p class="mt-4 text-xs text-muted-foreground">Elaborado por el equipo de Ethoz · ethoz.cl · Uso libre para establecimientos educacionales</p>
+      <p class="mt-4 text-xs text-muted-foreground">Elaborado por el equipo de {BRAND} · ethoz.cl · Uso libre para establecimientos educacionales</p>
     </div>
 
     <!-- Sections -->
@@ -228,11 +229,11 @@
     <!-- Footer note -->
     <div class="mt-12 rounded-lg border border-border bg-muted/30 p-5 text-sm text-muted-foreground">
       <p class="font-medium text-foreground mb-1">Nota legal</p>
-      <p>Este checklist es una herramienta orientativa elaborada por Ethoz. No constituye asesoría jurídica. Para una evaluación de cumplimiento oficial, consulte a un abogado especializado en protección de datos. Referencias basadas en la Ley 21.719 promulgada el 13 de diciembre de 2024.</p>
+      <p>Este checklist es una herramienta orientativa elaborada por {BRAND}. No constituye asesoría jurídica. Para una evaluación de cumplimiento oficial, consulte a un abogado especializado en protección de datos. Referencias basadas en la Ley 21.719 promulgada el 13 de diciembre de 2024.</p>
     </div>
 
     <div class="print:hidden mt-6 text-center">
-      <p class="text-sm text-muted-foreground mb-4">¿Quieres que Ethoz automatice este cumplimiento?</p>
+      <p class="text-sm text-muted-foreground mb-4">¿Quieres que {BRAND} automatice este cumplimiento?</p>
       <Button href="/demo">Solicitar demo gratuita</Button>
     </div>
   </div>

@@ -1,19 +1,20 @@
 import type { BlogPost } from './types';
+import { BRAND } from '$lib/brand';
 
 export const post: BlogPost = {
 	slug: 'agobio-docente-tecnologia-solucion',
 	title: 'Agobio docente: cómo la tecnología puede liberar a los profesores en vez de abrumarlos',
 	description:
-		'Los docentes chilenos trabajan 2,3 horas extra semanales no remuneradas en burocracia. La tecnología mal diseñada agrava el problema. Ethoz reduce la carga administrativa sin agregar formularios nuevos.',
+		'Los docentes chilenos trabajan 2,3 horas extra semanales no remuneradas en burocracia. La tecnología mal diseñada agrava el problema. ${BRAND} reduce la carga administrativa sin agregar formularios nuevos.',
 	date: '2026-04-07',
-	author: 'Equipo Ethoz',
+	author: `Equipo ${BRAND}`,
 	readTime: '8 min',
 	tags: ['Agobio Docente', 'Profesores', 'Bienestar'],
 	coverImage: '/images/blog/agobio-docente-tecnologia-solucion.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
-<p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Los docentes chilenos trabajan en promedio 2,3 horas extra semanales no remuneradas dedicadas a tareas administrativas y de registro. La tecnología educacional, cuando está mal diseñada, agrava el problema en lugar de resolverlo. Ethoz adopta un principio opuesto: cero burocracia adicional para el docente, perfil 360° visible sin esfuerzo de recopilación y privacidad por diseño que no requiere gestión manual de permisos.</p>
+<p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Los docentes chilenos trabajan en promedio 2,3 horas extra semanales no remuneradas dedicadas a tareas administrativas y de registro. La tecnología educacional, cuando está mal diseñada, agrava el problema en lugar de resolverlo. ${BRAND} adopta un principio opuesto: cero burocracia adicional para el docente, perfil 360° visible sin esfuerzo de recopilación y privacidad por diseño que no requiere gestión manual de permisos.</p>
 </div>
 
 <h2>El agobio docente no es un problema de actitud</h2>
@@ -59,7 +60,7 @@ export const post: BlogPost = {
 <p>La solución técnica es la <strong>privacidad por diseño</strong>: el sistema define los niveles de acceso según el rol, y el docente simplemente registra lo que ve sin tener que decidir quién puede o no puede verlo. Si el registro es de nivel estándar, todos los actores con acceso lo ven. Si es de nivel restringido, solo el orientador y la dirección. Si es privado, solo el responsable clínico. El docente no gestiona estos permisos: los permisos están definidos en la arquitectura del sistema. Este principio se analiza técnicamente en <a href="/blog/privacidad-por-diseno-art-16-bis">Privacidad por diseño: lo que el Art. 16 bis exige técnicamente</a>.</p>
 
 <h2>El principio de zero burocracia adicional</h2>
-<p>El diseño de Ethoz parte de un principio que no es común en el software educacional: <strong>no pedirle al docente que haga nada que no estuviera haciendo antes</strong>. Esto significa que cada proceso de registro en Ethoz fue diseñado para ser, a lo sumo, igual de rápido que el proceso manual equivalente. En la mayoría de los casos, más rápido.</p>
+<p>El diseño de ${BRAND} parte de un principio que no es común en el software educacional: <strong>no pedirle al docente que haga nada que no estuviera haciendo antes</strong>. Esto significa que cada proceso de registro en ${BRAND} fue diseñado para ser, a lo sumo, igual de rápido que el proceso manual equivalente. En la mayoría de los casos, más rápido.</p>
 <p>Los elementos concretos de este principio en la práctica:</p>
 <ul>
   <li><strong>Registro de incidentes en menos de 2 minutos:</strong> el formulario de incidente de convivencia tiene los campos mínimos necesarios. El contexto adicional puede agregarse, pero no es obligatorio para completar el registro.</li>
@@ -79,7 +80,7 @@ export const post: BlogPost = {
 
 <div style="background: var(--secondary); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;">
 <h3 style="margin-top: 0;">Devuelva tiempo a sus docentes con tecnología que trabaja para ellos</h3>
-<p>Ethoz reduce la carga administrativa del equipo educacional eliminando el doble ingreso de datos, consolidando la información en la ficha 360° y automatizando los permisos de privacidad por diseño. Solicite una demostración y vea cuánto tiempo puede recuperar su equipo.</p>
+<p>${BRAND} reduce la carga administrativa del equipo educacional eliminando el doble ingreso de datos, consolidando la información en la ficha 360° y automatizando los permisos de privacidad por diseño. Solicite una demostración y vea cuánto tiempo puede recuperar su equipo.</p>
 <a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Solicitar demo gratuita</a>
 </div>
 `

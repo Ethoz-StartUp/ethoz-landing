@@ -3,6 +3,7 @@
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
   import { Printer, ArrowLeft } from '@lucide/svelte';
+  import { BRAND } from '$lib/brand';
 
   const inventory = [
     {
@@ -75,11 +76,11 @@
 </script>
 
 <svelte:head>
-  <title>Inventario de Datos Personales para Colegios — Plantilla gratuita | Ethoz</title>
+  <title>Inventario de Datos Personales para Colegios — Plantilla gratuita | {BRAND}</title>
   <meta name="description" content="Plantilla de inventario de datos personales para establecimientos educacionales chilenos. Bases legales, finalidades y plazos de retención. Descarga gratis." />
   <meta property="og:url" content="https://ethoz.cl/resources/data-inventory" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Inventario de Datos Personales para Colegios | Ethoz" />
+  <meta property="og:title" content={`Inventario de Datos Personales para Colegios | ${BRAND}`} />
   <meta property="og:description" content="Plantilla completa de inventario de datos conforme a la Ley 21.719 para colegios chilenos." />
   <link rel="canonical" href="https://ethoz.cl/resources/data-inventory" />
   {@html `<script type="application/ld+json">${JSON.stringify({
@@ -88,7 +89,7 @@
     "name": "Inventario de Datos Personales para Colegios",
     "description": "Plantilla de inventario de datos personales conforme a la Ley 21.719.",
     "url": "https://ethoz.cl/resources/data-inventory",
-    "publisher": { "@type": "Organization", "name": "Ethoz", "url": "https://ethoz.cl" }
+    "publisher": { "@type": "Organization", "name": BRAND, "url": "https://ethoz.cl" }
   })}</script>`}
 </svelte:head>
 
@@ -122,7 +123,7 @@
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
       <h1 class="mt-5 font-heading leading-[1.15] text-foreground">Inventario de Datos Personales</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">Registro estructurado de todas las categorías de datos personales tratados por establecimientos educacionales chilenos, con base legal, finalidad y plazos de retención conformes a la Ley 21.719.</p>
-      <p class="mt-4 text-xs text-muted-foreground">Elaborado por Ethoz · ethoz.cl · Versión 1.0 · Complete con [Nombre del Establecimiento] y RBD</p>
+      <p class="mt-4 text-xs text-muted-foreground">Elaborado por {BRAND} · ethoz.cl · Versión 1.0 · Complete con [Nombre del Establecimiento] y RBD</p>
     </div>
 
     <!-- Legend -->
@@ -179,7 +180,7 @@
     </div>
 
     <div class="print:hidden mt-8 text-center">
-      <p class="text-sm text-muted-foreground mb-4">Ethoz mantiene este inventario actualizado automáticamente para su establecimiento.</p>
+      <p class="text-sm text-muted-foreground mb-4">{BRAND} mantiene este inventario actualizado automáticamente para su establecimiento.</p>
       <Button href="/demo">Solicitar demo gratuita</Button>
     </div>
   </div>

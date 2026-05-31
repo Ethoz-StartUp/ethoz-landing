@@ -8,6 +8,7 @@
     CheckCircle, Users, Activity, BarChart3, MessageSquare,
     TrendingUp, ShieldCheck, FileText, Bell, CalendarDays
   } from '@lucide/svelte';
+  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
 
   $effect(() => { trackEvent('audience_page_viewed', { audience: 'directores' }); });
@@ -27,14 +28,14 @@
 </script>
 
 <svelte:head>
-  <title>Ethoz para Directores — Gestión escolar sin planillas Excel</title>
+  <title>{BRAND} para Directores — Gestión escolar sin planillas Excel</title>
   <meta name="description" content="Tu día de director, sin planillas Excel ni llamadas de pánico. Visibilidad en tiempo real, decisiones basadas en datos y respuesta a emergencias desde una sola pantalla." />
   <meta property="og:url" content="https://ethoz.cl/para-directores" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz para Directores — Gestión escolar sin planillas Excel" />
+  <meta property="og:title" content={`${BRAND} para Directores — Gestión escolar sin planillas Excel`} />
   <meta property="og:description" content="Tu día de director, sin planillas Excel ni llamadas de pánico. Visibilidad en tiempo real, decisiones basadas en datos y respuesta a emergencias desde una sola pantalla." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz para Directores — Gestión escolar sin planillas Excel" />
+  <meta name="twitter:title" content={`${BRAND} para Directores — Gestión escolar sin planillas Excel`} />
   <meta name="twitter:description" content="Tu día de director, sin planillas Excel ni llamadas de pánico. Visibilidad en tiempo real, decisiones basadas en datos y respuesta a emergencias desde una sola pantalla." />
   <link rel="canonical" href="https://ethoz.cl/para-directores" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Para Directores","item":"https://ethoz.cl/para-directores"}]})}</script>`}
@@ -88,7 +89,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Panel Director · Lunes 7 de abril, 07:03</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Panel Director · Lunes 7 de abril, 07:03</span>
           </div>
           <div class="p-4">
             <p class="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-3">Buenos días, Dir. Fuentes. Esto te espera hoy:</p>
@@ -298,7 +299,7 @@
                 <TrendingUp class="size-3 text-warning-foreground" />
                 <p class="text-[9px] font-semibold text-warning-foreground">Tendencia detectada automáticamente</p>
               </div>
-              <p class="text-[9px] text-muted-foreground">Los incidentes de convivencia aumentan 3 semanas antes de cada evaluación PSU/SIMCE. Ethoz lo identifica con 14 días de anticipación.</p>
+              <p class="text-[9px] text-muted-foreground">Los incidentes de convivencia aumentan 3 semanas antes de cada evaluación PSU/SIMCE. {BRAND} lo identifica con 14 días de anticipación.</p>
             </div>
           </div>
         </div>
@@ -309,7 +310,7 @@
             <h2 class="text-xl text-foreground sm:text-2xl">Decisiones basadas en datos</h2>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Un director que identifica patrones puede actuar antes de que el problema escale. Ethoz detecta automáticamente las tendencias que en papel o Excel son invisibles.
+            Un director que identifica patrones puede actuar antes de que el problema escale. {BRAND} detecta automáticamente las tendencias que en papel o Excel son invisibles.
           </p>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             ¿Cuál es el curso con más conflictos este semestre? ¿Qué hora del día concentra los retiros anticipados? ¿Qué docente tiene más observaciones sin cerrar? En dos clics.
@@ -344,10 +345,10 @@
             En los sistemas tradicionales, cada año escolar empieza desde cero. El historial de Catalina — las medidas de apoyo, las situaciones de convivencia, las restricciones de retiro — desaparece el 1° de marzo.
           </p>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Con Ethoz, el expediente de cada alumno viaja con él de año en año. El nuevo profesor jefe ve el historial completo desde el primer día de clases.
+            Con {BRAND}, el expediente de cada alumno viaja con él de año en año. El nuevo profesor jefe ve el historial completo desde el primer día de clases.
           </p>
           <div class="mt-6 rounded-xl border border-border bg-card p-4 shadow-sm">
-            <p class="text-xs font-semibold text-foreground mb-3">Comparativa: sistemas tradicionales vs. Ethoz</p>
+            <p class="text-xs font-semibold text-foreground mb-3">Comparativa: sistemas tradicionales vs. {BRAND}</p>
             <div class="space-y-2">
               {#each [
                 { aspecto: 'Historial por alumno', trad: 'Se borra en marzo', ethoz: 'Continuo, pre-kinder a 4° medio' },

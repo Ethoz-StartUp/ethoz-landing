@@ -1,6 +1,7 @@
 <script lang="ts">
   import { adminStore } from '$lib/stores/admin.svelte';
   import { supabase } from '$lib/supabase';
+  import { BRAND } from '$lib/brand';
   import {
     buildSostenedores,
     exportCSV,
@@ -437,7 +438,7 @@
 </script>
 
 <svelte:head>
-  <title>Prospecting — Ethoz Admin</title>
+  <title>Prospecting — {BRAND} Admin</title>
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 

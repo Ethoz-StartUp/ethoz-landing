@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
   import {
     ShieldCheck,
@@ -35,7 +36,7 @@
     { href: '#multas', label: 'Multas y sanciones', n: '06' },
     { href: '#plazos', label: 'Plazos críticos', n: '07' },
     { href: '#checklist', label: 'Checklist de cumplimiento', n: '08' },
-    { href: '#como-ayuda-ethoz', label: '¿Cómo Ethoz ayuda?', n: '09' },
+    { href: '#como-ayuda-ethoz', label: `¿Cómo ${BRAND} ayuda?`, n: '09' },
   ];
 
   const checklist = [
@@ -119,15 +120,15 @@
 </script>
 
 <svelte:head>
-  <title>Ley 21.719: Guía completa para colegios — qué es, multas y cómo cumplir | Ethoz</title>
+  <title>Ley 21.719: Guía completa para colegios — qué es, multas y cómo cumplir | {BRAND}</title>
   <meta name="description" content="Ley 21.719 colegios Chile: qué exige, multas hasta 20.000 UTM, derechos ARCO+P, plazos dic 2026. Guía práctica para sostenedores y directivos." />
-  <meta property="og:title" content="Ley 21.719: Guía completa para colegios — Ethoz" />
+  <meta property="og:title" content={`Ley 21.719: Guía completa para colegios — ${BRAND}`} />
   <meta property="og:description" content="Ley 21.719 colegios Chile: qué exige, multas hasta 20.000 UTM, derechos ARCO+P, plazos dic 2026. Guía práctica para sostenedores y directivos." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://ethoz.cl/ley-21719" />
   <meta property="og:image" content="https://ethoz.cl/images/og-ley-21719.webp" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ley 21.719: Guía completa para colegios — Ethoz" />
+  <meta name="twitter:title" content={`Ley 21.719: Guía completa para colegios — ${BRAND}`} />
   <meta name="twitter:description" content="Guía práctica Ley 21.719 para colegios chilenos. Multas, plazos, derechos ARCO+P y checklist de cumplimiento." />
   <link rel="canonical" href="https://ethoz.cl/ley-21719" />
   {@html `<script type="application/ld+json">${JSON.stringify([
@@ -138,8 +139,8 @@
       "description": "Ley 21.719 colegios Chile: qué exige, multas hasta 20.000 UTM, derechos ARCO+P, plazos dic 2026. Guía práctica para sostenedores y directivos.",
       "datePublished": "2026-04-07",
       "dateModified": "2026-04-07",
-      "author": { "@type": "Organization", "name": "Ethoz" },
-      "publisher": { "@type": "Organization", "name": "Ethoz", "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }},
+      "author": { "@type": "Organization", "name": BRAND },
+      "publisher": { "@type": "Organization", "name": BRAND, "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }},
       "url": "https://ethoz.cl/ley-21719",
       "mainEntityOfPage": "https://ethoz.cl/ley-21719",
       "about": { "@type": "Thing", "name": "Ley 21.719 Protección de Datos Personales Chile" },
@@ -438,23 +439,23 @@
             {/each}
           </ol>
           <p class="mt-6 text-sm text-muted-foreground">
-            ¿Quiere una evaluación personalizada? <a href="/demo" class="border-b border-primary pb-0.5 font-semibold text-primary hover:border-b-2">Solicite una revisión gratuita con un especialista Ethoz</a>.
+            ¿Quiere una evaluación personalizada? <a href="/demo" class="border-b border-primary pb-0.5 font-semibold text-primary hover:border-b-2">Solicite una revisión gratuita con un especialista {BRAND}</a>.
           </p>
         </section>
 
         <!-- SECCIÓN 9: CÓMO AYUDA ETHOZ -->
         <section id="como-ayuda-ethoz">
           <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>09 · Herramienta</p>
-          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">¿Cómo Ethoz ayuda con la Ley 21.719?</h2>
+          <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">¿Cómo {BRAND} ayuda con la Ley 21.719?</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
-            Ethoz no reemplaza el sistema de gestión escolar que ya usa su colegio. Agrega la capa de seguridad, privacidad y compliance que esos sistemas no tienen por diseño.
+            {BRAND} no reemplaza el sistema de gestión escolar que ya usa su colegio. Agrega la capa de seguridad, privacidad y compliance que esos sistemas no tienen por diseño.
           </p>
           <div class="mt-8 grid gap-4 sm:grid-cols-2">
             {#each [
               { title: 'Cifrado y RLS por diseño', desc: 'Datos cifrados at-rest y en tránsito. Row-Level Security en cada consulta: cada actor del colegio accede solo a lo que le corresponde.', link: '/seguridad-datos' },
               { title: 'Audit log inmutable', desc: 'Cada acción sensible queda registrada con usuario, timestamp e IP. Trazabilidad exigida por Circular N°30 y necesaria ante brechas.', link: '/seguridad-datos' },
               { title: 'Gestión de derechos ARCO+P', desc: 'Panel para registrar y responder solicitudes de acceso, rectificación y supresión dentro de los plazos legales.', link: '/compliance' },
-              { title: 'Integración con sistemas actuales', desc: 'Ethoz se conecta a Napsis, Syscol y Lirmi. No tiene que migrar ni reemplazar su ERP escolar.', link: '/integrations' },
+              { title: 'Integración con sistemas actuales', desc: `${BRAND} se conecta a Napsis, Syscol y Lirmi. No tiene que migrar ni reemplazar su ERP escolar.`, link: '/integrations' },
             ] as item}
               <a href={item.link} class="group block border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover rounded-lg">
                 <h3 class="font-semibold text-foreground">{item.title}</h3>
@@ -527,7 +528,7 @@
       <div class="flex flex-wrap gap-3">
         {#each [
           { href: '/circular-30', label: 'Circular N°30 — libro de clases digital' },
-          { href: '/seguridad-datos', label: 'Seguridad de datos en Ethoz' },
+          { href: '/seguridad-datos', label: `Seguridad de datos en ${BRAND}` },
           { href: '/comparativa', label: 'Comparativa de plataformas' },
           { href: '/glosario', label: 'Glosario normativo' },
           { href: '/compliance', label: 'Cumplimiento normativo' },

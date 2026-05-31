@@ -1,6 +1,7 @@
 <script lang="ts">
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
+  import { BRAND } from '$lib/brand';
   import { Button } from '$lib/components/ui/button';
   import { t } from '$lib/i18n/index.svelte';
   import { Mail, CalendarDays, Loader2, Check, Clock, ExternalLink } from '@lucide/svelte';
@@ -91,12 +92,12 @@
   <title>{t('contact.meta.title')}</title>
   <meta property="og:url" content="https://ethoz.cl/contact" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Contacto — Ethoz" />
-  <meta property="og:description" content="Contáctanos para saber más sobre Ethoz, la plataforma de seguridad escolar para Chile." />
+  <meta property="og:title" content={`Contacto — ${BRAND}`} />
+  <meta property="og:description" content={`Contáctanos para saber más sobre ${BRAND}, la plataforma de seguridad escolar para Chile.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contacto — Ethoz" />
-  <meta name="twitter:description" content="Contáctanos para saber más sobre Ethoz, la plataforma de seguridad escolar para Chile." />
-  <meta name="description" content="Contacta al equipo de Ethoz. Escríbenos por email o agenda una demo para tu colegio." />
+  <meta name="twitter:title" content={`Contacto — ${BRAND}`} />
+  <meta name="twitter:description" content={`Contáctanos para saber más sobre ${BRAND}, la plataforma de seguridad escolar para Chile.`} />
+  <meta name="description" content={`Contacta al equipo de ${BRAND}. Escríbenos por email o agenda una demo para tu colegio.`} />
   <link rel="canonical" href="https://ethoz.cl/contact" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Contacto"}]})}</script>`}
 </svelte:head>

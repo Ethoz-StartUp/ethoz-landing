@@ -14,6 +14,7 @@
     Info,
     BarChart2,
   } from '@lucide/svelte';
+  import { BRAND } from '$lib/brand';
 
   $effect(() => {
     trackEvent('page_viewed', { page: 'proyecciones' });
@@ -40,21 +41,21 @@
       stat: '<3 seg',
       label: 'Tiempo promedio de verificación de retiro',
       context: 'Frente a 2–3 minutos del proceso manual actual (buscar listado, validar identidad, registrar en cuaderno).',
-      methodology: `Metodología: El proceso manual de verificación implica: (1) buscar al apoderado en listado físico o planilla Excel (~60 seg), (2) validar documento de identidad (~30 seg), (3) registrar en libro de retiros (~30 seg), (4) notificar al curso (~60 seg). Total estimado: 3–4 minutos por retiro. Con Ethoz, la verificación es por código QR o reconocimiento de la app, con confirmación automática en <3 segundos. Fuente: estimación operacional basada en protocolos de portería documentados en 3 establecimientos de referencia.`,
+      methodology: `Metodología: El proceso manual de verificación implica: (1) buscar al apoderado en listado físico o planilla Excel (~60 seg), (2) validar documento de identidad (~30 seg), (3) registrar en libro de retiros (~30 seg), (4) notificar al curso (~60 seg). Total estimado: 3–4 minutos por retiro. Con ${BRAND}, la verificación es por código QR o reconocimiento de la app, con confirmación automática en <3 segundos. Fuente: estimación operacional basada en protocolos de portería documentados en 3 establecimientos de referencia.`,
     },
     {
       icon: BarChart2,
       stat: 'Hasta 20.000 UTM',
       label: 'Ahorro proyectado en multas Ley 21.719',
-      context: 'Un solo incidente de datos mal gestionados puede generar multas de hasta $1.340M CLP. Ethoz elimina las brechas estructurales que generan esa exposición.',
-      methodology: `Metodología: La Ley 21.719 fija multas de hasta 20.000 UTM (~CLP $1.340.000.000 al valor UTM de 2025) para infracciones graves, o el 4% de la facturación anual global si es mayor. Las brechas más frecuentes en colegios incluyen: datos sin cifrar, sin audit log, compartidos por WhatsApp, o sin consentimiento parental documentado. Ethoz elimina cada una de estas brechas por diseño arquitectónico. El "ahorro" es la multa que no se paga al no tener brechas. No podemos garantizar que ningún colegio será investigado, pero sí que el colegio que usa Ethoz no tendrá las brechas técnicas más comunes. Fuente legal: Ley 21.719, Art. 46, Biblioteca del Congreso Nacional.`,
+      context: `Un solo incidente de datos mal gestionados puede generar multas de hasta $1.340M CLP. ${BRAND} elimina las brechas estructurales que generan esa exposición.`,
+      methodology: `Metodología: La Ley 21.719 fija multas de hasta 20.000 UTM (~CLP $1.340.000.000 al valor UTM de 2025) para infracciones graves, o el 4% de la facturación anual global si es mayor. Las brechas más frecuentes en colegios incluyen: datos sin cifrar, sin audit log, compartidos por WhatsApp, o sin consentimiento parental documentado. ${BRAND} elimina cada una de estas brechas por diseño arquitectónico. El "ahorro" es la multa que no se paga al no tener brechas. No podemos garantizar que ningún colegio será investigado, pero sí que el colegio que usa ${BRAND} no tendrá las brechas técnicas más comunes. Fuente legal: Ley 21.719, Art. 46, Biblioteca del Congreso Nacional.`,
     },
     {
       icon: Users,
       stat: '~12 h/semana',
       label: 'Horas recuperadas para el inspector jefe',
       context: 'Tiempo actualmente destinado a registros manuales, búsqueda de autorizaciones y seguimiento de protocolos en papel.',
-      methodology: `Metodología: Estimación basada en carga operacional típica de inspector en colegio de 800 alumnos: (1) verificación de retiros: 30 retiros/día × 3 min = 90 min/día = 7,5 h/semana; (2) registro manual de incidencias de convivencia: ~2 h/semana; (3) búsqueda de documentos ante consultas de apoderados: ~2 h/semana. Total: ~11,5 h/semana en tareas que Ethoz automatiza. Con Ethoz, estas tareas se reducen a revisión de notificaciones (~1–2 h/semana). Diferencia proyectada: ~10–12 h/semana recuperadas. Fuente: encuestas de carga docente-administrativa, Colegio de Profesores de Chile (2024).`,
+      methodology: `Metodología: Estimación basada en carga operacional típica de inspector en colegio de 800 alumnos: (1) verificación de retiros: 30 retiros/día × 3 min = 90 min/día = 7,5 h/semana; (2) registro manual de incidencias de convivencia: ~2 h/semana; (3) búsqueda de documentos ante consultas de apoderados: ~2 h/semana. Total: ~11,5 h/semana en tareas que ${BRAND} automatiza. Con ${BRAND}, estas tareas se reducen a revisión de notificaciones (~1–2 h/semana). Diferencia proyectada: ~10–12 h/semana recuperadas. Fuente: encuestas de carga docente-administrativa, Colegio de Profesores de Chile (2024).`,
     },
   ];
 
@@ -74,15 +75,15 @@
 </script>
 
 <svelte:head>
-  <title>Proyecciones de impacto — Ethoz | Basadas en datos públicos</title>
-  <meta name="description" content="Proyecciones modeladas del impacto de Ethoz en colegios chilenos: retiros seguros, tiempo de verificación, ahorro en multas Ley 21.719 y horas recuperadas para inspectores." />
+  <title>Proyecciones de impacto — {BRAND} | Basadas en datos públicos</title>
+  <meta name="description" content={`Proyecciones modeladas del impacto de ${BRAND} en colegios chilenos: retiros seguros, tiempo de verificación, ahorro en multas Ley 21.719 y horas recuperadas para inspectores.`} />
   <meta property="og:url" content="https://ethoz.cl/proyecciones" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Proyecciones de impacto — Ethoz" />
-  <meta property="og:description" content="Proyecciones modeladas del impacto de Ethoz: retiros, compliance Ley 21.719 y eficiencia operacional." />
+  <meta property="og:title" content={`Proyecciones de impacto — ${BRAND}`} />
+  <meta property="og:description" content={`Proyecciones modeladas del impacto de ${BRAND}: retiros, compliance Ley 21.719 y eficiencia operacional.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Proyecciones de impacto — Ethoz" />
-  <meta name="twitter:description" content="Proyecciones modeladas del impacto de Ethoz en colegios chilenos." />
+  <meta name="twitter:title" content={`Proyecciones de impacto — ${BRAND}`} />
+  <meta name="twitter:description" content={`Proyecciones modeladas del impacto de ${BRAND} en colegios chilenos.`} />
   <link rel="canonical" href="https://ethoz.cl/proyecciones" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
@@ -111,7 +112,7 @@
       </h1>
       <p class="mt-3 text-xl font-semibold text-primary">Basadas en datos públicos</p>
       <p class="mt-5 text-lg leading-relaxed text-muted-foreground sm:text-xl">
-        Ethoz es una plataforma nueva (2026). No tenemos estudios de caso históricos. Lo que sí tenemos son proyecciones modeladas con rigor, basadas en datos públicos del Mineduc, la Superintendencia de Educación y la estructura de multas de la Ley 21.719.
+        {BRAND} es una plataforma nueva (2026). No tenemos estudios de caso históricos. Lo que sí tenemos son proyecciones modeladas con rigor, basadas en datos públicos del Mineduc, la Superintendencia de Educación y la estructura de multas de la Ley 21.719.
       </p>
     </div>
   </section>
@@ -141,7 +142,7 @@
       <div class="mb-12 text-center">
         <p class="text-sm font-bold uppercase tracking-widest text-primary">Métricas proyectadas</p>
         <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
-          Qué cambia cuando Ethoz entra al colegio
+          Qué cambia cuando {BRAND} entra al colegio
         </h2>
       </div>
 
@@ -203,8 +204,8 @@
           <thead>
             <tr class="border-b border-border bg-muted/50">
               <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Métrica</th>
-              <th class="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">Sin Ethoz</th>
-              <th class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-primary bg-primary/5">Con Ethoz</th>
+              <th class="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">Sin {BRAND}</th>
+              <th class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-primary bg-primary/5">Con {BRAND}</th>
               <th class="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">Diferencia proyectada</th>
             </tr>
           </thead>
@@ -234,7 +235,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="rounded-xl border border-border bg-secondary p-5">
         <p class="text-xs leading-relaxed text-muted-foreground text-center">
-          <strong class="text-foreground">Aviso importante:</strong> Estas son proyecciones modeladas, no resultados históricos confirmados. Ethoz es una plataforma nueva (fundada en 2026) y no cuenta con estudios de caso de implementación a largo plazo. Las proyecciones se basan en datos públicos y modelos operacionales, y deben considerarse como estimaciones referenciales. Tus resultados variarán según el tamaño, contexto operacional y características específicas de tu establecimiento.
+          <strong class="text-foreground">Aviso importante:</strong> Estas son proyecciones modeladas, no resultados históricos confirmados. {BRAND} es una plataforma nueva (fundada en 2026) y no cuenta con estudios de caso de implementación a largo plazo. Las proyecciones se basan en datos públicos y modelos operacionales, y deben considerarse como estimaciones referenciales. Tus resultados variarán según el tamaño, contexto operacional y características específicas de tu establecimiento.
         </p>
       </div>
     </div>

@@ -1,6 +1,7 @@
 <script lang="ts">
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
+  import { BRAND } from '$lib/brand';
   import { t } from '$lib/i18n/index.svelte';
   import { Check, Building, MapPin, Loader2 } from '@lucide/svelte';
   import { page } from '$app/state';
@@ -158,15 +159,15 @@
 </script>
 
 <svelte:head>
-  <title>Agendar Demo — Ethoz</title>
-  <meta name="description" content="Agenda una demostración personalizada de Ethoz para tu colegio." />
+  <title>Agendar Demo — {BRAND}</title>
+  <meta name="description" content={`Agenda una demostración personalizada de ${BRAND} para tu colegio.`} />
   <meta property="og:url" content="https://ethoz.cl/schedule" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Agendar Demo — Ethoz" />
-  <meta property="og:description" content="Agenda una demostración personalizada de Ethoz para tu colegio." />
+  <meta property="og:title" content={`Agendar Demo — ${BRAND}`} />
+  <meta property="og:description" content={`Agenda una demostración personalizada de ${BRAND} para tu colegio.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Agendar Demo — Ethoz" />
-  <meta name="twitter:description" content="Agenda una demostración personalizada de Ethoz para tu colegio." />
+  <meta name="twitter:title" content={`Agendar Demo — ${BRAND}`} />
+  <meta name="twitter:description" content={`Agenda una demostración personalizada de ${BRAND} para tu colegio.`} />
   <link rel="canonical" href="https://ethoz.cl/schedule" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Demo","item":"https://ethoz.cl/demo"},{"@type":"ListItem","position":3,"name":"Agendar Demo"}]})}</script>`}
 </svelte:head>

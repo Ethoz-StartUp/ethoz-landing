@@ -1,6 +1,7 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { adminStore } from '$lib/stores/admin.svelte';
+  import { BRAND } from '$lib/brand';
   import { Lock, Mail } from '@lucide/svelte';
   import { onMount } from 'svelte';
 
@@ -41,7 +42,7 @@
 </script>
 
 <svelte:head>
-  <title>Admin — Ethoz</title>
+  <title>Admin — {BRAND}</title>
 </svelte:head>
 
 <main class="flex min-h-dvh items-center justify-center bg-canvas-strong px-4">

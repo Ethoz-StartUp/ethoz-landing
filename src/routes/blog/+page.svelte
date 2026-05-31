@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Badge } from '$lib/components/ui/badge';
+  import { BRAND } from '$lib/brand';
   import { t } from '$lib/i18n/index.svelte';
   import { Clock, Calendar } from '@lucide/svelte';
   import { allPosts } from '$lib/data/posts';
@@ -11,14 +12,14 @@
 </script>
 
 <svelte:head>
-  <title>Blog — Ethoz</title>
+  <title>Blog — {BRAND}</title>
   <meta name="description" content="Artículos sobre protección de datos, seguridad escolar y cumplimiento normativo para colegios en Chile." />
   <meta property="og:url" content="https://ethoz.cl/blog" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Blog — Ethoz" />
+  <meta property="og:title" content={`Blog — ${BRAND}`} />
   <meta property="og:description" content="Artículos sobre protección de datos, seguridad escolar y cumplimiento normativo para colegios en Chile." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Blog — Ethoz" />
+  <meta name="twitter:title" content={`Blog — ${BRAND}`} />
   <meta name="twitter:description" content="Artículos sobre protección de datos, seguridad escolar y cumplimiento normativo para colegios en Chile." />
   <link rel="canonical" href="https://ethoz.cl/blog" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Blog"}]})}</script>`}

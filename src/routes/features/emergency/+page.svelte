@@ -4,6 +4,7 @@
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
   import { t } from '$lib/i18n/index.svelte';
+  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
   import { Siren, ArrowRight, ArrowLeft, Flame, Activity, UserX, AlertTriangle, CheckCircle2, Bell, MapPin, Clock } from '@lucide/svelte';
 
@@ -11,14 +12,14 @@
 </script>
 
 <svelte:head>
-  <title>Ethoz — Protocolos de Emergencia Escolar</title>
+  <title>{BRAND} — Protocolos de Emergencia Escolar</title>
   <meta name="description" content="Gestión digital de emergencias escolares: sismo, incendio, intruso y emergencia médica. Activación con un toque, conteo de alumnos y notificación a apoderados en tiempo real." />
   <meta property="og:url" content="https://ethoz.cl/features/emergency" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ethoz — Protocolos de Emergencia Escolar" />
+  <meta property="og:title" content={`${BRAND} — Protocolos de Emergencia Escolar`} />
   <meta property="og:description" content="Activa protocolos de emergencia con un toque. Conteo digital, evacuación guiada y notificación a apoderados." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ethoz — Protocolos de Emergencia Escolar" />
+  <meta name="twitter:title" content={`${BRAND} — Protocolos de Emergencia Escolar`} />
   <meta name="twitter:description" content="Activa protocolos de emergencia con un toque. Conteo digital, evacuación guiada y notificación a apoderados." />
   <link rel="canonical" href="https://ethoz.cl/features/emergency" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Protocolos de Emergencia"}]})}</script>`}
@@ -43,7 +44,7 @@
             </h1>
           </div>
           <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Cuando ocurre una emergencia, cada segundo cuenta. Ethoz digitaliza los protocolos ONEMI/SENAPRED: activa la alerta, guía la evacuación, hace el conteo digital y notifica a los apoderados — todo desde el celular del docente.
+            Cuando ocurre una emergencia, cada segundo cuenta. {BRAND} digitaliza los protocolos ONEMI/SENAPRED: activa la alerta, guía la evacuación, hace el conteo digital y notifica a los apoderados — todo desde el celular del docente.
           </p>
           <div class="mt-6 flex flex-wrap gap-2">
             <span class="inline-flex items-center gap-1.5 rounded-full bg-destructive/10 px-3 py-1 text-xs font-medium text-destructive">Protocolos ONEMI</span>
@@ -66,7 +67,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-[11px] font-medium text-muted-foreground">Ethoz — Emergencias · Colegio Alemán de Concepción</span>
+            <span class="ml-2 text-[11px] font-medium text-muted-foreground">{BRAND} — Emergencias · Colegio Alemán de Concepción</span>
           </div>
           <div class="p-4 sm:p-5">
             <!-- Active emergency banner -->
@@ -251,7 +252,7 @@
             <!-- Phone top bar -->
             <div class="bg-muted/50 px-4 py-2 flex items-center justify-between">
               <span class="text-[10px] font-medium text-muted-foreground">14:24</span>
-              <span class="text-[10px] text-muted-foreground">Ethoz</span>
+              <span class="text-[10px] text-muted-foreground">{BRAND}</span>
             </div>
             <!-- Notification cards -->
             <div class="p-3 space-y-2">

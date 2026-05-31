@@ -2,6 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
+  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
   import {
     Calculator,
@@ -79,14 +80,14 @@
 </script>
 
 <svelte:head>
-  <title>Calculadora de ROI — Ethoz | Calcula tu exposición al riesgo Ley 21.719</title>
-  <meta name="description" content="Calcula en 30 segundos tu exposición real al riesgo de la Ley 21.719 y el costo operacional actual de verificación manual en tu colegio. Herramienta gratuita de Ethoz." />
+  <title>Calculadora de ROI — {BRAND} | Calcula tu exposición al riesgo Ley 21.719</title>
+  <meta name="description" content={`Calcula en 30 segundos tu exposición real al riesgo de la Ley 21.719 y el costo operacional actual de verificación manual en tu colegio. Herramienta gratuita de ${BRAND}.`} />
   <meta property="og:url" content="https://ethoz.cl/roi-calculator" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Calculadora de ROI — Ethoz" />
+  <meta property="og:title" content={`Calculadora de ROI — ${BRAND}`} />
   <meta property="og:description" content="Calcula tu exposición al riesgo Ley 21.719 y costo operacional actual en tu colegio." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Calculadora de ROI — Ethoz" />
+  <meta name="twitter:title" content={`Calculadora de ROI — ${BRAND}`} />
   <meta name="twitter:description" content="Calcula en 30 segundos tu exposición al riesgo Ley 21.719." />
   <link rel="canonical" href="https://ethoz.cl/roi-calculator" />
   {@html `<script type="application/ld+json">${JSON.stringify({

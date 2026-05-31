@@ -2,6 +2,7 @@
   import { supabase, type Lead } from '$lib/supabase';
   import { onMount } from 'svelte';
   import { toast } from 'svelte-sonner';
+  import { BRAND } from '$lib/brand';
   import { formatDate, formatDateTime } from '$lib/utils/format';
   import * as Table from '$lib/components/ui/table';
   import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
@@ -142,7 +143,7 @@
 </script>
 
 <svelte:head>
-  <title>Leads — Ethoz Admin</title>
+  <title>Leads — {BRAND} Admin</title>
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 

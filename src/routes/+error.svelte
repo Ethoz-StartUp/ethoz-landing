@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
+  import { BRAND } from '$lib/brand';
   import { Button } from '$lib/components/ui/button';
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
@@ -7,7 +8,7 @@
 </script>
 
 <svelte:head>
-  <title>Página no encontrada — Ethoz</title>
+  <title>Página no encontrada — {BRAND}</title>
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
