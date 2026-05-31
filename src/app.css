@@ -209,7 +209,7 @@
   /* Text */
   --ink: #111111;
   --body: #374151;
-  --muted-text: #6b7280;
+  --muted-text: #485160; /* AAA: 8.0:1 white / 7.6:1 surface-soft / 7.35:1 card-#F5F5F5 (was #6b7280 = 4.8:1, AA only). --muted-foreground aliases this. */
   --muted-soft: #898989;
   --on-primary: #ffffff;
   --on-dark: #ffffff;
