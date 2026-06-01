@@ -141,7 +141,7 @@
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('featurePage.alerts.types_eyebrow')}</p>
+        <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('featurePage.alerts.types_eyebrow')}</p>
         <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">{t('featurePage.alerts.types_title')}</h2>
         <p class="mt-3 text-base text-muted-foreground">{t('featurePage.alerts.types_subtitle')}</p>
       </div>
@@ -277,7 +277,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="alerts-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-background/85">{t('featurePage.alerts.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-background/85">{t('featurePage.alerts.finalCta.eyebrow')}</p>
       <h2 id="alerts-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.alerts.finalCta.title')}
       </h2>

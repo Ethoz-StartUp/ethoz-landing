@@ -127,7 +127,7 @@
       <!-- Contrast: what Ethoz complements vs. what it is -->
       <div class="mt-10 grid gap-6 border-y border-border py-10 sm:grid-cols-2 sm:gap-10">
         <div>
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('about.is_not_title')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('about.is_not_title')}</p>
           <ul class="mt-4 space-y-3 text-sm text-muted-foreground">
             <li class="flex gap-3"><span class="text-border" aria-hidden="true">—</span><span>{t('about.is_not_1')}</span></li>
             <li class="flex gap-3"><span class="text-border" aria-hidden="true">—</span><span>{t('about.is_not_2')}</span></li>
@@ -135,7 +135,7 @@
           </ul>
         </div>
         <div>
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('about.is_title')}</p>
+          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('about.is_title')}</p>
           <ul class="mt-4 space-y-3 text-sm text-foreground">
             <li class="flex gap-3"><span class="text-primary" aria-hidden="true">→</span><span>{t('about.is_1')}</span></li>
             <li class="flex gap-3"><span class="text-primary" aria-hidden="true">→</span><span>{t('about.is_2')}</span></li>
@@ -161,7 +161,7 @@
         {#each roadmap as item, i}
           <li class="grid gap-4 py-6 sm:grid-cols-[minmax(0,10rem)_minmax(0,1fr)_auto] sm:items-baseline sm:gap-8">
             <div>
-              <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary" data-numeric>{item.period}</p>
+              <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{item.period}</p>
               <p class="mt-1 font-heading text-xs text-muted-foreground tabular-nums" data-numeric>0{i + 1}</p>
             </div>
             <div>
@@ -170,9 +170,9 @@
             </div>
             <div class="sm:text-right">
               {#if item.state === 'done'}
-                <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-success">{t('about.roadmap_state_done')}</span>
+                <span class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-success">{t('about.roadmap_state_done')}</span>
               {:else if item.state === 'active'}
-                <span class="inline-flex items-center gap-1.5 text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">
+                <span class="inline-flex items-center gap-1.5 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">
                   <span class="relative flex size-1.5">
                     <span class="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-70"></span>
                     <span class="relative inline-flex size-1.5 rounded-full bg-primary"></span>
@@ -180,7 +180,7 @@
                   {t('about.roadmap_state_active')}
                 </span>
               {:else}
-                <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('about.roadmap_state_upcoming')}</span>
+                <span class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('about.roadmap_state_upcoming')}</span>
               {/if}
             </div>
           </li>

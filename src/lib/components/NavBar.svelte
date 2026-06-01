@@ -82,7 +82,7 @@
       <div class="mx-auto flex max-w-7xl items-center justify-center px-4 py-1.5 text-xs sm:px-6 lg:px-8">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-center">
           <span aria-hidden="true" class="inline-flex size-1.5 shrink-0 rounded-full bg-destructive"></span>
-          <span class="text-mockup-xs font-semibold uppercase tracking-[0.14em] text-primary">Ley 21.719</span>
+          <span class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-primary">Ley 21.719</span>
           <span class="text-border" aria-hidden="true">·</span>
           <span class="text-muted-foreground">{t('nav.ribbon_full_enforcement')}</span>
           <span class="hidden text-border sm:inline" aria-hidden="true">·</span>

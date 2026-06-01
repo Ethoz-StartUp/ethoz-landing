@@ -110,15 +110,15 @@
 
       <dl class="mt-10 grid grid-cols-2 gap-6 border-t border-border pt-6 sm:grid-cols-3">
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('circular30.hero_meta_authority_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('circular30.hero_meta_authority_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">{t('circular30.hero_meta_authority_value')}</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('circular30.hero_meta_identity_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('circular30.hero_meta_identity_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">{t('circular30.hero_meta_identity_value')}</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('circular30.hero_meta_axes_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('circular30.hero_meta_axes_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground" data-numeric>04</dd>
         </div>
       </dl>
@@ -150,7 +150,7 @@
                   <Icon class="size-4 shrink-0 text-primary" />
                   <span class="font-semibold text-foreground">{t(item.title)}</span>
                 </div>
-                <p class="mt-1 text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary" data-numeric>{t('circular30.pillar_label')} 0{i + 1}</p>
+                <p class="mt-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('circular30.pillar_label')} 0{i + 1}</p>
               </dt>
               <dd class="text-sm leading-relaxed text-muted-foreground">{t(item.desc)}</dd>
             </div>
@@ -181,9 +181,9 @@
         <!-- Requirements table -->
         <div class="mt-8 border-y border-border">
           <div class="grid grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_auto] gap-4 py-3 border-b border-border">
-            <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('circular30.s2_col_requirement')}</p>
-            <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('circular30.s2_col_why')}</p>
-            <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('circular30.s2_col_brand')}</p>
+            <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('circular30.s2_col_requirement')}</p>
+            <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('circular30.s2_col_why')}</p>
+            <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('circular30.s2_col_brand')}</p>
           </div>
           {#each requirements as r, i}
             <div class="grid grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_auto] gap-4 py-4 {i !== requirements.length - 1 ? 'border-b border-border' : ''}">
@@ -225,7 +225,7 @@
               <p class="flex-1 text-sm text-foreground">
                 {t(item.question)}
                 {#if item.critical}
-                  <span class="ml-2 inline-block align-middle text-mockup-xs font-semibold uppercase tracking-[0.14em] text-destructive">{t('circular30.s3_critical_badge')}</span>
+                  <span class="ml-2 inline-block align-middle text-mockup-xs font-semibold uppercase tracking-[0.18em] text-destructive">{t('circular30.s3_critical_badge')}</span>
                 {/if}
               </p>
             </li>

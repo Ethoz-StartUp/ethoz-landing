@@ -191,19 +191,19 @@
       <!-- Metadata footer, McKinsey-style -->
       <dl class="mt-10 grid grid-cols-2 gap-6 border-t border-border pt-6 sm:grid-cols-4">
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('ley21719.hero_meta_promulgated_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.hero_meta_promulgated_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground" data-numeric>13 dic 2024</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('ley21719.hero_meta_enforcement_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.hero_meta_enforcement_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground" data-numeric>Dic 2026</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('ley21719.hero_meta_maxfine_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.hero_meta_maxfine_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground" data-numeric>20.000 UTM</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('ley21719.hero_meta_regulator_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.hero_meta_regulator_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">{t('ley21719.hero_meta_regulator_value')}</dd>
         </div>
       </dl>
@@ -262,7 +262,7 @@
 
           <!-- Key date footnote -->
           <aside class="mt-10 border-t border-border pt-6">
-            <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('ley21719.s1_keydate_label')}</p>
+            <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.s1_keydate_label')}</p>
             <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
               {t('ley21719.s1_keydate_pre')}<strong class="text-foreground">{t('ley21719.s1_keydate_strong1')}</strong>{t('ley21719.s1_keydate_mid')}<strong class="text-foreground">{t('ley21719.s1_keydate_strong2')}</strong>{t('ley21719.s1_keydate_post')}<sup class="ml-0.5 text-primary">1</sup>
             </p>
@@ -342,7 +342,7 @@
             {/each}
           </div>
           <aside class="mt-8 border-t border-border pt-6">
-            <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('ley21719.s4_minors_label')}</p>
+            <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.s4_minors_label')}</p>
             <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
               {t('ley21719.s4_minors_body')}
             </p>
@@ -368,7 +368,7 @@
               <div class="grid gap-3 py-6 sm:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] sm:gap-8">
                 <dt>
                   <p class="font-semibold text-foreground">{t(item.titleKey)}</p>
-                  <p class="mt-1 text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary" data-numeric>{item.ref} · {t('ley21719.s5_ref_law')}</p>
+                  <p class="mt-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{item.ref} · {t('ley21719.s5_ref_law')}</p>
                 </dt>
                 <dd class="text-sm leading-relaxed text-muted-foreground">{t(item.bodyKey)}</dd>
               </div>
@@ -399,7 +399,7 @@
             {/each}
           </div>
           <aside class="mt-8 border-t border-border pt-6">
-            <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('ley21719.s6_note_label')}</p>
+            <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.s6_note_label')}</p>
             <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
               {t('ley21719.s6_note_pre')}<strong class="text-foreground">{t('ley21719.s6_note_strong')}</strong>{t('ley21719.s6_note_post')}
             </p>

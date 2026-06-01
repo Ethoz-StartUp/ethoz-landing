@@ -172,7 +172,7 @@
         <section id={letter}>
           <div class="flex items-baseline justify-between border-b border-border pb-4">
             <h2 class="font-heading text-6xl leading-none text-foreground sm:text-7xl">{letter}</h2>
-            <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground" data-numeric>
+            <span class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground" data-numeric>
               {glossary[letter].length} {glossary[letter].length === 1 ? t('glosario.count_term_singular') : t('glosario.count_terms')}
             </span>
           </div>
@@ -182,7 +182,7 @@
                 <dt>
                   <dfn class="font-heading text-lg not-italic text-foreground">{item.term}</dfn>
                   {#if item.tag}
-                    <p class="mt-1 text-mockup-sm font-semibold uppercase tracking-[0.14em] {tagColors[item.tag] ?? 'text-muted-foreground'}">{item.tag}</p>
+                    <p class="mt-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] {tagColors[item.tag] ?? 'text-muted-foreground'}">{item.tag}</p>
                   {/if}
                 </dt>
                 <dd>

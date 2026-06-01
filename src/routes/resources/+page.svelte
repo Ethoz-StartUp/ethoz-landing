@@ -158,15 +158,15 @@
           <!-- Metadata strip -->
           <dl class="mt-5 grid grid-cols-2 gap-3 border-t border-border pt-4 text-mockup-sm">
             <div>
-              <dt class="font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('resources.meta_label_area')}</dt>
+              <dt class="font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('resources.meta_label_area')}</dt>
               <dd class="mt-0.5 font-medium text-foreground">{t(resource.tagKey)}</dd>
             </div>
             <div>
-              <dt class="font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('resources.meta_label_scope')}</dt>
+              <dt class="font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('resources.meta_label_scope')}</dt>
               <dd class="mt-0.5 font-medium text-foreground">{t(resource.metaKey)}</dd>
             </div>
             <div class="col-span-2">
-              <dt class="font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('resources.meta_label_norm')}</dt>
+              <dt class="font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('resources.meta_label_norm')}</dt>
               <dd class="mt-0.5 font-medium text-primary">{t(resource.articleKey)}</dd>
             </div>
           </dl>

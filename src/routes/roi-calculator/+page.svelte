@@ -226,7 +226,7 @@
               <ShieldAlert class="size-5 shrink-0 text-destructive" />
               <p class="text-sm font-semibold text-foreground">{t('roiCalculator.result_fine_label')}</p>
             </div>
-            <p class="text-3xl font-bold tracking-tight text-foreground">{formatUTM(maxFineUTM)}</p>
+            <p class="text-3xl font-heading text-foreground">{formatUTM(maxFineUTM)}</p>
             <p class="mt-0.5 text-sm text-muted-foreground">≈ {formatCLP(maxFineCLP)}</p>
             <p class="mt-2 text-xs text-muted-foreground">
               {t('roiCalculator.result_fine_note')}
@@ -244,7 +244,7 @@
               <Clock class="size-5 shrink-0 text-primary" />
               <p class="text-sm font-semibold text-foreground">{t('roiCalculator.result_hours_label')}</p>
             </div>
-            <p class="text-3xl font-bold tracking-tight text-foreground">{weeklyHours} h</p>
+            <p class="text-3xl font-heading text-foreground">{weeklyHours} h</p>
             <p class="mt-0.5 text-sm text-muted-foreground">
               {dailyPickups} {t('roiCalculator.result_hours_formula')}
             </p>
@@ -259,7 +259,7 @@
               <Banknote class="size-5 shrink-0 text-primary" />
               <p class="text-sm font-semibold text-foreground">{t('roiCalculator.result_cost_label')}</p>
             </div>
-            <p class="text-3xl font-bold tracking-tight text-foreground">{formatCLP(annualOpCost)}</p>
+            <p class="text-3xl font-heading text-foreground">{formatCLP(annualOpCost)}</p>
             <p class="mt-0.5 text-sm text-muted-foreground">
               {weeklyHours} {t('roiCalculator.result_cost_formula')}
             </p>
@@ -274,7 +274,7 @@
               <AlertTriangle class="size-5 shrink-0 text-primary" />
               <p class="text-sm font-bold text-foreground">{t('roiCalculator.result_total_label')}</p>
             </div>
-            <p class="text-4xl font-bold tracking-tight text-primary">{formatCLP(valueAtRisk)}</p>
+            <p class="text-4xl font-heading text-primary">{formatCLP(valueAtRisk)}</p>
             <p class="mt-1 text-xs text-muted-foreground">
               {t('roiCalculator.result_total_note')}
             </p>

@@ -111,19 +111,19 @@
 
       <dl class="mt-10 grid grid-cols-2 gap-6 border-t border-border pt-6 sm:grid-cols-4">
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.hero_stat_transit_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.hero_stat_transit_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">TLS 1.3</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.hero_stat_atrest_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.hero_stat_atrest_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">AES-256</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.hero_stat_isolation_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.hero_stat_isolation_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">RLS Postgres</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.hero_stat_region_label')}</dt>
+          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.hero_stat_region_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">São Paulo</dd>
         </div>
       </dl>
@@ -236,7 +236,7 @@
 
           <div class="mt-8 border border-border bg-card rounded-xl overflow-hidden">
             <div class="border-b border-border bg-muted/50 px-5 py-3">
-              <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.audit_entry_structure_label')}</p>
+              <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.audit_entry_structure_label')}</p>
             </div>
             <div class="p-5">
               <pre class="text-xs leading-relaxed text-muted-foreground overflow-x-auto"><code>{`{
@@ -294,7 +294,7 @@
               { level: 'seguridadDatos.aislamiento_rol_level' as const, desc: 'seguridadDatos.aislamiento_rol_desc' as const },
             ] as item}
               <div class="grid gap-3 py-4 sm:grid-cols-[minmax(0,8rem)_minmax(0,1fr)] sm:gap-8">
-                <dt class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t(item.level)}</dt>
+                <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t(item.level)}</dt>
                 <dd class="text-sm leading-relaxed text-muted-foreground">{t(item.desc)}</dd>
               </div>
             {/each}
@@ -329,9 +329,9 @@
           </p>
           <div class="mt-8 border-y border-border">
             <div class="grid grid-cols-3 gap-4 py-3 border-b border-border">
-              <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.infra_col_componente')}</p>
-              <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.infra_col_ubicacion')}</p>
-              <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('seguridadDatos.infra_col_funcion')}</p>
+              <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.infra_col_componente')}</p>
+              <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.infra_col_ubicacion')}</p>
+              <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('seguridadDatos.infra_col_funcion')}</p>
             </div>
             {#each infraItems as item, i}
               <div class="grid grid-cols-3 gap-4 py-4 {i !== infraItems.length - 1 ? 'border-b border-border' : ''}">

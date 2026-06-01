@@ -280,7 +280,7 @@
   <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
-        <p class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-primary">{t('comparativa.positioning_eyebrow')}</p>
+        <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('comparativa.positioning_eyebrow')}</p>
         <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
           {t('comparativa.positioning_title')}
         </h2>
@@ -337,17 +337,17 @@
       <div class="rounded-xl border border-border bg-card p-8 shadow-sm">
         <div class="grid gap-8 sm:grid-cols-3 text-center">
           <div>
-            <p class="text-3xl font-bold text-foreground">20.000 UTM</p>
+            <p class="text-3xl font-heading text-foreground">20.000 UTM</p>
             <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.risk_fine_label')}</p>
             <p class="mt-0.5 text-xs text-muted-foreground">≈ $1.340M CLP</p>
           </div>
           <div>
-            <p class="text-3xl font-bold text-foreground">{t('comparativa.risk_date_value')}</p>
+            <p class="text-3xl font-heading text-foreground">{t('comparativa.risk_date_value')}</p>
             <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.risk_date_label')}</p>
             <p class="mt-0.5 text-xs text-muted-foreground">{t('comparativa.risk_date_note')}</p>
           </div>
           <div>
-            <p class="text-3xl font-bold text-foreground">12.038</p>
+            <p class="text-3xl font-heading text-foreground">12.038</p>
             <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.risk_schools_label')}</p>
             <p class="mt-0.5 text-xs text-muted-foreground">{t('comparativa.risk_schools_note')}</p>
           </div>

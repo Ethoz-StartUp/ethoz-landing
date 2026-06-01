@@ -324,7 +324,7 @@
               <div class="size-3 rounded-full bg-warning/60"></div>
               <div class="size-3 rounded-full bg-success/60"></div>
               <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
-              <span class="ml-auto inline-flex items-center gap-1.5 border border-border bg-muted px-2 py-0.5 text-mockup-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <span class="ml-auto inline-flex items-center gap-1.5 border border-border bg-muted px-2 py-0.5 text-mockup-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 <span class="relative flex size-1.5">
                   <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
                   <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
@@ -546,7 +546,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 5: SOLUTION / FEATURES
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-muted py-16 sm:py-20 lg:py-24" id="features">
+  <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="features">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
@@ -727,7 +727,7 @@
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
               <span class="font-heading text-4xl leading-none text-foreground" data-numeric>01</span>
-              <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step1.time')}</span>
+              <span class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('home.how.step1.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step1.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step1.desc')}</p>
@@ -737,7 +737,7 @@
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
               <span class="font-heading text-4xl leading-none text-foreground" data-numeric>02</span>
-              <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step2.time')}</span>
+              <span class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('home.how.step2.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step2.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step2.desc')}</p>
@@ -747,7 +747,7 @@
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
               <span class="font-heading text-4xl leading-none text-foreground" data-numeric>03</span>
-              <span class="text-mockup-sm font-semibold uppercase tracking-[0.14em] text-muted-foreground">{t('home.how.step3.time')}</span>
+              <span class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('home.how.step3.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step3.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step3.desc')}</p>
@@ -775,7 +775,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 9: FAQ
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-muted py-16 sm:py-20 lg:py-24" id="faq">
+  <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="faq">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
