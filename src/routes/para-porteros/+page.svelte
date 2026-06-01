@@ -391,7 +391,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="portero-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-background/85">{t('audience.porteros.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('audience.porteros.finalCta.eyebrow')}</p>
       <h2 id="portero-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('audience.porteros.finalCta.title')}
       </h2>

@@ -646,7 +646,7 @@
 
     <!-- Countdown — dramatic editorial treatment -->
     <div class="mx-auto mt-10 max-w-3xl">
-      <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+      <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         <span class="relative flex size-2">
           <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
           <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
