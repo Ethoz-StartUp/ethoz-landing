@@ -149,13 +149,12 @@
   // Driven by an array so the card class string lives once instead of three times.
   const supportingFeatures: Array<{
     href: string;
-    numeral: string;
     titleKey: TranslationKey;
     descKey: TranslationKey;
   }> = [
-    { href: '/features/safe-pickups',  numeral: '02', titleKey: 'features.pickup.title', descKey: 'features.pickup.desc' },
-    { href: '/features/access-control', numeral: '03', titleKey: 'features.rbac.title',   descKey: 'features.rbac.desc' },
-    { href: '/features/smart-search',   numeral: '04', titleKey: 'features.search.title', descKey: 'features.search.desc' },
+    { href: '/features/safe-pickups',  titleKey: 'features.pickup.title', descKey: 'features.pickup.desc' },
+    { href: '/features/access-control', titleKey: 'features.rbac.title',   descKey: 'features.rbac.desc' },
+    { href: '/features/smart-search',   titleKey: 'features.search.title', descKey: 'features.search.desc' },
   ];
 </script>
 
@@ -256,7 +255,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 2: HERO — Stripe Press editorial
        ═══════════════════════════════════════════ -->
-  <section class="relative pt-20 sm:pt-24">
+  <section class="relative pt-28 sm:pt-32">
     <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-8 sm:px-6 sm:py-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 lg:px-8">
 
       <!-- Left column: headline + CTAs -->
@@ -352,13 +351,16 @@
                       <p class="text-xs text-muted-foreground">{activeStudent.grade}</p>
                     </div>
                     {#if activeStudent.hasAlert}
-                      <span class="inline-flex items-center gap-1 rounded-full bg-destructive/10 px-2.5 py-1 text-xs font-medium text-destructive">
-                        <AlertTriangle class="size-3" />
+                      <!-- Ink-on-tint (PastelBadge pattern): label text-foreground = AAA; red icon
+                           keeps the urgency cue and clears 3:1 graphical contrast on the /10 tint. -->
+                      <span class="inline-flex items-center gap-1 rounded-full bg-destructive/10 px-2.5 py-1 text-xs font-medium text-foreground">
+                        <AlertTriangle class="size-3 text-destructive" />
                         {activeStudent.alertText}
                       </span>
                     {:else}
-                      <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2.5 py-1 text-xs font-medium text-success">
-                        <Check class="size-3" />
+                      <!-- Safe state: foreground ink + icon (AAA); green tint carries the positive cue. -->
+                      <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2.5 py-1 text-xs font-medium text-foreground">
+                        <Check class="size-3 text-foreground" />
                         {t('hero.no_alerts')}
                       </span>
                     {/if}
@@ -504,14 +506,8 @@
        ═══════════════════════════════════════════ -->
   <section class="reveal py-16 sm:py-20 lg:py-24" id="problem">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-foreground">{t('problem.overline')}</span>
-          <span aria-hidden="true" class="text-muted-foreground/40">·</span>
-          <span>{t('home.problem_meta')}</span>
-        </p>
-        <h2 class="mt-4 text-balance text-foreground">
+        <h2 class="text-balance text-foreground">
           {t('problem.title')}
         </h2>
         <p class="mt-4 text-lg text-muted-foreground">
@@ -548,14 +544,8 @@
        ═══════════════════════════════════════════ -->
   <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="features">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-foreground">{t('solution.overline')}</span>
-          <span aria-hidden="true" class="text-muted-foreground/40">·</span>
-          <span>{t('home.solution_meta')}</span>
-        </p>
-        <h2 class="mt-4 text-balance text-foreground">
+        <h2 class="text-balance text-foreground">
           {t('solution.title')}
         </h2>
         <p class="mt-4 text-lg text-muted-foreground">
@@ -568,8 +558,7 @@
         <a href="/features/student-profile" class="group block rounded-xl border-l-2 border-foreground bg-card p-8 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover sm:p-10 lg:p-12">
           <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
             <div>
-              <span class="font-heading block text-5xl tabular-nums leading-none text-foreground sm:text-6xl">01</span>
-              <h3 class="mt-5 font-heading text-2xl leading-tight text-foreground sm:text-[1.75rem] lg:text-[2rem]">
+              <h3 class="font-heading text-2xl leading-tight text-foreground sm:text-[1.75rem] lg:text-[2rem]">
                 {t('features.record.title')}
               </h3>
               <p class="mt-4 text-base leading-relaxed text-body">
@@ -601,8 +590,7 @@
       <div class="mx-auto mt-5 grid max-w-5xl gap-5 sm:grid-cols-3">
         {#each supportingFeatures as feat (feat.href)}
           <a href={feat.href} class="group flex flex-col rounded-xl border-l-2 border-foreground bg-card p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover">
-            <span class="font-heading block text-3xl tabular-nums leading-none text-foreground">{feat.numeral}</span>
-            <h3 class="mt-3 font-heading text-lg leading-tight text-foreground">{t(feat.titleKey)}</h3>
+            <h3 class="font-heading text-lg leading-tight text-foreground">{t(feat.titleKey)}</h3>
             <p class="mt-2 flex-1 text-sm leading-relaxed text-body">{t(feat.descKey)}</p>
             <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-foreground pb-0.5 text-sm font-semibold text-foreground transition-all group-hover:gap-1.5 group-hover:border-b-2">
               {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
@@ -629,14 +617,8 @@
        SECTION 6: COMPLIANCE + COUNTDOWN
        ═══════════════════════════════════════════ -->
   <SectionDark variant="compliance" id="compliance">
-    <!-- Section header — editorial eyebrow pattern -->
     <div class="mx-auto max-w-2xl text-center">
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-        <span class="text-primary">{t('compliance.overline')}</span>
-        <span aria-hidden="true" class="text-border">·</span>
-        <span>{t('compliance.overline_detail')}</span>
-      </p>
-      <h2 class="mt-4 text-balance text-foreground">
+      <h2 class="text-balance text-foreground">
         {t('compliance.title')}
       </h2>
       <p class="mt-4 text-lg text-muted-foreground">
@@ -704,14 +686,8 @@
        ═══════════════════════════════════════════ -->
   <section class="reveal py-16 sm:py-20 lg:py-24" id="how">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <!-- Section header — editorial eyebrow pattern -->
       <div class="mx-auto max-w-2xl text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-foreground">{t('how.overline')}</span>
-          <span aria-hidden="true" class="text-muted-foreground/40">·</span>
-          <span>{t('home.how_meta')}</span>
-        </p>
-        <h2 class="mt-4 text-balance text-foreground">
+        <h2 class="text-balance text-foreground">
           {t('how.title')}
         </h2>
         <p class="mt-4 text-base text-muted-foreground sm:text-lg">
@@ -778,12 +754,7 @@
   <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="faq">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
-        <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          <span class="text-foreground">{t('faq.overline')}</span>
-          <span aria-hidden="true" class="text-muted-foreground/40">·</span>
-          <span>{t('home.faq_meta')}</span>
-        </p>
-        <h2 class="mt-4 text-balance text-foreground">
+        <h2 class="text-balance text-foreground">
           {t('faq.title')}
         </h2>
       </div>

@@ -345,7 +345,7 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: oklch(0 0 0 / 0.6);
+    background: var(--overlay);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     display: flex;
@@ -364,7 +364,7 @@
     background: var(--background);
     border-radius: 1rem;
     overflow: hidden;
-    box-shadow: 0 24px 48px oklch(0 0 0 / 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
     display: flex;
     flex-direction: column;
   }
@@ -396,7 +396,7 @@
     justify-content: center;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 8px oklch(0 0 0 / 0.06);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
     padding: 0;
   }
   .close-btn:hover { color: var(--foreground); background: var(--secondary); }
@@ -444,9 +444,9 @@
   .fw-500 { font-weight: 500; }
 
   .primary-text { color: var(--primary); }
-  .danger-text { color: oklch(0.45 0.2 25); }
-  .warn-text { color: oklch(0.5 0.12 85); }
-  .success-text { color: oklch(0.5 0.17 145); }
+  .danger-text { color: var(--destructive); }
+  .warn-text { color: var(--warning); }
+  .success-text { color: var(--success); }
 
   /* ── Logo ── */
   .logo-hero {
@@ -465,16 +465,16 @@
     gap: 0.375rem;
     padding: 0.4rem 1rem;
     border-radius: 9999px;
-    background: oklch(0.36 0.14 255 / 0.07);
+    background: color-mix(in srgb, var(--primary) 7%, transparent);
     color: var(--primary);
     font-size: 0.8rem;
     font-weight: 500;
-    border: 1px solid oklch(0.36 0.14 255 / 0.12);
+    border: 1px solid color-mix(in srgb, var(--primary) 12%, transparent);
   }
   .warn-pill {
-    background: oklch(0.75 0.15 85 / 0.07);
-    color: oklch(0.5 0.12 85);
-    border-color: oklch(0.75 0.15 85 / 0.12);
+    background: color-mix(in srgb, var(--warning) 7%, transparent);
+    color: var(--warning);
+    border-color: color-mix(in srgb, var(--warning) 12%, transparent);
   }
 
   /* ── Big numbers ── */
@@ -519,9 +519,9 @@
     justify-content: center;
   }
   .icon-box.warn {
-    background: oklch(0.75 0.15 85 / 0.08);
-    color: oklch(0.55 0.13 85);
-    border: 1px solid oklch(0.75 0.15 85 / 0.15);
+    background: color-mix(in srgb, var(--warning) 8%, transparent);
+    color: var(--warning);
+    border: 1px solid color-mix(in srgb, var(--warning) 15%, transparent);
   }
 
   .icon-accent {
@@ -547,7 +547,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    box-shadow: 0 1px 3px oklch(0 0 0 / 0.04);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
   }
   .fcard h3 { font-size: 1.1rem; font-weight: 600; color: var(--foreground); }
   .fcard p { font-size: 0.85rem; color: var(--muted-foreground); line-height: 1.45; }
@@ -561,18 +561,18 @@
     justify-content: center;
   }
   .ficon.lg { width: 4rem; height: 4rem; border-radius: 0.875rem; }
-  .primary-bg { background: oklch(0.36 0.14 255 / 0.07); color: var(--primary); border: 1px solid oklch(0.36 0.14 255 / 0.1); }
-  .danger-bg { background: oklch(0.55 0.22 25 / 0.07); color: oklch(0.5 0.2 25); border: 1px solid oklch(0.55 0.22 25 / 0.1); }
-  .success-bg { background: oklch(0.62 0.19 145 / 0.07); color: oklch(0.5 0.17 145); border: 1px solid oklch(0.62 0.19 145 / 0.1); }
+  .primary-bg { background: color-mix(in srgb, var(--primary) 7%, transparent); color: var(--primary); border: 1px solid color-mix(in srgb, var(--primary) 10%, transparent); }
+  .danger-bg { background: color-mix(in srgb, var(--destructive) 7%, transparent); color: var(--destructive); border: 1px solid color-mix(in srgb, var(--destructive) 10%, transparent); }
+  .success-bg { background: color-mix(in srgb, var(--success) 7%, transparent); color: var(--success); border: 1px solid color-mix(in srgb, var(--success) 10%, transparent); }
 
-  .connector { width: 2.5rem; height: 2px; background: oklch(0.36 0.14 255 / 0.15); flex-shrink: 0; }
+  .connector { width: 2.5rem; height: 2px; background: color-mix(in srgb, var(--primary) 15%, transparent); flex-shrink: 0; }
 
   /* ── Info card ── */
   .card-light {
     padding: 1rem 1.75rem;
     border-radius: 0.75rem;
-    background: oklch(0.36 0.14 255 / 0.04);
-    border: 1px solid oklch(0.36 0.14 255 / 0.08);
+    background: color-mix(in srgb, var(--primary) 4%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 8%, transparent);
   }
   .card-text { font-size: 1.1rem; color: var(--foreground); line-height: 1.5; }
 
@@ -586,9 +586,9 @@
     font-size: 0.8rem;
   }
   .callout.danger {
-    background: oklch(0.55 0.22 25 / 0.05);
-    color: oklch(0.45 0.18 25);
-    border: 1px solid oklch(0.55 0.22 25 / 0.1);
+    background: color-mix(in srgb, var(--destructive) 5%, transparent);
+    color: var(--destructive);
+    border: 1px solid color-mix(in srgb, var(--destructive) 10%, transparent);
   }
 
   /* ── Severity ── */
@@ -603,13 +603,13 @@
     border: 1px solid var(--border);
   }
   .sev-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-  .sev-dot.leve { background: oklch(0.7 0.15 85); box-shadow: 0 0 6px oklch(0.7 0.15 85 / 0.3); }
-  .sev-dot.grave { background: oklch(0.6 0.18 55); box-shadow: 0 0 6px oklch(0.6 0.18 55 / 0.3); }
-  .sev-dot.gravisima { background: oklch(0.5 0.2 25); box-shadow: 0 0 6px oklch(0.5 0.2 25 / 0.3); }
+  .sev-dot.leve { background: var(--warning); }
+  .sev-dot.grave { background: var(--warning); }
+  .sev-dot.gravisima { background: var(--destructive); }
   .sev-name { font-weight: 600; font-size: 1rem; flex: 1; text-align: left; }
-  .leve-text { color: oklch(0.5 0.12 85); }
-  .grave-text { color: oklch(0.45 0.15 55); }
-  .gravisima-text { color: oklch(0.4 0.18 25); }
+  .leve-text { color: var(--warning); }
+  .grave-text { color: var(--warning); }
+  .gravisima-text { color: var(--destructive); }
   .sev-range { font-size: 0.8rem; color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
 
   /* ── Shield glow ── */
@@ -620,7 +620,7 @@
   /* ── Check list ── */
   .check-list { display: flex; flex-direction: column; gap: 0.5rem; }
   .check-item { display: flex; align-items: center; gap: 0.6rem; font-size: 0.95rem; color: var(--foreground); }
-  .check-item :global(svg) { color: oklch(0.5 0.17 145); flex-shrink: 0; }
+  .check-item :global(svg) { color: var(--success); flex-shrink: 0; }
 
   /* ── Label row ── */
   .label-row {
@@ -646,9 +646,9 @@
     font-weight: 600;
     text-decoration: none;
     transition: all 0.25s ease;
-    box-shadow: 0 4px 16px oklch(0.36 0.14 255 / 0.18);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
   }
-  .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 24px oklch(0.36 0.14 255 / 0.25); }
+  .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); } /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
 
   /* ═══ SUBTITLE BAR ═══ */
   .subtitle-bar {
@@ -668,11 +668,11 @@
     color: var(--foreground);
     line-height: 1.6;
     padding: 0.625rem 1.25rem;
-    background: oklch(1 0 0 / 0.88);
+    background: color-mix(in srgb, var(--background) 88%, transparent);
     backdrop-filter: blur(12px);
     border-radius: 0.625rem;
     border: 1px solid var(--border);
-    box-shadow: 0 2px 8px oklch(0 0 0 / 0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
   }
 
   /* ═══ CONTROLS ═══ */
@@ -682,12 +682,12 @@
     left: 0;
     right: 0;
     padding: 0.5rem 1rem 0.75rem;
-    background: linear-gradient(to top, oklch(1 0 0 / 0.96) 0%, oklch(1 0 0 / 0) 100%);
+    background: linear-gradient(to top, color-mix(in srgb, var(--background) 96%, transparent) 0%, color-mix(in srgb, var(--background) 0%, transparent) 100%);
     z-index: 20;
   }
 
   .progress { width: 100%; padding: 0.4rem 0; cursor: pointer; }
-  .track { height: 3px; background: oklch(0.9 0 0); border-radius: 2px; position: relative; transition: height 0.15s ease; }
+  .track { height: 3px; background: var(--border); border-radius: 2px; position: relative; transition: height 0.15s ease; }
   .progress:hover .track { height: 5px; }
   .fill { height: 100%; background: var(--primary); border-radius: 2px; position: relative; transition: width 0.1s linear; }
   .fill::after {
@@ -703,8 +703,8 @@
     transition: transform 0.15s ease;
   }
   .progress:hover .fill::after { transform: translateY(-50%) scale(1); }
-  .marker { position: absolute; top: -1px; width: 2px; height: calc(100% + 2px); background: oklch(0.88 0 0); }
-  .marker.active { background: oklch(0.36 0.14 255 / 0.25); }
+  .marker { position: absolute; top: -1px; width: 2px; height: calc(100% + 2px); background: var(--border); }
+  .marker.active { background: color-mix(in srgb, var(--primary) 25%, transparent); }
 
   .ctrl-row { display: flex; align-items: center; justify-content: space-between; padding: 0.125rem 0; gap: 0.5rem; }
   .time { font-size: 0.75rem; color: var(--muted-foreground); font-variant-numeric: tabular-nums; min-width: 5rem; }
@@ -729,16 +729,16 @@
   .cb:hover { color: var(--foreground); background: var(--secondary); }
   .cb:disabled { opacity: 0.3; pointer-events: none; }
   .cb.play { width: 2.75rem; height: 2.75rem; background: var(--primary); color: var(--primary-foreground); }
-  .cb.play:hover { background: oklch(0.48 0.21 264); color: var(--primary-foreground); transform: scale(1.05); }
+  .cb.play:hover { background: var(--primary-active); color: var(--primary-foreground); transform: scale(1.05); }
 
   .dots { display: flex; justify-content: center; gap: 0.3rem; padding-top: 0.375rem; }
   .dot {
     width: 8px; height: 8px; border-radius: 9999px; border: none;
-    background: oklch(0.85 0 0); cursor: pointer; padding: 10px; box-sizing: content-box;
+    background: var(--border); cursor: pointer; padding: 10px; box-sizing: content-box;
     background-clip: content-box; transition: all 0.3s ease;
   }
   .dot.active { width: 1.25rem; background: var(--primary); background-clip: content-box; }
-  .dot:hover:not(.active) { background: oklch(0.7 0 0); }
+  .dot:hover:not(.active) { background: var(--muted-soft); }
 
   @media (max-width: 500px) {
     .slide-area { padding-bottom: 2rem; }

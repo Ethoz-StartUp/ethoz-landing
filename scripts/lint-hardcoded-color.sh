@@ -1,18 +1,32 @@
 #!/usr/bin/env bash
 # lint-hardcoded-color.sh
-# Bans hardcoded hex literals in .svelte files (outside <style> blocks).
-# Anti-pattern memory #7. Tokens live in app.css; components use Tailwind utilities.
+# Bans hardcoded color literals in .svelte files (markup AND component-scoped
+# <style> blocks). Anti-pattern memory #7. Tokens live in app.css; components
+# reference them via Tailwind utilities or var(--token) / color-mix().
+#
+# Coverage:
+#   - Hex literals: #rrggbb / #rgb (e.g. #111111, #F5F5F5, #FBF7F0, #0F1F3A).
+#   - Non-hex color-function literals: oklch( , rgb( , rgba( , hsl( , hsla( .
+#     These slipped past the old hex-only matcher (e.g. /pitch's scoped <style>
+#     hardcoded ~69 oklch() literals — 26 at the abandoned medical-blue hue 255 —
+#     plus glow shadows — none of which the hex pattern could see).
+#
+# NOT flagged (these ARE the correct token-based patterns):
+#   - var(--token)            — design-token reference
+#   - color-mix(...)          — token-based blend / alpha (the sanctioned way to
+#                               keep transparency while staying on a token)
 #
 # Common offenders to catch in current era (Stripe Press migration):
 #   - Old Cal palette leaks: #111111, #F5F5F5, #101010, #FFFFFF
 #   - New Stripe Press hexes that should reference tokens: #FBF7F0, #0F1F3A,
 #     #D4A017, #B23A2C, #4A6B47, #FBF7F0, #0A1628
+#   - Legacy medical-blue oklch leaks: oklch(0.36 0.14 255 / ...) etc.
 #
 # Allowed exceptions:
 #   - SVG attributes inside data: URLs (rare) — caught by content matching
-#   - Inline <style> blocks (component-scoped) — must use tokens
-#   - Lines annotated with `// lint-ok` (above or inline) for legitimate
-#     SDK config / raw HTML strings.
+#   - Lines annotated with `// lint-ok` (CSS `/* lint-ok */` also works) on the
+#     same line or the line above, for legitimate SDK config / raw HTML strings /
+#     data-URL SVG / brand colors.
 #
 # WARN_MODE=1 default during P1/P2 migration; flips to error in P6.
 
@@ -22,8 +36,11 @@ cd "$(dirname "$0")/.."
 
 WARN_MODE="${WARN_MODE:-0}"  # P6 flipped default from 1→0 (strict by default after Stripe Press migration completed)
 
-# 6 or 3 char hex with #
-PATTERN='#[0-9a-fA-F]{6}\b|#[0-9a-fA-F]{3}\b'
+# 6 or 3 char hex with #, plus non-hex color-function literals.
+# color-mix( and var( are intentionally excluded — they are the token-based
+# patterns we WANT. The function matchers require an opening paren so the bare
+# word inside color-mix(in oklch, ...) is never matched on its own.
+PATTERN='#[0-9a-fA-F]{6}\b|#[0-9a-fA-F]{3}\b|oklch\(|rgba?\(|hsla?\('
 
 HITS=$(grep -rEn "$PATTERN" \
   src/routes src/lib/components \

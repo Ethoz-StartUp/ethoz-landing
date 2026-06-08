@@ -148,11 +148,11 @@
   :global(.prose p) {
     margin-bottom: 1.25rem;
     line-height: 1.75;
-    color: oklch(var(--muted-foreground));
+    color: var(--muted-foreground);
   }
 
   :global(.prose strong) {
-    color: oklch(var(--foreground));
+    color: var(--foreground);
     font-weight: 600;
   }
 
@@ -165,15 +165,15 @@
   :global(.prose li) {
     margin-bottom: 0.5rem;
     line-height: 1.75;
-    color: oklch(var(--muted-foreground));
+    color: var(--muted-foreground);
   }
 
   :global(.prose blockquote) {
-    border-left: 3px solid oklch(var(--primary));
+    border-left: 3px solid var(--primary);
     padding-left: 1rem;
     margin: 1.5rem 0;
     font-style: italic;
-    color: oklch(var(--muted-foreground));
+    color: var(--muted-foreground);
   }
 
   :global(.prose table) {
@@ -185,19 +185,19 @@
 
   :global(.prose th),
   :global(.prose td) {
-    border: 1px solid oklch(var(--border));
+    border: 1px solid var(--border);
     padding: 0.625rem 0.75rem;
     text-align: left;
   }
 
   :global(.prose th) {
-    background: oklch(var(--muted));
+    background: var(--muted);
     font-weight: 600;
-    color: oklch(var(--foreground));
+    color: var(--foreground);
   }
 
   :global(.prose td) {
-    color: oklch(var(--muted-foreground));
+    color: var(--muted-foreground);
   }
 
   :global(.prose figure) {
@@ -227,13 +227,13 @@
   :global(.prose figcaption) {
     text-align: center;
     font-size: 0.75rem;
-    color: oklch(var(--muted-foreground));
+    color: var(--muted-foreground);
     margin-top: 0.375rem;
     font-style: italic;
   }
 
   :global(.prose a) {
-    color: oklch(var(--primary));
+    color: var(--primary);
     text-decoration: underline;
     text-underline-offset: 2px;
     transition: opacity 0.2s;
@@ -244,7 +244,7 @@
   }
 
   :global(.prose hr) {
-    border-color: oklch(var(--border));
+    border-color: var(--border);
     margin: 2.5rem 0;
   }
 </style>

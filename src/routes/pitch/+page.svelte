@@ -613,7 +613,7 @@
   .logo-main {
     height: clamp(3.5rem, 8vw, 5.5rem);
     width: auto;
-    filter: drop-shadow(0 2px 12px oklch(0.36 0.14 255 / 0.12));
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08)); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
     animation: float 3s ease-in-out infinite;
   }
 
@@ -629,11 +629,11 @@
     align-items: center;
     padding: 0.5rem 1.25rem;
     border-radius: 9999px;
-    background: oklch(0.36 0.14 255 / 0.08);
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
     color: var(--primary);
     font-size: 0.875rem;
     font-weight: 500;
-    border: 1px solid oklch(0.36 0.14 255 / 0.15);
+    border: 1px solid color-mix(in srgb, var(--primary) 15%, transparent);
   }
 
   /* ═══ SLIDE: Problem ═══ */
@@ -666,9 +666,9 @@
   }
 
   .icon-warning {
-    background: oklch(0.75 0.15 85 / 0.1);
-    color: oklch(0.6 0.15 85);
-    border: 1px solid oklch(0.75 0.15 85 / 0.2);
+    background: color-mix(in srgb, var(--warning) 10%, transparent);
+    color: var(--warning);
+    border: 1px solid color-mix(in srgb, var(--warning) 20%, transparent);
   }
 
   .scatter-1 { transform: rotate(-3deg); }
@@ -681,10 +681,10 @@
     gap: 0.75rem;
     padding: 0.875rem 1.5rem;
     border-radius: 0.75rem;
-    background: oklch(0.55 0.22 25 / 0.06);
-    color: oklch(0.45 0.18 25);
+    background: color-mix(in srgb, var(--destructive) 6%, transparent);
+    color: var(--destructive);
     font-size: 0.9rem;
-    border: 1px solid oklch(0.55 0.22 25 / 0.12);
+    border: 1px solid color-mix(in srgb, var(--destructive) 12%, transparent);
   }
 
   /* ═══ SLIDE: Law ═══ */
@@ -692,7 +692,6 @@
 
   .law-icon {
     color: var(--primary);
-    filter: drop-shadow(0 0 16px oklch(0.36 0.14 255 / 0.2));
   }
 
   .law-subtitle {
@@ -705,8 +704,8 @@
     margin-top: 0.5rem;
     padding: 1.25rem 2rem;
     border-radius: 0.75rem;
-    background: oklch(0.36 0.14 255 / 0.05);
-    border: 1px solid oklch(0.36 0.14 255 / 0.1);
+    background: color-mix(in srgb, var(--primary) 5%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 10%, transparent);
   }
 
   .impact-text {
@@ -722,7 +721,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: oklch(0.6 0.15 85);
+    color: var(--warning);
     font-size: 0.875rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -744,7 +743,7 @@
 
   .date-days {
     font-size: 1rem;
-    color: oklch(0.6 0.15 85);
+    color: var(--warning);
     font-variant-numeric: tabular-nums;
   }
 
@@ -759,7 +758,7 @@
   .fine-number {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 700;
-    color: oklch(0.45 0.2 25);
+    color: var(--destructive);
     font-variant-numeric: tabular-nums;
     letter-spacing: -0.02em;
   }
@@ -767,7 +766,7 @@
   .fine-unit {
     font-size: 0.6em;
     font-weight: 500;
-    color: oklch(0.5 0.15 25);
+    color: var(--destructive);
   }
 
   .fine-equiv {
@@ -777,7 +776,7 @@
 
   .fine-clp {
     font-weight: 600;
-    color: oklch(0.45 0.2 25);
+    color: var(--destructive);
   }
 
   .fines-label {
@@ -813,9 +812,9 @@
     flex-shrink: 0;
   }
 
-  .severity-leve .severity-dot { background: oklch(0.7 0.15 85); box-shadow: 0 0 8px oklch(0.7 0.15 85 / 0.35); }
-  .severity-grave .severity-dot { background: oklch(0.6 0.18 55); box-shadow: 0 0 8px oklch(0.6 0.18 55 / 0.35); }
-  .severity-gravisima .severity-dot { background: oklch(0.5 0.2 25); box-shadow: 0 0 8px oklch(0.5 0.2 25 / 0.35); }
+  .severity-leve .severity-dot { background: var(--warning); }
+  .severity-grave .severity-dot { background: var(--warning); }
+  .severity-gravisima .severity-dot { background: var(--destructive); }
 
   .severity-label {
     font-weight: 600;
@@ -824,9 +823,9 @@
     text-align: left;
   }
 
-  .severity-leve .severity-label { color: oklch(0.5 0.12 85); }
-  .severity-grave .severity-label { color: oklch(0.45 0.15 55); }
-  .severity-gravisima .severity-label { color: oklch(0.4 0.18 25); }
+  .severity-leve .severity-label { color: var(--warning); }
+  .severity-grave .severity-label { color: var(--warning); }
+  .severity-gravisima .severity-label { color: var(--destructive); }
 
   .severity-range {
     font-size: 0.875rem;
@@ -845,8 +844,7 @@
 
   .shield-pulse {
     color: var(--primary);
-    filter: drop-shadow(0 0 30px oklch(0.36 0.14 255 / 0.3));
-    animation: pulse-glow 2s ease-in-out infinite;
+    animation: pulse-subtle 2s ease-in-out infinite;
   }
 
   .solution-title {
@@ -886,12 +884,12 @@
     flex-direction: column;
     gap: 0.75rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 1px 3px oklch(0 0 0 / 0.04);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
   }
 
   .feature-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px oklch(0 0 0 / 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
   }
 
   .feature-card h3 {
@@ -916,21 +914,21 @@
   }
 
   .icon-primary {
-    background: oklch(0.36 0.14 255 / 0.08);
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
     color: var(--primary);
-    border: 1px solid oklch(0.36 0.14 255 / 0.12);
+    border: 1px solid color-mix(in srgb, var(--primary) 12%, transparent);
   }
 
   .icon-destructive {
-    background: oklch(0.55 0.22 25 / 0.08);
-    color: oklch(0.5 0.2 25);
-    border: 1px solid oklch(0.55 0.22 25 / 0.12);
+    background: color-mix(in srgb, var(--destructive) 8%, transparent);
+    color: var(--destructive);
+    border: 1px solid color-mix(in srgb, var(--destructive) 12%, transparent);
   }
 
   .icon-success {
-    background: oklch(0.62 0.19 145 / 0.08);
-    color: oklch(0.5 0.17 145);
-    border: 1px solid oklch(0.62 0.19 145 / 0.12);
+    background: color-mix(in srgb, var(--success) 8%, transparent);
+    color: var(--success);
+    border: 1px solid color-mix(in srgb, var(--success) 12%, transparent);
   }
 
   /* ═══ SLIDE: Implementation ═══ */
@@ -959,7 +957,7 @@
     right: 0.75rem;
     font-size: 0.75rem;
     font-weight: 700;
-    color: oklch(0.36 0.14 255 / 0.4);
+    color: color-mix(in srgb, var(--primary) 40%, transparent);
     font-variant-numeric: tabular-nums;
   }
 
@@ -970,9 +968,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: oklch(0.36 0.14 255 / 0.06);
+    background: color-mix(in srgb, var(--primary) 6%, transparent);
     color: var(--primary);
-    border: 1px solid oklch(0.36 0.14 255 / 0.12);
+    border: 1px solid color-mix(in srgb, var(--primary) 12%, transparent);
   }
 
   .step-label {
@@ -985,7 +983,7 @@
   .step-connector {
     width: 3rem;
     height: 2px;
-    background: linear-gradient(90deg, oklch(0.36 0.14 255 / 0.2), oklch(0.36 0.14 255 / 0.05));
+    background: linear-gradient(90deg, color-mix(in srgb, var(--primary) 20%, transparent), color-mix(in srgb, var(--primary) 5%, transparent));
     flex-shrink: 0;
   }
 
@@ -995,7 +993,7 @@
 
   .impl-note {
     font-size: 1rem;
-    color: oklch(0.5 0.17 145);
+    color: var(--success);
     font-weight: 500;
   }
 
@@ -1006,7 +1004,6 @@
     display: flex;
     gap: 1.5rem;
     color: var(--primary);
-    filter: drop-shadow(0 0 16px oklch(0.36 0.14 255 / 0.15));
   }
 
   .sec-icon-wrap {
@@ -1016,8 +1013,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: oklch(0.36 0.14 255 / 0.06);
-    border: 1px solid oklch(0.36 0.14 255 / 0.1);
+    background: color-mix(in srgb, var(--primary) 6%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 10%, transparent);
   }
 
   .security-badges {
@@ -1036,7 +1033,7 @@
   }
 
   .sec-badge :global(svg) {
-    color: oklch(0.5 0.17 145);
+    color: var(--success);
     flex-shrink: 0;
   }
 
@@ -1044,8 +1041,7 @@
   .slide-urgency { gap: 1.25rem; }
 
   .urgency-icon {
-    color: oklch(0.6 0.15 85);
-    filter: drop-shadow(0 0 16px oklch(0.7 0.15 85 / 0.2));
+    color: var(--warning);
   }
 
   .urgency-title {
@@ -1067,11 +1063,11 @@
     gap: 0.5rem;
     padding: 0.625rem 1.25rem;
     border-radius: 9999px;
-    background: oklch(0.75 0.15 85 / 0.08);
-    color: oklch(0.5 0.12 85);
+    background: color-mix(in srgb, var(--warning) 8%, transparent);
+    color: var(--warning);
     font-size: 0.875rem;
     font-weight: 500;
-    border: 1px solid oklch(0.75 0.15 85 / 0.15);
+    border: 1px solid color-mix(in srgb, var(--warning) 15%, transparent);
     animation: pulse-subtle 2s ease-in-out infinite;
   }
 
@@ -1087,7 +1083,7 @@
   .logo-cta {
     height: clamp(2.5rem, 5vw, 4rem);
     width: auto;
-    filter: drop-shadow(0 2px 12px oklch(0.36 0.14 255 / 0.12));
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.08)); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
   }
 
   .cta-title {
@@ -1114,12 +1110,12 @@
     font-weight: 600;
     text-decoration: none;
     transition: all 0.25s ease;
-    box-shadow: 0 4px 20px oklch(0.36 0.14 255 / 0.2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
   }
 
   .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px oklch(0.36 0.14 255 / 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
   }
 
   .cta-button:active {
@@ -1150,11 +1146,11 @@
     color: var(--foreground);
     line-height: 1.6;
     padding: 0.75rem 1.5rem;
-    background: oklch(1 0 0 / 0.85);
+    background: color-mix(in srgb, var(--background) 85%, transparent);
     backdrop-filter: blur(16px);
     border-radius: 0.75rem;
     border: 1px solid var(--border);
-    box-shadow: 0 2px 12px oklch(0 0 0 / 0.06);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
   }
 
   /* ═══ CONTROLS BAR ═══ */
@@ -1164,7 +1160,7 @@
     left: 0;
     right: 0;
     padding: 0.75rem 1.5rem 1rem;
-    background: linear-gradient(to top, oklch(1 0 0 / 0.95) 0%, oklch(1 0 0 / 0) 100%);
+    background: linear-gradient(to top, color-mix(in srgb, var(--background) 95%, transparent) 0%, color-mix(in srgb, var(--background) 0%, transparent) 100%);
     opacity: 0;
     transition: opacity 0.4s ease;
     z-index: 20;
@@ -1183,7 +1179,7 @@
 
   .progress-track {
     height: 3px;
-    background: oklch(0.9 0 0);
+    background: var(--border);
     border-radius: 2px;
     position: relative;
     transition: height 0.15s ease;
@@ -1223,12 +1219,12 @@
     top: -1px;
     width: 2px;
     height: calc(100% + 2px);
-    background: oklch(0.85 0 0);
+    background: var(--border);
     transition: background 0.3s ease;
   }
 
   .slide-marker.active {
-    background: oklch(0.36 0.14 255 / 0.3);
+    background: color-mix(in srgb, var(--primary) 30%, transparent);
   }
 
   /* Controls row */
@@ -1283,7 +1279,7 @@
 
   .ctrl-btn:hover {
     color: var(--foreground);
-    background: oklch(0.95 0 0);
+    background: var(--surface-soft);
   }
 
   .ctrl-btn:disabled {
@@ -1299,7 +1295,7 @@
   }
 
   .ctrl-play:hover {
-    background: oklch(0.48 0.21 264);
+    background: var(--primary-active);
     color: var(--primary-foreground);
     transform: scale(1.05);
   }
@@ -1317,7 +1313,7 @@
     height: 8px;
     border-radius: 9999px;
     border: none;
-    background: oklch(0.85 0 0);
+    background: var(--border);
     cursor: pointer;
     padding: 10px;
     box-sizing: content-box;
@@ -1332,7 +1328,7 @@
   }
 
   .dot:hover:not(.active) {
-    background: oklch(0.7 0 0);
+    background: var(--muted-soft);
   }
 
   /* ═══ START OVERLAY ═══ */
@@ -1344,7 +1340,7 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    background: oklch(1 0 0 / 0.9);
+    background: color-mix(in srgb, var(--background) 90%, transparent);
     backdrop-filter: blur(20px);
     z-index: 30;
   }
@@ -1364,17 +1360,16 @@
     font-size: 1.125rem;
     font-weight: 500;
     font-family: inherit;
-    box-shadow: 0 4px 24px oklch(0 0 0 / 0.06);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
   }
 
   .start-button :global(svg) {
     color: var(--primary);
-    filter: drop-shadow(0 0 16px oklch(0.36 0.14 255 / 0.3));
   }
 
   .start-button:hover {
-    border-color: oklch(0.36 0.14 255 / 0.2);
-    box-shadow: 0 8px 32px oklch(0 0 0 / 0.1);
+    border-color: color-mix(in srgb, var(--primary) 20%, transparent);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* lint-ok: flat brand shadow (no rgba-black token in app.css) */
     transform: scale(1.02);
   }
 
@@ -1389,11 +1384,6 @@
     50% { transform: translateY(-8px); }
   }
 
-  @keyframes pulse-glow {
-    0%, 100% { filter: drop-shadow(0 0 24px oklch(0.36 0.14 255 / 0.2)); }
-    50% { filter: drop-shadow(0 0 40px oklch(0.36 0.14 255 / 0.35)); }
-  }
-
   @keyframes pulse-subtle {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.7; }
@@ -1402,7 +1392,7 @@
   /* ── Subtitle toggle active state ── */
   .ctrl-active {
     color: var(--primary) !important;
-    background: oklch(0.36 0.14 255 / 0.1);
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
   }
 
   .hidden-mobile { display: inline-flex; }
