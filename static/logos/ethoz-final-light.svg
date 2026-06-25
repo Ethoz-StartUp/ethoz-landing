@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 48" role="img" aria-labelledby="final-l-title final-l-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 48" role="img" aria-labelledby="final-l-title final-l-desc">
   <title id="final-l-title">Ethoz</title>
-  <desc id="final-l-desc">Ethoz logo — intersect mark with accent Z, light version (for light surfaces)</desc>
-  <g transform="translate(2, 0)">
-    <rect x="2" y="8" width="24" height="34" fill="none" stroke="#051C2C" stroke-width="2.4"/>
-    <rect x="14" y="4" width="24" height="34" fill="none" stroke="#1F77C9" stroke-width="2.4"/>
+  <desc id="final-l-desc">Ethoz logo — interseccion mark with accent Z, light version (for cream / light surfaces)</desc>
+  <g transform="translate(4, 8)">
+    <rect x="0" y="2" width="20" height="24" rx="6" fill="none" stroke="#18181B" stroke-width="2.6"/>
+    <rect x="11" y="-2" width="20" height="24" rx="6" fill="none" stroke="#0495FE" stroke-width="2.6"/>
   </g>
-  <text x="56" y="35" font-family="'Playfair Display', 'Times New Roman', Georgia, serif" font-size="36" font-weight="500" letter-spacing="-0.5">
-    <tspan fill="#051C2C">Etho</tspan><tspan fill="#034B8A">z</tspan>
+  <text x="58" y="33" font-family="'DM Sans Variable','DM Sans',-apple-system,BlinkMacSystemFont,sans-serif" font-size="30" font-weight="800" letter-spacing="-1.2">
+    <tspan fill="#18181B">Etho</tspan><tspan fill="#0495FE">z</tspan>
   </text>
 </svg>

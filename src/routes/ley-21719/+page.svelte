@@ -167,7 +167,7 @@
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Eyebrow metadata line -->
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">{t('ley21719.hero_eyebrow_doc')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('ley21719.hero_eyebrow_updated')}</span>
@@ -191,19 +191,19 @@
       <!-- Metadata footer, McKinsey-style -->
       <dl class="mt-10 grid grid-cols-2 gap-6 border-t border-border pt-6 sm:grid-cols-4">
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.hero_meta_promulgated_label')}</dt>
+          <dt class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('ley21719.hero_meta_promulgated_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground" data-numeric>13 dic 2024</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.hero_meta_enforcement_label')}</dt>
+          <dt class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('ley21719.hero_meta_enforcement_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground" data-numeric>Dic 2026</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.hero_meta_maxfine_label')}</dt>
+          <dt class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('ley21719.hero_meta_maxfine_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground" data-numeric>20.000 UTM</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.hero_meta_regulator_label')}</dt>
+          <dt class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('ley21719.hero_meta_regulator_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">{t('ley21719.hero_meta_regulator_value')}</dd>
         </div>
       </dl>
@@ -218,7 +218,7 @@
 
       <!-- Sticky TOC (desktop) / inline (mobile) -->
       <aside class="lg:sticky lg:top-24 lg:self-start">
-        <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.toc_heading')}</p>
+        <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('ley21719.toc_heading')}</p>
         <nav class="mt-4 border-l border-border" aria-label={t('ley21719.toc_aria_label')}>
           <ol class="space-y-1">
             {#each toc as item}
@@ -241,7 +241,7 @@
 
         <!-- SECCIÓN 1: QUÉ ES -->
         <section id="que-es">
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('ley21719.s1_eyebrow')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('ley21719.s1_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('ley21719.s1_heading')}</h2>
           <div class="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
             <p>
@@ -262,7 +262,7 @@
 
           <!-- Key date footnote -->
           <aside class="mt-10 border-t border-border pt-6">
-            <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.s1_keydate_label')}</p>
+            <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('ley21719.s1_keydate_label')}</p>
             <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
               {t('ley21719.s1_keydate_pre')}<strong class="text-foreground">{t('ley21719.s1_keydate_strong1')}</strong>{t('ley21719.s1_keydate_mid')}<strong class="text-foreground">{t('ley21719.s1_keydate_strong2')}</strong>{t('ley21719.s1_keydate_post')}<sup class="ml-0.5 text-primary">1</sup>
             </p>
@@ -271,7 +271,7 @@
 
         <!-- SECCIÓN 2: A QUIÉN APLICA -->
         <section id="a-quien-aplica">
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('ley21719.s2_eyebrow')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('ley21719.s2_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('ley21719.s2_heading')}</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             {t('ley21719.s2_intro')}
@@ -298,7 +298,7 @@
 
         <!-- SECCIÓN 3: PRINCIPIOS -->
         <section id="principios">
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('ley21719.s3_eyebrow')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('ley21719.s3_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('ley21719.s3_heading')}</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             {t('ley21719.s3_intro')}
@@ -325,7 +325,7 @@
 
         <!-- SECCIÓN 4: DERECHOS ARCO+P -->
         <section id="derechos-arco">
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('ley21719.s4_eyebrow')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('ley21719.s4_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('ley21719.s4_heading')}</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             {t('ley21719.s4_intro_pre')}<strong class="text-foreground">{t('ley21719.s4_intro_strong')}</strong>{t('ley21719.s4_intro_post')}<sup class="ml-0.5 text-primary">3</sup>
@@ -342,7 +342,7 @@
             {/each}
           </div>
           <aside class="mt-8 border-t border-border pt-6">
-            <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.s4_minors_label')}</p>
+            <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('ley21719.s4_minors_label')}</p>
             <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
               {t('ley21719.s4_minors_body')}
             </p>
@@ -351,7 +351,7 @@
 
         <!-- SECCIÓN 5: OBLIGACIONES -->
         <section id="obligaciones">
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('ley21719.s5_eyebrow')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('ley21719.s5_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('ley21719.s5_heading')}</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             {t('ley21719.s5_intro')}
@@ -368,7 +368,7 @@
               <div class="grid gap-3 py-6 sm:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] sm:gap-8">
                 <dt>
                   <p class="font-semibold text-foreground">{t(item.titleKey)}</p>
-                  <p class="mt-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{item.ref} · {t('ley21719.s5_ref_law')}</p>
+                  <p class="mt-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{item.ref} · {t('ley21719.s5_ref_law')}</p>
                 </dt>
                 <dd class="text-sm leading-relaxed text-muted-foreground">{t(item.bodyKey)}</dd>
               </div>
@@ -378,7 +378,7 @@
 
         <!-- SECCIÓN 6: MULTAS -->
         <section id="multas">
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('ley21719.s6_eyebrow')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('ley21719.s6_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('ley21719.s6_heading')}</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             {t('ley21719.s6_intro_pre')}<strong class="text-foreground">{t('ley21719.s6_intro_strong')}</strong>{t('ley21719.s6_intro_post')}
@@ -399,7 +399,7 @@
             {/each}
           </div>
           <aside class="mt-8 border-t border-border pt-6">
-            <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.s6_note_label')}</p>
+            <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('ley21719.s6_note_label')}</p>
             <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
               {t('ley21719.s6_note_pre')}<strong class="text-foreground">{t('ley21719.s6_note_strong')}</strong>{t('ley21719.s6_note_post')}
             </p>
@@ -408,7 +408,7 @@
 
         <!-- SECCIÓN 7: PLAZOS -->
         <section id="plazos">
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('ley21719.s7_eyebrow')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('ley21719.s7_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('ley21719.s7_heading')}</h2>
           <ol class="mt-8 divide-y divide-border border-y border-border">
             {#each timeline as item}
@@ -425,7 +425,7 @@
 
         <!-- SECCIÓN 8: CHECKLIST -->
         <section id="checklist">
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('ley21719.s8_eyebrow')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('ley21719.s8_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('ley21719.s8_heading')}</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             {t('ley21719.s8_intro')}
@@ -446,7 +446,7 @@
 
         <!-- SECCIÓN 9: CÓMO AYUDA ETHOZ -->
         <section id="como-ayuda-ethoz">
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('ley21719.s9_eyebrow')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('ley21719.s9_eyebrow')}</p>
           <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('ley21719.s9_heading')}</h2>
           <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
             {t('ley21719.s9_intro')}
@@ -471,7 +471,7 @@
 
         <!-- Footnotes -->
         <footer class="border-t border-border pt-8">
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('ley21719.refs_label')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('ley21719.refs_label')}</p>
           <ol class="mt-4 space-y-2 text-xs leading-relaxed text-muted-foreground">
             <li class="flex gap-2"><sup class="text-primary shrink-0">1</sup><span>{t('ley21719.ref_1')}</span></li>
             <li class="flex gap-2"><sup class="text-primary shrink-0">2</sup><span>{t('ley21719.ref_2')}</span></li>
@@ -497,7 +497,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-law">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('ley21719.cta_eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('ley21719.cta_eyebrow')}</p>
       <h2 id="final-cta-law" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl lg:text-5xl">
         {t('ley21719.cta_title')}
       </h2>
@@ -525,7 +525,7 @@
   <!-- Related pages -->
   <section class="py-12 bg-background border-t border-border">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-5">{t('ley21719.related_label')}</p>
+      <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground mb-5">{t('ley21719.related_label')}</p>
       <div class="flex flex-wrap gap-3">
         {#each [
           { href: '/circular-30', labelKey: 'ley21719.related_1' as const },

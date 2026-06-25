@@ -72,7 +72,7 @@
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
      <div class="max-w-3xl">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">{t('getstarted.hero.eyebrow')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('getstarted.hero.eyebrow_meta')}</span>
@@ -84,26 +84,26 @@
       <p class="mt-8 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
         {t('getstarted.hero.subtitle')}
       </p>
-      <p class="mt-6 inline-flex items-center gap-2 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">
+      <p class="mt-6 inline-flex items-center gap-2 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">
         {t('getstarted.hero.badge')}
       </p>
 
       <!-- Timeline overview -->
       <dl class="mt-10 grid grid-cols-2 gap-6 border-t border-border pt-6 sm:grid-cols-4">
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('getstarted.timeline.step1_label')}</dt>
+          <dt class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('getstarted.timeline.step1_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">{t('getstarted.timeline.step1_value')}</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('getstarted.timeline.step2_label')}</dt>
+          <dt class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('getstarted.timeline.step2_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">{t('getstarted.timeline.step2_value')}</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('getstarted.timeline.step3_label')}</dt>
+          <dt class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('getstarted.timeline.step3_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">{t('getstarted.timeline.step3_value')}</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('getstarted.timeline.step4_label')}</dt>
+          <dt class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('getstarted.timeline.step4_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">{t('getstarted.timeline.step4_value')}</dd>
         </div>
       </dl>
@@ -123,7 +123,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('getstarted.step1.overline')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('getstarted.step1.overline')}</p>
           <h2 class="mt-2 text-balance text-2xl text-foreground sm:text-3xl">
             {t('getstarted.step1.title')}
           </h2>
@@ -150,7 +150,7 @@
           <img src="/images/pages/step-2-configure.webp" alt={t('getstarted.step2.alt')} class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
         </div>
         <div class="order-1 lg:order-2">
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('getstarted.step2.overline')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('getstarted.step2.overline')}</p>
           <h2 class="mt-2 text-balance text-2xl text-foreground sm:text-3xl">
             {t('getstarted.step2.title')}
           </h2>
@@ -176,7 +176,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('getstarted.step3.overline')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('getstarted.step3.overline')}</p>
           <h2 class="mt-2 text-balance text-2xl text-foreground sm:text-3xl">
             {t('getstarted.step3.title')}
           </h2>
@@ -207,7 +207,7 @@
           <img src="/images/pages/step-4-live.webp" alt={t('getstarted.step4.alt')} class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
         </div>
         <div class="order-1 lg:order-2">
-          <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('getstarted.step4.overline')}</p>
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('getstarted.step4.overline')}</p>
           <h2 class="mt-2 text-balance text-2xl text-foreground sm:text-3xl">
             {t('getstarted.step4.title')}
           </h2>
@@ -257,7 +257,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-getstarted">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('getstarted.final_cta.overline')}</p>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('getstarted.final_cta.overline')}</p>
       <h2 id="final-cta-getstarted" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         {t('pricing.cta.title')}
       </h2>

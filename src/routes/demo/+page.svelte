@@ -151,7 +151,7 @@
     <div class="space-y-6">
       <div class="text-center">
         <GraduationCap class="mx-auto mb-4 size-8 text-primary" />
-        <p class="mb-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step1.eyebrow')}</p>
+        <p class="mb-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('demo.step1.eyebrow')}</p>
         <h1 class="text-2xl text-foreground">
           {t('demo.step1.title')}
         </h1>

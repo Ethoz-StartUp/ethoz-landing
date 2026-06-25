@@ -147,7 +147,7 @@
   <!-- Role cards section -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="mb-2 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('featurePage.accessControl.byrole_eyebrow')}</p>
+      <p class="mb-2 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('featurePage.accessControl.byrole_eyebrow')}</p>
       <h2 class="mb-2 text-xl text-foreground sm:text-2xl">{t('featurePage.accessControl.byrole_title')}</h2>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         {t('featurePage.accessControl.byrole_intro')}
@@ -251,7 +251,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="rbac-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('featurePage.accessControl.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('featurePage.accessControl.finalCta.eyebrow')}</p>
       <h2 id="rbac-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.accessControl.finalCta.title')}
       </h2>

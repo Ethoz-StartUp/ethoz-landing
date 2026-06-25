@@ -30,7 +30,7 @@
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
           <span class="text-primary">{t('integrations.eyebrow')}</span>
           <span aria-hidden="true" class="text-border">·</span>
           <span>Napsis · Syscol · SchoolTrack · Lirmi</span>

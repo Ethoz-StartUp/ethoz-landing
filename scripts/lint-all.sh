@@ -13,9 +13,8 @@ bash scripts/lint-opacity-hover.sh
 bash scripts/lint-muted-hover.sh
 bash scripts/lint-hardcoded-color.sh
 bash scripts/lint-pastel-on-cta.sh
-bash scripts/lint-newsreader-scope.sh
+bash scripts/lint-stale-fonts.sh
 bash scripts/lint-icon-box-wrapper.sh
-bash scripts/lint-cal-sans-weights.sh
 bash scripts/lint-arbitrary-text-px.sh
 bash scripts/lint-eyebrow-tracking.sh
 bash scripts/lint-section-bg.sh

@@ -84,7 +84,7 @@
              fixed chrome stays shorter than the hero's pt-28. Full detail on sm+. -->
         <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-center">
           <span aria-hidden="true" class="inline-flex size-1.5 shrink-0 rounded-full bg-destructive"></span>
-          <span class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-primary">Ley 21.719</span>
+          <span class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-primary">Ley 21.719</span>
           <span class="hidden text-border sm:inline" aria-hidden="true">·</span>
           <span class="hidden text-muted-foreground sm:inline">{t('nav.ribbon_full_enforcement')}</span>
           <span class="hidden text-border sm:inline" aria-hidden="true">·</span>
@@ -97,10 +97,10 @@
     <div class="flex items-center">
       <a href="/" class="flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="size-7" aria-hidden="true">
-          <rect x="2" y="7" width="18" height="22" rx="4.5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-foreground"/>
-          <rect x="12" y="3" width="18" height="22" rx="4.5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-primary"/>
+          <rect x="2" y="7" width="18" height="22" rx="5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-foreground"/>
+          <rect x="12" y="3" width="18" height="22" rx="5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-primary"/>
         </svg>
-        <span class="text-xl font-extrabold tracking-tight"><span class="text-foreground">Etho</span><span class="text-primary">z</span></span>
+        <span class="font-heading text-xl font-extrabold tracking-tight"><span class="text-foreground">Etho</span><span class="text-primary">z</span></span>
       </a>
     </div>
 

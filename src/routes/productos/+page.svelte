@@ -124,7 +124,7 @@
   <section class="pt-28 pb-12 sm:pt-32 sm:pb-16 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <!-- Editorial eyebrow — Cal-flavored, mirrors the /get-started pattern -->
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">{t('productos.hero_eyebrow_catalog')}</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span class="hidden sm:inline">{t('productos.hero_eyebrow_count')}</span>

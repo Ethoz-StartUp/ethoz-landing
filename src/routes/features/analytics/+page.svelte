@@ -136,7 +136,7 @@
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('featurePage.analytics.charts_eyebrow')}</p>
+        <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('featurePage.analytics.charts_eyebrow')}</p>
         <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">{t('featurePage.analytics.charts_title')}</h2>
         <p class="mt-3 text-base text-muted-foreground">{t('featurePage.analytics.charts_subtitle')}</p>
       </div>
@@ -315,7 +315,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="analytics-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('featurePage.analytics.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('featurePage.analytics.finalCta.eyebrow')}</p>
       <h2 id="analytics-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.analytics.finalCta.title')}
       </h2>

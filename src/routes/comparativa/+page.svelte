@@ -280,7 +280,7 @@
   <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
-        <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('comparativa.positioning_eyebrow')}</p>
+        <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('comparativa.positioning_eyebrow')}</p>
         <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
           {t('comparativa.positioning_title')}
         </h2>

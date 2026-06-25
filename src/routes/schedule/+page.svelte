@@ -115,8 +115,8 @@
     Cal('ui', {
       theme: 'light',
       styles: { branding: {
-        // lint-ok: Cal.com embed SDK expects hex literal; keep in sync with --primary (Cal black)
-        brandColor: '#111111'
+        // lint-ok: Cal.com embed SDK expects hex literal; keep in sync with the 8020 sky accent (--brand-accent)
+        brandColor: '#0495FE'
       } },
       hideEventTypeDetails: false,
       hideBranding: true,
@@ -234,7 +234,7 @@
 
     <!-- Heading -->
     <div class="mb-8 text-center">
-      <p class="mb-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step3.eyebrow')}</p>
+      <p class="mb-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('demo.step3.eyebrow')}</p>
       <h1 class="text-2xl text-foreground sm:text-3xl">
         {t('agendar.title')}
       </h1>
