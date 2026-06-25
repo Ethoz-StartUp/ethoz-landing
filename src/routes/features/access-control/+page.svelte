@@ -188,7 +188,7 @@
             ] as const,
           },
         ] as card}
-          <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+          <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
             <div class="flex items-center gap-2.5 mb-3">
               <card.icon class="size-5 shrink-0 {card.color}" />
               <h3 class="text-sm font-semibold text-foreground">{t(card.roleKey)}</h3>
@@ -213,7 +213,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <UserCog class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">{t('featurePage.accessControl.detail_views_title')}</h2>
@@ -223,7 +223,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <GanttChartSquare class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">{t('featurePage.accessControl.detail_gate_title')}</h2>
@@ -233,7 +233,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <EyeOff class="size-5 shrink-0 text-primary" />
             <h2 class="text-base font-semibold text-foreground">{t('featurePage.accessControl.detail_confidential_title')}</h2>

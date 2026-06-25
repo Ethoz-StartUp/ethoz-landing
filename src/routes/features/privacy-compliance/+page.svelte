@@ -215,7 +215,7 @@
           { letter: 'O', rightKey: 'featurePage.privacyCompliance.arco.right_opposition' as const, descKey: 'featurePage.privacyCompliance.arco.desc_opposition' as const },
           { letter: 'P', rightKey: 'featurePage.privacyCompliance.arco.right_portability' as const, descKey: 'featurePage.privacyCompliance.arco.desc_portability' as const },
         ] as item}
-          <div class="group rounded-xl border border-border bg-card p-4 text-center transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+          <div class="group rounded-xl border border-border bg-card p-4 text-center transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
             <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">{item.letter}</span>
             <p class="mt-3 text-sm font-semibold text-foreground">{t(item.rightKey)}</p>
             <p class="mt-1 text-mockup-sm leading-relaxed text-muted-foreground">{t(item.descKey)}</p>
@@ -230,7 +230,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Building2 class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.privacyCompliance.cards.isolation_title')}</h2>
@@ -240,7 +240,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <KeyRound class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.privacyCompliance.cards.encryption_title')}</h2>
@@ -250,7 +250,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Users class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.privacyCompliance.cards.consent_title')}</h2>

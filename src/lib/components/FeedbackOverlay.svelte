@@ -287,7 +287,7 @@
       class="relative flex size-14 items-center justify-center rounded-full shadow-popover transition-all duration-200
         {feedbackStore.active
           ? 'bg-primary text-primary-foreground scale-105'
-          : 'bg-card border border-border text-foreground hover:shadow-card-hover'}"
+          : 'bg-card border border-border text-foreground shadow-card hover:shadow-card-hover'}"
       aria-label={t('feedbackOverlay.fab_aria')}
       title={t('feedbackOverlay.fab_aria')}
     >

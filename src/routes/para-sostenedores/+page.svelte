@@ -170,7 +170,7 @@
         {t('audience.sostenedores.problem_intro')}
       </p>
       <div class="grid gap-6 sm:grid-cols-2">
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <Scale class="size-5 shrink-0 text-destructive" />
             <h3 class="font-heading text-base text-foreground">{t('audience.sostenedores.problem_card1_title')}</h3>
@@ -179,7 +179,7 @@
             {t('audience.sostenedores.problem_card1_body_p1')} <strong class="text-foreground">{t('audience.sostenedores.problem_card1_body_strong1')}</strong>{t('audience.sostenedores.problem_card1_body_p2')} <strong class="text-foreground">{t('audience.sostenedores.problem_card1_body_strong2')}</strong>{t('audience.sostenedores.problem_card1_body_p3')}
           </p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <TrendingDown class="size-5 shrink-0 text-warning-foreground" />
             <h3 class="font-heading text-base text-foreground">{t('audience.sostenedores.problem_card2_title')}</h3>
@@ -188,7 +188,7 @@
             {t('audience.sostenedores.problem_card2_body')}
           </p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <BarChart3 class="size-5 shrink-0 text-primary" />
             <h3 class="font-heading text-base text-foreground">{t('audience.sostenedores.problem_card3_title')}</h3>
@@ -197,7 +197,7 @@
             {t('audience.sostenedores.problem_card3_body')}
           </p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <FileSearch class="size-5 shrink-0 text-primary" />
             <h3 class="font-heading text-base text-foreground">{t('audience.sostenedores.problem_card4_title')}</h3>

@@ -232,7 +232,7 @@
             tiempo: '4 seg'
           },
         ] as step}
-          <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+          <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
             <div class="mb-3 flex items-center gap-3">
               <span class="flex size-7 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary-active">{step.num}</span>
               <p class="text-sm font-semibold text-foreground">{t(step.tituloKey)}</p>

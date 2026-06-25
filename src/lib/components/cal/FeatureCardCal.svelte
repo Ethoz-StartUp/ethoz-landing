@@ -37,24 +37,13 @@
     'text-foreground'  // navy or none
   );
 
-  // Wrapper class: full-border for 'none', left-rule-only for accented variants
-  const wrapperClass = $derived(
-    accent === 'none'
-      ? [
-          'rounded-xl border border-border bg-muted p-8',
-          'transition-all duration-200',
-          'hover:bg-surface-card hover:border-foreground/30 hover:-translate-y-px hover:shadow-card-hover',
-        ].join(' ')
-      : [
-          'border-l-2 bg-muted p-8',
-          accent === 'mustard' ? 'border-accent-mustard' :
-          accent === 'brick'   ? 'border-accent-brick'   :
-          accent === 'sage'    ? 'border-accent-sage'    :
-          'border-foreground',  // navy
-          'transition-all duration-200',
-          'hover:-translate-y-px hover:bg-surface-card hover:shadow-card-hover',
-        ].join(' ')
-  );
+  // Uniform full-border frame for every variant (8020 card: border + soft warm shadow).
+  // Accent now lives only in the icon color, never as a one-sided left rule (no side-tab slop).
+  const wrapperClass = [
+    'rounded-xl border border-hairline bg-card p-8 shadow-card',
+    'transition-[transform,box-shadow,border-color] duration-200',
+    'hover:border-foreground/25 hover:-translate-y-px shadow-card hover:shadow-card-hover',
+  ].join(' ');
 </script>
 
 {#if href}

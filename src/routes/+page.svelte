@@ -557,7 +557,7 @@
 
       <!-- Featured hero card: Ficha 360° — featured hairline card -->
       <div class="mx-auto mt-10 max-w-5xl">
-        <a href="/features/student-profile" class="group block rounded-xl border border-hairline bg-card p-8 transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-[1px] hover:border-foreground/25 hover:shadow-card-hover sm:p-10 lg:p-12">
+        <a href="/features/student-profile" class="group block rounded-xl border border-hairline bg-card shadow-card p-8 transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-[1px] hover:border-foreground/25 hover:shadow-card-hover sm:p-10 lg:p-12">
           <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
             <div>
               <h3 class="font-heading text-2xl leading-tight text-foreground sm:text-[1.75rem] lg:text-[2rem]">
@@ -591,7 +591,7 @@
       <!-- Supporting features — 3-column grid, compact cards (driven by supportingFeatures array) -->
       <div class="mx-auto mt-5 grid max-w-5xl gap-5 sm:grid-cols-3">
         {#each supportingFeatures as feat (feat.href)}
-          <a href={feat.href} class="group flex flex-col rounded-xl border border-hairline bg-card p-6 transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-[1px] hover:border-foreground/25 hover:shadow-card-hover">
+          <a href={feat.href} class="group flex flex-col rounded-xl border border-hairline bg-card shadow-card p-6 transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-[1px] hover:border-foreground/25 hover:shadow-card-hover">
             <h3 class="font-heading text-lg leading-tight text-foreground">{t(feat.titleKey)}</h3>
             <p class="mt-2 flex-1 text-sm leading-relaxed text-body">{t(feat.descKey)}</p>
             <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-foreground pb-0.5 text-sm font-semibold text-foreground transition-all group-hover:gap-1.5 group-hover:border-b-2">
@@ -603,7 +603,7 @@
 
       <!-- Cross-cutting: privacy is not a product, it's how everything works -->
       <div class="mx-auto mt-8 max-w-4xl">
-        <a href="/compliance" class="group flex items-center gap-4 rounded-xl border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground/30 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover">
+        <a href="/compliance" class="group flex items-center gap-4 rounded-xl border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground/30 hover:bg-surface-card hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <Shield class="size-5 shrink-0 text-foreground transition-transform group-hover:rotate-6" />
           <div class="flex-1">
             <p class="text-sm font-semibold text-foreground">{t('home.compliance_banner.title')}</p>

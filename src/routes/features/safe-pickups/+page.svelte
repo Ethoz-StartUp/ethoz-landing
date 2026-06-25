@@ -189,17 +189,17 @@
         {t('featurePage.safePickups.howItWorks.intro')}
       </p>
       <div class="grid gap-6 sm:grid-cols-3">
-        <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">01</span>
           <p class="mt-3 text-sm font-semibold text-foreground">{t('featurePage.safePickups.howItWorks.step1_title')}</p>
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.safePickups.howItWorks.step1_body')}</p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">02</span>
           <p class="mt-3 text-sm font-semibold text-foreground">{t('featurePage.safePickups.howItWorks.step2_title')}</p>
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.safePickups.howItWorks.step2_body')}</p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">03</span>
           <p class="mt-3 text-sm font-semibold text-foreground">{t('featurePage.safePickups.howItWorks.step3_title')}</p>
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.safePickups.howItWorks.step3_body')}</p>
@@ -213,7 +213,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <ShieldCheck class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.safePickups.detail.card1_title')}</h2>
@@ -223,7 +223,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <Ban class="size-5 shrink-0 text-destructive" />
             <h2 class="text-base text-foreground">{t('featurePage.safePickups.detail.card2_title')}</h2>
@@ -233,7 +233,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
           <div class="flex items-center gap-2.5">
             <BellRing class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.safePickups.detail.card3_title')}</h2>
