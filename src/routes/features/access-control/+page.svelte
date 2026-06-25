@@ -37,14 +37,14 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — {t('features.rbac.title')}</title>
+  <title>{BRAND} · {t('features.rbac.title')}</title>
   <meta name="description" content="Cada persona ve exactamente lo que necesita, ni más ni menos." />
   <meta property="og:url" content="https://ethoz.cl/features/access-control" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} — Control de Acceso Granular por Roles`} />
+  <meta property="og:title" content={`${BRAND} · Control de Acceso Granular por Roles`} />
   <meta property="og:description" content="Cada persona ve exactamente lo que necesita, ni más ni menos." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} — Control de Acceso Granular por Roles`} />
+  <meta name="twitter:title" content={`${BRAND} · Control de Acceso Granular por Roles`} />
   <meta name="twitter:description" content="Cada persona ve exactamente lo que necesita, ni más ni menos." />
   <link rel="canonical" href="https://ethoz.cl/features/access-control" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Control de Acceso por Roles"}]})}</script>`}

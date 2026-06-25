@@ -35,7 +35,7 @@
  */
 
 @theme inline {
-  /* ─── Colors — Cal canonical ─── */
+  /* ─── Colors — 8020 tokens ─── */
   --color-canvas: var(--canvas);
   --color-bg-default: var(--bg-default);
   --color-bg-emphasis: var(--bg-emphasis);
@@ -77,7 +77,7 @@
   --color-badge-violet: var(--badge-violet);
   --color-badge-emerald: var(--badge-emerald);
 
-  /* ─── shadcn / legacy aliases (mapped to Cal tokens) ─── */
+  /* ─── shadcn / legacy aliases (mapped to 8020 tokens) ─── */
   --color-background: var(--bg-default);
   --color-foreground: var(--ink);
   --color-card: var(--card);
@@ -112,7 +112,7 @@
   --color-primary-hover: var(--primary-hover);
   --color-primary-pressed: var(--primary-pressed);
 
-  /* ─── Stripe Press bridge aliases (legacy — being retired) ─── */
+  /* ─── Legacy bridge aliases (legacy — being retired) ─── */
   --color-canvas-elevated: var(--canvas-elevated);
   --color-canvas-strong: var(--canvas-strong);
   --color-ink-soft: var(--ink-soft);
@@ -186,7 +186,7 @@
 }
 
 /* ─────────────────────────────────────────
- * LIGHT MODE — Cal.com canonical (DESIGN.md hex values)
+ * LIGHT MODE — 8020 cream spine
  * ───────────────────────────────────────── */
 :root,
 [data-theme="light"] {
@@ -281,7 +281,7 @@
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--on-primary);
 
-  /* Stripe Press bridge aliases (legacy — being retired component-by-component) */
+  /* Legacy bridge aliases (legacy — being retired component-by-component) */
   --canvas-elevated: var(--surface-soft);
   --canvas-strong: var(--surface-card);
   --ink-soft: var(--body);
@@ -298,7 +298,7 @@
   --accent-sage: var(--success);
   --accent-sage-ink: var(--success);
 
-  /* Typography fluid scale (Cal display sizes from DESIGN.md)
+  /* Typography fluid scale (8020 display sizes)
      min raised 40→44 for stronger mobile hero presence on narrow viewports */
   --fs-display-xl: clamp(44px, 5vw, 64px);
   --fs-display-lg: clamp(36px, 4vw, 48px);
@@ -338,7 +338,7 @@
 }
 
 /* ─────────────────────────────────────────
- * DARK MODE — Cal.com canonical
+ * DARK MODE — 8020 charcoal + titanium ramp
  * Source: github.com/calcom/cal.com packages/config/theme/tokens.css (HSLA → hex)
  * ───────────────────────────────────────── */
 [data-theme="dark"] {
@@ -433,7 +433,7 @@
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--on-primary);
 
-  /* Stripe Press bridge aliases (dark) */
+  /* Legacy bridge aliases (dark) */
   --canvas-elevated: var(--surface-soft);
   --canvas-strong: var(--surface-card);
   --ink-soft: var(--body);
@@ -685,7 +685,7 @@ button[role="checkbox"] {
 }
 
 /* ─────────────────────────────────────────
- * Shadows — Cal.com soft elevation. No heavy shadows / neumorphism.
+ * Shadows — 8020 soft warm elevation. No heavy shadows / neumorphism.
  * ───────────────────────────────────────── */
 
 @utility shadow-glow-primary {
@@ -762,7 +762,7 @@ button[role="checkbox"] {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* Cal section padding — 96px universal vertical rhythm per DESIGN.md.spacing.section */
+/* Section padding — 96px universal vertical rhythm per 8020 spacing scale */
 @utility section-editorial {
   padding-block: clamp(64px, 9vw, 96px);
 }

@@ -18,6 +18,7 @@ bash scripts/lint-icon-box-wrapper.sh
 bash scripts/lint-arbitrary-text-px.sh
 bash scripts/lint-eyebrow-tracking.sh
 bash scripts/lint-section-bg.sh
+bash scripts/lint-tint-contrast.sh
 
 echo ""
 echo "✓ All design-system lints passed"

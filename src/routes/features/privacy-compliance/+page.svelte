@@ -33,15 +33,15 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — {t('features.privacy.title')}</title>
-  <meta name="description" content="Construida para la Ley 21.719 desde el primer día — no como un parche posterior." />
+  <title>{BRAND} · {t('features.privacy.title')}</title>
+  <meta name="description" content="Construida para la Ley 21.719 desde el primer día, no como un parche posterior." />
   <meta property="og:url" content="https://ethoz.cl/features/privacy-compliance" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} — Arquitectura de Privacidad y Cumplimiento`} />
-  <meta property="og:description" content="Construida para la Ley 21.719 desde el primer día — no como un parche posterior." />
+  <meta property="og:title" content={`${BRAND} · Arquitectura de Privacidad y Cumplimiento`} />
+  <meta property="og:description" content="Construida para la Ley 21.719 desde el primer día, no como un parche posterior." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} — Arquitectura de Privacidad y Cumplimiento`} />
-  <meta name="twitter:description" content="Construida para la Ley 21.719 desde el primer día — no como un parche posterior." />
+  <meta name="twitter:title" content={`${BRAND} · Arquitectura de Privacidad y Cumplimiento`} />
+  <meta name="twitter:description" content="Construida para la Ley 21.719 desde el primer día, no como un parche posterior." />
   <link rel="canonical" href="https://ethoz.cl/features/privacy-compliance" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Privacidad y Cumplimiento"}]})}</script>`}
 </svelte:head>
@@ -135,7 +135,7 @@
                   <div class="size-5 rounded-full bg-muted flex items-center justify-center shrink-0">
                     <entry.icon class="size-2.5 {entry.color}" />
                   </div>
-                  <span class="flex-1 text-muted-foreground truncate">{t(entry.userKey)} — {t(entry.actionKey)}</span>
+                  <span class="flex-1 text-muted-foreground truncate">{t(entry.userKey)} · {t(entry.actionKey)}</span>
                   <span class="text-mockup-2xs text-muted-foreground shrink-0">{t(entry.timeKey)}</span>
                 </div>
               {/each}

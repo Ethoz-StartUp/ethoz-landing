@@ -326,7 +326,7 @@
                 <div class="flex-1 min-w-0">
                   <p class="text-mockup-sm font-medium {entry.nivel === 'critical' ? 'text-destructive' : entry.nivel === 'warning' ? 'text-warning-foreground' : 'text-foreground'} truncate">{t(entry.accion)}</p>
                   <div class="flex items-center gap-2 mt-0.5">
-                    <span class="inline-flex items-center rounded-full bg-primary/10 px-1.5 py-0.5 text-mockup-2xs font-medium text-primary">{entry.colegio}</span>
+                    <span class="inline-flex items-center rounded-full bg-primary/10 px-1.5 py-0.5 text-mockup-2xs font-medium text-primary-active">{entry.colegio}</span>
                     <span class="text-mockup-2xs text-muted-foreground">{t(entry.usuario)}</span>
                   </div>
                 </div>

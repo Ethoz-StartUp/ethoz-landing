@@ -145,7 +145,7 @@
             { n: 8, titleKey: 'resPickupProtocol.s4_step8_title' as const, detailKey: 'resPickupProtocol.s4_step8_detail' as const }
           ] as step}
             <div class="flex gap-4 rounded-xl border border-border bg-card p-4">
-              <div class="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold mt-0.5">{step.n}</div>
+              <div class="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary-active text-xs font-bold mt-0.5">{step.n}</div>
               <div>
                 <p class="font-medium text-foreground mb-1">{t(step.titleKey)}</p>
                 <p class="text-muted-foreground text-sm">{t(step.detailKey)}</p>

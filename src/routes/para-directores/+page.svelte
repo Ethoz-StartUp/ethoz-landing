@@ -203,7 +203,7 @@
               <p class="text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">{t('audience.directores.form_field_student')}</p>
               <div class="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2">
                 {#if activeObs}
-                  <div class="size-6 rounded-full bg-primary/10 flex items-center justify-center text-mockup-2xs font-bold text-primary">MS</div>
+                  <div class="size-6 rounded-full bg-primary/10 flex items-center justify-center text-mockup-2xs font-bold text-primary-active">MS</div>
                   <div>
                     <p class="text-mockup-sm font-semibold text-foreground">{t('audience.directores.form_student_name')}</p>
                     <p class="text-mockup-2xs text-muted-foreground">{t('audience.directores.form_student_meta')}</p>

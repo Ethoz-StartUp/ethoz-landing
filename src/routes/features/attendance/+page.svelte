@@ -31,7 +31,7 @@
     if (d === 'P') return 'bg-success text-success-foreground';
     if (d === 'A') return 'bg-destructive text-destructive-foreground';
     if (d === 'T') return 'bg-warning text-warning-foreground';
-    if (d === 'J') return 'bg-primary/20 text-primary';
+    if (d === 'J') return 'bg-primary/20 text-primary-active';
     return 'bg-muted text-muted-foreground';
   }
 </script>
@@ -72,7 +72,7 @@
             {t('featurePage.attendance.hero_subtitle')}
           </p>
           <div class="mt-6 flex flex-wrap gap-2">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{t('featurePage.attendance.hero_badge_circular')}</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary-active">{t('featurePage.attendance.hero_badge_circular')}</span>
             <span class="inline-flex items-center gap-1.5 rounded-full bg-success/10 px-3 py-1 text-xs font-medium text-success">{t('featurePage.attendance.hero_badge_digital_book')}</span>
             <span class="inline-flex items-center gap-1.5 rounded-full bg-warning/15 px-3 py-1 text-xs font-medium text-warning-foreground">{t('featurePage.attendance.hero_badge_law')}</span>
           </div>
@@ -101,7 +101,7 @@
                 <p class="text-base font-bold text-success">94,2%</p>
                 <p class="text-mockup-2xs text-muted-foreground">{t('featurePage.attendance.mockup_kpi_label')}</p>
               </div>
-              <div class="flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-mockup-2xs font-semibold text-primary">
+              <div class="flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-mockup-2xs font-semibold text-primary-active">
                 <BadgeCheck class="size-3 shrink-0" />
                 {t('featurePage.attendance.mockup_circular_chip')}
               </div>
@@ -199,7 +199,7 @@
             <p class="text-mockup-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">{t('featurePage.attendance.mockup_justify_heading')}</p>
             <!-- Student info -->
             <div class="flex items-center gap-3 rounded-lg bg-muted/30 p-3 mb-3">
-              <div class="size-8 rounded-full bg-primary/20 flex items-center justify-center text-mockup-sm font-bold text-primary">SR</div>
+              <div class="size-8 rounded-full bg-primary/20 flex items-center justify-center text-mockup-sm font-bold text-primary-active">SR</div>
               <div>
                 <p class="text-xs font-semibold text-foreground">Sebastián Pino Rojas</p>
                 <p class="text-mockup-xs text-muted-foreground">7°B · Ausente: 9 y 10 abr 2026</p>
@@ -252,7 +252,7 @@
         ] as step}
           <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
             <div class="flex items-center gap-2.5 mb-3">
-              <span class="size-6 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary">{step.n}</span>
+              <span class="size-6 rounded-full bg-primary/10 flex items-center justify-center text-xs font-bold text-primary-active">{step.n}</span>
               <h3 class="text-sm font-semibold text-foreground">{t(step.label)}</h3>
             </div>
             <p class="text-xs leading-relaxed text-muted-foreground">{t(step.desc)}</p>

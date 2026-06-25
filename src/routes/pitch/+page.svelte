@@ -133,15 +133,15 @@
 </script>
 
 <svelte:head>
-  <title>Pitch — {BRAND}</title>
+  <title>Pitch · {BRAND}</title>
   <meta name="description" content={`Presentación ejecutiva ${BRAND}: protección escolar inteligente y cumplimiento Ley 21.719 para colegios chilenos.`} />
   <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Pitch — ${BRAND}`} />
+  <meta property="og:title" content={`Pitch · ${BRAND}`} />
   <meta property="og:description" content={`Presentación ejecutiva ${BRAND}: protección escolar inteligente y cumplimiento Ley 21.719 para colegios chilenos.`} />
   <meta property="og:url" content="https://ethoz.cl/pitch" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Pitch — ${BRAND}`} />
+  <meta name="twitter:title" content={`Pitch · ${BRAND}`} />
   <meta name="twitter:description" content={`Presentación ejecutiva ${BRAND}: protección escolar inteligente y cumplimiento Ley 21.719 para colegios chilenos.`} />
   <link rel="canonical" href="https://ethoz.cl/pitch" />
 </svelte:head>
@@ -268,17 +268,17 @@
               <div class="severity-item severity-leve" in:fly={{ x: -40, duration: 500, delay: 300 }}>
                 <div class="severity-dot"></div>
                 <span class="severity-label">Leve</span>
-                <span class="severity-range">1 – 100 UTM</span>
+                <span class="severity-range">1 a 100 UTM</span>
               </div>
               <div class="severity-item severity-grave" in:fly={{ x: -40, duration: 500, delay: 500 }}>
                 <div class="severity-dot"></div>
                 <span class="severity-label">Grave</span>
-                <span class="severity-range">101 – 5.000 UTM</span>
+                <span class="severity-range">101 a 5.000 UTM</span>
               </div>
               <div class="severity-item severity-gravisima" in:fly={{ x: -40, duration: 500, delay: 700 }}>
                 <div class="severity-dot"></div>
                 <span class="severity-label">Gravísima</span>
-                <span class="severity-range">5.001 – 20.000 UTM</span>
+                <span class="severity-range">5.001 a 20.000 UTM</span>
               </div>
             </div>
           </div>
@@ -401,7 +401,7 @@
             </p>
             <div class="pilot-badge" in:scale={{ duration: 500, delay: 800 }}>
               <Zap size={16} />
-              <span>Programa Piloto 2026 — Cupos Limitados</span>
+              <span>Programa Piloto 2026 · Cupos Limitados</span>
             </div>
           </div>
 

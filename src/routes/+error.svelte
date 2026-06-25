@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-  <title>Página no encontrada — {BRAND}</title>
+  <title>Página no encontrada · {BRAND}</title>
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 

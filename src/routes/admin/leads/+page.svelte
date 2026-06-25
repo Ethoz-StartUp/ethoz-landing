@@ -143,7 +143,7 @@
 </script>
 
 <svelte:head>
-  <title>Leads — {BRAND} Admin</title>
+  <title>Leads · {BRAND} Admin</title>
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 

@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — {t('featurePage.emergency.meta_title_suffix')}</title>
+  <title>{BRAND} · {t('featurePage.emergency.meta_title_suffix')}</title>
   <meta name="description" content={t('featurePage.emergency.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/features/emergency" />
   <meta property="og:type" content="website" />
@@ -50,7 +50,7 @@
           </p>
           <div class="mt-6 flex flex-wrap gap-2">
             <span class="inline-flex items-center gap-1.5 rounded-full bg-destructive/10 px-3 py-1 text-xs font-medium text-destructive">{t('featurePage.emergency.hero_badge_onemi')}</span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{t('featurePage.emergency.hero_badge_senapred')}</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary-active">{t('featurePage.emergency.hero_badge_senapred')}</span>
             <span class="inline-flex items-center gap-1.5 rounded-full bg-warning/15 px-3 py-1 text-xs font-medium text-warning-foreground">{t('featurePage.emergency.hero_badge_pse')}</span>
           </div>
           <div class="mt-8 flex flex-wrap gap-3">

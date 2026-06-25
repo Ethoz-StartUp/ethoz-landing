@@ -5,7 +5,7 @@ Ethoz (ethoz.cl) is a school protection platform for Chilean K-12 schools. Svelt
 
 **Not a school management system** — complements existing ERPs (Napsis, Syscol, Lirmi) by adding security, compliance, and student data protection.
 
-> **🚧 Active redesign in progress (`redesign/stripe-press` branch).** The Cal.com aesthetic on `main` is being replaced with Stripe Press editorial (warm cream `#FBF7F0` + deep navy `#0F1F3A` + Newsreader serif). Spec: `docs/superpowers/specs/2026-05-02-stripe-press-redesign-design.md`. Plan: `docs/superpowers/plans/2026-05-02-stripe-press-redesign-p0-p2.md`. **Light edits only on `main`** until the redesign branch merges. Avoid token churn or new component primitives on `main`.
+> **Design system: 8020 (sky-blue vertical).** `main` runs the 8020IQ Brand Guide v1.1 system: cream `#FAF8F5` + charcoal `#18181B` spine, sky-blue accent (`--primary #0B72C4` accessible / `--accent-bright #0495FE` swatch), DM Sans display + Inter body + JetBrains Mono data, mono-caps eyebrows, 16/12/10/pill radii, soft warm shadows. Full spec: `.impeccable.md`. Tokens: `src/app.css`. (Prior Cal.com + Stripe Press aesthetics are retired.)
 
 ## Architecture
 
@@ -36,16 +36,19 @@ docs/                 — Documentation index (5 sections + knowledge base + con
 - Blog posts: export `BlogPost` from `src/lib/data/posts/*.ts` — auto-discovered, no manual registration
 
 ### Design (see .impeccable.md for full spec)
-- Light mode only. **Cal.com aesthetic** (2026-05-01 migration from McKinsey/medical-blue): Cal black `#111111` + white canvas `#FFFFFF` + light-gray cards `#F5F5F5` + dark footer `#101010`
-- **Cal Sans** (`cal-sans` npm package, SIL OFL 1.1) for h1/h2/h3 + `font-heading` class. Weight 600, letter-spacing -0.04em. **Inter** for body, buttons, nav, captions. **JetBrains Mono** for `[data-numeric]` only.
-- NEVER hardcode colors — use design tokens (`bg-primary`, `bg-surface-card-cal`, `text-muted-foreground`, `text-on-dark`, etc.). Use `// lint-ok` annotation for legitimate exceptions (third-party SDK config, raw HTML strings).
+- Light mode first (charcoal dark used for footer + impact bands). **8020 aesthetic** (2026-06 migration from Cal.com): cream canvas `#FAF8F5` + warm-white cards `#F5F3EF` + charcoal `#18181B` + sky-blue accent.
+- **Sky-blue accent policy:** `--primary #0B72C4` is the accessible sky for TEXT, links, eyebrows, and primary buttons (white label 4.98:1 AA). The bright swatch `--accent-bright`/`--brand-accent #0495FE` is for NON-text only (fills, large display numerals, icons, the logo). On primary tints (`bg-primary/5..20`) use `text-primary-active`/`text-primary-pressed`, never bare `text-primary` (lint-tint-contrast.sh enforces).
+- **DM Sans** (`@fontsource-variable/dm-sans`) for h1/h2/h3 + `font-heading` class (display weights 700/800). **Inter** for body, buttons, nav, captions. **JetBrains Mono** for `[data-numeric]` and mono-caps eyebrows.
+- **Eyebrows** are mono-caps: `font-mono font-semibold uppercase tracking-[0.1em]` in sky (lint-eyebrow-tracking.sh enforces).
+- NEVER hardcode colors — use design tokens (`bg-primary`, `bg-card`, `text-muted-foreground`, `text-on-dark`, `text-accent-bright`, etc.). Use `// lint-ok` for legitimate exceptions (third-party SDK config, raw HTML strings).
+- **NO em-dashes or en-dashes in copy** (8020 rule). Use commas, periods, or `a`/`to` for ranges. The `·` middot is the inline label separator.
 - Icons + titles ALWAYS inline (same row), never stacked. No icon-in-colored-box wrappers (`scripts/lint-icon-box-wrapper.sh` enforces).
-- Card pattern: `rounded-xl border border-hairline bg-background` (8/12/16px radius progression — `rounded-xl` is 12px, `rounded-2xl` is 16px for hero mockup card).
-- Flat on purpose. Subtle drop shadows only (`shadow-card`, `shadow-card-hover`, `shadow-mockup`, `shadow-popover`). `shadow-glow-primary` neutralized. `shadow-glow-destructive` retained (safety-critical).
-- One primary action per screen. Cal black is the action color — don't spray it. Pastel badges (`bg-badge-orange/pink/violet/emerald`) are metadata-only, NEVER on CTAs (`scripts/lint-pastel-on-cta.sh` enforces).
-- Footer is the only dark surface (`bg-surface-dark` = `#101010`). Light text via `text-on-dark` / `text-on-dark-soft` (AAA verified on `#101010`).
-- AAA contrast targets: 7:1 for normal text, 4.5:1 for large text. Cal black on white = 17:1 (effortless AAA).
-- Cal.com tone: confidently engineered, modern-SaaS, generous whitespace, single primary action per band.
+- Card pattern: `rounded-xl border border-hairline bg-card` (8020 §10 radii: `rounded-md`=12 buttons, `rounded-lg`=10 inputs, `rounded-xl`=16 cards, `rounded-2xl`=20 hero mockup).
+- Flat on purpose. Soft warm shadows only (`shadow-card`, `shadow-card-hover`, `shadow-mockup`, `shadow-popover` — 8020 §10). `shadow-glow-primary` neutralized. `shadow-glow-destructive` retained (safety-critical). Textures: `bg-grid-fine` / `bg-dots-fine` (32px, under hero/sections only).
+- One primary action per screen. Sky is the action color, treat it as a precision cut, not a wash. Pastel badges (`bg-badge-orange/pink/violet/emerald`) are metadata-only, NEVER on CTAs (`scripts/lint-pastel-on-cta.sh` enforces).
+- Footer + dark CTA bands are the dark surfaces (`bg-surface-dark` = `#18181B`). Light text via `text-on-dark` / `text-on-dark-soft`. Accent on dark uses the lighter sky `#38A8FF`.
+- Contrast targets: AAA 7:1 normal / AA 4.5:1 where the brand accent requires it. Body `#1C1C1E` on cream = 16:1 (AAA). Logo: evolved interseccion/shield (two overlapping rounded layers, charcoal + sky) + DM Sans wordmark with accent `z`.
+- 8020 tone: confidently engineered, operator-grade, generous whitespace, fact-forward, single primary action per band.
 
 ### Content
 - Spanish chileno profesional (no slang, no extreme modismos)
@@ -99,7 +102,7 @@ Content pipeline: Kimi CLI (text) → Gemini (images) → Supabase Edge Function
 - `PastelBadge` — metadata badge with pastel variants (orange/pink/violet/emerald). Lint blocks pastel use on CTAs.
 
 ### Lint scripts (run via `npm run lint`)
-9 design-system bash lints in `scripts/lint-*.sh`, orchestrated by `lint-all.sh`. They block: narrow outer containers, `shadow-xl/2xl`, neutralized glow shadows, `hover:opacity-N<100`, `hover:bg-muted/N<40`, hardcoded hex (with `// lint-ok` escape for SDK config), pastel-on-CTA, hardcoded `Cal Sans` font-family, icon-in-colored-box wrapper. All wired into `npm run test:ci`.
+13 design-system bash lints in `scripts/lint-*.sh`, orchestrated by `lint-all.sh`. They block: narrow outer containers, `shadow-xl/2xl`, neutralized glow shadows, `hover:opacity-N<100`, `hover:bg-muted/N<40`, hardcoded hex (with `// lint-ok` escape for SDK config), pastel-on-CTA, retired display fonts (`lint-stale-fonts.sh` bans Newsreader/Cal Sans/Playfair), icon-in-colored-box wrapper, arbitrary text-px, eyebrow tracking (mono-caps `tracking-[0.1em]`), section-bg token, and bare `text-primary` on primary tints (`lint-tint-contrast.sh`). All wired into `npm run test:ci`.
 
 ## Documentation Map
 - `docs/1-landing/` — All public pages documented

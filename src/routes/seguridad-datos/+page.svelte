@@ -64,7 +64,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": `Seguridad de datos en ${BRAND} — por diseño, no por parche`,
+      "headline": `Seguridad de datos en ${BRAND} · por diseño, no por parche`,
       "description": `Cómo ${BRAND} protege los datos de su colegio: TLS 1.3, cifrado at-rest, Row-Level Security, audit log, backups diarios y Ley 21.719.`,
       "datePublished": "2026-04-07",
       "dateModified": "2026-04-07",

@@ -32,14 +32,14 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — {t('about.title')}</title>
+  <title>{BRAND} · {t('about.title')}</title>
   <meta name="description" content={`${BRAND}: plataforma de seguimiento integral y seguridad escolar construida en Chile.`} />
   <meta property="og:url" content="https://ethoz.cl/about" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} — Construido en Chile, para colegios chilenos`} />
+  <meta property="og:title" content={`${BRAND} · Construido en Chile, para colegios chilenos`} />
   <meta property="og:description" content={`Conoce ${BRAND}, la plataforma de gestión y protección de datos escolares para Chile.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} — Construido en Chile, para colegios chilenos`} />
+  <meta name="twitter:title" content={`${BRAND} · Construido en Chile, para colegios chilenos`} />
   <meta name="twitter:description" content={`Conoce ${BRAND}, la plataforma de gestión y protección de datos escolares para Chile.`} />
   <link rel="canonical" href="https://ethoz.cl/about" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Nosotros"}]})}</script>`}

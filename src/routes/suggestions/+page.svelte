@@ -46,7 +46,7 @@
   // ---- Type display --------------------------------------------------------
   const typeMeta: Record<FeedbackItem['type'], { label: string; classes: string }> = {
     bug: { label: 'Bug', classes: 'bg-destructive/10 text-destructive' },
-    suggestion: { label: 'Sugerencia', classes: 'bg-primary/10 text-primary' },
+    suggestion: { label: 'Sugerencia', classes: 'bg-primary/10 text-primary-active' },
     question: { label: 'Pregunta', classes: 'bg-warning/20 text-warning-foreground' }
   };
 
@@ -132,15 +132,15 @@
 </script>
 
 <svelte:head>
-  <title>Sugerencias — {BRAND}</title>
+  <title>Sugerencias · {BRAND}</title>
   <meta name="description" content={`Sugerencias para mejorar ${BRAND}. Comparte ideas con el equipo de producto.`} />
   <meta name="robots" content="noindex, nofollow" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Sugerencias — ${BRAND}`} />
+  <meta property="og:title" content={`Sugerencias · ${BRAND}`} />
   <meta property="og:description" content={`Sugerencias para mejorar ${BRAND}. Comparte ideas con el equipo de producto.`} />
   <meta property="og:url" content="https://ethoz.cl/suggestions" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Sugerencias — ${BRAND}`} />
+  <meta name="twitter:title" content={`Sugerencias · ${BRAND}`} />
   <meta name="twitter:description" content={`Sugerencias para mejorar ${BRAND}. Comparte ideas con el equipo de producto.`} />
   <link rel="canonical" href="https://ethoz.cl/suggestions" />
 </svelte:head>
@@ -224,7 +224,7 @@
         >
           {tab.label}
           {#if countByStatus(tab.key) > 0}
-            <span class="flex size-4 items-center justify-center rounded-full bg-primary/10 text-mockup-xs font-bold text-primary">
+            <span class="flex size-4 items-center justify-center rounded-full bg-primary/10 text-mockup-xs font-bold text-primary-active">
               {countByStatus(tab.key)}
             </span>
           {/if}

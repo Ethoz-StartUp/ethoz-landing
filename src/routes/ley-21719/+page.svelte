@@ -75,7 +75,7 @@
       levelKey: 'ley21719.sanction_3_level' as const,
       examplesKey: 'ley21719.sanction_3_examples' as const,
       fineKey: 'ley21719.sanction_3_fine' as const,
-      approx: '≈ $670M–$1.340M CLP',
+      approx: '≈ $670M a $1.340M CLP',
     },
   ];
 
@@ -136,7 +136,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Ley 21.719: Guía completa para colegios — qué es, multas y cómo cumplir",
+      "headline": "Ley 21.719: Guía completa para colegios, qué es, multas y cómo cumplir",
       "description": "Ley 21.719 colegios Chile: qué exige, multas hasta 20.000 UTM, derechos ARCO+P, plazos dic 2026. Guía práctica para sostenedores y directivos.",
       "datePublished": "2026-04-07",
       "dateModified": "2026-04-07",

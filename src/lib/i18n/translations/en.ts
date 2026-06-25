@@ -353,7 +353,7 @@ export const en = {
   'pricing.faq.a3': '{brand} encrypts sensitive data, controls access by role, isolates each school\'s information, and logs every access in an immutable record. That covers the technical requirements of Law 21.719.',
   'pricing.faq.q4': 'Does it work with our current software?',
   'pricing.faq.a4': '{brand} integrates with the most common systems in Chile\'s school ecosystem. During implementation, we migrate your historical data and set up the necessary connections. If you\'re using Excel or paper-based systems, that migration is also covered.',
-  'pricing.faq.q5': 'How long does implementation take?',
+  'pricing.faq.q5': 'How long does {brand} take to implement?',
   'pricing.faq.a5': 'Typical implementation takes 2 to 4 weeks, depending on the volume of data to migrate and the number of campuses. No on-premise infrastructure is needed: {brand} runs 100% in the cloud.',
   'pricing.faq.q6': 'What types of schools is {brand} designed for?',
   'pricing.faq.a6': 'Any educational institution in Chile: private, subsidized, municipal, and multi-campus networks. From schools with 200 students to large multi-campus networks. The Esencial plan covers up to 500 students, Profesional from 500 to 1,500, and Enterprise for 1,500+.',

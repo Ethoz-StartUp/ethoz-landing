@@ -199,7 +199,7 @@
         contact_email: contactEmail,
         contact_phone: contactPhone || undefined,
         contact_source: contactSource || undefined,
-        notes: isManual ? 'Entrada manual — colegio no encontrado en directorio' : undefined,
+        notes: isManual ? 'Entrada manual, colegio no encontrado en directorio' : undefined,
         status: 'new',
       }, recaptchaToken);
 
@@ -235,11 +235,11 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — {t('nav.cta')}</title>
+  <title>{BRAND} · {t('nav.cta')}</title>
   <meta name="description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio. Agenda una presentación con nuestro equipo.`} />
   <meta property="og:url" content="https://ethoz.cl/demo" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Demo — ${BRAND}`} />
+  <meta property="og:title" content={`Demo · ${BRAND}`} />
   <meta property="og:description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio.`} />
   <link rel="canonical" href="https://ethoz.cl/demo" />
 </svelte:head>

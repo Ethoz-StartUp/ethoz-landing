@@ -394,7 +394,7 @@
 </script>
 
 <svelte:head>
-  <title>Content — {BRAND} Admin</title>
+  <title>Content · {BRAND} Admin</title>
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 

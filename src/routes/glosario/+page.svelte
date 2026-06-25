@@ -103,7 +103,7 @@
     {
       "@context": "https://schema.org",
       "@type": "DefinedTermSet",
-      "name": `Glosario ${BRAND} — protección escolar y cumplimiento normativo`,
+      "name": `Glosario ${BRAND} · protección escolar y cumplimiento normativo`,
       "description": "Glosario completo de términos de protección escolar y cumplimiento normativo en Chile.",
       "url": "https://ethoz.cl/glosario",
       "publisher": { "@type": "Organization", "name": BRAND, "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }}

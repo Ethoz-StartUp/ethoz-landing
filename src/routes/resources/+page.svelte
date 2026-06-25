@@ -100,11 +100,11 @@
 </script>
 
 <svelte:head>
-  <title>Recursos gratuitos — Ley 21.719 para colegios | {BRAND}</title>
+  <title>Recursos gratuitos · Ley 21.719 para colegios | {BRAND}</title>
   <meta name="description" content="Descarga plantillas, checklists y guías gratuitas para cumplir con la Ley 21.719 de Protección de Datos Personales en tu colegio." />
   <meta property="og:url" content="https://ethoz.cl/resources" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Recursos gratuitos — Ley 21.719 para colegios | ${BRAND}`} />
+  <meta property="og:title" content={`Recursos gratuitos · Ley 21.719 para colegios | ${BRAND}`} />
   <meta property="og:description" content="Descarga plantillas, checklists y guías gratuitas para cumplir con la Ley 21.719 de Protección de Datos Personales en tu colegio." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={`Recursos gratuitos Ley 21.719 | ${BRAND}`} />

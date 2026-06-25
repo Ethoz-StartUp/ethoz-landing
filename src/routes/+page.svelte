@@ -75,9 +75,9 @@
       hasAlert: true,
       alertText: 'Alerta Activa',
       timeline: [
-        { type: 'alert' as const, text: 'Orden de alejamiento registrada', meta: 'Hace 2 horas — Orientadora M. López' },
-        { type: 'pickup' as const, text: 'Retiro autorizado — Madre', meta: 'Ayer 15:30 — Portería Central' },
-        { type: 'update' as const, text: 'Ficha actualizada — datos familiares', meta: '02 abr — Prof. jefe R. Soto' },
+        { type: 'alert' as const, text: 'Orden de alejamiento registrada', meta: 'Hace 2 horas · Orientadora M. López' },
+        { type: 'pickup' as const, text: 'Retiro autorizado · Madre', meta: 'Ayer 15:30 · Portería Central' },
+        { type: 'update' as const, text: 'Ficha actualizada · datos familiares', meta: '02 abr · Prof. jefe R. Soto' },
       ],
     },
     {
@@ -87,9 +87,9 @@
       hasAlert: false,
       alertText: '',
       timeline: [
-        { type: 'pickup' as const, text: 'Retiro autorizado — Padre', meta: 'Hoy 13:45 — Portería Sur' },
-        { type: 'observation' as const, text: 'Observación conductual positiva', meta: 'Ayer — Prof. A. Martínez' },
-        { type: 'update' as const, text: 'Contacto de emergencia actualizado', meta: '01 abr — Admin' },
+        { type: 'pickup' as const, text: 'Retiro autorizado · Padre', meta: 'Hoy 13:45 · Portería Sur' },
+        { type: 'observation' as const, text: 'Observación conductual positiva', meta: 'Ayer · Prof. A. Martínez' },
+        { type: 'update' as const, text: 'Contacto de emergencia actualizado', meta: '01 abr · Admin' },
       ],
     },
     {
@@ -99,9 +99,9 @@
       hasAlert: true,
       alertText: 'Retiro Restringido',
       timeline: [
-        { type: 'alert' as const, text: 'Retiro no autorizado detectado', meta: 'Hace 1 hora — Portería Norte' },
-        { type: 'observation' as const, text: 'Derivación a orientación', meta: 'Hoy 09:00 — Prof. C. Ruiz' },
-        { type: 'pickup' as const, text: 'Retiro autorizado — Abuela', meta: 'Ayer 16:00 — Portería Central' },
+        { type: 'alert' as const, text: 'Retiro no autorizado detectado', meta: 'Hace 1 hora · Portería Norte' },
+        { type: 'observation' as const, text: 'Derivación a orientación', meta: 'Hoy 09:00 · Prof. C. Ruiz' },
+        { type: 'pickup' as const, text: 'Retiro autorizado · Abuela', meta: 'Ayer 16:00 · Portería Central' },
       ],
     },
     {
@@ -111,9 +111,9 @@
       hasAlert: false,
       alertText: '',
       timeline: [
-        { type: 'pickup' as const, text: 'Retiro autorizado — Madre', meta: 'Hoy 13:00 — Portería Central' },
-        { type: 'update' as const, text: 'Evaluación semestral registrada', meta: '31 mar — Prof. jefe L. Vera' },
-        { type: 'observation' as const, text: 'Participación en acto cívico', meta: '28 mar — Inspector J. Muñoz' },
+        { type: 'pickup' as const, text: 'Retiro autorizado · Madre', meta: 'Hoy 13:00 · Portería Central' },
+        { type: 'update' as const, text: 'Evaluación semestral registrada', meta: '31 mar · Prof. jefe L. Vera' },
+        { type: 'observation' as const, text: 'Participación en acto cívico', meta: '28 mar · Inspector J. Muñoz' },
       ],
     },
   ];
@@ -166,13 +166,13 @@
 
 <svelte:head>
   <title>{t('home.meta.title')}</title>
-  <meta name="description" content={`${BRAND} — Software de gestión y protección de datos escolares para colegios de Chile. Cumple con la Ley 21.719 antes del plazo de diciembre 2026.`} />
+  <meta name="description" content={`${BRAND} · Software de gestión y protección de datos escolares para colegios de Chile. Cumple con la Ley 21.719 antes del plazo de diciembre 2026.`} />
   <meta property="og:url" content="https://ethoz.cl/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} — Gestión y cumplimiento para colegios`} />
+  <meta property="og:title" content={`${BRAND} · Gestión y cumplimiento para colegios`} />
   <meta property="og:description" content="Plataforma de gestión y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} — Gestión y cumplimiento para colegios`} />
+  <meta name="twitter:title" content={`${BRAND} · Gestión y cumplimiento para colegios`} />
   <meta name="twitter:description" content="Plataforma de gestión y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
   <link rel="canonical" href="https://ethoz.cl/" />
   {@html `<script type="application/ld+json">${JSON.stringify([
@@ -253,7 +253,7 @@
   <NavBar />
 
   <!-- ═══════════════════════════════════════════
-       SECTION 2: HERO — Stripe Press editorial
+       SECTION 2: HERO — editorial
        ═══════════════════════════════════════════ -->
   <section class="relative pt-28 sm:pt-32">
     <!-- 8020 §09 texture: 32px grid behind the hero, faded by a radial mask so it orients, never decorates -->
@@ -517,7 +517,7 @@
         </p>
       </div>
 
-      <!-- Problem items — 3 columns, FeatureCardCal with Cal black left-rule -->
+      <!-- Problem items — 3 columns, feature cards with hairline border -->
       <div class="mx-auto mt-8 grid gap-5 sm:grid-cols-3">
         <FeatureCardCal
           icon={AlertTriangle}
@@ -555,7 +555,7 @@
         </p>
       </div>
 
-      <!-- Featured hero card: Ficha 360° — Cal black left-rule, asymmetric treatment -->
+      <!-- Featured hero card: Ficha 360° — featured hairline card -->
       <div class="mx-auto mt-10 max-w-5xl">
         <a href="/features/student-profile" class="group block rounded-xl border border-hairline bg-card p-8 transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-[1px] hover:border-foreground/25 hover:shadow-card-hover sm:p-10 lg:p-12">
           <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">

@@ -174,7 +174,7 @@
                 {t('comparativa.table_col_feature')}
               </th>
               {#each columns as col, i}
-                <th scope="col" class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide {i === 0 ? 'text-primary bg-primary/5 border-x border-primary/20' : 'text-muted-foreground'}">
+                <th scope="col" class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide {i === 0 ? 'text-primary-active bg-primary/5 border-x border-primary/20' : 'text-muted-foreground'}">
                   {col}
                   {#if i === 0}
                     <span class="ml-1.5 inline-flex items-center rounded-full bg-primary px-1.5 py-0.5 text-mockup-2xs font-bold text-primary-foreground">★</span>

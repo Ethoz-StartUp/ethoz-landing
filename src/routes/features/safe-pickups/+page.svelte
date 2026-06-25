@@ -17,7 +17,7 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — {t('features.pickup.title')}</title>
+  <title>{BRAND} · {t('features.pickup.title')}</title>
   <meta name="description" content={t('featurePage.safePickups.meta.description')} />
   <meta property="og:url" content="https://ethoz.cl/features/safe-pickups" />
   <meta property="og:type" content="website" />

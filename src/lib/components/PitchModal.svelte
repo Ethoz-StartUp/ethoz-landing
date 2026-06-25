@@ -181,13 +181,13 @@
             <h2 class="heading">{t('pitchModal.classification_heading')}</h2>
             <div class="severity-list">
               <div class="sev-row" in:fly={{ x: -30, duration: 450, delay: 250 }}>
-                <span class="sev-dot leve"></span><span class="sev-name leve-text">{t('pitchModal.classification_minor')}</span><span class="sev-range">1 – 100 UTM</span>
+                <span class="sev-dot leve"></span><span class="sev-name leve-text">{t('pitchModal.classification_minor')}</span><span class="sev-range">1 a 100 UTM</span>
               </div>
               <div class="sev-row" in:fly={{ x: -30, duration: 450, delay: 400 }}>
-                <span class="sev-dot grave"></span><span class="sev-name grave-text">{t('pitchModal.classification_serious')}</span><span class="sev-range">101 – 5.000 UTM</span>
+                <span class="sev-dot grave"></span><span class="sev-name grave-text">{t('pitchModal.classification_serious')}</span><span class="sev-range">101 a 5.000 UTM</span>
               </div>
               <div class="sev-row" in:fly={{ x: -30, duration: 450, delay: 550 }}>
-                <span class="sev-dot gravisima"></span><span class="sev-name gravisima-text">{t('pitchModal.classification_critical')}</span><span class="sev-range">5.001 – 20.000 UTM</span>
+                <span class="sev-dot gravisima"></span><span class="sev-name gravisima-text">{t('pitchModal.classification_critical')}</span><span class="sev-range">5.001 a 20.000 UTM</span>
               </div>
             </div>
           </div>

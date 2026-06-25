@@ -112,7 +112,7 @@
           href={link.href}
           class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isActive(link.href)
-              ? 'text-primary bg-primary/5'
+              ? 'text-primary-active bg-primary/5'
               : 'text-muted-foreground hover:text-foreground hover:bg-muted'}"
         >
           {t(link.key)}
@@ -190,7 +190,7 @@
           href={link.href}
           class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isActive(link.href)
-              ? 'text-primary bg-primary/5'
+              ? 'text-primary-active bg-primary/5'
               : 'text-muted-foreground hover:text-foreground hover:bg-muted'}"
         >
           {t(link.key)}
@@ -243,7 +243,7 @@
             href={link.href}
             class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
               {isActive(link.href)
-                ? 'text-primary bg-primary/5'
+                ? 'text-primary-active bg-primary/5'
                 : 'text-foreground hover:bg-muted'}"
             onclick={() => (mobileOpen = false)}
           >
@@ -256,7 +256,7 @@
           href="/get-started"
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/get-started')
-              ? 'text-primary bg-primary/5'
+              ? 'text-primary-active bg-primary/5'
               : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >
@@ -268,7 +268,7 @@
           href="/productos"
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/productos') || isProductActive()
-              ? 'text-primary bg-primary/5'
+              ? 'text-primary-active bg-primary/5'
               : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >
@@ -280,7 +280,7 @@
           href="/integrations"
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/integrations')
-              ? 'text-primary bg-primary/5'
+              ? 'text-primary-active bg-primary/5'
               : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >
@@ -292,7 +292,7 @@
           href="/blog"
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/blog')
-              ? 'text-primary bg-primary/5'
+              ? 'text-primary-active bg-primary/5'
               : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >
@@ -304,7 +304,7 @@
           href="/contact"
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/contact')
-              ? 'text-primary bg-primary/5'
+              ? 'text-primary-active bg-primary/5'
               : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >

@@ -16,7 +16,7 @@
       nameKey: 'productos.product_student_profile_name' as const,
       descKey: 'productos.product_student_profile_desc' as const,
       href: '/features/student-profile',
-      color: 'bg-primary/10 text-primary',
+      color: 'bg-primary/10 text-primary-active',
       highlightKeys: ['productos.product_student_profile_h1', 'productos.product_student_profile_h2', 'productos.product_student_profile_h3', 'productos.product_student_profile_h4'] as const,
     },
     {
@@ -43,7 +43,7 @@
       nameKey: 'productos.product_smart_search_name' as const,
       descKey: 'productos.product_smart_search_desc' as const,
       href: '/features/smart-search',
-      color: 'bg-primary/10 text-primary',
+      color: 'bg-primary/10 text-primary-active',
       highlightKeys: ['productos.product_smart_search_h1', 'productos.product_smart_search_h2', 'productos.product_smart_search_h3', 'productos.product_smart_search_h4'] as const,
     },
     {
@@ -61,7 +61,7 @@
       nameKey: 'productos.product_digital_logbook_name' as const,
       descKey: 'productos.product_digital_logbook_desc' as const,
       href: '/compliance',
-      color: 'bg-primary/10 text-primary',
+      color: 'bg-primary/10 text-primary-active',
       highlightKeys: ['productos.product_digital_logbook_h1', 'productos.product_digital_logbook_h2', 'productos.product_digital_logbook_h3', 'productos.product_digital_logbook_h4'] as const,
     },
     {
@@ -79,7 +79,7 @@
       nameKey: 'productos.product_analytics_name' as const,
       descKey: 'productos.product_analytics_desc' as const,
       href: '/features/analytics',
-      color: 'bg-primary/10 text-primary',
+      color: 'bg-primary/10 text-primary-active',
       highlightKeys: ['productos.product_analytics_h1', 'productos.product_analytics_h2', 'productos.product_analytics_h3', 'productos.product_analytics_h4'] as const,
     },
     {
@@ -104,14 +104,14 @@
 </script>
 
 <svelte:head>
-  <title>{t('productos.meta_title')} — {BRAND}</title>
+  <title>{t('productos.meta_title')} · {BRAND}</title>
   <meta name="description" content={t('productos.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/productos" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${t('productos.meta_title')} — ${BRAND}`} />
+  <meta property="og:title" content={`${t('productos.meta_title')} · ${BRAND}`} />
   <meta property="og:description" content={t('productos.og_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${t('productos.meta_title')} — ${BRAND}`} />
+  <meta name="twitter:title" content={`${t('productos.meta_title')} · ${BRAND}`} />
   <meta name="twitter:description" content={t('productos.og_description')} />
   <link rel="canonical" href="https://ethoz.cl/productos" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos"}]})}</script>`}
@@ -135,7 +135,7 @@
       <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
         {t('productos.hero_subtitle')}
       </p>
-      <span class="mt-5 inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
+      <span class="mt-5 inline-flex items-center gap-2 rounded-full bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary-active">
         {t('productos.hero_compliance_badge')}
       </span>
     </div>
@@ -175,7 +175,7 @@
                 <div class="size-2.5 rounded-full bg-destructive/60"></div>
                 <div class="size-2.5 rounded-full bg-warning/60"></div>
                 <div class="size-2.5 rounded-full bg-success/60"></div>
-                <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{BRAND} — {t(product.nameKey)}</span>
+                <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{BRAND} · {t(product.nameKey)}</span>
               </div>
               {#if product.id === 'student-profile'}
                 <div class="p-5">
@@ -211,7 +211,7 @@
                     </div>
                   </div>
                   <div class="mt-3 rounded-lg border border-dashed border-destructive/30 bg-destructive/5 px-3 py-2">
-                    <p class="text-mockup-xs font-medium text-destructive">Juan Rojas · {t('productos.mock_role_father')} — {t('productos.mock_status_blocked')}</p>
+                    <p class="text-mockup-xs font-medium text-destructive">Juan Rojas · {t('productos.mock_role_father')} · {t('productos.mock_status_blocked')}</p>
                     <p class="text-mockup-2xs text-muted-foreground">{t('productos.mock_restraining_order')}</p>
                   </div>
                 </div>
@@ -257,21 +257,21 @@
                     <div class="flex items-start gap-2.5 text-xs">
                       <span class="mt-1 size-2 shrink-0 rounded-full bg-warning"></span>
                       <div>
-                        <span class="font-medium text-foreground">{t('productos.mock_incident_minor')} — 8°A</span>
+                        <span class="font-medium text-foreground">{t('productos.mock_incident_minor')} · 8°A</span>
                         <p class="text-mockup-xs text-muted-foreground">Hace 2h · Prof. A. Martínez</p>
                       </div>
                     </div>
                     <div class="flex items-start gap-2.5 text-xs">
                       <span class="mt-1 size-2 shrink-0 rounded-full bg-destructive"></span>
                       <div>
-                        <span class="font-medium text-foreground">{t('productos.mock_incident_serious')} — 7°B</span>
+                        <span class="font-medium text-foreground">{t('productos.mock_incident_serious')} · 7°B</span>
                         <p class="text-mockup-xs text-muted-foreground">Ayer · Inspector J. Muñoz</p>
                       </div>
                     </div>
                     <div class="flex items-start gap-2.5 text-xs">
                       <span class="mt-1 size-2 shrink-0 rounded-full bg-success"></span>
                       <div>
-                        <span class="font-medium text-foreground">{t('productos.mock_intervention_closed')} — 6°A</span>
+                        <span class="font-medium text-foreground">{t('productos.mock_intervention_closed')} · 6°A</span>
                         <p class="text-mockup-xs text-muted-foreground">Hace 3 días · Orientadora</p>
                       </div>
                     </div>
@@ -290,7 +290,7 @@
                     </div>
                   </div>
                   <div class="mt-3 rounded-lg bg-primary/5 px-3 py-2 text-center">
-                    <p class="text-xs font-medium text-primary">Ley 21.719 — {t('productos.mock_in_compliance')}</p>
+                    <p class="text-xs font-medium text-primary">Ley 21.719 · {t('productos.mock_in_compliance')}</p>
                   </div>
                 </div>
               {/if}

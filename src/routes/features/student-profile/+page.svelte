@@ -35,7 +35,7 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — {t('features.record.title')}</title>
+  <title>{BRAND} · {t('features.record.title')}</title>
   <meta name="description" content={t('featurePage.studentProfile.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/features/student-profile" />
   <meta property="og:type" content="website" />
@@ -289,7 +289,7 @@
                 <div class="flex items-center gap-2.5">
                   <CalendarDays class="size-4 shrink-0 text-primary" />
                   <div>
-                    <p class="text-sm font-semibold text-foreground">{item.year} — {t(item.gradeKey)}</p>
+                    <p class="text-sm font-semibold text-foreground">{item.year} · {t(item.gradeKey)}</p>
                     <p class="text-mockup-sm text-muted-foreground">{t('featurePage.studentProfile.timeline_school')}</p>
                   </div>
                 </div>

@@ -102,14 +102,14 @@
 <svelte:window onkeydown={handleKeydown} />
 
 <svelte:head>
-  <title>{BRAND} — {t('nav.cta')}</title>
+  <title>{BRAND} · {t('nav.cta')}</title>
   <meta name="description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio. Busca tu establecimiento y agenda una presentación.`} />
   <meta property="og:url" content="https://ethoz.cl/demo" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Demo — ${BRAND}`} />
+  <meta property="og:title" content={`Demo · ${BRAND}`} />
   <meta property="og:description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Demo — ${BRAND}`} />
+  <meta name="twitter:title" content={`Demo · ${BRAND}`} />
   <meta name="twitter:description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio.`} />
   <link rel="canonical" href="https://ethoz.cl/demo" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Demo"}]})}</script>`}

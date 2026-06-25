@@ -12,11 +12,11 @@
       sensitivityKey: 'resDataInventory.sens_basic' as const,
       sensitivityColor: 'green',
       fields: [
-        { field: 'Nombre completo', baseLegal: 'Art. 13 b) — Contrato matrícula', finalidad: 'Gestión educativa, comunicaciones', retention: '5 años post egreso' },
-        { field: 'RUT', baseLegal: 'Art. 13 b) — Contrato matrícula', finalidad: 'Identificación única, reportes MINEDUC', retention: '5 años post egreso' },
-        { field: 'Fecha de nacimiento', baseLegal: 'Art. 13 b) — Contrato matrícula', finalidad: 'Matrícula SAE, estadísticas educativas', retention: '5 años post egreso' },
-        { field: 'Fotografía', baseLegal: 'Art. 13 a) — Consentimiento', finalidad: 'Identificación visual, carnet escolar', retention: 'Vigencia matrícula' },
-        { field: 'Dirección domicilio', baseLegal: 'Art. 13 b) — Contrato matrícula', finalidad: 'Contacto, verificación zona escolar', retention: '2 años post egreso' },
+        { field: 'Nombre completo', baseLegal: 'Art. 13 b) · Contrato matrícula', finalidad: 'Gestión educativa, comunicaciones', retention: '5 años post egreso' },
+        { field: 'RUT', baseLegal: 'Art. 13 b) · Contrato matrícula', finalidad: 'Identificación única, reportes MINEDUC', retention: '5 años post egreso' },
+        { field: 'Fecha de nacimiento', baseLegal: 'Art. 13 b) · Contrato matrícula', finalidad: 'Matrícula SAE, estadísticas educativas', retention: '5 años post egreso' },
+        { field: 'Fotografía', baseLegal: 'Art. 13 a) · Consentimiento', finalidad: 'Identificación visual, carnet escolar', retention: 'Vigencia matrícula' },
+        { field: 'Dirección domicilio', baseLegal: 'Art. 13 b) · Contrato matrícula', finalidad: 'Contacto, verificación zona escolar', retention: '2 años post egreso' },
       ]
     },
     {
@@ -24,12 +24,12 @@
       sensitivityKey: 'resDataInventory.sens_basic' as const,
       sensitivityColor: 'green',
       fields: [
-        { field: 'Nombre completo apoderado titular', baseLegal: 'Art. 13 b) — Contrato matrícula', finalidad: 'Contacto principal, autorizaciones', retention: '5 años post egreso' },
-        { field: 'RUT apoderado', baseLegal: 'Art. 13 b) — Contrato matrícula', finalidad: 'Identificación, verificación retiros', retention: '5 años post egreso' },
-        { field: 'Teléfono de contacto', baseLegal: 'Art. 13 b) — Contrato matrícula', finalidad: 'Comunicaciones urgentes, emergencias', retention: 'Vigencia matrícula' },
-        { field: 'Correo electrónico', baseLegal: 'Art. 13 b) — Contrato matrícula', finalidad: 'Comunicaciones académicas, circulares', retention: 'Vigencia matrícula' },
-        { field: 'Parentesco con el alumno', baseLegal: 'Art. 13 b) — Contrato matrícula', finalidad: 'Determinar titularidad del consentimiento', retention: '5 años post egreso' },
-        { field: 'Personas autorizadas para retiro', baseLegal: 'Art. 13 a) — Consentimiento', finalidad: 'Control de retiros y seguridad', retention: 'Hasta revocación' },
+        { field: 'Nombre completo apoderado titular', baseLegal: 'Art. 13 b) · Contrato matrícula', finalidad: 'Contacto principal, autorizaciones', retention: '5 años post egreso' },
+        { field: 'RUT apoderado', baseLegal: 'Art. 13 b) · Contrato matrícula', finalidad: 'Identificación, verificación retiros', retention: '5 años post egreso' },
+        { field: 'Teléfono de contacto', baseLegal: 'Art. 13 b) · Contrato matrícula', finalidad: 'Comunicaciones urgentes, emergencias', retention: 'Vigencia matrícula' },
+        { field: 'Correo electrónico', baseLegal: 'Art. 13 b) · Contrato matrícula', finalidad: 'Comunicaciones académicas, circulares', retention: 'Vigencia matrícula' },
+        { field: 'Parentesco con el alumno', baseLegal: 'Art. 13 b) · Contrato matrícula', finalidad: 'Determinar titularidad del consentimiento', retention: '5 años post egreso' },
+        { field: 'Personas autorizadas para retiro', baseLegal: 'Art. 13 a) · Consentimiento', finalidad: 'Control de retiros y seguridad', retention: 'Hasta revocación' },
       ]
     },
     {
@@ -37,11 +37,11 @@
       sensitivityKey: 'resDataInventory.sens_basic' as const,
       sensitivityColor: 'green',
       fields: [
-        { field: 'Notas y calificaciones', baseLegal: 'Art. 13 b) / Art. 13 c) — Ley General de Educación', finalidad: 'Evaluación aprendizaje, informes MINEDUC', retention: '5 años post egreso' },
-        { field: 'Registro de asistencia', baseLegal: 'Art. 13 c) — Decreto 67 MINEDUC', finalidad: 'Control obligatorio, subvención estatal', retention: '5 años post egreso' },
-        { field: 'Observaciones pedagógicas', baseLegal: 'Art. 13 b) / Art. 13 e) — Interés legítimo', finalidad: 'Seguimiento aprendizaje, apoyo docente', retention: '5 años post egreso' },
-        { field: 'Informes de evaluación diferenciada (PIE)', baseLegal: 'Art. 13 a) — Consentimiento + Art. 13 c) — DL 170', finalidad: 'Adecuaciones curriculares, apoyos SEP', retention: '10 años post egreso' },
-        { field: 'Registro de convivencia escolar', baseLegal: 'Art. 13 c) — Ley 20.536', finalidad: 'Gestión de convivencia, protocolos', retention: '5 años post egreso' },
+        { field: 'Notas y calificaciones', baseLegal: 'Art. 13 b) / Art. 13 c) · Ley General de Educación', finalidad: 'Evaluación aprendizaje, informes MINEDUC', retention: '5 años post egreso' },
+        { field: 'Registro de asistencia', baseLegal: 'Art. 13 c) · Decreto 67 MINEDUC', finalidad: 'Control obligatorio, subvención estatal', retention: '5 años post egreso' },
+        { field: 'Observaciones pedagógicas', baseLegal: 'Art. 13 b) / Art. 13 e) · Interés legítimo', finalidad: 'Seguimiento aprendizaje, apoyo docente', retention: '5 años post egreso' },
+        { field: 'Informes de evaluación diferenciada (PIE)', baseLegal: 'Art. 13 a) · Consentimiento + Art. 13 c) · DL 170', finalidad: 'Adecuaciones curriculares, apoyos SEP', retention: '10 años post egreso' },
+        { field: 'Registro de convivencia escolar', baseLegal: 'Art. 13 c) · Ley 20.536', finalidad: 'Gestión de convivencia, protocolos', retention: '5 años post egreso' },
       ]
     },
     {
@@ -49,11 +49,11 @@
       sensitivityKey: 'resDataInventory.sens_sensitive' as const,
       sensitivityColor: 'red',
       fields: [
-        { field: 'Diagnósticos médicos y condiciones de salud', baseLegal: 'Art. 13 a) — Consentimiento explícito', finalidad: 'Atención primaria, primeros auxilios', retention: '10 años post egreso' },
-        { field: 'Alergias y medicamentos', baseLegal: 'Art. 13 a) — Consentimiento explícito', finalidad: 'Prevención riesgos de salud en establecimiento', retention: 'Vigencia matrícula + 5 años' },
-        { field: 'Ficha de salud mental (orientación)', baseLegal: 'Art. 13 a) — Consentimiento explícito', finalidad: 'Apoyo psicosocial, alertas de riesgo', retention: '5 años post egreso' },
-        { field: 'Situación familiar (vulnerabilidad, SENAME)', baseLegal: 'Art. 13 a) — Consentimiento / Art. 13 c) — Ley 21.430', finalidad: 'Protección de la infancia, redes de apoyo', retention: '5 años post egreso' },
-        { field: 'Alertas judiciales y órdenes de alejamiento', baseLegal: 'Art. 13 c) — Orden judicial', finalidad: 'Protección física del alumno, seguridad', retention: 'Mientras esté vigente la orden' },
+        { field: 'Diagnósticos médicos y condiciones de salud', baseLegal: 'Art. 13 a) · Consentimiento explícito', finalidad: 'Atención primaria, primeros auxilios', retention: '10 años post egreso' },
+        { field: 'Alergias y medicamentos', baseLegal: 'Art. 13 a) · Consentimiento explícito', finalidad: 'Prevención riesgos de salud en establecimiento', retention: 'Vigencia matrícula + 5 años' },
+        { field: 'Ficha de salud mental (orientación)', baseLegal: 'Art. 13 a) · Consentimiento explícito', finalidad: 'Apoyo psicosocial, alertas de riesgo', retention: '5 años post egreso' },
+        { field: 'Situación familiar (vulnerabilidad, SENAME)', baseLegal: 'Art. 13 a) · Consentimiento / Art. 13 c) · Ley 21.430', finalidad: 'Protección de la infancia, redes de apoyo', retention: '5 años post egreso' },
+        { field: 'Alertas judiciales y órdenes de alejamiento', baseLegal: 'Art. 13 c) · Orden judicial', finalidad: 'Protección física del alumno, seguridad', retention: 'Mientras esté vigente la orden' },
       ]
     },
     {
@@ -61,10 +61,10 @@
       sensitivityKey: 'resDataInventory.sens_technical' as const,
       sensitivityColor: 'blue',
       fields: [
-        { field: 'Logs de acceso al sistema', baseLegal: 'Art. 27 — Seguridad técnica', finalidad: 'Trazabilidad, detección de incidentes', retention: '2 años' },
-        { field: 'Registros de retiro de alumnos', baseLegal: 'Art. 13 e) — Interés legítimo / Seguridad', finalidad: 'Trazabilidad, verificación en auditorías', retention: '5 años' },
-        { field: 'Logs de modificaciones de datos', baseLegal: 'Art. 27 — Seguridad técnica', finalidad: 'Auditoría de cumplimiento, ARCO', retention: '3 años' },
-        { field: 'Registros de consentimiento', baseLegal: 'Art. 14 — Documentación', finalidad: 'Prueba del consentimiento otorgado', retention: '5 años post expiración' },
+        { field: 'Logs de acceso al sistema', baseLegal: 'Art. 27 · Seguridad técnica', finalidad: 'Trazabilidad, detección de incidentes', retention: '2 años' },
+        { field: 'Registros de retiro de alumnos', baseLegal: 'Art. 13 e) · Interés legítimo / Seguridad', finalidad: 'Trazabilidad, verificación en auditorías', retention: '5 años' },
+        { field: 'Logs de modificaciones de datos', baseLegal: 'Art. 27 · Seguridad técnica', finalidad: 'Auditoría de cumplimiento, ARCO', retention: '3 años' },
+        { field: 'Registros de consentimiento', baseLegal: 'Art. 14 · Documentación', finalidad: 'Prueba del consentimiento otorgado', retention: '5 años post expiración' },
       ]
     }
   ];
@@ -72,7 +72,7 @@
   const sensitivityStyle: Record<string, string> = {
     green: 'bg-success/10 text-success',
     red: 'bg-destructive/10 text-destructive',
-    blue: 'bg-primary/10 text-primary',
+    blue: 'bg-primary/10 text-primary-active',
   };
 </script>
 

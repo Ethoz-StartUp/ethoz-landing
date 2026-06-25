@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — {t('featurePage.analytics.meta_title_suffix')}</title>
+  <title>{BRAND} · {t('featurePage.analytics.meta_title_suffix')}</title>
   <meta name="description" content={t('featurePage.analytics.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/features/analytics" />
   <meta property="og:type" content="website" />
@@ -49,7 +49,7 @@
             {t('featurePage.analytics.hero_subtitle')}
           </p>
           <div class="mt-6 flex flex-wrap gap-2">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{t('featurePage.analytics.hero_badge_compliance')}</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary-active">{t('featurePage.analytics.hero_badge_compliance')}</span>
             <span class="inline-flex items-center gap-1.5 rounded-full bg-success/10 px-3 py-1 text-xs font-medium text-success">{t('featurePage.analytics.hero_badge_realtime')}</span>
             <span class="inline-flex items-center gap-1.5 rounded-full bg-warning/15 px-3 py-1 text-xs font-medium text-warning-foreground">{t('featurePage.analytics.hero_badge_multisite')}</span>
           </div>
@@ -69,13 +69,13 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{BRAND} — {t('featurePage.analytics.mockup_dashboard_title')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{BRAND} · {t('featurePage.analytics.mockup_dashboard_title')}</span>
           </div>
           <!-- Filter bar mockup -->
           <div class="flex items-center gap-2 border-b border-border px-4 py-2 bg-muted/20">
             <Filter class="size-3 text-muted-foreground" />
             <span class="text-mockup-xs text-muted-foreground">{t('featurePage.analytics.mockup_filter_summary')}</span>
-            <span class="ml-auto rounded bg-primary/10 px-2 py-0.5 text-mockup-2xs font-medium text-primary">{t('featurePage.analytics.mockup_filter_apply')}</span>
+            <span class="ml-auto rounded bg-primary/10 px-2 py-0.5 text-mockup-2xs font-medium text-primary-active">{t('featurePage.analytics.mockup_filter_apply')}</span>
           </div>
           <div class="p-4 sm:p-5">
             <!-- KPI row -->

@@ -80,10 +80,10 @@
   <meta name="description" content={`Proyecciones modeladas del impacto de ${BRAND} en colegios chilenos: retiros seguros, tiempo de verificación, ahorro en multas Ley 21.719 y horas recuperadas para inspectores.`} />
   <meta property="og:url" content="https://ethoz.cl/proyecciones" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Proyecciones de impacto — ${BRAND}`} />
+  <meta property="og:title" content={`Proyecciones de impacto · ${BRAND}`} />
   <meta property="og:description" content={`Proyecciones modeladas del impacto de ${BRAND}: retiros, compliance Ley 21.719 y eficiencia operacional.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Proyecciones de impacto — ${BRAND}`} />
+  <meta name="twitter:title" content={`Proyecciones de impacto · ${BRAND}`} />
   <meta name="twitter:description" content={`Proyecciones modeladas del impacto de ${BRAND} en colegios chilenos.`} />
   <link rel="canonical" href="https://ethoz.cl/proyecciones" />
   {@html `<script type="application/ld+json">${JSON.stringify({
@@ -164,7 +164,7 @@
             <div class="border-t border-border">
               <button
                 onclick={() => toggleCard(i)}
-                class="flex w-full items-center justify-between px-6 py-3 text-xs font-medium text-primary hover:bg-primary/5 transition-colors"
+                class="flex w-full items-center justify-between px-6 py-3 text-xs font-medium text-primary-active hover:bg-primary/5 transition-colors"
               >
                 <span>{t('proyecciones.see_methodology')}</span>
                 {#if expandedCards[i]}
@@ -206,7 +206,7 @@
             <tr class="border-b border-border bg-muted/50">
               <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('proyecciones.table_head_metric')}</th>
               <th class="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('proyecciones.table_head_without')} {BRAND}</th>
-              <th class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-primary bg-primary/5">{t('proyecciones.table_head_with')} {BRAND}</th>
+              <th class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-primary-active bg-primary/5">{t('proyecciones.table_head_with')} {BRAND}</th>
               <th class="px-4 py-3 text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('proyecciones.table_head_diff')}</th>
             </tr>
           </thead>
@@ -215,7 +215,7 @@
               <tr class="border-b border-border {i % 2 === 0 ? 'bg-background' : 'bg-muted/20'}">
                 <td class="px-4 py-3 text-sm font-medium text-foreground">{t(row.metric)}</td>
                 <td class="px-4 py-3 text-center text-sm text-muted-foreground">{t(row.before)}</td>
-                <td class="px-4 py-3 text-center text-sm font-medium text-primary bg-primary/5">{t(row.after)}</td>
+                <td class="px-4 py-3 text-center text-sm font-medium text-primary-active bg-primary/5">{t(row.after)}</td>
                 <td class="px-4 py-3 text-center text-sm font-semibold text-foreground">{t(row.savings)}</td>
               </tr>
             {/each}
