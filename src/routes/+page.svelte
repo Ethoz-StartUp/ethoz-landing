@@ -841,7 +841,7 @@
           variant="outline"
           size="xl"
           onclick={() => (showPitch = true)}
-          class="border-on-dark text-on-dark hover:bg-on-dark hover:text-surface-dark"
+          class="bg-transparent border-on-dark text-on-dark hover:bg-on-dark hover:text-surface-dark"
         >
           <Play class="size-5" />
           {t('hero.video_short')}

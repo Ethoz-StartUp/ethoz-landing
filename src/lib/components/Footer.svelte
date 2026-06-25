@@ -67,7 +67,7 @@
 
       <!-- Producto -->
       <div>
-        <h4 class="text-xs font-semibold uppercase tracking-wider text-on-dark">{t('footer.product')}</h4>
+        <h4 class="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-on-dark">{t('footer.product')}</h4>
         <ul class="mt-4 flex flex-col gap-3">
           <li><a href="/productos" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.features')}</a></li>
           <li><a href="/integrations" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.integrations')}</a></li>
@@ -80,7 +80,7 @@
 
       <!-- Recursos -->
       <div>
-        <h4 class="text-xs font-semibold uppercase tracking-wider text-on-dark">{t('footer.resources_section')}</h4>
+        <h4 class="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-on-dark">{t('footer.resources_section')}</h4>
         <ul class="mt-4 flex flex-col gap-3">
           <li><a href="/ley-21719" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.law')}</a></li>
           <li><a href="/circular-30" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.circular')}</a></li>
@@ -92,7 +92,7 @@
 
       <!-- Empresa -->
       <div>
-        <h4 class="text-xs font-semibold uppercase tracking-wider text-on-dark">{t('footer.company')}</h4>
+        <h4 class="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-on-dark">{t('footer.company')}</h4>
         <ul class="mt-4 flex flex-col gap-3">
           <li><a href="/about" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.about')}</a></li>
           <li><a href="/blog" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.blog')}</a></li>
@@ -103,7 +103,7 @@
 
       <!-- Para ti -->
       <div>
-        <h4 class="text-xs font-semibold uppercase tracking-wider text-on-dark">{t('footer.for_you')}</h4>
+        <h4 class="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-on-dark">{t('footer.for_you')}</h4>
         <ul class="mt-4 flex flex-col gap-3">
           <li><a href="/para-sostenedores" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.operators')}</a></li>
           <li><a href="/para-directores" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.directors')}</a></li>

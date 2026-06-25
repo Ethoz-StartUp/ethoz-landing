@@ -479,20 +479,24 @@ body {
   letter-spacing: 0;
 }
 
-/* DM Sans display headlines — weight 700 to 800 (8020 §08), negative tracking, confident not decorative */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  color: var(--ink);
-  text-wrap: balance;
-}
+/* DM Sans display headlines — weight 700 to 800 (8020 §08), negative tracking, confident not decorative.
+   IN @layer base so Tailwind utility classes (text-xs, text-on-dark, etc.) can override per element.
+   (Unlayered element rules beat @layer utilities and would silently kill those overrides.) */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--ink);
+    text-wrap: balance;
+  }
 
-h1 { font-size: var(--fs-display-xl); line-height: 1.05; letter-spacing: var(--tracking-display-xl); font-weight: 800; }
-h2 { font-size: var(--fs-display-lg); line-height: 1.10; letter-spacing: var(--tracking-display-lg); }
-h3 { font-size: var(--fs-display-md); line-height: 1.15; letter-spacing: var(--tracking-display-md); }
-h4 { font-size: var(--fs-display-sm); line-height: 1.20; letter-spacing: var(--tracking-display-sm); }
-h5 { font-size: var(--fs-title-lg); line-height: 1.30; letter-spacing: -0.0136em; font-family: var(--font-sans); }
-h6 { font-size: var(--fs-title-md); line-height: 1.40; letter-spacing: 0; font-family: var(--font-sans); }
+  h1 { font-size: var(--fs-display-xl); line-height: 1.05; letter-spacing: var(--tracking-display-xl); font-weight: 800; }
+  h2 { font-size: var(--fs-display-lg); line-height: 1.10; letter-spacing: var(--tracking-display-lg); }
+  h3 { font-size: var(--fs-display-md); line-height: 1.15; letter-spacing: var(--tracking-display-md); }
+  h4 { font-size: var(--fs-display-sm); line-height: 1.20; letter-spacing: var(--tracking-display-sm); }
+  h5 { font-size: var(--fs-title-lg); line-height: 1.30; letter-spacing: -0.0136em; font-family: var(--font-sans); }
+  h6 { font-size: var(--fs-title-md); line-height: 1.40; letter-spacing: 0; font-family: var(--font-sans); }
+}
 
 p, li {
   text-wrap: pretty;
