@@ -8,14 +8,14 @@
 </script>
 
 <svelte:head>
-  <title>Política de Privacidad — {BRAND}</title>
+  <title>Política de Privacidad · {BRAND}</title>
   <meta name="description" content={`Política de privacidad de ${BRAND}. Información sobre el tratamiento de datos personales conforme a la Ley 21.719.`} />
   <meta property="og:url" content="https://ethoz.cl/privacy" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Política de Privacidad — ${BRAND}`} />
+  <meta property="og:title" content={`Política de Privacidad · ${BRAND}`} />
   <meta property="og:description" content={`Política de privacidad de ${BRAND}. Información sobre el tratamiento de datos personales conforme a la Ley 21.719.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Política de Privacidad — ${BRAND}`} />
+  <meta name="twitter:title" content={`Política de Privacidad · ${BRAND}`} />
   <meta name="twitter:description" content={`Política de privacidad de ${BRAND}. Información sobre el tratamiento de datos personales conforme a la Ley 21.719.`} />
   <link rel="canonical" href="https://ethoz.cl/privacy" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Política de Privacidad"}]})}</script>`}

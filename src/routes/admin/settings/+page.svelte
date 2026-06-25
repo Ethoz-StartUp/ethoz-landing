@@ -208,7 +208,7 @@
 </script>
 
 <svelte:head>
-  <title>Settings — {BRAND} Admin</title>
+  <title>Settings · {BRAND} Admin</title>
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 

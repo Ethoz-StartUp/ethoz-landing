@@ -75,9 +75,9 @@
       hasAlert: true,
       alertText: 'Alerta Activa',
       timeline: [
-        { type: 'alert' as const, text: 'Orden de alejamiento registrada', meta: 'Hace 2 horas — Orientadora M. López' },
-        { type: 'pickup' as const, text: 'Retiro autorizado — Madre', meta: 'Ayer 15:30 — Portería Central' },
-        { type: 'update' as const, text: 'Ficha actualizada — datos familiares', meta: '02 abr — Prof. jefe R. Soto' },
+        { type: 'alert' as const, text: 'Orden de alejamiento registrada', meta: 'Hace 2 horas · Orientadora M. López' },
+        { type: 'pickup' as const, text: 'Retiro autorizado · Madre', meta: 'Ayer 15:30 · Portería Central' },
+        { type: 'update' as const, text: 'Ficha actualizada · datos familiares', meta: '02 abr · Prof. jefe R. Soto' },
       ],
     },
     {
@@ -87,9 +87,9 @@
       hasAlert: false,
       alertText: '',
       timeline: [
-        { type: 'pickup' as const, text: 'Retiro autorizado — Padre', meta: 'Hoy 13:45 — Portería Sur' },
-        { type: 'observation' as const, text: 'Observación conductual positiva', meta: 'Ayer — Prof. A. Martínez' },
-        { type: 'update' as const, text: 'Contacto de emergencia actualizado', meta: '01 abr — Admin' },
+        { type: 'pickup' as const, text: 'Retiro autorizado · Padre', meta: 'Hoy 13:45 · Portería Sur' },
+        { type: 'observation' as const, text: 'Observación conductual positiva', meta: 'Ayer · Prof. A. Martínez' },
+        { type: 'update' as const, text: 'Contacto de emergencia actualizado', meta: '01 abr · Admin' },
       ],
     },
     {
@@ -99,9 +99,9 @@
       hasAlert: true,
       alertText: 'Retiro Restringido',
       timeline: [
-        { type: 'alert' as const, text: 'Retiro no autorizado detectado', meta: 'Hace 1 hora — Portería Norte' },
-        { type: 'observation' as const, text: 'Derivación a orientación', meta: 'Hoy 09:00 — Prof. C. Ruiz' },
-        { type: 'pickup' as const, text: 'Retiro autorizado — Abuela', meta: 'Ayer 16:00 — Portería Central' },
+        { type: 'alert' as const, text: 'Retiro no autorizado detectado', meta: 'Hace 1 hora · Portería Norte' },
+        { type: 'observation' as const, text: 'Derivación a orientación', meta: 'Hoy 09:00 · Prof. C. Ruiz' },
+        { type: 'pickup' as const, text: 'Retiro autorizado · Abuela', meta: 'Ayer 16:00 · Portería Central' },
       ],
     },
     {
@@ -111,9 +111,9 @@
       hasAlert: false,
       alertText: '',
       timeline: [
-        { type: 'pickup' as const, text: 'Retiro autorizado — Madre', meta: 'Hoy 13:00 — Portería Central' },
-        { type: 'update' as const, text: 'Evaluación semestral registrada', meta: '31 mar — Prof. jefe L. Vera' },
-        { type: 'observation' as const, text: 'Participación en acto cívico', meta: '28 mar — Inspector J. Muñoz' },
+        { type: 'pickup' as const, text: 'Retiro autorizado · Madre', meta: 'Hoy 13:00 · Portería Central' },
+        { type: 'update' as const, text: 'Evaluación semestral registrada', meta: '31 mar · Prof. jefe L. Vera' },
+        { type: 'observation' as const, text: 'Participación en acto cívico', meta: '28 mar · Inspector J. Muñoz' },
       ],
     },
   ];
@@ -166,13 +166,13 @@
 
 <svelte:head>
   <title>{t('home.meta.title')}</title>
-  <meta name="description" content={`${BRAND} — Software de gestión y protección de datos escolares para colegios de Chile. Cumple con la Ley 21.719 antes del plazo de diciembre 2026.`} />
+  <meta name="description" content={`${BRAND} · Software de gestión y protección de datos escolares para colegios de Chile. Cumple con la Ley 21.719 antes del plazo de diciembre 2026.`} />
   <meta property="og:url" content="https://ethoz.cl/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} — Gestión y cumplimiento para colegios`} />
+  <meta property="og:title" content={`${BRAND} · Gestión y cumplimiento para colegios`} />
   <meta property="og:description" content="Plataforma de gestión y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} — Gestión y cumplimiento para colegios`} />
+  <meta name="twitter:title" content={`${BRAND} · Gestión y cumplimiento para colegios`} />
   <meta name="twitter:description" content="Plataforma de gestión y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
   <link rel="canonical" href="https://ethoz.cl/" />
   {@html `<script type="application/ld+json">${JSON.stringify([
@@ -253,9 +253,11 @@
   <NavBar />
 
   <!-- ═══════════════════════════════════════════
-       SECTION 2: HERO — Stripe Press editorial
+       SECTION 2: HERO — editorial
        ═══════════════════════════════════════════ -->
   <section class="relative pt-28 sm:pt-32">
+    <!-- 8020 §09 texture: 32px grid behind the hero, faded by a radial mask so it orients, never decorates -->
+    <div class="pointer-events-none absolute inset-0 bg-grid-fine [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,#000_10%,transparent_72%)]" aria-hidden="true"></div>
     <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-8 sm:px-6 sm:py-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 lg:px-8">
 
       <!-- Left column: headline + CTAs -->
@@ -272,7 +274,7 @@
           <span aria-hidden="true">{heroCountdownLabel}</span>
         </div>
 
-        <!-- Headline — global h1 carries Cal Sans 600 + --fs-display-xl + --tracking-display-xl -->
+        <!-- Headline — global h1 carries DM Sans 800 + --fs-display-xl + --tracking-display-xl -->
         <h1 class="animate-fade-in-up animate-delay-100 w-full text-balance text-foreground">
           {t('hero.title')}
         </h1>
@@ -323,7 +325,7 @@
               <div class="size-3 rounded-full bg-warning/60"></div>
               <div class="size-3 rounded-full bg-success/60"></div>
               <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
-              <span class="ml-auto inline-flex items-center gap-1.5 border border-border bg-muted px-2 py-0.5 text-mockup-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              <span class="ml-auto inline-flex items-center gap-1.5 border border-border bg-muted px-2 py-0.5 text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
                 <span class="relative flex size-1.5">
                   <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
                   <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
@@ -422,28 +424,28 @@
        ═══════════════════════════════════════════ -->
   <section class="reveal border-y border-border bg-background py-10" aria-label={t('home.trust_section_label')}>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="text-center text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         {t('trust.attribution')}
       </p>
       <dl class="mt-8 grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.data')}</dt>
+          <dt class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-foreground">{t('trust.label.data')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.servers')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.encryption')}</dt>
+          <dt class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-foreground">{t('trust.label.encryption')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.encryption')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.integration')}</dt>
+          <dt class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-foreground">{t('trust.label.integration')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.integration')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-mockup-xs font-semibold uppercase tracking-[0.18em] text-foreground">{t('trust.label.compliance')}</dt>
+          <dt class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-foreground">{t('trust.label.compliance')}</dt>
           <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.compliance')}</dd>
         </div>
       </dl>
@@ -452,7 +454,7 @@
 
   <!-- ═══════════════════════════════════════════
        EDITORIAL ANCHOR — the thesis before the problem.
-       Anti-AI-slop moment: an institutional declaration in Cal Sans display
+       Anti-AI-slop moment: an institutional declaration in DM Sans display
        paired with three verified stats from Mineduc + Law 21.719.
        No card grid, no stock-template rhythm.
        ═══════════════════════════════════════════ -->
@@ -472,7 +474,7 @@
           <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat1_number')}
           </dd>
-          <p class="mt-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <p class="mt-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
             {t('editorial.stat1_label')}
           </p>
         </div>
@@ -481,7 +483,7 @@
           <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat2_number')}
           </dd>
-          <p class="mt-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <p class="mt-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
             {t('editorial.stat2_label')}
           </p>
         </div>
@@ -490,7 +492,7 @@
           <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
             {t('editorial.stat3_number')}
           </dd>
-          <p class="mt-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          <p class="mt-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
             {t('editorial.stat3_label')}
           </p>
         </div>
@@ -515,7 +517,7 @@
         </p>
       </div>
 
-      <!-- Problem items — 3 columns, FeatureCardCal with Cal black left-rule -->
+      <!-- Problem items — 3 columns, feature cards with hairline border -->
       <div class="mx-auto mt-8 grid gap-5 sm:grid-cols-3">
         <FeatureCardCal
           icon={AlertTriangle}
@@ -553,9 +555,9 @@
         </p>
       </div>
 
-      <!-- Featured hero card: Ficha 360° — Cal black left-rule, asymmetric treatment -->
+      <!-- Featured hero card: Ficha 360° — featured hairline card -->
       <div class="mx-auto mt-10 max-w-5xl">
-        <a href="/features/student-profile" class="group block rounded-xl border-l-2 border-foreground bg-card p-8 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover sm:p-10 lg:p-12">
+        <a href="/features/student-profile" class="group block rounded-xl border border-hairline bg-card p-8 transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-[1px] hover:border-foreground/25 hover:shadow-card-hover sm:p-10 lg:p-12">
           <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
             <div>
               <h3 class="font-heading text-2xl leading-tight text-foreground sm:text-[1.75rem] lg:text-[2rem]">
@@ -589,7 +591,7 @@
       <!-- Supporting features — 3-column grid, compact cards (driven by supportingFeatures array) -->
       <div class="mx-auto mt-5 grid max-w-5xl gap-5 sm:grid-cols-3">
         {#each supportingFeatures as feat (feat.href)}
-          <a href={feat.href} class="group flex flex-col rounded-xl border-l-2 border-foreground bg-card p-6 transition-all duration-[160ms] hover:border-l-4 hover:bg-surface-card hover:-translate-y-[1px] hover:shadow-card-hover">
+          <a href={feat.href} class="group flex flex-col rounded-xl border border-hairline bg-card p-6 transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-[1px] hover:border-foreground/25 hover:shadow-card-hover">
             <h3 class="font-heading text-lg leading-tight text-foreground">{t(feat.titleKey)}</h3>
             <p class="mt-2 flex-1 text-sm leading-relaxed text-body">{t(feat.descKey)}</p>
             <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-foreground pb-0.5 text-sm font-semibold text-foreground transition-all group-hover:gap-1.5 group-hover:border-b-2">
@@ -628,7 +630,7 @@
 
     <!-- Countdown — dramatic editorial treatment -->
     <div class="mx-auto mt-10 max-w-3xl">
-      <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="relative flex size-2">
           <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
           <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
@@ -654,7 +656,7 @@
             <span class="font-heading block text-6xl tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
               {box.value}
             </span>
-            <span class="mt-3 block text-mockup-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
+            <span class="mt-3 block text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground sm:text-xs">
               {t(box.labelKey as TranslationKey)}
             </span>
           </div>
@@ -695,7 +697,7 @@
         </p>
       </div>
 
-      <!-- Steps — editorial chapter style: big Cal Sans numbers, no icon circles.
+      <!-- Steps — editorial chapter style: big DM Sans numbers, no icon circles.
            Each step reads as "01 · [time]" then title + description. -->
       <div class="mx-auto mt-12 max-w-5xl">
         <ol class="grid gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border">
@@ -703,7 +705,7 @@
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
               <span class="font-heading text-4xl leading-none text-foreground" data-numeric>01</span>
-              <span class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('home.how.step1.time')}</span>
+              <span class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('home.how.step1.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step1.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step1.desc')}</p>
@@ -713,7 +715,7 @@
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
               <span class="font-heading text-4xl leading-none text-foreground" data-numeric>02</span>
-              <span class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('home.how.step2.time')}</span>
+              <span class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('home.how.step2.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step2.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step2.desc')}</p>
@@ -723,7 +725,7 @@
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
               <span class="font-heading text-4xl leading-none text-foreground" data-numeric>03</span>
-              <span class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('home.how.step3.time')}</span>
+              <span class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('home.how.step3.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step3.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step3.desc')}</p>
@@ -814,7 +816,7 @@
        Pacing: navy → deeper-navy footer closes the editorial dark passage. -->
   <SectionDark variant="cta" id="cta" aria-labelledby="final-cta-heading">
     <div class="text-center">
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-on-dark-soft">
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-on-dark-soft">
         <span class="text-on-dark">{t('cta.urgency_eyebrow')}</span>
         <span aria-hidden="true" class="text-on-dark-soft/40">·</span>
         <span><span data-numeric class="font-semibold text-on-dark">{countdownDays}</span> {t('home.cta_days_suffix')}</span>

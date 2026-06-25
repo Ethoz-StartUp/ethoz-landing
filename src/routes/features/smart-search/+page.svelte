@@ -51,14 +51,14 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — {t('features.search.title')}</title>
+  <title>{BRAND} · {t('features.search.title')}</title>
   <meta name="description" content={t('featurePage.smartSearch.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/features/smart-search" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} — Búsqueda Instantánea y Dashboard Inteligente`} />
+  <meta property="og:title" content={`${BRAND} · Búsqueda Instantánea y Dashboard Inteligente`} />
   <meta property="og:description" content={t('featurePage.smartSearch.meta_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} — Búsqueda Instantánea y Dashboard Inteligente`} />
+  <meta name="twitter:title" content={`${BRAND} · Búsqueda Instantánea y Dashboard Inteligente`} />
   <meta name="twitter:description" content={t('featurePage.smartSearch.meta_description')} />
   <link rel="canonical" href="https://ethoz.cl/features/smart-search" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Búsqueda Inteligente"}]})}</script>`}
@@ -288,7 +288,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="search-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('featurePage.smartSearch.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('featurePage.smartSearch.finalCta.eyebrow')}</p>
       <h2 id="search-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.smartSearch.finalCta.title')}
       </h2>

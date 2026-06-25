@@ -1,7 +1,6 @@
 <script lang="ts">
   import { t, toggleLocale, getLocale } from '$lib/i18n/index.svelte';
   import { Globe } from '@lucide/svelte';
-  import { BRAND } from '$lib/brand';
 
   const social = [
     {
@@ -32,7 +31,7 @@
   ];
 </script>
 
-<!-- Cal.com aesthetic: dark footer (#101010) closes every page. The only dark surface in the system. -->
+<!-- 8020 spine: charcoal footer (#18181B) closes every page. The dark surface that anchors the system. -->
 <footer class="bg-surface-dark text-on-dark-soft">
   <!-- Upper footer -->
   <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
@@ -42,10 +41,10 @@
       <div class="col-span-2 sm:col-span-3 lg:col-span-2">
         <a href="/" class="inline-flex items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="size-6" aria-hidden="true">
-            <rect x="2" y="7" width="18" height="22" rx="4.5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-on-dark"/>
-            <rect x="12" y="3" width="18" height="22" rx="4.5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-on-dark"/>
+            <rect x="2" y="7" width="18" height="22" rx="5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-on-dark"/>
+            <rect x="12" y="3" width="18" height="22" rx="5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-accent-bright"/>
           </svg>
-          <span class="text-lg font-semibold tracking-tight text-on-dark">{BRAND}</span>
+          <span class="font-heading text-lg font-bold tracking-tight"><span class="text-on-dark">Etho</span><span class="text-accent-bright">z</span></span>
         </a>
         <p class="mt-4 max-w-xs text-sm leading-relaxed text-on-dark-soft">
           {t('footer.tagline')}

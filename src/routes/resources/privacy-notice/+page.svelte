@@ -54,7 +54,7 @@
 
   <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <div class="mb-12 border-b border-border pb-10">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground print:hidden">
         <span class="text-primary">{t('resPrivacyNotice.eyebrow_category')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('resPrivacyNotice.eyebrow_article')}</span>

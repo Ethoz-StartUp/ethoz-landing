@@ -1,5 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img">
-  <title>Ethoz</title>
-  <rect width="32" height="32" rx="4" fill="#051C2C"/>
-  <text x="16" y="24.5" text-anchor="middle" font-family="'Playfair Display', 'Times New Roman', Georgia, serif" font-size="26" font-weight="600" font-style="italic" fill="#FFFFFF">z</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-labelledby="fav-title">
+  <title id="fav-title">Ethoz</title>
+  <!-- Charcoal tile + interseccion mark (warm-white back + sky front). Legible at 16px tab size. -->
+  <rect width="32" height="32" rx="7" fill="#18181B"/>
+  <rect x="5.5" y="9" width="13.5" height="15.5" rx="4.2" fill="none" stroke="#FAF8F5" stroke-width="2.6"/>
+  <rect x="13" y="6.5" width="13.5" height="15.5" rx="4.2" fill="none" stroke="#0495FE" stroke-width="2.6"/>
 </svg>

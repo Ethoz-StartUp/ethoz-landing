@@ -145,7 +145,7 @@
   <section class="py-12 sm:py-14" aria-labelledby="director-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="director-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.directores.editorial.eyebrow')}</p>
+      <p id="director-editorial" class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('audience.directores.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('audience.directores.editorial.statement')}
       </blockquote>
@@ -203,7 +203,7 @@
               <p class="text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">{t('audience.directores.form_field_student')}</p>
               <div class="flex items-center gap-2 rounded-lg border border-border bg-background px-3 py-2">
                 {#if activeObs}
-                  <div class="size-6 rounded-full bg-primary/10 flex items-center justify-center text-mockup-2xs font-bold text-primary">MS</div>
+                  <div class="size-6 rounded-full bg-primary/10 flex items-center justify-center text-mockup-2xs font-bold text-primary-active">MS</div>
                   <div>
                     <p class="text-mockup-sm font-semibold text-foreground">{t('audience.directores.form_student_name')}</p>
                     <p class="text-mockup-2xs text-muted-foreground">{t('audience.directores.form_student_meta')}</p>
@@ -432,7 +432,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="director-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('audience.directores.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('audience.directores.finalCta.eyebrow')}</p>
       <h2 id="director-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('audience.directores.finalCta.title')}
       </h2>

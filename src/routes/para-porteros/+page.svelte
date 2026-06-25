@@ -116,7 +116,7 @@
               </div>
               <!-- Student card -->
               <div class="flex gap-3 mb-4">
-                <div class="size-16 rounded-xl bg-primary/10 flex items-center justify-center text-2xl font-extrabold text-primary shrink-0">M</div>
+                <div class="size-16 rounded-xl bg-primary/10 flex items-center justify-center text-2xl font-extrabold text-primary-active shrink-0">M</div>
                 <div class="flex-1 min-w-0">
                   <p class="text-sm font-bold text-foreground">{t('audience.porteros.mock_student_name')}</p>
                   <p class="text-mockup-sm text-muted-foreground">{t('audience.porteros.mock_student_meta')}</p>
@@ -152,7 +152,7 @@
               </div>
               <!-- Student card -->
               <div class="flex gap-3 mb-4">
-                <div class="size-16 rounded-xl bg-primary/10 flex items-center justify-center text-2xl font-extrabold text-primary shrink-0">M</div>
+                <div class="size-16 rounded-xl bg-primary/10 flex items-center justify-center text-2xl font-extrabold text-primary-active shrink-0">M</div>
                 <div class="flex-1 min-w-0">
                   <p class="text-sm font-bold text-foreground">{t('audience.porteros.mock_student_name')}</p>
                   <p class="text-mockup-sm text-muted-foreground">{t('audience.porteros.mock_student_meta')}</p>
@@ -191,7 +191,7 @@
   <section class="py-12 sm:py-14" aria-labelledby="portero-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="portero-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.porteros.editorial.eyebrow')}</p>
+      <p id="portero-editorial" class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('audience.porteros.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('audience.porteros.editorial.statement')}
       </blockquote>
@@ -234,7 +234,7 @@
         ] as step}
           <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] hover:shadow-card-hover">
             <div class="mb-3 flex items-center gap-3">
-              <span class="flex size-7 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">{step.num}</span>
+              <span class="flex size-7 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary-active">{step.num}</span>
               <p class="text-sm font-semibold text-foreground">{t(step.tituloKey)}</p>
             </div>
             <p class="text-xs leading-relaxed text-muted-foreground mb-3">{t(step.descKey)}</p>
@@ -335,7 +335,7 @@
               { paso: '3', textoKey: 'audience.porteros.training_step3' as TranslationKey },
             ] as p}
               <div class="flex items-center gap-3">
-                <span class="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-mockup-xs font-bold text-primary">{p.paso}</span>
+                <span class="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-mockup-xs font-bold text-primary-active">{p.paso}</span>
                 <p class="text-xs text-muted-foreground">{t(p.textoKey)}</p>
               </div>
             {/each}
@@ -391,7 +391,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="portero-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('audience.porteros.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('audience.porteros.finalCta.eyebrow')}</p>
       <h2 id="portero-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('audience.porteros.finalCta.title')}
       </h2>

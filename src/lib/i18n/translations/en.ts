@@ -52,7 +52,7 @@ export const en = {
   // Problem section
   'problem.overline': 'The problem',
   'problem.title': 'Every day, schools operate with fragmented information',
-  'problem.subtitle': 'And the new data law shows no mercy.',
+  'problem.subtitle': 'And the new data law no longer allows improvising.',
   'problem.card1.title': 'Scattered data',
   'problem.card1.desc':
     'Excel, notebooks, WhatsApp groups. Your students\' critical information lives in silos no one controls.',
@@ -84,7 +84,7 @@ export const en = {
 
   'features.privacy.title': 'Privacy & Data Protection',
   'features.privacy.desc': 'Built for Ley 21.719 from day one, not bolted on after the fact.',
-  'features.privacy.bullet1': 'Total isolation between schools: it is mathematically impossible for one school to access another\'s data',
+  'features.privacy.bullet1': 'Total isolation between schools: no school can access another school\'s data.',
   'features.privacy.bullet2': 'Judicial notes encrypted with immutable audit trail of every access (who, what, when, from where)',
   'features.privacy.bullet3': 'Mandatory parental consent management for minors under 14 and sensitive data for minors under 16',
 
@@ -166,7 +166,7 @@ export const en = {
   // Roles section
   'roles.overline': 'For every role',
   'roles.title': 'Every person sees exactly what they need',
-  'roles.subtitle': 'No excess access. No information overhead. Each role has its own view.',
+  'roles.subtitle': 'No excess access. Each role sees only what it needs.',
   'roles.admin.title': 'Administrator',
   'roles.admin.desc': 'Full user management, institutional settings, and audit trail access.',
   'roles.director.title': 'Director',
@@ -294,7 +294,7 @@ export const en = {
   'blog.subtitle': 'Analysis, guides, and updates on data protection and school security in Chile.',
 
   // Pricing page
-  'pricing.meta.title': 'Pricing — {brand}',
+  'pricing.meta.title': 'Pricing · {brand}',
   'pricing.hero.overline': 'Plans & pricing',
   'pricing.hero.title': 'Plans designed for your school',
   'pricing.hero.subtitle': 'Priced by enrollment size. No hidden costs. No fine print.',
@@ -310,7 +310,7 @@ export const en = {
   'pricing.tier.esencial.f4': 'Instant search',
 
   'pricing.tier.profesional.name': 'Professional',
-  'pricing.tier.profesional.for': '500 – 1,500 students',
+  'pricing.tier.profesional.for': '500 to 1,500 students',
   'pricing.tier.profesional.desc': 'For schools that want full visibility',
   'pricing.tier.profesional.price': 'Contact for pricing',
   'pricing.tier.profesional.badge': 'Recommended',
@@ -353,7 +353,7 @@ export const en = {
   'pricing.faq.a3': '{brand} encrypts sensitive data, controls access by role, isolates each school\'s information, and logs every access in an immutable record. That covers the technical requirements of Law 21.719.',
   'pricing.faq.q4': 'Does it work with our current software?',
   'pricing.faq.a4': '{brand} integrates with the most common systems in Chile\'s school ecosystem. During implementation, we migrate your historical data and set up the necessary connections. If you\'re using Excel or paper-based systems, that migration is also covered.',
-  'pricing.faq.q5': 'How long does implementation take?',
+  'pricing.faq.q5': 'How long does {brand} take to implement?',
   'pricing.faq.a5': 'Typical implementation takes 2 to 4 weeks, depending on the volume of data to migrate and the number of campuses. No on-premise infrastructure is needed: {brand} runs 100% in the cloud.',
   'pricing.faq.q6': 'What types of schools is {brand} designed for?',
   'pricing.faq.a6': 'Any educational institution in Chile: private, subsidized, municipal, and multi-campus networks. From schools with 200 students to large multi-campus networks. The Esencial plan covers up to 500 students, Profesional from 500 to 1,500, and Enterprise for 1,500+.',
@@ -367,7 +367,7 @@ export const en = {
   'pricing.cta.primary': 'Book a Free Demo',
 
   // Contact page
-  'contact.meta.title': 'Contact — {brand}',
+  'contact.meta.title': 'Contact · {brand}',
   'contact.back': 'Back to home',
   'contact.heading': "Let's talk",
   'contact.subheading': 'Choose how you want to reach us. We respond fast.',
@@ -406,14 +406,14 @@ export const en = {
   'about.faq.title': 'Frequently asked questions',
   'about.faq.q1': 'What does "{brand}" mean?',
   'about.faq.a1': '{brand} comes from "ethos" (Greek: ἦθος), meaning the moral character and core values of a community. The final "z" gives it a unique identity and represents the technological differentiator: it\'s not just ethics, it\'s ethics applied through technology. {brand} is the ethical infrastructure of a school.',
-  'about.faq.q2': 'Why blue and navy?',
-  'about.faq.a2': 'Navy (#0F172A) represents the institution: solid, reliable, unchanging. Blue (#2563EB) represents technology: innovation, controlled access, transparency. Together they tell the {brand} story: institutional protection powered by modern technology.',
+  'about.faq.q2': 'What do the brand colors mean?',
+  'about.faq.a2': 'Charcoal represents the institution: solid, reliable, unchanging. Sky blue represents the technology: clarity, controlled access, transparency. Together they tell the {brand} story: institutional protection with modern technology.',
   'about.faq.q3': 'What does the logo represent?',
   'about.faq.a3': 'Two overlapping rectangles forming an intersection. They represent the central duality of {brand}: privacy and access. Two layers that coexist: what is protected and what is shared. The visual transparency of the icon reflects the operational transparency of the platform.',
   'about.faq.q4': 'Do I need to replace my current systems?',
   'about.faq.a4': 'No. {brand} complements what you already use. It doesn\'t replace your academic system or grading platform. It focuses on what those systems don\'t do: comprehensive student tracking, pickup control, and personal data regulatory compliance.',
 
-  'about.meta.title': 'About Us — {brand}',
+  'about.meta.title': 'About Us · {brand}',
   'about.meta.description': '{brand} is a school safety platform built in Chile for Chilean schools. Learn why it exists and who is behind it.',
   'about.nav.back': '← Back to home',
   'about.hero.overline': 'Built in Chile, for Chilean schools',
@@ -449,13 +449,13 @@ export const en = {
   'about.cta.primary': 'Join the pilot',
 
   // Compliance page
-  'compliance_page.meta.title': 'Regulatory Compliance — {brand}',
+  'compliance_page.meta.title': '{brand} regulatory compliance',
   'compliance_page.meta.desc': 'Technical and regulatory documentation of {brand} compliance with Law 21.719 on Personal Data Protection.',
 
   'compliance_page.hero.badge': 'Law 21.719 · Built from day one',
   'compliance_page.hero.title': 'Regulatory compliance built from the ground up',
   'compliance_page.hero.subtitle': '{brand} was designed to comply with Law 21.719 from day one, not retrofitted after the fact.',
-  'compliance_page.hero.body': 'This document describes the technical architecture and privacy controls implemented in {brand} to ensure that educational institutions meet their legal obligations under the Personal Data Protection Law.',
+  'compliance_page.hero.body': 'This document details the technical architecture and privacy controls in {brand} that let educational institutions meet their obligations under the Personal Data Protection Law.',
 
   'compliance_page.law_ref.title': 'Law 21.719: Personal Data Protection',
   'compliance_page.law_ref.desc': 'Regulates the protection and processing of personal data and creates the Personal Data Protection Agency. Published in the Official Gazette on December 13, 2024.',
@@ -483,7 +483,7 @@ export const en = {
 
   'compliance_page.pillar2.title': 'ARCO+P rights',
   'compliance_page.pillar2.desc': 'Workflows for exercising Access, Rectification, Cancellation, Objection, and Portability rights. Legal deadlines monitored automatically with full traceability of each request.',
-  'compliance_page.pillar2.article': 'Arts. 11–15',
+  'compliance_page.pillar2.article': 'Arts. 11 to 15',
 
   'compliance_page.pillar3.title': 'Sensitive data encryption',
   'compliance_page.pillar3.desc': 'Sensitive fields (judicial notes, medical alerts, confidential observations) are encrypted at rest using pgcrypto with keys managed independently from database access.',
@@ -510,7 +510,7 @@ export const en = {
   'compliance_page.arch.item2.desc': 'Fields classified as sensitive are encrypted using AES-256 symmetric algorithms before being written to disk. The encryption key is managed separately from database access, ensuring that unauthorized file access does not expose readable data.',
   'compliance_page.arch.item3.label': 'Full traceability: pgAudit',
   'compliance_page.arch.item3.desc': 'Every read, write, or modification operation on tables containing personal data generates an entry in the audit log. This log is append-only: no user or process can delete or modify existing entries.',
-  'compliance_page.arch.item4.label': 'Strong authentication: Firebase Auth with 2FA',
+  'compliance_page.arch.item4.label': 'Two-factor authentication: Firebase Auth with 2FA',
   'compliance_page.arch.item4.desc': 'Platform access requires two-factor authentication for roles with access to sensitive data. Sessions expire automatically and all access attempts are recorded regardless of outcome.',
   'compliance_page.arch.disclaimer': 'This summary is written for legal and executive audiences. Full technical documentation, including architecture diagrams, retention policies, and incident response procedures, is available under NDA for due diligence processes.',
 
@@ -552,7 +552,7 @@ export const en = {
   // Hero (additional)
   'hero.video_long': 'Meet {brand} in 2 min',
   'hero.video_short': 'Watch video',
-  'hero.mockup_title': '{brand} — Tracking Dashboard',
+  'hero.mockup_title': '{brand} · Tracking Dashboard',
   'hero.mockup_demo_label': 'Demo view',
   'hero.no_alerts': 'No alerts',
   'hero.recent_history': 'Recent history',
@@ -598,7 +598,7 @@ export const en = {
   'home.roles.apoderado.alt': 'Role illustration: Parent',
 
   // Home page — how it works time labels
-  'home.how.subtitle': 'No procurement, no installations, no servers of your own. Implementation guided by our team.',
+  'home.how.subtitle': 'No procurement, no installations, no servers to run. Our team guides the implementation.',
   'home.how.step_label': 'Step',
   'home.how.cta': 'Start my school',
   'home.how.step1.time': '48 hours',
@@ -606,7 +606,7 @@ export const en = {
   'home.how.step3.time': 'Day 1',
 
   // Home page — meta
-  'home.meta.title': '{brand} — School data protection and tracking for Chile (Ley 21.719)',
+  'home.meta.title': '{brand}, school data protection and tracking for Chile (Ley 21.719)',
 
   // Get-started page
   'getstarted.hero.title': 'Easy to contract, easy to implement',
@@ -821,9 +821,9 @@ export const en = {
   'about.cta_secondary': 'View regulatory compliance',
 
   // ── i18n sweep: circular-30 ──
-  'circular30.meta_title': 'Circular No. 30: mandatory digital class register — complete guide | {brand}',
+  'circular30.meta_title': 'Circular No. 30: mandatory digital class register, complete guide | {brand}',
   'circular30.meta_description': 'Circular No. 30 digital class register: what it requires, which systems comply, self-assessment for Chilean schools. Traceability, Clave Única and Law 21.719.',
-  'circular30.og_title': 'Circular No. 30: digital class register — {brand}',
+  'circular30.og_title': 'Circular No. 30: digital class register | {brand}',
   'circular30.og_description': 'Circular No. 30 digital class register: what it requires, which systems comply, self-assessment for Chilean schools.',
   'circular30.hero_eyebrow_doc': 'Regulatory document · 02',
   'circular30.hero_eyebrow_authority': 'Superintendence of Education',
@@ -939,7 +939,7 @@ export const en = {
   'comparativa.row_connects_existing_classbook': 'Connects with your existing class logbook',
   'comparativa.row_open_api': 'Open API for integrations',
   'comparativa.row_compliant_export': 'Regulation-compliant export',
-  'comparativa.meta_title': 'Comparison: {brand} vs current systems — School security and Law 21.719 compliance',
+  'comparativa.meta_title': 'Comparison: {brand} vs current systems. School security and Law 21.719 compliance',
   'comparativa.meta_description': 'Compare {brand} with Napsis, Syscol, Lirmi and SchoolTrack on security, Law 21.719 compliance, school protection and integrations. See what each system covers.',
   'comparativa.og_title': 'Comparison: {brand} vs current systems',
   'comparativa.og_description': 'Compare {brand} with Napsis, Syscol, Lirmi and SchoolTrack on security, Law 21.719 compliance and school protection.',
@@ -1079,7 +1079,7 @@ export const en = {
   'featurePage.accessControl.hero_bullet1': '6 preconfigured roles for the Chilean school ecosystem: Principal, Inspector, Counselor, Teacher, UTP and Doorkeeper',
   'featurePage.accessControl.hero_bullet2': 'The doorkeeper only sees what is strictly necessary to verify pickups: no sensitive data on screen',
   'featurePage.accessControl.hero_bullet3': 'Role changes applied in real time, with no need to restart the system',
-  'featurePage.accessControl.matrix_titlebar': '{brand} — Permissions Matrix by Role',
+  'featurePage.accessControl.matrix_titlebar': '{brand} · Permissions Matrix by Role',
   'featurePage.accessControl.matrix_caption': 'Permissions matrix by role: details which actions each role (Principal, Inspector, Counselor, Teacher, UTP, Doorkeeper) can perform in {brand}.',
   'featurePage.accessControl.matrix_col_permission': 'Permission',
   'featurePage.accessControl.matrix_allowed': 'allowed',
@@ -1201,7 +1201,7 @@ export const en = {
   // ── i18n sweep: feat-analytics ──
   'featurePage.analytics.meta_title_suffix': 'School Analytics and KPIs',
   'featurePage.analytics.meta_description': 'Analytics dashboard for school leaders: school-climate KPIs, active alerts, attendance trends, and Law 21.719 compliance in real time.',
-  'featurePage.analytics.og_title': '{brand} — School Analytics and KPIs',
+  'featurePage.analytics.og_title': '{brand}: School Analytics and KPIs',
   'featurePage.analytics.og_description': 'Key school-climate, alert, and attendance indicators for school leaders and operators.',
   'featurePage.analytics.back_to_products': 'Back to products',
   'featurePage.analytics.hero_title': 'School Analytics Dashboard',
@@ -1268,7 +1268,7 @@ export const en = {
   'featurePage.analytics.finalCta_btn_modules': 'See all modules',
 
   // ── i18n sweep: feat-attendance ──
-  'featurePage.attendance.meta_title': '{brand} — Digital Attendance Control',
+  'featurePage.attendance.meta_title': '{brand}: Digital Attendance Control',
   'featurePage.attendance.meta_description': 'Digital attendance register compliant with Circular No. 30. Logs presence, tardiness and absence justifications with full traceability and MINEDUC compliance.',
   'featurePage.attendance.meta_og_description': 'Digital attendance register compliant with Circular No. 30. Full traceability and automatic alerts for repeated absences.',
   'featurePage.attendance.back_to_products': 'Back to products',
@@ -1279,7 +1279,7 @@ export const en = {
   'featurePage.attendance.hero_badge_law': 'Law 21,719',
   'featurePage.attendance.hero_cta_demo': 'Book a Demo',
   'featurePage.attendance.hero_cta_modules': 'See all modules',
-  'featurePage.attendance.mockup_grid_titlebar': '{brand} — Attendance · 7°B · Week of Apr 7',
+  'featurePage.attendance.mockup_grid_titlebar': '{brand} · Attendance · 7°B · Week of Apr 7',
   'featurePage.attendance.mockup_kpi_label': 'April attendance',
   'featurePage.attendance.mockup_circular_chip': 'Circular No. 30',
   'featurePage.attendance.mockup_col_student': 'Student',
@@ -1297,13 +1297,13 @@ export const en = {
   'featurePage.attendance.feature_alerts_body': 'Automatic alert when a student exceeds 15% of absences. Notification to the guardian and referral to Counseling.',
   'featurePage.attendance.feature_reports_title': 'MINEDUC reports',
   'featurePage.attendance.feature_reports_body': 'Automatically generates the monthly attendance report in the format MINEDUC requires for school subsidies.',
-  'featurePage.attendance.mockup_justify_titlebar': '{brand} — Justify absence',
+  'featurePage.attendance.mockup_justify_titlebar': '{brand} · Justify absence',
   'featurePage.attendance.mockup_justify_heading': 'Justification request',
   'featurePage.attendance.mockup_reason_label': 'Selected reason:',
   'featurePage.attendance.mockup_reason_value': 'Illness with medical certificate',
   'featurePage.attendance.mockup_status_approved': 'Justification approved',
   'featurePage.attendance.flow_section_title': 'From absence to intervention protocol',
-  'featurePage.attendance.flow_section_subtitle': '{brand} doesn\'t just record: it detects the pattern and triggers the right workflow.',
+  'featurePage.attendance.flow_section_subtitle': '{brand} goes beyond recording: it detects the pattern and triggers the right workflow.',
   'featurePage.attendance.flow_step1_label': 'Daily logging',
   'featurePage.attendance.flow_step1_desc': 'The teacher records attendance from their phone. No paper, no spreadsheet.',
   'featurePage.attendance.flow_step2_label': 'Automatic detection',
@@ -1324,7 +1324,7 @@ export const en = {
   // ── i18n sweep: feat-emergency ──
   'featurePage.emergency.meta_title_suffix': 'School Emergency Protocols',
   'featurePage.emergency.meta_description': 'Digital management of school emergencies: earthquake, fire, intruder and medical emergency. One-tap activation, student roll call and real-time notification to guardians.',
-  'featurePage.emergency.og_title': '{brand} — School Emergency Protocols',
+  'featurePage.emergency.og_title': '{brand}: School Emergency Protocols',
   'featurePage.emergency.og_description': 'Activate emergency protocols with one tap. Digital roll call, guided evacuation and notifications to guardians.',
   'featurePage.emergency.back_to_products': 'Back to products',
   'featurePage.emergency.hero_title': 'Digital Emergency Protocols',
@@ -1334,7 +1334,7 @@ export const en = {
   'featurePage.emergency.hero_badge_pse': 'School Safety Plan',
   'featurePage.emergency.hero_cta_demo': 'Schedule a Demo',
   'featurePage.emergency.hero_cta_modules': 'See all modules',
-  'featurePage.emergency.mockup_window_label': '{brand} — Emergencies · Colegio Alemán de Concepción',
+  'featurePage.emergency.mockup_window_label': '{brand} · Emergencies · Colegio Alemán de Concepción',
   'featurePage.emergency.mockup_banner_status': 'Active emergency: Earthquake',
   'featurePage.emergency.mockup_banner_activated_by': 'Activated by: Principal C. Muñoz · Phase: Evacuation',
   'featurePage.emergency.mockup_phase_alerta': 'Alert',
@@ -1398,7 +1398,7 @@ export const en = {
   'featurePage.privacyCompliance.hero.bullet_3': 'Data inventory categorized by sensitivity with an explicit legal basis',
   'featurePage.privacyCompliance.urgency.title': 'Law 21.719: full enforcement in December 2026',
   'featurePage.privacyCompliance.urgency.body': 'Fines reach up to 20,000 UTM (~$1.3B CLP) or 4% of annual revenue. Schools still managing data on paper or in Excel are not compliant.',
-  'featurePage.privacyCompliance.dashboard.chrome_label': '{brand} — Law 21.719 Compliance Panel',
+  'featurePage.privacyCompliance.dashboard.chrome_label': '{brand} · Law 21.719 Compliance Panel',
   'featurePage.privacyCompliance.dashboard.kpi_consents': 'Signed consents',
   'featurePage.privacyCompliance.dashboard.kpi_irregular_access': 'Irregular accesses',
   'featurePage.privacyCompliance.dashboard.kpi_arco_pending': 'ARCO+P pending',
@@ -1463,14 +1463,14 @@ export const en = {
 
   // ── i18n sweep: feat-safe-pickups ──
   'featurePage.safePickups.meta.description': 'The gate staff knows in seconds whether a student can be released: no calls, no paper, no margin for error.',
-  'featurePage.safePickups.meta.og_title': '{brand} — Safe Pickups and Critical Alerts',
+  'featurePage.safePickups.meta.og_title': '{brand}: Safe Pickups and Critical Alerts',
   'featurePage.safePickups.hero.back_link': 'Back to features',
   'featurePage.safePickups.hero.bullet1': 'Instant verification by name or ID number, no calls to the dean\'s office',
   'featurePage.safePickups.hero.bullet2': 'Automatic blocking on a court order, precautionary measure or manual restriction',
   'featurePage.safePickups.hero.bullet3': 'Signed record of every pickup: who, when, and which gate staff authorized it',
   'featurePage.safePickups.hero.toggle_authorized': 'View authorized pickup',
   'featurePage.safePickups.hero.toggle_blocked': 'View blocked pickup',
-  'featurePage.safePickups.mockup.window_title': '{brand} — Gate · Pickup Verification',
+  'featurePage.safePickups.mockup.window_title': '{brand} · Gate · Pickup Verification',
   'featurePage.safePickups.mockup.authorized_badge': 'PICKUP AUTHORIZED',
   'featurePage.safePickups.mockup.authorized_subtitle': 'Person recognized · Cleared to pick up',
   'featurePage.safePickups.mockup.authorized_photo_alt': 'Guardian authorized for pickup',
@@ -1524,7 +1524,7 @@ export const en = {
   'featurePage.smartSearch.example_typo_note': '"gonzales" finds every "González"; accents make no difference',
   'featurePage.smartSearch.example_course_label': 'Search by class',
   'featurePage.smartSearch.example_course_note': 'Filter by section directly: "7b" shows every student in 7th grade B',
-  'featurePage.smartSearch.mockup_titlebar': '{brand} — Smart search',
+  'featurePage.smartSearch.mockup_titlebar': '{brand} · Smart search',
   'featurePage.smartSearch.no_alerts': 'No alerts',
   'featurePage.smartSearch.results_singular': 'result',
   'featurePage.smartSearch.results_plural': 'results',
@@ -1551,12 +1551,12 @@ export const en = {
 
   // ── i18n sweep: feat-student-profile ──
   'featurePage.studentProfile.meta_description': 'A longitudinal profile that follows the student year after year, with access strictly controlled by role.',
-  'featurePage.studentProfile.og_title': '{brand} — 360° Complete Student Profile',
+  'featurePage.studentProfile.og_title': '{brand}: 360° Complete Student Profile',
   'featurePage.studentProfile.back_link': 'Back to features',
   'featurePage.studentProfile.hero_bullet1': 'Continuous record from Pre-kindergarten through 12th grade, with no data loss when the school year changes',
   'featurePage.studentProfile.hero_bullet2': 'Field-level confidentiality: medical data is invisible to the gate attendant',
   'featurePage.studentProfile.hero_bullet3': 'Every access is logged with the user, time and field viewed',
-  'featurePage.studentProfile.mockup_window_title': '{brand} — Student Profile',
+  'featurePage.studentProfile.mockup_window_title': '{brand} · Student Profile',
   'featurePage.studentProfile.mockup_avatar_alt': 'Student profile in {brand}',
   'featurePage.studentProfile.mockup_no_alerts': 'No alerts',
   'featurePage.studentProfile.mockup_grade': '7th Grade B',
@@ -1657,9 +1657,9 @@ export const en = {
   'getstarted.final_cta.overline': 'Get started',
 
   // ── i18n sweep: glosario ──
-  'glosario.meta_title': '{brand} Glossary — key terms for school protection | {brand}',
+  'glosario.meta_title': '{brand} Glossary: key terms for school protection | {brand}',
   'glosario.meta_description': 'Complete glossary of school protection and regulatory compliance terms in Chile: Law 21.719, Circular No. 30, ARCO+P, RLS, DPO, RBD, sostenedor and more.',
-  'glosario.og_title': '{brand} Glossary — school protection terms',
+  'glosario.og_title': '{brand} Glossary: school protection terms',
   'glosario.eyebrow': 'Reference',
   'glosario.count_terms': 'terms',
   'glosario.count_term_singular': 'term',
@@ -1700,15 +1700,15 @@ export const en = {
   'home.trust_section_label': 'Verifiable architecture',
 
   // ── i18n sweep: integrations ──
-  'integrations.meta_title': 'Integrations — {brand}',
-  'integrations.meta_description': '{brand} connects with your current system or offers a basic school management module. We migrate your data without losing anything.',
+  'integrations.meta_title': 'Integrations | {brand}',
+  'integrations.meta_description': '{brand} connects with your current system or gives you a basic school management module. We migrate your data without losing anything.',
   'integrations.meta_og_description': 'Connect {brand} with Napsis, Syscol, SIGE or any system. If you don\'t have one, we include a basic module.',
   'integrations.meta_twitter_description': 'Connect {brand} with your current system or use our basic school management module.',
   'integrations.eyebrow': 'Integrations',
   'integrations.hero_title': 'It connects with what you already use',
-  'integrations.hero_subtitle': '{brand} doesn\'t replace your academic system: it complements it. If you already use Napsis, Syscol, SchoolTrack or another platform, we integrate. If you don\'t have a digital system, we include a basic module so you don\'t miss anything.',
+  'integrations.hero_subtitle': '{brand} does not replace your academic system: it complements it. If you already use Napsis, Syscol, SchoolTrack or another platform, we integrate with it. If you do not have a digital system, we include a basic module so nothing is missing.',
   'integrations.opt1_title': 'Integration with your current system',
-  'integrations.opt1_body': 'If your school already has an academic management system, {brand} connects without replacing it. Grades, attendance and enrollment stay where they are. {brand} adds what\'s missing: comprehensive tracking, safe pickups and regulatory compliance.',
+  'integrations.opt1_body': 'If your school already has an academic management system, {brand} connects without replacing it. Grades, attendance and enrollment stay where they are. {brand} adds what is missing: student tracking, safe pickups and regulatory compliance.',
   'integrations.opt1_bullet1': 'Import from Excel, CSV or any structured format',
   'integrations.opt1_bullet2': 'Connection with Napsis, Syscol, SchoolTrack and others',
   'integrations.opt1_bullet3': 'Integration with SIGE for enrollment and attendance (in development)',
@@ -1721,7 +1721,7 @@ export const en = {
   'integrations.system_excel_desc': 'Any structured format',
   'integrations.status_available': 'Available',
   'integrations.status_in_dev': 'In development',
-  'integrations.basic_module_card_label': '{brand} — Basic Management',
+  'integrations.basic_module_card_label': '{brand}: Basic Management',
   'integrations.basic_feature_logbook': 'Digital class register',
   'integrations.basic_feature_attendance': 'Attendance tracking',
   'integrations.basic_feature_circular30': 'Compliant with Circular No. 30',
@@ -1734,7 +1734,7 @@ export const en = {
   'integrations.opt2_bullet3': 'Included at no additional cost in all plans',
   'integrations.opt2_bullet4': 'If you later adopt another system, we integrate without losing data',
   'integrations.migration_title': 'We migrate your data',
-  'integrations.migration_body': 'You don\'t have to lift a finger. Our team takes care of importing your historical data: from Excel, from your current system, or even from paper records. In under 2 weeks your school is operating with all of its information available.',
+  'integrations.migration_body': 'You do not have to do a thing. Our team imports your historical data: from Excel, from your current system, or from paper records. In under 2 weeks your school is operating with all of its information available.',
   'integrations.migration_card1_title': 'Historical data',
   'integrations.migration_card1_desc': 'Student records, observations, pickups: nothing is lost.',
   'integrations.migration_card2_title': '2 weeks',
@@ -1742,14 +1742,14 @@ export const en = {
   'integrations.migration_card3_title': 'No interruptions',
   'integrations.migration_card3_desc': 'The school keeps operating normally while we migrate in parallel.',
   'integrations.cta_title': 'Have questions about integration?',
-  'integrations.cta_body': 'Book a demo and we\'ll review together how to connect {brand} with what your school already has. No commitment.',
+  'integrations.cta_body': 'Book a demo and we will review together how to connect {brand} with what your school already has. No commitment.',
   'integrations.cta_primary': 'Book a Demo',
   'integrations.cta_secondary': 'See all products',
 
   // ── i18n sweep: ley21719 ──
-  'ley21719.meta_title': 'Law 21,719: A complete guide for schools — what it is, fines and how to comply | {brand}',
+  'ley21719.meta_title': 'Law 21,719: a complete guide for schools. What it is, fines and how to comply | {brand}',
   'ley21719.meta_description': 'Law 21,719 for Chilean schools: what it requires, fines up to 20,000 UTM, ARCO+P rights, deadlines Dec 2026. A practical guide for school operators and administrators.',
-  'ley21719.og_title': 'Law 21,719: A complete guide for schools — {brand}',
+  'ley21719.og_title': 'Law 21,719: a complete guide for schools | {brand}',
   'ley21719.twitter_description': 'A practical guide to Law 21,719 for Chilean schools. Fines, deadlines, ARCO+P rights and a compliance checklist.',
   'ley21719.toc_heading': 'Contents',
   'ley21719.toc_aria_label': 'Article index',
@@ -1940,7 +1940,7 @@ export const en = {
   'nav.product_privacy_compliance_desc': 'Tracking without the March reset',
 
   // ── i18n sweep: para-directores ──
-  'audience.directores.meta_title': '{brand} for Principals — School management without Excel spreadsheets',
+  'audience.directores.meta_title': '{brand} for Principals: school management without Excel spreadsheets',
   'audience.directores.meta_description': 'Your day as a principal, without Excel spreadsheets or panic calls. Real-time visibility, data-driven decisions, and emergency response from a single screen.',
   'audience.directores.hero_badge': 'For school principals',
   'audience.directores.hero_title': 'Your day as a principal, without Excel spreadsheets or panic calls',
@@ -1949,7 +1949,7 @@ export const en = {
   'audience.directores.hero_bullet2': 'Longitudinal record per student, no March reset',
   'audience.directores.hero_bullet3': 'Emergency protocols with complete traceability',
   'audience.directores.hero_cta': 'Schedule a personalized demo',
-  'audience.directores.kpi_panel_header': '{brand} — Principal Dashboard · Monday April 7, 07:03',
+  'audience.directores.kpi_panel_header': '{brand} · Principal Dashboard · Monday April 7, 07:03',
   'audience.directores.kpi_greeting': 'Good morning, Principal Fuentes. Here is what awaits you today:',
   'audience.directores.kpi_attendance_label': 'Attendance today',
   'audience.directores.kpi_attendance_detail': '827 / 878 students · 3 excused absences',
@@ -2044,9 +2044,9 @@ export const en = {
   'audience.directores.finalCta_secondary': 'View all features',
 
   // ── i18n sweep: para-porteros ──
-  'audience.porteros.meta_title': '{brand} for Gatekeepers — The screen that replaces the Excel sheet at the entrance',
+  'audience.porteros.meta_title': '{brand} for Gatekeepers: the screen that replaces the Excel sheet at the entrance',
   'audience.porteros.meta_description': 'Verify pickups in seconds. Student photo, list of authorized people, active alerts. No calls, no ambiguity, no paper.',
-  'audience.porteros.meta_og_title': '{brand} for Gatekeepers — Safe pickups in seconds',
+  'audience.porteros.meta_og_title': '{brand} for Gatekeepers: safe pickups in seconds',
   'audience.porteros.hero_badge': 'For gatekeepers and pickup assistants',
   'audience.porteros.hero_title': 'The screen that replaces the Excel sheet at the entrance',
   'audience.porteros.hero_subtitle': 'Green: cleared to pick up. Red: not cleared. No calls to the office, no digging through folders, no margin for error. The answer is on the screen in under 3 seconds.',
@@ -2057,7 +2057,7 @@ export const en = {
   'audience.porteros.hero_toggle_authorized': 'Authorized pickup',
   'audience.porteros.hero_toggle_blocked': 'Blocked pickup',
   'audience.porteros.hero_cta': 'Request a demo for your entrance',
-  'audience.porteros.mock_header': '{brand} — Main Entrance · 14:31',
+  'audience.porteros.mock_header': '{brand} · Main Entrance · 14:31',
   'audience.porteros.mock_search_query': 'Matías Soto Vega · 3rd Grade A',
   'audience.porteros.mock_status_authorized': 'CLEARED TO PICK UP',
   'audience.porteros.mock_status_authorized_detail': 'Authorized person · Confirm and log pickup',
@@ -2124,9 +2124,9 @@ export const en = {
   'audience.porteros.finalCta_secondary': 'See all features',
 
   // ── i18n sweep: para-sostenedores ──
-  'audience.sostenedores.meta_title': '{brand} for School Operators — Multi-school management and Law 21.719 compliance',
+  'audience.sostenedores.meta_title': '{brand} for School Operators: multi-school management and Law 21.719 compliance',
   'audience.sostenedores.meta_description': 'Manage the protection of all your schools from a single dashboard. Law 21.719 compliance, multi-site visibility and centralized auditing.',
-  'audience.sostenedores.meta_og_title': '{brand} for School Operators — Multi-school management',
+  'audience.sostenedores.meta_og_title': '{brand} for School Operators: multi-school management',
   'audience.sostenedores.hero_badge': 'For multi-school operators',
   'audience.sostenedores.hero_title': 'Manage the protection of 5 schools from a single dashboard',
   'audience.sostenedores.hero_subtitle': 'Law 21.719 takes full effect in December 2026. Fines reach up to 20,000 UTM per school. With multiple sites, your exposure multiplies, and so does your ability to stay in control with {brand}.',
@@ -2134,7 +2134,7 @@ export const en = {
   'audience.sostenedores.hero_bullet2': 'Centralized auditing: who did what, at which site, at what time',
   'audience.sostenedores.hero_bullet3': 'One contract, one consolidated license, not N separate systems',
   'audience.sostenedores.hero_cta': 'Schedule an assessment of your portfolio',
-  'audience.sostenedores.mockup_panel_title': '{brand} — Operator Dashboard · Network of 5 schools',
+  'audience.sostenedores.mockup_panel_title': '{brand} · Operator Dashboard · Network of 5 schools',
   'audience.sostenedores.kpi_alumnos': 'Students',
   'audience.sostenedores.kpi_alertas': 'Alerts',
   'audience.sostenedores.kpi_incidentes': 'Incidents',
@@ -2379,14 +2379,14 @@ export const en = {
   'proyecciones.card_authorized_pickups_context': 'The system actively blocks any unauthorized pickup, with biometric or QR verification against the list of authorized people.',
   'proyecciones.card_authorized_pickups_methodology': 'Methodology: The 100% is based on the system physically preventing (by flow design) a pickup from being completed without verification against the authorized list. If the guardian is not on the list, the system does not allow the pickup and notifies an administrator. It is not a statistical reduction: it is a flow restriction. Reference source: operational model of school access-control systems (international benchmarks, 2024).',
   'proyecciones.card_verification_time_label': 'Average pickup verification time',
-  'proyecciones.card_verification_time_context': 'Compared to the 2–3 minutes of the current manual process (search the list, validate identity, log in a notebook).',
-  'proyecciones.card_verification_time_methodology': 'Methodology: The manual verification process involves: (1) searching for the guardian in a physical list or Excel sheet (~60 sec), (2) validating the ID document (~30 sec), (3) logging in the pickup book (~30 sec), (4) notifying the classroom (~60 sec). Estimated total: 3–4 minutes per pickup. With {brand}, verification is via QR code or app recognition, with automatic confirmation in under 3 seconds. Source: operational estimate based on front-desk protocols documented at 3 reference institutions.',
+  'proyecciones.card_verification_time_context': 'Compared to the 2 to 3 minutes of the current manual process (search the list, validate identity, log in a notebook).',
+  'proyecciones.card_verification_time_methodology': 'Methodology: The manual verification process involves: (1) searching for the guardian in a physical list or Excel sheet (~60 sec), (2) validating the ID document (~30 sec), (3) logging in the pickup book (~30 sec), (4) notifying the classroom (~60 sec). Estimated total: 3 to 4 minutes per pickup. With {brand}, verification is via QR code or app recognition, with automatic confirmation in under 3 seconds. Source: operational estimate based on front-desk protocols documented at 3 reference institutions.',
   'proyecciones.card_fines_savings_label': 'Projected savings on Law 21.719 fines',
   'proyecciones.card_fines_savings_context': 'A single mishandled-data incident can generate fines of up to $1,340M CLP. {brand} eliminates the structural gaps that create that exposure.',
   'proyecciones.card_fines_savings_methodology': 'Methodology: Law 21.719 sets fines of up to 20,000 UTM (~CLP $1,340,000,000 at the 2025 UTM value) for serious violations, or 4% of global annual revenue if higher. The most frequent gaps in schools include: unencrypted data, no audit log, data shared over WhatsApp, or no documented parental consent. {brand} eliminates each of these gaps by architectural design. The "savings" is the fine you do not pay because you have no gaps. We cannot guarantee that no school will be investigated, but we can guarantee that a school using {brand} will not have the most common technical gaps. Legal source: Law 21.719, Art. 46, Library of the National Congress.',
   'proyecciones.card_recovered_hours_label': 'Hours recovered for the head of student affairs',
   'proyecciones.card_recovered_hours_context': 'Time currently spent on manual records, searching for authorizations, and tracking paper-based protocols.',
-  'proyecciones.card_recovered_hours_methodology': 'Methodology: Estimate based on the typical operational workload of a student-affairs officer at an 800-student school: (1) pickup verification: 30 pickups/day × 3 min = 90 min/day = 7.5 h/week; (2) manual logging of behavioral incidents: ~2 h/week; (3) document searches for guardian inquiries: ~2 h/week. Total: ~11.5 h/week on tasks that {brand} automates. With {brand}, these tasks are reduced to reviewing notifications (~1–2 h/week). Projected difference: ~10–12 h/week recovered. Source: teaching-administrative workload surveys, Colegio de Profesores de Chile (2024).',
+  'proyecciones.card_recovered_hours_methodology': 'Methodology: Estimate based on the typical operational workload of a student-affairs officer at an 800-student school: (1) pickup verification: 30 pickups/day × 3 min = 90 min/day = 7.5 h/week; (2) manual logging of behavioral incidents: ~2 h/week; (3) document searches for guardian inquiries: ~2 h/week. Total: ~11.5 h/week on tasks that {brand} automates. With {brand}, these tasks are reduced to reviewing notifications (~1 to 2 h/week). Projected difference: ~10 to 12 h/week recovered. Source: teaching-administrative workload surveys, Colegio de Profesores de Chile (2024).',
   'proyecciones.scenario_eyebrow': 'Sample scenario',
   'proyecciones.scenario_title': 'Projections for an 800-student school',
   'proyecciones.scenario_subtitle': 'Government-subsidized private school, 2 student-affairs officers, ~40 daily pickups, sensitive data (PIE).',
@@ -2403,8 +2403,8 @@ export const en = {
   'proyecciones.row_inspector_hours_after': '~0.5 h/week',
   'proyecciones.row_inspector_hours_savings': '9.5 h/week',
   'proyecciones.row_incident_doc_metric': 'Time to document a serious incident',
-  'proyecciones.row_incident_doc_before': '45–60 min (paper + notifications)',
-  'proyecciones.row_incident_doc_after': '5–8 min (digital + automatic)',
+  'proyecciones.row_incident_doc_before': '45 to 60 min (paper + notifications)',
+  'proyecciones.row_incident_doc_after': '5 to 8 min (digital + automatic)',
   'proyecciones.row_incident_doc_savings': '~50 min/incident',
   'proyecciones.row_law_exposure_metric': 'Law 21.719 exposure (without encryption)',
   'proyecciones.row_law_exposure_before': 'Up to 20,000 UTM',
@@ -2425,7 +2425,7 @@ export const en = {
   'proyecciones.cta_secondary': 'Request a demo',
 
   // ── i18n sweep: res-breach-response ──
-  'resBreachResponse.meta_title': 'Data Breach Response Plan — Free template | {brand}',
+  'resBreachResponse.meta_title': 'Data Breach Response Plan, free template | {brand}',
   'resBreachResponse.meta_description': 'Personal data breach response plan template for Chilean schools. 72-hour notification under Article 30 of Law 21.719. Free download.',
   'resBreachResponse.og_title': 'Data Breach Response Plan | {brand}',
   'resBreachResponse.og_description': 'Complete template to manage data breaches in Chilean schools in compliance with Law 21.719.',
@@ -2553,7 +2553,7 @@ export const en = {
   'resBreachResponse.cta_button': 'Request a free demo',
 
   // ── i18n sweep: res-compliance-checklist ──
-  'resComplianceChecklist.meta_title': 'Law 21,719 Compliance Checklist — Free download | {brand}',
+  'resComplianceChecklist.meta_title': 'Law 21,719 Compliance Checklist, free download | {brand}',
   'resComplianceChecklist.meta_description': '20 verification items to find out whether your school complies with Law 21,719 on Data Protection. Download and print for free.',
   'resComplianceChecklist.og_title': 'Law 21,719 Compliance Checklist | {brand}',
   'resComplianceChecklist.og_description': '20 verification items to comply with Law 21,719 in Chilean schools.',
@@ -2617,7 +2617,7 @@ export const en = {
   'resComplianceChecklist.cta_button': 'Request a free demo',
 
   // ── i18n sweep: res-data-inventory ──
-  'resDataInventory.meta_title': 'Personal Data Inventory for Schools — Free template | {brand}',
+  'resDataInventory.meta_title': 'Personal Data Inventory for Schools, free template | {brand}',
   'resDataInventory.meta_description': 'Personal data inventory template for Chilean educational establishments. Legal bases, purposes and retention periods. Free download.',
   'resDataInventory.og_title': 'Personal Data Inventory for Schools | {brand}',
   'resDataInventory.og_description': 'Complete data inventory template compliant with Law 21.719 for Chilean schools.',
@@ -2652,7 +2652,7 @@ export const en = {
   'resDataInventory.cta_button': 'Request a free demo',
 
   // ── i18n sweep: res-pickup-protocol ──
-  'resPickupProtocol.meta_title': 'Safe Pickups Protocol — Free template | {brand}',
+  'resPickupProtocol.meta_title': 'Safe Pickups Protocol, free template | {brand}',
   'resPickupProtocol.meta_description': 'Safe pickups protocol template for Chilean schools. An 8-step procedure, special cases, and traceability. Free download.',
   'resPickupProtocol.og_title': 'Safe Pickups Protocol | {brand}',
   'resPickupProtocol.og_description': 'A complete safe pickups protocol template for Chilean educational institutions.',
@@ -2738,7 +2738,7 @@ export const en = {
   'resPickupProtocol.cta_button': 'Request a free demo',
 
   // ── i18n sweep: res-privacy-notice ──
-  'resPrivacyNotice.meta_title': 'School Privacy Notice Template — Free template | {brand}',
+  'resPrivacyNotice.meta_title': 'School Privacy Notice Template: free template | {brand}',
   'resPrivacyNotice.meta_description': 'Privacy notice template compliant with Art. 14 of Law 21.719 for Chilean educational institutions. Free download.',
   'resPrivacyNotice.og_title': 'School Privacy Notice Template | {brand}',
   'resPrivacyNotice.og_description': 'A Law 21.719-compliant template for publishing your school\'s privacy notice.',
@@ -2878,7 +2878,7 @@ export const en = {
   'resPrivacyNotice.cta_button': 'Request a free demo',
 
   // ── i18n sweep: res-roles-guide ──
-  'resRolesGuide.meta_title': 'Roles and Permissions Guide for Schools — Free download | {brand}',
+  'resRolesGuide.meta_title': 'Roles and Permissions Guide for Schools: free download | {brand}',
   'resRolesGuide.meta_description': 'Recommended permissions matrix for Chilean educational establishments. Principal, Inspector, UTP, Counselor, Teacher, Gatekeeper. Free download.',
   'resRolesGuide.og_title': 'Roles and Permissions Guide for Schools | {brand}',
   'resRolesGuide.og_description': 'Role-based data access matrix for Chilean schools, compliant with Law 21.719.',
@@ -3034,9 +3034,9 @@ export const en = {
   'agendar.opens_new_tab': '(opens in a new tab)',
 
   // ── i18n sweep: seguridad-datos ──
-  'seguridadDatos.meta_title': 'Data security at {brand} — by design, not by patch | {brand}',
+  'seguridadDatos.meta_title': 'Data security at {brand}: by design, not by patch | {brand}',
   'seguridadDatos.meta_description': 'How {brand} protects your school\'s data: TLS 1.3, at-rest encryption, Row-Level Security, audit log, daily backups and Law 21.719 compliance by design.',
-  'seguridadDatos.og_title': 'Data security at {brand} — by design, not by patch',
+  'seguridadDatos.og_title': 'Data security at {brand}: by design, not by patch',
   'seguridadDatos.og_description': 'How {brand} protects your school\'s data: TLS 1.3, at-rest encryption, Row-Level Security, audit log, daily backups and Law 21.719.',
   'seguridadDatos.hero_eyebrow_doc': 'Technical document · 03',
   'seguridadDatos.hero_eyebrow_topic': 'Security architecture',

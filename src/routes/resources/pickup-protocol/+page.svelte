@@ -46,7 +46,7 @@
   <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <!-- Header -->
     <div class="mb-12 border-b border-border pb-10">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground print:hidden">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground print:hidden">
         <span class="text-primary">{t('resPickupProtocol.eyebrow_category')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('resPickupProtocol.eyebrow_steps')}</span>
@@ -145,7 +145,7 @@
             { n: 8, titleKey: 'resPickupProtocol.s4_step8_title' as const, detailKey: 'resPickupProtocol.s4_step8_detail' as const }
           ] as step}
             <div class="flex gap-4 rounded-xl border border-border bg-card p-4">
-              <div class="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-bold mt-0.5">{step.n}</div>
+              <div class="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary-active text-xs font-bold mt-0.5">{step.n}</div>
               <div>
                 <p class="font-medium text-foreground mb-1">{t(step.titleKey)}</p>
                 <p class="text-muted-foreground text-sm">{t(step.detailKey)}</p>

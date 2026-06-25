@@ -174,7 +174,7 @@
                 {t('comparativa.table_col_feature')}
               </th>
               {#each columns as col, i}
-                <th scope="col" class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide {i === 0 ? 'text-primary bg-primary/5 border-x border-primary/20' : 'text-muted-foreground'}">
+                <th scope="col" class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide {i === 0 ? 'text-primary-active bg-primary/5 border-x border-primary/20' : 'text-muted-foreground'}">
                   {col}
                   {#if i === 0}
                     <span class="ml-1.5 inline-flex items-center rounded-full bg-primary px-1.5 py-0.5 text-mockup-2xs font-bold text-primary-foreground">★</span>
@@ -280,7 +280,7 @@
   <section class="py-12 sm:py-14 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
-        <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('comparativa.positioning_eyebrow')}</p>
+        <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('comparativa.positioning_eyebrow')}</p>
         <h2 class="mt-3 text-balance text-3xl text-foreground sm:text-4xl">
           {t('comparativa.positioning_title')}
         </h2>

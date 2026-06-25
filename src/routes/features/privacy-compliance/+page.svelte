@@ -33,15 +33,15 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — {t('features.privacy.title')}</title>
-  <meta name="description" content="Construida para la Ley 21.719 desde el primer día — no como un parche posterior." />
+  <title>{BRAND} · {t('features.privacy.title')}</title>
+  <meta name="description" content="Construida para la Ley 21.719 desde el primer día, no como un parche posterior." />
   <meta property="og:url" content="https://ethoz.cl/features/privacy-compliance" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} — Arquitectura de Privacidad y Cumplimiento`} />
-  <meta property="og:description" content="Construida para la Ley 21.719 desde el primer día — no como un parche posterior." />
+  <meta property="og:title" content={`${BRAND} · Arquitectura de Privacidad y Cumplimiento`} />
+  <meta property="og:description" content="Construida para la Ley 21.719 desde el primer día, no como un parche posterior." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} — Arquitectura de Privacidad y Cumplimiento`} />
-  <meta name="twitter:description" content="Construida para la Ley 21.719 desde el primer día — no como un parche posterior." />
+  <meta name="twitter:title" content={`${BRAND} · Arquitectura de Privacidad y Cumplimiento`} />
+  <meta name="twitter:description" content="Construida para la Ley 21.719 desde el primer día, no como un parche posterior." />
   <link rel="canonical" href="https://ethoz.cl/features/privacy-compliance" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Privacidad y Cumplimiento"}]})}</script>`}
 </svelte:head>
@@ -135,7 +135,7 @@
                   <div class="size-5 rounded-full bg-muted flex items-center justify-center shrink-0">
                     <entry.icon class="size-2.5 {entry.color}" />
                   </div>
-                  <span class="flex-1 text-muted-foreground truncate">{t(entry.userKey)} — {t(entry.actionKey)}</span>
+                  <span class="flex-1 text-muted-foreground truncate">{t(entry.userKey)} · {t(entry.actionKey)}</span>
                   <span class="text-mockup-2xs text-muted-foreground shrink-0">{t(entry.timeKey)}</span>
                 </div>
               {/each}
@@ -157,7 +157,7 @@
   <!-- Data inventory section -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="mb-2 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('featurePage.privacyCompliance.inventory.eyebrow')}</p>
+      <p class="mb-2 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('featurePage.privacyCompliance.inventory.eyebrow')}</p>
       <h2 class="mb-2 text-xl text-foreground sm:text-2xl">{t('featurePage.privacyCompliance.inventory.heading')}</h2>
       <p class="mb-8 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         {t('featurePage.privacyCompliance.inventory.intro')}
@@ -268,7 +268,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="privacy-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('featurePage.privacyCompliance.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('featurePage.privacyCompliance.finalCta.eyebrow')}</p>
       <h2 id="privacy-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.privacyCompliance.finalCta.title')}
       </h2>

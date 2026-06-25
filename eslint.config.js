@@ -19,6 +19,8 @@ export default [
       'supabase/.temp/**',
       '.firebase/**',
       '.omc/**',
+      '.claude/**', // vendored plugin skills + agent assets — not project source
+      '.remember/**', // operational memory / scratch — not project source
       'src/lib/components/ui/**', // shadcn-svelte vendored — leave alone
       '*.config.js',
       '*.config.ts',

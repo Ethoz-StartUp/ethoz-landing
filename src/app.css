@@ -1,46 +1,41 @@
 @import "tailwindcss";
 @import "@fontsource-variable/inter";
+@import "@fontsource-variable/dm-sans";
 @import "@fontsource-variable/jetbrains-mono";
-
-/* Cal Sans — self-hosted from official SIL OFL 1.1 release.
-   Single weight (Regular = 600 visual). License: static/fonts/cal-sans/OFL.txt */
-@font-face {
-  font-family: "Cal Sans";
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("/fonts/cal-sans/CalSans-Regular.ttf") format("truetype");
-}
 
 /*
  * ──────────────────────────────────────────
- * Ethoz Landing — Cal.com design system clone
+ * Ethoz Landing — 8020 design system (sky-blue vertical)
  *
- * Source of truth: ./DESIGN.md (installed via `npx getdesign add cal`)
- * Dark mode tokens: github.com/calcom/cal.com (MIT)
- * Cal Sans font: Google Fonts (https://fonts.google.com/specimen/Cal+Sans)
+ * Source of truth: 8020IQ Brand Guide v1.1 (June 2026).
+ * Spine: Cream #FAF8F5 + Charcoal #18181B. Accent: Sky Blue #0495FE.
+ * Type: DM Sans (display) / Inter (body, UI) / JetBrains Mono (data, eyebrows).
+ *
+ * Accent contrast policy:
+ *  - --primary (#0B72C4) is the accessible sky used for TEXT, links, eyebrows,
+ *    primary buttons (white label = 4.98:1 AA). The "workhorse" accent token.
+ *  - --accent-bright (#0495FE) is the exact brand swatch, reserved for
+ *    NON-text uses: fills, progress bars, large display accent words, icons,
+ *    the logo, dark-mode accent. (3:1 large/UI is sufficient there.)
+ *  - Primary body text is #1C1C1E (AAA 16:1 on cream). Secondary #636366 (AA).
  *
  * Hard rules (lint-enforced):
  *  - NO hardcoded hex/rgb/hsl in component files. Always reference a token.
  *  - NO hardcoded font-family. Use --font-sans / --font-heading / --font-mono.
  *  - NO arbitrary radii or spacing. Use the radius / spacing scale.
- *  - Token references must round-trip back to DESIGN.md.
+ *  - NO em-dashes or en-dashes in copy (8020 rule). Use commas / "to" ranges.
+ *
+ * Radius (8020 §10): 16 cards, 12 buttons, 10 inputs, pill for chips.
+ * Shadow (8020 §10): soft + warm, never hard gray-blue.
  *
  * Theme switching:
- *  - Default: respects system preference via prefers-color-scheme.
- *  - Override: <html data-theme="light"> or <html data-theme="dark">
- *    persisted to localStorage by ThemeToggle component.
- *
- * Migration note (2026-05-02):
- *  Stripe Press tokens (--canvas, --ink, --canvas-elevated, --hairline-warm,
- *  --section-navy, --accent-mustard/brick/sage, etc.) are kept as bridge
- *  aliases that point to Cal equivalents during the redesign. They are
- *  removed in P-final once every component uses canonical Cal tokens.
+ *  - Cream-first. Charcoal dark mode for impact bands + premium surfaces.
+ *  - Override: <html data-theme="light"> or <html data-theme="dark">.
  * ──────────────────────────────────────────
  */
 
 @theme inline {
-  /* ─── Colors — Cal canonical ─── */
+  /* ─── Colors — 8020 tokens ─── */
   --color-canvas: var(--canvas);
   --color-bg-default: var(--bg-default);
   --color-bg-emphasis: var(--bg-emphasis);
@@ -70,6 +65,8 @@
   --color-primary-active: var(--primary-active);
   --color-primary-disabled: var(--primary-disabled);
   --color-brand-accent: var(--brand-accent);
+  --color-accent-bright: var(--accent-bright);
+  --color-accent-tint: var(--accent-tint);
 
   --color-success: var(--success);
   --color-warning: var(--warning);
@@ -80,7 +77,7 @@
   --color-badge-violet: var(--badge-violet);
   --color-badge-emerald: var(--badge-emerald);
 
-  /* ─── shadcn / legacy aliases (mapped to Cal tokens) ─── */
+  /* ─── shadcn / legacy aliases (mapped to 8020 tokens) ─── */
   --color-background: var(--bg-default);
   --color-foreground: var(--ink);
   --color-card: var(--card);
@@ -115,7 +112,7 @@
   --color-primary-hover: var(--primary-hover);
   --color-primary-pressed: var(--primary-pressed);
 
-  /* ─── Stripe Press bridge aliases (legacy — being retired) ─── */
+  /* ─── Legacy bridge aliases (legacy — being retired) ─── */
   --color-canvas-elevated: var(--canvas-elevated);
   --color-canvas-strong: var(--canvas-strong);
   --color-ink-soft: var(--ink-soft);
@@ -148,9 +145,9 @@
   --color-brand-instagram: #E1306C;
   --color-brand-youtube: #FF0000;
 
-  /* ─── Typography ─── */
+  /* ─── Typography (8020 §08) ─── */
   --font-sans: "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Cal Sans", "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: "DM Sans Variable", "DM Sans", "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   /* ─── Product-mockup micro type ───
@@ -163,18 +160,19 @@
   --text-mockup-xs: 10px;
   --text-mockup-sm: 11px;
 
-  /* ─── Radii — project scale (CLAUDE.md "8/12/16 progression": buttons/pills = md 8px, cards = xl 12px, hero = 2xl 16px).
-     Intentionally smaller than Cal DESIGN.md (lg 12 / xl 16) — the codebase's rounded-xl cards were authored for 12px. ─── */
+  /* ─── Radii — 8020 §10: 16 cards, 12 buttons, 10 inputs, pill chips.
+     Mapped to existing utility usage: rounded-md=buttons(12), rounded-lg=inputs/medium(10),
+     rounded-xl=cards(16), rounded-2xl=hero(20). ─── */
   --radius-xs: 4px;
   --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
+  --radius-md: 12px;   /* buttons (button.svelte base = rounded-md) */
+  --radius-lg: 10px;   /* inputs + medium elements (input.svelte = rounded-lg) */
+  --radius-xl: 16px;   /* cards (rounded-xl) */
   --radius-pill: 9999px;
   --radius-full: 9999px;
   /* shadcn aliases */
-  --radius-2xl: 16px;
-  --radius-3xl: 20px;
+  --radius-2xl: 20px;  /* hero mockup card */
+  --radius-3xl: 24px;
 
   /* ─── Spacing (DESIGN.md.spacing — 4px base) ─── */
   --spacing-cal-xxs: 4px;
@@ -188,49 +186,51 @@
 }
 
 /* ─────────────────────────────────────────
- * LIGHT MODE — Cal.com canonical (DESIGN.md hex values)
+ * LIGHT MODE — 8020 cream spine
  * ───────────────────────────────────────── */
 :root,
 [data-theme="light"] {
-  /* Canvas + surfaces */
-  --canvas: #ffffff;
-  --bg-default: #ffffff;
-  --bg-emphasis: #e5e7eb;
-  --bg-subtle: #f5f5f5;
-  --bg-muted: #f8f9fa;
-  --bg-inverted: #101010;
-  --surface-soft: #f8f9fa;
-  --surface-card: #f5f5f5;
-  --surface-strong: #e5e7eb;
-  --surface-dark: #101010;
-  --surface-dark-elevated: #1a1a1a;
-  --card: #ffffff;
+  /* Canvas + surfaces — cream spine (8020 §06) */
+  --canvas: #faf8f5;            /* Cream — master background */
+  --bg-default: #faf8f5;        /* Cream */
+  --bg-emphasis: #e8e4de;       /* Border / quiet emphasis fill */
+  --bg-subtle: #f5f3ef;         /* Warm white */
+  --bg-muted: #f5f3ef;          /* Warm white */
+  --bg-inverted: #18181b;       /* Charcoal */
+  --surface-soft: #f5f3ef;      /* Warm white — alternating rows, soft panels */
+  --surface-card: #f5f3ef;      /* Warm white — card backgrounds on cream */
+  --surface-strong: #ddd7ce;    /* Border strong */
+  --surface-dark: #18181b;      /* Charcoal — footer, dark CTA bands */
+  --surface-dark-elevated: #2c2c2e; /* Titanium — raised on charcoal */
+  --card: #f5f3ef;              /* Warm white (never pure white on cream, 8020 §07) */
 
-  /* Text */
-  --ink: #111111;
-  --body: #374151;
-  --muted-text: #485160; /* AAA: 8.0:1 white / 7.6:1 surface-soft / 7.35:1 card-#F5F5F5 (was #6b7280 = 4.8:1, AA only). --muted-foreground aliases this. */
-  --muted-soft: #898989;
-  --on-primary: #ffffff;
-  --on-dark: #ffffff;
-  --on-dark-soft: #a1a1aa;
+  /* Text — iOS warm grays (8020 §06b) */
+  --ink: #1c1c1e;              /* Text primary — AAA 16:1 on cream */
+  --body: #1c1c1e;            /* Body = primary readable copy (8020 §06b) */
+  --muted-text: #636366;     /* Text secondary — labels, captions, footnotes (AA on cream) */
+  --muted-soft: #8e8e93;     /* Text tertiary — hint, disabled, deep footer */
+  --on-primary: #ffffff;     /* White on sky-blue primary (4.98:1 AA) */
+  --on-dark: #faf8f5;        /* Warm white on charcoal */
+  --on-dark-soft: rgba(255, 255, 255, 0.62); /* Secondary text on charcoal */
 
   /* Borders */
-  --hairline: #e5e7eb;
-  --hairline-soft: #f3f4f6;
+  --hairline: #e8e4de;       /* Standard separator (8020 §06b) */
+  --hairline-soft: #efebe4;  /* Lighter divider */
 
-  /* Primary (Cal black) */
-  --primary: #111111;
-  --primary-active: #242424;
-  --primary-disabled: #e5e7eb;
+  /* Primary = accessible sky blue (text/buttons/links). Brand swatch #0495FE in --accent-bright. */
+  --primary: #0b72c4;        /* Sky blue, deepened for AA text/buttons (white = 4.98:1) */
+  --primary-active: #095c9e;
+  --primary-disabled: #cfe4f4;
   --primary-foreground: #ffffff;
-  --primary-ink: #111111;
-  --primary-hover: #242424;
-  --primary-pressed: #242424;
-  --brand-accent: #3b82f6;
+  --primary-ink: #0b72c4;
+  --primary-hover: #095c9e;
+  --primary-pressed: #074b82;
+  --brand-accent: #0495fe;   /* Exact 8020 sky-blue swatch */
+  --accent-bright: #0495fe;  /* Non-text uses: fills, progress, large display, icons, logo */
+  --accent-tint: rgba(4, 149, 254, 0.10); /* Sky pill / chip background */
 
   /* Semantic */
-  --success: #10b981;
+  --success: #10b981;        /* Emerald (8020 success) */
   --warning: #f59e0b;
   --error: #ef4444;
 
@@ -240,7 +240,7 @@
   --badge-violet: #8b5cf6;
   --badge-emerald: #34d399;
 
-  --overlay: rgba(17, 17, 17, 0.60);
+  --overlay: rgba(24, 24, 27, 0.60);
 
   /* shadcn aliases */
   --background: var(--bg-default);
@@ -281,7 +281,7 @@
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--on-primary);
 
-  /* Stripe Press bridge aliases (legacy — being retired component-by-component) */
+  /* Legacy bridge aliases (legacy — being retired component-by-component) */
   --canvas-elevated: var(--surface-soft);
   --canvas-strong: var(--surface-card);
   --ink-soft: var(--body);
@@ -298,7 +298,7 @@
   --accent-sage: var(--success);
   --accent-sage-ink: var(--success);
 
-  /* Typography fluid scale (Cal display sizes from DESIGN.md)
+  /* Typography fluid scale (8020 display sizes)
      min raised 40→44 for stronger mobile hero presence on narrow viewports */
   --fs-display-xl: clamp(44px, 5vw, 64px);
   --fs-display-lg: clamp(36px, 4vw, 48px);
@@ -320,13 +320,13 @@
   --fs-lead: var(--fs-title-lg);
   --fs-eyebrow: var(--fs-caption);
 
-  /* Tracking (Cal Sans display = negative letter-spacing) */
+  /* Tracking (DM Sans display = negative letter-spacing) */
   --tracking-display-xl: -0.0313em;
   --tracking-display-lg: -0.0313em;
   --tracking-display-md: -0.0278em;
   --tracking-display-sm: -0.0179em;
-  --tracking-eyebrow: 0.06em;
-  --tracking-caps: 0.06em;
+  --tracking-eyebrow: 0.08em;
+  --tracking-caps: 0.08em;
 
   /* Motion */
   --ease-standard: cubic-bezier(0.2, 0, 0.2, 1);
@@ -338,46 +338,48 @@
 }
 
 /* ─────────────────────────────────────────
- * DARK MODE — Cal.com canonical
+ * DARK MODE — 8020 charcoal + titanium ramp
  * Source: github.com/calcom/cal.com packages/config/theme/tokens.css (HSLA → hex)
  * ───────────────────────────────────────── */
 [data-theme="dark"] {
-  /* Canvas + surfaces */
-  --canvas: #0f0f0f;
-  --bg-default: #0f0f0f;
-  --bg-emphasis: #404040;
-  --bg-subtle: #262626;
-  --bg-muted: #171717;
-  --bg-inverted: #fafafa;
-  --surface-soft: #171717;
-  --surface-card: #1a1a1a;
-  --surface-strong: #262626;
-  --surface-dark: #0f0f0f;
-  --surface-dark-elevated: #262626;
-  --card: #1a1a1a;
+  /* Canvas + surfaces — charcoal + titanium ramp (8020 §06b) */
+  --canvas: #18181b;            /* Charcoal — dark floor */
+  --bg-default: #18181b;
+  --bg-emphasis: #3a3a3c;       /* Titanium mid */
+  --bg-subtle: #2c2c2e;         /* Titanium */
+  --bg-muted: #2c2c2e;          /* Titanium */
+  --bg-inverted: #faf8f5;
+  --surface-soft: #2c2c2e;      /* Titanium — card / panel */
+  --surface-card: #2c2c2e;      /* Titanium */
+  --surface-strong: #48484a;    /* Titanium light — strongest edge */
+  --surface-dark: #18181b;
+  --surface-dark-elevated: #2c2c2e;
+  --card: #2c2c2e;              /* Titanium card on charcoal */
 
   /* Text */
-  --ink: #fafafa;
-  --body: #d4d4d4;
-  --muted-text: #a3a3a3;
-  --muted-soft: #a3a3a3;
-  --on-primary: #000000;
-  --on-dark: #ffffff;
-  --on-dark-soft: #a1a1aa;
+  --ink: #faf8f5;              /* Warm white */
+  --body: #e4e4e7;
+  --muted-text: rgba(255, 255, 255, 0.62); /* Secondary on charcoal */
+  --muted-soft: rgba(255, 255, 255, 0.40);
+  --on-primary: #06243b;       /* Dark ink on light-sky button */
+  --on-dark: #faf8f5;
+  --on-dark-soft: rgba(255, 255, 255, 0.62);
 
   /* Borders */
-  --hairline: #4d4d4d;
-  --hairline-soft: #262626;
+  --hairline: #48484a;         /* Titanium light */
+  --hairline-soft: rgba(255, 255, 255, 0.08); /* White 8% */
 
-  /* Primary inverts (light primary on dark canvas) */
-  --primary: #fafafa;
-  --primary-active: #f5f5f5;
-  --primary-disabled: #404040;
-  --primary-foreground: #000000;
-  --primary-ink: #fafafa;
-  --primary-hover: #f5f5f5;
-  --primary-pressed: #f5f5f5;
-  --brand-accent: #60a5fa;
+  /* Primary = lighter sky on charcoal (8020: use lighter accent variant in dark) */
+  --primary: #38a8ff;
+  --primary-active: #5bb8ff;
+  --primary-disabled: #2c4a5e;
+  --primary-foreground: #06243b;
+  --primary-ink: #38a8ff;
+  --primary-hover: #5bb8ff;
+  --primary-pressed: #1f8fe6;
+  --brand-accent: #38a8ff;
+  --accent-bright: #38a8ff;    /* Sky pops harder on charcoal */
+  --accent-tint: rgba(56, 168, 255, 0.14);
 
   /* Semantic (lifted lightness for dark contrast) */
   --success: #34d399;
@@ -431,7 +433,7 @@
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--on-primary);
 
-  /* Stripe Press bridge aliases (dark) */
+  /* Legacy bridge aliases (dark) */
   --canvas-elevated: var(--surface-soft);
   --canvas-strong: var(--surface-card);
   --ink-soft: var(--body);
@@ -477,15 +479,15 @@ body {
   letter-spacing: 0;
 }
 
-/* Cal Sans display headlines — weight 600 with negative letter-spacing per DESIGN.md */
+/* DM Sans display headlines — weight 700 to 800 (8020 §08), negative tracking, confident not decorative */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--ink);
   text-wrap: balance;
 }
 
-h1 { font-size: var(--fs-display-xl); line-height: 1.05; letter-spacing: var(--tracking-display-xl); }
+h1 { font-size: var(--fs-display-xl); line-height: 1.05; letter-spacing: var(--tracking-display-xl); font-weight: 800; }
 h2 { font-size: var(--fs-display-lg); line-height: 1.10; letter-spacing: var(--tracking-display-lg); }
 h3 { font-size: var(--fs-display-md); line-height: 1.15; letter-spacing: var(--tracking-display-md); }
 h4 { font-size: var(--fs-display-sm); line-height: 1.20; letter-spacing: var(--tracking-display-sm); }
@@ -500,10 +502,10 @@ p, li {
   font-variant-numeric: tabular-nums;
 }
 
-/* Eyebrow — small caps marker above headlines */
+/* Eyebrow — mono-caps marker above headlines (8020 signature, accent-colored) */
 .eyebrow,
 .label-mono {
-  font-family: var(--font-sans);
+  font-family: var(--font-mono);
   font-size: var(--fs-caption);
   font-weight: 600;
   letter-spacing: var(--tracking-eyebrow);
@@ -550,12 +552,12 @@ blockquote.pull-quote,
 .text-balance { text-wrap: balance; }
 
 ::selection {
-  background-color: rgba(17, 17, 17, 0.18);
+  background-color: rgba(4, 149, 254, 0.18);
   color: var(--ink);
 }
 
 [data-theme="dark"] ::selection {
-  background-color: rgba(250, 250, 250, 0.25);
+  background-color: rgba(56, 168, 255, 0.30);
   color: var(--ink);
 }
 
@@ -683,7 +685,7 @@ button[role="checkbox"] {
 }
 
 /* ─────────────────────────────────────────
- * Shadows — Cal.com soft elevation. No heavy shadows / neumorphism.
+ * Shadows — 8020 soft warm elevation. No heavy shadows / neumorphism.
  * ───────────────────────────────────────── */
 
 @utility shadow-glow-primary {
@@ -694,12 +696,13 @@ button[role="checkbox"] {
   box-shadow: none;
 }
 
+/* Shadows — 8020 §10: soft + warm, never hard gray-blue. */
 @utility shadow-card {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.04);
 }
 
 @utility shadow-card-hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 12px 32px rgba(0, 0, 0, 0.06);
 }
 
 @utility ring-card {
@@ -707,11 +710,11 @@ button[role="checkbox"] {
 }
 
 @utility shadow-popover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
 }
 
 @utility shadow-mockup {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 12px 32px rgba(0, 0, 0, 0.06);
 }
 
 @utility bg-overlay {
@@ -729,11 +732,37 @@ button[role="checkbox"] {
   background-size: 40px 40px;
 }
 
+/* ─── Texture library (8020 §09): 32px grid or 32px dots, never both.
+   Sits under content at <8% contrast, orients rather than decorates. ─── */
+@utility bg-grid-fine {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@utility bg-grid-fine-dark {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@utility bg-dots-fine {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@utility bg-dots-fine-dark {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
 @utility pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* Cal section padding — 96px universal vertical rhythm per DESIGN.md.spacing.section */
+/* Section padding — 96px universal vertical rhythm per 8020 spacing scale */
 @utility section-editorial {
   padding-block: clamp(64px, 9vw, 96px);
 }

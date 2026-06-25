@@ -100,11 +100,11 @@
 </script>
 
 <svelte:head>
-  <title>Recursos gratuitos — Ley 21.719 para colegios | {BRAND}</title>
+  <title>Recursos gratuitos · Ley 21.719 para colegios | {BRAND}</title>
   <meta name="description" content="Descarga plantillas, checklists y guías gratuitas para cumplir con la Ley 21.719 de Protección de Datos Personales en tu colegio." />
   <meta property="og:url" content="https://ethoz.cl/resources" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Recursos gratuitos — Ley 21.719 para colegios | ${BRAND}`} />
+  <meta property="og:title" content={`Recursos gratuitos · Ley 21.719 para colegios | ${BRAND}`} />
   <meta property="og:description" content="Descarga plantillas, checklists y guías gratuitas para cumplir con la Ley 21.719 de Protección de Datos Personales en tu colegio." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={`Recursos gratuitos Ley 21.719 | ${BRAND}`} />
@@ -126,7 +126,7 @@
   <!-- HERO — editorial -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">{t('resources.free_badge')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{resources.length} {t('resources.hero_count_suffix')}</span>
@@ -158,15 +158,15 @@
           <!-- Metadata strip -->
           <dl class="mt-5 grid grid-cols-2 gap-3 border-t border-border pt-4 text-mockup-sm">
             <div>
-              <dt class="font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('resources.meta_label_area')}</dt>
+              <dt class="font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('resources.meta_label_area')}</dt>
               <dd class="mt-0.5 font-medium text-foreground">{t(resource.tagKey)}</dd>
             </div>
             <div>
-              <dt class="font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('resources.meta_label_scope')}</dt>
+              <dt class="font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('resources.meta_label_scope')}</dt>
               <dd class="mt-0.5 font-medium text-foreground">{t(resource.metaKey)}</dd>
             </div>
             <div class="col-span-2">
-              <dt class="font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('resources.meta_label_norm')}</dt>
+              <dt class="font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('resources.meta_label_norm')}</dt>
               <dd class="mt-0.5 font-medium text-primary">{t(resource.articleKey)}</dd>
             </div>
           </dl>
@@ -198,7 +198,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-resources">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('resources.cta_eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('resources.cta_eyebrow')}</p>
       <h2 id="final-cta-resources" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         {t('resources.cta_title')}
       </h2>

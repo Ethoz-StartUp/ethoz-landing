@@ -351,7 +351,7 @@ test.describe.serial('Demo funnel — step 1: school search', () => {
 test.describe.serial('Demo funnel — step 2: contact form', () => {
 	// We need a real RBD — use a known one from the dataset
 	// We'll get it dynamically by going through step 1 first
-	let demoRbdUrl = '/demo/1001'; // fallback; will be overridden in beforeAll-style test
+	const demoRbdUrl = '/demo/1001'; // known RBD from the dataset
 
 	test('school card shows name, RBD and commune', async ({ page }) => {
 		// Navigate via step 1 to get to a valid RBD page

@@ -52,7 +52,7 @@ export const es = {
   // Problem section
   'problem.overline': 'El problema',
   'problem.title': 'Cada día, colegios operan con información fragmentada',
-  'problem.subtitle': 'Y la nueva ley de datos no perdona.',
+  'problem.subtitle': 'Y la nueva ley de datos ya no admite improvisación.',
   'problem.card1.title': 'Datos dispersos',
   'problem.card1.desc':
     'Excel, libretas, grupos de WhatsApp. La información crítica de tus alumnos vive en silos que nadie controla.',
@@ -84,7 +84,7 @@ export const es = {
 
   'features.privacy.title': 'Privacidad y Protección de Datos',
   'features.privacy.desc': 'Construida para la Ley 21.719 desde el primer día, no como un parche posterior.',
-  'features.privacy.bullet1': 'Aislamiento total entre colegios: es matemáticamente imposible que un colegio acceda a datos de otro',
+  'features.privacy.bullet1': 'Aislamiento total entre colegios: ningún colegio puede acceder a los datos de otro.',
   'features.privacy.bullet2': 'Notas judiciales cifradas y registro de auditoría inalterable de cada acceso (quién, qué, cuándo, desde dónde)',
   'features.privacy.bullet3': 'Gestión de consentimientos parentales obligatorios para menores de 14 y datos sensibles de menores de 16',
 
@@ -166,7 +166,7 @@ export const es = {
   // Roles section
   'roles.overline': 'Para cada rol',
   'roles.title': 'Cada persona ve exactamente lo que necesita',
-  'roles.subtitle': 'Sin accesos de más. Sin información que sobre. Cada cargo tiene su propia vista.',
+  'roles.subtitle': 'Sin accesos de más. Cada cargo ve solo lo que su rol necesita.',
   'roles.admin.title': 'Administrador',
   'roles.admin.desc': 'Gestión completa de usuarios, configuración institucional y registro de auditoría.',
   'roles.director.title': 'Director/a',
@@ -298,7 +298,7 @@ export const es = {
   'blog.subtitle': 'Análisis, guías y actualizaciones sobre protección de datos y seguridad escolar en Chile.',
 
   // Pricing page
-  'pricing.meta.title': 'Precios — {brand}',
+  'pricing.meta.title': 'Precios · {brand}',
   'pricing.hero.overline': 'Planes y precios',
   'pricing.hero.title': 'Planes diseñados para tu colegio',
   'pricing.hero.subtitle': 'Precio según tamaño de matrícula. Sin costos ocultos. Sin letra chica.',
@@ -314,7 +314,7 @@ export const es = {
   'pricing.tier.esencial.f4': 'Búsqueda instantánea',
 
   'pricing.tier.profesional.name': 'Profesional',
-  'pricing.tier.profesional.for': '500 – 1.500 alumnos',
+  'pricing.tier.profesional.for': '500 a 1.500 alumnos',
   'pricing.tier.profesional.desc': 'Para colegios que quieren visibilidad completa',
   'pricing.tier.profesional.price': 'Consultar precio',
   'pricing.tier.profesional.badge': 'Recomendado',
@@ -359,7 +359,7 @@ export const es = {
   'pricing.faq.a4': '{brand} se integra con los sistemas más comunes del ecosistema escolar chileno. Durante la implementación, migramos sus datos históricos y configuramos las conexiones necesarias. Si usan Excel o sistemas en papel, la migración también está contemplada.',
   'pricing.faq.q5': '¿Cuánto tiempo toma implementar {brand}?',
   'pricing.faq.a5': 'La implementación típica toma entre 2 y 4 semanas, dependiendo del volumen de datos a migrar y la cantidad de establecimientos. No requiere infraestructura propia: {brand} opera 100% en la nube.',
-  'pricing.faq.q6': '¿Para qué tipo de colegios está diseñado?',
+  'pricing.faq.q6': '¿Para qué tipo de colegios está diseñado {brand}?',
   'pricing.faq.a6': 'Para cualquier establecimiento educacional en Chile: colegios particulares, subvencionados, municipales y redes de colegios. Desde establecimientos de 200 alumnos hasta corporaciones con múltiples sedes. Los planes se adaptan al tamaño de la matrícula.',
   'pricing.faq.q7': '¿Hay costo de implementación?',
   'pricing.faq.a7': 'No. La implementación, migración de datos y capacitación están incluidas en todos los planes, sin costo adicional.',
@@ -371,7 +371,7 @@ export const es = {
   'pricing.cta.primary': 'Agendar Demo gratuita',
 
   // Contact page
-  'contact.meta.title': 'Contacto — {brand}',
+  'contact.meta.title': 'Contacto · {brand}',
   'contact.back': 'Volver al inicio',
   'contact.heading': 'Hablemos',
   'contact.subheading': 'Elige cómo quieres contactarnos. Te respondemos rápido.',
@@ -408,7 +408,7 @@ export const es = {
   'about.value3_desc': 'No esperamos a que la ley entre en vigencia para actuar. {brand} cumple con la Ley 21.719 hoy, no mañana.',
 
   // About page (extended keys)
-  'about.meta.title': 'Nosotros — {brand}',
+  'about.meta.title': 'Nosotros · {brand}',
   'about.meta.description': '{brand} es una plataforma de seguridad escolar construida en Chile para colegios chilenos. Conoce por qué existe y quién está detrás.',
   'about.nav.back': '← Volver al inicio',
   'about.hero.overline': 'Construido en Chile, para colegios chilenos',
@@ -442,8 +442,8 @@ export const es = {
   'about.faq.title': 'Preguntas frecuentes',
   'about.faq.q1': '¿Qué significa "{brand}"?',
   'about.faq.a1': '{brand} viene de "ethos" (griego: ἦθος), que significa el carácter moral y los valores fundamentales de una comunidad. La "z" final le da identidad propia y representa el diferenciador tecnológico: no es solo ética, es ética aplicada con tecnología. {brand} es la infraestructura ética de un colegio.',
-  'about.faq.q2': '¿Por qué los colores azul y navy?',
-  'about.faq.a2': 'El navy (#0F172A) representa la institución: lo sólido, lo confiable, lo que no cambia. El azul (#2563EB) representa la tecnología: la innovación, el acceso controlado, la transparencia. Juntos cuentan la historia de {brand}: protección institucional potenciada por tecnología moderna.',
+  'about.faq.q2': '¿Qué significan los colores de la marca?',
+  'about.faq.a2': 'El gris carbón representa a la institución: sólido, confiable, lo que no cambia. El azul cielo representa a la tecnología: claridad, acceso controlado y transparencia. Juntos cuentan la historia de {brand}: protección institucional con tecnología moderna.',
   'about.faq.q3': '¿Qué representa el logo?',
   'about.faq.a3': 'Dos rectángulos superpuestos que forman una intersección. Representan la dualidad central de {brand}: privacidad y acceso. Dos capas que coexisten: lo que se protege y lo que se comparte. La transparencia visual del icono refleja la transparencia operativa de la plataforma.',
   'about.faq.q4': '¿Necesito reemplazar mis sistemas actuales?',
@@ -454,13 +454,13 @@ export const es = {
   'about.cta.primary': 'Unirse al piloto',
 
   // Compliance page
-  'compliance_page.meta.title': 'Cumplimiento normativo — {brand}',
+  'compliance_page.meta.title': 'Cumplimiento normativo de {brand}',
   'compliance_page.meta.desc': 'Documentación técnica y normativa del cumplimiento de {brand} con la Ley 21.719 de Protección de Datos Personales.',
 
   'compliance_page.hero.badge': 'Ley 21.719 · Diseñado desde el origen',
   'compliance_page.hero.title': 'Cumplimiento normativo construido desde el origen',
   'compliance_page.hero.subtitle': '{brand} fue diseñado para cumplir con la Ley 21.719 desde el primer día, no como una adaptación posterior.',
-  'compliance_page.hero.body': 'Este documento describe la arquitectura técnica y los controles de privacidad implementados en {brand} para garantizar que los establecimientos educacionales cumplan con sus obligaciones legales ante la Ley de Protección de Datos Personales.',
+  'compliance_page.hero.body': 'Este documento detalla la arquitectura técnica y los controles de privacidad de {brand} que permiten a los establecimientos educacionales cumplir sus obligaciones bajo la Ley de Protección de Datos Personales.',
 
   'compliance_page.law_ref.title': 'Ley 21.719: Protección de Datos Personales',
   'compliance_page.law_ref.desc': 'Regula la protección y el tratamiento de los datos personales y crea la Agencia de Protección de Datos Personales. Publicada en el Diario Oficial el 13 de diciembre de 2024.',
@@ -488,7 +488,7 @@ export const es = {
 
   'compliance_page.pillar2.title': 'Derechos ARCO+P',
   'compliance_page.pillar2.desc': 'Flujos de atención para ejercer los derechos de Acceso, Rectificación, Cancelación, Oposición y Portabilidad. Plazos legales monitoreados automáticamente y trazabilidad completa de cada solicitud.',
-  'compliance_page.pillar2.article': 'Arts. 11–15',
+  'compliance_page.pillar2.article': 'Arts. 11 a 15',
 
   'compliance_page.pillar3.title': 'Cifrado de datos sensibles',
   'compliance_page.pillar3.desc': 'Los campos sensibles (notas judiciales, alertas médicas, observaciones confidenciales) se cifran en reposo mediante pgcrypto con claves gestionadas independientemente del acceso a la base de datos.',
@@ -515,7 +515,7 @@ export const es = {
   'compliance_page.arch.item2.desc': 'Los campos clasificados como sensibles se cifran con algoritmos simétricos AES-256 antes de ser escritos en disco. La clave de cifrado se gestiona de forma separada al acceso de base de datos, garantizando que un acceso no autorizado a los archivos no exponga datos legibles.',
   'compliance_page.arch.item3.label': 'Trazabilidad total: pgAudit',
   'compliance_page.arch.item3.desc': 'Cada operación de lectura, escritura o modificación sobre tablas que contienen datos personales genera una entrada en el registro de auditoría. Este registro es append-only: ningún usuario ni proceso puede borrar o modificar entradas existentes.',
-  'compliance_page.arch.item4.label': 'Autenticación robusta: Firebase Auth con 2FA',
+  'compliance_page.arch.item4.label': 'Autenticación con doble factor: Firebase Auth con 2FA',
   'compliance_page.arch.item4.desc': 'El acceso a la plataforma requiere autenticación de dos factores para roles con acceso a datos sensibles. Las sesiones caducan automáticamente y todos los intentos de acceso quedan registrados independientemente del resultado.',
   'compliance_page.arch.disclaimer': 'Este resumen está redactado para audiencias legales y directivas. La documentación técnica completa, incluyendo diagramas de arquitectura, políticas de retención y procedimientos de respuesta ante incidentes, está disponible bajo acuerdo de confidencialidad para procesos de due diligence.',
 
@@ -557,7 +557,7 @@ export const es = {
   // Hero (additional)
   'hero.video_long': 'Conoce {brand} en 2 min',
   'hero.video_short': 'Ver video',
-  'hero.mockup_title': '{brand} — Panel de Seguimiento',
+  'hero.mockup_title': '{brand} · Panel de Seguimiento',
   'hero.mockup_demo_label': 'Vista demo',
   'hero.no_alerts': 'Sin alertas',
   'hero.recent_history': 'Historial reciente',
@@ -603,7 +603,7 @@ export const es = {
   'home.roles.apoderado.alt': 'Ilustración del rol: Apoderado',
 
   // Home page — how it works time labels
-  'home.how.subtitle': 'Sin licitaciones, sin instalaciones, sin servidores propios. Implementación acompañada por nuestro equipo.',
+  'home.how.subtitle': 'Sin licitaciones, sin instalaciones y sin servidores propios. La implementación la acompaña nuestro equipo.',
   'home.how.step_label': 'Paso',
   'home.how.cta': 'Empezar mi colegio',
   'home.how.step1.time': '48 horas',
@@ -611,7 +611,7 @@ export const es = {
   'home.how.step3.time': 'Día 1',
 
   // Home page — meta
-  'home.meta.title': '{brand} — Protección y seguimiento escolar para Chile (Ley 21.719)',
+  'home.meta.title': '{brand}, protección y seguimiento escolar para Chile (Ley 21.719)',
 
   // Get-started page
   'getstarted.hero.title': 'Fácil de contratar, fácil de implementar',
@@ -826,9 +826,9 @@ export const es = {
   'about.cta_secondary': 'Ver cumplimiento normativo',
 
   // ── i18n sweep: circular-30 ──
-  'circular30.meta_title': 'Circular N°30: libro de clases digital obligatorio — guía completa | {brand}',
+  'circular30.meta_title': 'Circular N°30: libro de clases digital obligatorio, guía completa | {brand}',
   'circular30.meta_description': 'Circular N°30 libro de clases digital: qué exige, qué sistemas cumplen, autodiagnóstico para colegios chilenos. Trazabilidad, Clave Única y Ley 21.719.',
-  'circular30.og_title': 'Circular N°30: libro de clases digital — {brand}',
+  'circular30.og_title': 'Circular N°30: libro de clases digital | {brand}',
   'circular30.og_description': 'Circular N°30 libro de clases digital: qué exige, qué sistemas cumplen, autodiagnóstico para colegios chilenos.',
   'circular30.hero_eyebrow_doc': 'Documento normativo · 02',
   'circular30.hero_eyebrow_authority': 'Superintendencia de Educación',
@@ -944,7 +944,7 @@ export const es = {
   'comparativa.row_connects_existing_classbook': 'Conecta con libro de clases existente',
   'comparativa.row_open_api': 'API abierta para integraciones',
   'comparativa.row_compliant_export': 'Exportación conforme a normativa',
-  'comparativa.meta_title': 'Comparativa: {brand} vs sistemas actuales — Seguridad escolar y compliance Ley 21.719',
+  'comparativa.meta_title': 'Comparativa: {brand} vs sistemas actuales. Seguridad escolar y compliance Ley 21.719',
   'comparativa.meta_description': 'Compara {brand} con Napsis, Syscol, Lirmi y SchoolTrack en seguridad, cumplimiento Ley 21.719, protección escolar e integraciones. Descubre qué cubre cada sistema.',
   'comparativa.og_title': 'Comparativa: {brand} vs sistemas actuales',
   'comparativa.og_description': 'Compara {brand} con Napsis, Syscol, Lirmi y SchoolTrack en seguridad, compliance Ley 21.719 y protección escolar.',
@@ -1084,7 +1084,7 @@ export const es = {
   'featurePage.accessControl.hero_bullet1': '6 roles preconfigurados para el ecosistema escolar chileno: Director, Inspector, Orientador, Docente, UTP y Portero',
   'featurePage.accessControl.hero_bullet2': 'El portero solo ve lo estrictamente necesario para verificar retiros: ningún dato sensible en pantalla',
   'featurePage.accessControl.hero_bullet3': 'Cambios de rol aplicados en tiempo real, sin necesidad de reinicio del sistema',
-  'featurePage.accessControl.matrix_titlebar': '{brand} — Matriz de Permisos por Rol',
+  'featurePage.accessControl.matrix_titlebar': '{brand} · Matriz de permisos por rol',
   'featurePage.accessControl.matrix_caption': 'Matriz de permisos por rol: detalla qué acciones puede realizar cada rol (Director, Inspector, Orientador, Docente, UTP, Portero) en {brand}.',
   'featurePage.accessControl.matrix_col_permission': 'Permiso',
   'featurePage.accessControl.matrix_allowed': 'permitido',
@@ -1206,7 +1206,7 @@ export const es = {
   // ── i18n sweep: feat-analytics ──
   'featurePage.analytics.meta_title_suffix': 'Analytics y KPIs Escolares',
   'featurePage.analytics.meta_description': 'Dashboard de analytics para directivos: KPIs de convivencia, alertas activas, tendencias de asistencia y cumplimiento Ley 21.719 en tiempo real.',
-  'featurePage.analytics.og_title': '{brand} — Analytics y KPIs Escolares',
+  'featurePage.analytics.og_title': '{brand}: Analytics y KPIs escolares',
   'featurePage.analytics.og_description': 'Indicadores clave de convivencia, alertas y asistencia para directivos y sostenedores.',
   'featurePage.analytics.back_to_products': 'Volver a productos',
   'featurePage.analytics.hero_title': 'Dashboard de Analytics Escolar',
@@ -1273,7 +1273,7 @@ export const es = {
   'featurePage.analytics.finalCta_btn_modules': 'Ver todos los módulos',
 
   // ── i18n sweep: feat-attendance ──
-  'featurePage.attendance.meta_title': '{brand} — Control de Asistencia Digital',
+  'featurePage.attendance.meta_title': '{brand}: Control de Asistencia Digital',
   'featurePage.attendance.meta_description': 'Libro digital de asistencia conforme a Circular N°30. Registro de presencia, atrasos y justificaciones con trazabilidad completa y cumplimiento MINEDUC.',
   'featurePage.attendance.meta_og_description': 'Libro digital de asistencia conforme a Circular N°30. Trazabilidad completa y alertas automáticas de inasistencia reiterada.',
   'featurePage.attendance.back_to_products': 'Volver a productos',
@@ -1284,7 +1284,7 @@ export const es = {
   'featurePage.attendance.hero_badge_law': 'Ley 21.719',
   'featurePage.attendance.hero_cta_demo': 'Agendar Demo',
   'featurePage.attendance.hero_cta_modules': 'Ver todos los módulos',
-  'featurePage.attendance.mockup_grid_titlebar': '{brand} — Asistencia · 7°B · Semana 7 abr',
+  'featurePage.attendance.mockup_grid_titlebar': '{brand} · Asistencia · 7°B · Semana 7 abr',
   'featurePage.attendance.mockup_kpi_label': 'Asistencia abril',
   'featurePage.attendance.mockup_circular_chip': 'Circular N°30',
   'featurePage.attendance.mockup_col_student': 'Alumno',
@@ -1302,13 +1302,13 @@ export const es = {
   'featurePage.attendance.feature_alerts_body': 'Alerta automática cuando un alumno supera el 15% de inasistencias. Notificación al apoderado y derivación a Orientación.',
   'featurePage.attendance.feature_reports_title': 'Reportes MINEDUC',
   'featurePage.attendance.feature_reports_body': 'Genera automáticamente el informe de asistencia mensual en el formato exigido por el MINEDUC para subvención escolar.',
-  'featurePage.attendance.mockup_justify_titlebar': '{brand} — Justificar inasistencia',
+  'featurePage.attendance.mockup_justify_titlebar': '{brand} · Justificar inasistencia',
   'featurePage.attendance.mockup_justify_heading': 'Solicitud de justificación',
   'featurePage.attendance.mockup_reason_label': 'Motivo seleccionado:',
   'featurePage.attendance.mockup_reason_value': 'Enfermedad con certificado médico',
   'featurePage.attendance.mockup_status_approved': 'Justificación aprobada',
   'featurePage.attendance.flow_section_title': 'De la inasistencia al protocolo de intervención',
-  'featurePage.attendance.flow_section_subtitle': '{brand} no solo registra: detecta el patrón y activa el flujo correcto.',
+  'featurePage.attendance.flow_section_subtitle': '{brand} no se limita a registrar: detecta el patrón y activa el flujo correcto.',
   'featurePage.attendance.flow_step1_label': 'Registro diario',
   'featurePage.attendance.flow_step1_desc': 'El docente registra asistencia desde el móvil. Sin papel, sin planilla.',
   'featurePage.attendance.flow_step2_label': 'Detección automática',
@@ -1329,7 +1329,7 @@ export const es = {
   // ── i18n sweep: feat-emergency ──
   'featurePage.emergency.meta_title_suffix': 'Protocolos de Emergencia Escolar',
   'featurePage.emergency.meta_description': 'Gestión digital de emergencias escolares: sismo, incendio, intruso y emergencia médica. Activación con un toque, conteo de alumnos y notificación a apoderados en tiempo real.',
-  'featurePage.emergency.og_title': '{brand} — Protocolos de Emergencia Escolar',
+  'featurePage.emergency.og_title': '{brand}: Protocolos de Emergencia Escolar',
   'featurePage.emergency.og_description': 'Activa protocolos de emergencia con un toque. Conteo digital, evacuación guiada y notificación a apoderados.',
   'featurePage.emergency.back_to_products': 'Volver a productos',
   'featurePage.emergency.hero_title': 'Protocolos de Emergencia Digital',
@@ -1339,7 +1339,7 @@ export const es = {
   'featurePage.emergency.hero_badge_pse': 'Plan de Seguridad Escolar',
   'featurePage.emergency.hero_cta_demo': 'Agendar Demo',
   'featurePage.emergency.hero_cta_modules': 'Ver todos los módulos',
-  'featurePage.emergency.mockup_window_label': '{brand} — Emergencias · Colegio Alemán de Concepción',
+  'featurePage.emergency.mockup_window_label': '{brand} · Emergencias · Colegio Alemán de Concepción',
   'featurePage.emergency.mockup_banner_status': 'Emergencia activa: Sismo',
   'featurePage.emergency.mockup_banner_activated_by': 'Activado por: Directora C. Muñoz · Fase: Evacuación',
   'featurePage.emergency.mockup_phase_alerta': 'Alerta',
@@ -1403,7 +1403,7 @@ export const es = {
   'featurePage.privacyCompliance.hero.bullet_3': 'Inventario de datos categorizados por sensibilidad con base legal explícita',
   'featurePage.privacyCompliance.urgency.title': 'Ley 21.719: vigencia plena en diciembre 2026',
   'featurePage.privacyCompliance.urgency.body': 'Las multas alcanzan hasta 20.000 UTM (~$1.300M CLP) o el 4% de los ingresos anuales. Los establecimientos que aún gestionan datos en papel o Excel no cumplen.',
-  'featurePage.privacyCompliance.dashboard.chrome_label': '{brand} — Panel de Cumplimiento Ley 21.719',
+  'featurePage.privacyCompliance.dashboard.chrome_label': '{brand} · Panel de Cumplimiento Ley 21.719',
   'featurePage.privacyCompliance.dashboard.kpi_consents': 'Consentimientos firmados',
   'featurePage.privacyCompliance.dashboard.kpi_irregular_access': 'Accesos irregulares',
   'featurePage.privacyCompliance.dashboard.kpi_arco_pending': 'ARCO+P pendiente',
@@ -1468,14 +1468,14 @@ export const es = {
 
   // ── i18n sweep: feat-safe-pickups ──
   'featurePage.safePickups.meta.description': 'El portero sabe en segundos si puede entregar al alumno: sin llamadas, sin papel, sin margen de error.',
-  'featurePage.safePickups.meta.og_title': '{brand} — Retiros Seguros y Alertas Críticas',
+  'featurePage.safePickups.meta.og_title': '{brand}: Retiros Seguros y Alertas Críticas',
   'featurePage.safePickups.hero.back_link': 'Volver a características',
   'featurePage.safePickups.hero.bullet1': 'Verificación instantánea por nombre o RUT, sin llamadas a inspectoría',
   'featurePage.safePickups.hero.bullet2': 'Bloqueo automático ante orden judicial, medida cautelar o restricción manual',
   'featurePage.safePickups.hero.bullet3': 'Registro firmado de cada retiro: quién, cuándo, qué portero autorizó',
   'featurePage.safePickups.hero.toggle_authorized': 'Ver retiro autorizado',
   'featurePage.safePickups.hero.toggle_blocked': 'Ver retiro bloqueado',
-  'featurePage.safePickups.mockup.window_title': '{brand} — Portería · Verificación de Retiro',
+  'featurePage.safePickups.mockup.window_title': '{brand} · Portería · Verificación de Retiro',
   'featurePage.safePickups.mockup.authorized_badge': 'RETIRO AUTORIZADO',
   'featurePage.safePickups.mockup.authorized_subtitle': 'Persona reconocida · Puede retirar',
   'featurePage.safePickups.mockup.authorized_photo_alt': 'Apoderada autorizada para retiro',
@@ -1529,7 +1529,7 @@ export const es = {
   'featurePage.smartSearch.example_typo_note': '"gonzales" encuentra todos los "González", sin distinción de tilde',
   'featurePage.smartSearch.example_course_label': 'Búsqueda por curso',
   'featurePage.smartSearch.example_course_note': 'Filtra por sección directamente: "7b" muestra todos los alumnos de 7° Básico B',
-  'featurePage.smartSearch.mockup_titlebar': '{brand} — Búsqueda inteligente',
+  'featurePage.smartSearch.mockup_titlebar': '{brand} · Búsqueda inteligente',
   'featurePage.smartSearch.no_alerts': 'Sin alertas',
   'featurePage.smartSearch.results_singular': 'resultado',
   'featurePage.smartSearch.results_plural': 'resultados',
@@ -1556,12 +1556,12 @@ export const es = {
 
   // ── i18n sweep: feat-student-profile ──
   'featurePage.studentProfile.meta_description': 'Un perfil longitudinal que sigue al alumno año a año, con acceso estrictamente controlado por rol.',
-  'featurePage.studentProfile.og_title': '{brand} — Ficha Integral 360° del Alumno',
+  'featurePage.studentProfile.og_title': '{brand}: Ficha Integral 360° del Alumno',
   'featurePage.studentProfile.back_link': 'Volver a características',
   'featurePage.studentProfile.hero_bullet1': 'Historial continuo desde Pre-kinder hasta 4° Medio, sin pérdida de datos al cambiar de año',
   'featurePage.studentProfile.hero_bullet2': 'Niveles de confidencialidad por campo: datos médicos invisibles para el portero',
   'featurePage.studentProfile.hero_bullet3': 'Cada acceso queda registrado con usuario, hora y campo consultado',
-  'featurePage.studentProfile.mockup_window_title': '{brand} — Ficha del Alumno',
+  'featurePage.studentProfile.mockup_window_title': '{brand} · Ficha del Alumno',
   'featurePage.studentProfile.mockup_avatar_alt': 'Perfil de alumna en {brand}',
   'featurePage.studentProfile.mockup_no_alerts': 'Sin alertas',
   'featurePage.studentProfile.mockup_grade': '7° Básico B',
@@ -1662,9 +1662,9 @@ export const es = {
   'getstarted.final_cta.overline': 'Comenzar',
 
   // ── i18n sweep: glosario ──
-  'glosario.meta_title': 'Glosario {brand} — términos clave para la protección escolar | {brand}',
+  'glosario.meta_title': 'Glosario {brand}: términos clave para la protección escolar | {brand}',
   'glosario.meta_description': 'Glosario completo de términos de protección escolar y cumplimiento normativo en Chile: Ley 21.719, Circular N°30, ARCO+P, RLS, DPO, RBD, sostenedor y más.',
-  'glosario.og_title': 'Glosario {brand} — términos de protección escolar',
+  'glosario.og_title': 'Glosario {brand}: términos de protección escolar',
   'glosario.eyebrow': 'Referencia',
   'glosario.count_terms': 'términos',
   'glosario.count_term_singular': 'término',
@@ -1705,15 +1705,15 @@ export const es = {
   'home.trust_section_label': 'Arquitectura verificable',
 
   // ── i18n sweep: integrations ──
-  'integrations.meta_title': 'Integraciones — {brand}',
-  'integrations.meta_description': '{brand} se conecta con tu sistema actual o te ofrece un módulo básico de gestión escolar. Migramos tus datos sin que pierdas nada.',
+  'integrations.meta_title': 'Integraciones | {brand}',
+  'integrations.meta_description': '{brand} se conecta con tu sistema actual o te da un módulo básico de gestión escolar. Migramos tus datos sin que pierdas nada.',
   'integrations.meta_og_description': 'Conecta {brand} con Napsis, Syscol, SIGE o cualquier sistema. Si no tienes uno, tenemos un módulo básico incluido.',
   'integrations.meta_twitter_description': 'Conecta {brand} con tu sistema actual o usa nuestro módulo básico de gestión escolar.',
   'integrations.eyebrow': 'Integraciones',
   'integrations.hero_title': 'Se conecta con lo que ya usas',
-  'integrations.hero_subtitle': '{brand} no reemplaza tu sistema académico: lo complementa. Si ya usas Napsis, Syscol, SchoolTrack u otra plataforma, nos integramos. Si no tienes sistema digital, tenemos un módulo básico incluido para que no te falte nada.',
+  'integrations.hero_subtitle': '{brand} no reemplaza tu sistema académico: lo complementa. Si ya usas Napsis, Syscol, SchoolTrack u otra plataforma, nos integramos. Si no tienes sistema digital, incluimos un módulo básico para que no te falte nada.',
   'integrations.opt1_title': 'Integración con tu sistema actual',
-  'integrations.opt1_body': 'Si tu colegio ya tiene un sistema de gestión académica, {brand} se conecta sin reemplazarlo. Notas, asistencia y matrícula siguen donde están. {brand} agrega lo que falta: seguimiento integral, retiros seguros y cumplimiento normativo.',
+  'integrations.opt1_body': 'Si tu colegio ya tiene un sistema de gestión académica, {brand} se conecta sin reemplazarlo. Notas, asistencia y matrícula siguen donde están. {brand} agrega lo que falta: seguimiento del alumno, retiros seguros y cumplimiento normativo.',
   'integrations.opt1_bullet1': 'Importación desde Excel, CSV o cualquier formato estructurado',
   'integrations.opt1_bullet2': 'Conexión con Napsis, Syscol, SchoolTrack y otros',
   'integrations.opt1_bullet3': 'Integración con SIGE para matrícula y asistencia (en desarrollo)',
@@ -1726,7 +1726,7 @@ export const es = {
   'integrations.system_excel_desc': 'Cualquier formato estructurado',
   'integrations.status_available': 'Disponible',
   'integrations.status_in_dev': 'En desarrollo',
-  'integrations.basic_module_card_label': '{brand} — Gestión Básica',
+  'integrations.basic_module_card_label': '{brand}: Gestión Básica',
   'integrations.basic_feature_logbook': 'Libro de clases digital',
   'integrations.basic_feature_attendance': 'Registro de asistencia',
   'integrations.basic_feature_circular30': 'Conforme a Circular N°30',
@@ -1739,7 +1739,7 @@ export const es = {
   'integrations.opt2_bullet3': 'Incluido sin costo adicional en todos los planes',
   'integrations.opt2_bullet4': 'Si después contratas otro sistema, nos integramos sin perder datos',
   'integrations.migration_title': 'Nosotros migramos tus datos',
-  'integrations.migration_body': 'No tienes que mover un dedo. Nuestro equipo se encarga de importar tus datos históricos: desde Excel, desde tu sistema actual, o incluso desde registros en papel. En menos de 2 semanas tu colegio está operando con toda su información disponible.',
+  'integrations.migration_body': 'No tienes que hacer nada. Nuestro equipo importa tus datos históricos: desde Excel, desde tu sistema actual o desde registros en papel. En menos de 2 semanas tu colegio opera con toda su información disponible.',
   'integrations.migration_card1_title': 'Datos históricos',
   'integrations.migration_card1_desc': 'Fichas de alumnos, observaciones, retiros: nada se pierde.',
   'integrations.migration_card2_title': '2 semanas',
@@ -1752,9 +1752,9 @@ export const es = {
   'integrations.cta_secondary': 'Ver todos los productos',
 
   // ── i18n sweep: ley21719 ──
-  'ley21719.meta_title': 'Ley 21.719: Guía completa para colegios — qué es, multas y cómo cumplir | {brand}',
+  'ley21719.meta_title': 'Ley 21.719: guía completa para colegios. Qué es, multas y cómo cumplir | {brand}',
   'ley21719.meta_description': 'Ley 21.719 colegios Chile: qué exige, multas hasta 20.000 UTM, derechos ARCO+P, plazos dic 2026. Guía práctica para sostenedores y directivos.',
-  'ley21719.og_title': 'Ley 21.719: Guía completa para colegios — {brand}',
+  'ley21719.og_title': 'Ley 21.719: guía completa para colegios | {brand}',
   'ley21719.twitter_description': 'Guía práctica Ley 21.719 para colegios chilenos. Multas, plazos, derechos ARCO+P y checklist de cumplimiento.',
   'ley21719.toc_heading': 'Contenido',
   'ley21719.toc_aria_label': 'Índice del artículo',
@@ -1945,7 +1945,7 @@ export const es = {
   'nav.product_privacy_compliance_desc': 'Seguimiento sin reinicio de marzo',
 
   // ── i18n sweep: para-directores ──
-  'audience.directores.meta_title': '{brand} para Directores — Gestión escolar sin planillas Excel',
+  'audience.directores.meta_title': '{brand} para Directores: gestión escolar sin planillas Excel',
   'audience.directores.meta_description': 'Tu día de director, sin planillas Excel ni llamadas de pánico. Visibilidad en tiempo real, decisiones basadas en datos y respuesta a emergencias desde una sola pantalla.',
   'audience.directores.hero_badge': 'Para directores de establecimiento',
   'audience.directores.hero_title': 'Tu día de director, sin planillas Excel ni llamadas de pánico',
@@ -1954,7 +1954,7 @@ export const es = {
   'audience.directores.hero_bullet2': 'Historial longitudinal por alumno, sin reinicio de marzo',
   'audience.directores.hero_bullet3': 'Protocolos de emergencia con trazabilidad completa',
   'audience.directores.hero_cta': 'Agenda demo personalizada',
-  'audience.directores.kpi_panel_header': '{brand} — Panel Director · Lunes 7 de abril, 07:03',
+  'audience.directores.kpi_panel_header': '{brand} · Panel Director · Lunes 7 de abril, 07:03',
   'audience.directores.kpi_greeting': 'Buenos días, Dir. Fuentes. Esto te espera hoy:',
   'audience.directores.kpi_attendance_label': 'Asistencia hoy',
   'audience.directores.kpi_attendance_detail': '827 / 878 alumnos · 3 inasistencias justificadas',
@@ -2049,9 +2049,9 @@ export const es = {
   'audience.directores.finalCta_secondary': 'Ver todas las funciones',
 
   // ── i18n sweep: para-porteros ──
-  'audience.porteros.meta_title': '{brand} para Porteros — La pantalla que reemplaza la planilla Excel en portería',
+  'audience.porteros.meta_title': '{brand} para Porteros: la pantalla que reemplaza la planilla Excel en portería',
   'audience.porteros.meta_description': 'Verifica retiros en segundos. Foto del alumno, lista de autorizados, alertas activas. Sin llamadas, sin ambigüedad, sin papel.',
-  'audience.porteros.meta_og_title': '{brand} para Porteros — Retiros seguros en segundos',
+  'audience.porteros.meta_og_title': '{brand} para Porteros: retiros seguros en segundos',
   'audience.porteros.hero_badge': 'Para porteros y asistentes de retiro',
   'audience.porteros.hero_title': 'La pantalla que reemplaza la planilla Excel en portería',
   'audience.porteros.hero_subtitle': 'Verde: puede retirar. Rojo: no puede retirar. Sin llamadas a inspectoría, sin buscar en carpetas, sin márgenes de error. La respuesta está en la pantalla en menos de 3 segundos.',
@@ -2062,7 +2062,7 @@ export const es = {
   'audience.porteros.hero_toggle_authorized': 'Retiro autorizado',
   'audience.porteros.hero_toggle_blocked': 'Retiro bloqueado',
   'audience.porteros.hero_cta': 'Solicita una demo para tu portería',
-  'audience.porteros.mock_header': '{brand} — Portería Principal · 14:31',
+  'audience.porteros.mock_header': '{brand} · Portería Principal · 14:31',
   'audience.porteros.mock_search_query': 'Matías Soto Vega · 3° Básico A',
   'audience.porteros.mock_status_authorized': 'PUEDE RETIRAR',
   'audience.porteros.mock_status_authorized_detail': 'Persona autorizada · Confirmar y registrar retiro',
@@ -2129,9 +2129,9 @@ export const es = {
   'audience.porteros.finalCta_secondary': 'Ver todas las funciones',
 
   // ── i18n sweep: para-sostenedores ──
-  'audience.sostenedores.meta_title': '{brand} para Sostenedores — Gestión multi-colegio y cumplimiento Ley 21.719',
+  'audience.sostenedores.meta_title': '{brand} para Sostenedores: gestión multi-colegio y cumplimiento Ley 21.719',
   'audience.sostenedores.meta_description': 'Gestiona la protección de todos tus establecimientos desde un solo panel. Cumplimiento Ley 21.719, visibilidad multi-sede y auditoría centralizada.',
-  'audience.sostenedores.meta_og_title': '{brand} para Sostenedores — Gestión multi-colegio',
+  'audience.sostenedores.meta_og_title': '{brand} para Sostenedores: gestión multi-colegio',
   'audience.sostenedores.hero_badge': 'Para operadores multi-colegio',
   'audience.sostenedores.hero_title': 'Gestiona la protección de 5 colegios desde un solo panel',
   'audience.sostenedores.hero_subtitle': 'La Ley 21.719 entra en plena vigencia en diciembre de 2026. Las multas alcanzan hasta 20.000 UTM por establecimiento. Con múltiples sedes, tu exposición se multiplica, y también tu capacidad de control con {brand}.',
@@ -2139,7 +2139,7 @@ export const es = {
   'audience.sostenedores.hero_bullet2': 'Auditoría centralizada: quién hizo qué, en qué sede, a qué hora',
   'audience.sostenedores.hero_bullet3': 'Un contrato, una licencia consolidada, no N sistemas distintos',
   'audience.sostenedores.hero_cta': 'Agenda una evaluación de tu portafolio',
-  'audience.sostenedores.mockup_panel_title': '{brand} — Panel Sostenedor · Red de 5 establecimientos',
+  'audience.sostenedores.mockup_panel_title': '{brand} · Panel Sostenedor · Red de 5 establecimientos',
   'audience.sostenedores.kpi_alumnos': 'Alumnos',
   'audience.sostenedores.kpi_alertas': 'Alertas',
   'audience.sostenedores.kpi_incidentes': 'Incidentes',
@@ -2384,14 +2384,14 @@ export const es = {
   'proyecciones.card_authorized_pickups_context': 'El sistema bloquea activamente cualquier retiro no autorizado, con verificación biométrica o por QR contra la lista de personas habilitadas.',
   'proyecciones.card_authorized_pickups_methodology': 'Metodología: El 100% se basa en que el sistema impide físicamente (por diseño de flujo) completar un retiro sin verificación contra la lista autorizada. Si el apoderado no está en la lista, el sistema no permite el retiro y notifica a un directivo. No es una reducción estadística: es una restricción de flujo. Fuente de referencia: modelo operacional de sistemas de control de acceso escolar (benchmarks internacionales, 2024).',
   'proyecciones.card_verification_time_label': 'Tiempo promedio de verificación de retiro',
-  'proyecciones.card_verification_time_context': 'Frente a 2–3 minutos del proceso manual actual (buscar listado, validar identidad, registrar en cuaderno).',
-  'proyecciones.card_verification_time_methodology': 'Metodología: El proceso manual de verificación implica: (1) buscar al apoderado en listado físico o planilla Excel (~60 seg), (2) validar documento de identidad (~30 seg), (3) registrar en libro de retiros (~30 seg), (4) notificar al curso (~60 seg). Total estimado: 3–4 minutos por retiro. Con {brand}, la verificación es por código QR o reconocimiento de la app, con confirmación automática en <3 segundos. Fuente: estimación operacional basada en protocolos de portería documentados en 3 establecimientos de referencia.',
+  'proyecciones.card_verification_time_context': 'Frente a los 2 a 3 minutos del proceso manual actual (buscar listado, validar identidad, registrar en cuaderno).',
+  'proyecciones.card_verification_time_methodology': 'Metodología: El proceso manual de verificación implica: (1) buscar al apoderado en listado físico o planilla Excel (~60 seg), (2) validar documento de identidad (~30 seg), (3) registrar en libro de retiros (~30 seg), (4) notificar al curso (~60 seg). Total estimado: 3 a 4 minutos por retiro. Con {brand}, la verificación es por código QR o reconocimiento de la app, con confirmación automática en <3 segundos. Fuente: estimación operacional basada en protocolos de portería documentados en 3 establecimientos de referencia.',
   'proyecciones.card_fines_savings_label': 'Ahorro proyectado en multas Ley 21.719',
   'proyecciones.card_fines_savings_context': 'Un solo incidente de datos mal gestionados puede generar multas de hasta $1.340M CLP. {brand} elimina las brechas estructurales que generan esa exposición.',
   'proyecciones.card_fines_savings_methodology': 'Metodología: La Ley 21.719 fija multas de hasta 20.000 UTM (~CLP $1.340.000.000 al valor UTM de 2025) para infracciones graves, o el 4% de la facturación anual global si es mayor. Las brechas más frecuentes en colegios incluyen: datos sin cifrar, sin audit log, compartidos por WhatsApp, o sin consentimiento parental documentado. {brand} elimina cada una de estas brechas por diseño arquitectónico. El "ahorro" es la multa que no se paga al no tener brechas. No podemos garantizar que ningún colegio será investigado, pero sí que el colegio que usa {brand} no tendrá las brechas técnicas más comunes. Fuente legal: Ley 21.719, Art. 46, Biblioteca del Congreso Nacional.',
   'proyecciones.card_recovered_hours_label': 'Horas recuperadas para el inspector jefe',
   'proyecciones.card_recovered_hours_context': 'Tiempo actualmente destinado a registros manuales, búsqueda de autorizaciones y seguimiento de protocolos en papel.',
-  'proyecciones.card_recovered_hours_methodology': 'Metodología: Estimación basada en carga operacional típica de inspector en colegio de 800 alumnos: (1) verificación de retiros: 30 retiros/día × 3 min = 90 min/día = 7,5 h/semana; (2) registro manual de incidencias de convivencia: ~2 h/semana; (3) búsqueda de documentos ante consultas de apoderados: ~2 h/semana. Total: ~11,5 h/semana en tareas que {brand} automatiza. Con {brand}, estas tareas se reducen a revisión de notificaciones (~1–2 h/semana). Diferencia proyectada: ~10–12 h/semana recuperadas. Fuente: encuestas de carga docente-administrativa, Colegio de Profesores de Chile (2024).',
+  'proyecciones.card_recovered_hours_methodology': 'Metodología: Estimación basada en carga operacional típica de inspector en colegio de 800 alumnos: (1) verificación de retiros: 30 retiros/día × 3 min = 90 min/día = 7,5 h/semana; (2) registro manual de incidencias de convivencia: ~2 h/semana; (3) búsqueda de documentos ante consultas de apoderados: ~2 h/semana. Total: ~11,5 h/semana en tareas que {brand} automatiza. Con {brand}, estas tareas se reducen a revisión de notificaciones (~1 a 2 h/semana). Diferencia proyectada: ~10 a 12 h/semana recuperadas. Fuente: encuestas de carga docente-administrativa, Colegio de Profesores de Chile (2024).',
   'proyecciones.scenario_eyebrow': 'Escenario tipo',
   'proyecciones.scenario_title': 'Proyecciones para un colegio de 800 alumnos',
   'proyecciones.scenario_subtitle': 'Colegio particular subvencionado, 2 inspectores, ~40 retiros diarios, datos sensibles (PIE).',
@@ -2408,8 +2408,8 @@ export const es = {
   'proyecciones.row_inspector_hours_after': '~0,5 h/semana',
   'proyecciones.row_inspector_hours_savings': '9,5 h/semana',
   'proyecciones.row_incident_doc_metric': 'Tiempo en documentar incidencia grave',
-  'proyecciones.row_incident_doc_before': '45–60 min (papel + notificaciones)',
-  'proyecciones.row_incident_doc_after': '5–8 min (digital + automático)',
+  'proyecciones.row_incident_doc_before': '45 a 60 min (papel + notificaciones)',
+  'proyecciones.row_incident_doc_after': '5 a 8 min (digital + automático)',
   'proyecciones.row_incident_doc_savings': '~50 min/incidencia',
   'proyecciones.row_law_exposure_metric': 'Exposición Ley 21.719 (sin cifrado)',
   'proyecciones.row_law_exposure_before': 'Hasta 20.000 UTM',
@@ -2430,7 +2430,7 @@ export const es = {
   'proyecciones.cta_secondary': 'Solicitar demo',
 
   // ── i18n sweep: res-breach-response ──
-  'resBreachResponse.meta_title': 'Plan de Respuesta a Brechas de Datos — Plantilla gratuita | {brand}',
+  'resBreachResponse.meta_title': 'Plan de Respuesta a Brechas de Datos, plantilla gratuita | {brand}',
   'resBreachResponse.meta_description': 'Plantilla de plan de respuesta a brechas de datos personales para colegios chilenos. Notificación en 72 horas según Art. 30 Ley 21.719. Descarga gratis.',
   'resBreachResponse.og_title': 'Plan de Respuesta a Brechas de Datos | {brand}',
   'resBreachResponse.og_description': 'Plantilla completa para gestionar brechas de datos en colegios chilenos conforme a la Ley 21.719.',
@@ -2558,7 +2558,7 @@ export const es = {
   'resBreachResponse.cta_button': 'Solicitar demo gratuita',
 
   // ── i18n sweep: res-compliance-checklist ──
-  'resComplianceChecklist.meta_title': 'Checklist Cumplimiento Ley 21.719 — Descarga gratuita | {brand}',
+  'resComplianceChecklist.meta_title': 'Checklist Cumplimiento Ley 21.719, descarga gratuita | {brand}',
   'resComplianceChecklist.meta_description': '20 ítems de verificación para saber si tu colegio cumple con la Ley 21.719 de Protección de Datos. Descarga e imprime gratis.',
   'resComplianceChecklist.og_title': 'Checklist Cumplimiento Ley 21.719 | {brand}',
   'resComplianceChecklist.og_description': '20 ítems de verificación para cumplir con la Ley 21.719 en colegios chilenos.',
@@ -2622,7 +2622,7 @@ export const es = {
   'resComplianceChecklist.cta_button': 'Solicitar demo gratuita',
 
   // ── i18n sweep: res-data-inventory ──
-  'resDataInventory.meta_title': 'Inventario de Datos Personales para Colegios — Plantilla gratuita | {brand}',
+  'resDataInventory.meta_title': 'Inventario de Datos Personales para Colegios, plantilla gratuita | {brand}',
   'resDataInventory.meta_description': 'Plantilla de inventario de datos personales para establecimientos educacionales chilenos. Bases legales, finalidades y plazos de retención. Descarga gratis.',
   'resDataInventory.og_title': 'Inventario de Datos Personales para Colegios | {brand}',
   'resDataInventory.og_description': 'Plantilla completa de inventario de datos conforme a la Ley 21.719 para colegios chilenos.',
@@ -2657,7 +2657,7 @@ export const es = {
   'resDataInventory.cta_button': 'Solicitar demo gratuita',
 
   // ── i18n sweep: res-pickup-protocol ──
-  'resPickupProtocol.meta_title': 'Protocolo de Retiros Seguros — Plantilla gratuita | {brand}',
+  'resPickupProtocol.meta_title': 'Protocolo de Retiros Seguros, plantilla gratuita | {brand}',
   'resPickupProtocol.meta_description': 'Plantilla de protocolo de retiros seguros para colegios chilenos. Procedimiento de 8 pasos, casos especiales y trazabilidad. Descarga gratis.',
   'resPickupProtocol.og_title': 'Protocolo de Retiros Seguros | {brand}',
   'resPickupProtocol.og_description': 'Plantilla completa de protocolo de retiros seguros para establecimientos educacionales chilenos.',
@@ -2743,7 +2743,7 @@ export const es = {
   'resPickupProtocol.cta_button': 'Solicitar demo gratuita',
 
   // ── i18n sweep: res-privacy-notice ──
-  'resPrivacyNotice.meta_title': 'Modelo de Aviso de Privacidad Escolar — Plantilla gratuita | {brand}',
+  'resPrivacyNotice.meta_title': 'Modelo de Aviso de Privacidad Escolar: plantilla gratuita | {brand}',
   'resPrivacyNotice.meta_description': 'Plantilla de aviso de privacidad conforme al Art. 14 de la Ley 21.719 para establecimientos educacionales chilenos. Descarga gratis.',
   'resPrivacyNotice.og_title': 'Modelo de Aviso de Privacidad Escolar | {brand}',
   'resPrivacyNotice.og_description': 'Plantilla conforme a la Ley 21.719 para publicar el aviso de privacidad en tu colegio.',
@@ -2883,7 +2883,7 @@ export const es = {
   'resPrivacyNotice.cta_button': 'Solicitar demo gratuita',
 
   // ── i18n sweep: res-roles-guide ──
-  'resRolesGuide.meta_title': 'Guía de Roles y Permisos para Colegios — Descarga gratuita | {brand}',
+  'resRolesGuide.meta_title': 'Guía de Roles y Permisos para Colegios: descarga gratuita | {brand}',
   'resRolesGuide.meta_description': 'Matriz de permisos recomendada para establecimientos educacionales chilenos. Director, Inspector, UTP, Orientador, Docente, Portero. Descarga gratis.',
   'resRolesGuide.og_title': 'Guía de Roles y Permisos para Colegios | {brand}',
   'resRolesGuide.og_description': 'Matriz de acceso a datos por rol para colegios chilenos conforme a la Ley 21.719.',
@@ -3039,9 +3039,9 @@ export const es = {
   'agendar.opens_new_tab': '(se abre en una pestaña nueva)',
 
   // ── i18n sweep: seguridad-datos ──
-  'seguridadDatos.meta_title': 'Seguridad de datos en {brand} — por diseño, no por parche | {brand}',
+  'seguridadDatos.meta_title': 'Seguridad de datos en {brand}: por diseño, no por parche | {brand}',
   'seguridadDatos.meta_description': 'Cómo {brand} protege los datos de su colegio: TLS 1.3, cifrado at-rest, Row-Level Security, audit log, backups diarios y cumplimiento Ley 21.719 por diseño.',
-  'seguridadDatos.og_title': 'Seguridad de datos en {brand} — por diseño, no por parche',
+  'seguridadDatos.og_title': 'Seguridad de datos en {brand}: por diseño, no por parche',
   'seguridadDatos.og_description': 'Cómo {brand} protege los datos de su colegio: TLS 1.3, cifrado at-rest, Row-Level Security, audit log, backups diarios y Ley 21.719.',
   'seguridadDatos.hero_eyebrow_doc': 'Documento técnico · 03',
   'seguridadDatos.hero_eyebrow_topic': 'Arquitectura de seguridad',

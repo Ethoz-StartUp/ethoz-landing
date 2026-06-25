@@ -8,14 +8,14 @@
 </script>
 
 <svelte:head>
-  <title>Términos de Uso — {BRAND}</title>
+  <title>Términos de Uso · {BRAND}</title>
   <meta name="description" content={`Términos de uso de ${BRAND}. Condiciones de uso de la plataforma de gestión escolar.`} />
   <meta property="og:url" content="https://ethoz.cl/terms" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Términos de Uso — ${BRAND}`} />
+  <meta property="og:title" content={`Términos de Uso · ${BRAND}`} />
   <meta property="og:description" content={`Términos de uso de ${BRAND}. Condiciones de uso de la plataforma de gestión escolar.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Términos de Uso — ${BRAND}`} />
+  <meta name="twitter:title" content={`Términos de Uso · ${BRAND}`} />
   <meta name="twitter:description" content={`Términos de uso de ${BRAND}. Condiciones de uso de la plataforma de gestión escolar.`} />
   <link rel="canonical" href="https://ethoz.cl/terms" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Términos de Servicio"}]})}</script>`}

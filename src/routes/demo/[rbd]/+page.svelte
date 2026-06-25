@@ -132,8 +132,8 @@
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(mapInstance);
         const pinIcon = L.divIcon({
           className: 'ethoz-map-pin',
-          // lint-ok: Leaflet div-icon API requires hex literal in raw HTML string; keep in sync with --primary (#111111)
-          html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 32" width="28" height="36" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12c0 8.4 12 20 12 20s12-11.6 12-20C24 5.4 18.6 0 12 0z" fill="#111111"/><circle cx="12" cy="12" r="4.5" fill="#FFFFFF"/></svg>',
+          // lint-ok: Leaflet div-icon API requires hex literal in raw HTML string; keep in sync with the 8020 sky accent (#0495FE)
+          html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 32" width="28" height="36" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12c0 8.4 12 20 12 20s12-11.6 12-20C24 5.4 18.6 0 12 0z" fill="#0495FE"/><circle cx="12" cy="12" r="4.5" fill="#FFFFFF"/></svg>',
           iconSize: [28, 36],
           iconAnchor: [14, 36],
         });
@@ -199,7 +199,7 @@
         contact_email: contactEmail,
         contact_phone: contactPhone || undefined,
         contact_source: contactSource || undefined,
-        notes: isManual ? 'Entrada manual — colegio no encontrado en directorio' : undefined,
+        notes: isManual ? 'Entrada manual, colegio no encontrado en directorio' : undefined,
         status: 'new',
       }, recaptchaToken);
 
@@ -235,11 +235,11 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — {t('nav.cta')}</title>
+  <title>{BRAND} · {t('nav.cta')}</title>
   <meta name="description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio. Agenda una presentación con nuestro equipo.`} />
   <meta property="og:url" content="https://ethoz.cl/demo" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Demo — ${BRAND}`} />
+  <meta property="og:title" content={`Demo · ${BRAND}`} />
   <meta property="og:description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio.`} />
   <link rel="canonical" href="https://ethoz.cl/demo" />
 </svelte:head>
@@ -286,7 +286,7 @@
       {@const school = isManual ? null : schoolStore.selectedSchool}
       <div class="space-y-8">
         <div class="text-center">
-          <p class="mb-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step2.eyebrow')}</p>
+          <p class="mb-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('demo.step2.eyebrow')}</p>
           <h1 class="text-2xl text-foreground">
             {t('demo.step2.title')}
           </h1>

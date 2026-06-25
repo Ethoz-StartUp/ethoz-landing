@@ -115,8 +115,8 @@
     Cal('ui', {
       theme: 'light',
       styles: { branding: {
-        // lint-ok: Cal.com embed SDK expects hex literal; keep in sync with --primary (Cal black)
-        brandColor: '#111111'
+        // lint-ok: Cal.com embed SDK expects hex literal; keep in sync with the 8020 sky accent (--brand-accent)
+        brandColor: '#0495FE'
       } },
       hideEventTypeDetails: false,
       hideBranding: true,
@@ -159,14 +159,14 @@
 </script>
 
 <svelte:head>
-  <title>Agendar Demo — {BRAND}</title>
+  <title>Agendar Demo · {BRAND}</title>
   <meta name="description" content={`Agenda una demostración personalizada de ${BRAND} para tu colegio.`} />
   <meta property="og:url" content="https://ethoz.cl/schedule" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Agendar Demo — ${BRAND}`} />
+  <meta property="og:title" content={`Agendar Demo · ${BRAND}`} />
   <meta property="og:description" content={`Agenda una demostración personalizada de ${BRAND} para tu colegio.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Agendar Demo — ${BRAND}`} />
+  <meta name="twitter:title" content={`Agendar Demo · ${BRAND}`} />
   <meta name="twitter:description" content={`Agenda una demostración personalizada de ${BRAND} para tu colegio.`} />
   <link rel="canonical" href="https://ethoz.cl/schedule" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Demo","item":"https://ethoz.cl/demo"},{"@type":"ListItem","position":3,"name":"Agendar Demo"}]})}</script>`}
@@ -234,7 +234,7 @@
 
     <!-- Heading -->
     <div class="mb-8 text-center">
-      <p class="mb-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step3.eyebrow')}</p>
+      <p class="mb-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('demo.step3.eyebrow')}</p>
       <h1 class="text-2xl text-foreground sm:text-3xl">
         {t('agendar.title')}
       </h1>

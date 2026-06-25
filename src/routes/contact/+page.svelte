@@ -92,10 +92,10 @@
   <title>{t('contact.meta.title')}</title>
   <meta property="og:url" content="https://ethoz.cl/contact" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Contacto — ${BRAND}`} />
+  <meta property="og:title" content={`Contacto · ${BRAND}`} />
   <meta property="og:description" content={`Contáctanos para saber más sobre ${BRAND}, la plataforma de seguridad escolar para Chile.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Contacto — ${BRAND}`} />
+  <meta name="twitter:title" content={`Contacto · ${BRAND}`} />
   <meta name="twitter:description" content={`Contáctanos para saber más sobre ${BRAND}, la plataforma de seguridad escolar para Chile.`} />
   <meta name="description" content={`Contacta al equipo de ${BRAND}. Escríbenos por email o agenda una demo para tu colegio.`} />
   <link rel="canonical" href="https://ethoz.cl/contact" />
@@ -117,7 +117,7 @@
 
     <!-- HEADING — editorial -->
     <div class="mb-12">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">{t('contact.eyebrow_institutional')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('contact.eyebrow_response_hours')}</span>
@@ -133,7 +133,7 @@
 
     <!-- Contact methods — editorial grid -->
     <div class="mb-12">
-      <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-4">{t('contact.channels_label')}</p>
+      <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground mb-4">{t('contact.channels_label')}</p>
       <div class="grid gap-4 sm:grid-cols-2">
         <a
           href={CONTACT.email.link}
@@ -185,8 +185,8 @@
             <p class="text-sm font-semibold text-foreground">{t('contact.hours.label')}</p>
           </div>
           <dl class="space-y-1.5 text-sm text-muted-foreground">
-            <div class="flex items-baseline justify-between gap-2"><dt>{t('contact.hours.weekdays')}</dt><dd class="font-medium text-foreground">9:00 – 18:00</dd></div>
-            <div class="flex items-baseline justify-between gap-2"><dt>{t('contact.hours.saturday')}</dt><dd>10:00 – 13:00</dd></div>
+            <div class="flex items-baseline justify-between gap-2"><dt>{t('contact.hours.weekdays')}</dt><dd class="font-medium text-foreground">9:00 a 18:00</dd></div>
+            <div class="flex items-baseline justify-between gap-2"><dt>{t('contact.hours.saturday')}</dt><dd>10:00 a 13:00</dd></div>
             <div class="flex items-baseline justify-between gap-2"><dt>{t('contact.hours.timezone')}</dt><dd class="font-medium text-foreground">{t('contact.hours.timezone_value')}</dd></div>
           </dl>
         </div>
@@ -194,7 +194,7 @@
     </div>
 
     <!-- Contact form -->
-    <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-4">{t('contact.form_label')}</p>
+    <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground mb-4">{t('contact.form_label')}</p>
     <div class="rounded-xl border border-border bg-card p-6 sm:p-8">
       {#if submitted}
         <div class="flex flex-col items-center gap-3 py-8 text-center" role="status" aria-live="polite">

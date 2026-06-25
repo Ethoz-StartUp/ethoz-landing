@@ -149,7 +149,7 @@
   <section class="py-12 sm:py-14" aria-labelledby="sostenedor-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="sostenedor-editorial" class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('audience.sostenedores.editorial.eyebrow')}</p>
+      <p id="sostenedor-editorial" class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('audience.sostenedores.editorial.eyebrow')}</p>
       <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-3xl lg:text-4xl lg:leading-[1.3]">
         {t('audience.sostenedores.editorial.statement')}
       </blockquote>
@@ -326,7 +326,7 @@
                 <div class="flex-1 min-w-0">
                   <p class="text-mockup-sm font-medium {entry.nivel === 'critical' ? 'text-destructive' : entry.nivel === 'warning' ? 'text-warning-foreground' : 'text-foreground'} truncate">{t(entry.accion)}</p>
                   <div class="flex items-center gap-2 mt-0.5">
-                    <span class="inline-flex items-center rounded-full bg-primary/10 px-1.5 py-0.5 text-mockup-2xs font-medium text-primary">{entry.colegio}</span>
+                    <span class="inline-flex items-center rounded-full bg-primary/10 px-1.5 py-0.5 text-mockup-2xs font-medium text-primary-active">{entry.colegio}</span>
                     <span class="text-mockup-2xs text-muted-foreground">{t(entry.usuario)}</span>
                   </div>
                 </div>
@@ -376,7 +376,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="sostenedor-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('audience.sostenedores.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('audience.sostenedores.finalCta.eyebrow')}</p>
       <h2 id="sostenedor-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('audience.sostenedores.finalCta.title')}
       </h2>

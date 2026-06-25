@@ -12,14 +12,14 @@
 </script>
 
 <svelte:head>
-  <title>Blog — {BRAND}</title>
+  <title>Blog · {BRAND}</title>
   <meta name="description" content="Artículos sobre protección de datos, seguridad escolar y cumplimiento normativo para colegios en Chile." />
   <meta property="og:url" content="https://ethoz.cl/blog" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Blog — ${BRAND}`} />
+  <meta property="og:title" content={`Blog · ${BRAND}`} />
   <meta property="og:description" content="Artículos sobre protección de datos, seguridad escolar y cumplimiento normativo para colegios en Chile." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Blog — ${BRAND}`} />
+  <meta name="twitter:title" content={`Blog · ${BRAND}`} />
   <meta name="twitter:description" content="Artículos sobre protección de datos, seguridad escolar y cumplimiento normativo para colegios en Chile." />
   <link rel="canonical" href="https://ethoz.cl/blog" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Blog"}]})}</script>`}
@@ -29,9 +29,9 @@
   <NavBar />
 
   <div class="mx-auto flex-1 max-w-7xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
-    <!-- Editorial header — McK pattern: eyebrow · meta · short rule · Playfair italic h1 · subtitle -->
+    <!-- Editorial header — McK pattern: eyebrow · meta · short rule · DM Sans display h1 · subtitle -->
     <header class="mb-12 max-w-3xl sm:mb-16">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">Publicaciones</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>Protección de datos, seguridad y cumplimiento</span>

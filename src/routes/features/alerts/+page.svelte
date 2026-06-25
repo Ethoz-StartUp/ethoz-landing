@@ -23,14 +23,14 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — Sistema de Alertas Críticas</title>
+  <title>{BRAND} · Sistema de Alertas Críticas</title>
   <meta name="description" content={`Órdenes de alejamiento, suspensiones, riesgo familiar e ideación suicida: ${BRAND} centraliza todas las alertas críticas del colegio con seguimiento y trazabilidad completa.`} />
   <meta property="og:url" content="https://ethoz.cl/features/alerts" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} — Sistema de Alertas Críticas`} />
+  <meta property="og:title" content={`${BRAND} · Sistema de Alertas Críticas`} />
   <meta property="og:description" content="Gestiona alertas críticas con trazabilidad completa: órdenes judiciales, riesgo familiar, ideación suicida y más." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} — Sistema de Alertas Críticas`} />
+  <meta name="twitter:title" content={`${BRAND} · Sistema de Alertas Críticas`} />
   <meta name="twitter:description" content="Gestiona alertas críticas con trazabilidad completa: órdenes judiciales, riesgo familiar, ideación suicida y más." />
   <link rel="canonical" href="https://ethoz.cl/features/alerts" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Sistema de Alertas Críticas"}]})}</script>`}
@@ -59,7 +59,7 @@
           </p>
           <div class="mt-6 flex flex-wrap gap-2">
             <span class="inline-flex items-center gap-1.5 rounded-full bg-destructive/10 px-3 py-1 text-xs font-medium text-destructive">{t('featurePage.alerts.badge_aula_segura')}</span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">{t('featurePage.alerts.badge_ley_21719')}</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary-active">{t('featurePage.alerts.badge_ley_21719')}</span>
             <span class="inline-flex items-center gap-1.5 rounded-full bg-warning/15 px-3 py-1 text-xs font-medium text-warning-foreground">{t('featurePage.alerts.badge_protocolos_mineduc')}</span>
           </div>
           <div class="mt-8 flex flex-wrap gap-3">
@@ -78,7 +78,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{BRAND} — {t('featurePage.alerts.mockup_window_title')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{BRAND} · {t('featurePage.alerts.mockup_window_title')}</span>
           </div>
           <div class="p-4 sm:p-5 space-y-3">
             <!-- Critical alert -->
@@ -141,7 +141,7 @@
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('featurePage.alerts.types_eyebrow')}</p>
+        <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('featurePage.alerts.types_eyebrow')}</p>
         <h2 class="mt-3 text-2xl text-foreground sm:text-3xl">{t('featurePage.alerts.types_title')}</h2>
         <p class="mt-3 text-base text-muted-foreground">{t('featurePage.alerts.types_subtitle')}</p>
       </div>
@@ -200,7 +200,7 @@
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
-            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{BRAND} — {t('featurePage.alerts.timeline_window_title')}</span>
+            <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{BRAND} · {t('featurePage.alerts.timeline_window_title')}</span>
           </div>
           <div class="p-4 sm:p-5">
             <p class="mb-3 text-mockup-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.alerts.timeline_subject')}</p>
@@ -277,7 +277,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="alerts-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('featurePage.alerts.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('featurePage.alerts.finalCta.eyebrow')}</p>
       <h2 id="alerts-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.alerts.finalCta.title')}
       </h2>

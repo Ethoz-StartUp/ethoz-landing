@@ -17,7 +17,7 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} — {t('features.pickup.title')}</title>
+  <title>{BRAND} · {t('features.pickup.title')}</title>
   <meta name="description" content={t('featurePage.safePickups.meta.description')} />
   <meta property="og:url" content="https://ethoz.cl/features/safe-pickups" />
   <meta property="og:type" content="website" />
@@ -183,7 +183,7 @@
   <!-- How it works: 3 steps -->
   <section class="py-12 sm:py-14">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="mb-2 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary">{t('featurePage.safePickups.howItWorks.eyebrow')}</p>
+      <p class="mb-2 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('featurePage.safePickups.howItWorks.eyebrow')}</p>
       <h2 class="mb-2 text-xl text-foreground sm:text-2xl">{t('featurePage.safePickups.howItWorks.title')}</h2>
       <p class="mb-10 text-sm leading-relaxed text-muted-foreground max-w-2xl">
         {t('featurePage.safePickups.howItWorks.intro')}
@@ -271,7 +271,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="pickup-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('featurePage.safePickups.finalCta.eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('featurePage.safePickups.finalCta.eyebrow')}</p>
       <h2 id="pickup-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
         {t('featurePage.safePickups.finalCta.title')}
       </h2>

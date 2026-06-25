@@ -19,7 +19,7 @@
 </script>
 
 <svelte:head>
-  <title>{post.title} — {BRAND} Blog</title>
+  <title>{post.title} · {BRAND} Blog</title>
   <meta name="description" content={post.description} />
   <meta property="og:title" content={post.title} />
   <meta property="og:description" content={post.description} />

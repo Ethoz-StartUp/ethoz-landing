@@ -90,7 +90,7 @@
   <!-- HERO -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">{t('circular30.hero_eyebrow_doc')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('circular30.hero_eyebrow_authority')}</span>
@@ -110,15 +110,15 @@
 
       <dl class="mt-10 grid grid-cols-2 gap-6 border-t border-border pt-6 sm:grid-cols-3">
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('circular30.hero_meta_authority_label')}</dt>
+          <dt class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('circular30.hero_meta_authority_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">{t('circular30.hero_meta_authority_value')}</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('circular30.hero_meta_identity_label')}</dt>
+          <dt class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('circular30.hero_meta_identity_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground">{t('circular30.hero_meta_identity_value')}</dd>
         </div>
         <div>
-          <dt class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('circular30.hero_meta_axes_label')}</dt>
+          <dt class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('circular30.hero_meta_axes_label')}</dt>
           <dd class="mt-1 text-sm font-medium text-foreground" data-numeric>04</dd>
         </div>
       </dl>
@@ -130,7 +130,7 @@
 
       <!-- SECCIÓN 1: QUÉ EXIGE -->
       <section id="que-exige">
-        <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('circular30.s1_eyebrow')}</p>
+        <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('circular30.s1_eyebrow')}</p>
         <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('circular30.s1_title')}</h2>
         <p class="mt-6 text-base leading-relaxed text-muted-foreground">
           {t('circular30.s1_lede')}
@@ -150,7 +150,7 @@
                   <Icon class="size-4 shrink-0 text-primary" />
                   <span class="font-semibold text-foreground">{t(item.title)}</span>
                 </div>
-                <p class="mt-1 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('circular30.pillar_label')} 0{i + 1}</p>
+                <p class="mt-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('circular30.pillar_label')} 0{i + 1}</p>
               </dt>
               <dd class="text-sm leading-relaxed text-muted-foreground">{t(item.desc)}</dd>
             </div>
@@ -172,7 +172,7 @@
 
       <!-- SECCIÓN 2: QUÉ SISTEMAS CUMPLEN -->
       <section id="que-sistemas-cumplen">
-        <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('circular30.s2_eyebrow')}</p>
+        <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('circular30.s2_eyebrow')}</p>
         <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('circular30.s2_title')}</h2>
         <p class="mt-6 text-base leading-relaxed text-muted-foreground">
           {t('circular30.s2_lede')}
@@ -181,9 +181,9 @@
         <!-- Requirements table -->
         <div class="mt-8 border-y border-border">
           <div class="grid grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_auto] gap-4 py-3 border-b border-border">
-            <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('circular30.s2_col_requirement')}</p>
-            <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('circular30.s2_col_why')}</p>
-            <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('circular30.s2_col_brand')}</p>
+            <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('circular30.s2_col_requirement')}</p>
+            <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('circular30.s2_col_why')}</p>
+            <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('circular30.s2_col_brand')}</p>
           </div>
           {#each requirements as r, i}
             <div class="grid grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_auto] gap-4 py-4 {i !== requirements.length - 1 ? 'border-b border-border' : ''}">
@@ -212,7 +212,7 @@
 
       <!-- SECCIÓN 3: AUTODIAGNÓSTICO -->
       <section id="autodiagnostico">
-        <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('circular30.s3_eyebrow')}</p>
+        <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('circular30.s3_eyebrow')}</p>
         <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('circular30.s3_title')}</h2>
         <p class="mt-6 text-base leading-relaxed text-muted-foreground">
           {t('circular30.s3_lede')}
@@ -225,7 +225,7 @@
               <p class="flex-1 text-sm text-foreground">
                 {t(item.question)}
                 {#if item.critical}
-                  <span class="ml-2 inline-block align-middle text-mockup-xs font-semibold uppercase tracking-[0.18em] text-destructive">{t('circular30.s3_critical_badge')}</span>
+                  <span class="ml-2 inline-block align-middle text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-destructive">{t('circular30.s3_critical_badge')}</span>
                 {/if}
               </p>
             </li>
@@ -238,7 +238,7 @@
 
       <!-- SECCIÓN 4: INTEGRACIÓN CON ETHOZ -->
       <section id="integracion-ethoz">
-        <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-primary" data-numeric>{t('circular30.s4_eyebrow')}</p>
+        <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary" data-numeric>{t('circular30.s4_eyebrow')}</p>
         <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">{t('circular30.s4_title')}</h2>
         <p class="mt-6 text-base leading-relaxed text-muted-foreground">
           {t('circular30.s4_lede')}
@@ -265,7 +265,7 @@
   <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-circular">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-background/85">{t('circular30.cta_eyebrow')}</p>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('circular30.cta_eyebrow')}</p>
       <h2 id="final-cta-circular" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
         {t('circular30.cta_title')}
       </h2>
@@ -289,7 +289,7 @@
 
   <section class="py-12 bg-background border-t border-border">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground mb-5">{t('circular30.related_heading')}</p>
+      <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground mb-5">{t('circular30.related_heading')}</p>
       <div class="flex flex-wrap gap-3">
         {#each [
           { href: '/ley-21719', label: 'circular30.related_1' as const },

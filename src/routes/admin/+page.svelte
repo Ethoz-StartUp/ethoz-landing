@@ -42,7 +42,7 @@
 </script>
 
 <svelte:head>
-  <title>Admin — {BRAND}</title>
+  <title>Admin · {BRAND}</title>
 </svelte:head>
 
 <main class="flex min-h-dvh items-center justify-center bg-canvas-strong px-4">

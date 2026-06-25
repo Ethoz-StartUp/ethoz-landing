@@ -102,14 +102,14 @@
 <svelte:window onkeydown={handleKeydown} />
 
 <svelte:head>
-  <title>{BRAND} — {t('nav.cta')}</title>
+  <title>{BRAND} · {t('nav.cta')}</title>
   <meta name="description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio. Busca tu establecimiento y agenda una presentación.`} />
   <meta property="og:url" content="https://ethoz.cl/demo" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Demo — ${BRAND}`} />
+  <meta property="og:title" content={`Demo · ${BRAND}`} />
   <meta property="og:description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio.`} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Demo — ${BRAND}`} />
+  <meta name="twitter:title" content={`Demo · ${BRAND}`} />
   <meta name="twitter:description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio.`} />
   <link rel="canonical" href="https://ethoz.cl/demo" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Demo"}]})}</script>`}
@@ -151,7 +151,7 @@
     <div class="space-y-6">
       <div class="text-center">
         <GraduationCap class="mx-auto mb-4 size-8 text-primary" />
-        <p class="mb-3 text-mockup-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t('demo.step1.eyebrow')}</p>
+        <p class="mb-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('demo.step1.eyebrow')}</p>
         <h1 class="text-2xl text-foreground">
           {t('demo.step1.title')}
         </h1>

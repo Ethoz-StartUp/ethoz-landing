@@ -256,7 +256,7 @@
             onclick={() => { feedbackStore.toggleMode(); }}
             class="w-full rounded-xl px-4 py-2.5 text-sm font-semibold transition-all
               {feedbackStore.active
-                ? 'bg-primary/10 text-primary ring-1 ring-primary'
+                ? 'bg-primary/10 text-primary-active ring-1 ring-primary'
                 : 'bg-primary text-primary-foreground hover:bg-primary/90'}"
           >
             {feedbackStore.active ? t('feedbackOverlay.toggle_active') : t('feedbackOverlay.toggle_inactive')}

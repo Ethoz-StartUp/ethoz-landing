@@ -438,7 +438,7 @@
 </script>
 
 <svelte:head>
-  <title>Prospecting — {BRAND} Admin</title>
+  <title>Prospecting · {BRAND} Admin</title>
   <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
