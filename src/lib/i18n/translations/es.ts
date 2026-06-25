@@ -612,6 +612,8 @@ export const es = {
 
   // Home page — meta
   'home.meta.title': '{brand}, protección y seguimiento escolar para Chile (Ley 21.719)',
+  'home.cinematic1_label': 'Video: verificación de retiro en la portería del colegio',
+  'home.cinematic2_label': 'Video: la plataforma {brand} y el plazo de la Ley 21.719',
 
   // Get-started page
   'getstarted.hero.title': 'Fácil de contratar, fácil de implementar',
@@ -1042,6 +1044,8 @@ export const es = {
   'contact.hours.saturday': 'Sábado',
   'contact.hours.timezone': 'Zona horaria',
   'contact.hours.timezone_value': 'CLT · Santiago',
+  'contact.hours.weekdays_value': '9:00 a 18:00',
+  'contact.hours.saturday_value': '10:00 a 13:00',
   'contact.form_label': 'Formulario',
   'contact.error.recaptcha_failed': 'No pudimos verificar que seas humano. Escríbenos directamente al correo indicado arriba.',
   'contact.error.send_failed': 'No pudimos enviar tu mensaje. Por favor intenta de nuevo.',

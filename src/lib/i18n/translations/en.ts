@@ -607,6 +607,8 @@ export const en = {
 
   // Home page — meta
   'home.meta.title': '{brand}, school data protection and tracking for Chile (Ley 21.719)',
+  'home.cinematic1_label': 'Video: pickup verification at the school gate',
+  'home.cinematic2_label': 'Video: the {brand} platform and the Ley 21.719 deadline',
 
   // Get-started page
   'getstarted.hero.title': 'Easy to contract, easy to implement',
@@ -1037,6 +1039,8 @@ export const en = {
   'contact.hours.saturday': 'Saturday',
   'contact.hours.timezone': 'Time zone',
   'contact.hours.timezone_value': 'CLT · Santiago',
+  'contact.hours.weekdays_value': '9:00 to 18:00',
+  'contact.hours.saturday_value': '10:00 to 13:00',
   'contact.form_label': 'Form',
   'contact.error.recaptcha_failed': 'We couldn\'t verify that you\'re human. Please write to us directly at the email shown above.',
   'contact.error.send_failed': 'We couldn\'t send your message. Please try again.',

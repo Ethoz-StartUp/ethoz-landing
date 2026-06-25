@@ -11,6 +11,7 @@
   import { trackEvent } from '$lib/utils/analytics';
   import { slide } from 'svelte/transition';
   import PitchModal from '$lib/components/PitchModal.svelte';
+  import CinematicBand from '$lib/components/CinematicBand.svelte';
   import {
     Shield,
     FileCheck,
@@ -615,6 +616,13 @@
     </div>
   </section>
 
+  <!-- Cinematic band — product in context (gate pickup verification) -->
+  <CinematicBand
+    src="/videos/ethoz-cinematic-1.mp4"
+    poster="/videos/ethoz-cinematic-1.jpg"
+    label={t('home.cinematic1_label')}
+  />
+
   <!-- ═══════════════════════════════════════════
        SECTION 6: COMPLIANCE + COUNTDOWN
        ═══════════════════════════════════════════ -->
@@ -804,6 +812,13 @@
       </div>
     </div>
   </section>
+
+  <!-- Cinematic band — brand close (platform overview + Ethoz sign-off) -->
+  <CinematicBand
+    src="/videos/ethoz-cinematic-2.mp4"
+    poster="/videos/ethoz-cinematic-2.jpg"
+    label={t('home.cinematic2_label')}
+  />
 
   <!-- ═══════════════════════════════════════════
        SECTION 10: FINAL CTA — dark navy editorial closing.

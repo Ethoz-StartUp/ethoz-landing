@@ -185,8 +185,8 @@
             <p class="text-sm font-semibold text-foreground">{t('contact.hours.label')}</p>
           </div>
           <dl class="space-y-1.5 text-sm text-muted-foreground">
-            <div class="flex items-baseline justify-between gap-2"><dt>{t('contact.hours.weekdays')}</dt><dd class="font-medium text-foreground">9:00 a 18:00</dd></div>
-            <div class="flex items-baseline justify-between gap-2"><dt>{t('contact.hours.saturday')}</dt><dd>10:00 a 13:00</dd></div>
+            <div class="flex items-baseline justify-between gap-2"><dt>{t('contact.hours.weekdays')}</dt><dd class="font-medium text-foreground">{t('contact.hours.weekdays_value')}</dd></div>
+            <div class="flex items-baseline justify-between gap-2"><dt>{t('contact.hours.saturday')}</dt><dd>{t('contact.hours.saturday_value')}</dd></div>
             <div class="flex items-baseline justify-between gap-2"><dt>{t('contact.hours.timezone')}</dt><dd class="font-medium text-foreground">{t('contact.hours.timezone_value')}</dd></div>
           </dl>
         </div>
