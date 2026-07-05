@@ -28,8 +28,8 @@ export const en = {
   // Trust bar — provable facts, not generic badges
   'trust.attribution': 'Built in Chile · Compliance by design from day one',
   'trust.compliance': 'Built for Ley 21.719',
-  'trust.encryption': 'Encryption and audit per Ley 21.719',
-  'trust.integration': 'Designed to integrate with Napsis, SIGE and Lirmi',
+  'trust.encryption': 'Encryption at rest and in transit, with a full audit trail',
+  'trust.integration': 'Works alongside Napsis, SIGE and Lirmi',
   'trust.servers': 'Data in Santiago, Chile (Google Cloud)',
   'trust.directory': 'Directory of 12,038 schools',
   'trust.label.data': 'Data',
@@ -39,12 +39,11 @@ export const en = {
 
   // Editorial anchor — McK-style anti-slop moment between trust bar and problem
   'editorial.eyebrow': 'The context',
-  'editorial.statement':
-    'Law 21.719 is not a compliance form. It is an architectural shift in how Chilean schools safeguard children\'s data.',
+  'editorial.statement': 'Law 21.719 is not a compliance form. It fundamentally changes how Chilean schools safeguard children\'s data.',
   'editorial.stat1_number': '12,038',
-  'editorial.stat1_label': 'Educational establishments',
-  'editorial.stat2_number': '5,777',
-  'editorial.stat2_label': 'School operators',
+  'editorial.stat1_label': 'Schools that must comply',
+  'editorial.stat2_number': '20,000',
+  'editorial.stat2_label': 'Maximum fine in UTM',
   'editorial.stat3_number': 'Dec 2026',
   'editorial.stat3_label': 'Full enforcement begins',
   'editorial.source': 'Sources: Mineduc (2024) · Law 21.719',
@@ -66,18 +65,17 @@ export const en = {
   // Solution section
   'solution.overline': 'The solution',
   'solution.title': 'One platform, full visibility',
-  'solution.subtitle':
-    'Modules designed for daily school security and operations, without replacing the software you already use.',
+  'solution.subtitle': 'Modules for the daily safety and operations of your school. Activate only what you need.',
 
   // Features
   'features.record.title': 'Comprehensive Student 360° Profile',
-  'features.record.desc': 'A longitudinal profile that follows each student year to year, with access controlled by role.',
-  'features.record.bullet1': 'Longitudinal timeline of behavioral, academic, and emotional observations that persists year to year',
+  'features.record.desc': 'A profile that follows each student year after year, with access controlled by role.',
+  'features.record.bullet1': 'A timeline of behavioral, academic, and emotional observations that persists year after year',
   'features.record.bullet2': 'Three confidentiality levels (standard, restricted, and private) that automatically control who sees what',
   'features.record.bullet3': 'Art. 16 bis compliant: only yes/no medical alerts, without clinical details',
 
   'features.pickup.title': 'Safe Pickups & Critical Alerts',
-  'features.pickup.desc': 'The porter knows in seconds whether a student can be released: no calls, no paper, no margin for error.',
+  'features.pickup.desc': 'The porter knows in seconds whether a student can be released: no calls, no paper, and verification at every step.',
   'features.pickup.bullet1': 'The porter instantly verifies whether the person is authorized',
   'features.pickup.bullet2': 'Immediate block triggered by any judicial restriction',
   'features.pickup.bullet3': 'Automatic notifications by role, with sensitive student data never transmitted',
@@ -107,16 +105,20 @@ export const en = {
 
   // Compliance section
   'compliance.overline': 'Regulatory compliance',
-  'compliance.title': 'Law 21.719 takes effect soon',
-  'compliance.subtitle':
-    'Schools that aren\'t prepared face fines of up to 20,000 UTM. {brand} was built so your school can comply with Ley 21.719.',
+  'compliance.title': 'Law 21.719 takes full effect in December 2026',
+  'compliance.subtitle': 'Schools that are not prepared risk severe fines. {brand} exists so yours complies.',
   'compliance.overline_detail': 'Law 21.719 · December 2026',
   'compliance.countdown.label': 'Time remaining until enforcement',
   'compliance.countdown.days': 'days',
   'compliance.countdown.hours': 'hours',
   'compliance.countdown.minutes': 'minutes',
-  'compliance.item1': 'Mandatory parental consent for minors',
-  'compliance.item2': 'ARCO rights: access, rectification, deletion, objection',
+  'compliance.countdown.day': 'day',
+  'compliance.countdown.hour': 'hour',
+  'compliance.countdown.minute': 'minute',
+  'hero.pilot_badge': '2026 pilot · Limited slots',
+  'home.demo_data_badge_short': 'Demo',
+  'compliance.item1': 'Mandatory parental consent for children under 14',
+  'compliance.item2': 'Rights of access, rectification, erasure and objection (ARCO)',
   'compliance.item3': 'Audit trail of every access to sensitive data',
   'compliance.item4': 'Sensitive data encryption to banking standard',
   'compliance.item5': 'Each school\'s data completely isolated from others',
@@ -138,8 +140,7 @@ export const en = {
   // Final CTA
   'cta.urgency_eyebrow': 'The time is now',
   'cta.title': 'Protect your school community today',
-  'cta.subtitle':
-    'The 2026 pilot has limited spots. Be among the first schools to comply with Law 21.719.',
+  'cta.subtitle': 'Limited spots for the 2026 pilot. Book a demo and get your school ready before full enforcement.',
   'cta.primary': 'Book a Demo',
 
   // Footer
@@ -188,7 +189,7 @@ export const en = {
   'faq.q2': 'Does it work with our current software?',
   'faq.a2': '{brand} is designed to complement your existing software (Napsis, SIGE, etc.), not replace it. You can import data from Excel or any structured format without losing history.',
   'faq.q3': 'How long does it take to implement {brand}?',
-  'faq.a3': 'Initial setup takes less than 48 hours. Data migration and team training are completed in 2-4 weeks depending on data volume.',
+  'faq.a3': 'Initial setup takes less than 48 hours. Data migration and team training are completed in 2 to 4 weeks depending on data volume.',
   'faq.q4': 'What happens if we don\'t comply with Ley 21.719?',
   'faq.a4': 'Fines can reach up to 20,000 UTM (over $1.2 billion CLP). Additionally, the institution faces reputational damage and potential lawsuits from parents for data mishandling.',
   'faq.q5': 'What type of schools is it designed for?',
@@ -573,7 +574,7 @@ export const en = {
   'home.compliance_banner.desc': 'Encryption, audit trails, parental consent, and data isolation, built into every feature.',
 
   // Home page — countdown CTA hint
-  'home.countdown.cta_hint': 'Don\'t wait until the last minute. Book today',
+  'home.countdown.cta_hint': 'Don\'t wait until the last minute. Book today.',
 
   // Home page — roles section
   'home.roles.overline': 'For every role',
@@ -598,12 +599,12 @@ export const en = {
   'home.roles.apoderado.alt': 'Role illustration: Parent',
 
   // Home page — how it works time labels
-  'home.how.subtitle': 'No procurement, no installations, no servers to run. Our team guides the implementation.',
+  'home.how.subtitle': 'No installations and no servers to run. Our team guides the entire implementation.',
   'home.how.step_label': 'Step',
   'home.how.cta': 'Start my school',
   'home.how.step1.time': '48 hours',
   'home.how.step2.time': '2 weeks',
-  'home.how.step3.time': 'Day 1',
+  'home.how.step3.time': 'From day 1',
 
   // Home page — meta
   'home.meta.title': '{brand}, school data protection and tracking for Chile (Ley 21.719)',
@@ -1649,7 +1650,7 @@ export const en = {
 
   // ── i18n sweep: get-started ──
   'getstarted.hero.eyebrow': 'Onboarding process',
-  'getstarted.hero.eyebrow_meta': '4 steps · 2-4 weeks',
+  'getstarted.hero.eyebrow_meta': '4 steps · 2 to 4 weeks',
   'getstarted.timeline.step1_label': 'Step 01',
   'getstarted.timeline.step1_value': 'Demo · 30 min',
   'getstarted.timeline.step2_label': 'Step 02',
@@ -1693,8 +1694,8 @@ export const en = {
   'home.demo_data_badge': 'Fictional data · Demo',
   'home.carousel_dot_label': 'View',
   'home.problem_meta': '3 frictions · 1 system',
-  'home.solution_meta': '10 modules · Modular activation',
-  'home.how_meta': '3 steps · 2-4 weeks',
+  'home.solution_meta': 'Independent modules · Gradual activation',
+  'home.how_meta': '3 steps · 2 to 4 weeks',
   'home.faq_meta': '7 questions · Straight answers',
   'home.countdown_live_prefix': 'In',
   'home.countdown_live_days': 'days,',

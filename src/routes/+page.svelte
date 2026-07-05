@@ -11,7 +11,6 @@
   import { trackEvent } from '$lib/utils/analytics';
   import { slide } from 'svelte/transition';
   import PitchModal from '$lib/components/PitchModal.svelte';
-  import CinematicBand from '$lib/components/CinematicBand.svelte';
   import {
     Shield,
     FileCheck,
@@ -139,12 +138,18 @@
     return () => clearInterval(interval);
   });
 
-  // Compact countdown label for hero badge
-  const heroCountdownLabel = $derived(
-    countdownDays > 0
-      ? `${t('home.hero_countdown_prefix')} ${countdownDays} ${t('home.hero_countdown_suffix')}`
-      : t('home.hero_countdown_active')
-  );
+  // Hide the mobile sticky CTA while the closing CTA band is on screen (two
+  // identical primary buttons in one viewport otherwise).
+  let ctaBandInView = $state(false);
+  $effect(() => {
+    const band = document.getElementById('cta');
+    if (!band || typeof IntersectionObserver === 'undefined') return;
+    const observer = new IntersectionObserver(([entry]) => {
+      ctaBandInView = entry.isIntersecting;
+    });
+    observer.observe(band);
+    return () => observer.disconnect();
+  });
 
   // Supporting feature cards rendered in the features section as a 3-up grid.
   // Driven by an array so the card class string lives once instead of three times.
@@ -167,14 +172,14 @@
 
 <svelte:head>
   <title>{t('home.meta.title')}</title>
-  <meta name="description" content={`${BRAND} · Software de gestión y protección de datos escolares para colegios de Chile. Cumple con la Ley 21.719 antes del plazo de diciembre 2026.`} />
+  <meta name="description" content={`${BRAND} · Plataforma de protección escolar y cumplimiento de datos para colegios de Chile. Cumple con la Ley 21.719 antes del plazo de diciembre 2026.`} />
   <meta property="og:url" content="https://ethoz.cl/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} · Gestión y cumplimiento para colegios`} />
-  <meta property="og:description" content="Plataforma de gestión y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
+  <meta property="og:title" content={`${BRAND} · Protección escolar y cumplimiento para colegios`} />
+  <meta property="og:description" content="Plataforma de protección escolar y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} · Gestión y cumplimiento para colegios`} />
-  <meta name="twitter:description" content="Plataforma de gestión y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
+  <meta name="twitter:title" content={`${BRAND} · Protección escolar y cumplimiento para colegios`} />
+  <meta name="twitter:description" content="Plataforma de protección escolar y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
   <link rel="canonical" href="https://ethoz.cl/" />
   {@html `<script type="application/ld+json">${JSON.stringify([
     {
@@ -184,7 +189,7 @@
       "legalName": LEGAL_NAME,
       "url": "https://ethoz.cl",
       "logo": "https://ethoz.cl/favicon.svg",
-      "description": "Plataforma de gestión y protección de datos escolares para colegios de Chile",
+      "description": "Plataforma de protección escolar y datos seguros para colegios de Chile",
       "foundingDate": "2026-04-06",
       "areaServed": { "@type": "Country", "name": "Chile" },
       "sameAs": [
@@ -222,7 +227,7 @@
       "name": BRAND,
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
-      "description": "Plataforma de gestión y protección de datos escolares para colegios de Chile. Cumplimiento Ley 21.719.",
+      "description": "Plataforma de protección escolar y datos seguros para colegios de Chile. Cumplimiento Ley 21.719.",
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "CLP",
@@ -263,16 +268,13 @@
 
       <!-- Left column: headline + CTAs -->
       <div class="flex flex-col items-center text-center sm:items-start sm:text-left">
-        <!-- Live urgency badge — Cal mono pill + pulsing destructive dot for urgency semantics -->
+        <!-- Pilot badge — the early-access story starts here and resolves in the closing CTA.
+             The law/deadline urgency lives in the ribbon + H1; this pill owns the pilot. -->
         <div
           class="animate-fade-in-up mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-foreground"
-          aria-label={heroCountdownLabel}
         >
-          <span class="relative flex size-2 shrink-0">
-            <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-60"></span>
-            <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
-          </span>
-          <span aria-hidden="true">{heroCountdownLabel}</span>
+          <span class="relative inline-flex size-2 shrink-0 rounded-full bg-primary"></span>
+          <span>{t('hero.pilot_badge')}</span>
         </div>
 
         <!-- Headline — global h1 carries DM Sans 800 + --fs-display-xl + --tracking-display-xl -->
@@ -326,12 +328,13 @@
               <div class="size-3 rounded-full bg-warning/60"></div>
               <div class="size-3 rounded-full bg-success/60"></div>
               <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
-              <span class="ml-auto inline-flex items-center gap-1.5 border border-border bg-muted px-2 py-0.5 text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+              <span class="ml-auto inline-flex items-center gap-1.5 whitespace-nowrap border border-border bg-muted px-2 py-0.5 text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
                 <span class="relative flex size-1.5">
                   <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
                   <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
                 </span>
-                {t('home.demo_data_badge')}
+                <span class="hidden sm:inline">{t('home.demo_data_badge')}</span>
+                <span class="sm:hidden">{t('home.demo_data_badge_short')}</span>
               </span>
             </div>
 
@@ -463,7 +466,7 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="editorial-heading" class="eyebrow mt-6">{t('editorial.eyebrow')}</p>
-      <blockquote class="mt-5 font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <blockquote class="mx-auto mt-5 max-w-4xl font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
         {t('editorial.statement')}
       </blockquote>
     </div>
@@ -602,26 +605,8 @@
         {/each}
       </div>
 
-      <!-- Cross-cutting: privacy is not a product, it's how everything works -->
-      <div class="mx-auto mt-8 max-w-4xl">
-        <a href="/compliance" class="group flex items-center gap-4 rounded-xl border border-border bg-card px-6 py-4 transition-all duration-[160ms] hover:border-foreground/30 hover:bg-surface-card hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
-          <Shield class="size-5 shrink-0 text-foreground transition-transform group-hover:rotate-6" />
-          <div class="flex-1">
-            <p class="text-sm font-semibold text-foreground">{t('home.compliance_banner.title')}</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">{t('home.compliance_banner.desc')}</p>
-          </div>
-          <ChevronRight class="size-4 shrink-0 text-foreground transition-transform group-hover:translate-x-1" />
-        </a>
-      </div>
     </div>
   </section>
-
-  <!-- Cinematic band — product in context (gate pickup verification) -->
-  <CinematicBand
-    src="/videos/ethoz-cinematic-1.mp4"
-    poster="/videos/ethoz-cinematic-1.jpg"
-    label={t('home.cinematic1_label')}
-  />
 
   <!-- ═══════════════════════════════════════════
        SECTION 6: COMPLIANCE + COUNTDOWN
@@ -655,12 +640,12 @@
         aria-hidden="true"
       >
         {#each [
-          { value: countdownDays, labelKey: 'compliance.countdown.days' },
-          { value: countdownHours, labelKey: 'compliance.countdown.hours' },
-          { value: countdownMinutes, labelKey: 'compliance.countdown.minutes' },
+          { value: countdownDays, labelKey: countdownDays === 1 ? 'compliance.countdown.day' : 'compliance.countdown.days' },
+          { value: countdownHours, labelKey: countdownHours === 1 ? 'compliance.countdown.hour' : 'compliance.countdown.hours' },
+          { value: countdownMinutes, labelKey: countdownMinutes === 1 ? 'compliance.countdown.minute' : 'compliance.countdown.minutes' },
         ] as box (box.labelKey)}
           <div class="group relative rounded-xl border border-hairline bg-card p-5 text-center shadow-card transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-foreground"></div>
+            <div class="pointer-events-none absolute inset-x-4 top-0 h-[2px] bg-foreground"></div>
             <span class="font-heading block text-6xl tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
               {box.value}
             </span>
@@ -670,17 +655,10 @@
           </div>
         {/each}
       </div>
-      <!-- CTA under countdown — standard Cal primary on the light band -->
-      <div class="mt-10 text-center">
-        <Button size="xl" href="/demo">
-          {t('hero.cta.primary')}
-          <ArrowRight class="size-5" />
-        </Button>
-        <p class="mt-4 text-xs text-muted-foreground">{t('home.countdown.cta_hint')}</p>
-      </div>
     </div>
 
-    <!-- Compliance items -->
+    <!-- Compliance items — before the CTA so the checklist reads as the band's
+         argument and the button closes it (mobile order matches desktop). -->
     <div class="mx-auto mt-12 grid max-w-3xl gap-x-8 gap-y-4 sm:grid-cols-2">
       {#each ['compliance.item1', 'compliance.item2', 'compliance.item3', 'compliance.item4', 'compliance.item5', 'compliance.item6'] as item}
         <div class="flex items-start gap-3">
@@ -688,6 +666,21 @@
           <span class="text-sm leading-relaxed text-muted-foreground">{t(item as TranslationKey)}</span>
         </div>
       {/each}
+    </div>
+
+    <!-- CTA closes the band — standard Cal primary on the light band -->
+    <div class="mt-10 text-center">
+      <Button
+        size="xl"
+        onclick={async () => {
+          trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'compliance_countdown' });
+          await goto('/demo');
+        }}
+      >
+        {t('hero.cta.primary')}
+        <ArrowRight class="size-5" />
+      </Button>
+      <p class="mt-4 text-xs text-muted-foreground">{t('home.countdown.cta_hint')}</p>
     </div>
   </SectionDark>
 
@@ -750,7 +743,7 @@
             }}
             class=""
           >
-            {t('home.how.cta')}
+            {t('hero.cta.primary')}
             <ArrowRight class="size-4" />
           </Button>
         </div>
@@ -770,7 +763,7 @@
       </div>
 
       <div class="mt-10 divide-y divide-border rounded-xl border border-border bg-card shadow-card">
-        {#each [1, 2, 11, 3, 15, 4, 12] as n, i}
+        {#each [1, 2, 3, 15, 4, 12] as n, i}
           <div>
             <button
               id={`faq-trigger-${i}`}
@@ -812,13 +805,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Cinematic band — brand close (platform overview + Ethoz sign-off) -->
-  <CinematicBand
-    src="/videos/ethoz-cinematic-2.mp4"
-    poster="/videos/ethoz-cinematic-2.jpg"
-    label={t('home.cinematic2_label')}
-  />
 
   <!-- ═══════════════════════════════════════════
        SECTION 10: FINAL CTA — dark navy editorial closing.
@@ -869,8 +855,8 @@
     <Footer />
   </div>
 
-  <!-- Mobile sticky CTA -->
-  {#if showStickyCta}
+  <!-- Mobile sticky CTA — hidden while the closing band's own CTA is on screen -->
+  {#if showStickyCta && !ctaBandInView}
     <div class="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-background px-4 pb-[max(env(safe-area-inset-bottom,0px),1rem)] pt-3 md:hidden">
       <Button
         size="xl"
@@ -892,12 +878,13 @@
 {/if}
 
 <style>
+  /* Starts at 35% opacity so the swap never flashes an empty card. */
   .carousel-fade {
-    animation: fadeIn 0.4s ease-in-out;
+    animation: fadeIn 0.25s ease-out;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(4px); }
+    from { opacity: 0.35; transform: translateY(2px); }
     to { opacity: 1; transform: translateY(0); }
   }
 </style>

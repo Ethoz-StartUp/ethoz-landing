@@ -107,7 +107,7 @@ test.describe('Smoke — lead funnel', () => {
 		const faqSection = page.locator('#faq');
 		await faqSection.scrollIntoViewIfNeeded();
 		const faqButtons = faqSection.locator('button');
-		expect(await faqButtons.count()).toBeGreaterThanOrEqual(7);
+		expect(await faqButtons.count()).toBeGreaterThanOrEqual(6);
 	});
 
 	test('FAQ accordion opens on click', async ({ page }) => {

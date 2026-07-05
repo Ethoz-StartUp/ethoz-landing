@@ -28,8 +28,8 @@ export const es = {
   // Trust bar — provable facts, not generic badges
   'trust.attribution': 'Desarrollado en Chile · Cumplimiento por diseño desde el origen',
   'trust.compliance': 'Construido para Ley 21.719',
-  'trust.encryption': 'Cifrado y auditoría según Ley 21.719',
-  'trust.integration': 'Diseñado para integrarse con Napsis, SIGE y Lirmi',
+  'trust.encryption': 'Cifrado en reposo y en tránsito, con auditoría completa',
+  'trust.integration': 'Convive con Napsis, SIGE y Lirmi',
   'trust.servers': 'Datos en Santiago, Chile (Google Cloud)',
   'trust.directory': 'Directorio de 12.038 establecimientos',
   'trust.label.data': 'Datos',
@@ -39,19 +39,18 @@ export const es = {
 
   // Editorial anchor — McK-style anti-slop moment between trust bar and problem
   'editorial.eyebrow': 'El contexto',
-  'editorial.statement':
-    'La Ley 21.719 no es un formulario de cumplimiento. Es un cambio arquitectónico en cómo los colegios chilenos custodian la información de los niños.',
+  'editorial.statement': 'La Ley 21.719 no es un formulario de cumplimiento. Cambia de raíz la forma en que los colegios chilenos custodian la información de los niños.',
   'editorial.stat1_number': '12.038',
-  'editorial.stat1_label': 'Establecimientos educacionales',
-  'editorial.stat2_number': '5.777',
-  'editorial.stat2_label': 'Sostenedores a cargo',
+  'editorial.stat1_label': 'Colegios que deben cumplir',
+  'editorial.stat2_number': '20.000',
+  'editorial.stat2_label': 'Multa máxima en UTM',
   'editorial.stat3_number': 'Dic 2026',
   'editorial.stat3_label': 'Entrada en plena vigencia',
   'editorial.source': 'Fuentes: Mineduc (2024) · Ley N° 21.719',
 
   // Problem section
   'problem.overline': 'El problema',
-  'problem.title': 'Cada día, colegios operan con información fragmentada',
+  'problem.title': 'Cada día, los colegios operan con información fragmentada',
   'problem.subtitle': 'Y la nueva ley de datos ya no admite improvisación.',
   'problem.card1.title': 'Datos dispersos',
   'problem.card1.desc':
@@ -66,18 +65,17 @@ export const es = {
   // Solution section
   'solution.overline': 'La solución',
   'solution.title': 'Una plataforma, toda la visibilidad',
-  'solution.subtitle':
-    'Módulos diseñados para la seguridad y operación diaria de tu colegio, sin reemplazar el software que ya usas.',
+  'solution.subtitle': 'Módulos para la seguridad y la operación diaria de tu colegio. Activa solo los que necesitas.',
 
   // Features
   'features.record.title': 'Ficha Integral 360° del Alumno',
-  'features.record.desc': 'Un perfil longitudinal que sigue al alumno año a año, con acceso controlado por rol.',
-  'features.record.bullet1': 'Línea de tiempo longitudinal de observaciones conductuales, académicas y emocionales que persiste año a año',
+  'features.record.desc': 'Un perfil que acompaña al alumno año a año, con acceso controlado por cargo.',
+  'features.record.bullet1': 'Línea de tiempo de observaciones conductuales, académicas y emocionales que persiste año a año',
   'features.record.bullet2': 'Tres niveles de confidencialidad (estándar, restringido y privado) que controlan automáticamente quién ve qué',
   'features.record.bullet3': 'Cumplimiento del Art. 16 bis: solo alertas médicas de sí/no, sin detalles clínicos',
 
   'features.pickup.title': 'Retiros Seguros y Alertas Críticas',
-  'features.pickup.desc': 'El portero sabe en segundos si puede entregar al alumno: sin llamadas, sin papel, sin margen de error.',
+  'features.pickup.desc': 'El portero sabe en segundos si puede entregar al alumno: sin llamadas, sin papel y con verificación en cada paso.',
   'features.pickup.bullet1': 'El portero verifica al instante si la persona está autorizada',
   'features.pickup.bullet2': 'Bloqueo inmediato ante cualquier restricción judicial',
   'features.pickup.bullet3': 'Notificaciones automáticas por cargo, sin enviar nunca datos sensibles del menor',
@@ -107,16 +105,20 @@ export const es = {
 
   // Compliance section
   'compliance.overline': 'Cumplimiento normativo',
-  'compliance.title': 'La Ley 21.719 entra en vigencia pronto',
-  'compliance.subtitle':
-    'Los colegios que no estén preparados enfrentan multas de hasta 20.000 UTM. {brand} fue diseñado para que tu colegio cumpla la Ley 21.719.',
+  'compliance.title': 'La Ley 21.719 entra en plena vigencia en diciembre 2026',
+  'compliance.subtitle': 'Los colegios que no estén preparados arriesgan multas millonarias. {brand} existe para que el tuyo cumpla.',
   'compliance.overline_detail': 'Ley 21.719 · Diciembre 2026',
   'compliance.countdown.label': 'Tiempo restante para la entrada en vigencia',
   'compliance.countdown.days': 'días',
   'compliance.countdown.hours': 'horas',
   'compliance.countdown.minutes': 'minutos',
-  'compliance.item1': 'Consentimiento parental obligatorio para menores',
-  'compliance.item2': 'Derechos ARCO: acceso, rectificación, supresión, oposición',
+  'compliance.countdown.day': 'día',
+  'compliance.countdown.hour': 'hora',
+  'compliance.countdown.minute': 'minuto',
+  'hero.pilot_badge': 'Piloto 2026 · Cupos limitados',
+  'home.demo_data_badge_short': 'Demo',
+  'compliance.item1': 'Consentimiento parental obligatorio para menores de 14 años',
+  'compliance.item2': 'Derechos de acceso, rectificación, supresión y oposición (ARCO)',
   'compliance.item3': 'Registro de auditoría de cada acceso a datos sensibles',
   'compliance.item4': 'Cifrado de datos sensibles con estándar bancario',
   'compliance.item5': 'Datos de cada colegio completamente aislados entre sí',
@@ -138,8 +140,7 @@ export const es = {
   // Final CTA
   'cta.urgency_eyebrow': 'El momento es ahora',
   'cta.title': 'Protege tu comunidad escolar hoy',
-  'cta.subtitle':
-    'El piloto 2026 tiene cupos limitados. Sé de los primeros colegios en cumplir con la Ley 21.719.',
+  'cta.subtitle': 'Cupos limitados para el piloto 2026. Agenda una demo y prepara tu colegio antes de la plena vigencia.',
   'cta.primary': 'Agendar Demo',
 
   // Footer
@@ -188,7 +189,7 @@ export const es = {
   'faq.q2': '¿Funciona con nuestro software actual?',
   'faq.a2': '{brand} está diseñado para complementar tu software existente (Napsis, SIGE, etc.), no para reemplazarlo. Puedes importar datos desde Excel o cualquier formato estructurado sin perder historial.',
   'faq.q3': '¿Cuánto tiempo toma implementar {brand}?',
-  'faq.a3': 'La configuración inicial toma menos de 48 horas. La migración de datos y capacitación del equipo se completan en 2-4 semanas dependiendo del volumen de información.',
+  'faq.a3': 'La configuración inicial toma menos de 48 horas. La migración de datos y capacitación del equipo se completan en 2 a 4 semanas dependiendo del volumen de información.',
   'faq.q4': '¿Qué pasa si no cumplimos con la Ley 21.719?',
   'faq.a4': 'Las multas pueden alcanzar hasta 20.000 UTM (más de $1.200 millones CLP). Además, la institución enfrenta daño reputacional y potenciales demandas de apoderados por mal manejo de datos.',
   'faq.q5': '¿Para qué tipo de colegios está diseñado?',
@@ -578,7 +579,7 @@ export const es = {
   'home.compliance_banner.desc': 'Cifrado, auditoría, consentimiento parental y aislamiento de datos, integrados en cada función.',
 
   // Home page — countdown CTA hint
-  'home.countdown.cta_hint': 'No esperes al último momento. Agenda hoy',
+  'home.countdown.cta_hint': 'No esperes al último momento. Agenda hoy.',
 
   // Home page — roles section (overline & title reused from roles.overline/roles.title but these are specific to home)
   'home.roles.overline': 'Para cada cargo',
@@ -603,12 +604,12 @@ export const es = {
   'home.roles.apoderado.alt': 'Ilustración del rol: Apoderado',
 
   // Home page — how it works time labels
-  'home.how.subtitle': 'Sin licitaciones, sin instalaciones y sin servidores propios. La implementación la acompaña nuestro equipo.',
+  'home.how.subtitle': 'Sin instalaciones ni servidores propios. Nuestro equipo acompaña toda la implementación.',
   'home.how.step_label': 'Paso',
   'home.how.cta': 'Empezar mi colegio',
   'home.how.step1.time': '48 horas',
   'home.how.step2.time': '2 semanas',
-  'home.how.step3.time': 'Día 1',
+  'home.how.step3.time': 'Desde el día 1',
 
   // Home page — meta
   'home.meta.title': '{brand}, protección y seguimiento escolar para Chile (Ley 21.719)',
@@ -1654,7 +1655,7 @@ export const es = {
 
   // ── i18n sweep: get-started ──
   'getstarted.hero.eyebrow': 'Proceso de onboarding',
-  'getstarted.hero.eyebrow_meta': '4 pasos · 2-4 semanas',
+  'getstarted.hero.eyebrow_meta': '4 pasos · 2 a 4 semanas',
   'getstarted.timeline.step1_label': 'Paso 01',
   'getstarted.timeline.step1_value': 'Demo · 30 min',
   'getstarted.timeline.step2_label': 'Paso 02',
@@ -1698,14 +1699,14 @@ export const es = {
   'home.demo_data_badge': 'Datos ficticios · Demo',
   'home.carousel_dot_label': 'Ver',
   'home.problem_meta': '3 fricciones · 1 sistema',
-  'home.solution_meta': '10 módulos · Activación modular',
-  'home.how_meta': '3 pasos · 2-4 semanas',
+  'home.solution_meta': 'Módulos independientes · Activación gradual',
+  'home.how_meta': '3 pasos · 2 a 4 semanas',
   'home.faq_meta': '7 preguntas · Respuestas directas',
   'home.countdown_live_prefix': 'Faltan',
   'home.countdown_live_days': 'días,',
   'home.countdown_live_hours': 'horas y',
   'home.countdown_live_suffix': 'minutos para que la Ley 21.719 entre plenamente en vigencia.',
-  'home.cta_days_suffix': 'días para Ley 21.719',
+  'home.cta_days_suffix': 'días para la Ley 21.719',
   'home.trust_section_label': 'Arquitectura verificable',
 
   // ── i18n sweep: integrations ──
