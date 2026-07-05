@@ -9,14 +9,14 @@
 
 <svelte:head>
   <title>Términos de Uso · {BRAND}</title>
-  <meta name="description" content={`Términos de uso de ${BRAND}. Condiciones de uso de la plataforma de gestión escolar.`} />
+  <meta name="description" content={`Términos de uso de ${BRAND}. Condiciones de uso de la plataforma de protección escolar.`} />
   <meta property="og:url" content="https://ethoz.cl/terms" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content={`Términos de Uso · ${BRAND}`} />
-  <meta property="og:description" content={`Términos de uso de ${BRAND}. Condiciones de uso de la plataforma de gestión escolar.`} />
+  <meta property="og:description" content={`Términos de uso de ${BRAND}. Condiciones de uso de la plataforma de protección escolar.`} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={`Términos de Uso · ${BRAND}`} />
-  <meta name="twitter:description" content={`Términos de uso de ${BRAND}. Condiciones de uso de la plataforma de gestión escolar.`} />
+  <meta name="twitter:description" content={`Términos de uso de ${BRAND}. Condiciones de uso de la plataforma de protección escolar.`} />
   <link rel="canonical" href="https://ethoz.cl/terms" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Términos de Servicio"}]})}</script>`}
 </svelte:head>
@@ -41,7 +41,7 @@
       <section>
         <h2 class="text-lg font-semibold text-foreground">2. Descripción del servicio</h2>
         <p class="mt-2">
-          {BRAND} es una plataforma de gestión y cumplimiento normativo para establecimientos educacionales en Chile. Proporciona herramientas de seguimiento de alumnos, control de acceso, gestión de retiros escolares y cumplimiento con la Ley 21.719 de Protección de Datos Personales.
+          {BRAND} es una plataforma de protección escolar y cumplimiento normativo para establecimientos educacionales en Chile. Proporciona herramientas de seguimiento de alumnos, control de acceso, gestión de retiros escolares y cumplimiento con la Ley 21.719 de Protección de Datos Personales.
         </p>
       </section>
 

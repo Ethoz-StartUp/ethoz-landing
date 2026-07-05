@@ -238,7 +238,7 @@ export const en = {
   // Demo page
   'demo.back': 'Back to home',
   'demo.step1.title': 'Find your school',
-  'demo.step1.subtitle': 'Search among 12,000+ educational institutions in Chile.',
+  'demo.step1.subtitle': 'Search among the 12,038 educational establishments in Chile.',
   'demo.region.placeholder': 'Select a region',
   'demo.commune.placeholder': 'Select a commune',
   'demo.search.placeholder': 'Search by school name...',
@@ -612,7 +612,7 @@ export const en = {
 
   // Get-started page
   'getstarted.hero.title': 'Easy to contract, easy to implement',
-  'getstarted.hero.subtitle': 'No complex procurement. No on-premise installations. In less than a month, your school is operating with protected data and regulatory compliance resolved.',
+  'getstarted.hero.subtitle': 'No on-premise installations and no endless projects. In less than a month, your school is operating with protected data and regulatory compliance resolved.',
   'getstarted.hero.badge': 'Law 21.719 Compliance · Deadline: December 2026',
   'getstarted.hero.cta': 'Book a Free Demo',
   'getstarted.step1.overline': 'Step 1',
@@ -924,7 +924,7 @@ export const en = {
   // ── i18n sweep: comparativa ──
   'comparativa.cat_security': 'Security and compliance',
   'comparativa.row_encryption_at_rest': 'Data encryption at rest',
-  'comparativa.row_rls_by_role': 'Role-based RLS (Row-Level Security)',
+  'comparativa.row_rls_by_role': 'Role-based permissions (access by role)',
   'comparativa.row_native_audit_log': 'Native audit log',
   'comparativa.row_law_21719': 'Complies with Law 21.719 (data)',
   'comparativa.row_circular_30': 'Complies with Circular No. 30 (digital logbook)',
@@ -1904,7 +1904,7 @@ export const en = {
   'ley21719.s9_heading': 'How does {brand} help with Law 21,719?',
   'ley21719.s9_intro': '{brand} does not replace the school management system your school already uses. It adds the security, privacy, and compliance layer that those systems were never designed to provide.',
   'ley21719.s9_f1_title': 'Encryption and RLS by design',
-  'ley21719.s9_f1_desc': 'Data encrypted at rest and in transit. Row-Level Security on every query: each member of the school accesses only what concerns them.',
+  'ley21719.s9_f1_desc': 'Data encrypted at rest and in transit. Each member of the school accesses only what concerns them, verified on every query.',
   'ley21719.s9_f2_title': 'Immutable audit log',
   'ley21719.s9_f2_desc': 'Every sensitive action is recorded with user, timestamp, and IP. Traceability required by Circular No. 30 and essential in the event of a breach.',
   'ley21719.s9_f3_title': 'ARCO+P rights management',
@@ -2053,7 +2053,7 @@ export const en = {
   'audience.porteros.meta_og_title': '{brand} for Gatekeepers: safe pickups in seconds',
   'audience.porteros.hero_badge': 'For gatekeepers and pickup assistants',
   'audience.porteros.hero_title': 'The screen that replaces the Excel sheet at the entrance',
-  'audience.porteros.hero_subtitle': 'Green: cleared to pick up. Red: not cleared. No calls to the office, no digging through folders, no margin for error. The answer is on the screen in under 3 seconds.',
+  'audience.porteros.hero_subtitle': 'Green: cleared to pick up. Red: not cleared. No calls to the office, no digging through folders, and no guessing. The answer is on the screen in under 3 seconds.',
   'audience.porteros.hero_bullet1': 'Student photo + list of authorized guardians, no ambiguity',
   'audience.porteros.hero_bullet2': 'Court restrictions shown automatically, without anyone having to warn you',
   'audience.porteros.hero_bullet3': 'Automatic record of every pickup: the gatekeeper writes nothing by hand',
