@@ -38,7 +38,7 @@
   ];
 
   const infraItems = [
-    { name: 'Supabase (Postgres)', location: 'seguridadDatos.infra_supabase_location' as const, role: 'seguridadDatos.infra_supabase_role' as const },
+    { name: 'Cloud SQL (Postgres)', location: 'seguridadDatos.infra_supabase_location' as const, role: 'seguridadDatos.infra_supabase_role' as const },
     { name: 'Firebase Hosting', location: 'seguridadDatos.infra_firebase_location' as const, role: 'seguridadDatos.infra_firebase_role' as const },
     { name: 'Cloudflare', location: 'seguridadDatos.infra_cloudflare_location' as const, role: 'seguridadDatos.infra_cloudflare_role' as const },
   ];
@@ -342,7 +342,7 @@
             {/each}
           </div>
           <p class="mt-6 text-sm leading-relaxed text-muted-foreground">
-            {t('seguridadDatos.infra_region_pre')} <strong class="text-foreground">AWS São Paulo</strong>{t('seguridadDatos.infra_region_post')}
+            {t('seguridadDatos.infra_region_pre')} <strong class="text-foreground">Google Cloud Santiago</strong>{t('seguridadDatos.infra_region_post')}
           </p>
         </section>
 
