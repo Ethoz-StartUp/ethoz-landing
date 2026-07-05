@@ -55,10 +55,10 @@
   <meta name="description" content={t('featurePage.smartSearch.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/features/smart-search" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} · Búsqueda Instantánea y Dashboard Inteligente`} />
+  <meta property="og:title" content={`${BRAND} · Búsqueda instantánea y panel de gestión`} />
   <meta property="og:description" content={t('featurePage.smartSearch.meta_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} · Búsqueda Instantánea y Dashboard Inteligente`} />
+  <meta name="twitter:title" content={`${BRAND} · Búsqueda instantánea y panel de gestión`} />
   <meta name="twitter:description" content={t('featurePage.smartSearch.meta_description')} />
   <link rel="canonical" href="https://ethoz.cl/features/smart-search" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Búsqueda Inteligente"}]})}</script>`}

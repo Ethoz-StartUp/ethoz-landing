@@ -675,7 +675,7 @@ export const en = {
   // Feature page: Safe Pickups
   'featurePage.safePickups.editorial.eyebrow': 'The truth at the gate',
   'featurePage.safePickups.editorial.statement': 'Pickup is the one moment of the day where a mistake pays out in a news headline.',
-  'featurePage.safePickups.editorial.body': "{brand} doesn't ask the porter to get it right under pressure. It makes getting it wrong impossible.",
+  'featurePage.safePickups.editorial.body': "{brand} doesn't ask the porter to get it right under pressure. It turns every handover into a verified step.",
   'featurePage.safePickups.finalCta.eyebrow': 'The gate · The most visible control point',
   'featurePage.safePickups.finalCta.title': 'Put the screen between the porter and the doubt.',
   'featurePage.safePickups.finalCta.subtitle': "A 20-minute demo walks you through the exact flow, loaded with your school's guardians.",
@@ -1027,7 +1027,7 @@ export const en = {
 
   // ── i18n sweep: contact-page ──
   'contact.eyebrow_institutional': 'Institutional contact',
-  'contact.eyebrow_response_hours': 'Response hours · Mon-Fri 9:00-18:00 CLT',
+  'contact.eyebrow_response_hours': 'Response hours · Mon to Fri · 9:00 to 18:00 CLT',
   'contact.channels_label': 'Direct channels',
   'contact.email.cta': 'Write an email',
   'contact.demo.subtext': '30-minute session with a specialist',
@@ -1466,7 +1466,7 @@ export const en = {
   'featurePage.privacyCompliance.finalCta.cta_secondary': 'Understand the law first',
 
   // ── i18n sweep: feat-safe-pickups ──
-  'featurePage.safePickups.meta.description': 'The gate staff knows in seconds whether a student can be released: no calls, no paper, no margin for error.',
+  'featurePage.safePickups.meta.description': 'The gate staff knows in seconds whether a student can be released: no calls, no paper, and verification at every step.',
   'featurePage.safePickups.meta.og_title': '{brand}: Safe Pickups and Critical Alerts',
   'featurePage.safePickups.hero.back_link': 'Back to features',
   'featurePage.safePickups.hero.bullet1': 'Instant verification by name or ID number, no calls to the dean\'s office',
@@ -1655,7 +1655,7 @@ export const en = {
   'getstarted.timeline.step2_label': 'Step 02',
   'getstarted.timeline.step2_value': 'Setup · 1 wk',
   'getstarted.timeline.step3_label': 'Step 03',
-  'getstarted.timeline.step3_value': 'Migration · 1-2 wks',
+  'getstarted.timeline.step3_value': 'Migration · 1 to 2 wks',
   'getstarted.timeline.step4_label': 'Step 04',
   'getstarted.timeline.step4_value': 'Live',
   'getstarted.final_cta.overline': 'Get started',
@@ -2029,7 +2029,7 @@ export const en = {
   'audience.directores.emergency_title': 'Emergency evacuation: Block 3',
   'audience.directores.emergency_meta': 'Activated by Principal Fuentes · 10:42 AM · Staff room',
   'audience.directores.emergency_sector1': 'Main courtyard',
-  'audience.directores.emergency_sector2': 'Block B · floors 1-2',
+  'audience.directores.emergency_sector2': 'Block B · floors 1 and 2',
   'audience.directores.emergency_sector3': 'Block C · floor 3',
   'audience.directores.emergency_sector4': 'Laboratory',
   'audience.directores.emergency_status_confirmed': 'Confirmed',

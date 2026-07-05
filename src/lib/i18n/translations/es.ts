@@ -680,7 +680,7 @@ export const es = {
   // Feature page: Safe Pickups (Retiros seguros)
   'featurePage.safePickups.editorial.eyebrow': 'La verdad del portón',
   'featurePage.safePickups.editorial.statement': 'El retiro es el único momento del día en que un error se paga con un titular de prensa.',
-  'featurePage.safePickups.editorial.body': '{brand} no pide que el portero lo haga bien bajo presión. Lo hace imposible de hacer mal.',
+  'featurePage.safePickups.editorial.body': '{brand} no pide que el portero lo haga bien bajo presión. Convierte cada entrega en un paso verificado.',
   'featurePage.safePickups.finalCta.eyebrow': 'Portería · El punto de control más visible',
   'featurePage.safePickups.finalCta.title': 'Pon la pantalla entre el portero y la duda.',
   'featurePage.safePickups.finalCta.subtitle': 'Una demo de 20 minutos te muestra el flujo exacto con los apoderados de tu colegio.',
@@ -1032,7 +1032,7 @@ export const es = {
 
   // ── i18n sweep: contact-page ──
   'contact.eyebrow_institutional': 'Contacto institucional',
-  'contact.eyebrow_response_hours': 'Horario de respuesta · L-V 9:00-18:00 CLT',
+  'contact.eyebrow_response_hours': 'Horario de respuesta · L a V · 9:00 a 18:00 CLT',
   'contact.channels_label': 'Canales directos',
   'contact.email.cta': 'Escribir correo',
   'contact.demo.subtext': 'Sesión de 30 minutos con un especialista',
@@ -1471,7 +1471,7 @@ export const es = {
   'featurePage.privacyCompliance.finalCta.cta_secondary': 'Entender la ley primero',
 
   // ── i18n sweep: feat-safe-pickups ──
-  'featurePage.safePickups.meta.description': 'El portero sabe en segundos si puede entregar al alumno: sin llamadas, sin papel, sin margen de error.',
+  'featurePage.safePickups.meta.description': 'El portero sabe en segundos si puede entregar al alumno: sin llamadas, sin papel y con verificación en cada paso.',
   'featurePage.safePickups.meta.og_title': '{brand}: Retiros Seguros y Alertas Críticas',
   'featurePage.safePickups.hero.back_link': 'Volver a características',
   'featurePage.safePickups.hero.bullet1': 'Verificación instantánea por nombre o RUT, sin llamadas a inspectoría',
@@ -1660,7 +1660,7 @@ export const es = {
   'getstarted.timeline.step2_label': 'Paso 02',
   'getstarted.timeline.step2_value': 'Configuración · 1 sem',
   'getstarted.timeline.step3_label': 'Paso 03',
-  'getstarted.timeline.step3_value': 'Migración · 1-2 sem',
+  'getstarted.timeline.step3_value': 'Migración · 1 a 2 sem',
   'getstarted.timeline.step4_label': 'Paso 04',
   'getstarted.timeline.step4_value': 'En vivo',
   'getstarted.final_cta.overline': 'Comenzar',
@@ -2034,7 +2034,7 @@ export const es = {
   'audience.directores.emergency_title': 'Evacuación de emergencia: Bloque 3',
   'audience.directores.emergency_meta': 'Activado por Dir. Fuentes · 10:42 AM · Sala de profesores',
   'audience.directores.emergency_sector1': 'Patio principal',
-  'audience.directores.emergency_sector2': 'Bloque B · pisos 1-2',
+  'audience.directores.emergency_sector2': 'Bloque B · pisos 1 y 2',
   'audience.directores.emergency_sector3': 'Bloque C · piso 3',
   'audience.directores.emergency_sector4': 'Laboratorio',
   'audience.directores.emergency_status_confirmed': 'Confirmado',
