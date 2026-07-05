@@ -3,10 +3,22 @@
     {
       "site": "ethoz",
       "public": "build",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
       "redirects": [
-        { "source": "/en", "destination": "/", "type": 301 },
-        { "source": "/en/**", "destination": "/", "type": 301 }
+        {
+          "source": "/en",
+          "destination": "/",
+          "type": 301
+        },
+        {
+          "source": "/en/**",
+          "destination": "/",
+          "type": 301
+        }
       ],
       "rewrites": [
         {
@@ -18,12 +30,30 @@
         {
           "source": "**",
           "headers": [
-            { "key": "X-Frame-Options", "value": "DENY" },
-            { "key": "X-Content-Type-Options", "value": "nosniff" },
-            { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-            { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-            { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" },
-            { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Permissions-Policy",
+              "value": "camera=(), microphone=(), geolocation=()"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=0, must-revalidate"
+            },
             {
               "key": "Content-Security-Policy-Report-Only",
               "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.cal.com https://*.cal.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://www.clarity.ms https://*.clarity.ms https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.basemaps.cartocdn.com; connect-src 'self' https://*.supabase.co https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://www.clarity.ms https://*.clarity.ms https://www.google-analytics.com https://api.cal.com https://app.cal.com https://*.cal.com https://*.basemaps.cartocdn.com https://api.ipify.org; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://app.cal.com; font-src 'self' data:; frame-src https://app.cal.com https://*.cal.com https://www.google.com; worker-src 'self' blob:; report-uri https://o4511169804500992.ingest.us.sentry.io/api/4511169807843328/security/?sentry_key=47b75aa781e8cd28829b3031cc1ed042"
@@ -33,13 +63,19 @@
         {
           "source": "/admin",
           "headers": [
-            { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
           ]
         },
         {
           "source": "/admin/**",
           "headers": [
-            { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
           ]
         },
         {
@@ -51,15 +87,28 @@
             }
           ]
         }
-      ]
+      ],
+      "cleanUrls": true
     },
     {
       "site": "gestion-estudiantil-dev",
       "public": "build",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
       "redirects": [
-        { "source": "/en", "destination": "/", "type": 301 },
-        { "source": "/en/**", "destination": "/", "type": 301 }
+        {
+          "source": "/en",
+          "destination": "/",
+          "type": 301
+        },
+        {
+          "source": "/en/**",
+          "destination": "/",
+          "type": 301
+        }
       ],
       "rewrites": [
         {
@@ -71,12 +120,30 @@
         {
           "source": "**",
           "headers": [
-            { "key": "X-Frame-Options", "value": "DENY" },
-            { "key": "X-Content-Type-Options", "value": "nosniff" },
-            { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-            { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-            { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" },
-            { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Permissions-Policy",
+              "value": "camera=(), microphone=(), geolocation=()"
+            },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=31536000; includeSubDomains"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=0, must-revalidate"
+            },
             {
               "key": "Content-Security-Policy-Report-Only",
               "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.cal.com https://*.cal.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://www.clarity.ms https://*.clarity.ms https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.basemaps.cartocdn.com; connect-src 'self' https://*.supabase.co https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://www.clarity.ms https://*.clarity.ms https://www.google-analytics.com https://api.cal.com https://app.cal.com https://*.cal.com https://*.basemaps.cartocdn.com https://api.ipify.org; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://app.cal.com; font-src 'self' data:; frame-src https://app.cal.com https://*.cal.com https://www.google.com; worker-src 'self' blob:; report-uri https://o4511169804500992.ingest.us.sentry.io/api/4511169807843328/security/?sentry_key=47b75aa781e8cd28829b3031cc1ed042"
@@ -86,13 +153,19 @@
         {
           "source": "/admin",
           "headers": [
-            { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
           ]
         },
         {
           "source": "/admin/**",
           "headers": [
-            { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
           ]
         },
         {
@@ -104,7 +177,8 @@
             }
           ]
         }
-      ]
+      ],
+      "cleanUrls": true
     }
   ]
 }
