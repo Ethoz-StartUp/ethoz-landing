@@ -26,7 +26,7 @@ export const en = {
   'hero.countdown_label': 'Countdown',
 
   // Trust bar — provable facts, not generic badges
-  'trust.attribution': 'Built in Chile · Compliance by design from day one',
+  'trust.attribution': 'Built in Chile · Security from the origin',
   'trust.compliance': 'Built for Ley 21.719',
   'trust.encryption': 'Encryption at rest and in transit, with a full audit trail',
   'trust.integration': 'Works alongside Napsis, SIGE and Lirmi',
@@ -56,8 +56,7 @@ export const en = {
   'problem.card1.desc':
     'Excel, notebooks, WhatsApp groups. Your students\' critical information lives in silos no one controls.',
   'problem.card2.title': 'Security risks',
-  'problem.card2.desc':
-    'A restraining order that never reaches the gate guard. An unauthorized pickup that no one caught in time.',
+  'problem.card2.desc': 'A restraining order that never reaches the gate. An unauthorized pickup that nobody catches in time.',
   'problem.card3.title': 'No regulatory compliance',
   'problem.card3.desc':
     'Law 21.719 demands traceability, consent, and access control. Spreadsheets don\'t comply.',
@@ -72,7 +71,7 @@ export const en = {
   'features.record.desc': 'A profile that follows each student year after year, with access controlled by role.',
   'features.record.bullet1': 'A timeline of behavioral, academic, and emotional observations that persists year after year',
   'features.record.bullet2': 'Three confidentiality levels (standard, restricted, and private) that automatically control who sees what',
-  'features.record.bullet3': 'Art. 16 bis compliant: only yes/no medical alerts, without clinical details',
+  'features.record.bullet3': 'Medical alerts as yes/no only, no clinical details (Art. 16 bis)',
 
   'features.pickup.title': 'Safe Pickups & Critical Alerts',
   'features.pickup.desc': 'The porter knows in seconds whether a student can be released: no calls, no paper, and verification at every step.',
@@ -1693,10 +1692,10 @@ export const en = {
   'home.carousel_label': '{brand} dashboard preview',
   'home.demo_data_badge': 'Fictional data · Demo',
   'home.carousel_dot_label': 'View',
-  'home.problem_meta': '3 frictions · 1 system',
+  'home.problem_meta': '3 daily frictions',
   'home.solution_meta': 'Independent modules · Gradual activation',
   'home.how_meta': '3 steps · 2 to 4 weeks',
-  'home.faq_meta': '7 questions · Straight answers',
+  'home.faq_meta': '6 frequent questions',
   'home.countdown_live_prefix': 'In',
   'home.countdown_live_days': 'days,',
   'home.countdown_live_hours': 'hours and',

@@ -435,22 +435,22 @@
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
           <dt class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-foreground">{t('trust.label.data')}</dt>
-          <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.servers')}</dd>
+          <dd class="mt-2 text-balance text-sm font-medium leading-snug text-foreground">{t('trust.servers')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
           <dt class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-foreground">{t('trust.label.encryption')}</dt>
-          <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.encryption')}</dd>
+          <dd class="mt-2 text-balance text-sm font-medium leading-snug text-foreground">{t('trust.encryption')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
           <dt class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-foreground">{t('trust.label.integration')}</dt>
-          <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.integration')}</dd>
+          <dd class="mt-2 text-balance text-sm font-medium leading-snug text-foreground">{t('trust.integration')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
           <dt class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-foreground">{t('trust.label.compliance')}</dt>
-          <dd class="mt-2 text-sm font-medium leading-snug text-foreground">{t('trust.compliance')}</dd>
+          <dd class="mt-2 text-balance text-sm font-medium leading-snug text-foreground">{t('trust.compliance')}</dd>
         </div>
       </dl>
     </div>
@@ -475,7 +475,7 @@
       <dl class="grid grid-cols-1 border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
         <div class="px-6 py-6 text-center sm:py-8">
           <dt class="sr-only">{t('editorial.stat1_label')}</dt>
-          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
+          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl">
             {t('editorial.stat1_number')}
           </dd>
           <p class="mt-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
@@ -484,7 +484,7 @@
         </div>
         <div class="border-t border-border px-6 py-6 text-center sm:border-t-0 sm:py-8">
           <dt class="sr-only">{t('editorial.stat2_label')}</dt>
-          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
+          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl">
             {t('editorial.stat2_number')}
           </dd>
           <p class="mt-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
@@ -493,7 +493,7 @@
         </div>
         <div class="border-t border-border px-6 py-6 text-center sm:border-t-0 sm:py-8">
           <dt class="sr-only">{t('editorial.stat3_label')}</dt>
-          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl" data-numeric>
+          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl">
             {t('editorial.stat3_number')}
           </dd>
           <p class="mt-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
@@ -513,6 +513,7 @@
   <section class="reveal py-16 sm:py-20 lg:py-24" id="problem">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
+        <p class="eyebrow mb-4">{t('home.problem_meta')}</p>
         <h2 class="text-balance text-foreground">
           {t('problem.title')}
         </h2>
@@ -551,6 +552,7 @@
   <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="features">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
+        <p class="eyebrow mb-4">{t('home.solution_meta')}</p>
         <h2 class="text-balance text-foreground">
           {t('solution.title')}
         </h2>
@@ -570,7 +572,7 @@
               <p class="mt-4 text-base leading-relaxed text-body">
                 {t('features.record.desc')}
               </p>
-              <span class="mt-6 inline-flex items-center gap-1 border-b border-foreground pb-0.5 text-sm font-semibold text-foreground transition-all group-hover:gap-1.5 group-hover:border-b-2">
+              <span class="mt-6 hidden items-center gap-1 border-b border-foreground pb-0.5 text-sm font-semibold text-foreground transition-all group-hover:gap-1.5 group-hover:border-b-2 lg:inline-flex">
                 {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
               </span>
             </div>
@@ -588,6 +590,10 @@
                 <p class="text-sm leading-relaxed text-foreground">{t('features.record.bullet3')}</p>
               </li>
             </ul>
+            <!-- Below lg the columns stack, so the link closes the card after the bullets -->
+            <span class="inline-flex items-center gap-1 self-start border-b border-foreground pb-0.5 text-sm font-semibold text-foreground transition-all group-hover:gap-1.5 group-hover:border-b-2 lg:hidden">
+              {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
+            </span>
           </div>
         </a>
       </div>
@@ -690,6 +696,7 @@
   <section class="reveal py-16 sm:py-20 lg:py-24" id="how">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
+        <p class="eyebrow mb-4">{t('home.how_meta')}</p>
         <h2 class="text-balance text-foreground">
           {t('how.title')}
         </h2>
@@ -705,7 +712,7 @@
           <!-- Step 1 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl leading-none text-foreground" data-numeric>01</span>
+              <span class="font-heading text-4xl leading-none text-foreground">01</span>
               <span class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('home.how.step1.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step1.title')}</h3>
@@ -715,7 +722,7 @@
           <!-- Step 2 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl leading-none text-foreground" data-numeric>02</span>
+              <span class="font-heading text-4xl leading-none text-foreground">02</span>
               <span class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('home.how.step2.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step2.title')}</h3>
@@ -725,7 +732,7 @@
           <!-- Step 3 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl leading-none text-foreground" data-numeric>03</span>
+              <span class="font-heading text-4xl leading-none text-foreground">03</span>
               <span class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('home.how.step3.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step3.title')}</h3>
@@ -757,6 +764,7 @@
   <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="faq">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
+        <p class="eyebrow mb-4">{t('home.faq_meta')}</p>
         <h2 class="text-balance text-foreground">
           {t('faq.title')}
         </h2>
@@ -845,7 +853,8 @@
           class="bg-transparent border-on-dark text-on-dark hover:bg-on-dark hover:text-surface-dark"
         >
           <Play class="size-5" />
-          {t('hero.video_short')}
+          <span class="hidden sm:inline">{t('hero.video_long')}</span>
+          <span class="sm:hidden">{t('hero.video_short')}</span>
         </Button>
       </div>
     </div>

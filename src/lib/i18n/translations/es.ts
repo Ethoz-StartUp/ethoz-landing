@@ -26,7 +26,7 @@ export const es = {
   'hero.countdown_label': 'Cuenta regresiva',
 
   // Trust bar — provable facts, not generic badges
-  'trust.attribution': 'Desarrollado en Chile · Cumplimiento por diseño desde el origen',
+  'trust.attribution': 'Desarrollado en Chile · Seguridad desde el origen',
   'trust.compliance': 'Construido para Ley 21.719',
   'trust.encryption': 'Cifrado en reposo y en tránsito, con auditoría completa',
   'trust.integration': 'Convive con Napsis, SIGE y Lirmi',
@@ -56,8 +56,7 @@ export const es = {
   'problem.card1.desc':
     'Excel, libretas, grupos de WhatsApp. La información crítica de tus alumnos vive en silos que nadie controla.',
   'problem.card2.title': 'Riesgos de seguridad',
-  'problem.card2.desc':
-    'Una orden de alejamiento que no llega al portero. Un retiro no autorizado que nadie detectó a tiempo.',
+  'problem.card2.desc': 'Una orden de alejamiento que no llega al portero. Un retiro no autorizado que nadie detecta a tiempo.',
   'problem.card3.title': 'Sin cumplimiento normativo',
   'problem.card3.desc':
     'La Ley 21.719 exige trazabilidad, consentimiento y control de acceso. Las planillas no cumplen.',
@@ -68,13 +67,13 @@ export const es = {
   'solution.subtitle': 'Módulos para la seguridad y la operación diaria de tu colegio. Activa solo los que necesitas.',
 
   // Features
-  'features.record.title': 'Ficha Integral 360° del Alumno',
+  'features.record.title': 'Ficha integral 360° del alumno',
   'features.record.desc': 'Un perfil que acompaña al alumno año a año, con acceso controlado por cargo.',
   'features.record.bullet1': 'Línea de tiempo de observaciones conductuales, académicas y emocionales que persiste año a año',
   'features.record.bullet2': 'Tres niveles de confidencialidad (estándar, restringido y privado) que controlan automáticamente quién ve qué',
-  'features.record.bullet3': 'Cumplimiento del Art. 16 bis: solo alertas médicas de sí/no, sin detalles clínicos',
+  'features.record.bullet3': 'Alertas médicas solo de sí o no, sin detalles clínicos (Art. 16 bis)',
 
-  'features.pickup.title': 'Retiros Seguros y Alertas Críticas',
+  'features.pickup.title': 'Retiros seguros y alertas críticas',
   'features.pickup.desc': 'El portero sabe en segundos si puede entregar al alumno: sin llamadas, sin papel y con verificación en cada paso.',
   'features.pickup.bullet1': 'El portero verifica al instante si la persona está autorizada',
   'features.pickup.bullet2': 'Bloqueo inmediato ante cualquier restricción judicial',
@@ -86,13 +85,13 @@ export const es = {
   'features.privacy.bullet2': 'Notas judiciales cifradas y registro de auditoría inalterable de cada acceso (quién, qué, cuándo, desde dónde)',
   'features.privacy.bullet3': 'Gestión de consentimientos parentales obligatorios para menores de 14 y datos sensibles de menores de 16',
 
-  'features.rbac.title': 'Permisos por Cargo',
+  'features.rbac.title': 'Permisos por cargo',
   'features.rbac.desc': 'Cada persona ve exactamente lo que necesita, ni más ni menos.',
   'features.rbac.bullet1': 'Vista diferente según cargo: Director, Inspector, Profesor, Orientador y Portero ven solo lo que les corresponde',
   'features.rbac.bullet2': 'Pantalla del portero simplificada: solo foto, nombre, alertas críticas activas y registro de retiros',
   'features.rbac.bullet3': 'Observaciones con niveles de confidencialidad filtrados automáticamente según el cargo del usuario',
 
-  'features.search.title': 'Búsqueda Instantánea y Panel de Gestión',
+  'features.search.title': 'Búsqueda instantánea y panel de gestión',
   'features.search.desc': 'Cualquier alumno, en segundos, aunque escribas mal su nombre.',
   'features.search.bullet1': 'Búsqueda inteligente: encuentra al alumno aunque escribas mal su nombre o RUT',
   'features.search.bullet2': 'Panel central con indicadores visuales de alertas activas para gestión diaria sin sobrecarga',
@@ -1698,10 +1697,10 @@ export const es = {
   'home.carousel_label': 'Vista del panel {brand}',
   'home.demo_data_badge': 'Datos ficticios · Demo',
   'home.carousel_dot_label': 'Ver',
-  'home.problem_meta': '3 fricciones · 1 sistema',
+  'home.problem_meta': '3 fricciones diarias',
   'home.solution_meta': 'Módulos independientes · Activación gradual',
   'home.how_meta': '3 pasos · 2 a 4 semanas',
-  'home.faq_meta': '7 preguntas · Respuestas directas',
+  'home.faq_meta': '6 preguntas frecuentes',
   'home.countdown_live_prefix': 'Faltan',
   'home.countdown_live_days': 'días,',
   'home.countdown_live_hours': 'horas y',
