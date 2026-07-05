@@ -119,7 +119,7 @@
     <div class="mb-12">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">{t('contact.eyebrow_institutional')}</span>
-        <span aria-hidden="true" class="text-border">·</span>
+        <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('contact.eyebrow_response_hours')}</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
@@ -293,7 +293,7 @@
       <p class="text-sm text-muted-foreground">{t('contact.cta.label')}</p>
       <a
         href="/demo"
-        class="mt-2 inline-block text-sm font-medium text-primary transition-colors hover:text-primary"
+        class="inline-flex min-h-11 items-center text-sm font-medium text-primary transition-colors hover:text-primary"
       >
         {t('contact.cta.link')}
       </a>

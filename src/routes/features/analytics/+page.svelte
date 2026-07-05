@@ -33,7 +33,7 @@
   <!-- Hero -->
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <a href="/productos" class="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+      <a href="/productos" class="-mt-3 mb-5 inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
         {t('featurePage.analytics.back_to_products')}
       </a>
@@ -100,7 +100,7 @@
             <!-- Bar chart mockup -->
             <div class="mt-3">
               <p class="mb-2 text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.analytics.chart_observations_caption')}</p>
-              <div class="flex items-end gap-1 h-16">
+              <div class="flex gap-1 h-16">
                 {#each [
                   { labelKey: 'featurePage.analytics.month_mar' as const, h: 35, color: 'bg-primary/40' },
                   { labelKey: 'featurePage.analytics.month_apr' as const, h: 52, color: 'bg-primary/60' },
@@ -111,7 +111,7 @@
                   { labelKey: 'featurePage.analytics.month_sep' as const, h: 72, color: 'bg-primary' },
                   { labelKey: 'featurePage.analytics.month_oct' as const, h: 63, color: 'bg-primary/70' },
                 ] as bar}
-                  <div class="flex flex-1 flex-col items-center gap-0.5">
+                  <div class="flex flex-1 flex-col items-center justify-end gap-0.5">
                     <div class="w-full rounded-t {bar.color}" style="height: {bar.h}%"></div>
                     <span class="text-mockup-3xs text-muted-foreground">{t(bar.labelKey)}</span>
                   </div>

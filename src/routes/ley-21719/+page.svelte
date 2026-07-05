@@ -169,9 +169,9 @@
       <!-- Eyebrow metadata line -->
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">{t('ley21719.hero_eyebrow_doc')}</span>
-        <span aria-hidden="true" class="text-border">·</span>
+        <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('ley21719.hero_eyebrow_updated')}</span>
-        <span aria-hidden="true" class="text-border">·</span>
+        <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('ley21719.hero_eyebrow_readtime')}</span>
       </p>
 
@@ -473,9 +473,9 @@
         <footer class="border-t border-border pt-8">
           <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('ley21719.refs_label')}</p>
           <ol class="mt-4 space-y-2 text-xs leading-relaxed text-muted-foreground">
-            <li class="flex gap-2"><sup class="text-primary shrink-0">1</sup><span>{t('ley21719.ref_1')}</span></li>
-            <li class="flex gap-2"><sup class="text-primary shrink-0">2</sup><span>{t('ley21719.ref_2')}</span></li>
-            <li class="flex gap-2"><sup class="text-primary shrink-0">3</sup><span>{t('ley21719.ref_3')}</span></li>
+            <li><sup class="mr-1.5 text-primary">1</sup><span>{t('ley21719.ref_1')}</span></li>
+            <li><sup class="mr-1.5 text-primary">2</sup><span>{t('ley21719.ref_2')}</span></li>
+            <li><sup class="mr-1.5 text-primary">3</sup><span>{t('ley21719.ref_3')}</span></li>
           </ol>
           <a
             href="https://www.bcn.cl/leychile/navegar?idNorma=1209272"
@@ -514,9 +514,9 @@
         </a>
         <a
           href="/glosario"
-          class="inline-flex items-center gap-1 border-b border-background/60 pb-0.5 text-sm font-medium text-background/80 transition-colors hover:border-background hover:text-background"
+          class="group inline-flex min-h-11 items-center gap-1 text-sm font-medium text-background/80 transition-colors hover:text-background"
         >
-          {t('ley21719.cta_secondary')}
+          <span class="border-b border-background/60 pb-0.5 transition-colors group-hover:border-background">{t('ley21719.cta_secondary')}</span>
         </a>
       </div>
     </div>

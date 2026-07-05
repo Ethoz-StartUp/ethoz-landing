@@ -270,11 +270,13 @@
           </div>
           <div class="p-4">
             <!-- Chart bars -->
-            <div class="flex items-end gap-1.5 h-28 mb-2">
+            <div class="flex gap-1.5 mb-2">
               {#each convivenciaMeses as mes}
                 <div class="flex-1 flex flex-col items-center gap-1">
-                  <p class="text-mockup-3xs text-foreground font-semibold">{mes.valor}</p>
-                  <div class="w-full rounded-t-sm {mes.alerta ? 'bg-destructive/60' : 'bg-primary/40'}" style="height: {(mes.valor / maxVal) * 80}px"></div>
+                  <div class="flex h-24 w-full flex-col items-center justify-end gap-1">
+                    <p class="text-mockup-3xs text-foreground font-semibold">{mes.valor}</p>
+                    <div class="w-full shrink-0 rounded-t-sm {mes.alerta ? 'bg-destructive/60' : 'bg-primary/40'}" style="height: {(mes.valor / maxVal) * 80}px"></div>
+                  </div>
                   <p class="text-mockup-3xs text-muted-foreground">{t(mes.mesKey)}</p>
                   {#if mes.cursoKey}
                     <p class="text-mockup-3xs text-muted-foreground">{t(mes.cursoKey)}</p>

@@ -166,8 +166,8 @@
   <NavBar />
 </div>
 
-<main class="min-h-dvh bg-background">
-  <div class="print:hidden sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur-sm">
+<main class="min-h-dvh bg-background pt-24">
+  <div class="print:hidden sticky top-24 z-10 border-b border-border bg-background/95 backdrop-blur-sm">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
       <Button href="/resources" variant="ghost" size="sm" class="gap-2 text-muted-foreground">
         <ArrowLeft class="size-4" />
@@ -184,9 +184,9 @@
     <div class="mb-12 border-b border-border pb-10">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground print:hidden">
         <span class="text-primary">{t('resRolesGuide.eyebrow_category')}</span>
-        <span aria-hidden="true" class="text-border">·</span>
+        <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('resRolesGuide.eyebrow_law')}</span>
-        <span aria-hidden="true" class="text-border">·</span>
+        <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('resRolesGuide.eyebrow_roles')}</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
@@ -209,7 +209,7 @@
     <div class="mb-10">
       <h2 class="font-heading text-foreground mb-4">{t('resRolesGuide.matrix_title')}</h2>
       <div class="overflow-x-auto rounded-xl border border-border">
-        <table class="w-full text-xs">
+        <table class="w-full min-w-[880px] text-xs">
           <thead>
             <tr class="border-b border-border bg-muted/50">
               <th class="px-3 py-3 text-left font-semibold text-foreground min-w-[120px]">{t('resRolesGuide.col_role')}</th>
@@ -250,7 +250,7 @@
           </div>
           <p class="text-sm text-muted-foreground mb-3">{t(r.description)}</p>
           <div class="rounded-xl bg-muted/30 px-4 py-3 text-xs text-muted-foreground">
-            <span class="font-medium text-foreground">{t('resRolesGuide.recommendation_label')} </span>{t(r.recommendations)}
+            <span class="font-medium text-foreground">{t('resRolesGuide.recommendation_label')}</span>{' '}{t(r.recommendations)}
           </div>
         </div>
       {/each}

@@ -111,12 +111,12 @@
       <section>
         <h3 class="font-semibold text-foreground mb-2">{t('resPrivacyNotice.s4_title')}</h3>
         <div class="overflow-x-auto rounded-xl border border-border">
-          <table class="w-full text-sm">
+          <table class="w-full min-w-[480px] text-sm">
             <thead>
               <tr class="border-b border-border bg-muted/50">
-                <th class="px-4 py-2.5 text-left font-medium">{t('resPrivacyNotice.s4_col_category')}</th>
-                <th class="px-4 py-2.5 text-left font-medium">{t('resPrivacyNotice.s4_col_examples')}</th>
-                <th class="px-4 py-2.5 text-left font-medium">{t('resPrivacyNotice.s4_col_sensitive')}</th>
+                <th class="whitespace-nowrap px-4 py-2.5 text-left font-medium">{t('resPrivacyNotice.s4_col_category')}</th>
+                <th class="whitespace-nowrap px-4 py-2.5 text-left font-medium">{t('resPrivacyNotice.s4_col_examples')}</th>
+                <th class="whitespace-nowrap px-4 py-2.5 text-left font-medium">{t('resPrivacyNotice.s4_col_sensitive')}</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-border text-muted-foreground">

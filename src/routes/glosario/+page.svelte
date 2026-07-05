@@ -127,9 +127,9 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">{t('glosario.eyebrow')}</span>
-        <span aria-hidden="true" class="text-border">·</span>
+        <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span><span data-numeric>{totalTerms}</span> {t('glosario.count_terms')}</span>
-        <span aria-hidden="true" class="text-border">·</span>
+        <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{allLetters.length} {t('glosario.count_sections')}</span>
       </p>
 
@@ -188,8 +188,10 @@
                 <dd>
                   <p class="text-sm leading-relaxed text-muted-foreground">{item.def}</p>
                   {#if item.link}
-                    <a href={item.link} class="mt-3 inline-flex items-center gap-1 border-b border-primary pb-0.5 text-xs font-semibold text-primary hover:border-b-2">
-                      {t('glosario.see_document')} <ArrowRight class="size-3" />
+                    <a href={item.link} class="group inline-flex min-h-11 items-center text-xs font-semibold text-primary">
+                      <span class="inline-flex items-center gap-1 border-b border-primary pb-0.5 group-hover:border-b-2">
+                        {t('glosario.see_document')} <ArrowRight class="size-3" />
+                      </span>
                     </a>
                   {/if}
                 </dd>
@@ -221,8 +223,8 @@
           {t('glosario.cta_primary')}
           <ArrowRight class="size-5" />
         </a>
-        <a href="/ley-21719" class="inline-flex items-center gap-1 border-b border-background/60 pb-0.5 text-sm font-medium text-background/80 transition-colors hover:border-background hover:text-background">
-          {t('glosario.cta_secondary')}
+        <a href="/ley-21719" class="group inline-flex min-h-11 items-center gap-1 text-sm font-medium text-background/80 transition-colors hover:text-background">
+          <span class="border-b border-background/60 pb-0.5 transition-colors group-hover:border-background">{t('glosario.cta_secondary')}</span>
         </a>
       </div>
     </div>

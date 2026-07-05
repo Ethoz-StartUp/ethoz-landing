@@ -56,7 +56,7 @@
   <!-- Hero -->
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <a href="/#features" class="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+      <a href="/#features" class="-mt-3 mb-5 inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
         {t('featurePage.accessControl.back_link')}
       </a>
@@ -252,8 +252,8 @@
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('featurePage.accessControl.finalCta.eyebrow')}</p>
-      <h2 id="rbac-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
-        {t('featurePage.accessControl.finalCta.title')}
+      <h2 id="rbac-cta" class="mt-5 font-heading text-balance text-3xl leading-[1.1] text-background sm:text-4xl">
+        {t('featurePage.accessControl.finalCta.title').replace(' lo que ', ' lo\u00A0que ')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
         {t('featurePage.accessControl.finalCta.subtitle')}

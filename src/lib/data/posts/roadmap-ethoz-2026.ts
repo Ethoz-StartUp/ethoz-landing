@@ -4,8 +4,7 @@ import { BRAND } from '$lib/brand';
 export const post: BlogPost = {
 	slug: 'roadmap-ethoz-2026',
 	title: `Lo que viene: el roadmap de ${BRAND} para 2026`,
-	description:
-		'Somos transparentes sobre lo que hemos construido y lo que falta. Este es el roadmap de ${BRAND}: los módulos fundacionales, lo que viene y lo que no vamos a hacer.',
+	description: `Somos transparentes sobre lo que hemos construido y lo que falta. Este es el roadmap de ${BRAND}: los módulos fundacionales, lo que viene y lo que no vamos a hacer.`,
 	date: '2026-04-02',
 	author: 'Ignacio Araya',
 	readTime: '6 min',

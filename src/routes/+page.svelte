@@ -242,7 +242,7 @@
   ])}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background pb-24 md:pb-0">
+<main class="flex min-h-dvh flex-col bg-background">
   <!-- Skip link — visible on focus, WCAG 2.4.1 Bypass Blocks -->
   <a
     href="#hero-cta"
@@ -865,7 +865,9 @@
     </div>
   </SectionDark>
 
-  <Footer />
+  <div class="bg-surface-dark pb-24 md:pb-0">
+    <Footer />
+  </div>
 
   <!-- Mobile sticky CTA -->
   {#if showStickyCta}

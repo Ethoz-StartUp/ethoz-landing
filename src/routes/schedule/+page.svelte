@@ -4,6 +4,7 @@
   import { BRAND } from '$lib/brand';
   import { t } from '$lib/i18n/index.svelte';
   import { Check, Building, MapPin, Loader2 } from '@lucide/svelte';
+  import { Skeleton } from '$lib/components/ui/skeleton';
   import { page } from '$app/state';
   import { browser } from '$app/environment';
   import { trackEvent } from '$lib/utils/analytics';
@@ -249,10 +250,17 @@
     <!-- Cal.com inline embed — auto-resizes, no double scroll -->
     <section aria-label={t('agendar.calendar_section_aria')} class="overflow-hidden rounded-xl border border-border bg-background shadow-sm">
       {#if !calLoaded}
-        <div class="flex items-center justify-center py-20" role="status" aria-live="polite">
+        <div class="px-6 py-12" role="status" aria-live="polite">
           <div class="flex flex-col items-center gap-3">
             <Loader2 class="size-8 animate-spin text-primary" aria-hidden="true" />
             <p class="text-sm text-muted-foreground">{t('a11y.calendar.loading')}</p>
+          </div>
+          <div class="mx-auto mt-8 w-full max-w-sm space-y-2" aria-hidden="true">
+            <Skeleton class="h-7 w-32" />
+            <Skeleton class="h-10 w-full" />
+            <Skeleton class="h-10 w-full" />
+            <Skeleton class="h-10 w-full" />
+            <Skeleton class="h-10 w-full" />
           </div>
         </div>
       {/if}

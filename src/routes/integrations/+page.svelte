@@ -32,7 +32,7 @@
       <div class="max-w-3xl">
         <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
           <span class="text-primary">{t('integrations.eyebrow')}</span>
-          <span aria-hidden="true" class="text-border">·</span>
+          <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
           <span>Napsis · Syscol · SchoolTrack · Lirmi</span>
         </p>
         <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>

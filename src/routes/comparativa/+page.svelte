@@ -164,17 +164,17 @@
       </div>
 
       <!-- Scrollable table wrapper -->
-      <div class="overflow-x-auto rounded-xl border border-border shadow-sm">
-        <table class="w-full border-collapse text-sm">
+      <div class="contain-inline-size overflow-x-auto rounded-xl border border-border shadow-sm">
+        <table class="w-full min-w-[480px] border-collapse text-sm">
           <caption class="sr-only">{t('comparativa.hero_title')}</caption>
           <!-- Header -->
           <thead>
             <tr class="border-b border-border bg-muted/50">
-              <th scope="col" class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground w-56">
+              <th scope="col" class="px-2 py-3 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground w-36 sm:px-4 sm:w-56">
                 {t('comparativa.table_col_feature')}
               </th>
               {#each columns as col, i}
-                <th scope="col" class="px-4 py-3 text-center text-xs font-bold uppercase tracking-wide {i === 0 ? 'text-primary-active bg-primary/5 border-x border-primary/20' : 'text-muted-foreground'}">
+                <th scope="col" class="px-2 py-3 text-center text-xs font-bold uppercase tracking-wide sm:px-4 {i === 0 ? 'text-primary-active bg-primary/5 border-x border-primary/20' : 'text-muted-foreground'}">
                   {col}
                   {#if i === 0}
                     <span class="ml-1.5 inline-flex items-center rounded-full bg-primary px-1.5 py-0.5 text-mockup-2xs font-bold text-primary-foreground">★</span>
@@ -187,36 +187,32 @@
             {#each categories as cat, catIdx}
               <!-- Category header row -->
               <tr class="border-b border-border bg-secondary">
-                <td colspan={columns.length + 1} class="px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                <td colspan={columns.length + 1} class="px-2 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground sm:px-4">
                   {t(cat.label)}
                 </td>
               </tr>
               <!-- Data rows -->
               {#each cat.rows as row, rowIdx}
                 <tr class="border-b border-border {rowIdx % 2 === 0 ? 'bg-background' : 'bg-muted/20'} hover:bg-muted/40 transition-colors">
-                  <th scope="row" class="px-4 py-3 text-left text-sm text-foreground font-medium">
+                  <th scope="row" class="px-2 py-3 text-left text-sm text-foreground font-medium sm:px-4">
                     {t(row.label)}
                   </th>
                   <!-- Ethoz -->
-                  <td class="px-4 py-3 text-center bg-primary/5 border-x border-primary/20">
+                  <td class="px-2 py-3 text-center bg-primary/5 border-x border-primary/20 sm:px-4">
                     {#if row.ethoz === 'yes'}
-                      <CheckCircle class="mx-auto size-5 text-primary" />
-                      <span class="sr-only">{t('comparativa.legend_included')}</span>
+                      <CheckCircle class="mx-auto size-5 text-primary" role="img" aria-label={t('comparativa.legend_included')} />
                     {:else if row.ethoz === 'no'}
-                      <XCircle class="mx-auto size-5 text-destructive" />
-                      <span class="sr-only">{t('comparativa.legend_not_included')}</span>
+                      <XCircle class="mx-auto size-5 text-destructive" role="img" aria-label={t('comparativa.legend_not_included')} />
                     {:else}
                       <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
                     {/if}
                   </td>
                   <!-- Napsis -->
-                  <td class="px-4 py-3 text-center">
+                  <td class="px-2 py-3 text-center sm:px-4">
                     {#if row.napsis === 'yes'}
-                      <CheckCircle class="mx-auto size-5 text-primary" />
-                      <span class="sr-only">{t('comparativa.legend_included')}</span>
+                      <CheckCircle class="mx-auto size-5 text-primary" role="img" aria-label={t('comparativa.legend_included')} />
                     {:else if row.napsis === 'no'}
-                      <XCircle class="mx-auto size-5 text-destructive" />
-                      <span class="sr-only">{t('comparativa.legend_not_included')}</span>
+                      <XCircle class="mx-auto size-5 text-destructive" role="img" aria-label={t('comparativa.legend_not_included')} />
                     {:else if row.napsis === 'varies'}
                       <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
                     {:else}
@@ -224,13 +220,11 @@
                     {/if}
                   </td>
                   <!-- Syscol -->
-                  <td class="px-4 py-3 text-center">
+                  <td class="px-2 py-3 text-center sm:px-4">
                     {#if row.syscol === 'yes'}
-                      <CheckCircle class="mx-auto size-5 text-primary" />
-                      <span class="sr-only">{t('comparativa.legend_included')}</span>
+                      <CheckCircle class="mx-auto size-5 text-primary" role="img" aria-label={t('comparativa.legend_included')} />
                     {:else if row.syscol === 'no'}
-                      <XCircle class="mx-auto size-5 text-destructive" />
-                      <span class="sr-only">{t('comparativa.legend_not_included')}</span>
+                      <XCircle class="mx-auto size-5 text-destructive" role="img" aria-label={t('comparativa.legend_not_included')} />
                     {:else if row.syscol === 'varies'}
                       <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
                     {:else}
@@ -238,13 +232,11 @@
                     {/if}
                   </td>
                   <!-- Lirmi -->
-                  <td class="px-4 py-3 text-center">
+                  <td class="px-2 py-3 text-center sm:px-4">
                     {#if row.lirmi === 'yes'}
-                      <CheckCircle class="mx-auto size-5 text-primary" />
-                      <span class="sr-only">{t('comparativa.legend_included')}</span>
+                      <CheckCircle class="mx-auto size-5 text-primary" role="img" aria-label={t('comparativa.legend_included')} />
                     {:else if row.lirmi === 'no'}
-                      <XCircle class="mx-auto size-5 text-destructive" />
-                      <span class="sr-only">{t('comparativa.legend_not_included')}</span>
+                      <XCircle class="mx-auto size-5 text-destructive" role="img" aria-label={t('comparativa.legend_not_included')} />
                     {:else if row.lirmi === 'varies'}
                       <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
                     {:else}
@@ -252,13 +244,11 @@
                     {/if}
                   </td>
                   <!-- SchoolTrack -->
-                  <td class="px-4 py-3 text-center">
+                  <td class="px-2 py-3 text-center sm:px-4">
                     {#if row.schooltrack === 'yes'}
-                      <CheckCircle class="mx-auto size-5 text-primary" />
-                      <span class="sr-only">{t('comparativa.legend_included')}</span>
+                      <CheckCircle class="mx-auto size-5 text-primary" role="img" aria-label={t('comparativa.legend_included')} />
                     {:else if row.schooltrack === 'no'}
-                      <XCircle class="mx-auto size-5 text-destructive" />
-                      <span class="sr-only">{t('comparativa.legend_not_included')}</span>
+                      <XCircle class="mx-auto size-5 text-destructive" role="img" aria-label={t('comparativa.legend_not_included')} />
                     {:else if row.schooltrack === 'varies'}
                       <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
                     {:else}
@@ -375,7 +365,7 @@
         </Button>
         <a
           href="/compliance"
-          class="text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+          class="inline-flex min-h-11 items-center text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
           {t('comparativa.cta_secondary')}
         </a>

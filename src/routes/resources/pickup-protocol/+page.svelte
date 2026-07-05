@@ -168,7 +168,7 @@
           </div>
           <div class="rounded-lg border border-destructive/20 bg-destructive/10   p-4">
             <p class="font-medium text-destructive mb-1">{t('resPickupProtocol.s5_case2_title')}</p>
-            <p class="text-sm text-destructive">{t('resPickupProtocol.s5_case2_body')}</p>
+            <p class="text-sm text-foreground">{t('resPickupProtocol.s5_case2_body')}</p>
           </div>
           <div class="rounded-xl border border-border bg-card p-4">
             <p class="font-medium text-foreground mb-1">{t('resPickupProtocol.s5_case3_title')}</p>

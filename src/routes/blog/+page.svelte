@@ -33,7 +33,7 @@
     <header class="mb-12 max-w-3xl sm:mb-16">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">Publicaciones</span>
-        <span aria-hidden="true" class="text-border">·</span>
+        <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>Protección de datos, seguridad y cumplimiento</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>

@@ -67,13 +67,13 @@
           {t('resBreachResponse.s1_title')}
         </h2>
         <div class="overflow-x-auto rounded-xl border border-border">
-          <table class="w-full text-sm">
+          <table class="w-full min-w-[640px] text-sm">
             <thead>
               <tr class="border-b border-border bg-muted/50">
-                <th class="px-4 py-2.5 text-left font-medium text-foreground">{t('resBreachResponse.s1_th_role')}</th>
-                <th class="px-4 py-2.5 text-left font-medium text-foreground">{t('resBreachResponse.s1_th_name')}</th>
-                <th class="px-4 py-2.5 text-left font-medium text-foreground">{t('resBreachResponse.s1_th_phone')}</th>
-                <th class="px-4 py-2.5 text-left font-medium text-foreground">{t('resBreachResponse.s1_th_email')}</th>
+                <th class="whitespace-nowrap px-4 py-2.5 text-left font-medium text-foreground">{t('resBreachResponse.s1_th_role')}</th>
+                <th class="whitespace-nowrap px-4 py-2.5 text-left font-medium text-foreground">{t('resBreachResponse.s1_th_name')}</th>
+                <th class="whitespace-nowrap px-4 py-2.5 text-left font-medium text-foreground">{t('resBreachResponse.s1_th_phone')}</th>
+                <th class="whitespace-nowrap px-4 py-2.5 text-left font-medium text-foreground">{t('resBreachResponse.s1_th_email')}</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-border text-muted-foreground">
@@ -155,13 +155,13 @@
         </h2>
         <p class="text-muted-foreground mb-3">{t('resBreachResponse.s4_intro')}</p>
         <div class="overflow-x-auto rounded-xl border border-border">
-          <table class="w-full text-sm">
+          <table class="w-full min-w-[640px] text-sm">
             <thead>
               <tr class="border-b border-border bg-muted/50">
-                <th class="px-4 py-2.5 text-left font-medium">{t('resBreachResponse.s4_th_factor')}</th>
-                <th class="px-4 py-2.5 text-left font-medium">{t('resBreachResponse.s4_th_low')}</th>
-                <th class="px-4 py-2.5 text-left font-medium">{t('resBreachResponse.s4_th_medium')}</th>
-                <th class="px-4 py-2.5 text-left font-medium">{t('resBreachResponse.s4_th_high')}</th>
+                <th class="whitespace-nowrap px-4 py-2.5 text-left font-medium">{t('resBreachResponse.s4_th_factor')}</th>
+                <th class="whitespace-nowrap px-4 py-2.5 text-left font-medium">{t('resBreachResponse.s4_th_low')}</th>
+                <th class="whitespace-nowrap px-4 py-2.5 text-left font-medium">{t('resBreachResponse.s4_th_medium')}</th>
+                <th class="whitespace-nowrap px-4 py-2.5 text-left font-medium">{t('resBreachResponse.s4_th_high')}</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-border text-muted-foreground text-xs">

@@ -232,9 +232,9 @@
               { sedes: 3, monto: '60.000 UTM' },
               { sedes: 5, monto: '100.000 UTM' },
             ] as row}
-              <div class="flex items-center justify-between py-1.5 border-b border-destructive/10 last:border-0">
+              <div class="flex items-center justify-between gap-3 py-1.5 border-b border-destructive/10 last:border-0">
                 <p class="text-xs text-muted-foreground">{row.sedes} {row.sedes > 1 ? t('audience.sostenedores.exposure_sim_row_establecimientos') : t('audience.sostenedores.exposure_sim_row_establecimiento')} {t('audience.sostenedores.exposure_sim_row_suffix')}</p>
-                <p class="text-xs font-bold text-destructive">{t('audience.sostenedores.exposure_sim_row_hasta')} {row.monto}</p>
+                <p class="shrink-0 text-xs font-bold text-destructive">{t('audience.sostenedores.exposure_sim_row_hasta')} {row.monto}</p>
               </div>
             {/each}
             <p class="mt-2 text-mockup-xs text-muted-foreground">{t('audience.sostenedores.exposure_sim_footnote')}</p>
@@ -342,7 +342,7 @@
           </div>
           <div class="border-t border-border px-4 py-2 flex items-center justify-between">
             <p class="text-mockup-2xs text-muted-foreground">{t('audience.sostenedores.auditlog_footer')}</p>
-            <button class="text-mockup-2xs font-medium text-primary hover:underline">{t('audience.sostenedores.auditlog_view_full')}</button>
+            <span class="text-mockup-2xs font-medium text-primary">{t('audience.sostenedores.auditlog_view_full')}</span>
           </div>
         </div>
       </div>

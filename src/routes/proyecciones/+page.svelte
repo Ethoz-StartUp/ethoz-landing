@@ -260,7 +260,7 @@
         </Button>
         <a
           href="/demo"
-          class="text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
+          class="inline-flex min-h-11 items-center text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
           {t('proyecciones.cta_secondary')}
         </a>

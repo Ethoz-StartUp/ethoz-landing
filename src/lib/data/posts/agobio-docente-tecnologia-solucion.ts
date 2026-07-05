@@ -4,8 +4,7 @@ import { BRAND } from '$lib/brand';
 export const post: BlogPost = {
 	slug: 'agobio-docente-tecnologia-solucion',
 	title: 'Agobio docente: cómo la tecnología puede liberar a los profesores en vez de abrumarlos',
-	description:
-		'Los docentes chilenos trabajan 2,3 horas extra semanales no remuneradas en burocracia. La tecnología mal diseñada agrava el problema. ${BRAND} reduce la carga administrativa sin agregar formularios nuevos.',
+	description: `Los docentes chilenos trabajan 2,3 horas extra semanales no remuneradas en burocracia. La tecnología mal diseñada agrava el problema. ${BRAND} reduce la carga administrativa sin agregar formularios nuevos.`,
 	date: '2026-04-07',
 	author: `Equipo ${BRAND}`,
 	readTime: '8 min',

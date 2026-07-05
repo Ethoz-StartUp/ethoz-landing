@@ -33,18 +33,16 @@
   <!-- Hero -->
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <a href="/productos" class="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+      <a href="/productos" class="-mt-3 mb-5 inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
         {t('featurePage.emergency.back_to_products')}
       </a>
       <div class="mt-6 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <div class="flex items-center gap-3">
-            <Siren class="size-6 shrink-0 text-destructive" />
-            <h1 class="text-balance text-foreground">
-              {t('featurePage.emergency.hero_title')}
-            </h1>
-          </div>
+          <h1 class="text-balance text-foreground">
+            <span class="whitespace-nowrap"><Siren class="mr-3 inline size-6 align-middle text-destructive" aria-hidden="true" />{t('featurePage.emergency.hero_title').split(' ')[0]}</span>
+            {t('featurePage.emergency.hero_title').split(' ').slice(1).join(' ')}
+          </h1>
           <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
             {t('featurePage.emergency.hero_subtitle')}
           </p>

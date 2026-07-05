@@ -52,7 +52,7 @@
   <!-- Hero -->
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <a href="/#features" class="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+      <a href="/#features" class="-mt-3 mb-5 inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
         {t('featurePage.privacyCompliance.hero.back_link')}
       </a>
@@ -164,13 +164,13 @@
       </p>
       <div class="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
         <div class="overflow-x-auto">
-          <table class="w-full text-sm">
+          <table class="w-full min-w-[28rem] text-sm">
             <thead>
               <tr class="border-b border-border bg-muted/30">
-                <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.privacyCompliance.inventory.th_category')}</th>
-                <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground hidden sm:table-cell">{t('featurePage.privacyCompliance.inventory.th_data')}</th>
-                <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.privacyCompliance.inventory.th_legal_basis')}</th>
-                <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.privacyCompliance.inventory.th_level')}</th>
+                <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground whitespace-nowrap">{t('featurePage.privacyCompliance.inventory.th_category')}</th>
+                <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground whitespace-nowrap hidden sm:table-cell">{t('featurePage.privacyCompliance.inventory.th_data')}</th>
+                <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground whitespace-nowrap">{t('featurePage.privacyCompliance.inventory.th_legal_basis')}</th>
+                <th class="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground whitespace-nowrap">{t('featurePage.privacyCompliance.inventory.th_level')}</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-border">

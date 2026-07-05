@@ -104,8 +104,8 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">{t('compliance_page.hero.badge')}</span>
-        <span aria-hidden="true" class="text-border">·</span>
-        <span>{t('compliance_page.hero.badge_law')}</span>
+        <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
+        <span>{t('compliance_page.timeline.event2.date')}</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
@@ -189,7 +189,7 @@
         </div>
 
         <!-- Endpoints -->
-        <div class="mt-8 flex justify-between">
+        <div class="mt-8 flex flex-col gap-6 sm:flex-row sm:justify-between sm:gap-8">
           <!-- Published -->
           <div class="flex flex-col items-start gap-1">
             <div class="flex items-center gap-1.5">
@@ -200,7 +200,7 @@
             <p class="text-xs text-muted-foreground">{t('compliance_page.timeline.event1.desc')}</p>
           </div>
           <!-- Enforcement -->
-          <div class="flex flex-col items-end gap-1">
+          <div class="flex flex-col items-start gap-1 sm:items-end">
             <div class="flex items-center gap-1.5">
               <Clock class="size-4 text-muted-foreground" />
               <span class="text-sm font-semibold text-foreground">{t('compliance_page.timeline.event2.date')}</span>
@@ -314,7 +314,7 @@
         </div>
         <div class="flex justify-center">
           <div class="w-full max-w-xs overflow-hidden rounded-2xl border border-hairline bg-card shadow-card">
-            <img src="/images/pages/compliance-audit.webp" alt={t('compliance_page.audit.alt')} class="w-full" loading="lazy" />
+            <img src="/images/pages/compliance-audit.webp" alt={t('compliance_page.audit.alt')} width="800" height="800" class="h-auto w-full" loading="lazy" />
           </div>
         </div>
       </div>

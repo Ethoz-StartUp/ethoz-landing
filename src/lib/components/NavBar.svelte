@@ -251,18 +251,6 @@
           </a>
         {/each}
 
-        <!-- ¿Cómo contratar? -->
-        <a
-          href="/get-started"
-          class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
-            {isActive('/get-started')
-              ? 'text-primary-active bg-primary/5'
-              : 'text-foreground hover:bg-muted'}"
-          onclick={() => (mobileOpen = false)}
-        >
-          {t('nav.pricing')}
-        </a>
-
         <!-- Productos -->
         <a
           href="/productos"
@@ -330,7 +318,7 @@
 <!-- Backdrop — click-away region (not an interactive control, per a11y guidance) -->
 {#if mobileOpen}
   <div
-    class="fixed inset-x-0 top-16 bottom-0 z-40 bg-foreground/30 backdrop-blur-md md:hidden"
+    class="fixed inset-x-0 top-16 bottom-0 z-[45] bg-foreground/30 backdrop-blur-md md:hidden"
     aria-hidden="true"
     onclick={() => (mobileOpen = false)}
     transition:fade={{ duration: 200 }}

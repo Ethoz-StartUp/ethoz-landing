@@ -277,20 +277,123 @@
                     </div>
                   </div>
                 </div>
-              {:else}
+              {:else if product.id === 'digital-logbook'}
                 <div class="p-5">
-                  <div class="grid grid-cols-2 gap-3">
-                    <div class="rounded-lg bg-success/5 px-3 py-3 text-center">
-                      <p class="text-lg font-bold text-success">98%</p>
-                      <p class="text-mockup-xs text-muted-foreground">{t('productos.mock_consents')}</p>
-                    </div>
-                    <div class="rounded-lg bg-success/5 px-3 py-3 text-center">
-                      <p class="text-lg font-bold text-success">0</p>
-                      <p class="text-mockup-xs text-muted-foreground">{t('productos.mock_irregularities')}</p>
-                    </div>
+                  <p class="mb-2 label-mono text-muted-foreground">{t('integrations.compatible_systems_label')}</p>
+                  <div class="space-y-2">
+                    {#each ['Napsis', 'Syscol', 'SchoolTrack'] as system}
+                      <div class="flex items-center justify-between text-xs">
+                        <span class="flex items-center gap-2"><span class="size-2 rounded-full bg-success"></span><span class="font-medium text-foreground">{system}</span></span>
+                        <span class="text-mockup-xs font-medium text-success">{t('integrations.status_available')}</span>
+                      </div>
+                    {/each}
                   </div>
                   <div class="mt-3 rounded-lg bg-primary/5 px-3 py-2 text-center">
-                    <p class="text-xs font-medium text-primary">Ley 21.719 · {t('productos.mock_in_compliance')}</p>
+                    <p class="text-xs font-medium text-primary-active">{t('integrations.basic_feature_circular30')}</p>
+                  </div>
+                </div>
+              {:else if product.id === 'critical-alerts'}
+                <div class="p-5">
+                  <div class="space-y-2.5">
+                    <div class="flex items-start gap-2.5 text-xs">
+                      <span class="mt-1 size-2 shrink-0 rounded-full bg-destructive"></span>
+                      <div>
+                        <div class="flex flex-wrap items-center gap-1.5">
+                          <span class="font-medium text-foreground">{t('featurePage.alerts.mockup_critical_type')}</span>
+                          <span class="rounded-full bg-destructive/10 px-1.5 py-0.5 text-mockup-2xs font-semibold text-destructive">{t('featurePage.alerts.mockup_level_critical')}</span>
+                        </div>
+                        <p class="text-mockup-xs text-muted-foreground">Valentina Rojas · 7° Básico B · 14:32</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-2.5 text-xs">
+                      <span class="mt-1 size-2 shrink-0 rounded-full bg-warning"></span>
+                      <div>
+                        <div class="flex flex-wrap items-center gap-1.5">
+                          <span class="font-medium text-foreground">{t('featurePage.alerts.mockup_warning_type')}</span>
+                          <span class="rounded-full bg-warning/15 px-1.5 py-0.5 text-mockup-2xs font-semibold text-warning-foreground">{t('featurePage.alerts.mockup_level_high')}</span>
+                        </div>
+                        <p class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.mockup_warning_person')}</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start gap-2.5 text-xs">
+                      <span class="mt-1 size-2 shrink-0 rounded-full bg-primary"></span>
+                      <div>
+                        <div class="flex flex-wrap items-center gap-1.5">
+                          <span class="font-medium text-foreground">{t('featurePage.alerts.mockup_info_type')}</span>
+                          <span class="rounded-full bg-primary/10 px-1.5 py-0.5 text-mockup-2xs font-semibold text-primary-active">{t('featurePage.alerts.mockup_level_medium')}</span>
+                        </div>
+                        <p class="text-mockup-xs text-muted-foreground">{t('featurePage.alerts.mockup_info_person')}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {:else if product.id === 'analytics'}
+                <div class="p-5">
+                  <div class="grid grid-cols-2 gap-3">
+                    <div class="rounded-lg bg-primary/5 px-3 py-2.5 text-center">
+                      <p class="text-lg font-bold text-primary-active">412</p>
+                      <p class="text-mockup-xs text-muted-foreground">{t('featurePage.analytics.mockup_kpi_students')}</p>
+                    </div>
+                    <div class="rounded-lg bg-destructive/5 px-3 py-2.5 text-center">
+                      <p class="text-lg font-bold text-destructive">3</p>
+                      <p class="text-mockup-xs text-muted-foreground">{t('featurePage.analytics.mockup_kpi_active_alerts')}</p>
+                    </div>
+                  </div>
+                  <div class="mt-3">
+                    <p class="mb-2 text-mockup-2xs font-semibold uppercase tracking-wider text-muted-foreground">{t('featurePage.analytics.chart_observations_caption')}</p>
+                    <div class="flex h-12 gap-1">
+                      {#each [
+                        { labelKey: 'featurePage.analytics.month_mar' as const, h: 35, color: 'bg-primary/40' },
+                        { labelKey: 'featurePage.analytics.month_apr' as const, h: 52, color: 'bg-primary/60' },
+                        { labelKey: 'featurePage.analytics.month_may' as const, h: 41, color: 'bg-primary/40' },
+                        { labelKey: 'featurePage.analytics.month_jun' as const, h: 68, color: 'bg-primary/80' },
+                        { labelKey: 'featurePage.analytics.month_jul' as const, h: 29, color: 'bg-primary/30' },
+                        { labelKey: 'featurePage.analytics.month_aug' as const, h: 72, color: 'bg-primary' },
+                      ] as bar}
+                        <div class="flex flex-1 flex-col items-center justify-end gap-0.5">
+                          <div class="w-full rounded-t {bar.color}" style="height: {bar.h}%"></div>
+                          <span class="text-mockup-3xs text-muted-foreground">{t(bar.labelKey)}</span>
+                        </div>
+                      {/each}
+                    </div>
+                  </div>
+                </div>
+              {:else if product.id === 'emergency'}
+                <div class="p-5">
+                  <div class="mb-3 flex items-center gap-2 rounded-lg bg-destructive/5 px-3 py-2">
+                    <div class="size-2 rounded-full bg-destructive"></div>
+                    <span class="text-xs font-semibold text-destructive">{t('featurePage.emergency.mockup_banner_status')}</span>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="rounded-full bg-success/10 px-2 py-0.5 text-mockup-xs font-medium text-success">{t('featurePage.emergency.mockup_phase_alerta')}</span>
+                    <span class="rounded-full bg-success/10 px-2 py-0.5 text-mockup-xs font-medium text-success">{t('featurePage.emergency.mockup_phase_evacuacion')}</span>
+                    <span class="rounded-full bg-warning/15 px-2 py-0.5 text-mockup-xs font-medium text-warning-foreground">{t('featurePage.emergency.mockup_phase_conteo')}</span>
+                    <span class="rounded-full bg-muted px-2 py-0.5 text-mockup-xs font-medium text-muted-foreground">{t('featurePage.emergency.mockup_phase_finalizado')}</span>
+                  </div>
+                  <div class="mt-3 rounded-lg border border-dashed border-warning/40 bg-warning/10 px-3 py-2">
+                    <p class="text-mockup-xs font-medium text-warning-foreground">{t('featurePage.emergency.mockup_rollcall_warning')}</p>
+                  </div>
+                </div>
+              {:else}
+                <div class="p-5">
+                  <p class="mb-2 text-mockup-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('featurePage.attendance.mockup_kpi_label')}</p>
+                  <div class="space-y-2">
+                    {#each [
+                      { cls: '7° Básico B', count: '28/30', pct: '93%', ok: true },
+                      { cls: '8° Básico A', count: '25/30', pct: '83%', ok: false },
+                      { cls: '6° Básico A', count: '30/30', pct: '100%', ok: true },
+                    ] as row}
+                      <div class="flex items-center justify-between text-xs">
+                        <span class="flex items-center gap-2"><span class="size-2 rounded-full {row.ok ? 'bg-success' : 'bg-warning'}"></span><span class="font-medium text-foreground">{row.cls}</span></span>
+                        <span class="text-mockup-xs text-muted-foreground">{row.count} · {row.pct}</span>
+                      </div>
+                    {/each}
+                  </div>
+                  <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 border-t border-border pt-3">
+                    <span class="flex items-center gap-1.5 text-mockup-xs text-muted-foreground"><span class="size-1.5 rounded-full bg-success"></span>{t('featurePage.attendance.legend_present')}</span>
+                    <span class="flex items-center gap-1.5 text-mockup-xs text-muted-foreground"><span class="size-1.5 rounded-full bg-destructive"></span>{t('featurePage.attendance.legend_absent')}</span>
+                    <span class="flex items-center gap-1.5 text-mockup-xs text-muted-foreground"><span class="size-1.5 rounded-full bg-warning"></span>{t('featurePage.attendance.legend_late')}</span>
+                    <span class="flex items-center gap-1.5 text-mockup-xs text-muted-foreground"><span class="size-1.5 rounded-full bg-primary"></span>{t('featurePage.attendance.legend_justified')}</span>
                   </div>
                 </div>
               {/if}

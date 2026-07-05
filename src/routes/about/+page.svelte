@@ -53,9 +53,9 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">{t('about.hero_eyebrow')}</span>
-        <span aria-hidden="true" class="text-border">·</span>
+        <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{LEGAL_NAME}</span>
-        <span aria-hidden="true" class="text-border">·</span>
+        <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('about.hero_founded')}</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
@@ -244,9 +244,9 @@
         </a>
         <a
           href="/compliance"
-          class="inline-flex items-center gap-1 border-b border-background/60 pb-0.5 text-sm font-medium text-background/80 transition-colors hover:border-background hover:text-background"
+          class="group inline-flex min-h-11 items-center gap-1 text-sm font-medium text-background/80 transition-colors hover:text-background"
         >
-          {t('about.cta_secondary')}
+          <span class="border-b border-background/60 pb-0.5 transition-colors group-hover:border-background">{t('about.cta_secondary')}</span>
         </a>
       </div>
     </div>
