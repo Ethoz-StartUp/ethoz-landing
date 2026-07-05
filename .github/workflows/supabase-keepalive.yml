@@ -20,5 +20,5 @@ jobs:
           echo "REST ping -> HTTP $code"
           case "$code" in
             2*) echo "Project active." ;;
-            *) echo "::error::Supabase unreachable or paused (HTTP $code) — restore it in the dashboard: https://supabase.com/dashboard/project/irpesrcijcdwyjxxwpyb"; exit 1 ;;
+            *) echo "::error::Supabase unreachable or paused (HTTP $code) — restore it in the dashboard: https://supabase.com/dashboard/project/hnhokvhecfysbqepypjb"; exit 1 ;;
           esac

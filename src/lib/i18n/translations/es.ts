@@ -30,7 +30,7 @@ export const es = {
   'trust.compliance': 'Construido para Ley 21.719',
   'trust.encryption': 'Cifrado en reposo y en tránsito, con auditoría completa',
   'trust.integration': 'Convive con Napsis, SIGE y Lirmi',
-  'trust.servers': 'Datos en Santiago, Chile (Google Cloud)',
+  'trust.servers': 'Datos en Sudamérica (AWS São Paulo)',
   'trust.directory': 'Directorio de 12.038 establecimientos',
   'trust.label.data': 'Datos',
   'trust.label.encryption': 'Cifrado',
@@ -121,7 +121,7 @@ export const es = {
   'compliance.item3': 'Registro de auditoría de cada acceso a datos sensibles',
   'compliance.item4': 'Cifrado de datos sensibles con estándar bancario',
   'compliance.item5': 'Datos de cada colegio completamente aislados entre sí',
-  'compliance.item6': 'Residencia de datos en Chile (Santiago)',
+  'compliance.item6': 'Residencia de datos en Sudamérica (AWS São Paulo)',
 
   // How it works
   'how.overline': 'Cómo funciona',
@@ -184,7 +184,7 @@ export const es = {
   'faq.overline': 'Preguntas frecuentes',
   'faq.title': 'Respuestas directas',
   'faq.q1': '¿Cómo se protegen los datos de los alumnos?',
-  'faq.a1': 'Cada colegio opera en un espacio aislado: ningún otro establecimiento puede acceder a sus datos. Los datos sensibles se cifran con estándar bancario y cada acceso queda registrado en un historial inalterable en servidores ubicados en Santiago.',
+  'faq.a1': 'Cada colegio opera en un espacio aislado: ningún otro establecimiento puede acceder a sus datos. Los datos sensibles se cifran con estándar bancario y cada acceso queda registrado en un historial inalterable en servidores de AWS en Sudamérica (São Paulo).',
   'faq.q2': '¿Funciona con nuestro software actual?',
   'faq.a2': '{brand} está diseñado para complementar tu software existente (Napsis, SIGE, etc.), no para reemplazarlo. Puedes importar datos desde Excel o cualquier formato estructurado sin perder historial.',
   'faq.q3': '¿Cuánto tiempo toma implementar {brand}?',
@@ -213,7 +213,7 @@ export const es = {
   'faq.a11': '{brand} complementa tu sistema académico actual. Para el libro de clases, nos integramos con plataformas como Napsis o Syscol. Si tu colegio no tiene sistema digital, incluimos un módulo básico conforme a Circular N°30.',
 
   'faq.q12': '¿Es seguro confiar los datos de mis alumnos a una plataforma nueva?',
-  'faq.a12': '{brand} fue diseñado con privacidad por diseño desde la primera línea de código: aislamiento total entre colegios, cifrado de grado bancario, registros de auditoría inalterables y servidores en Santiago. No es una plataforma antigua que intenta adaptarse a la ley. Fue construida para cumplirla desde el día uno.',
+  'faq.a12': '{brand} fue diseñado con privacidad por diseño desde la primera línea de código: aislamiento total entre colegios, cifrado de grado bancario, registros de auditoría inalterables y servidores de AWS en Sudamérica. No es una plataforma antigua que intenta adaptarse a la ley. Fue construida para cumplirla desde el día uno.',
 
   'faq.q13': '¿Tienen app móvil?',
   'faq.a13': 'Estamos desarrollando una app móvil para apoderados y porteros que permitirá autorizar retiros, recibir alertas en tiempo real y gestionar personas autorizadas desde el teléfono. Estará disponible durante 2026 para los colegios del programa piloto.',
@@ -503,7 +503,7 @@ export const es = {
   'compliance_page.pillar5.article': 'Art. 14',
 
   'compliance_page.pillar6.title': 'Residencia de datos en Chile',
-  'compliance_page.pillar6.desc': 'Todos los datos personales residen exclusivamente en servidores ubicados en la Región Metropolitana, Santiago de Chile. No se realizan transferencias internacionales de datos sin consentimiento explícito y documentado.',
+  'compliance_page.pillar6.desc': 'Todos los datos personales residen en infraestructura AWS en Sudamérica (región São Paulo, Brasil), cifrados en reposo y en tránsito. No se realizan otras transferencias internacionales sin las salvaguardas que exige la Ley 21.719.',
   'compliance_page.pillar6.article': 'Art. 25',
 
   'compliance_page.arch.overline': 'Arquitectura de seguridad',

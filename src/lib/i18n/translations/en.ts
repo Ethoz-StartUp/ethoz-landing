@@ -30,7 +30,7 @@ export const en = {
   'trust.compliance': 'Built for Ley 21.719',
   'trust.encryption': 'Encryption at rest and in transit, with a full audit trail',
   'trust.integration': 'Works alongside Napsis, SIGE and Lirmi',
-  'trust.servers': 'Data in Santiago, Chile (Google Cloud)',
+  'trust.servers': 'Data in South America (AWS São Paulo)',
   'trust.directory': 'Directory of 12,038 schools',
   'trust.label.data': 'Data',
   'trust.label.encryption': 'Encryption',
@@ -121,7 +121,7 @@ export const en = {
   'compliance.item3': 'Audit trail of every access to sensitive data',
   'compliance.item4': 'Sensitive data encryption to banking standard',
   'compliance.item5': 'Each school\'s data completely isolated from others',
-  'compliance.item6': 'Data residency in Chile (Santiago)',
+  'compliance.item6': 'Data residency in South America (AWS São Paulo)',
 
   // How it works
   'how.overline': 'How it works',
@@ -184,7 +184,7 @@ export const en = {
   'faq.overline': 'Frequently asked questions',
   'faq.title': 'Straight answers',
   'faq.q1': 'How is student data protected?',
-  'faq.a1': 'Each school operates in an isolated space: no other institution can access its data. Sensitive data is encrypted to banking standard and every access is recorded in an immutable log on servers in Santiago, Chile.',
+  'faq.a1': 'Each school operates in an isolated space: no other institution can access its data. Sensitive data is encrypted to banking standard and every access is recorded in an immutable log on AWS servers in South America (São Paulo).',
   'faq.q2': 'Does it work with our current software?',
   'faq.a2': '{brand} is designed to complement your existing software (Napsis, SIGE, etc.), not replace it. You can import data from Excel or any structured format without losing history.',
   'faq.q3': 'How long does it take to implement {brand}?',
@@ -216,7 +216,7 @@ export const en = {
   'faq.a11': '{brand} complements your current academic system. For the gradebook, we integrate with platforms like Napsis or Syscol. If your school doesn\'t have a digital system, we include a basic module compliant with Circular N°30.',
 
   'faq.q12': 'Is it safe to trust student data to a new platform?',
-  'faq.a12': '{brand} was designed with privacy-by-design from the first line of code: complete school isolation, banking-grade encryption, immutable audit logs, and servers in Santiago. It\'s not an old platform trying to adapt to the law. It was built to comply from day one.',
+  'faq.a12': '{brand} was designed with privacy-by-design from the first line of code: complete school isolation, banking-grade encryption, immutable audit logs, and AWS servers in South America. It\'s not an old platform trying to adapt to the law. It was built to comply from day one.',
 
   'faq.q13': 'Do you have a mobile app?',
   'faq.a13': 'We\'re developing a mobile app for parents and porters that will allow pickup authorization, real-time alerts, and authorized person management from their phone. It will be available during 2026 for pilot program schools.',
@@ -498,7 +498,7 @@ export const en = {
   'compliance_page.pillar5.article': 'Art. 14',
 
   'compliance_page.pillar6.title': 'Data residency in Chile',
-  'compliance_page.pillar6.desc': 'All personal data resides exclusively on servers located in the Metropolitan Region, Santiago, Chile. No international data transfers occur without explicit, documented consent.',
+  'compliance_page.pillar6.desc': 'All personal data resides on AWS infrastructure in South America (São Paulo region, Brazil), encrypted at rest and in transit. No other international transfers occur without the safeguards required by Law 21.719.',
   'compliance_page.pillar6.article': 'Art. 25',
 
   'compliance_page.arch.overline': 'Security architecture',
