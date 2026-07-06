@@ -8,7 +8,7 @@
   import { goto } from '$app/navigation';
   import { trackEvent } from '$lib/utils/analytics';
   import { slide } from 'svelte/transition';
-  import PitchModal from '$lib/components/PitchModal.svelte';
+  import type { Component } from 'svelte';
   import {
     Shield,
     FileCheck,
@@ -27,6 +27,14 @@
   // ── Reactive state ──
   let showStickyCta = $state(false);
   let showPitch = $state(false);
+  let PitchModal = $state<Component<{ onclose: () => void }> | null>(null);
+
+  async function openPitch() {
+    if (!PitchModal) {
+      PitchModal = (await import('$lib/components/PitchModal.svelte')).default;
+    }
+    showPitch = true;
+  }
 
   // ── FAQ accordion state ──
   let openFaq = $state<number | null>(null);
@@ -315,7 +323,7 @@
             {t('hero.cta.primary')}
             <ArrowRight class="size-5" />
           </Button>
-          <Button variant="outline" size="xl" onclick={() => { trackEvent('hero_cta_clicked', { cta: 'watch_video', location: 'hero' }); showPitch = true; }} class="w-full justify-center sm:w-auto">
+          <Button variant="outline" size="xl" onclick={() => { trackEvent('hero_cta_clicked', { cta: 'watch_video', location: 'hero' }); void openPitch(); }} class="w-full justify-center sm:w-auto">
             <Play class="size-5" />
             {t('hero.video_short')}
           </Button>
@@ -330,6 +338,7 @@
               height="48"
               class="size-12 rounded-full object-cover ring-2 ring-background"
               loading="eager"
+              decoding="async"
             />
             <div class="min-w-0 flex-1">
               <p class="truncate text-sm font-semibold text-foreground">{t('hero.panel.chrome_title')}</p>
@@ -405,6 +414,7 @@
                         height="56"
                         class="size-14 rounded-full object-cover ring-2 ring-background"
                         loading="eager"
+                        decoding="async"
                       />
                       <div class="min-w-0 flex-1">
                         <p class="truncate text-base font-semibold text-foreground">{t(activeStudent.nameKey)}</p>
@@ -911,7 +921,7 @@
   {/if}
 </main>
 
-{#if showPitch}
+{#if showPitch && PitchModal}
   <PitchModal onclose={() => showPitch = false} />
 {/if}
 

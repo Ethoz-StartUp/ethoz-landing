@@ -12,10 +12,8 @@
 		<script>
 		  window.dataLayer = window.dataLayer || [];
 		</script>
-		<!-- Preconnect to third-party origins hit during page lifecycle -->
+		<!-- First-party API preconnect. Trackers load only after consent. -->
 		<link rel="preconnect" href="https://app.ethoz.cl" crossorigin />
-		<link rel="preconnect" href="https://www.clarity.ms" crossorigin />
-		<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 		<!-- Display + body fonts (DM Sans / Inter / JetBrains Mono) bundled via @fontsource-variable in app.css -->
 		<link rel="icon" href="%sveltekit.assets%/favicon.svg?v=4" />
 		<link rel="icon" type="image/png" sizes="32x32" href="%sveltekit.assets%/favicon.png?v=4" />
