@@ -4,7 +4,7 @@
   import { trackEvent } from '$lib/utils/analytics';
   import { Download, Loader2 } from '@lucide/svelte';
   import { browser } from '$app/environment';
-  import { env } from '$env/dynamic/public';
+  import { captureResourceRequest } from '$lib/marketing';
   import { t } from '$lib/i18n/index.svelte';
 
   type Props = {
@@ -49,15 +49,8 @@
     }
 
     try {
-      const supabaseUrl = env.PUBLIC_SUPABASE_URL ?? '';
-      // Fire-and-forget — deliver PDF even if the request fails.
-      if (supabaseUrl) {
-        fetch(`${supabaseUrl}/functions/v1/request-resource`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: trimmed, resource_slug: slug }),
-        }).catch(() => {});
-      }
+      // Fire-and-forget — deliver PDF even if the request capture fails.
+      captureResourceRequest(trimmed, slug).catch(() => {});
       downloadAndClose(true);
       email = '';
       open = false;

@@ -16,7 +16,6 @@ export default [
       'static/**',
       'docs/**',
       'scripts/**',
-      'supabase/.temp/**',
       '.firebase/**',
       '.omc/**',
       '.claude/**', // vendored plugin skills + agent assets — not project source
@@ -27,7 +26,7 @@ export default [
       // svelte-eslint-parser chokes on {@html `<script type="application/ld+json">...</script>`} blocks.
       // We use this pattern in 40+ +page.svelte files for SEO. The build (vite-plugin-svelte) handles it correctly,
       // so the runtime is fine — ESLint just can't parse those files. We rely on `npm run audit:security` for those.
-      // ESLint still checks: src/lib/**, src/routes/admin/**, src/routes/api/**, .ts files everywhere, supabase/functions/**.
+      // ESLint still checks: src/lib/** and non-page .ts/.svelte files.
       'src/routes/**/+page.svelte',
     ],
   },
@@ -123,26 +122,6 @@ export default [
     },
   },
 
-  // ── Even stricter rules for admin pages ──
-  {
-    files: ['src/routes/admin/**/*.svelte'],
-    rules: {
-      'no-restricted-syntax': [
-        'error',
-        // Inherit the design-token rules
-        {
-          selector:
-            'Literal[value=/(^|\\s)(text|bg|border|ring|fill|stroke|from|via|to|outline|divide)-(red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|stone|neutral|zinc|gray|slate)-\\d+/]',
-          message: 'No hardcoded Tailwind palette colors. Use design tokens.',
-        },
-        {
-          selector: 'Literal[value=/(^|\\s)dark:/]',
-          message: 'No dark: prefix — light-mode only.',
-        },
-      ],
-    },
-  },
-
   // ── Security rules for client-side TS — localStorage warnings (not errors) ──
   {
     files: ['src/**/*.ts', 'src/**/*.svelte'],
@@ -153,26 +132,7 @@ export default [
         {
           object: 'localStorage',
           property: 'setItem',
-          message: 'Avoid localStorage for PII, tokens, or secrets. Use sessionStorage for temporary data and Supabase for persistent.',
-        },
-      ],
-    },
-  },
-
-  // ── Edge Functions (Deno) — different env ──
-  {
-    files: ['supabase/functions/**/*.ts'],
-    languageOptions: {
-      globals: { Deno: 'readonly', ...globals.browser },
-    },
-    rules: {
-      'no-console': 'off', // Edge Functions log to console intentionally
-      // Block OAuth client_secret in URL params
-      'no-restricted-syntax': [
-        'error',
-        {
-          selector: 'TemplateLiteral[quasis.0.value.raw=/[?&]client_secret=/]',
-          message: 'Never put client_secret in URL params. Move to POST body (form-urlencoded).',
+          message: 'Avoid localStorage for PII, tokens, or secrets. Use sessionStorage for temporary client-only data.',
         },
       ],
     },

@@ -5,7 +5,7 @@
 //   the t() function substitutes them at read time.
 //
 // NOT covered here on purpose: URLs (ethoz.cl, ethoz.web.app), email addresses,
-// social handles, and the Supabase project ref — those are infrastructure, not
+// social handles, and backend endpoints — those are infrastructure, not
 // display name, and changing them is a separate DNS/hosting/account task.
 
 /** Display / marketing name. */

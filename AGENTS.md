@@ -15,10 +15,11 @@
 - Blog posts: follow `src/lib/data/posts/types.ts` interface exactly
 - Social: follow brand rules in `docs/5-knowledge-base/audiencias-messaging.md`
 
-### Admin Panel
-- Auth: Supabase Auth (email: idaraya@uc.cl)
-- Routes: /admin/leads, /admin/prospecting, /admin/content, /admin/settings
-- Edge Functions: supabase/functions/
+### Lead Capture / Backend Boundary
+- Landing has no admin/CRM backend
+- Public forms write through `src/lib/marketing.ts`
+- Backend endpoint lives in `ethoz-app`: `/api/marketing/leads`
+- Do not reintroduce a public database client or legacy admin routes here
 
 ### Prospecting / Data
 - Source CSVs: Directorio-Oficial-Sostenedores-2025/, Directorio-Oficial-EE-2025/
@@ -34,6 +35,7 @@
 | Competitor intel | docs/5-knowledge-base/competencia.md |
 | Legal landscape | docs/5-knowledge-base/leyes-regulaciones.md |
 | Audience messaging | docs/5-knowledge-base/audiencias-messaging.md |
+| Lead capture client | src/lib/marketing.ts |
 | Content strategy | src/lib/content/strategy.ts |
 | Blog post format | src/lib/data/posts/types.ts |
 | i18n translations | src/lib/i18n/translations/{es,en}.ts |
@@ -47,4 +49,5 @@
 - NEVER use dark sections (light mode only)
 - NEVER say Ethoz "replaces" other systems (it complements)
 - NEVER invent statistics (use docs/5-knowledge-base/estadisticas.md)
+- NEVER reintroduce admin/CRM/social publishing code in this landing repo
 - NEVER commit .env.local or API keys

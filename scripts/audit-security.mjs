@@ -8,9 +8,7 @@
  * - Raw contact_email in log/captureError calls (should use maskEmail)
  * - alert() / confirm() usage in admin pages (should use shadcn Dialog / toast)
  * - {@html} usage outside of known-safe ld+json structured data
- * - Direct supabase.from('leads').insert() in client code (should use verify-lead)
- * - OAuth client_secret in URL query params
- * - Non-admin RLS patterns (auth.role() = 'authenticated') in migration files
+ * - Legacy backend runtime references in the public landing app
  *
  * Usage: node scripts/audit-security.mjs
  * Exit codes: 0 clean, 1 issues found
@@ -125,48 +123,28 @@ function checkAlertConfirm(file, content) {
   });
 }
 
-// ── Rule 5: Direct supabase.from('leads').insert() ──
-function checkDirectLeadInsert(file, content) {
-  if (!file.match(/\/src\/.*\.(ts|svelte)$/)) return;
-  if (file.endsWith('supabase.ts')) return; // Legacy fallback allowed in supabase.ts
+// ── Rule 5: No legacy backend runtime in the public landing app ──
+const legacyBackendPattern = new RegExp(
+  ['PUBLIC_' + 'SUPA' + 'BASE', 'supa' + 'base\\.co', 'functions/' + 'v1', '@' + 'supa' + 'base/supa' + 'base-js'].join('|'),
+  'i',
+);
 
-  const joined = content.replace(/\s+/g, ' ');
-  if (joined.match(/from\s*\(\s*['"]leads['"]\s*\)\s*\.insert/)) {
-    check(file, content, 1, 'Direct insert to leads table — must go through verify-lead Edge Function');
-  }
-}
+function checkLegacyBackendRuntime(file, content) {
+  const rel = relative(root, file);
+  const scoped = rel.startsWith('src/')
+    || rel.startsWith('tests/')
+    || rel.startsWith('.github/')
+    || rel === 'firebase.json'
+    || rel === 'package.json'
+    || rel === 'package-lock.json';
 
-// ── Rule 6: OAuth client_secret in URL query params ──
-function checkOAuthSecretInUrl(file, content) {
-  if (!file.match(/\/supabase\/functions\/.*\.ts$/)) return;
-
-  lines(content).forEach((line, i) => {
-    // Pattern: URL with client_secret= in a template literal or string
-    if (line.match(/[`'"].*\?[^`'"]*client_secret\s*=/)) {
-      check(file, content, i + 1, 'OAuth client_secret in URL query param — move to POST body');
-    }
-  });
-}
-
-// ── Rule 7: Non-admin RLS patterns ──
-function checkRLSPatterns(file, content) {
-  if (!file.endsWith('.sql')) return;
+  if (!scoped) return;
 
   lines(content).forEach((line, i) => {
-    if (line.includes("auth.role() = 'authenticated'")) {
-      check(file, content, i + 1, "RLS uses 'authenticated' — should be admin-specific UUID or role check", 'warning');
+    if (legacyBackendPattern.test(line)) {
+      check(file, content, i + 1, 'Legacy backend runtime reference found — public landing must use the GCP marketing API');
     }
   });
-}
-
-// ── Rule 8: Optional webhook signature verification ──
-function checkOptionalSignature(file, content) {
-  if (!file.match(/\/supabase\/functions\/.*webhook.*\.ts$/)) return;
-
-  const joined = content.replace(/\s+/g, ' ');
-  if (joined.match(/if\s*\(\s*\w*[Ss]ecret\s*\)\s*\{[^}]*verifySignature/)) {
-    check(file, content, 1, 'Webhook signature verification is conditional — must be mandatory');
-  }
 }
 
 // ── Run ──
@@ -177,10 +155,7 @@ walk(root, (file) => {
     checkHardcodedPII(file, content);
     checkPIILogging(file, content);
     checkAlertConfirm(file, content);
-    checkDirectLeadInsert(file, content);
-    checkOAuthSecretInUrl(file, content);
-    checkRLSPatterns(file, content);
-    checkOptionalSignature(file, content);
+    checkLegacyBackendRuntime(file, content);
   } catch {
     // Binary or unreadable file — skip
   }

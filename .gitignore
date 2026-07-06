@@ -6,7 +6,6 @@ build
 .env.*
 !.env.example
 media/
-supabase/.temp/
 .firebase/
 firebase-debug.log
 .omc/

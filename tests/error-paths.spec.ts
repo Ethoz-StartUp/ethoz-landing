@@ -17,10 +17,9 @@ async function dismissCookies(page: Page) {
 // 1. Contact form submission failure
 // ─────────────────────────────────────────────────────────────────────────────
 
-test.describe('Contact form — Supabase submission failure', () => {
-	test('shows error message when verify-lead returns 403', async ({ page }) => {
-		// Intercept the Edge Function verify-lead endpoint and respond with a 403
-		await page.route('**/functions/v1/verify-lead', (route) =>
+test.describe('Contact form — marketing submission failure', () => {
+	test('shows error message when marketing endpoint returns 403', async ({ page }) => {
+		await page.route('**/api/marketing/leads', (route) =>
 			route.fulfill({ status: 403, body: 'Forbidden' })
 		);
 
@@ -41,7 +40,7 @@ test.describe('Contact form — Supabase submission failure', () => {
 	});
 
 	test('does not show success state when submission fails', async ({ page }) => {
-		await page.route('**/functions/v1/verify-lead', (route) =>
+		await page.route('**/api/marketing/leads', (route) =>
 			route.fulfill({ status: 403, body: 'Forbidden' })
 		);
 
@@ -63,7 +62,7 @@ test.describe('Contact form — Supabase submission failure', () => {
 	});
 
 	test('form fields remain editable after failed submission', async ({ page }) => {
-		await page.route('**/functions/v1/verify-lead', (route) =>
+		await page.route('**/api/marketing/leads', (route) =>
 			route.fulfill({ status: 403, body: 'Forbidden' })
 		);
 

@@ -9,7 +9,7 @@
   import { t } from '$lib/i18n/index.svelte';
   import { schoolStore } from '$lib/stores/schools.svelte';
   import { trackEvent } from '$lib/utils/analytics';
-  import { saveLead } from '$lib/supabase';
+  import { saveLead } from '$lib/marketing';
   import { executeRecaptcha, getRecaptchaScriptUrl } from '$lib/utils/recaptcha';
   import { untrack } from 'svelte';
   import {

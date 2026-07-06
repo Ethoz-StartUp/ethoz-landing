@@ -8,7 +8,7 @@ Marketing site and lead funnel for [Ethoz](https://ethoz.cl) -- student data pro
 - **Styling:** Tailwind CSS 4 + tailwind-variants
 - **Components:** bits-ui, Lucide icons
 - **Hosting:** Firebase Hosting (static via `@sveltejs/adapter-static`)
-- **Database:** Supabase (leads table)
+- **Lead Intake:** Cloud Run API (`app.ethoz.cl`) + Cloud SQL Postgres
 - **Analytics:** Google Tag Manager, Microsoft Clarity
 - **Error Monitoring:** Sentry (client-side)
 - **Scheduling:** Cal.com integration
@@ -25,8 +25,7 @@ npm run dev -- --port 5177
 Requires `.env.local` with:
 
 ```
-PUBLIC_SUPABASE_URL=
-PUBLIC_SUPABASE_ANON_KEY=
+PUBLIC_MARKETING_API_URL=
 PUBLIC_CAL_API_KEY=
 PUBLIC_CLARITY_PROJECT_ID=
 PUBLIC_RECAPTCHA_SITE_KEY=
@@ -57,20 +56,20 @@ PUBLIC_SENTRY_DSN=
 
 1. User searches school on `/demo`
 2. Selects school -> `/demo/[rbd]` with school card + contact form
-3. Submits form -> lead saved to Supabase, redirects to `/schedule`
+3. Submits form -> lead saved through the GCP marketing API, redirects to `/schedule`
 4. Books demo via Cal.com -> lead status updated to `demo_scheduled`
-5. Cal.com webhook updates Supabase + sends notification email
+5. Backend integrations handle follow-up status and notifications
 
 ## Testing
 
 ```bash
-# Unit tests (vitest -- 43 tests)
+# Unit tests (Vitest)
 npm run test:unit
 
 # Unit tests in watch mode
 npm run test:unit:watch
 
-# E2E tests (Playwright -- 152 tests)
+# E2E tests (Playwright)
 npx playwright test
 
 # E2E with UI
@@ -79,22 +78,20 @@ npx playwright test --ui
 
 ### Test Coverage
 
-- **Unit:** Supabase functions (saveLead, updateLeadStatus), device detection, visitor tracking, internal traffic detection
+- **Unit:** marketing API client, device detection, visitor tracking, internal traffic detection
 - **E2E:** All pages load, navigation (desktop + mobile), demo funnel (search -> select -> form), tracking/GTM, SEO meta tags, cookie consent, responsive layout, pitch player, zero-error assertions on critical pages
-- **DB Integration:** Verifies form submission persists to Supabase and cleans up
 
 ## Observability
 
 ### Console Logs (local dev)
 
-- `[Supabase] ✔ Client initialized` -- DB connected
 - `[Leads] ✔ Lead saved: {...}` -- successful save
 - `[Leads] ✘ Failed to save: ...` -- save error with context
 - `[Sentry] ✔ Error monitoring active` -- Sentry connected
 
 ### Sentry (production)
 
-Captures unhandled errors and Supabase failures. Internal users (`?_internal=1`) are excluded. Dashboard at [sentry.io](https://sentry.io).
+Captures unhandled errors and marketing API failures. Internal users (`?_internal=1`) are excluded. Dashboard at [sentry.io](https://sentry.io).
 
 ## Deploy
 
@@ -124,11 +121,10 @@ src/
     i18n/          # ES/EN translations
     stores/        # School search store (Svelte 5 runes)
     utils/         # Analytics, device, visitor, internal, recaptcha
-    supabase.ts    # DB client + saveLead/updateLeadStatus
+    marketing.ts   # GCP marketing API client + saveLead
     sentry.ts      # Error monitoring init
   routes/          # SvelteKit pages
   hooks.client.ts  # Client error handler (Sentry)
 static/            # Favicon, school data JSON
-tests/             # Playwright E2E + DB integration tests
-supabase/          # Edge functions (cal-webhook)
+tests/             # Playwright E2E tests
 ```
