@@ -58,12 +58,12 @@ test.describe('Analytics — hero CTA trackEvent calls', () => {
 		await page.waitForLoadState('networkidle');
 		await patchDataLayer(page);
 
-		// The Watch Video button text in the built output is "Conoce Ethoz en 2 min Ver video"
-		// It opens PitchModal and fires hero_cta_clicked + pitch_opened
-		const videoBtn = page
-			.locator('button')
-			.filter({ hasText: /conoce ethoz en 2 min/i })
-			.first();
+			// The hero keeps the CTA concise in the landing copy.
+			// It opens PitchModal and fires hero_cta_clicked + pitch_opened
+			const videoBtn = page
+				.locator('button')
+				.filter({ hasText: /ver video|watch video/i })
+				.first();
 		await expect(videoBtn).toBeVisible();
 		await videoBtn.click();
 		await page.waitForTimeout(500);
@@ -197,14 +197,14 @@ test.describe('Consent — accept flow', () => {
 		await page.goto('/');
 		await page.waitForLoadState('networkidle');
 
-		// Dismiss hero modal if it opened.
-		// Trigger a tracked event pre-consent: click the "Conoce Ethoz en 2 min" button
-		// which calls trackEvent('hero_cta_clicked', { cta: 'watch_video', location: 'hero' })
-		// and trackEvent('pitch_opened'). Both should buffer in sessionStorage, not dataLayer.
-		const videoBtn = page
-			.locator('button')
-			.filter({ hasText: /conoce ethoz en 2 min/i })
-			.first();
+			// Dismiss hero modal if it opened.
+			// Trigger a tracked event pre-consent: click the concise video CTA
+			// which calls trackEvent('hero_cta_clicked', { cta: 'watch_video', location: 'hero' })
+			// and trackEvent('pitch_opened'). Both should buffer in sessionStorage, not dataLayer.
+			const videoBtn = page
+				.locator('button')
+				.filter({ hasText: /ver video|watch video/i })
+				.first();
 		await expect(videoBtn).toBeVisible();
 		await videoBtn.click();
 		await page.waitForTimeout(300);
@@ -239,4 +239,3 @@ test.describe('Consent — accept flow', () => {
 		expect(bufferedAfter).toBeNull();
 	});
 });
-

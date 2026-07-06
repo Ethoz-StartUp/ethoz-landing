@@ -34,8 +34,8 @@
 <!-- 8020 spine: charcoal footer (#18181B) closes every page. The dark surface that anchors the system. -->
 <footer class="bg-surface-dark text-on-dark-soft">
   <!-- Upper footer -->
-  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-    <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
+    <div class="grid grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-3 lg:grid-cols-6">
 
       <!-- Brand + social -->
       <div class="col-span-2 sm:col-span-3 lg:col-span-2">
@@ -46,11 +46,11 @@
           </svg>
           <span class="font-heading text-lg font-bold tracking-tight"><span class="text-on-dark">Etho</span><span class="text-accent-bright">z</span></span>
         </a>
-        <p class="mt-4 max-w-xs text-sm leading-relaxed text-on-dark-soft">
+        <p class="mt-3 max-w-xs text-sm leading-relaxed text-on-dark-soft">
           {t('footer.tagline')}
         </p>
         <!-- Social icons -->
-        <div class="mt-6 flex items-center gap-3">
+        <div class="mt-4 flex items-center gap-3">
           {#each social as s (s.name)}
             <a
               href={s.href}
@@ -68,7 +68,7 @@
       <!-- Producto -->
       <div>
         <h4 class="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-on-dark">{t('footer.product')}</h4>
-        <ul class="mt-4 flex flex-col gap-3">
+        <ul class="mt-3 flex flex-col gap-2">
           <li><a href="/productos" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.features')}</a></li>
           <li><a href="/integrations" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.integrations')}</a></li>
           <li><a href="/comparativa" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.comparison')}</a></li>
@@ -81,7 +81,7 @@
       <!-- Recursos -->
       <div>
         <h4 class="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-on-dark">{t('footer.resources_section')}</h4>
-        <ul class="mt-4 flex flex-col gap-3">
+        <ul class="mt-3 flex flex-col gap-2">
           <li><a href="/ley-21719" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.law')}</a></li>
           <li><a href="/circular-30" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.circular')}</a></li>
           <li><a href="/glosario" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.glossary')}</a></li>
@@ -93,7 +93,7 @@
       <!-- Empresa -->
       <div>
         <h4 class="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-on-dark">{t('footer.company')}</h4>
-        <ul class="mt-4 flex flex-col gap-3">
+        <ul class="mt-3 flex flex-col gap-2">
           <li><a href="/about" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.about')}</a></li>
           <li><a href="/blog" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.blog')}</a></li>
           <li><a href="/contact" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.contact')}</a></li>
@@ -104,7 +104,7 @@
       <!-- Para ti -->
       <div>
         <h4 class="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-on-dark">{t('footer.for_you')}</h4>
-        <ul class="mt-4 flex flex-col gap-3">
+        <ul class="mt-3 flex flex-col gap-2">
           <li><a href="/para-sostenedores" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.operators')}</a></li>
           <li><a href="/para-directores" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.directors')}</a></li>
           <li><a href="/para-porteros" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.porters')}</a></li>
@@ -118,7 +118,7 @@
 
   <!-- Bottom bar — slightly elevated dark surface for subtle separation -->
   <div class="border-t border-surface-dark-elevated">
-    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-5 sm:flex-row sm:px-6 lg:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-3 sm:flex-row sm:px-6 lg:px-8">
       <p class="text-xs text-on-dark-soft">{t('footer.rights')} · Hecho con ♥ en Chile</p>
       <button
         type="button"

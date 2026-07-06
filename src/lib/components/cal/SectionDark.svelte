@@ -37,7 +37,7 @@
   {id}
   aria-labelledby={ariaLabelledby}
   aria-label={ariaLabel}
-  class="section-editorial {surface}"
+  class="section-editorial scroll-mt-28 {surface}"
 >
   <div class="mx-auto {innerMaxW} px-4 sm:px-6 lg:px-8">
     {@render children()}
