@@ -9,7 +9,10 @@ function getKey(): string | undefined {
 // immediately — otherwise the token comes back null and the lead is silently lost.
 function waitForGrecaptcha(timeoutMs = 6000): Promise<any | null> {
   return new Promise((resolve) => {
-    const ready = () => (window as any).grecaptcha?.execute ? (window as any).grecaptcha : null;
+    const ready = () => {
+      const grecaptcha = (window as any).grecaptcha;
+      return grecaptcha?.enterprise?.execute ? grecaptcha.enterprise : (grecaptcha?.execute ? grecaptcha : null);
+    };
     const now = ready();
     if (now) return resolve(now);
     const start = Date.now();
@@ -33,7 +36,7 @@ export async function executeRecaptcha(action: string): Promise<string | null> {
   const grecaptcha = await waitForGrecaptcha();
   if (!grecaptcha) return null;
 
-  // reCAPTCHA v3 requires execute to run inside grecaptcha.ready().
+  // reCAPTCHA score keys require execute to run inside ready().
   try {
     return await new Promise<string | null>((resolve) => {
       grecaptcha.ready(() => {
@@ -47,5 +50,5 @@ export async function executeRecaptcha(action: string): Promise<string | null> {
 
 export function getRecaptchaScriptUrl(): string {
   const key = getKey() ?? '';
-  return `https://www.google.com/recaptcha/api.js?render=${key}`;
+  return `https://www.google.com/recaptcha/enterprise.js?render=${key}`;
 }
