@@ -37,8 +37,8 @@ Required production dependency:
 
 - `ethoz-app` Cloud Run deployed.
 - Cloud SQL migration for `marketing_leads` applied.
-- GCP Secret Manager has `RECAPTCHA_SECRET_KEY`.
-- Cloud Run service injects `RECAPTCHA_SECRET_KEY`.
+- Cloud Run service injects `GCP_PROJECT_ID` and `RECAPTCHA_ENTERPRISE_SITE_KEY`.
+- The landing build uses the matching public `PUBLIC_RECAPTCHA_SITE_KEY`.
 
 Quick endpoint checks:
 
@@ -74,7 +74,7 @@ If leads fail:
 
 1. Check browser Network tab for `/api/marketing/leads`.
 2. Check Cloud Run logs for `scope=marketing-leads`.
-3. Confirm `RECAPTCHA_SECRET_KEY` exists and is mounted in Cloud Run.
+3. Confirm `GCP_PROJECT_ID` and `RECAPTCHA_ENTERPRISE_SITE_KEY` are present in Cloud Run.
 4. Confirm the `marketing_leads` migration ran in Cloud SQL.
 
 ## Hard Rules

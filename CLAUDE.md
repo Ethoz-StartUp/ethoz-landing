@@ -66,7 +66,7 @@ docs/                 — Documentation index (5 sections + knowledge base + con
 
 ### APIs and Keys
 All in `.env.local` (never commit): public marketing API URL, public reCAPTCHA site key, Cal.com, Sentry, Cloudflare, Clarity, and local content tooling keys when needed.
-Server-side secrets such as `RECAPTCHA_SECRET_KEY` belong in GCP Secret Manager for `ethoz-app`.
+Lead intake uses reCAPTCHA Enterprise in `ethoz-app`; do not create or depend on a classic reCAPTCHA server secret.
 
 ### Security (hardened 2026-04)
 - **NEVER** add `PUBLIC_*` env vars for secrets — they ship to the client bundle

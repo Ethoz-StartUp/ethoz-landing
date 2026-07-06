@@ -44,7 +44,7 @@ PUBLIC_APP_URL=https://app.ethoz.cl/login
 PUBLIC_SENTRY_DSN=
 ```
 
-Do not commit secrets. Server-side secrets such as `RECAPTCHA_SECRET_KEY` belong in GCP Secret Manager and are consumed by `ethoz-app`, not by this static landing repo.
+Do not commit secrets. Lead intake uses `ethoz-app` on Cloud Run with reCAPTCHA Enterprise; this static landing repo only consumes public `PUBLIC_*` values.
 
 ## Public Routes
 
