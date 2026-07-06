@@ -84,7 +84,7 @@
              fixed chrome stays shorter than the hero's pt-28. Full detail on sm+. -->
         <a href="/ley-21719" class="group flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-center">
           <span aria-hidden="true" class="inline-flex size-1.5 shrink-0 rounded-full bg-destructive"></span>
-          <span class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-primary group-hover:underline group-hover:underline-offset-4">Ley 21.719</span>
+          <span class="text-xs font-semibold uppercase text-primary group-hover:underline group-hover:underline-offset-4">Ley 21.719</span>
           <span class="hidden text-border sm:inline" aria-hidden="true">·</span>
           <span class="hidden text-muted-foreground sm:inline">{t('nav.ribbon_full_enforcement')}</span>
           <span class="hidden text-border sm:inline" aria-hidden="true">·</span>
@@ -100,7 +100,7 @@
           <rect x="2" y="7" width="18" height="22" rx="5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-foreground"/>
           <rect x="12" y="3" width="18" height="22" rx="5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-primary"/>
         </svg>
-        <span class="font-heading text-xl font-extrabold tracking-tight"><span class="text-foreground">Etho</span><span class="text-primary">z</span></span>
+        <span class="font-heading text-xl font-extrabold tracking-normal"><span class="text-foreground">Etho</span><span class="text-primary">z</span></span>
       </a>
     </div>
 
@@ -112,8 +112,8 @@
           href={link.href}
           class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isActive(link.href)
-              ? 'text-primary-active bg-primary/5'
-              : 'text-muted-foreground hover:text-foreground hover:bg-muted'}"
+              ? 'bg-primary/5 text-primary-active'
+              : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
         >
           {t(link.key)}
         </a>
@@ -136,8 +136,8 @@
           aria-controls="products-menu"
           class="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isProductActive()
-              ? 'text-primary-pressed bg-primary/5'
-              : 'text-muted-foreground hover:text-foreground hover:bg-muted'}"
+              ? 'bg-primary/5 text-primary-active'
+              : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
           onkeydown={(e) => {
             if (e.key === 'Escape' && productsOpen) { productsOpen = false; (e.currentTarget as HTMLAnchorElement).focus(); }
             if (e.key === 'ArrowDown' && !productsOpen) { e.preventDefault(); productsOpen = true; }
@@ -190,8 +190,8 @@
           href={link.href}
           class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isActive(link.href)
-              ? 'text-primary-active bg-primary/5'
-              : 'text-muted-foreground hover:text-foreground hover:bg-muted'}"
+              ? 'bg-primary/5 text-primary-active'
+              : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
         >
           {t(link.key)}
         </a>
@@ -203,7 +203,7 @@
     <div class="flex items-center justify-end gap-2">
       <a
         href={env.PUBLIC_APP_URL ?? 'https://app.ethoz.cl/login'}
-        class="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-muted md:inline-flex"
+        class="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:inline-flex"
       >
         {t('nav.login')}
       </a>
@@ -213,7 +213,7 @@
 
       <button
         type="button"
-        class="inline-flex items-center justify-center rounded-lg p-2.5 min-h-[44px] min-w-[44px] text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
+        class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
         onclick={() => (mobileOpen = !mobileOpen)}
         aria-label={mobileOpen ? t('nav.close_menu') : t('nav.open_menu')}
         aria-expanded={mobileOpen}
@@ -243,7 +243,7 @@
             href={link.href}
             class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
               {isActive(link.href)
-                ? 'text-primary-active bg-primary/5'
+                ? 'bg-primary/5 text-primary-active'
                 : 'text-foreground hover:bg-muted'}"
             onclick={() => (mobileOpen = false)}
           >
@@ -256,7 +256,7 @@
           href="/productos"
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/productos') || isProductActive()
-              ? 'text-primary-active bg-primary/5'
+              ? 'bg-primary/5 text-primary-active'
               : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >
@@ -268,7 +268,7 @@
           href="/integrations"
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/integrations')
-              ? 'text-primary-active bg-primary/5'
+              ? 'bg-primary/5 text-primary-active'
               : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >
@@ -280,7 +280,7 @@
           href="/blog"
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/blog')
-              ? 'text-primary-active bg-primary/5'
+              ? 'bg-primary/5 text-primary-active'
               : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >
@@ -292,7 +292,7 @@
           href="/contact"
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
             {isActive('/contact')
-              ? 'text-primary-active bg-primary/5'
+              ? 'bg-primary/5 text-primary-active'
               : 'text-foreground hover:bg-muted'}"
           onclick={() => (mobileOpen = false)}
         >

@@ -3,8 +3,6 @@
   import { BRAND, LEGAL_NAME } from '$lib/brand';
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
-  import HeroAppMockupCard from '$lib/components/cal/HeroAppMockupCard.svelte';
-  import FeatureCardCal from '$lib/components/cal/FeatureCardCal.svelte';
   import SectionDark from '$lib/components/cal/SectionDark.svelte';
   import { t, type TranslationKey } from '$lib/i18n/index.svelte';
   import { goto } from '$app/navigation';
@@ -67,53 +65,62 @@
 
 
   // ── Student carousel for hero mockup ──
-  const heroStudents = [
+  const heroStudents: Array<{
+    photo: string;
+    nameKey: TranslationKey;
+    gradeKey: TranslationKey;
+    hasAlert: boolean;
+    alertKey?: TranslationKey;
+    timeline: Array<{
+      type: 'alert' | 'pickup' | 'observation' | 'update';
+      textKey: TranslationKey;
+      metaKey: TranslationKey;
+    }>;
+  }> = [
     {
       photo: '/images/students/kid-14.webp',
-      name: 'Diego Fernández',
-      grade: '8° Básico A',
+      nameKey: 'hero.student1.name',
+      gradeKey: 'hero.student1.grade',
       hasAlert: true,
-      alertText: 'Alerta Activa',
+      alertKey: 'hero.student1.alert',
       timeline: [
-        { type: 'alert' as const, text: 'Orden de alejamiento registrada', meta: 'Hace 2 horas · Orientadora M. López' },
-        { type: 'pickup' as const, text: 'Retiro autorizado · Madre', meta: 'Ayer 15:30 · Portería Central' },
-        { type: 'update' as const, text: 'Ficha actualizada · datos familiares', meta: '02 abr · Prof. jefe R. Soto' },
+        { type: 'alert', textKey: 'hero.student1.timeline1.text', metaKey: 'hero.student1.timeline1.meta' },
+        { type: 'pickup', textKey: 'hero.student1.timeline2.text', metaKey: 'hero.student1.timeline2.meta' },
+        { type: 'update', textKey: 'hero.student1.timeline3.text', metaKey: 'hero.student1.timeline3.meta' },
       ],
     },
     {
       photo: '/images/students/girl-12.webp',
-      name: 'Isabella Rojas',
-      grade: '6° Básico A',
+      nameKey: 'hero.student2.name',
+      gradeKey: 'hero.student2.grade',
       hasAlert: false,
-      alertText: '',
       timeline: [
-        { type: 'pickup' as const, text: 'Retiro autorizado · Padre', meta: 'Hoy 13:45 · Portería Sur' },
-        { type: 'observation' as const, text: 'Observación conductual positiva', meta: 'Ayer · Prof. A. Martínez' },
-        { type: 'update' as const, text: 'Contacto de emergencia actualizado', meta: '01 abr · Admin' },
+        { type: 'pickup', textKey: 'hero.student2.timeline1.text', metaKey: 'hero.student2.timeline1.meta' },
+        { type: 'observation', textKey: 'hero.student2.timeline2.text', metaKey: 'hero.student2.timeline2.meta' },
+        { type: 'update', textKey: 'hero.student2.timeline3.text', metaKey: 'hero.student2.timeline3.meta' },
       ],
     },
     {
       photo: '/images/students/girl-15.webp',
-      name: 'Catalina Morales',
-      grade: '1° Medio A',
+      nameKey: 'hero.student3.name',
+      gradeKey: 'hero.student3.grade',
       hasAlert: true,
-      alertText: 'Retiro Restringido',
+      alertKey: 'hero.student3.alert',
       timeline: [
-        { type: 'alert' as const, text: 'Retiro no autorizado detectado', meta: 'Hace 1 hora · Portería Norte' },
-        { type: 'observation' as const, text: 'Derivación a orientación', meta: 'Hoy 09:00 · Prof. C. Ruiz' },
-        { type: 'pickup' as const, text: 'Retiro autorizado · Abuela', meta: 'Ayer 16:00 · Portería Central' },
+        { type: 'alert', textKey: 'hero.student3.timeline1.text', metaKey: 'hero.student3.timeline1.meta' },
+        { type: 'observation', textKey: 'hero.student3.timeline2.text', metaKey: 'hero.student3.timeline2.meta' },
+        { type: 'pickup', textKey: 'hero.student3.timeline3.text', metaKey: 'hero.student3.timeline3.meta' },
       ],
     },
     {
       photo: '/images/students/kid-11.webp',
-      name: 'Tomás Herrera',
-      grade: '5° Básico B',
+      nameKey: 'hero.student4.name',
+      gradeKey: 'hero.student4.grade',
       hasAlert: false,
-      alertText: '',
       timeline: [
-        { type: 'pickup' as const, text: 'Retiro autorizado · Madre', meta: 'Hoy 13:00 · Portería Central' },
-        { type: 'update' as const, text: 'Evaluación semestral registrada', meta: '31 mar · Prof. jefe L. Vera' },
-        { type: 'observation' as const, text: 'Participación en acto cívico', meta: '28 mar · Inspector J. Muñoz' },
+        { type: 'pickup', textKey: 'hero.student4.timeline1.text', metaKey: 'hero.student4.timeline1.meta' },
+        { type: 'update', textKey: 'hero.student4.timeline2.text', metaKey: 'hero.student4.timeline2.meta' },
+        { type: 'observation', textKey: 'hero.student4.timeline3.text', metaKey: 'hero.student4.timeline3.meta' },
       ],
     },
   ];
@@ -151,16 +158,31 @@
     return () => observer.disconnect();
   });
 
-  // Supporting feature cards rendered in the features section as a 3-up grid.
-  // Driven by an array so the card class string lives once instead of three times.
-  const supportingFeatures: Array<{
+  const featureCards: Array<{
     href: string;
     titleKey: TranslationKey;
     descKey: TranslationKey;
   }> = [
-    { href: '/features/safe-pickups',  titleKey: 'features.pickup.title', descKey: 'features.pickup.desc' },
-    { href: '/features/access-control', titleKey: 'features.rbac.title',   descKey: 'features.rbac.desc' },
-    { href: '/features/smart-search',   titleKey: 'features.search.title', descKey: 'features.search.desc' },
+    {
+      href: '/features/student-profile',
+      titleKey: 'home.feature.record.title',
+      descKey: 'home.feature.record.desc',
+    },
+    {
+      href: '/demo',
+      titleKey: 'home.feature.summary.title',
+      descKey: 'home.feature.summary.desc',
+    },
+    {
+      href: '/features/access-control',
+      titleKey: 'home.feature.access.title',
+      descKey: 'home.feature.access.desc',
+    },
+    {
+      href: '/features/smart-search',
+      titleKey: 'home.feature.search.title',
+      descKey: 'home.feature.search.desc',
+    },
   ];
 </script>
 
@@ -172,14 +194,14 @@
 
 <svelte:head>
   <title>{t('home.meta.title')}</title>
-  <meta name="description" content={`${BRAND} · Plataforma de protección escolar y cumplimiento de datos para colegios de Chile. Cumple con la Ley 21.719 antes del plazo de diciembre 2026.`} />
+  <meta name="description" content={t('home.meta.description')} />
   <meta property="og:url" content="https://ethoz.cl/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} · Protección escolar y cumplimiento para colegios`} />
-  <meta property="og:description" content="Plataforma de protección escolar y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
+  <meta property="og:title" content={t('home.meta.og_title')} />
+  <meta property="og:description" content={t('home.meta.og_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} · Protección escolar y cumplimiento para colegios`} />
-  <meta name="twitter:description" content="Plataforma de protección escolar y cumplimiento normativo para colegios en Chile. Control de acceso, protección de datos y seguridad escolar." />
+  <meta name="twitter:title" content={t('home.meta.og_title')} />
+  <meta name="twitter:description" content={t('home.meta.og_description')} />
   <link rel="canonical" href="https://ethoz.cl/" />
   {@html `<script type="application/ld+json">${JSON.stringify([
     {
@@ -189,7 +211,7 @@
       "legalName": LEGAL_NAME,
       "url": "https://ethoz.cl",
       "logo": "https://ethoz.cl/favicon.svg",
-      "description": "Plataforma de protección escolar y datos seguros para colegios de Chile",
+      "description": t('home.meta.schema_org_description'),
       "foundingDate": "2026-04-06",
       "areaServed": { "@type": "Country", "name": "Chile" },
       "sameAs": [
@@ -227,7 +249,7 @@
       "name": BRAND,
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
-      "description": "Plataforma de protección escolar y datos seguros para colegios de Chile. Cumplimiento Ley 21.719.",
+      "description": t('home.meta.schema_app_description'),
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "CLP",
@@ -261,33 +283,25 @@
   <!-- ═══════════════════════════════════════════
        SECTION 2: HERO — editorial
        ═══════════════════════════════════════════ -->
-  <section class="relative pt-28 sm:pt-32">
-    <!-- 8020 §09 texture: 32px grid behind the hero, faded by a radial mask so it orients, never decorates -->
-    <div class="pointer-events-none absolute inset-0 bg-grid-fine [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,#000_10%,transparent_72%)]" aria-hidden="true"></div>
-    <div class="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-8 sm:px-6 sm:py-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12 lg:px-8">
+  <section class="relative isolate overflow-hidden bg-background pt-24 sm:pt-28">
+    <div class="pointer-events-none absolute inset-0 bg-grid-fine opacity-70 [mask-image:linear-gradient(to_bottom,#000_0%,transparent_78%)]" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute right-0 top-28 h-80 w-80 rounded-full bg-accent-tint blur-3xl" aria-hidden="true"></div>
 
-      <!-- Left column: headline + CTAs -->
+    <div class="relative mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-12 lg:grid-cols-[minmax(0,5.2fr)_minmax(0,6.8fr)] lg:items-start lg:gap-12 lg:px-8 lg:py-14">
       <div class="flex flex-col items-center text-center sm:items-start sm:text-left">
-        <!-- Pilot badge — the early-access story starts here and resolves in the closing CTA.
-             The law/deadline urgency lives in the ribbon + H1; this pill owns the pilot. -->
-        <div
-          class="animate-fade-in-up mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-foreground"
-        >
+        <div class="animate-fade-in-up mb-5 inline-flex items-center gap-2 rounded-full border border-hairline bg-card px-3 py-1.5 text-xs font-semibold text-muted-foreground shadow-card">
           <span class="relative inline-flex size-2 shrink-0 rounded-full bg-primary"></span>
           <span>{t('hero.pilot_badge')}</span>
         </div>
 
-        <!-- Headline — global h1 carries DM Sans 800 + --fs-display-xl + --tracking-display-xl -->
-        <h1 class="animate-fade-in-up animate-delay-100 w-full text-balance text-foreground">
+        <h1 class="animate-fade-in-up animate-delay-100 w-full max-w-[15ch] text-balance text-foreground">
           {t('hero.title')}
         </h1>
 
-        <!-- Subtitle -->
         <p class="animate-fade-in-up animate-delay-200 mt-5 max-w-xl text-base leading-relaxed text-body sm:text-lg">
           {t('hero.subtitle')}
         </p>
 
-        <!-- CTAs -->
         <div class="animate-fade-in-up animate-delay-300 mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:justify-start sm:gap-4">
           <Button
             id="hero-cta"
@@ -303,119 +317,185 @@
           </Button>
           <Button variant="outline" size="xl" onclick={() => { trackEvent('hero_cta_clicked', { cta: 'watch_video', location: 'hero' }); showPitch = true; }} class="w-full justify-center sm:w-auto">
             <Play class="size-5" />
-            <span class="hidden sm:inline">{t('hero.video_long')}</span>
-            <span class="sm:hidden">{t('hero.video_short')}</span>
+            {t('hero.video_short')}
           </Button>
+        </div>
+
+        <div class="animate-fade-in-up animate-delay-400 mt-8 hidden w-full max-w-sm rounded-xl border border-hairline bg-card p-4 text-left shadow-card sm:block lg:hidden">
+          <div class="flex items-center gap-3">
+            <img
+              src={activeStudent.photo}
+              alt={t(activeStudent.nameKey)}
+              width="48"
+              height="48"
+              class="size-12 rounded-full object-cover ring-2 ring-background"
+              loading="eager"
+            />
+            <div class="min-w-0 flex-1">
+              <p class="truncate text-sm font-semibold text-foreground">{t('hero.panel.chrome_title')}</p>
+              <p class="truncate text-xs text-muted-foreground">{t('hero.panel.compact_status')}</p>
+            </div>
+            <Shield class="size-5 shrink-0 text-primary" />
+          </div>
+          <div class="mt-4 grid grid-cols-3 divide-x divide-border border-t border-border pt-4">
+            <div class="pr-3 text-center">
+              <p class="text-sm font-semibold text-foreground">{t('hero.panel.fact1_value')}</p>
+              <p class="mt-1 text-xs text-muted-foreground">{t('hero.panel.fact1_label')}</p>
+            </div>
+            <div class="px-3 text-center">
+              <p class="text-sm font-semibold text-foreground">{t('hero.panel.fact2_value')}</p>
+              <p class="mt-1 text-xs text-muted-foreground">{t('hero.panel.fact2_label')}</p>
+            </div>
+            <div class="pl-3 text-center">
+              <p class="text-sm font-semibold text-foreground">{t('hero.panel.fact3_value')}</p>
+              <p class="mt-1 text-xs text-muted-foreground">{t('hero.panel.fact3_label')}</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Right column: dashboard mockup — cream-elevated frame + navy left-rule spine -->
-      <div class="animate-fade-in-up animate-delay-400 w-full">
-        <HeroAppMockupCard>
-          <!-- Negative margin cancels HeroAppMockupCard's p-6 so title bar and dots are flush -->
-          <div class="-m-6"
-            role="region"
-            aria-roledescription={t('home.carousel_roledescription')}
-            aria-label={t('home.carousel_label')}
-            onmouseenter={() => (carouselPaused = true)}
-            onmouseleave={() => (carouselPaused = false)}
-            onfocusin={() => (carouselPaused = true)}
-            onfocusout={() => (carouselPaused = false)}
-          >
-            <!-- Title bar with LIVE indicator -->
-            <div class="flex items-center gap-2 border-b border-border bg-muted/40 px-4 py-3">
-              <div class="size-3 rounded-full bg-destructive/60"></div>
-              <div class="size-3 rounded-full bg-warning/60"></div>
-              <div class="size-3 rounded-full bg-success/60"></div>
-              <span class="ml-3 text-xs font-medium text-muted-foreground">{t('hero.mockup_title')}</span>
-              <span class="ml-auto inline-flex items-center gap-1.5 whitespace-nowrap border border-border bg-muted px-2 py-0.5 text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
-                <span class="relative flex size-1.5">
-                  <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
-                  <span class="relative inline-flex size-1.5 rounded-full bg-success"></span>
-                </span>
-                <span class="hidden sm:inline">{t('home.demo_data_badge')}</span>
-                <span class="sm:hidden">{t('home.demo_data_badge_short')}</span>
+      <div class="animate-fade-in-up animate-delay-400 hidden w-full lg:block">
+        <div
+          class="relative mx-auto w-full max-w-2xl"
+          role="region"
+          aria-roledescription={t('home.carousel_roledescription')}
+          aria-label={t('home.carousel_label')}
+          onmouseenter={() => (carouselPaused = true)}
+          onmouseleave={() => (carouselPaused = false)}
+          onfocusin={() => (carouselPaused = true)}
+          onfocusout={() => (carouselPaused = false)}
+        >
+          <div class="pointer-events-none absolute inset-0 rounded-full bg-accent-tint blur-3xl" aria-hidden="true"></div>
+
+          <div class="relative overflow-hidden rounded-2xl border border-hairline bg-card shadow-mockup">
+            <div class="flex items-center justify-between gap-4 border-b border-border bg-surface-soft px-4 py-3">
+              <div class="flex items-center gap-2" aria-hidden="true">
+                <span class="size-2.5 rounded-full bg-destructive"></span>
+                <span class="size-2.5 rounded-full bg-warning"></span>
+                <span class="size-2.5 rounded-full bg-success"></span>
+              </div>
+              <p class="truncate text-sm font-semibold text-foreground">{t('hero.panel.chrome_title')}</p>
+              <span class="rounded-full border border-primary/20 bg-accent-tint px-2.5 py-1 text-xs font-semibold text-primary">
+                {t('home.demo_data_badge_short')}
               </span>
             </div>
 
-            <!-- Dashboard content — carousel -->
-            {#key currentStudent}
-              <div class="carousel-fade p-4 sm:p-6">
-                <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
-                  <!-- Student profile column -->
-                  <div class="flex flex-col items-center gap-3 sm:w-48 sm:shrink-0 sm:items-start">
-                    <img
-                      src={activeStudent.photo}
-                      alt={activeStudent.name}
-                      width="64"
-                      height="64"
-                      class="size-16 rounded-full object-cover ring-2 ring-border"
-                      loading="eager"
-                    />
-                    <div class="text-center sm:text-left">
-                      <p class="text-sm font-semibold text-foreground">{activeStudent.name}</p>
-                      <p class="text-xs text-muted-foreground">{activeStudent.grade}</p>
-                    </div>
-                    {#if activeStudent.hasAlert}
-                      <!-- Ink-on-tint (PastelBadge pattern): label text-foreground = AAA; red icon
-                           keeps the urgency cue and clears 3:1 graphical contrast on the /10 tint. -->
-                      <span class="inline-flex items-center gap-1 rounded-full bg-destructive/10 px-2.5 py-1 text-xs font-medium text-foreground">
-                        <AlertTriangle class="size-3 text-destructive" />
-                        {activeStudent.alertText}
-                      </span>
-                    {:else}
-                      <!-- Safe state: foreground ink + icon (AAA); green tint carries the positive cue. -->
-                      <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2.5 py-1 text-xs font-medium text-foreground">
-                        <Check class="size-3 text-foreground" />
-                        {t('hero.no_alerts')}
-                      </span>
-                    {/if}
-                  </div>
-
-                  <!-- Timeline column -->
-                  <div class="flex-1 border-t border-border pt-4 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6">
-                    <p class="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      {t('hero.recent_history')}
-                    </p>
-                    <div class="flex flex-col gap-3">
-                      {#each activeStudent.timeline as entry}
-                        <div class="flex items-start gap-3">
-                          {#if entry.type === 'alert'}
-                            <AlertTriangle class="mt-0.5 size-4 shrink-0 text-destructive" />
-                          {:else if entry.type === 'pickup'}
-                            <UserCheck class="mt-0.5 size-4 shrink-0 text-foreground" />
-                          {:else if entry.type === 'observation'}
-                            <MessageSquare class="mt-0.5 size-4 shrink-0 text-foreground" />
-                          {:else}
-                            <Eye class="mt-0.5 size-4 shrink-0 text-foreground" />
-                          {/if}
-                          <div>
-                            <p class="text-xs font-medium text-foreground">{entry.text}</p>
-                            <p class="text-xs text-muted-foreground">{entry.meta}</p>
-                          </div>
-                        </div>
-                      {/each}
-                    </div>
-                  </div>
+            <div class="p-5 sm:p-6">
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <p class="text-xs font-semibold uppercase text-primary">{t('hero.panel.kicker')}</p>
+                  <p class="mt-2 max-w-md font-heading text-2xl font-bold leading-tight text-foreground sm:text-3xl">
+                    {t('hero.panel.title')}
+                  </p>
+                </div>
+                <div class="flex items-center gap-2 rounded-full border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground">
+                  <Shield class="size-4 text-primary" />
+                  {t('hero.panel.ready_label')}
                 </div>
               </div>
-            {/key}
 
-            <!-- Carousel dots -->
-            <div class="flex items-center justify-center gap-2 border-t border-border px-4 py-3">
-              {#each heroStudents as student, i}
-                <button
-                  onclick={() => { currentStudent = i; }}
-                  class="flex min-h-[44px] min-w-[44px] items-center justify-center"
-                  aria-label={`${t('home.carousel_dot_label')} ${student.name}`}
-                  aria-current={currentStudent === i ? 'true' : undefined}
-                >
-                  <span class="block size-2 rounded-full transition-all {currentStudent === i ? 'w-6 bg-primary' : 'bg-border hover:bg-muted-foreground'}"></span>
-                </button>
-              {/each}
+              <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
+                <div>
+                  {#key currentStudent}
+                    <div class="carousel-fade flex items-center gap-3 border-b border-border pb-4">
+                      <img
+                        src={activeStudent.photo}
+                        alt={t(activeStudent.nameKey)}
+                        width="56"
+                        height="56"
+                        class="size-14 rounded-full object-cover ring-2 ring-background"
+                        loading="eager"
+                      />
+                      <div class="min-w-0 flex-1">
+                        <p class="truncate text-base font-semibold text-foreground">{t(activeStudent.nameKey)}</p>
+                        <p class="text-sm text-muted-foreground">{t(activeStudent.gradeKey)}</p>
+                      </div>
+                      {#if activeStudent.hasAlert}
+                        <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-destructive/10 px-2.5 py-1 text-xs font-semibold text-foreground">
+                          <AlertTriangle class="size-3.5 text-destructive" />
+                          {activeStudent.alertKey ? t(activeStudent.alertKey) : ''}
+                        </span>
+                      {:else}
+                        <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-success/10 px-2.5 py-1 text-xs font-semibold text-foreground">
+                          <Check class="size-3.5 text-success" />
+                          {t('hero.no_alerts')}
+                        </span>
+                      {/if}
+                    </div>
+                  {/key}
+
+                  <div class="mt-4 space-y-3">
+                    {#each activeStudent.timeline as entry}
+                      <div class="flex items-start gap-3">
+                        {#if entry.type === 'alert'}
+                          <AlertTriangle class="mt-0.5 size-4 shrink-0 text-destructive" />
+                        {:else if entry.type === 'pickup'}
+                          <UserCheck class="mt-0.5 size-4 shrink-0 text-primary" />
+                        {:else if entry.type === 'observation'}
+                          <MessageSquare class="mt-0.5 size-4 shrink-0 text-primary" />
+                        {:else}
+                          <Eye class="mt-0.5 size-4 shrink-0 text-primary" />
+                        {/if}
+                        <div class="min-w-0">
+                          <p class="truncate text-sm font-medium text-foreground">{t(entry.textKey)}</p>
+                          <p class="truncate text-xs text-muted-foreground">{t(entry.metaKey)}</p>
+                        </div>
+                      </div>
+                    {/each}
+                  </div>
+
+                  <div class="mt-4 flex items-center gap-1">
+                    {#each heroStudents as student, i}
+                      <button
+                        onclick={() => { currentStudent = i; }}
+                        class="flex min-h-[40px] min-w-[40px] items-center justify-center"
+                        aria-label={`${t('home.carousel_dot_label')} ${t(student.nameKey)}`}
+                        aria-current={currentStudent === i ? 'true' : undefined}
+                      >
+                        <span class="block size-2 rounded-full transition-all {currentStudent === i ? 'w-6 bg-primary' : 'bg-border hover:bg-muted-foreground'}"></span>
+                      </button>
+                    {/each}
+                  </div>
+                </div>
+
+                <div class="divide-y divide-border border-y border-border">
+                  {#each [
+                    { icon: UserCheck, title: 'hero.panel.step1_title', desc: 'hero.panel.step1_desc', status: 'hero.panel.step1_status' },
+                    { icon: FileCheck, title: 'hero.panel.step2_title', desc: 'hero.panel.step2_desc', status: 'hero.panel.step2_status' },
+                    { icon: Shield, title: 'hero.panel.step3_title', desc: 'hero.panel.step3_desc', status: 'hero.panel.step3_status' },
+                  ] as row}
+                    {@const RowIcon = row.icon}
+                    <div class="grid gap-3 py-4 sm:grid-cols-[auto_minmax(0,1fr)]">
+                      <RowIcon class="mt-0.5 size-5 text-primary" />
+                      <div>
+                        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                          <p class="font-semibold text-foreground">{t(row.title as TranslationKey)}</p>
+                          <span class="text-xs font-semibold text-primary">{t(row.status as TranslationKey)}</span>
+                        </div>
+                        <p class="mt-1 text-sm leading-relaxed text-muted-foreground">{t(row.desc as TranslationKey)}</p>
+                      </div>
+                    </div>
+                  {/each}
+                </div>
+              </div>
+
+              <div class="mt-6 grid grid-cols-3 divide-x divide-border border-t border-border pt-4">
+                <div class="px-3 text-center first:pl-0">
+                  <p class="text-lg font-semibold text-foreground">{t('hero.panel.fact1_value')}</p>
+                  <p class="mt-1 text-xs text-muted-foreground">{t('hero.panel.fact1_label')}</p>
+                </div>
+                <div class="px-3 text-center">
+                  <p class="text-lg font-semibold text-foreground">{t('hero.panel.fact2_value')}</p>
+                  <p class="mt-1 text-xs text-muted-foreground">{t('hero.panel.fact2_label')}</p>
+                </div>
+                <div class="px-3 text-center last:pr-0">
+                  <p class="text-lg font-semibold text-foreground">{t('hero.panel.fact3_value')}</p>
+                  <p class="mt-1 text-xs text-muted-foreground">{t('hero.panel.fact3_label')}</p>
+                </div>
+              </div>
             </div>
           </div>
-        </HeroAppMockupCard>
+        </div>
       </div>
 
     </div>
@@ -426,30 +506,30 @@
        Label → fact pattern with hairline divisions. Reads like a spec sheet,
        not a badge row.
        ═══════════════════════════════════════════ -->
-  <section class="reveal border-y border-border bg-background py-10" aria-label={t('home.trust_section_label')}>
+  <section class="reveal border-y border-border bg-background py-6" aria-label={t('home.trust_section_label')}>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+      <p class="text-center text-xs font-semibold uppercase text-muted-foreground">
         {t('trust.attribution')}
       </p>
-      <dl class="mt-8 grid grid-cols-2 gap-y-6 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
+      <dl class="mt-5 grid grid-cols-2 gap-y-5 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-foreground">{t('trust.label.data')}</dt>
+          <dt class="text-xs font-semibold uppercase text-foreground">{t('trust.label.data')}</dt>
           <dd class="mt-2 text-balance text-sm font-medium leading-snug text-foreground">{t('trust.servers')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-foreground">{t('trust.label.encryption')}</dt>
+          <dt class="text-xs font-semibold uppercase text-foreground">{t('trust.label.encryption')}</dt>
           <dd class="mt-2 text-balance text-sm font-medium leading-snug text-foreground">{t('trust.encryption')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-foreground">{t('trust.label.integration')}</dt>
+          <dt class="text-xs font-semibold uppercase text-foreground">{t('trust.label.integration')}</dt>
           <dd class="mt-2 text-balance text-sm font-medium leading-snug text-foreground">{t('trust.integration')}</dd>
         </div>
         <div class="flex flex-col items-center px-4 text-center lg:px-6">
           <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-foreground">{t('trust.label.compliance')}</dt>
+          <dt class="text-xs font-semibold uppercase text-foreground">{t('trust.label.compliance')}</dt>
           <dd class="mt-2 text-balance text-sm font-medium leading-snug text-foreground">{t('trust.compliance')}</dd>
         </div>
       </dl>
@@ -462,41 +542,40 @@
        paired with three verified stats from Mineduc + Law 21.719.
        No card grid, no stock-template rhythm.
        ═══════════════════════════════════════════ -->
-  <section class="reveal py-14 sm:py-20" aria-labelledby="editorial-heading">
+  <section class="reveal py-10 sm:py-12" aria-labelledby="editorial-heading">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <p id="editorial-heading" class="eyebrow mt-6">{t('editorial.eyebrow')}</p>
-      <blockquote class="mx-auto mt-5 max-w-4xl font-heading text-2xl leading-[1.35] text-foreground sm:text-[2rem] lg:text-[2.25rem] lg:leading-[1.3]">
+      <p class="eyebrow">{t('editorial.eyebrow')}</p>
+      <h2 id="editorial-heading" class="mx-auto mt-4 max-w-3xl text-balance text-foreground">
         {t('editorial.statement')}
-      </blockquote>
+      </h2>
     </div>
 
-    <div class="mx-auto mt-12 max-w-7xl px-4 sm:mt-16 sm:px-6 lg:px-8">
-      <dl class="grid grid-cols-1 border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
-        <div class="px-6 py-6 text-center sm:py-8">
+    <div class="mx-auto mt-7 max-w-7xl px-4 sm:px-6 lg:px-8">
+      <dl class="mx-auto grid max-w-5xl grid-cols-1 border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
+        <div class="px-6 py-5 text-center">
           <dt class="sr-only">{t('editorial.stat1_label')}</dt>
-          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl">
+          <dd data-numeric class="font-mono text-2xl font-semibold leading-none text-foreground sm:text-3xl">
             {t('editorial.stat1_number')}
           </dd>
-          <p class="mt-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+          <p class="mt-2 text-xs font-semibold uppercase text-muted-foreground">
             {t('editorial.stat1_label')}
           </p>
         </div>
-        <div class="border-t border-border px-6 py-6 text-center sm:border-t-0 sm:py-8">
+        <div class="border-t border-border px-6 py-5 text-center sm:border-t-0">
           <dt class="sr-only">{t('editorial.stat2_label')}</dt>
-          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl">
+          <dd data-numeric class="font-mono text-2xl font-semibold leading-none text-foreground sm:text-3xl">
             {t('editorial.stat2_number')}
           </dd>
-          <p class="mt-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+          <p class="mt-2 text-xs font-semibold uppercase text-muted-foreground">
             {t('editorial.stat2_label')}
           </p>
         </div>
-        <div class="border-t border-border px-6 py-6 text-center sm:border-t-0 sm:py-8">
+        <div class="border-t border-border px-6 py-5 text-center sm:border-t-0">
           <dt class="sr-only">{t('editorial.stat3_label')}</dt>
-          <dd class="font-heading text-5xl leading-none text-foreground sm:text-6xl">
+          <dd data-numeric class="font-mono text-2xl font-semibold leading-none text-foreground sm:text-3xl">
             {t('editorial.stat3_number')}
           </dd>
-          <p class="mt-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+          <p class="mt-2 text-xs font-semibold uppercase text-muted-foreground">
             {t('editorial.stat3_label')}
           </p>
         </div>
@@ -510,7 +589,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 4: PROBLEM
        ═══════════════════════════════════════════ -->
-  <section class="reveal py-16 sm:py-20 lg:py-24" id="problem">
+  <section class="reveal scroll-mt-28 py-10 sm:py-12 lg:py-14" id="problem">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <p class="eyebrow mb-4">{t('home.problem_meta')}</p>
@@ -522,26 +601,31 @@
         </p>
       </div>
 
-      <!-- Problem items — 3 columns, feature cards with hairline border -->
-      <div class="mx-auto mt-8 grid gap-5 sm:grid-cols-3">
-        <FeatureCardCal
-          icon={AlertTriangle}
-          title={t('problem.card1.title')}
-          description={t('problem.card1.desc')}
-          accent="navy"
-        />
-        <FeatureCardCal
-          icon={Shield}
-          title={t('problem.card2.title')}
-          description={t('problem.card2.desc')}
-          accent="navy"
-        />
-        <FeatureCardCal
-          icon={FileCheck}
-          title={t('problem.card3.title')}
-          description={t('problem.card3.desc')}
-          accent="navy"
-        />
+      <div class="mx-auto mt-8 grid max-w-5xl gap-4 lg:grid-cols-[minmax(0,4fr)_minmax(0,6fr)] lg:items-start lg:gap-6">
+        <div class="rounded-xl border border-hairline bg-card p-7 shadow-card sm:p-8">
+          <p class="text-xs font-semibold uppercase text-muted-foreground">{t('problem.snapshot.label')}</p>
+          <h3 class="mt-5 font-heading text-3xl font-semibold leading-tight text-foreground sm:text-4xl">{t('problem.snapshot.title')}</h3>
+          <p class="mt-4 text-base leading-relaxed text-body">{t('problem.snapshot.desc')}</p>
+        </div>
+        <div class="divide-y divide-border rounded-xl border border-hairline bg-card shadow-card">
+          {#each [
+            { icon: AlertTriangle, title: 'problem.card1.title', desc: 'problem.card1.desc' },
+            { icon: Shield, title: 'problem.card2.title', desc: 'problem.card2.desc' },
+            { icon: FileCheck, title: 'problem.card3.title', desc: 'problem.card3.desc' },
+          ] as item}
+            {@const Icon = item.icon}
+            <div class="grid gap-4 p-5 sm:grid-cols-[auto_minmax(0,1fr)] sm:p-6">
+              <div class="flex items-center gap-3 sm:items-start">
+                <Icon class="size-5 shrink-0 text-primary" />
+                <h3 class="font-heading text-lg leading-tight text-foreground sm:hidden">{t(item.title as TranslationKey)}</h3>
+              </div>
+              <div>
+                <h3 class="hidden font-heading text-lg leading-tight text-foreground sm:block">{t(item.title as TranslationKey)}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-body">{t(item.desc as TranslationKey)}</p>
+              </div>
+            </div>
+          {/each}
+        </div>
       </div>
     </div>
   </section>
@@ -549,7 +633,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 5: SOLUTION / FEATURES
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="features">
+  <section class="reveal scroll-mt-28 bg-secondary py-10 sm:py-12 lg:py-14" id="features">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <p class="eyebrow mb-4">{t('home.solution_meta')}</p>
@@ -561,51 +645,13 @@
         </p>
       </div>
 
-      <!-- Featured hero card: Ficha 360° — featured hairline card -->
-      <div class="mx-auto mt-10 max-w-5xl">
-        <a href="/features/student-profile" class="group block rounded-xl border border-hairline bg-card shadow-card p-8 transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-[1px] hover:border-foreground/25 hover:shadow-card-hover sm:p-10 lg:p-12">
-          <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
-            <div>
-              <h3 class="font-heading text-2xl leading-tight text-foreground sm:text-[1.75rem] lg:text-[2rem]">
-                {t('features.record.title')}
-              </h3>
-              <p class="mt-4 text-base leading-relaxed text-body">
-                {t('features.record.desc')}
-              </p>
-              <span class="mt-6 hidden items-center gap-1 border-b border-foreground pb-0.5 text-sm font-semibold text-foreground transition-all group-hover:gap-1.5 group-hover:border-b-2 lg:inline-flex">
-                {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
-              </span>
-            </div>
-            <ul class="space-y-4 border-t border-border pt-6 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
-              <li class="flex items-start gap-3">
-                <Check class="mt-0.5 size-4 shrink-0 text-foreground" />
-                <p class="text-sm leading-relaxed text-foreground">{t('features.record.bullet1')}</p>
-              </li>
-              <li class="flex items-start gap-3">
-                <Check class="mt-0.5 size-4 shrink-0 text-foreground" />
-                <p class="text-sm leading-relaxed text-foreground">{t('features.record.bullet2')}</p>
-              </li>
-              <li class="flex items-start gap-3">
-                <Check class="mt-0.5 size-4 shrink-0 text-foreground" />
-                <p class="text-sm leading-relaxed text-foreground">{t('features.record.bullet3')}</p>
-              </li>
-            </ul>
-            <!-- Below lg the columns stack, so the link closes the card after the bullets -->
-            <span class="inline-flex items-center gap-1 self-start border-b border-foreground pb-0.5 text-sm font-semibold text-foreground transition-all group-hover:gap-1.5 group-hover:border-b-2 lg:hidden">
-              {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
-            </span>
-          </div>
-        </a>
-      </div>
-
-      <!-- Supporting features — 3-column grid, compact cards (driven by supportingFeatures array) -->
-      <div class="mx-auto mt-5 grid max-w-5xl gap-5 sm:grid-cols-3">
-        {#each supportingFeatures as feat (feat.href)}
-          <a href={feat.href} class="group flex flex-col rounded-xl border border-hairline bg-card shadow-card p-6 transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-[1px] hover:border-foreground/25 hover:shadow-card-hover">
-            <h3 class="font-heading text-lg leading-tight text-foreground">{t(feat.titleKey)}</h3>
+      <div class="mx-auto mt-8 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {#each featureCards as feat (feat.href)}
+          <a href={feat.href} class="group flex flex-col rounded-xl border border-hairline bg-card p-6 shadow-card transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-[1px] hover:border-foreground/25 hover:shadow-card-hover sm:min-h-[220px]">
+            <h3 class="font-heading text-xl leading-tight text-foreground">{t(feat.titleKey)}</h3>
             <p class="mt-2 flex-1 text-sm leading-relaxed text-body">{t(feat.descKey)}</p>
             <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-foreground pb-0.5 text-sm font-semibold text-foreground transition-all group-hover:gap-1.5 group-hover:border-b-2">
-              {t('features.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
+              {t('home.feature.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
             </span>
           </a>
         {/each}
@@ -628,8 +674,8 @@
     </div>
 
     <!-- Countdown — dramatic editorial treatment -->
-    <div class="mx-auto mt-10 max-w-3xl">
-      <p class="mb-8 flex items-center justify-center gap-2.5 text-center text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+    <div class="mx-auto mt-8 max-w-3xl">
+      <p class="mb-6 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase text-muted-foreground">
         <span class="relative flex size-2">
           <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
           <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
@@ -641,32 +687,26 @@
         {t('home.countdown_live_prefix')} {countdownDays} {t('home.countdown_live_days')} {countdownHours} {t('home.countdown_live_hours')} {countdownMinutes} {t('home.countdown_live_suffix')}
       </p>
       <div
-        class="grid grid-cols-3 gap-2 sm:gap-4"
+        class="mx-auto max-w-xs"
         role="group"
         aria-hidden="true"
       >
-        {#each [
-          { value: countdownDays, labelKey: countdownDays === 1 ? 'compliance.countdown.day' : 'compliance.countdown.days' },
-          { value: countdownHours, labelKey: countdownHours === 1 ? 'compliance.countdown.hour' : 'compliance.countdown.hours' },
-          { value: countdownMinutes, labelKey: countdownMinutes === 1 ? 'compliance.countdown.minute' : 'compliance.countdown.minutes' },
-        ] as box (box.labelKey)}
-          <div class="group relative rounded-xl border border-hairline bg-card p-5 text-center shadow-card transition-colors hover:border-foreground sm:p-8" aria-hidden="true">
-            <div class="pointer-events-none absolute inset-x-4 top-0 h-[2px] bg-foreground"></div>
-            <span class="font-heading block text-6xl tabular-nums leading-none tracking-[-0.03em] text-foreground sm:text-8xl">
-              {box.value}
-            </span>
-            <span class="mt-3 block text-mockup-xs font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground sm:text-xs">
-              {t(box.labelKey as TranslationKey)}
-            </span>
-          </div>
-        {/each}
+        <div class="group relative rounded-xl border border-hairline bg-card p-5 text-center shadow-card transition-colors hover:border-foreground sm:p-6" aria-hidden="true">
+          <div class="pointer-events-none absolute inset-x-4 top-0 h-[2px] bg-foreground"></div>
+          <span data-numeric class="block text-6xl font-semibold leading-none tracking-normal text-foreground sm:text-8xl">
+            {countdownDays}
+          </span>
+          <span class="mt-3 block text-xs font-semibold uppercase text-muted-foreground">
+            {t(countdownDays === 1 ? 'compliance.countdown.day' : 'compliance.countdown.days')}
+          </span>
+        </div>
       </div>
     </div>
 
     <!-- Compliance items — before the CTA so the checklist reads as the band's
          argument and the button closes it (mobile order matches desktop). -->
-    <div class="mx-auto mt-12 grid max-w-3xl gap-x-8 gap-y-4 sm:grid-cols-2">
-      {#each ['compliance.item1', 'compliance.item2', 'compliance.item3', 'compliance.item4', 'compliance.item5', 'compliance.item6'] as item}
+    <div class="mx-auto mt-8 grid max-w-3xl gap-x-8 gap-y-4 sm:grid-cols-2">
+      {#each ['compliance.item1', 'compliance.item2', 'compliance.item3'] as item}
         <div class="flex items-start gap-3">
           <Check class="mt-0.5 size-5 shrink-0 text-primary" />
           <span class="text-sm leading-relaxed text-muted-foreground">{t(item as TranslationKey)}</span>
@@ -675,7 +715,7 @@
     </div>
 
     <!-- CTA closes the band — standard Cal primary on the light band -->
-    <div class="mt-10 text-center">
+    <div class="mt-8 text-center">
       <Button
         size="xl"
         onclick={async () => {
@@ -686,14 +726,13 @@
         {t('hero.cta.primary')}
         <ArrowRight class="size-5" />
       </Button>
-      <p class="mt-4 text-xs text-muted-foreground">{t('home.countdown.cta_hint')}</p>
     </div>
   </SectionDark>
 
   <!-- ═══════════════════════════════════════════
        SECTION 8: HOW IT WORKS — visual progression with icons + connector
        ═══════════════════════════════════════════ -->
-  <section class="reveal py-16 sm:py-20 lg:py-24" id="how">
+  <section class="reveal scroll-mt-28 py-10 sm:py-12 lg:py-14" id="how">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <p class="eyebrow mb-4">{t('home.how_meta')}</p>
@@ -707,13 +746,13 @@
 
       <!-- Steps — editorial chapter style: big DM Sans numbers, no icon circles.
            Each step reads as "01 · [time]" then title + description. -->
-      <div class="mx-auto mt-12 max-w-5xl">
+      <div class="mx-auto mt-10 max-w-5xl">
         <ol class="grid gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border">
           <!-- Step 1 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl leading-none text-foreground">01</span>
-              <span class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('home.how.step1.time')}</span>
+              <span data-numeric class="text-4xl font-semibold leading-none text-foreground">01</span>
+              <span class="text-xs font-semibold uppercase text-muted-foreground">{t('home.how.step1.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step1.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step1.desc')}</p>
@@ -722,8 +761,8 @@
           <!-- Step 2 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl leading-none text-foreground">02</span>
-              <span class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('home.how.step2.time')}</span>
+              <span data-numeric class="text-4xl font-semibold leading-none text-foreground">02</span>
+              <span class="text-xs font-semibold uppercase text-muted-foreground">{t('home.how.step2.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step2.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step2.desc')}</p>
@@ -732,8 +771,8 @@
           <!-- Step 3 -->
           <li class="px-0 sm:px-8">
             <div class="flex items-baseline gap-4">
-              <span class="font-heading text-4xl leading-none text-foreground">03</span>
-              <span class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('home.how.step3.time')}</span>
+              <span data-numeric class="text-4xl font-semibold leading-none text-foreground">03</span>
+              <span class="text-xs font-semibold uppercase text-muted-foreground">{t('home.how.step3.time')}</span>
             </div>
             <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t('how.step3.title')}</h3>
             <p class="mt-3 text-sm leading-relaxed text-body">{t('how.step3.desc')}</p>
@@ -761,7 +800,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 9: FAQ
        ═══════════════════════════════════════════ -->
-  <section class="reveal bg-secondary py-16 sm:py-20 lg:py-24" id="faq">
+  <section class="reveal scroll-mt-28 bg-secondary py-10 sm:py-12 lg:py-14" id="faq">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="text-center">
         <p class="eyebrow mb-4">{t('home.faq_meta')}</p>
@@ -770,7 +809,7 @@
         </h2>
       </div>
 
-      <div class="mt-10 divide-y divide-border rounded-xl border border-border bg-card shadow-card">
+      <div class="mt-8 divide-y divide-border rounded-xl border border-border bg-card shadow-card">
         {#each [1, 2, 3, 15, 4, 12] as n, i}
           <div>
             <button
@@ -825,7 +864,7 @@
        Pacing: navy → deeper-navy footer closes the editorial dark passage. -->
   <SectionDark variant="cta" id="cta" aria-labelledby="final-cta-heading">
     <div class="text-center">
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-on-dark-soft">
+      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs font-semibold uppercase text-on-dark-soft">
         <span class="text-on-dark">{t('cta.urgency_eyebrow')}</span>
         <span aria-hidden="true" class="text-on-dark-soft/40">·</span>
         <span><span data-numeric class="font-semibold text-on-dark">{countdownDays}</span> {t('home.cta_days_suffix')}</span>
@@ -845,16 +884,6 @@
         >
           {t('cta.primary')}
           <ArrowRight class="size-5" />
-        </Button>
-        <Button
-          variant="outline"
-          size="xl"
-          onclick={() => (showPitch = true)}
-          class="bg-transparent border-on-dark text-on-dark hover:bg-on-dark hover:text-surface-dark"
-        >
-          <Play class="size-5" />
-          <span class="hidden sm:inline">{t('hero.video_long')}</span>
-          <span class="sm:hidden">{t('hero.video_short')}</span>
         </Button>
       </div>
     </div>

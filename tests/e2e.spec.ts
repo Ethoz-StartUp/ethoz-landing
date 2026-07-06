@@ -50,7 +50,25 @@ async function expectDataLayerEvent(page: Page, eventName: string, timeout = 500
 				),
 			{ timeout }
 		)
-		.toBe(true);
+			.toBe(true);
+}
+
+async function selectFirstDemoSchool(page: Page) {
+	await page.goto('/demo');
+	const input = page.getByRole('combobox', { name: /encuentra tu colegio|find your school/i });
+	await expect(input).toBeVisible({ timeout: 10000 });
+	await input.fill('Santiago');
+
+	const firstResult = page.locator('[role="listbox"] button, ul[role="listbox"] button').first();
+	await expect
+		.poll(
+			async () => await page.locator('[role="listbox"] button, ul[role="listbox"] button').count(),
+			{ timeout: 10000 }
+		)
+		.toBeGreaterThan(0);
+	await expect(firstResult).toBeVisible({ timeout: 5000 });
+	await firstResult.click();
+	await page.waitForURL(/\/demo\/\d+/, { timeout: 5000 });
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -273,16 +291,7 @@ test.describe('Runtime errors — no uncaught exceptions', () => {
 		const errors: string[] = [];
 		page.on('pageerror', (err) => errors.push(err.message));
 
-		// Navigate to demo search, select a school
-		await page.goto('/demo');
-		const input = page.locator('input[type="text"], input[placeholder]').first();
-		await expect(input).toBeVisible({ timeout: 10000 });
-		await input.fill('Santiago');
-		await page.waitForTimeout(500);
-		const firstResult = page.locator('[role="listbox"] button').first();
-		await expect(firstResult).toBeVisible({ timeout: 5000 });
-		await firstResult.click();
-		await page.waitForURL(/\/demo\/\d+/, { timeout: 5000 });
+		await selectFirstDemoSchool(page);
 
 		// Wait for school card to fully render
 		await expect(page.locator('h2').first()).toBeVisible({ timeout: 5000 });
@@ -354,16 +363,7 @@ test.describe.serial('Demo funnel — step 2: contact form', () => {
 	const demoRbdUrl = '/demo/1001'; // known RBD from the dataset
 
 	test('school card shows name, RBD and commune', async ({ page }) => {
-		// Navigate via step 1 to get to a valid RBD page
-		await page.goto('/demo');
-		const input = page.locator('input[type="text"], input[placeholder]').first();
-		await expect(input).toBeVisible({ timeout: 10000 });
-		await input.fill('Santiago');
-		await page.waitForTimeout(500);
-		const firstResult = page.locator('[role="listbox"] button').first();
-		await expect(firstResult).toBeVisible({ timeout: 5000 });
-		await firstResult.click();
-		await page.waitForURL(/\/demo\/\d+/, { timeout: 5000 });
+		await selectFirstDemoSchool(page);
 
 		// Verify school card content
 		const card = page.locator('.rounded-xl.border').first();
@@ -378,15 +378,7 @@ test.describe.serial('Demo funnel — step 2: contact form', () => {
 	});
 
 	test('"Cambiar colegio" link goes back to /demo', async ({ page }) => {
-		await page.goto('/demo');
-		const input = page.locator('input[type="text"], input[placeholder]').first();
-		await expect(input).toBeVisible({ timeout: 10000 });
-		await input.fill('Santiago');
-		await page.waitForTimeout(500);
-		const firstResult = page.locator('[role="listbox"] button').first();
-		await expect(firstResult).toBeVisible({ timeout: 5000 });
-		await firstResult.click();
-		await page.waitForURL(/\/demo\/\d+/, { timeout: 5000 });
+		await selectFirstDemoSchool(page);
 
 		const changeLink = page.locator('a[href="/demo"]').first();
 		await expect(changeLink).toBeVisible({ timeout: 5000 });
@@ -395,15 +387,7 @@ test.describe.serial('Demo funnel — step 2: contact form', () => {
 	});
 
 	test('form fields are present (name, role, email, phone, source)', async ({ page }) => {
-		await page.goto('/demo');
-		const input = page.locator('input[type="text"], input[placeholder]').first();
-		await expect(input).toBeVisible({ timeout: 10000 });
-		await input.fill('Santiago');
-		await page.waitForTimeout(500);
-		const firstResult = page.locator('[role="listbox"] button').first();
-		await expect(firstResult).toBeVisible({ timeout: 5000 });
-		await firstResult.click();
-		await page.waitForURL(/\/demo\/\d+/, { timeout: 5000 });
+		await selectFirstDemoSchool(page);
 
 		await expect(page.locator('#contact-name')).toBeVisible({ timeout: 5000 });
 		await expect(page.locator('#contact-role')).toBeVisible();
@@ -413,30 +397,14 @@ test.describe.serial('Demo funnel — step 2: contact form', () => {
 	});
 
 	test('submit button is disabled when form is empty', async ({ page }) => {
-		await page.goto('/demo');
-		const input = page.locator('input[type="text"], input[placeholder]').first();
-		await expect(input).toBeVisible({ timeout: 10000 });
-		await input.fill('Santiago');
-		await page.waitForTimeout(500);
-		const firstResult = page.locator('[role="listbox"] button').first();
-		await expect(firstResult).toBeVisible({ timeout: 5000 });
-		await firstResult.click();
-		await page.waitForURL(/\/demo\/\d+/, { timeout: 5000 });
+		await selectFirstDemoSchool(page);
 
 		const submitBtn = page.locator('button[type="submit"]').first();
 		await expect(submitBtn).toBeDisabled({ timeout: 5000 });
 	});
 
 	test('sessionStorage persists form values across reload', async ({ page }) => {
-		await page.goto('/demo');
-		const input = page.locator('input[type="text"], input[placeholder]').first();
-		await expect(input).toBeVisible({ timeout: 10000 });
-		await input.fill('Santiago');
-		await page.waitForTimeout(500);
-		const firstResult = page.locator('[role="listbox"] button').first();
-		await expect(firstResult).toBeVisible({ timeout: 5000 });
-		await firstResult.click();
-		await page.waitForURL(/\/demo\/\d+/, { timeout: 5000 });
+		await selectFirstDemoSchool(page);
 
 		// Wait for form to be rendered
 		await expect(page.locator('#contact-name')).toBeVisible({ timeout: 5000 });
