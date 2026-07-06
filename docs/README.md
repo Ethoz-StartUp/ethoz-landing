@@ -11,7 +11,7 @@ Browser
   -> Cloud SQL Postgres marketing_leads table
 ```
 
-The landing repo does not own an admin panel, CRM database, social publishing backend, or prospecting backend. Those old surfaces were intentionally removed so this repo stays focused on the public website.
+The landing repo owns only the public website. Product application, backend state, admin panels, and operational data live in `ethoz-app`.
 
 ## Tech Stack
 
@@ -25,6 +25,15 @@ The landing repo does not own an admin panel, CRM database, social publishing ba
 | Analytics | Google Tag Manager, Microsoft Clarity |
 | Errors | Sentry |
 | Data | Static Mineduc school JSON under `static/data/` |
+
+## GCP Cost Posture
+
+| Need | Tool | Cost posture |
+| --- | --- | --- |
+| Public landing | Firebase Hosting | Free/low-cost static hosting + Google CDN |
+| Lead API | Cloud Run in `ethoz-app` | Scale-to-zero when idle |
+| Lead storage | Cloud SQL in `ethoz-app` | Paid baseline; shared with product DB |
+| Bot protection | reCAPTCHA Enterprise | Google-managed, public site key in landing |
 
 ## Local Development
 
@@ -110,4 +119,4 @@ firebase deploy --only hosting
 - Read `AGENTS.md` and `.impeccable.md` before visual changes.
 - Keep user-facing copy in `src/lib/i18n/translations/{es,en}.ts`.
 - Test local landing changes on port `5177`.
-- Do not reintroduce legacy public backend runtime, admin pages, or old CRM/social publishing scripts in this repo.
+- Keep backend runtime, admin panels, CRM scripts, and social publishing outside this repo.

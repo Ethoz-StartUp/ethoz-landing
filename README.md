@@ -109,7 +109,7 @@ Triggered manually via `workflow_dispatch` on the `main` branch:
 gh workflow run deploy.yml
 ```
 
-Secrets are stored in **GitHub Secrets** (Settings -> Secrets and variables -> Actions). The workflow builds with all `PUBLIC_*` env vars injected at build time, then deploys to Firebase Hosting.
+The workflow builds with public `PUBLIC_*` values at build time, then deploys to Firebase Hosting.
 
 ## Project Structure
 

@@ -1,4 +1,4 @@
-name: Deploy to Firebase
+name: Deploy Ethoz Landing to Firebase
 on:
   workflow_dispatch: # Manual trigger only — click "Run workflow" on GitHub
 

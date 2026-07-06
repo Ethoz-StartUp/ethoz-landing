@@ -61,6 +61,12 @@ The GitHub workflow `.github/workflows/deploy.yml` is manual and builds with:
 - `PUBLIC_MARKETING_API_URL=https://app.ethoz.cl`
 - public Cal.com, Clarity, reCAPTCHA site key, app URL, and Sentry values.
 
+Firebase Web App display name in project `gestion-estudiantil-dev`:
+
+```text
+Ethoz Landing
+```
+
 ## GCP Boundary
 
 This repo owns only the static public site. Backend state lives in `ethoz-app`:
@@ -69,6 +75,12 @@ This repo owns only the static public site. Backend state lives in `ethoz-app`:
 - Project: `gestion-estudiantil-dev`
 - Region: `southamerica-west1`
 - Database: Cloud SQL Postgres
+
+Cost posture:
+
+- Firebase Hosting serves the landing as static files.
+- Cloud Run handles lead intake and scales to zero.
+- Cloud SQL is the paid baseline because it stores product data.
 
 If leads fail:
 
