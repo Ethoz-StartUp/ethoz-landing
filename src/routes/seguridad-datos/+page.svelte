@@ -38,7 +38,7 @@
   ];
 
   const infraItems = [
-    { name: 'Cloud SQL (Postgres)', location: 'seguridadDatos.infra_supabase_location' as const, role: 'seguridadDatos.infra_supabase_role' as const },
+    { name: 'Cloud SQL (Postgres)', location: 'seguridadDatos.infra_cloudsql_location' as const, role: 'seguridadDatos.infra_cloudsql_role' as const },
     { name: 'Firebase Hosting', location: 'seguridadDatos.infra_firebase_location' as const, role: 'seguridadDatos.infra_firebase_role' as const },
     { name: 'Cloudflare', location: 'seguridadDatos.infra_cloudflare_location' as const, role: 'seguridadDatos.infra_cloudflare_role' as const },
   ];

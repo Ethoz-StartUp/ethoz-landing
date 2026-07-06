@@ -67,7 +67,7 @@ La Ley Marco de Ciberseguridad de Chile, que establece los principios, instituci
 - El uso de herramientas sin soporte de seguridad (software desactualizado, Excel compartido por email) constituye incumplimiento.
 
 ### Como ayuda Ethoz
-- Arquitectura en la nube con proveedores certificados (cumplimiento SOC 2 a traves de Supabase/infraestructura base).
+- Arquitectura en GCP con proveedores certificados y controles de seguridad administrados.
 - Autenticacion con 2FA disponible para roles criticos.
 - Gestion de sesiones y cierre automatico por inactividad.
 - Sin almacenamiento local de datos sensibles en dispositivos de usuarios.

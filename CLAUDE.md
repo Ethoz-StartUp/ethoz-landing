@@ -1,7 +1,7 @@
 # Ethoz — Project Context
 
 ## What is this
-Ethoz (ethoz.cl) is a school protection platform for Chilean K-12 schools. SvelteKit 2 + Svelte 5 (runes), Tailwind CSS v4, Supabase (Auth + DB + Edge Functions), Firebase Hosting + Cloudflare DNS.
+Ethoz (ethoz.cl) is a school protection platform for Chilean K-12 schools. This repo is the public static landing site: SvelteKit 2 + Svelte 5 (runes), Tailwind CSS v4, Firebase Hosting + Cloudflare DNS. Public forms write to the GCP app backend at `app.ethoz.cl`.
 
 **Not a school management system** — complements existing ERPs (Napsis, Syscol, Lirmi) by adding security, compliance, and student data protection.
 
@@ -10,14 +10,13 @@ Ethoz (ethoz.cl) is a school protection platform for Chilean K-12 schools. Svelt
 ## Architecture
 
 ```
-src/routes/           — SvelteKit pages (landing + admin)
-src/routes/admin/     — Admin panel (auth-gated): leads CRM, prospecting, content manager
+src/routes/           — SvelteKit public landing pages
 src/lib/components/   — Shared UI (NavBar, Footer, shadcn-svelte)
+src/lib/marketing.ts  — Cloud Run marketing API client
 src/lib/data/posts/   — Blog posts as TypeScript modules (auto-discovered via glob)
 src/lib/content/      — Content strategy + pitch slides
 src/lib/i18n/         — i18n (es/en) via t() function
-scripts/              — Content pipeline (generate, publish, images, video)
-supabase/functions/   — Edge Functions (social-publish, new-lead-notify, etc.)
+scripts/              — Local validation and asset generation scripts
 static/data/          — schools.json (processed from Mineduc CSVs)
 docs/                 — Documentation index (5 sections + knowledge base + content bank)
 ```
@@ -66,27 +65,23 @@ docs/                 — Documentation index (5 sections + knowledge base + con
 - TAM: 12,038 schools, 5,777 sostenedores. Tier 1: 402 multi-school operators
 
 ### APIs and Keys
-All in `.env.local` (never commit): Supabase (anon + service_role), Kimi, Gemini, reCAPTCHA, Cal.com, Sentry, Cloudflare, Clarity.
-Content pipeline: Kimi CLI (text) → Gemini (images) → Supabase Edge Functions (publish)
+All in `.env.local` (never commit): public marketing API URL, public reCAPTCHA site key, Cal.com, Sentry, Cloudflare, Clarity, and local content tooling keys when needed.
+Lead intake uses reCAPTCHA Enterprise in `ethoz-app`; do not create or depend on a classic reCAPTCHA server secret.
 
 ### Security (hardened 2026-04)
 - **NEVER** add `PUBLIC_*` env vars for secrets — they ship to the client bundle
 - **NEVER** hardcode emails, IPs, or PII in client-side code — it lands in the JS bundle
 - **NEVER** pass OAuth `client_secret` in URL query params — always POST body
-- **NEVER** log raw emails/phones/PII — use `maskEmail()` from `$lib/supabase`
+- **NEVER** log raw emails/phones/PII — use `maskEmail()` from `$lib/marketing`
 - **NEVER** pass PII in URL query params — use `sessionStorage` for cross-page data
-- **RLS is mandatory** on all Supabase tables. New tables must have admin-only policies (`auth.uid() = '<admin-uuid>'`), not `auth.role() = 'authenticated'`
-- **Lead writes** must go through the `verify-lead` Edge Function (server-side reCAPTCHA). The `leads` table has **no anon insert policy** — direct inserts will fail
-- **Edge Functions that receive webhooks** must verify signatures mandatorily (no `if (secret)` guards)
-- **OAuth flows** must validate the `state` parameter with a timestamp check (see `social-auth-linkedin` pattern)
-- **Edge Functions error responses** must not leak internal errors — log with `console.error`, return generic messages
-- **Open Supabase registration is disabled** — do not re-enable. Admin users are created manually in the dashboard
+- **Lead writes** must go through the GCP marketing API at `/api/marketing/leads`
+- **Do not** reintroduce admin/CRM/social publishing code into this landing repo
+- **Do not** add a public database client to the landing
 - Run `npm run audit:security` before committing UI changes to check for regressions
 - Run `npm run lint` to check ESLint rules (Svelte 5 syntax, design tokens, security patterns)
 - `npm run test:ci` runs everything: lint + svelte-check + audit + unit + e2e
 
 ### UI components (shadcn-svelte + Cal primitives)
-- Admin panel uses shadcn-svelte components from `$lib/components/ui/`
 - Available: `Table`, `DropdownMenu`, `Sheet`, `Dialog`, `Select`, `Input`, `Label`, `Badge`, `Button`, `Skeleton`, `Tabs`, `Tooltip`, `Sonner` (via `svelte-sonner`)
 - **Prefer shadcn components** over raw HTML. Don't reinvent tables, dropdowns, dialogs
 - **Use `toast` from `svelte-sonner`** for feedback — never `alert()` or silent failures

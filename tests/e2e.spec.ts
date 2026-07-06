@@ -469,7 +469,7 @@ test.describe('Contact form', () => {
 		await expect(submitBtn).toBeEnabled();
 	});
 
-	test('form has Supabase integration markers', async ({ page }) => {
+	test('form has marketing integration markers', async ({ page }) => {
 		await page.goto('/contact');
 		const html = await page.content();
 		expect(html).toContain('contact-name');
@@ -975,7 +975,7 @@ test.describe('Integrations page', () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 11b. Demo happy-path (stubbed grecaptcha + verify-lead)
+// 11b. Demo happy-path (stubbed grecaptcha + marketing lead API)
 // ─────────────────────────────────────────────────────────────────────────────
 
 test.describe('Demo funnel — happy path (stubbed)', () => {
@@ -991,8 +991,8 @@ test.describe('Demo funnel — happy path (stubbed)', () => {
 			});
 		});
 
-		// Stub the Edge Function to return {ok:true}
-		await page.route('**/functions/v1/verify-lead', (route) =>
+		// Stub the Cloud Run marketing endpoint to return {ok:true}
+		await page.route('**/api/marketing/leads', (route) =>
 			route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ok: true }) })
 		);
 
@@ -1020,75 +1020,6 @@ test.describe('Demo funnel — happy path (stubbed)', () => {
 
 		// Should navigate to /schedule
 		await expect(page).toHaveURL('/schedule', { timeout: 10_000 });
-	});
-});
-
-// ─────────────────────────────────────────────────────────────────────────────
-// 12. Admin pages
-// ─────────────────────────────────────────────────────────────────────────────
-
-test.describe('Admin — login page', () => {
-	test('login page loads with password field', async ({ page }) => {
-		const response = await page.goto('/admin');
-		expect(response?.status()).toBe(200);
-		await expect(page.locator('input[type="password"]')).toBeVisible();
-	});
-
-	test('has noindex meta tag (post-hydration)', async ({ page }) => {
-		await page.goto('/admin');
-		// adapter-static SPA fallback means admin/+layout.svelte's svelte:head only injects
-		// after hydration. Wait for the password input to be visible — that confirms hydration.
-		await expect(page.locator('input[type="password"]')).toBeVisible();
-		// Root layout emits <meta robots="index,follow,..."> and admin layout appends a
-		// second <meta robots="noindex,nofollow"> — target the noindex one specifically.
-		await expect(
-			page.locator('meta[name="robots"][content*="noindex"]').first()
-		).toBeAttached();
-	});
-
-	test('shows error on wrong password', async ({ page }) => {
-		await page.goto('/admin');
-		// Submit button is disabled={loading || !password || !email} — fill BOTH fields
-		await page.locator('input[type="email"]').fill('wrong@example.com');
-		await page.locator('input[type="password"]').fill('wrongpassword');
-		await page.locator('button[type="submit"]').click();
-		// Error states depend on environment:
-		// - Valid Supabase creds + wrong password → "Contraseña incorrecta"
-		// - Valid Supabase creds + other auth error → "Error al iniciar sesión" (or Supabase message)
-		// - Missing Supabase env vars → "Supabase not configured" (client can't init)
-		// Any of these visible proves the error-path branch fires.
-		await expect(
-			page
-				.locator('text=Contraseña incorrecta')
-				.or(page.locator('text=Error al iniciar sesión'))
-				.or(page.locator('text=Supabase not configured'))
-				.or(page.locator('text=/email|password/i'))
-		).toBeVisible({ timeout: 10000 });
-	});
-
-	test('submit button is disabled when empty', async ({ page }) => {
-		await page.goto('/admin');
-		const submitBtn = page.locator('button[type="submit"]');
-		await expect(submitBtn).toBeDisabled();
-	});
-
-	test('has link back to main site', async ({ page }) => {
-		await page.goto('/admin');
-		const backLink = page.locator('a[href="/"]');
-		await expect(backLink).toBeVisible();
-	});
-
-	test('has no JS errors', async ({ page }) => {
-		const errors: string[] = [];
-		page.on('pageerror', (err) => errors.push(err.message));
-		await page.goto('/admin');
-		await page.waitForTimeout(1000);
-		expect(errors).toEqual([]);
-	});
-
-	test('unauthenticated /admin/leads redirects to /admin', async ({ page }) => {
-		await page.goto('/admin/leads');
-		await expect(page).toHaveURL('/admin');
 	});
 });
 

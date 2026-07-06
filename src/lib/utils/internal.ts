@@ -58,7 +58,7 @@ export async function checkInternalIP(): Promise<void> {
   }
 }
 
-/** Check if an email belongs to the team (for Supabase lead flagging) */
+/** Check if an email belongs to the team (for internal lead flagging) */
 export function isTestEmail(email: string): boolean {
   return INTERNAL_TEST_EMAILS.has(email.toLowerCase().trim());
 }

@@ -138,7 +138,7 @@
       action: 'bookingSuccessful',
       callback: () => {
         trackEvent('demo_booked', { school: prefill.school });
-        // Lead status → demo_scheduled is set server-side by the cal-webhook (post-migration-005 the anon client can't UPDATE leads under RLS).
+        // Lead status is handled by backend integrations; the public landing no longer writes directly to the database.
       }
     });
 

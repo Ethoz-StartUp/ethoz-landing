@@ -6,7 +6,7 @@
   import { t } from '$lib/i18n/index.svelte';
   import { Mail, CalendarDays, Loader2, Check, Clock, ExternalLink } from '@lucide/svelte';
   import { CONTACT } from '$lib/config';
-  import { saveLead } from '$lib/supabase';
+  import { saveLead } from '$lib/marketing';
   import { trackEvent } from '$lib/utils/analytics';
   import { executeRecaptcha, getRecaptchaScriptUrl } from '$lib/utils/recaptcha';
   import { browser } from '$app/environment';
@@ -59,7 +59,7 @@
       return;
     }
 
-    // Save to Supabase as a lead (with server-side reCAPTCHA verification)
+    // Save through the GCP marketing API with server-side reCAPTCHA verification.
     const result = await saveLead({
       school_name: '',
       contact_name: name,

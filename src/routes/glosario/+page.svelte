@@ -62,7 +62,7 @@
     R: [
       { term: 'RBD', def: 'Rol Base de Datos. Identificador único asignado por el Ministerio de Educación a cada establecimiento educacional en Chile. Número de referencia estándar en todos los sistemas del sector educacional.', tag: 'Educación' },
       { term: 'Retiro escolar', def: `Proceso de salida de un estudiante del establecimiento durante la jornada escolar. Requiere autorización del apoderado y verificación de identidad del adulto que retira. ${BRAND} digitaliza y audita este proceso.`, tag: 'Seguridad' },
-      { term: 'RLS', def: `Row-Level Security. Mecanismo de seguridad en bases de datos que filtra los datos que cada usuario puede ver a nivel de fila, según su rol. Implementado en ${BRAND} vía Supabase.`, link: '/seguridad-datos', tag: 'Seguridad' },
+      { term: 'RLS', def: `Row-Level Security. Mecanismo de seguridad en bases de datos que filtra los datos que cada usuario puede ver a nivel de fila, según su rol. Implementado en ${BRAND} sobre PostgreSQL.`, link: '/seguridad-datos', tag: 'Seguridad' },
     ],
     S: [
       { term: 'Seudonimización', def: 'Técnica que reemplaza identificadores directos (nombre, RUT) por seudónimos, reduciendo el riesgo de re-identificación. Los datos seudonimizados siguen siendo datos personales bajo la Ley 21.719.', tag: 'Ley 21.719' },
