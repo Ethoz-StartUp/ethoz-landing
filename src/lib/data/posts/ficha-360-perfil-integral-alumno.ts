@@ -19,7 +19,7 @@ export const post: BlogPost = {
 
 <h2>El reinicio de marzo y lo que se pierde</h2>
 <p>Cada mes de marzo, miles de establecimientos educacionales chilenos comienzan el año escolar con una paradoja: tienen años de historia acumulada sobre sus estudiantes, pero esa historia no está disponible para quienes la necesitan. El profesor jefe nuevo del curso no sabe que el alumno en el tercer banco tuvo ocho incidentes de convivencia el año anterior. El orientador que llegó en enero no tiene acceso al expediente de las intervenciones realizadas con la familia en los últimos dos años. La psicóloga nueva no sabe que hubo una derivación al CESFAM en el segundo semestre.</p>
-<p>Esta pérdida de contexto no es un problema de memoria humana: es un problema de infraestructura. La información existe —en cuadernos, en carpetas físicas, en el correo del orientador que se fue, en el sistema que no permite exportar datos de manera estructurada— pero no está disponible en el formato ni en el momento en que se necesita. El problema del reinicio de marzo se examina desde la perspectiva de la seguridad escolar en <a href="/blog/reinicio-de-marzo-seguridad-escolar">El reinicio de marzo: el mayor riesgo de seguridad escolar que nadie discute</a>.</p>
+<p>Esta pérdida de contexto no es un problema de memoria humana: es un problema de infraestructura. La información existe (en cuadernos, en carpetas físicas, en el correo del orientador que se fue, en el sistema que no permite exportar datos de manera estructurada), pero no está disponible en el formato ni en el momento en que se necesita. El problema del reinicio de marzo se examina desde la perspectiva de la seguridad escolar en <a href="/blog/reinicio-de-marzo-seguridad-escolar">El reinicio de marzo: el mayor riesgo de seguridad escolar que nadie discute</a>.</p>
 
 <h2>Qué es la ficha 360° y qué no es</h2>
 <p>La ficha 360° no es un formulario más largo. No es un expediente psicológico completo. No es un sistema de vigilancia sobre los estudiantes. Es un <strong>perfil integral y persistente</strong> que consolida en un solo lugar la información relevante sobre un estudiante para que los actores institucionales puedan tomar decisiones informadas.</p>
@@ -55,7 +55,7 @@ export const post: BlogPost = {
 
 <h2>El principio de trazabilidad longitudinal</h2>
 <p>El valor de la ficha 360° no está en los datos de hoy: está en la capacidad de ver la trayectoria. Un estudiante que tiene tres incidentes de convivencia en el primer mes del año puede ser un caso de adaptación normal o puede ser el inicio de un patrón preocupante. La diferencia la hace el historial: si ese mismo estudiante tuvo doce incidentes el año anterior, la lectura cambia completamente.</p>
-<p>La trazabilidad longitudinal —la capacidad de ver la evolución de un indicador a lo largo de meses y años— es el instrumento más potente de detección temprana disponible para un establecimiento. No requiere inteligencia artificial sofisticada: requiere que los datos estén integrados, que persistan entre años y que sean consultables en un formato que permita ver la tendencia.</p>
+<p>La trazabilidad longitudinal, la capacidad de ver la evolución de un indicador a lo largo de meses y años, es el instrumento más potente de detección temprana disponible para un establecimiento. No requiere inteligencia artificial sofisticada: requiere que los datos estén integrados, que persistan entre años y que sean consultables en un formato que permita ver la tendencia.</p>
 <p>Sin trazabilidad longitudinal, cada incidente se evalúa de manera aislada. Con trazabilidad longitudinal, el mismo incidente se evalúa en su contexto real. La diferencia entre estas dos lecturas puede determinar si un estudiante recibe la intervención que necesita o si llega al punto de no retorno sin que nadie haya identificado el patrón.</p>
 
 <h2>Control de acceso por rol: quién ve qué</h2>
@@ -83,7 +83,7 @@ export const post: BlogPost = {
 </ul>
 
 <h2>Cómo implementa ${BRAND} la ficha 360°</h2>
-<p>${BRAND} construyó la ficha 360° como el objeto central de su arquitectura, no como un módulo adicional. Cada entidad del sistema —incidente de convivencia, registro de entrevista, alerta de asistencia, derivación a profesional— está vinculada al perfil del estudiante y persiste entre períodos académicos.</p>
+<p>${BRAND} construyó la ficha 360° como el objeto central de su arquitectura, no como un módulo adicional. Cada entidad del sistema (incidente de convivencia, registro de entrevista, alerta de asistencia, derivación a profesional) está vinculada al perfil del estudiante y persiste entre períodos académicos.</p>
 <p>Las dimensiones técnicas clave son:</p>
 <ul>
   <li><strong>Persistencia longitudinal:</strong> los datos no se borran ni se archivan inaccesiblemente en el cambio de año. El historial completo está siempre disponible para quienes tienen el nivel de acceso correspondiente.</li>
@@ -99,7 +99,7 @@ export const post: BlogPost = {
 <div style="background: var(--secondary); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;">
 <h3 style="margin-top: 0;">Conozca la ficha 360° de ${BRAND} en acción</h3>
 <p>${BRAND} consolida el historial académico, conductual, emocional y familiar de cada estudiante en un perfil que persiste entre años y respeta el control de acceso por rol. Solicite una demostración y vea qué información tiene hoy sobre sus estudiantes.</p>
-<a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Solicitar demo gratuita</a>
+<a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Agendar demo</a>
 </div>
 `
 };

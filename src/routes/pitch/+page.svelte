@@ -113,7 +113,13 @@
   }
 
   function handleKeydown(e: KeyboardEvent) {
-    if (e.code === 'Space') { e.preventDefault(); togglePlay(); }
+    if (e.code === 'Space') {
+      // Let Space activate focused controls (buttons, links, slider) instead of hijacking it
+      const target = e.target as HTMLElement | null;
+      if (target?.closest('button, a, input, select, textarea, [role="slider"]')) return;
+      e.preventDefault();
+      togglePlay();
+    }
     if (e.code === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
     if (e.code === 'ArrowRight') { e.preventDefault(); nextSlide(); }
     if (e.code === 'KeyM') { toggleMute(); }
@@ -135,7 +141,7 @@
 <svelte:head>
   <title>Pitch · {BRAND}</title>
   <meta name="description" content={`Presentación ejecutiva ${BRAND}: protección escolar inteligente y cumplimiento Ley 21.719 para colegios chilenos.`} />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="noindex, nofollow" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content={`Pitch · ${BRAND}`} />
   <meta property="og:description" content={`Presentación ejecutiva ${BRAND}: protección escolar inteligente y cumplimiento Ley 21.719 para colegios chilenos.`} />
@@ -161,16 +167,16 @@
 ></audio>
 
 <!-- Main Container -->
-<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+<!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
   bind:this={containerEl}
   class="pitch-container"
   onmousemove={resetControlsTimeout}
   onclick={resetControlsTimeout}
   onkeydown={resetControlsTimeout}
-  role="application"
-  aria-label={`Presentación interactiva ${BRAND}`}
 >
+  <h1 class="sr-only">Presentación interactiva {BRAND}</h1>
+
   <!-- Back button -->
   <a
     href="/"
@@ -198,7 +204,7 @@
               El Escudo Digital Escolar
             </p>
             <div class="intro-badge" in:scale={{ duration: 500, delay: 800 }}>
-              <span class="badge-pill">Cumple con Ley 21.719</span>
+              <span class="badge-pill">Diseñado para la Ley 21.719</span>
             </div>
           </div>
 
@@ -253,8 +259,7 @@
             <div class="fines-amount" in:fly={{ y: 30, duration: 700, delay: 700 }}>
               <div class="fine-number">20.000 <span class="fine-unit">UTM</span></div>
               <div class="fine-equiv">
-                <span class="fine-arrow">= </span>
-                <span class="fine-clp">$1.200 millones CLP</span>
+                <span class="fine-clp">más de $1.300 millones CLP</span>
               </div>
             </div>
             <p class="fines-label" in:fade={{ duration: 500, delay: 1000 }}>Multa máxima por infracciones gravísimas</p>
@@ -376,7 +381,7 @@
             <div class="security-badges">
               <div class="sec-badge" in:fly={{ y: 20, duration: 500, delay: 500 }}>
                 <Check size={18} />
-                <span>Encriptación AES-256</span>
+                <span>Cifrado AES-256</span>
               </div>
               <div class="sec-badge" in:fly={{ y: 20, duration: 500, delay: 650 }}>
                 <MapPin size={18} />
@@ -384,7 +389,7 @@
               </div>
               <div class="sec-badge" in:fly={{ y: 20, duration: 500, delay: 800 }}>
                 <Shield size={18} />
-                <span>Cumplimiento normativo total</span>
+                <span>Diseñado para cumplir la normativa</span>
               </div>
             </div>
           </div>
@@ -412,7 +417,7 @@
               <img src="/logos/ethoz-final-light.svg" alt={BRAND} class="logo-cta" />
             </div>
             <h2 class="cta-title" in:fly={{ y: 20, duration: 600, delay: 400 }}>
-              Agenda tu Demo
+              Agenda tu demo
             </h2>
             <p class="cta-sub" in:fly={{ y: 20, duration: 600, delay: 600 }}>
               Sé de los primeros en cumplir
@@ -422,7 +427,7 @@
               class="cta-button"
               in:scale={{ duration: 500, delay: 800 }}
             >
-              Agendar Demo
+              Agendar demo
               <ArrowRight size={20} />
             </a>
             <p class="cta-url" in:fade={{ duration: 500, delay: 1000 }}>ethoz.cl</p>
@@ -721,7 +726,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--warning);
+    color: var(--warning-text);
     font-size: 0.875rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -743,7 +748,7 @@
 
   .date-days {
     font-size: 1rem;
-    color: var(--warning);
+    color: var(--warning-text);
     font-variant-numeric: tabular-nums;
   }
 
@@ -823,8 +828,8 @@
     text-align: left;
   }
 
-  .severity-leve .severity-label { color: var(--warning); }
-  .severity-grave .severity-label { color: var(--warning); }
+  .severity-leve .severity-label { color: var(--warning-text); }
+  .severity-grave .severity-label { color: var(--warning-text); }
   .severity-gravisima .severity-label { color: var(--destructive); }
 
   .severity-range {
@@ -1041,7 +1046,7 @@
   .slide-urgency { gap: 1.25rem; }
 
   .urgency-icon {
-    color: var(--warning);
+    color: var(--warning-text);
   }
 
   .urgency-title {
@@ -1064,7 +1069,7 @@
     padding: 0.625rem 1.25rem;
     border-radius: 9999px;
     background: color-mix(in srgb, var(--warning) 8%, transparent);
-    color: var(--warning);
+    color: var(--warning-text);
     font-size: 0.875rem;
     font-weight: 500;
     border: 1px solid color-mix(in srgb, var(--warning) 15%, transparent);
@@ -1304,7 +1309,7 @@
   .slide-dots {
     display: flex;
     justify-content: center;
-    gap: 0.375rem;
+    gap: 0;
     padding-top: 0.5rem;
   }
 
@@ -1315,7 +1320,7 @@
     border: none;
     background: var(--border);
     cursor: pointer;
-    padding: 10px;
+    padding: 18px; /* 8px visual dot + 36px padding = 44px touch target */
     box-sizing: content-box;
     background-clip: content-box;
     transition: all 0.3s ease;

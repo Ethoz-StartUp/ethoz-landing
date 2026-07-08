@@ -35,9 +35,9 @@ export const post: BlogPost = {
 <h2>El vínculo entre agobio docente y resultados escolares</h2>
 <p>El agobio docente no es un problema exclusivamente de bienestar del trabajador. Tiene consecuencias directas sobre los resultados del establecimiento. La investigación especializada, incluyendo trabajos de la doctora Mónica Bravo Sanzana sobre climas escolares, establece correlaciones consistentes entre el bienestar docente y los resultados de aprendizaje:</p>
 <ul>
-  <li>Los establecimientos con alta rotación docente —uno de los indicadores más directos de agobio— muestran puntajes SIMCE sistemáticamente más bajos en los años siguientes al período de alta rotación.</li>
+  <li>Los establecimientos con alta rotación docente, uno de los indicadores más directos de agobio, muestran puntajes SIMCE sistemáticamente más bajos en los años siguientes al período de alta rotación.</li>
   <li>Los docentes con alta carga administrativa reportan menor capacidad de atención individualizada a estudiantes con necesidades específicas.</li>
-  <li>Los climas escolares de alta conflictividad —que se gestionan peor cuando los docentes están agotados— impactan el rendimiento de todos los estudiantes, no solo de los involucrados directamente en los conflictos.</li>
+  <li>Los climas escolares de alta conflictividad, que se gestionan peor cuando los docentes están agotados, impactan el rendimiento de todos los estudiantes, no solo de los involucrados directamente en los conflictos.</li>
 </ul>
 <p>En otras palabras: reducir la carga administrativa del docente no es solo una medida de bienestar laboral. Es una inversión en la calidad educativa del establecimiento.</p>
 
@@ -51,11 +51,11 @@ export const post: BlogPost = {
   <li>Intentar recordar o encontrar el registro de reuniones anteriores con el apoderado.</li>
 </ul>
 <p>Este proceso, que puede tomar 30 minutos o más, ocurre cada vez que un docente necesita contextualizar la situación de un estudiante. Multiplicado por los casos de atención prioritaria en un curso de 35 estudiantes, el tiempo acumulado es sustancial.</p>
-<p>La solución no es eliminar el registro: es consolidarlo. La <strong>ficha 360°</strong> de cada estudiante, que integra todas estas dimensiones en un solo lugar accesible en segundos, no agrega trabajo al docente —quien no tiene que hacer nada diferente a lo que ya hace— pero devuelve la información en un formato que le permite tomar decisiones en segundos en lugar de minutos. El concepto de ficha 360° se desarrolla en detalle en <a href="/blog/ficha-360-perfil-integral-alumno">Ficha 360°: por qué cada alumno necesita un perfil integral que no se borre en marzo</a>.</p>
+<p>La solución no es eliminar el registro: es consolidarlo. La <strong>ficha 360°</strong> de cada estudiante, que integra todas estas dimensiones en un solo lugar accesible en segundos, no agrega trabajo al docente, quien no tiene que hacer nada diferente a lo que ya hace, pero devuelve la información en un formato que le permite tomar decisiones en segundos en lugar de minutos. El concepto de ficha 360° se desarrolla en detalle en <a href="/blog/ficha-360-perfil-integral-alumno">Ficha 360°: por qué cada alumno necesita un perfil integral que no se borre en marzo</a>.</p>
 
 <h2>Privacidad por diseño: sin gestión manual de permisos</h2>
 <p>Un aspecto del agobio docente que raramente se menciona es la carga cognitiva de gestionar la privacidad de la información. En muchos establecimientos, el docente enfrenta una ambigüedad permanente: ¿puedo compartir esto con el apoderado? ¿Debo consultar al orientador antes de decirle al inspector? ¿Qué información del alumno puedo mencionar en la reunión de equipo?</p>
-<p>Esta ambigüedad no es solo una incomodidad: es un riesgo real. Con la <strong>Ley 21.719</strong> vigente, el docente que comparte información sensible de un estudiante por un canal inadecuado no solo expone al establecimiento a una sanción: puede tener responsabilidad personal. La presión de "hacer lo correcto" sin tener claro qué es lo correcto agrega una capa de estrés que pocas personas mencionan pero que es omnipresente en los equipos educacionales.</p>
+<p>Esta ambigüedad no es solo una incomodidad: es un riesgo real. Con la <strong>Ley 21.719</strong> a meses de su plena vigencia, el docente que comparte información sensible de un estudiante por un canal inadecuado no solo expone al establecimiento a una sanción: puede tener responsabilidad personal. La presión de "hacer lo correcto" sin tener claro qué es lo correcto agrega una capa de estrés que pocas personas mencionan pero que es omnipresente en los equipos educacionales.</p>
 <p>La solución técnica es la <strong>privacidad por diseño</strong>: el sistema define los niveles de acceso según el rol, y el docente simplemente registra lo que ve sin tener que decidir quién puede o no puede verlo. Si el registro es de nivel estándar, todos los actores con acceso lo ven. Si es de nivel restringido, solo el orientador y la dirección. Si es privado, solo el responsable clínico. El docente no gestiona estos permisos: los permisos están definidos en la arquitectura del sistema. Este principio se analiza técnicamente en <a href="/blog/privacidad-por-diseno-art-16-bis">Privacidad por diseño: lo que el Art. 16 bis exige técnicamente</a>.</p>
 
 <h2>El principio de zero burocracia adicional</h2>
@@ -69,7 +69,7 @@ export const post: BlogPost = {
 </ul>
 
 <h2>El efecto sobre la rotación y la retención de talento docente</h2>
-<p>La rotación docente en Chile es uno de los problemas menos visibles pero más costosos del sistema educacional. El costo de reemplazar a un docente —incluyendo reclutamiento, inducción y el período de adaptación hasta alcanzar el rendimiento pleno— se estima entre tres y seis veces el salario mensual del puesto. Para un establecimiento que pierde entre tres y cinco docentes al año, el costo acumulado es sustancial.</p>
+<p>La rotación docente en Chile es uno de los problemas menos visibles pero más costosos del sistema educacional. El costo de reemplazar a un docente (incluyendo reclutamiento, inducción y el período de adaptación hasta alcanzar el rendimiento pleno) se estima entre tres y seis veces el salario mensual del puesto. Para un establecimiento que pierde entre tres y cinco docentes al año, el costo acumulado es sustancial.</p>
 <p>Una de las razones más frecuentemente citadas en las encuestas de salida de docentes es la <strong>carga administrativa desproporcionada</strong>. Los docentes que abandonan la profesión o que cambian de establecimiento reportan con frecuencia que la proporción entre tiempo con estudiantes y tiempo con burocracia se invirtió: pasaron de ser principalmente educadores a ser principalmente administradores de documentación.</p>
 <p>Un establecimiento que reduce la carga administrativa del docente no solo mejora el bienestar del equipo actual: mejora su capacidad de retener a los mejores profesionales y de atraer nuevos talentos en un mercado donde la competencia por docentes de calidad es creciente.</p>
 
@@ -80,7 +80,7 @@ export const post: BlogPost = {
 <div style="background: var(--secondary); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;">
 <h3 style="margin-top: 0;">Devuelva tiempo a sus docentes con tecnología que trabaja para ellos</h3>
 <p>${BRAND} reduce la carga administrativa del equipo educacional eliminando el doble ingreso de datos, consolidando la información en la ficha 360° y automatizando los permisos de privacidad por diseño. Solicite una demostración y vea cuánto tiempo puede recuperar su equipo.</p>
-<a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Solicitar demo gratuita</a>
+<a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Agendar demo</a>
 </div>
 `
 };

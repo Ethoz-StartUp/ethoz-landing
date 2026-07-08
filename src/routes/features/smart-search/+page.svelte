@@ -64,8 +64,16 @@
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Búsqueda Inteligente"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+  <main id="main-content" class="flex-1">
 
   <!-- Hero -->
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
@@ -202,7 +210,7 @@
         </div>
 
         <!-- Dashboard mockup -->
-        <div class="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
+        <div aria-hidden="true" class="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
           <div class="border-b border-border px-4 py-3 flex items-center justify-between gap-3">
             <div class="flex items-center gap-2">
               <LayoutDashboard class="size-4 text-primary" />
@@ -313,5 +321,6 @@
     </div>
   </section>
 
+  </main>
   <Footer />
-</main>
+</div>

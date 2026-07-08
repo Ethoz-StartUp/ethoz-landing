@@ -54,13 +54,25 @@ export async function initSentry(): Promise<void> {
       tracesSampleRate: 0.1,
       replaysSessionSampleRate: 0,
       replaysOnErrorSampleRate: replayAllowed ? 0.5 : 0,
-      integrations: [
-        Sentry.replayIntegration({
-          maskAllText: true,
-          maskAllInputs: true,
-          blockAllMedia: true,
-        }),
-      ],
+      // Replay is registered only with analytics consent, so its rrweb
+      // instrumentation never even initializes for non-consenting visitors.
+      // NOTE on bundle weight: the rrweb code itself cannot be split out of
+      // this chunk today. Vite wraps every dynamic import('@sentry/browser')
+      // (marketing.ts, demo/[rbd], contact, schedule) in its preload helper,
+      // which hides the namespace from Rollup, so the full export surface
+      // (including the replay re-export) is always retained. Splitting it
+      // requires converting those call sites to named imports first;
+      // Sentry.lazyLoadIntegration is no help either: it fetches from the
+      // Sentry CDN, which our CSP script-src blocks.
+      integrations: replayAllowed
+        ? [
+            Sentry.replayIntegration({
+              maskAllText: true,
+              maskAllInputs: true,
+              blockAllMedia: true,
+            }),
+          ]
+        : [],
       beforeSend(event) {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('ethoz_internal') === '1') return null;
         const ua = (event.request?.headers?.['User-Agent'] as string | undefined) ?? '';

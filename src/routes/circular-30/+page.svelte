@@ -17,6 +17,7 @@
     AlertTriangle,
     Users,
     Eye,
+    ExternalLink,
   } from '@lucide/svelte';
 
   $effect(() => {
@@ -84,8 +85,17 @@
   ])}</script>`}
 </svelte:head>
 
-<main class="min-h-screen bg-background">
+<div class="min-h-screen bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+
+  <main id="main-content">
 
   <!-- HERO -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
@@ -122,6 +132,32 @@
           <dd class="mt-1 text-sm font-medium text-foreground" data-numeric>04</dd>
         </div>
       </dl>
+    </div>
+  </section>
+
+  <!-- OFFICIAL REFERENCE -->
+  <section class="py-8 sm:py-10 bg-background">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <a
+        href="https://www.supereduc.cl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex items-start gap-4 rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover"
+      >
+        <FileText class="size-5 shrink-0 text-primary" />
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center gap-2">
+            <p class="text-sm font-semibold text-foreground">{t('circular30.official_ref_title')}</p>
+            <ExternalLink class="size-3.5 text-muted-foreground transition-colors group-hover:text-primary" />
+          </div>
+          <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+            {t('circular30.official_ref_body')}
+          </p>
+          <p class="mt-2 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">
+            {t('circular30.official_ref_link')}
+          </p>
+        </div>
+      </a>
     </div>
   </section>
 
@@ -304,6 +340,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <Footer />
-</main>
+</div>

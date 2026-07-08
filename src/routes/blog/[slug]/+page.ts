@@ -1,15 +1,15 @@
 import { error } from '@sveltejs/kit';
-import { allPosts } from '$lib/data/posts';
+import { getPost, getPostSlugs } from '$lib/data/posts';
 import type { PageLoad } from './$types';
 
 export const prerender = true;
 
-export const load: PageLoad = ({ params }) => {
-	const post = allPosts.find((p) => p.slug === params.slug);
+export const load: PageLoad = async ({ params }) => {
+	const post = await getPost(params.slug);
 	if (!post) throw error(404, 'Post not found');
 	return { post };
 };
 
 export function entries() {
-	return allPosts.map((p) => ({ slug: p.slug }));
+	return getPostSlugs().map((slug) => ({ slug }));
 }

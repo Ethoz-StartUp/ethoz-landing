@@ -41,7 +41,7 @@ export const post: BlogPost = {
 <p>La doble digitación es uno de los principales puntos de fricción en la adopción de cualquier sistema nuevo. Un establecimiento que ya opera con SIGE no debería tener que ingresar manualmente la matrícula, la asistencia o los datos institucionales en ${BRAND}. La integración sincronizará los datos en una sola dirección: desde SIGE hacia ${BRAND}, sin que el equipo directivo deba coordinar dos plataformas. Estamos trabajando en la especificación técnica con los equipos del programa piloto.</p>
 
 <h3 style="font-size: 1.125rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.5rem;">Módulo financiero básico</h3>
-<p>Control de pagos, estado de morosidad y reportes por período. No es un sistema contable completo —ese no es nuestro foco— pero sí la información operativa que un director o administrador necesita para tomar decisiones: qué familias tienen cuotas pendientes, cuál es el índice de morosidad del mes y qué acciones de seguimiento están en curso. Lo estamos diseñando para que se integre con la ficha del alumno sin agregar complejidad innecesaria.</p>
+<p>Control de pagos, estado de morosidad y reportes por período. No es un sistema contable completo (ese no es nuestro foco), pero sí la información operativa que un director o administrador necesita para tomar decisiones: qué familias tienen cuotas pendientes, cuál es el índice de morosidad del mes y qué acciones de seguimiento están en curso. Lo estamos diseñando para que se integre con la ficha del alumno sin agregar complejidad innecesaria.</p>
 
 <h3 style="font-size: 1.125rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.5rem;">Comunicación con familias</h3>
 <p>Canal de comunicación directa entre el establecimiento y los apoderados, integrado con los permisos por cargo. No es otro grupo de WhatsApp sin control ni trazabilidad: es comunicación estructurada donde el director puede definir qué roles envían mensajes a qué grupos, cada mensaje queda registrado con timestamp y el apoderado tiene un solo punto de contacto con el colegio. Para un establecimiento preocupado por el cumplimiento de la Ley 21.719, la comunicación sin trazabilidad es un riesgo que este módulo cierra.</p>
@@ -52,7 +52,7 @@ export const post: BlogPost = {
 <h2>Lo que NO vamos a hacer</h2>
 <p>La transparencia también implica definir los límites. Hay funcionalidades que el mercado espera de un sistema de gestión escolar y que ${BRAND} no construirá, al menos no en su forma clásica:</p>
 <ul>
-  <li><strong>No vamos a construir un libro de clases digital.</strong> Hay plataformas maduras —algunas con años de integración con el Mineduc— que resuelven bien ese problema. Replicarlo solo para ser un sistema completo diluiría nuestro foco y no agregaría valor real.</li>
+  <li><strong>No vamos a construir un libro de clases digital.</strong> Hay plataformas maduras, algunas con años de integración con el Mineduc, que resuelven bien ese problema. Replicarlo solo para ser un sistema completo diluiría nuestro foco y no agregaría valor real.</li>
   <li><strong>No vamos a reemplazar tu sistema actual.</strong> ${BRAND} está diseñado para complementar lo que ya existe, no para obligar a un colegio a migrar todo en un proceso traumático. La integración con SIGE es parte de ese principio.</li>
   <li><strong>No vamos a agregar funciones que diluyan nuestro foco en seguridad y privacidad.</strong> Cada módulo nuevo que se incorpore a ${BRAND} pasa por un filtro antes de entrar al roadmap: ¿protege al alumno, protege sus datos o protege a la institución ante un riesgo real? Si la respuesta es no, la funcionalidad no entra.</li>
 </ul>
@@ -65,7 +65,7 @@ export const post: BlogPost = {
 
 <h2>Conclusión</h2>
 <p>Somos transparentes sobre dónde estamos y hacia dónde vamos porque creemos que los colegios merecen esa honestidad antes de comprometerse con una plataforma. Los cinco módulos fundacionales están operando. Los módulos del roadmap están en construcción o diseño activo. Y los límites que definimos son tan importantes como las funciones que construimos.</p>
-<p>Si quiere ser parte del proceso —y tener influencia real sobre qué se construye primero—, el programa piloto 2026 tiene cupos limitados. La conversación empieza con una demo.</p>
+<p>Si quiere ser parte del proceso, y tener influencia real sobre qué se construye primero, el programa piloto 2026 tiene cupos limitados. La conversación empieza con una demo.</p>
 
 <div style="margin-top: 2.5rem; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem 1.5rem; background: var(--secondary);">
   <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">Programa Piloto 2026</p>

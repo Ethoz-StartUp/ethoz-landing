@@ -32,8 +32,8 @@ export const post: BlogPost = {
 
 <h2>El impacto en el programa PIE</h2>
 <p>El Programa de Integración Escolar es, probablemente, el área donde la pérdida de continuidad tiene consecuencias más concretas. El PIE requiere seguimiento longitudinal: el plan de apoyo de un estudiante con necesidades educativas especiales se construye sobre la evolución documentada del año anterior.</p>
-<p>Cuando esa documentación no está disponible en formato accesible al inicio del año, el equipo PIE enfrenta dos opciones igualmente malas: comenzar el diagnóstico desde cero —perdiendo semanas de intervención— o trabajar con la información fragmentada que alguien recuerda o encontró en una carpeta.</p>
-<p>El Mineduc exige que los establecimientos mantengan registros actualizados del PIE. Lo que no regula es el formato ni la accesibilidad de esos registros. El resultado es que muchos colegios cumplen formalmente —la carpeta existe— pero fallan funcionalmente: la información no está disponible para quien la necesita, cuando la necesita.</p>
+<p>Cuando esa documentación no está disponible en formato accesible al inicio del año, el equipo PIE enfrenta dos opciones igualmente malas: comenzar el diagnóstico desde cero, perdiendo semanas de intervención, o trabajar con la información fragmentada que alguien recuerda o encontró en una carpeta.</p>
+<p>El Mineduc exige que los establecimientos mantengan registros actualizados del PIE. Lo que no regula es el formato ni la accesibilidad de esos registros. El resultado es que muchos colegios cumplen formalmente (la carpeta existe) pero fallan funcionalmente: la información no está disponible para quien la necesita, cuando la necesita.</p>
 
 <h2>Ley Aula Segura: imposible sin datos longitudinales</h2>
 <p>La Ley N° 21.128, conocida como Ley Aula Segura, otorga a los directores la facultad de aplicar la expulsión o cancelación de matrícula ante conductas graves que afecten la convivencia escolar. Pero el criterio de gravedad en la mayoría de los casos no se define por un incidente único: se define por un patrón.</p>
@@ -101,6 +101,6 @@ export const post: BlogPost = {
 
 <h2>El estándar que se viene</h2>
 <p>La agenda de transformación digital del Mineduc avanza lentamente, pero la dirección es clara: los establecimientos que adopten antes una gestión basada en datos longitudinales tendrán ventaja en acreditaciones, en reportes de convivencia y en la capacidad de responder ante incidentes con evidencia documentada.</p>
-<p>El reinicio de marzo es un problema que la mayoría de los colegios reconoce cuando se les describe y que ninguno ha declarado formalmente como prioridad. Esa brecha —entre el reconocimiento y la acción— es exactamente donde se construye la diferencia entre los establecimientos que lideran y los que reaccionan.</p>
+<p>El reinicio de marzo es un problema que la mayoría de los colegios reconoce cuando se les describe y que ninguno ha declarado formalmente como prioridad. Esa brecha, entre el reconocimiento y la acción, es exactamente donde se construye la diferencia entre los establecimientos que lideran y los que reaccionan.</p>
 `
 };

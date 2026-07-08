@@ -235,16 +235,16 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} · {t('nav.cta')}</title>
-  <meta name="description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio. Agenda una presentación con nuestro equipo.`} />
+  <title>{t('meta.demo_rbd_title')}</title>
+  <meta name="description" content={t('meta.demo_rbd_description')} />
   <meta property="og:url" content="https://ethoz.cl/demo" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Demo · ${BRAND}`} />
-  <meta property="og:description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio.`} />
+  <meta property="og:title" content={t('meta.demo_rbd_title')} />
+  <meta property="og:description" content={t('meta.demo_rbd_description')} />
   <link rel="canonical" href="https://ethoz.cl/demo" />
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-secondary pt-28 sm:pt-32">
+<div class="flex min-h-dvh flex-col bg-secondary pt-28 sm:pt-32">
   <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
   <a
     href="#demo-form-main"
@@ -253,6 +253,8 @@
     {t('nav.skip_to_content')}
   </a>
   <NavBar />
+
+  <main id="main-content" class="flex flex-1 flex-col">
 
   <!-- Step indicator -->
   <nav aria-label={t('demo.progress.aria_label')} class="border-b border-border bg-background py-4">
@@ -476,7 +478,7 @@
 
               <div class="space-y-1.5">
                 <label for="contact-phone" class="block text-sm font-medium text-foreground">
-                  WhatsApp
+                  {t('demo.whatsapp_label')}
                 </label>
                 <input
                   id="contact-phone"
@@ -526,8 +528,12 @@
                 {/if}
               </Button>
               {#if errorMessage}
-                <p class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-destructive" role="alert">{errorMessage}</p>
+                <p class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-error-text" role="alert">{errorMessage}</p>
               {/if}
+              <p class="mt-2 text-center text-mockup-xs text-muted-foreground">
+                {t('demo.privacy_notice')}
+                <a href="/privacy" class="underline underline-offset-2 hover:text-foreground">{t('demo.privacy_link')}</a>
+              </p>
               <p class="mt-2 text-center text-mockup-xs text-muted-foreground">
                 {t('demo.recaptcha_notice')}
               </p>
@@ -538,7 +544,11 @@
     {/if}
   </div>
 
+  </main>
+
   <footer class="border-t border-border bg-background py-4 text-center text-mockup-sm text-muted-foreground">
     &copy; {new Date().getFullYear()} {BRAND}
+    <span aria-hidden="true" class="mx-1">·</span>
+    <a href="/privacy" class="underline underline-offset-2 hover:text-foreground">{t('demo.privacy_link')}</a>
   </footer>
-</main>
+</div>

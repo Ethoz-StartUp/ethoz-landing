@@ -11,7 +11,7 @@ export const pitchSlides: PitchSlide[] = [
   { start: 0, end: 5, id: 'intro', subtitle: `Les presento a ${BRAND}, el escudo digital diseñado para la comunidad escolar de hoy.` },
   { start: 5, end: 20, id: 'problem', subtitle: '¿Dónde está la información más sensible de los alumnos? La realidad es que vive en planillas, libretas, WhatsApps... está por todos lados. Y ahí está el riesgo.' },
   { start: 20, end: 31, id: 'law', subtitle: 'Ahora se suma un nuevo desafío: la ley de protección de datos. Hablamos de la Ley 21.719. Va a cambiar las reglas del juego para todos.' },
-  { start: 31, end: 48, id: 'fines', subtitle: 'La cuenta regresiva ya empezó. En diciembre de 2026, la ley entra en plena vigencia. Las multas pueden llegar hasta 20.000 UTM — más de $1.200 millones.' },
+  { start: 31, end: 48, id: 'fines', subtitle: 'La cuenta regresiva ya empezó. En diciembre de 2026, la ley entra en plena vigencia. Las multas pueden llegar hasta 20.000 UTM, más de $1.300 millones.' },
   { start: 48, end: 53, id: 'classification', subtitle: 'La ley clasifica las faltas en leves, graves y gravísimas, con sanciones para cada nivel.' },
   { start: 53, end: 58, id: 'solution', subtitle: `Aquí es donde entra ${BRAND}, el escudo digital que protege al colegio y cumple la ley.` },
   { start: 58, end: 71, id: 'features-a', subtitle: 'Centralizamos todo en una ficha 360° por alumno. Las alertas críticas llegan al instante, solo a las personas que deben saber.' },

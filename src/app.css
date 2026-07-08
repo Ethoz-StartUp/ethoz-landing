@@ -128,6 +128,7 @@
   --color-danger-foreground: var(--danger-foreground);
   --color-warning-foreground: var(--warning-foreground);
   --color-warning-text: var(--warning-text);
+  --color-error-text: var(--error-text);
   --color-success-foreground: var(--success-foreground);
   --color-info: var(--info);
   --color-info-foreground: var(--info-foreground);
@@ -148,10 +149,6 @@
   --color-on-navy-mustard: var(--on-navy-mustard);
   --color-accent-mustard: var(--accent-mustard);
   --color-accent-mustard-ink: var(--accent-mustard-ink);
-  --color-accent-brick: var(--accent-brick);
-  --color-accent-brick-ink: var(--accent-brick-ink);
-  --color-accent-sage: var(--accent-sage);
-  --color-accent-sage-ink: var(--accent-sage-ink);
 
   /* ─── Sidebar (admin) ─── */
   --color-sidebar: var(--sidebar);
@@ -257,6 +254,8 @@
   --success: #10b981;        /* Emerald (8020 success) */
   --warning: #f59e0b;
   --error: #ef4444;
+  --error-text: #b91c1c;     /* Red deepened for TEXT on cream (~6.1:1); fills/dots keep --error */
+  --warning-text: #b45309;   /* Amber deepened for TEXT on cream (~4.7:1); fills/dots keep --warning */
 
   /* Pastel badges (metadata only — never CTAs) */
   --badge-orange: #fb923c;
@@ -291,7 +290,6 @@
   --danger: var(--error);
   --danger-foreground: var(--on-primary);
   --warning-foreground: var(--ink);
-  --warning-text: var(--ink);
   --success-foreground: var(--on-primary);
   --info: var(--primary);
   --info-foreground: var(--on-primary);
@@ -317,10 +315,6 @@
   --on-navy-mustard: var(--badge-orange);
   --accent-mustard: var(--badge-orange);
   --accent-mustard-ink: var(--ink);
-  --accent-brick: var(--error);
-  --accent-brick-ink: var(--error);
-  --accent-sage: var(--success);
-  --accent-sage-ink: var(--success);
 
   /* Typography scale. Fixed per breakpoint, no viewport-width font scaling. */
   --fs-display-xl: 44px;
@@ -426,6 +420,8 @@
   --success: #34d399;
   --warning: #fbbf24;
   --error: #f87171;
+  --error-text: var(--error);     /* lifted red is already text-safe on charcoal */
+  --warning-text: var(--warning); /* lifted amber is already text-safe on charcoal */
 
   /* Pastel badges hold value */
   --badge-orange: #fb923c;
@@ -460,7 +456,6 @@
   --danger: var(--error);
   --danger-foreground: var(--on-primary);
   --warning-foreground: var(--ink);
-  --warning-text: var(--ink);
   --success-foreground: var(--ink);
   --info: var(--primary);
   --info-foreground: var(--on-primary);
@@ -486,10 +481,6 @@
   --on-navy-mustard: var(--badge-orange);
   --accent-mustard: var(--badge-orange);
   --accent-mustard-ink: var(--badge-orange);
-  --accent-brick: var(--error);
-  --accent-brick-ink: var(--error);
-  --accent-sage: var(--success);
-  --accent-sage-ink: var(--success);
 }
 
 /* ─────────────────────────────────────────
@@ -714,25 +705,6 @@ button[role="checkbox"] {
   }
 }
 
-@keyframes trust-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.trust-marquee {
-  animation: trust-marquee 28s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .trust-marquee {
-    animation: none;
-  }
-}
-
 /* ─────────────────────────────────────────
  * Button underline-from-left hover
  * ───────────────────────────────────────── */
@@ -777,6 +749,15 @@ button[role="checkbox"] {
 
 @utility shadow-card-hover {
   box-shadow: 0 6px 16px rgba(28, 22, 12, 0.08), 0 16px 40px rgba(28, 22, 12, 0.08);
+}
+
+/* Primary button hairline drop — same warm rgba(28,22,12) family as shadow-card. */
+@utility shadow-btn-primary {
+  box-shadow: 0 1px 0 0 rgba(28, 22, 12, 0.08);
+}
+
+@utility shadow-btn-primary-hover {
+  box-shadow: 0 2px 0 0 rgba(28, 22, 12, 0.12);
 }
 
 @utility ring-card {

@@ -1,7 +1,6 @@
 <script lang="ts">
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
-  import { BRAND } from '$lib/brand';
   import { t } from '$lib/i18n/index.svelte';
   import { Check, Building, MapPin, Loader2 } from '@lucide/svelte';
   import { Skeleton } from '$lib/components/ui/skeleton';
@@ -160,20 +159,20 @@
 </script>
 
 <svelte:head>
-  <title>Agendar Demo · {BRAND}</title>
-  <meta name="description" content={`Agenda una demostración personalizada de ${BRAND} para tu colegio.`} />
+  <title>{t('meta.schedule_title')}</title>
+  <meta name="description" content={t('meta.schedule_description')} />
   <meta property="og:url" content="https://ethoz.cl/schedule" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Agendar Demo · ${BRAND}`} />
-  <meta property="og:description" content={`Agenda una demostración personalizada de ${BRAND} para tu colegio.`} />
+  <meta property="og:title" content={t('meta.schedule_title')} />
+  <meta property="og:description" content={t('meta.schedule_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Agendar Demo · ${BRAND}`} />
-  <meta name="twitter:description" content={`Agenda una demostración personalizada de ${BRAND} para tu colegio.`} />
+  <meta name="twitter:title" content={t('meta.schedule_title')} />
+  <meta name="twitter:description" content={t('meta.schedule_description')} />
   <link rel="canonical" href="https://ethoz.cl/schedule" />
-  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Demo","item":"https://ethoz.cl/demo"},{"@type":"ListItem","position":3,"name":"Agendar Demo"}]})}</script>`}
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Demo","item":"https://ethoz.cl/demo"},{"@type":"ListItem","position":3,"name":"Agendar demo"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
   <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
   <a
     href="#schedule-main"
@@ -182,6 +181,8 @@
     {t('nav.skip_to_content')}
   </a>
   <NavBar />
+
+  <main id="main-content" class="flex flex-1 flex-col">
 
   <div id="schedule-main" class="mx-auto w-full max-w-7xl flex-1 px-4 py-12 pt-24 sm:py-16 sm:pt-28">
     <!-- Step indicator -->
@@ -277,5 +278,7 @@
     </section>
   </div>
 
+  </main>
+
   <Footer />
-</main>
+</div>

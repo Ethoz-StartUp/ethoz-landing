@@ -85,8 +85,17 @@
   ])}</script>`}
 </svelte:head>
 
-<main class="min-h-screen bg-background">
+<div class="min-h-screen bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+
+  <main id="main-content">
 
   <!-- HERO -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
@@ -124,7 +133,7 @@
         </div>
         <div>
           <dt class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('seguridadDatos.hero_stat_region_label')}</dt>
-          <dd class="mt-1 text-sm font-medium text-foreground">São Paulo</dd>
+          <dd class="mt-1 text-sm font-medium text-foreground">Santiago, Chile</dd>
         </div>
       </dl>
     </div>
@@ -438,6 +447,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <Footer />
-</main>
+</div>

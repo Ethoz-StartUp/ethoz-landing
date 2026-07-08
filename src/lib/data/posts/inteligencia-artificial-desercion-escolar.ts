@@ -12,8 +12,8 @@ export const post: BlogPost = {
 	tags: ['Inteligencia Artificial', 'Deserción', 'EdTech'],
 	coverImage: '/images/blog/inteligencia-artificial-desercion-escolar.webp',
 	content: `
-<div style="border-left: 3px solid oklch(0.75 0.15 85); padding-left: 1rem; margin-bottom: 2rem; background: oklch(0.75 0.15 85 / 0.08); border-radius: 0.5rem; padding: 1.25rem;">
-<p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: oklch(0.55 0.12 85); margin-bottom: 0.5rem;">Nota de transparencia</p>
+<div style="border-left: 3px solid var(--warning); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
+<p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--warning-text); margin-bottom: 0.5rem;">Nota de transparencia</p>
 <p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">${BRAND} ya usa IA para generar síntesis y resúmenes del alumno a partir de su historial y los últimos 6 meses de datos. La predicción de deserción que se explora en este artículo es una extensión natural de esa capacidad, actualmente en nuestro roadmap.</p>
 </div>
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
@@ -107,7 +107,7 @@ export const post: BlogPost = {
 
 <p><strong>Privacidad por diseño.</strong> Los datos de interacción usados para entrenamiento deben ser anonimizados o seudonimizados antes de ser procesados por el modelo. El sistema predictivo debe operar sobre perfiles de riesgo, no sobre la identidad del alumno expuesta innecesariamente.</p>
 
-<p><strong>Art. 16 bis de la Ley 21.719: decisiones automatizadas.</strong> Este artículo regula el uso de sistemas automatizados para tomar decisiones que afecten a las personas. Si su sistema predictivo genera una alerta que dispara una acción sobre un alumno —una llamada, una entrevista, un cambio de grupo—, esa acción constituye una decisión basada en tratamiento automatizado. El alumno o su representante legal tiene derecho a conocer la lógica usada y a solicitar revisión humana. Sus protocolos de intervención deben documentar esto.</p>
+<p><strong>Art. 16 bis de la Ley 21.719: decisiones automatizadas.</strong> Este artículo regula el uso de sistemas automatizados para tomar decisiones que afecten a las personas. Si su sistema predictivo genera una alerta que dispara una acción sobre un alumno (una llamada, una entrevista, un cambio de grupo), esa acción constituye una decisión basada en tratamiento automatizado. El alumno o su representante legal tiene derecho a conocer la lógica usada y a solicitar revisión humana. Sus protocolos de intervención deben documentar esto.</p>
 
 <p><strong>Consentimiento informado.</strong> El uso de datos de interacción con fines de análisis predictivo debe estar contemplado en la política de privacidad del establecimiento y en los consentimientos firmados por apoderados. Si sus documentos actuales no mencionan el uso analítico de datos de comportamiento digital, necesitan actualización antes de activar cualquier modelo.</p>
 

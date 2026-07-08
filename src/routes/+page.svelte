@@ -13,8 +13,11 @@
     Shield,
     FileCheck,
     ArrowRight,
+    Building2,
     Check,
     ChevronRight,
+    ClipboardList,
+    DoorOpen,
     UserCheck,
     AlertTriangle,
     Eye,
@@ -277,7 +280,7 @@
   ])}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
   <!-- Skip link — visible on focus, WCAG 2.4.1 Bypass Blocks -->
   <a
     href="#hero-cta"
@@ -287,6 +290,8 @@
   </a>
 
   <NavBar />
+
+  <main id="main-content" class="flex flex-1 flex-col">
 
   <!-- ═══════════════════════════════════════════
        SECTION 2: HERO — editorial
@@ -329,7 +334,8 @@
           </Button>
         </div>
 
-        <div class="animate-fade-in-up animate-delay-400 mt-8 hidden w-full max-w-sm rounded-xl border border-hairline bg-card p-4 text-left shadow-card sm:block lg:hidden">
+        <!-- Decorative compact mockup — duplicated fake-UI, hidden from AT -->
+        <div class="animate-fade-in-up animate-delay-400 mt-8 hidden w-full max-w-sm rounded-xl border border-hairline bg-card p-4 text-left shadow-card sm:block lg:hidden" aria-hidden="true">
           <div class="flex items-center gap-3">
             <img
               src={activeStudent.photo}
@@ -384,7 +390,7 @@
                 <span class="size-2.5 rounded-full bg-success"></span>
               </div>
               <p class="truncate text-sm font-semibold text-foreground">{t('hero.panel.chrome_title')}</p>
-              <span class="rounded-full border border-primary/20 bg-accent-tint px-2.5 py-1 text-xs font-semibold text-primary">
+              <span class="rounded-full border border-primary/20 bg-accent-tint px-2.5 py-1 text-xs font-semibold text-primary-active">
                 {t('home.demo_data_badge_short')}
               </span>
             </div>
@@ -468,7 +474,8 @@
                   </div>
                 </div>
 
-                <div class="divide-y divide-border border-y border-border">
+                <!-- Static fake-UI step rows — decorative, hidden from AT -->
+                <div class="divide-y divide-border border-y border-border" aria-hidden="true">
                   {#each [
                     { icon: UserCheck, title: 'hero.panel.step1_title', desc: 'hero.panel.step1_desc', status: 'hero.panel.step1_status' },
                     { icon: FileCheck, title: 'hero.panel.step2_title', desc: 'hero.panel.step2_desc', status: 'hero.panel.step2_status' },
@@ -489,7 +496,7 @@
                 </div>
               </div>
 
-              <div class="mt-6 grid grid-cols-3 divide-x divide-border border-t border-border pt-4">
+              <div class="mt-6 grid grid-cols-3 divide-x divide-border border-t border-border pt-4" aria-hidden="true">
                 <div class="px-3 text-center first:pl-0">
                   <p class="text-lg font-semibold text-foreground">{t('hero.panel.fact1_value')}</p>
                   <p class="mt-1 text-xs text-muted-foreground">{t('hero.panel.fact1_label')}</p>
@@ -667,6 +674,45 @@
         {/each}
       </div>
 
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 5b: PARA QUIÉN — role navigation cards.
+       Link-cards, not CTAs: they route each audience to its persona page
+       without competing with the primary action.
+       ═══════════════════════════════════════════ -->
+  <section class="reveal scroll-mt-28 py-10 sm:py-12 lg:py-14" id="forwho" aria-labelledby="forwho-heading">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="eyebrow mb-4">{t('home.forwho.eyebrow')}</p>
+        <h2 id="forwho-heading" class="text-balance text-foreground">
+          {t('home.forwho.title')}
+        </h2>
+        <p class="mt-4 text-lg text-muted-foreground">
+          {t('home.forwho.subtitle')}
+        </p>
+      </div>
+
+      <div class="mx-auto mt-8 grid max-w-5xl gap-6 sm:grid-cols-3">
+        {#each [
+          { href: '/para-sostenedores', icon: Building2, title: 'home.forwho.card_sostenedores_title', desc: 'home.forwho.card_sostenedores_desc' },
+          { href: '/para-directores', icon: ClipboardList, title: 'home.forwho.card_directores_title', desc: 'home.forwho.card_directores_desc' },
+          { href: '/para-porteros', icon: DoorOpen, title: 'home.forwho.card_porteros_title', desc: 'home.forwho.card_porteros_desc' },
+        ] as card (card.href)}
+          {@const CardIcon = card.icon}
+          <a href={card.href} class="group flex flex-col rounded-xl border border-hairline bg-card p-6 shadow-card transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-[1px] hover:border-foreground/25 hover:shadow-card-hover">
+            <div class="flex items-center gap-3">
+              <CardIcon class="size-5 shrink-0 text-primary" />
+              <h3 class="font-heading text-xl leading-tight text-foreground">{t(card.title as TranslationKey)}</h3>
+            </div>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-body">{t(card.desc as TranslationKey)}</p>
+            <span class="mt-5 inline-flex items-center gap-1 self-start text-sm font-semibold text-foreground transition-all group-hover:gap-1.5">
+              {t('home.forwho.card_link_label')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
+            </span>
+          </a>
+        {/each}
+      </div>
     </div>
   </section>
 
@@ -899,6 +945,8 @@
     </div>
   </SectionDark>
 
+  </main>
+
   <div class="bg-surface-dark pb-24 md:pb-0">
     <Footer />
   </div>
@@ -919,7 +967,7 @@
       </Button>
     </div>
   {/if}
-</main>
+</div>
 
 {#if showPitch && PitchModal}
   <PitchModal onclose={() => showPitch = false} />

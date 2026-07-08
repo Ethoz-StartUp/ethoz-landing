@@ -2,7 +2,6 @@
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
   import { Button } from '$lib/components/ui/button';
-  import { BRAND } from '$lib/brand';
   import { t, type TranslationKey } from '$lib/i18n/index.svelte';
   import { slide } from 'svelte/transition';
   import { trackEvent } from '$lib/utils/analytics';
@@ -43,16 +42,16 @@
 </script>
 
 <svelte:head>
-  <title>¿Cómo contratar? · {BRAND}</title>
-  <meta name="description" content={`Contrata ${BRAND} en 4 pasos: agenda una demo, elige tus módulos, migramos tus datos y tu colegio queda protegido.`} />
+  <title>{t('getstarted.meta.title')}</title>
+  <meta name="description" content={t('getstarted.meta.description')} />
   <link rel="canonical" href="https://ethoz.cl/get-started" />
   <meta property="og:url" content="https://ethoz.cl/get-started" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`¿Cómo contratar? · ${BRAND}`} />
-  <meta property="og:description" content={`Conoce cómo implementar ${BRAND} en tu colegio. Proceso consultivo paso a paso.`} />
+  <meta property="og:title" content={t('getstarted.meta.title')} />
+  <meta property="og:description" content={t('getstarted.meta.og_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`¿Cómo contratar? · ${BRAND}`} />
-  <meta name="twitter:description" content={`Contrata ${BRAND} en 4 pasos: agenda una demo, elige tus módulos, migramos tus datos y tu colegio queda protegido.`} />
+  <meta name="twitter:title" content={t('getstarted.meta.title')} />
+  <meta name="twitter:description" content={t('getstarted.meta.description')} />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -65,8 +64,17 @@
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Cómo contratar"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+
+  <main id="main-content" class="flex-1">
 
   <!-- ═══ HERO — editorial ═══ -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
@@ -136,7 +144,7 @@
           </Button>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/step-1-demo.webp" alt={t('getstarted.step1.alt')} class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/step-1-demo.webp" alt={t('getstarted.step1.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
         </div>
       </div>
     </div>
@@ -147,7 +155,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
-          <img src="/images/pages/step-2-configure.webp" alt={t('getstarted.step2.alt')} class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/step-2-configure.webp" alt={t('getstarted.step2.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
         </div>
         <div class="order-1 lg:order-2">
           <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('getstarted.step2.overline')}</p>
@@ -193,7 +201,7 @@
           </ul>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/step-3-migrate.webp" alt={t('getstarted.step3.alt')} class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/step-3-migrate.webp" alt={t('getstarted.step3.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
         </div>
       </div>
     </div>
@@ -204,7 +212,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
-          <img src="/images/pages/step-4-live.webp" alt={t('getstarted.step4.alt')} class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/step-4-live.webp" alt={t('getstarted.step4.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
         </div>
         <div class="order-1 lg:order-2">
           <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('getstarted.step4.overline')}</p>
@@ -275,6 +283,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <Footer />
-</main>
+</div>

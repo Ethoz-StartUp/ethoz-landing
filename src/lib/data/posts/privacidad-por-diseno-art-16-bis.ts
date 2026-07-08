@@ -20,7 +20,7 @@ export const post: BlogPost = {
 <p>Para los equipos directivos escolares, esto plantea una pregunta práctica urgente: si el colegio no puede almacenar el diagnóstico médico de un alumno, ¿cómo protege a ese niño en caso de emergencia? La respuesta existe, es técnicamente implementable y ya hay colegios en Chile operando bajo este modelo. Se llama <strong>privacidad por diseño</strong>.</p>
 
 <h2>Qué prohíbe exactamente el Art. 16 bis</h2>
-<p>El artículo establece que los datos de salud —incluyendo diagnósticos clínicos, registros psiquiátricos, historiales de tratamiento farmacológico y evaluaciones psicológicas detalladas— solo pueden ser tratados bajo supuestos muy acotados:</p>
+<p>El artículo establece que los datos de salud (incluyendo diagnósticos clínicos, registros psiquiátricos, historiales de tratamiento farmacológico y evaluaciones psicológicas detalladas) solo pueden ser tratados bajo supuestos muy acotados:</p>
 <ul>
   <li>Consentimiento explícito del titular o su representante legal, específico para la finalidad declarada.</li>
   <li>Necesidad vital del titular, cuando no está en condiciones de otorgar consentimiento y la vida está en riesgo.</li>
@@ -33,7 +33,7 @@ export const post: BlogPost = {
 <p>Aquí reside la clave del cumplimiento: la ley no prohíbe que el colegio sepa que un alumno tiene una condición de salud relevante para su seguridad. Lo que prohíbe es almacenar el detalle clínico de esa condición. La diferencia entre estas dos cosas es precisa y tiene un nombre técnico en el diseño de sistemas: <strong>el modelo de bandera booleana</strong>.</p>
 
 <blockquote>
-  <p>La distinción legal fundamental: almacenar <em>"Juan tiene epilepsia refractaria y toma 200mg de ácido valproico dos veces al día"</em> es ilegal sin base explícita. Almacenar <em>"Juan: riesgo de crisis convulsiva — protocolo de emergencia activado"</em> es legal, necesario y suficiente para el deber de cuidado.</p>
+  <p>La distinción legal fundamental: almacenar <em>"Juan tiene epilepsia refractaria y toma 200mg de ácido valproico dos veces al día"</em> es ilegal sin base explícita. Almacenar <em>"Juan: riesgo de crisis convulsiva · protocolo de emergencia activado"</em> es legal, necesario y suficiente para el deber de cuidado.</p>
 </blockquote>
 
 <p>Un sistema conforme a la ley almacena solo lo que necesita saber para actuar correctamente en una emergencia, no el expediente clínico completo. Esto es exactamente lo que significa privacidad por diseño aplicada al contexto escolar.</p>
@@ -76,10 +76,10 @@ export const post: BlogPost = {
     </tr>
   </tbody>
 </table>
-<p>El detalle clínico —diagnóstico, medicamento, historial— permanece en manos del médico tratante y del apoderado. El colegio solo accede a él en el momento de la emergencia, a través del apoderado o del servicio de urgencias, no porque lo tenga almacenado en su sistema.</p>
+<p>El detalle clínico (diagnóstico, medicamento, historial) permanece en manos del médico tratante y del apoderado. El colegio solo accede a él en el momento de la emergencia, a través del apoderado o del servicio de urgencias, no porque lo tenga almacenado en su sistema.</p>
 
 <h2>Consentimiento para menores de 16 años</h2>
-<p>El <strong>Artículo 20</strong> de la Ley 21.719 establece que los menores de 14 años no pueden prestar consentimiento para el tratamiento de sus datos. Entre 14 y 16 años, el menor puede consentir en materias propias de su autonomía, pero para datos de salud —categoría sensible— se mantiene la exigencia de consentimiento parental. Esto tiene implicancias directas para los colegios:</p>
+<p>El <strong>Artículo 20</strong> de la Ley 21.719 establece que los menores de 14 años no pueden prestar consentimiento para el tratamiento de sus datos. Entre 14 y 16 años, el menor puede consentir en materias propias de su autonomía, pero para datos de salud, categoría sensible, se mantiene la exigencia de consentimiento parental. Esto tiene implicancias directas para los colegios:</p>
 <ul>
   <li>El formulario de matrícula que incluye una cláusula genérica sobre manejo de datos de salud <strong>no es consentimiento válido</strong> bajo la Ley 21.719.</li>
   <li>El consentimiento debe ser específico por finalidad: no basta autorizar "el uso de datos médicos". Debe indicar exactamente qué tipo de alerta se activará, quién la verá y cómo se protegerá.</li>
@@ -92,11 +92,11 @@ export const post: BlogPost = {
   <li><strong>No conforme:</strong> "Diego López, 8° básico. Diagnóstico: Trastorno del espectro autista nivel 2. Toma risperidona 0.5mg. Informe neuropsicológico adjunto." Este registro viola el Art. 16 bis sin importar quién lo pidió.</li>
   <li><strong>Conforme:</strong> "Diego López, 8° básico. Necesidades educativas especiales activas. Protocolo de apoyo PIE vigente. Contacto de emergencia: Dr. Fernández, tel. XXXXXX." Este registro cumple el deber de cuidado sin almacenar datos clínicos.</li>
   <li><strong>No conforme:</strong> Carpeta compartida en el servidor del colegio con todos los informes psicológicos de alumnos en evaluación por el equipo PIE.</li>
-  <li><strong>Conforme:</strong> Sistema con control de acceso donde solo la psicóloga del establecimiento —bajo secreto profesional— tiene acceso a los informes, y solo puede registrar en el perfil del alumno una bandera de derivación activa.</li>
+  <li><strong>Conforme:</strong> Sistema con control de acceso donde solo la psicóloga del establecimiento, bajo secreto profesional, tiene acceso a los informes, y solo puede registrar en el perfil del alumno una bandera de derivación activa.</li>
 </ul>
 
 <h2>Privacidad por diseño: el principio detrás de la solución</h2>
-<p>Privacidad por diseño no es una auditoría que se hace al final de un proceso: es una decisión que se toma cuando se elige o configura un sistema. Aplicado al contexto escolar, significa que la plataforma de gestión del establecimiento debe ser estructuralmente incapaz de almacenar datos clínicos detallados de alumnos —no porque esté bloqueada por una regla, sino porque su arquitectura de datos no tiene ese campo.</p>
+<p>Privacidad por diseño no es una auditoría que se hace al final de un proceso: es una decisión que se toma cuando se elige o configura un sistema. Aplicado al contexto escolar, significa que la plataforma de gestión del establecimiento debe ser estructuralmente incapaz de almacenar datos clínicos detallados de alumnos, no porque esté bloqueada por una regla, sino porque su arquitectura de datos no tiene ese campo.</p>
 <p>Los siete principios de privacidad por diseño, en su versión aplicada al colegio, se reducen a tres decisiones concretas:</p>
 <ul>
   <li><strong>Minimización estructural:</strong> el sistema solo puede registrar los campos que tienen base legal. No hay campo "diagnóstico" porque ese dato no debe existir en el sistema escolar.</li>
@@ -110,11 +110,11 @@ export const post: BlogPost = {
 <p>Para una visión completa del régimen de sanciones aplicable, lea <a href="/blog/multas-proteccion-datos-sostenedores">Multas de hasta 20.000 UTM: Guía de cumplimiento para sostenedores</a>.</p>
 
 <h2>Conclusión</h2>
-<p>El Art. 16 bis no impide que los colegios cuiden a sus alumnos con condiciones de salud. Impide que lo hagan acumulando expedientes clínicos sin control ni base legal. El modelo de bandera médica —almacenar solo la alerta de acción, nunca el diagnóstico— es la solución técnica y legalmente correcta. Los establecimientos que adopten este enfoque antes de diciembre de 2026 no solo estarán en cumplimiento: habrán construido un sistema de cuidado más eficiente, más seguro y más respetuoso de los derechos de sus estudiantes.</p>
+<p>El Art. 16 bis no impide que los colegios cuiden a sus alumnos con condiciones de salud. Impide que lo hagan acumulando expedientes clínicos sin control ni base legal. El modelo de bandera médica (almacenar solo la alerta de acción, nunca el diagnóstico) es la solución técnica alineada con lo que exige la ley. Los establecimientos que adopten este enfoque antes de diciembre de 2026 no solo reducirán drásticamente su exposición legal: habrán construido un sistema de cuidado más eficiente, más seguro y más respetuoso de los derechos de sus estudiantes.</p>
 
 <div style="margin-top: 2.5rem; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem 1.5rem; background: var(--secondary);">
   <p style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted-foreground); margin-bottom: 0.5rem;">Referencia normativa</p>
-  <p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">El Art. 16 bis y las disposiciones sobre datos de salud de menores están contenidos en la Ley 21.719 — Protección y tratamiento de datos personales.</p>
+  <p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">El Art. 16 bis y las disposiciones sobre datos de salud de menores están contenidos en la Ley 21.719, sobre protección y tratamiento de los datos personales.</p>
   <p style="margin-top: 0.75rem; margin-bottom: 0;"><a href="https://www.bcn.cl/leychile/navegar?idNorma=1209272" target="_blank" rel="noopener noreferrer" style="font-size: 0.875rem; font-weight: 600; color: var(--primary); text-decoration: underline; text-underline-offset: 3px;">Consultar texto oficial en BCN →</a></p>
 </div>
 `

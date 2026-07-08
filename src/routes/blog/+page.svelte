@@ -3,10 +3,12 @@
   import { BRAND } from '$lib/brand';
   import { t } from '$lib/i18n/index.svelte';
   import { Clock, Calendar } from '@lucide/svelte';
-  import { allPosts } from '$lib/data/posts';
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
   import { trackEvent } from '$lib/utils/analytics';
+  import type { PageData } from './$types';
+
+  let { data }: { data: PageData } = $props();
 
   $effect(() => { trackEvent('blog_index_viewed'); });
 </script>
@@ -25,8 +27,17 @@
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Blog"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+
+  <main id="main-content" class="flex-1">
 
   <div class="mx-auto flex-1 max-w-7xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
     <!-- Editorial header — McK pattern: eyebrow · meta · short rule · DM Sans display h1 · subtitle -->
@@ -47,7 +58,7 @@
 
     <!-- Posts grid -->
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {#each allPosts as post, i}
+      {#each data.posts as post, i}
         <a
           href="/blog/{post.slug}"
           class="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 shadow-card hover:shadow-card-hover hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px]"
@@ -97,5 +108,7 @@
       {/each}
     </div>
   </div>
+  </main>
+
   <Footer />
-</main>
+</div>
