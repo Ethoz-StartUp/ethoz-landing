@@ -1,14 +1,11 @@
 <!--
   FeatureCardCal — Cal-style feature card.
-  Default (accent='none'): full hairline border + muted bg + foreground heading.
-  Accented variants: 2px colored left rule only (no top/right/bottom border).
+  Full hairline border + muted bg + foreground heading.
   Icon + title inline (per .impeccable.md hard rule). CTA arrow stays persistent.
 -->
 <script lang="ts">
   import type { Component } from 'svelte';
   import { ArrowRight } from '@lucide/svelte';
-
-  type Accent = 'mustard' | 'brick' | 'sage' | 'navy' | 'none';
 
   type Props = {
     icon?: Component;
@@ -16,8 +13,6 @@
     description: string;
     href?: string;
     cta?: string;
-    /** Editorial left-rule accent. 'none' = full hairline card (default). */
-    accent?: Accent;
   };
 
   let {
@@ -26,19 +21,10 @@
     description,
     href,
     cta = 'Conocer más',
-    accent = 'none',
   }: Props = $props();
 
-  // Icon color tracks accent (mono-first: accents collapse to foreground)
-  const iconClass = $derived(
-    accent === 'mustard' ? 'text-accent-mustard' :
-    accent === 'brick'   ? 'text-accent-brick'   :
-    accent === 'sage'    ? 'text-accent-sage'     :
-    'text-foreground'  // navy or none
-  );
-
-  // Uniform full-border frame for every variant (8020 card: border + soft warm shadow).
-  // Accent now lives only in the icon color, never as a one-sided left rule (no side-tab slop).
+  // Uniform full-border frame (8020 card: border + soft warm shadow).
+  // Mono-first: icon color stays foreground, no per-card accent tints.
   const wrapperClass = [
     'rounded-xl border border-hairline bg-card p-8 shadow-card',
     'transition-[transform,box-shadow,border-color] duration-200',
@@ -50,7 +36,7 @@
   <a {href} class="group flex flex-col gap-4 {wrapperClass}">
     {#if IconComponent}
       <div class="flex items-center gap-3">
-        <IconComponent class="size-5 {iconClass}" />
+        <IconComponent class="size-5 text-foreground" />
         <h3 class="font-heading text-lg text-foreground">{title}</h3>
       </div>
     {:else}
@@ -66,7 +52,7 @@
   <div class="flex flex-col gap-4 {wrapperClass}">
     {#if IconComponent}
       <div class="flex items-center gap-3">
-        <IconComponent class="size-5 {iconClass}" />
+        <IconComponent class="size-5 text-foreground" />
         <h3 class="font-heading text-lg text-foreground">{title}</h3>
       </div>
     {:else}

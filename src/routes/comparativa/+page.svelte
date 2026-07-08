@@ -45,10 +45,10 @@
     {
       label: 'comparativa.cat_security',
       rows: [
-        { label: 'comparativa.row_encryption_at_rest', ethoz: 'yes', napsis: 'no', syscol: 'unknown', lirmi: 'unknown', schooltrack: 'unknown' },
-        { label: 'comparativa.row_rls_by_role', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
-        { label: 'comparativa.row_native_audit_log', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
-        { label: 'comparativa.row_law_21719', ethoz: 'yes', napsis: 'no', syscol: 'unknown', lirmi: 'varies', schooltrack: 'unknown' },
+        { label: 'comparativa.row_encryption_at_rest', ethoz: 'yes', napsis: 'unknown', syscol: 'unknown', lirmi: 'unknown', schooltrack: 'unknown' },
+        { label: 'comparativa.row_rls_by_role', ethoz: 'yes', napsis: 'unknown', syscol: 'unknown', lirmi: 'unknown', schooltrack: 'unknown' },
+        { label: 'comparativa.row_native_audit_log', ethoz: 'yes', napsis: 'unknown', syscol: 'unknown', lirmi: 'unknown', schooltrack: 'unknown' },
+        { label: 'comparativa.row_law_21719', ethoz: 'yes', napsis: 'unknown', syscol: 'unknown', lirmi: 'varies', schooltrack: 'unknown' },
         { label: 'comparativa.row_circular_30', ethoz: 'yes', napsis: 'varies', syscol: 'no', lirmi: 'yes', schooltrack: 'varies' },
       ],
     },
@@ -103,8 +103,17 @@
   })}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+
+  <main id="main-content">
 
   <!-- ══════════════════════════════════════
        HERO
@@ -329,7 +338,7 @@
           <div>
             <p class="text-3xl font-heading text-foreground">20.000 UTM</p>
             <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.risk_fine_label')}</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">≈ $1.340M CLP</p>
+            <p class="mt-0.5 text-xs text-muted-foreground">más de $1.300 millones</p>
           </div>
           <div>
             <p class="text-3xl font-heading text-foreground">{t('comparativa.risk_date_value')}</p>
@@ -372,6 +381,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <Footer />
-</main>
+</div>

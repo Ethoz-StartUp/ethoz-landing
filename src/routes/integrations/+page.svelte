@@ -23,8 +23,17 @@
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Integraciones"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+
+  <main id="main-content">
 
   <!-- Hero -->
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
@@ -111,7 +120,7 @@
       <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
         <!-- Visual: basic module -->
         <div class="order-2 lg:order-1">
-          <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
+          <div class="rounded-xl border border-border bg-card p-6 shadow-sm" aria-hidden="true">
             <div class="flex items-center gap-2 border-b border-border pb-3 mb-4">
               <div class="size-2.5 rounded-full bg-destructive/60"></div>
               <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -224,6 +233,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <Footer />
-</main>
+</div>

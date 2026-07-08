@@ -71,7 +71,16 @@
   function closeProducts() {
     productsTimeout = setTimeout(() => { productsOpen = false; }, 150);
   }
+
+  // Escape closes whichever disclosure is open (dropdown + mobile menu).
+  function handleWindowKeydown(e: KeyboardEvent) {
+    if (e.key !== 'Escape') return;
+    if (productsOpen) productsOpen = false;
+    if (mobileOpen) mobileOpen = false;
+  }
 </script>
+
+<svelte:window onkeydown={handleWindowKeydown} />
 
 <nav class="fixed top-0 right-0 left-0 z-50 border-b border-border shadow-sm transition-colors duration-150 {scrolled ? 'bg-background/80 backdrop-blur-lg' : 'bg-background'}">
   <!-- Top ribbon — Ley 21.719 urgency. Part of the fixed chrome so it
@@ -119,12 +128,17 @@
         </a>
       {/each}
 
-      <!-- Productos dropdown (APG disclosure pattern) -->
+      <!-- Productos dropdown (APG disclosure-of-links pattern: aria-expanded
+           trigger + plain list of links; no menu roles) -->
       <div
         class="relative"
         role="presentation"
         onmouseenter={openProducts}
         onmouseleave={closeProducts}
+        onfocusout={(e) => {
+          const container = e.currentTarget as HTMLElement;
+          if (!container.contains(e.relatedTarget as Node | null)) productsOpen = false;
+        }}
       >
         <!-- Click → navigates to /productos (full catalog page).
              Hover → opens dropdown via the parent onmouseenter handler.
@@ -132,7 +146,6 @@
         <a
           href="/productos"
           aria-expanded={productsOpen}
-          aria-haspopup="true"
           aria-controls="products-menu"
           class="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isProductActive()
@@ -151,9 +164,7 @@
           <div
             id="products-menu"
             class="absolute left-1/2 top-full mt-2 w-[420px] -translate-x-1/2 rounded-xl border border-border bg-card p-3 shadow-popover"
-            role="menu"
-            tabindex="-1"
-            onkeydown={(e) => { if (e.key === 'Escape') { productsOpen = false; } }}
+            role="presentation"
             onmouseenter={openProducts}
             onmouseleave={closeProducts}
           >
@@ -168,14 +179,14 @@
                   <Icon class="mt-0.5 size-4 shrink-0 text-primary" />
                   <div>
                     <p class="text-xs font-semibold text-foreground">{t(product.name)}</p>
-                    <p class="text-mockup-sm text-muted-foreground">{t(product.desc)}</p>
+                    <p class="text-xs text-muted-foreground">{t(product.desc)}</p>
                   </div>
                 </a>
               {/each}
             </div>
             <a
               href="/productos"
-              class="mt-2 block border-t border-border pt-2 text-center text-mockup-sm font-medium text-primary transition-colors hover:text-primary"
+              class="mt-2 block border-t border-border pt-2 text-center text-xs font-medium text-primary transition-colors hover:text-primary"
               onclick={() => (productsOpen = false)}
             >
               {t('nav.all_products')}
@@ -230,11 +241,9 @@
 
   <!-- Mobile menu -->
   {#if mobileOpen}
-    <div id="mobile-menu" transition:slide={{ duration: 200 }} class="relative z-50 border-t border-border bg-background px-4 pb-5 pt-3 md:hidden"
-      onkeydown={(e) => { if (e.key === 'Escape') { mobileOpen = false; } }}
-      role="dialog"
-      tabindex="-1"
-      aria-modal="true"
+    <!-- Disclosure content (aria-expanded lives on the toggle button). Scrollable
+         so short viewports can still reach the CTA at the bottom. -->
+    <div id="mobile-menu" transition:slide={{ duration: 200 }} class="relative z-50 max-h-[calc(100dvh-7rem)] overflow-y-auto border-t border-border bg-background px-4 pb-5 pt-3 md:hidden"
       aria-label={t('nav.menu_label')}>
       <div class="flex flex-col gap-0.5">
         <!-- ¿Qué es? -->

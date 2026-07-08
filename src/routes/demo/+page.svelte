@@ -9,6 +9,7 @@
   import { normalize } from '$lib/utils/text';
   import {
     Search,
+    ArrowRight,
     Building,
     MapPin,
     ChevronRight,
@@ -102,20 +103,20 @@
 <svelte:window onkeydown={handleKeydown} />
 
 <svelte:head>
-  <title>{BRAND} · {t('nav.cta')}</title>
-  <meta name="description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio. Busca tu establecimiento y agenda una presentación.`} />
+  <title>{t('meta.demo_title')}</title>
+  <meta name="description" content={t('meta.demo_description')} />
   <meta property="og:url" content="https://ethoz.cl/demo" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Demo · ${BRAND}`} />
-  <meta property="og:description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio.`} />
+  <meta property="og:title" content={t('meta.demo_title')} />
+  <meta property="og:description" content={t('meta.demo_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Demo · ${BRAND}`} />
-  <meta name="twitter:description" content={`Solicita una demo personalizada de ${BRAND} para tu colegio.`} />
+  <meta name="twitter:title" content={t('meta.demo_title')} />
+  <meta name="twitter:description" content={t('meta.demo_description')} />
   <link rel="canonical" href="https://ethoz.cl/demo" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Demo"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-secondary pt-28 sm:pt-32">
+<div class="flex min-h-dvh flex-col bg-secondary pt-28 sm:pt-32">
   <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
   <a
     href="#demo-search-main"
@@ -124,6 +125,8 @@
     {t('nav.skip_to_content')}
   </a>
   <NavBar />
+
+  <main id="main-content" class="flex flex-1 flex-col">
 
   <!-- Step indicator -->
   <nav aria-label={t('demo.step_indicator.nav_label')} class="border-b border-border bg-background py-4">
@@ -280,13 +283,27 @@
           </div>
         {/if}
       {/if}
+
+      <!-- Network / corporation branch — quiet link, subordinate to the search flow -->
+      <div class="rounded-xl border border-hairline bg-card p-5 text-center">
+        <p class="text-sm text-muted-foreground">{t('demo.network_prompt')}</p>
+        <a
+          href="/contact"
+          class="mt-1.5 inline-flex items-center gap-1 text-sm font-semibold text-foreground underline-offset-4 hover:text-body hover:underline"
+        >
+          {t('demo.network_cta')}
+          <ArrowRight class="size-3.5" />
+        </a>
+      </div>
     </div>
   </div>
+
+  </main>
 
   <footer class="border-t border-border bg-background py-4 text-center text-mockup-sm text-muted-foreground">
     &copy; {new Date().getFullYear()} {BRAND}
   </footer>
-</main>
+</div>
 
 <style>
   mark { background-color: inherit; color: inherit; }

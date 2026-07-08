@@ -1097,18 +1097,18 @@ test.describe('Demo — manual school entry', () => {
 // ─────────────────────────────────────────────────────────────────────────────
 
 test.describe('Navbar — products dropdown', () => {
-	test('Productos dropdown button exists', async ({ page }) => {
+	test('Productos dropdown trigger exists (disclosure pattern)', async ({ page }) => {
 		await page.goto('/');
-		const btn = page.locator('nav a[href="/productos"][aria-haspopup="true"]');
+		const btn = page.locator('nav a[href="/productos"][aria-controls="products-menu"]');
 		await expect(btn).toBeVisible();
 	});
 
 	test('dropdown opens on hover and shows product links', async ({ page }) => {
 		await page.goto('/');
-		const btn = page.locator('nav a[href="/productos"][aria-haspopup="true"]');
+		const btn = page.locator('nav a[href="/productos"][aria-controls="products-menu"]');
 		await btn.hover();
 		await page.waitForTimeout(300);
-		const dropdown = page.locator('[role="menu"]').first();
+		const dropdown = page.locator('#products-menu');
 		await expect(dropdown).toBeVisible({ timeout: 3000 });
 		await expect(dropdown.locator('a[href="/features/student-profile"]')).toBeVisible();
 		await expect(dropdown.locator('a[href="/features/safe-pickups"]')).toBeVisible();

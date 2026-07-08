@@ -94,7 +94,7 @@
           class="w-full rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
         />
         {#if error}
-          <p id="resource-email-error" class="text-xs text-destructive" role="alert">{error}</p>
+          <p id="resource-email-error" class="text-xs text-error-text" role="alert">{error}</p>
         {/if}
       </div>
 

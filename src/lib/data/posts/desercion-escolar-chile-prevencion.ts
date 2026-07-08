@@ -45,10 +45,10 @@ export const post: BlogPost = {
   <li>Ausencia de intervención oportuna cuando los indicadores ya son visibles.</li>
   <li>Sistemas de registro que no permiten identificar patrones longitudinales.</li>
 </ul>
-<p>Este tercer grupo de factores —los institucionales— es el que los establecimientos pueden abordar con mayor eficacia, porque está dentro de su esfera de control directo. Y es precisamente donde los sistemas de gestión escolar tienen el mayor potencial de impacto.</p>
+<p>Este tercer grupo de factores, los institucionales, es el que los establecimientos pueden abordar con mayor eficacia, porque está dentro de su esfera de control directo. Y es precisamente donde los sistemas de gestión escolar tienen el mayor potencial de impacto.</p>
 
 <h2>El caso Mendoza: 4.500 estudiantes retenidos con inteligencia artificial</h2>
-<p>En 2022, la provincia de Mendoza, Argentina, implementó un sistema de alerta temprana basado en inteligencia artificial para identificar estudiantes en riesgo de deserción. El sistema procesaba datos escolares existentes —asistencia, notas, repitencia, cambios de establecimiento— y generaba una puntuación de riesgo individualizada para cada estudiante.</p>
+<p>En 2022, la provincia de Mendoza, Argentina, implementó un sistema de alerta temprana basado en inteligencia artificial para identificar estudiantes en riesgo de deserción. El sistema procesaba datos escolares existentes (asistencia, notas, repitencia, cambios de establecimiento) y generaba una puntuación de riesgo individualizada para cada estudiante.</p>
 <p>Los resultados fueron documentados por el equipo de implementación y publicados en 2023:</p>
 <ul>
   <li><strong>4.500 estudiantes identificados</strong> como en riesgo alto antes de que su desvinculación fuera inminente.</li>
@@ -63,7 +63,7 @@ export const post: BlogPost = {
 <p>Lo que el SiPTE no reemplaza es la <strong>inteligencia de datos a nivel de establecimiento</strong>: los registros cualitativos de convivencia, las notas del orientador, las señales que el docente detecta en el aula y que no se capturan en ningún registro ministerial. Esa capa de datos granulares solo puede construirla el establecimiento mismo, con sistemas diseñados para capturarla.</p>
 
 <h2>El ausentismo como predictor más poderoso</h2>
-<p>La investigación internacional identifica el <strong>ausentismo crónico</strong> —definido como faltar a más del 10% de los días de clases— como el predictor más robusto de deserción escolar. Un estudiante que falta crónicamente en primero medio tiene entre 3 y 5 veces más probabilidad de no completar la enseñanza media que uno con asistencia regular.</p>
+<p>La investigación internacional identifica el <strong>ausentismo crónico</strong>, definido como faltar a más del 10% de los días de clases, como el predictor más robusto de deserción escolar. Un estudiante que falta crónicamente en primero medio tiene entre 3 y 5 veces más probabilidad de no completar la enseñanza media que uno con asistencia regular.</p>
 <p>Esta relación es conocida por todos los profesionales educacionales. El problema no es la falta de conocimiento: es la falta de visibilidad. En un establecimiento con 800 estudiantes, ¿quién está monitoreando el porcentaje de asistencia de cada alumno semana a semana, cruzándolo con el historial del año anterior y con los registros de convivencia? En la mayoría de los colegios, nadie tiene esa visión integrada en tiempo real.</p>
 <p>El resultado es que el ausentismo crónico se identifica retrospectivamente, cuando el orientador revisa las planillas a fin de semestre. Para entonces, el patrón lleva meses instalado y la intervención tiene mucho menor probabilidad de éxito.</p>
 
@@ -92,7 +92,7 @@ export const post: BlogPost = {
 <div style="background: var(--secondary); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;">
 <h3 style="margin-top: 0;">Detecte el riesgo de deserción antes de que sea irreversible</h3>
 <p>${BRAND} consolida asistencia, convivencia e historial longitudinal en la ficha 360° de cada estudiante, entregando al orientador el contexto completo para intervenir a tiempo. Conozca cómo funciona en su establecimiento.</p>
-<a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Solicitar demo gratuita</a>
+<a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Agendar demo</a>
 </div>
 `
 };

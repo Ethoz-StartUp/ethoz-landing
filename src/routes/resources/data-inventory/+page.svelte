@@ -52,7 +52,7 @@
         { field: 'Diagnósticos médicos y condiciones de salud', baseLegal: 'Art. 13 a) · Consentimiento explícito', finalidad: 'Atención primaria, primeros auxilios', retention: '10 años post egreso' },
         { field: 'Alergias y medicamentos', baseLegal: 'Art. 13 a) · Consentimiento explícito', finalidad: 'Prevención riesgos de salud en establecimiento', retention: 'Vigencia matrícula + 5 años' },
         { field: 'Ficha de salud mental (orientación)', baseLegal: 'Art. 13 a) · Consentimiento explícito', finalidad: 'Apoyo psicosocial, alertas de riesgo', retention: '5 años post egreso' },
-        { field: 'Situación familiar (vulnerabilidad, SENAME)', baseLegal: 'Art. 13 a) · Consentimiento / Art. 13 c) · Ley 21.430', finalidad: 'Protección de la infancia, redes de apoyo', retention: '5 años post egreso' },
+        { field: 'Situación familiar (vulnerabilidad, Mejor Niñez)', baseLegal: 'Art. 13 a) · Consentimiento / Art. 13 c) · Ley 21.430', finalidad: 'Protección de la infancia, redes de apoyo', retention: '5 años post egreso' },
         { field: 'Alertas judiciales y órdenes de alejamiento', baseLegal: 'Art. 13 c) · Orden judicial', finalidad: 'Protección física del alumno, seguridad', retention: 'Mientras esté vigente la orden' },
       ]
     },
@@ -94,11 +94,19 @@
   })}</script>`}
 </svelte:head>
 
+<!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+<a
+  href="#main-content"
+  class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+>
+  {t('nav.skip_to_content')}
+</a>
+
 <div class="print:hidden">
   <NavBar />
 </div>
 
-<main class="min-h-dvh bg-background">
+<main id="main-content" class="min-h-dvh bg-background">
   <div class="print:hidden sticky top-0 z-10 border-b border-border bg-background/95 backdrop-blur-sm">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
       <Button href="/resources" variant="ghost" size="sm" class="gap-2 text-muted-foreground">

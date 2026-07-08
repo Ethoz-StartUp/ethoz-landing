@@ -29,7 +29,7 @@ export const post: BlogPost = {
   <li>El <strong>ausentismo</strong> aumenta significativamente: los afectados faltan en promedio 3,2 días más por mes que sus pares no expuestos.</li>
   <li>El <strong>42% de los estudiantes que sufren ciberacoso no lo comunica a ningún adulto</strong> del establecimiento, principalmente porque no confían en que el colegio pueda actuar o temen que la situación empeore.</li>
 </ul>
-<p>Este último dato es estructuralmente relevante: el problema existe, pero el colegio no lo ve. Y si no lo ve, no puede registrarlo, no puede intervenir y no puede demostrar —ante una fiscalización— que actuó conforme a su deber de cuidado.</p>
+<p>Este último dato es estructuralmente relevante: el problema existe, pero el colegio no lo ve. Y si no lo ve, no puede registrarlo, no puede intervenir y no puede demostrar, ante una fiscalización, que actuó conforme a su deber de cuidado.</p>
 
 <h2>La Ley Aula Segura y sus exigencias concretas</h2>
 <p>La <strong>Ley 20.845 (Ley de Inclusión)</strong> y sus modificaciones, junto con la <strong>Ley Aula Segura (21.128)</strong>, establecen que los establecimientos educacionales tienen la obligación de contar con protocolos de actuación frente a situaciones de acoso, incluido el ciberacoso. El Reglamento de Convivencia Escolar debe describir explícitamente cómo se detecta, registra y gestiona cada tipo de situación.</p>
@@ -65,12 +65,12 @@ export const post: BlogPost = {
 <h2>Registro longitudinal: la clave que los colegios no tienen</h2>
 <p>El ciberacoso rara vez es un evento único. Es una pauta de comportamiento que se construye a lo largo de semanas o meses. Detectarlo requiere poder ver esa pauta, lo que a su vez requiere que los registros persistan y sean consultables.</p>
 <p>En la mayoría de los establecimientos chilenos, el registro de incidentes de convivencia tiene una vida útil de un año escolar. En marzo, el historial se reinicia. Un estudiante que fue víctima de ciberacoso sostenido durante el segundo semestre del año anterior llega en marzo como si fuera su primera semana en el colegio. El orientador nuevo no sabe. El profesor jefe nuevo no sabe. El encargado de convivencia tiene que reconstruir el contexto desde cero, si es que lo reconstruye.</p>
-<p>Este problema no es solo operacional: es una falla de seguridad. Los patrones de comportamiento de acoso tienen alta tasa de reincidencia. Un agresor que no enfrenta consecuencias documentadas el año anterior tiene altas probabilidades de reactivar el comportamiento. El registro longitudinal —la capacidad de mantener y consultar el historial a lo largo de la trayectoria escolar completa del estudiante— es el instrumento más básico de prevención. El tema del reinicio de datos se aborda en detalle en <a href="/blog/reinicio-de-marzo-seguridad-escolar">El reinicio de marzo: el mayor riesgo de seguridad escolar que nadie discute</a>.</p>
+<p>Este problema no es solo operacional: es una falla de seguridad. Los patrones de comportamiento de acoso tienen alta tasa de reincidencia. Un agresor que no enfrenta consecuencias documentadas el año anterior tiene altas probabilidades de reactivar el comportamiento. El registro longitudinal, la capacidad de mantener y consultar el historial a lo largo de la trayectoria escolar completa del estudiante, es el instrumento más básico de prevención. El tema del reinicio de datos se aborda en detalle en <a href="/blog/reinicio-de-marzo-seguridad-escolar">El reinicio de marzo: el mayor riesgo de seguridad escolar que nadie discute</a>.</p>
 
 <h2>Cómo ${BRAND} aborda el ciberacoso de manera estructural</h2>
 <p>${BRAND} no es una herramienta de moderación de redes sociales ni un sistema de monitoreo de dispositivos. Su aporte al problema del ciberacoso opera en tres dimensiones institucionales:</p>
 <h3>Registro seguro de incidentes</h3>
-<p>Cuando un estudiante, docente o apoderado reporta una situación de ciberacoso, ${BRAND} permite registrarlo con <strong>control de acceso por rol</strong>. El detalle del incidente —incluyendo evidencia adjunta como capturas de pantalla— queda en un registro con niveles de visibilidad diferenciados: estándar, restringido o privado. No todos los actores del establecimiento ven la misma información. El orientador ve el expediente completo; el profesor jefe ve los hechos relevantes para su rol; el directivo ve el resumen de gestión.</p>
+<p>Cuando un estudiante, docente o apoderado reporta una situación de ciberacoso, ${BRAND} permite registrarlo con <strong>control de acceso por rol</strong>. El detalle del incidente, incluyendo evidencia adjunta como capturas de pantalla, queda en un registro con niveles de visibilidad diferenciados: estándar, restringido o privado. No todos los actores del establecimiento ven la misma información. El orientador ve el expediente completo; el profesor jefe ve los hechos relevantes para su rol; el directivo ve el resumen de gestión.</p>
 <h3>Notificaciones push sin exposición de datos</h3>
 <p>${BRAND} reemplaza el WhatsApp con un sistema de <strong>notificaciones push que transmite solo metadatos</strong>: "hay una situación registrada que requiere su atención" en lugar de "el alumno X fue víctima de Y con estas imágenes adjuntas". El contenido sensible queda en la plataforma, protegido, y solo quien tiene acceso puede consultarlo con autenticación.</p>
 <h3>Historial longitudinal sin reinicio</h3>
@@ -78,12 +78,12 @@ export const post: BlogPost = {
 
 <h2>Conclusión</h2>
 <p>Los 664 casos del tercer trimestre de 2024 son la punta de un iceberg. El ciberacoso escolar en Chile crece, afecta el bienestar psicológico de manera profunda y opera en espacios que los protocolos presenciales no alcanzan. La respuesta institucional no puede ser un protocolo escrito sin infraestructura de registro. Requiere canales seguros, historiales que persistan y controles de acceso que protejan a los estudiantes de las consecuencias secundarias de una mala gestión de sus datos sensibles.</p>
-<p>Un establecimiento que gestiona bien el ciberacoso no es uno que lo elimina —eso está fuera de su alcance— sino uno que lo detecta temprano, lo registra correctamente, interviene con evidencia y puede demostrarlo ante cualquier fiscalización.</p>
+<p>Un establecimiento que gestiona bien el ciberacoso no es uno que lo elimina (eso está fuera de su alcance), sino uno que lo detecta temprano, lo registra correctamente, interviene con evidencia y puede demostrarlo ante cualquier fiscalización.</p>
 
 <div style="background: var(--secondary); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;">
 <h3 style="margin-top: 0;">Conozca cómo ${BRAND} protege a sus estudiantes</h3>
 <p>Si su establecimiento necesita registros longitudinales seguros, notificaciones sin WhatsApp y control de acceso por rol para gestionar situaciones de ciberacoso, ${BRAND} fue diseñado exactamente para eso.</p>
-<a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Solicitar demo gratuita</a>
+<a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Agendar demo</a>
 </div>
 `
 };

@@ -59,8 +59,17 @@
   ])}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+
+  <main id="main-content" class="flex-1">
 
   <!-- Article -->
   <article class="mx-auto flex-1 max-w-7xl px-4 pt-28 pb-12 sm:pt-32 sm:pb-16">
@@ -96,9 +105,15 @@
       {#if post.coverImage}
         <div class="mt-8 flex justify-center">
           <div class="w-full max-w-sm overflow-hidden rounded-xl">
+            <!-- width/height reserve the LCP slot. Cover assets are mixed
+                 800x800 (majority) and 1200x627; the square hint keeps the
+                 reservation exact for most posts and h-auto corrects the rest
+                 on load without distortion. -->
             <img
               src={post.coverImage}
               alt={post.title}
+              width="800"
+              height="800"
               class="h-auto w-full object-cover"
               loading="eager"
               decoding="async"
@@ -128,8 +143,10 @@
       </Button>
     </div>
   </article>
+  </main>
+
   <Footer />
-</main>
+</div>
 
 <style>
   :global(.prose h2) {
@@ -177,7 +194,11 @@
   }
 
   :global(.prose table) {
-    width: 100%;
+    /* display:block + overflow-x lets wide tables scroll on mobile instead of
+       breaking the layout; narrow tables shrink to fit their content. */
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;
     font-size: 0.875rem;

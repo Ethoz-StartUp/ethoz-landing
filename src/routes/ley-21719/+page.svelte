@@ -75,7 +75,7 @@
       levelKey: 'ley21719.sanction_3_level' as const,
       examplesKey: 'ley21719.sanction_3_examples' as const,
       fineKey: 'ley21719.sanction_3_fine' as const,
-      approx: '≈ $670M a $1.340M CLP',
+      approx: '≈ $670M a $1.300M CLP',
     },
   ];
 
@@ -139,7 +139,7 @@
       "headline": "Ley 21.719: Guía completa para colegios, qué es, multas y cómo cumplir",
       "description": "Ley 21.719 colegios Chile: qué exige, multas hasta 20.000 UTM, derechos ARCO+P, plazos dic 2026. Guía práctica para sostenedores y directivos.",
       "datePublished": "2026-04-07",
-      "dateModified": "2026-04-07",
+      "dateModified": "2026-07-07",
       "author": { "@type": "Organization", "name": BRAND },
       "publisher": { "@type": "Organization", "name": BRAND, "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }},
       "url": "https://ethoz.cl/ley-21719",
@@ -158,8 +158,17 @@
   ])}</script>`}
 </svelte:head>
 
-<main class="min-h-screen bg-background">
+<div class="min-h-screen bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+
+  <main id="main-content">
 
   <!-- ══════════════════════════════════════
        HERO — editorial, institutional
@@ -541,6 +550,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <Footer />
-</main>
+</div>

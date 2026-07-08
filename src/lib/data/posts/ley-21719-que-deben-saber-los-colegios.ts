@@ -13,14 +13,14 @@ export const post: BlogPost = {
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
-<p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">La Ley 21.719 entra en vigencia en diciembre de 2026 y obliga a los colegios a obtener consentimiento parental, registrar cada acceso a datos sensibles y responder solicitudes ARCO+P. Las multas llegan hasta 20.000 UTM. Los colegios que operan con Excel no cumplen.</p>
+<p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">La Ley 21.719 entra en vigencia en diciembre de 2026 y obliga a los colegios a obtener consentimiento parental, registrar cada acceso a datos sensibles y responder solicitudes ARCO+P. Las multas llegan hasta 20.000 UTM (más de $1.300 millones). Los colegios que operan con Excel no cumplen.</p>
 </div>
 <h2>Una ley que transforma la relación entre colegios y datos personales</h2>
-<p>El 13 de diciembre de 2024, Chile publicó la Ley 21.719 en el Diario Oficial, actualizando de manera sustancial la Ley 19.628 de 1999. A partir de diciembre de 2026, toda institución que trate datos personales —incluyendo colegios, liceos y jardines infantiles— deberá cumplir un estándar radicalmente más exigente. El plazo parece amplio, pero la experiencia del RGPD europeo muestra que las organizaciones que esperan el último trimestre enfrentan costos entre 3 y 5 veces mayores que las que planifican con anticipación.</p>
+<p>El 13 de diciembre de 2024, Chile publicó la Ley 21.719 en el Diario Oficial, actualizando de manera sustancial la Ley 19.628 de 1999. A partir de diciembre de 2026, toda institución que trate datos personales, incluyendo colegios, liceos y jardines infantiles, deberá cumplir un estándar radicalmente más exigente. El plazo parece amplio, pero la experiencia del RGPD europeo muestra que las organizaciones que esperan el último trimestre enfrentan costos entre 3 y 5 veces mayores que las que planifican con anticipación.</p>
 <p>Este artículo revisa los aspectos que más directamente afectan la operación diaria de un establecimiento educacional.</p>
 
 <h2>¿Qué datos maneja un colegio y por qué casi todos están protegidos?</h2>
-<p>Un colegio típico almacena: nombres, RUT y domicilios de estudiantes y apoderados; registros académicos y de asistencia; informes psicológicos y psicopedagógicos; fichas médicas y de salud; comunicaciones disciplinarias; y datos biométricos si usa control de acceso por huella o facial. Bajo la Ley 21.719, todos estos datos son personales y la gran mayoría —médicos, psicológicos, disciplinarios— caen en la categoría de <strong>datos sensibles</strong>, que reciben protección reforzada.</p>
+<p>Un colegio típico almacena: nombres, RUT y domicilios de estudiantes y apoderados; registros académicos y de asistencia; informes psicológicos y psicopedagógicos; fichas médicas y de salud; comunicaciones disciplinarias; y datos biométricos si usa control de acceso por huella o facial. Bajo la Ley 21.719, todos estos datos son personales y la gran mayoría (médicos, psicológicos, disciplinarios) caen en la categoría de <strong>datos sensibles</strong>, que reciben protección reforzada.</p>
 <p>El <strong>Artículo 16 bis</strong> de la ley establece restricciones específicas para datos de salud: solo pueden ser tratados con consentimiento explícito del titular o bajo supuestos muy acotados (emergencia médica, obligación legal). Esto tiene implicancias directas para los equipos de convivencia escolar y los profesionales de la salud mental que operan dentro de los colegios.</p>
 
 <h2>Derechos ARCO+P: la nueva exigencia operacional</h2>
@@ -50,7 +50,7 @@ export const post: BlogPost = {
 </figure>
 
 <h2>La nueva Agencia de Protección de Datos Personales</h2>
-<p>La ley crea una autoridad de control autónoma —la <strong>Agencia de Protección de Datos Personales</strong>— con facultades de fiscalización, investigación y sanción. A diferencia del modelo anterior, basado en autoregulación, la Agencia puede iniciar procedimientos de oficio o por denuncia de cualquier persona.</p>
+<p>La ley crea una autoridad de control autónoma, la <strong>Agencia de Protección de Datos Personales</strong>, con facultades de fiscalización, investigación y sanción. A diferencia del modelo anterior, basado en autoregulación, la Agencia puede iniciar procedimientos de oficio o por denuncia de cualquier persona.</p>
 <p>Las sanciones se estructuran en tres tramos:</p>
 <table>
   <thead>
@@ -95,15 +95,15 @@ export const post: BlogPost = {
   <li><strong>Diseño (2-3 meses):</strong> política de privacidad, base de legitimación por actividad, revisión de contratos con proveedores, formularios de consentimiento.</li>
   <li><strong>Implementación (3-6 meses):</strong> capacitación al equipo, adecuación de sistemas, pruebas de los procesos ARCO+P, primera auditoría interna.</li>
 </ol>
-<p>Con diciembre de 2026 como fecha límite, el margen disponible es suficiente solo si el diagnóstico comienza en el primer semestre de 2026. Los colegios que gestionan información de convivencia escolar —un ámbito que involucra datos especialmente sensibles, como se analiza en <a href="/blog/crisis-convivencia-escolar-2025">La crisis de convivencia escolar 2025</a>— tienen una carga adicional de adecuación que justifica iniciar antes.</p>
+<p>Con diciembre de 2026 como fecha límite, el margen disponible es suficiente solo si el diagnóstico comienza en el primer semestre de 2026. Los colegios que gestionan información de convivencia escolar (un ámbito que involucra datos especialmente sensibles, como se analiza en <a href="/blog/crisis-convivencia-escolar-2025">La crisis de convivencia escolar 2025</a>) tienen una carga adicional de adecuación que justifica iniciar antes.</p>
 
 <h2>Conclusión</h2>
-<p>La Ley 21.719 no es una formalidad administrativa. Establece derechos exigibles por los apoderados, una autoridad con facultades reales de sanción y multas que pueden representar el 4% de los ingresos de un establecimiento. El cumplimiento requiere cambios en procesos, contratos y sistemas. Los colegios que traten esto como una gestión de infraestructura —igual que la seguridad del edificio o el sistema de incendios— estarán en mejor posición que los que lo traten como papeleo legal.</p>
+<p>La Ley 21.719 no es una formalidad administrativa. Establece derechos exigibles por los apoderados, una autoridad con facultades reales de sanción y multas que pueden representar el 4% de los ingresos de un establecimiento. El cumplimiento requiere cambios en procesos, contratos y sistemas. Los colegios que traten esto como una gestión de infraestructura, igual que la seguridad del edificio o el sistema de incendios, estarán en mejor posición que los que lo traten como papeleo legal.</p>
 <p>Contar con sistemas que centralicen la información estudiantil, generen registros de auditoría automáticos y faciliten la respuesta a solicitudes ARCO+P no es un lujo: es la base técnica que hace posible el cumplimiento.</p>
 
 <div style="margin-top: 2.5rem; border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem 1.5rem; background: var(--secondary);">
   <p style="font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted-foreground); margin-bottom: 0.5rem;">Fuente oficial</p>
-  <p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Ley 21.719 — Regula la protección y el tratamiento de los datos personales y crea la Agencia de Protección de Datos Personales. Publicada en el Diario Oficial el 13 de diciembre de 2024.</p>
+  <p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Ley 21.719: regula la protección y el tratamiento de los datos personales y crea la Agencia de Protección de Datos Personales. Publicada en el Diario Oficial el 13 de diciembre de 2024.</p>
   <p style="margin-top: 0.75rem; margin-bottom: 0;"><a href="https://www.bcn.cl/leychile/navegar?idNorma=1209272" target="_blank" rel="noopener noreferrer" style="font-size: 0.875rem; font-weight: 600; color: var(--primary); text-decoration: underline; text-underline-offset: 3px;">Texto completo en Biblioteca del Congreso Nacional →</a></p>
 </div>
 `

@@ -298,6 +298,7 @@
 
                 <select
                   value={item.status}
+                  aria-label="Cambiar estado del ítem"
                   onchange={(e) => feedbackStore.updateStatus(item.id, (e.currentTarget as HTMLSelectElement).value as FeedbackItem['status'])}
                   class="rounded-lg border border-input bg-background px-2 py-1.5 text-xs text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
@@ -311,6 +312,7 @@
                   onclick={() => feedbackStore.removeItem(item.id)}
                   class="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive"
                   title="Eliminar"
+                  aria-label="Eliminar ítem"
                 >
                   <Trash2 class="size-4" />
                 </button>

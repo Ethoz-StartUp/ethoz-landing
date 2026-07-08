@@ -162,11 +162,19 @@
   })}</script>`}
 </svelte:head>
 
+<!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+<a
+  href="#main-content"
+  class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+>
+  {t('nav.skip_to_content')}
+</a>
+
 <div class="print:hidden">
   <NavBar />
 </div>
 
-<main class="min-h-dvh bg-background pt-24">
+<main id="main-content" class="min-h-dvh bg-background pt-24">
   <div class="print:hidden sticky top-24 z-10 border-b border-border bg-background/95 backdrop-blur-sm">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
       <Button href="/resources" variant="ghost" size="sm" class="gap-2 text-muted-foreground">

@@ -70,6 +70,16 @@
     `/demo?students=${students}&sedes=${sedes}&pickups=${dailyPickups}&sensitive=${hasSensitiveData}`
   );
 
+  // ── Debounced screen-reader announcement of computed results ──
+  let resultsAnnouncement = $state('');
+  $effect(() => {
+    const summary = `${t('roiCalculator.results_announced')} ${t('roiCalculator.result_fine_label')}: ${formatUTM(maxFineUTM)} (≈ ${formatCLP(maxFineCLP)}). ${t('roiCalculator.result_hours_label')}: ${weeklyHours} h. ${t('roiCalculator.result_cost_label')}: ${formatCLP(annualOpCost)}. ${t('roiCalculator.result_total_label')}: ${formatCLP(valueAtRisk)}.`;
+    const timer = setTimeout(() => {
+      resultsAnnouncement = summary;
+    }, 500);
+    return () => clearTimeout(timer);
+  });
+
   // One-shot ROI calc used tracking
   let roiTracked = $state(false);
   function handleCTAClick() {
@@ -101,8 +111,17 @@
   })}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+
+  <main id="main-content">
 
   <!-- ══════════════════════════════════════
        HERO
@@ -142,15 +161,17 @@
               </label>
               <span class="text-sm font-bold text-primary">{students.toLocaleString('es-CL')}</span>
             </div>
-            <input
-              id="students-slider"
-              type="range"
-              min="100"
-              max="5000"
-              step="50"
-              bind:value={students}
-              class="w-full h-2 rounded-full bg-border appearance-none cursor-pointer accent-primary"
-            />
+            <div class="py-2">
+              <input
+                id="students-slider"
+                type="range"
+                min="100"
+                max="5000"
+                step="50"
+                bind:value={students}
+                class="roi-slider w-full"
+              />
+            </div>
             <div class="mt-1.5 flex justify-between text-xs text-muted-foreground">
               <span>100</span>
               <span>5.000</span>
@@ -183,15 +204,17 @@
               </label>
               <span class="text-sm font-bold text-primary">{dailyPickups}</span>
             </div>
-            <input
-              id="pickups-slider"
-              type="range"
-              min="10"
-              max="500"
-              step="5"
-              bind:value={dailyPickups}
-              class="w-full h-2 rounded-full bg-border appearance-none cursor-pointer accent-primary"
-            />
+            <div class="py-2">
+              <input
+                id="pickups-slider"
+                type="range"
+                min="10"
+                max="500"
+                step="5"
+                bind:value={dailyPickups}
+                class="roi-slider w-full"
+              />
+            </div>
             <div class="mt-1.5 flex justify-between text-xs text-muted-foreground">
               <span>10</span>
               <span>500</span>
@@ -220,6 +243,9 @@
         <div>
           <h2 class="text-xl text-foreground mb-6">{t('roiCalculator.results_heading')}</h2>
 
+          <!-- Debounced live region for assistive tech -->
+          <div class="sr-only" aria-live="polite">{resultsAnnouncement}</div>
+
           <!-- Fine exposure -->
           <div class="mb-4 rounded-xl border border-border bg-card p-5 shadow-sm">
             <div class="mb-2 flex items-center gap-2">
@@ -228,11 +254,14 @@
             </div>
             <p class="text-3xl font-heading text-foreground">{formatUTM(maxFineUTM)}</p>
             <p class="mt-0.5 text-sm text-muted-foreground">≈ {formatCLP(maxFineCLP)}</p>
+            <p class="mt-2 text-xs font-medium text-foreground">
+              {t('roiCalculator.legal_ceiling_note')}
+            </p>
             <p class="mt-2 text-xs text-muted-foreground">
               {t('roiCalculator.result_fine_note')}
             </p>
             {#if hasSensitiveData}
-              <p class="mt-2 text-xs font-semibold text-destructive">
+              <p class="mt-2 text-xs font-semibold text-error-text">
                 {t('roiCalculator.result_fine_multiplier')}
               </p>
             {/if}
@@ -286,7 +315,7 @@
       <div class="mt-10 flex items-start gap-3 rounded-xl border border-border bg-secondary p-5">
         <Info class="size-4 shrink-0 text-muted-foreground mt-0.5" />
         <p class="text-xs leading-relaxed text-muted-foreground">
-          <strong class="text-foreground">{t('roiCalculator.methodology_label')}</strong> {t('roiCalculator.methodology_body')}
+          <strong class="text-foreground">{t('roiCalculator.methodology_label')}</strong> {t('roiCalculator.methodology_body')} {t('roiCalculator.utm_note')}
         </p>
       </div>
     </div>
@@ -321,6 +350,40 @@
       </p>
     </div>
   </section>
+  </main>
 
   <Footer />
-</main>
+</div>
+
+<style>
+  /* Range sliders: visible 8px track + size-5 thumb for a real hit area.
+     Colors come from design tokens via CSS vars (no hex). */
+  .roi-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    border-radius: 9999px;
+    background: var(--border);
+    cursor: pointer;
+  }
+  .roi-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    background: var(--primary);
+    border: none;
+  }
+  .roi-slider::-moz-range-thumb {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    background: var(--primary);
+    border: none;
+  }
+  .roi-slider:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+</style>

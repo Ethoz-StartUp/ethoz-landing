@@ -19,7 +19,7 @@ export const post: BlogPost = {
 
 <h2>El canal más popular es el más riesgoso</h2>
 <p>Si hay una constante en la gestión educacional chilena de los últimos diez años, es el uso masivo de WhatsApp como canal de comunicación institucional. Grupos de docentes, grupos de apoderados, grupos de dirección, grupos de orientación: la mensajería instantánea de Meta colonizó la comunicación escolar con una velocidad que ninguna política institucional pudo frenar.</p>
-<p>La paradoja es que este canal, que se adoptó por su facilidad e inmediatez, es precisamente el que más claramente viola la <strong>Ley 21.719 de Protección de Datos Personales</strong>, que entró en vigencia plena a fines de 2026. Y la infracción no es marginal ni técnica: es estructural y afecta a prácticamente todos los establecimientos que lo usan para comunicar información sobre estudiantes.</p>
+<p>La paradoja es que este canal, que se adoptó por su facilidad e inmediatez, es precisamente el que más claramente viola la <strong>Ley 21.719 de Protección de Datos Personales</strong>, que alcanza su plena vigencia a fines de 2026. Y la infracción no es marginal ni técnica: es estructural y afecta a prácticamente todos los establecimientos que lo usan para comunicar información sobre estudiantes.</p>
 
 <h2>Qué dice exactamente el artículo 16 bis</h2>
 <p>El artículo 16 bis de la Ley 21.719 regula el tratamiento de datos especialmente sensibles. La norma establece que los datos que revelan el origen racial o étnico, las opiniones políticas, las convicciones religiosas, la salud, la vida sexual, la orientación sexual, los antecedentes penales o las condiciones de salud mental de una persona <strong>solo pueden ser tratados bajo condiciones estrictas de seguridad técnica y organizativa</strong>.</p>
@@ -41,7 +41,7 @@ export const post: BlogPost = {
   <li><strong>Infracciones graves:</strong> hasta 5.000 UTM por infracción.</li>
   <li><strong>Infracciones gravísimas:</strong> hasta 20.000 UTM por infracción.</li>
 </ul>
-<p>El tratamiento inadecuado de datos sensibles de menores de edad se clasifica en el tramo de infracciones gravísimas. A valores actuales, 20.000 UTM equivalen a aproximadamente <strong>1.300 millones de pesos</strong>. Para un establecimiento subvencionado de tamaño mediano, esta cifra supera varias veces su subvención anual.</p>
+<p>El tratamiento inadecuado de datos sensibles de menores de edad se clasifica en el tramo de infracciones gravísimas. A valores actuales, 20.000 UTM equivalen a más de <strong>$1.300 millones de pesos</strong>. Para un establecimiento subvencionado de tamaño mediano, esta cifra supera varias veces su subvención anual.</p>
 <p>Lo que agrava el riesgo es que la infracción no requiere que haya ocurrido un daño concreto. El solo hecho de haber tratado datos sensibles por un canal no autorizado constituye la infracción. El análisis completo del régimen de multas está disponible en <a href="/blog/multas-proteccion-datos-sostenedores">Multas de hasta 20.000 UTM: Guía de cumplimiento para sostenedores</a>.</p>
 
 <h2>Por qué WhatsApp no puede cumplir los requisitos técnicos</h2>
@@ -57,7 +57,7 @@ export const post: BlogPost = {
 
 <h2>El problema de los grupos de apoderados</h2>
 <p>Los grupos de WhatsApp de apoderados presentan una dimensión adicional del problema. Con frecuencia, en estos grupos se comparte información que identifica a estudiantes específicos en situaciones sensibles: "la mamá del compañero de mi hijo me contó que ese niño tuvo un episodio ayer", "el alumno X fue suspendido por esto". Cuando esta información es compartida o iniciada por un docente o directivo en ese grupo, el establecimiento se convierte en responsable del tratamiento de datos que están circulando fuera de cualquier control institucional.</p>
-<p>La Ley 21.719 establece que el responsable del tratamiento —en este caso, el establecimiento educacional— responde por las infracciones que cometen sus colaboradores en el ejercicio de sus funciones. Un inspector que comparte información de un estudiante en un grupo de WhatsApp de apoderados no genera solo responsabilidad personal: genera responsabilidad institucional.</p>
+<p>La Ley 21.719 establece que el responsable del tratamiento, en este caso el establecimiento educacional, responde por las infracciones que cometen sus colaboradores en el ejercicio de sus funciones. Un inspector que comparte información de un estudiante en un grupo de WhatsApp de apoderados no genera solo responsabilidad personal: genera responsabilidad institucional.</p>
 
 <h2>La alternativa: notificaciones push con solo metadatos</h2>
 <p>La solución no es volver a las circulares en papel ni eliminar la comunicación digital. Es comunicar de manera que los datos sensibles permanezcan protegidos y solo el contenido de menor riesgo viaje por canales externos.</p>
@@ -65,7 +65,7 @@ export const post: BlogPost = {
 <ul>
   <li>Cuando ocurre un evento que requiere la atención de un actor del establecimiento, el sistema envía una <strong>notificación push</strong> al dispositivo de esa persona.</li>
   <li>La notificación contiene <strong>solo metadatos</strong>: "Hay una situación registrada que requiere su revisión" o "Se ha generado una alerta de asistencia que requiere acción".</li>
-  <li>El contenido específico —quién, qué ocurrió, cuáles son los detalles— permanece en la plataforma ${BRAND}, accesible solo mediante autenticación y solo para quien tiene el nivel de acceso correspondiente.</li>
+  <li>El contenido específico (quién, qué ocurrió, cuáles son los detalles) permanece en la plataforma ${BRAND}, accesible solo mediante autenticación y solo para quien tiene el nivel de acceso correspondiente.</li>
   <li>Quien recibe la notificación accede a la plataforma con sus credenciales, ve la información según su rol y registra las acciones que adopta.</li>
 </ul>
 <p>Este modelo reemplaza funcionalmente el WhatsApp para la coordinación institucional: la misma inmediatez, sin los riesgos. El docente sabe que hay algo que atender. El orientador sabe que debe revisar un caso. El directivo sabe que hay una situación en curso. Pero los datos sensibles nunca salieron de la plataforma protegida.</p>
@@ -87,7 +87,7 @@ export const post: BlogPost = {
 <div style="background: var(--secondary); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; margin-top: 3rem;">
 <h3 style="margin-top: 0;">Reemplace el WhatsApp con comunicación segura y trazable</h3>
 <p>${BRAND} ofrece notificaciones push institucionales que mantienen los datos sensibles dentro de la plataforma protegida. La coordinación no se pierde: los riesgos, sí. Conozca cómo funciona en su establecimiento.</p>
-<a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Solicitar demo gratuita</a>
+<a href="/demo" style="display: inline-block; background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Agendar demo</a>
 </div>
 `
 };

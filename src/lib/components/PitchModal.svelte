@@ -20,6 +20,35 @@
     onclose();
   }
 
+  // ── Dialog a11y: focus trap + restore ──
+  let modalEl = $state<HTMLDivElement | null>(null);
+  let closeBtn = $state<HTMLButtonElement | null>(null);
+
+  // Initial focus to the close button; restore focus to the trigger on close.
+  $effect(() => {
+    const trigger = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    closeBtn?.focus();
+    return () => trigger?.focus();
+  });
+
+  function trapTab(e: KeyboardEvent) {
+    if (!modalEl) return;
+    const focusables = Array.from(
+      modalEl.querySelectorAll<HTMLElement>('button:not(:disabled), a[href], [tabindex]:not([tabindex="-1"])')
+    );
+    if (focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const active = document.activeElement as HTMLElement | null;
+    const inside = !!active && modalEl.contains(active);
+    if (e.shiftKey) {
+      if (!inside || active === first) { e.preventDefault(); last.focus(); }
+    } else if (!inside || active === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
   // ── Audio state ──
   let audioEl = $state<HTMLAudioElement | null>(null);
   let currentTime = $state(0);
@@ -49,7 +78,12 @@
   }
 
   function handleKeydown(e: KeyboardEvent) {
+    if (e.key === 'Tab') { trapTab(e); return; }
     if (e.code === 'Escape') { handleClose(); return; }
+    // Don't hijack keys aimed at interactive elements (buttons, links, the
+    // progress slider): Space must activate them natively, arrows must seek.
+    const target = e.target as HTMLElement | null;
+    if (target?.closest('button, a, input, select, textarea, [role="slider"]')) return;
     if (e.code === 'Space') { e.preventDefault(); togglePlay(); }
     if (e.code === 'ArrowLeft') { e.preventDefault(); goToSlide(currentSlideIndex - 1); }
     if (e.code === 'ArrowRight') { e.preventDefault(); goToSlide(currentSlideIndex + 1); }
@@ -105,11 +139,12 @@
   onended={() => { playing = false; }}
 ></audio>
 
-<!-- svelte-ignore a11y_no_static_element_interactions -->
-<div class="modal-backdrop" transition:fade={{ duration: 250 }} onclick={(e) => { if (e.target === e.currentTarget) handleClose(); }} onkeydown={handleKeydown}>
-  <div class="modal-content">
+<!-- Keyboard handling lives on svelte:window only (a second handler here double-fired Space). -->
+<!-- svelte-ignore a11y_no_static_element_interactions, a11y_click_events_have_key_events -->
+<div class="modal-backdrop" transition:fade={{ duration: 250 }} onclick={(e) => { if (e.target === e.currentTarget) handleClose(); }}>
+  <div class="modal-content" bind:this={modalEl} role="dialog" aria-modal="true" aria-label={t('pitchModal.intro_sub')}>
   <!-- Close button -->
-  <button class="close-btn" onclick={handleClose} aria-label={t('pitchModal.close_label')}>
+  <button class="close-btn" bind:this={closeBtn} onclick={handleClose} aria-label={t('pitchModal.close_label')}>
     <X size={24} />
   </button>
 
@@ -171,7 +206,7 @@
             </div>
             <div in:fly={{ y: 24, duration: 600, delay: 600 }}>
               <p class="big-number danger-text">20.000 <span class="unit">UTM</span></p>
-              <p class="sub">= <strong class="danger-text">$1.200 millones CLP</strong></p>
+              <p class="sub">= <strong class="danger-text">más de $1.300 millones CLP</strong></p>
             </div>
             <p class="muted-sm" in:fade={{ duration: 400, delay: 850 }}>{t('pitchModal.fines_caption')}</p>
           </div>
@@ -445,7 +480,7 @@
 
   .primary-text { color: var(--primary); }
   .danger-text { color: var(--destructive); }
-  .warn-text { color: var(--warning); }
+  .warn-text { color: var(--warning-text); } /* text-safe amber; dots/fills keep --warning */
   .success-text { color: var(--success); }
 
   /* ── Logo ── */
@@ -607,8 +642,8 @@
   .sev-dot.grave { background: var(--warning); }
   .sev-dot.gravisima { background: var(--destructive); }
   .sev-name { font-weight: 600; font-size: 1rem; flex: 1; text-align: left; }
-  .leve-text { color: var(--warning); }
-  .grave-text { color: var(--warning); }
+  .leve-text { color: var(--warning-text); }
+  .grave-text { color: var(--warning-text); }
   .gravisima-text { color: var(--destructive); }
   .sev-range { font-size: 0.8rem; color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
 
@@ -731,10 +766,11 @@
   .cb.play { width: 2.75rem; height: 2.75rem; background: var(--primary); color: var(--primary-foreground); }
   .cb.play:hover { background: var(--primary-active); color: var(--primary-foreground); transform: scale(1.05); }
 
-  .dots { display: flex; justify-content: center; gap: 0.3rem; padding-top: 0.375rem; }
+  .dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem; padding-top: 0.375rem; }
+  /* 8px visual dot + 18px padding = 44px hit area (WCAG 2.5.5); wraps on narrow screens. */
   .dot {
     width: 8px; height: 8px; border-radius: 9999px; border: none;
-    background: var(--border); cursor: pointer; padding: 10px; box-sizing: content-box;
+    background: var(--border); cursor: pointer; padding: 18px; box-sizing: content-box;
     background-clip: content-box; transition: all 0.3s ease;
   }
   .dot.active { width: 1.25rem; background: var(--primary); background-clip: content-box; }
@@ -747,7 +783,7 @@
       position: relative;
       bottom: auto; left: auto; transform: none;
       width: 100%; padding: 0 0.5rem;
-      margin-bottom: 5rem;
+      margin-bottom: 10rem; /* clears the taller wrapped 44px dot row */
     }
     .subtitle { font-size: 0.75rem; padding: 0.5rem 0.75rem; line-height: 1.5; }
     .close-btn { top: 0.5rem; right: 0.5rem; width: 2rem; height: 2rem; }

@@ -180,16 +180,6 @@
     <lastmod>2026-01-05</lastmod>
   </url>
 
-  <url>
-    <loc>https://ethoz.cl/schedule</loc>
-    <lastmod>2026-04-07</lastmod>
-  </url>
-  <url>
-    <loc>https://ethoz.cl/pitch</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
   <!-- Legal pages -->
   <url>
     <loc>https://ethoz.cl/privacy</loc>

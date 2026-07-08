@@ -2,7 +2,7 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
-  import { BRAND, LEGAL_NAME } from '$lib/brand';
+  import { LEGAL_NAME } from '$lib/brand';
   import { t } from '$lib/i18n/index.svelte';
   import { ArrowRight, ChevronDown } from '@lucide/svelte';
   import { trackEvent } from '$lib/utils/analytics';
@@ -32,21 +32,30 @@
 </script>
 
 <svelte:head>
-  <title>{BRAND} · {t('about.title')}</title>
-  <meta name="description" content={`${BRAND}: plataforma de seguimiento integral y seguridad escolar construida en Chile.`} />
+  <title>{t('about.meta.title')}</title>
+  <meta name="description" content={t('about.meta.description')} />
   <meta property="og:url" content="https://ethoz.cl/about" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} · Construido en Chile, para colegios chilenos`} />
-  <meta property="og:description" content={`Conoce ${BRAND}, la plataforma de gestión y protección de datos escolares para Chile.`} />
+  <meta property="og:title" content={t('about.meta.og_title')} />
+  <meta property="og:description" content={t('about.meta.description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} · Construido en Chile, para colegios chilenos`} />
-  <meta name="twitter:description" content={`Conoce ${BRAND}, la plataforma de gestión y protección de datos escolares para Chile.`} />
+  <meta name="twitter:title" content={t('about.meta.og_title')} />
+  <meta name="twitter:description" content={t('about.meta.description')} />
   <link rel="canonical" href="https://ethoz.cl/about" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Nosotros"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+
+  <main id="main-content" class="flex-1">
 
   <!-- HERO — thesis declaration -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
@@ -129,9 +138,9 @@
         <div>
           <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('about.is_not_title')}</p>
           <ul class="mt-4 space-y-3 text-sm text-muted-foreground">
-            <li class="flex gap-3"><span class="text-border" aria-hidden="true">—</span><span>{t('about.is_not_1')}</span></li>
-            <li class="flex gap-3"><span class="text-border" aria-hidden="true">—</span><span>{t('about.is_not_2')}</span></li>
-            <li class="flex gap-3"><span class="text-border" aria-hidden="true">—</span><span>{t('about.is_not_3')}</span></li>
+            <li class="flex gap-3"><span class="text-border" aria-hidden="true">·</span><span>{t('about.is_not_1')}</span></li>
+            <li class="flex gap-3"><span class="text-border" aria-hidden="true">·</span><span>{t('about.is_not_2')}</span></li>
+            <li class="flex gap-3"><span class="text-border" aria-hidden="true">·</span><span>{t('about.is_not_3')}</span></li>
           </ul>
         </div>
         <div>
@@ -173,7 +182,7 @@
                 <span class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-success">{t('about.roadmap_state_done')}</span>
               {:else if item.state === 'active'}
                 <span class="inline-flex items-center gap-1.5 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">
-                  <span class="relative flex size-1.5">
+                  <span class="relative flex size-1.5" aria-hidden="true">
                     <span class="absolute inline-flex size-full animate-ping rounded-full bg-primary opacity-70"></span>
                     <span class="relative inline-flex size-1.5 rounded-full bg-primary"></span>
                   </span>
@@ -186,6 +195,28 @@
           </li>
         {/each}
       </ol>
+    </div>
+  </section>
+
+  <!-- TEAM — who is behind -->
+  <section class="border-t border-border py-16 sm:py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('about.team.overline')}</p>
+      <h2 class="mt-3 font-heading text-3xl text-foreground sm:text-4xl">
+        {t('about.team.title')}
+      </h2>
+      <div class="mt-10 grid gap-6 border-y border-border py-8 sm:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] sm:gap-10">
+        <div>
+          <p class="font-heading text-xl text-foreground">{t('about.team.founder.name')}</p>
+          <p class="mt-1.5 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('about.team.founder.role')}</p>
+        </div>
+        <p class="max-w-[68ch] text-base leading-relaxed text-muted-foreground">
+          {t('about.team.founder.bio')}
+        </p>
+      </div>
+      <p class="mt-4 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground" data-numeric>
+        {t('about.team.legal_line')}
+      </p>
     </div>
   </section>
 
@@ -229,17 +260,17 @@
       <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
       <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('about.cta_eyebrow')}</p>
       <h2 id="final-cta-about" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
-        {t('pricing.cta.title')}
+        {t('about.cta.title')}
       </h2>
       <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
-        {t('pricing.cta.subtitle')}
+        {t('about.cta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
           class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-background px-10 text-base font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
-          {t('pricing.cta.primary')}
+          {t('about.cta.primary')}
           <ArrowRight class="size-5" />
         </a>
         <a
@@ -251,6 +282,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <Footer />
-</main>
+</div>

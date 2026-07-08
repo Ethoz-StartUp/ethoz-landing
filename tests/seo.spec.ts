@@ -201,11 +201,14 @@ test.describe('SEO — sitemap.xml', () => {
 		expect(body, 'sitemap.xml must contain <urlset').toContain('<urlset');
 	});
 
-	test('sitemap.xml contains /pitch', async ({ page }) => {
+	test('sitemap.xml excludes noindexed pages (/pitch, /schedule)', async ({ page }) => {
 		const response = await page.goto('/sitemap.xml');
 		const body = await response!.text();
-		expect(body, 'sitemap.xml must contain /pitch URL').toContain(
+		expect(body, 'sitemap.xml must not contain /pitch (noindex)').not.toContain(
 			'https://ethoz.cl/pitch'
+		);
+		expect(body, 'sitemap.xml must not contain /schedule (funnel end-state)').not.toContain(
+			'https://ethoz.cl/schedule'
 		);
 	});
 

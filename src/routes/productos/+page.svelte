@@ -51,7 +51,7 @@
       icon: ClipboardList,
       nameKey: 'productos.product_coexistence_name' as const,
       descKey: 'productos.product_coexistence_desc' as const,
-      href: '/features/privacy-compliance',
+      href: '/features/student-profile',
       color: 'bg-success/10 text-success',
       highlightKeys: ['productos.product_coexistence_h1', 'productos.product_coexistence_h2', 'productos.product_coexistence_h3', 'productos.product_coexistence_h4'] as const,
     },
@@ -60,7 +60,7 @@
       icon: Eye,
       nameKey: 'productos.product_digital_logbook_name' as const,
       descKey: 'productos.product_digital_logbook_desc' as const,
-      href: '/compliance',
+      href: '/integrations',
       color: 'bg-primary/10 text-primary-active',
       highlightKeys: ['productos.product_digital_logbook_h1', 'productos.product_digital_logbook_h2', 'productos.product_digital_logbook_h3', 'productos.product_digital_logbook_h4'] as const,
     },
@@ -117,8 +117,16 @@
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+  <main id="main-content" class="flex-1">
 
   <!-- Hero -->
   <section class="pt-28 pb-12 sm:pt-32 sm:pb-16 bg-secondary">
@@ -178,7 +186,7 @@
                 <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{BRAND} · {t(product.nameKey)}</span>
               </div>
               {#if product.id === 'student-profile'}
-                <div class="p-5">
+                <div aria-hidden="true" class="p-5">
                   <div class="flex gap-3">
                     <img src="/images/students/girl-12.webp" alt={t('productos.mock_alt_student_girl')} class="size-12 rounded-full object-cover" loading="lazy" decoding="async" />
                     <div>
@@ -198,7 +206,7 @@
                   </div>
                 </div>
               {:else if product.id === 'safe-pickups'}
-                <div class="p-5">
+                <div aria-hidden="true" class="p-5">
                   <div class="flex items-center gap-2 rounded-lg bg-success/5 px-3 py-2 mb-3">
                     <div class="size-2 rounded-full bg-success"></div>
                     <span class="text-xs font-semibold text-success">{t('productos.mock_status_authorized')}</span>
@@ -216,7 +224,7 @@
                   </div>
                 </div>
               {:else if product.id === 'access-control'}
-                <div class="p-5">
+                <div aria-hidden="true" class="p-5">
                   <p class="mb-2 label-mono text-muted-foreground">{t('productos.mock_access_matrix')}</p>
                   <div class="space-y-2">
                     {#each [{nameKey:'productos.mock_role_principal' as const,img:'/images/people/director-mujer.webp',dots:[true,true,true,true]},{nameKey:'productos.mock_role_teacher' as const,img:'/images/people/docente-mujer.webp',dots:[true,false,true,false]},{nameKey:'productos.mock_role_doorman' as const,img:'/images/people/portero-hombre.webp',dots:[false,true,false,false]}] as role}
@@ -231,7 +239,7 @@
                   </div>
                 </div>
               {:else if product.id === 'smart-search'}
-                <div class="p-5">
+                <div aria-hidden="true" class="p-5">
                   <div class="rounded-lg border border-border px-3 py-2 text-xs text-foreground mb-3">val<span class="animate-pulse text-primary">|</span></div>
                   <div class="space-y-1.5">
                     <div class="flex items-center gap-2.5 rounded-lg bg-primary/5 px-3 py-2">
@@ -251,7 +259,7 @@
                   </div>
                 </div>
               {:else if product.id === 'coexistence'}
-                <div class="p-5">
+                <div aria-hidden="true" class="p-5">
                   <p class="mb-2 text-mockup-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('productos.mock_latest_observations')}</p>
                   <div class="space-y-2.5">
                     <div class="flex items-start gap-2.5 text-xs">
@@ -278,7 +286,7 @@
                   </div>
                 </div>
               {:else if product.id === 'digital-logbook'}
-                <div class="p-5">
+                <div aria-hidden="true" class="p-5">
                   <p class="mb-2 label-mono text-muted-foreground">{t('integrations.compatible_systems_label')}</p>
                   <div class="space-y-2">
                     {#each ['Napsis', 'Syscol', 'SchoolTrack'] as system}
@@ -293,7 +301,7 @@
                   </div>
                 </div>
               {:else if product.id === 'critical-alerts'}
-                <div class="p-5">
+                <div aria-hidden="true" class="p-5">
                   <div class="space-y-2.5">
                     <div class="flex items-start gap-2.5 text-xs">
                       <span class="mt-1 size-2 shrink-0 rounded-full bg-destructive"></span>
@@ -328,7 +336,7 @@
                   </div>
                 </div>
               {:else if product.id === 'analytics'}
-                <div class="p-5">
+                <div aria-hidden="true" class="p-5">
                   <div class="grid grid-cols-2 gap-3">
                     <div class="rounded-lg bg-primary/5 px-3 py-2.5 text-center">
                       <p class="text-lg font-bold text-primary-active">412</p>
@@ -359,7 +367,7 @@
                   </div>
                 </div>
               {:else if product.id === 'emergency'}
-                <div class="p-5">
+                <div aria-hidden="true" class="p-5">
                   <div class="mb-3 flex items-center gap-2 rounded-lg bg-destructive/5 px-3 py-2">
                     <div class="size-2 rounded-full bg-destructive"></div>
                     <span class="text-xs font-semibold text-destructive">{t('featurePage.emergency.mockup_banner_status')}</span>
@@ -375,7 +383,7 @@
                   </div>
                 </div>
               {:else}
-                <div class="p-5">
+                <div aria-hidden="true" class="p-5">
                   <p class="mb-2 text-mockup-xs font-semibold uppercase tracking-wide text-muted-foreground">{t('featurePage.attendance.mockup_kpi_label')}</p>
                   <div class="space-y-2">
                     {#each [
@@ -422,5 +430,6 @@
     </div>
   </section>
 
+  </main>
   <Footer />
-</main>
+</div>

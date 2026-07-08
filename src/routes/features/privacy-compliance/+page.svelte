@@ -34,20 +34,29 @@
 
 <svelte:head>
   <title>{BRAND} · {t('features.privacy.title')}</title>
-  <meta name="description" content="Construida para la Ley 21.719 desde el primer día, no como un parche posterior." />
+  <meta name="description" content={t('featurePage.privacyCompliance.meta.description')} />
   <meta property="og:url" content="https://ethoz.cl/features/privacy-compliance" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`${BRAND} · Arquitectura de Privacidad y Cumplimiento`} />
-  <meta property="og:description" content="Construida para la Ley 21.719 desde el primer día, no como un parche posterior." />
+  <meta property="og:title" content={t('featurePage.privacyCompliance.meta.og_title')} />
+  <meta property="og:description" content={t('featurePage.privacyCompliance.meta.description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${BRAND} · Arquitectura de Privacidad y Cumplimiento`} />
-  <meta name="twitter:description" content="Construida para la Ley 21.719 desde el primer día, no como un parche posterior." />
+  <meta name="twitter:title" content={t('featurePage.privacyCompliance.meta.og_title')} />
+  <meta name="twitter:description" content={t('featurePage.privacyCompliance.meta.description')} />
   <link rel="canonical" href="https://ethoz.cl/features/privacy-compliance" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Privacidad y Cumplimiento"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+
+  <main id="main-content" class="flex-1">
 
   <!-- Hero -->
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
@@ -94,7 +103,7 @@
         </div>
 
         <!-- Compliance dashboard mockup -->
-        <div class="w-full rounded-xl border border-border bg-card shadow-card-hover">
+        <div aria-hidden="true" class="w-full rounded-xl border border-border bg-card shadow-card-hover">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -295,6 +304,7 @@
       </p>
     </div>
   </section>
+  </main>
 
   <Footer />
-</main>
+</div>

@@ -1,7 +1,6 @@
 <script lang="ts">
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
-  import { BRAND } from '$lib/brand';
   import { Button } from '$lib/components/ui/button';
   import { t } from '$lib/i18n/index.svelte';
   import { Mail, CalendarDays, Loader2, Check, Clock, ExternalLink } from '@lucide/svelte';
@@ -92,20 +91,20 @@
   <title>{t('contact.meta.title')}</title>
   <meta property="og:url" content="https://ethoz.cl/contact" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Contacto · ${BRAND}`} />
-  <meta property="og:description" content={`Contáctanos para saber más sobre ${BRAND}, la plataforma de seguridad escolar para Chile.`} />
+  <meta property="og:title" content={t('contact.meta.title')} />
+  <meta property="og:description" content={t('contact.meta.og_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Contacto · ${BRAND}`} />
-  <meta name="twitter:description" content={`Contáctanos para saber más sobre ${BRAND}, la plataforma de seguridad escolar para Chile.`} />
-  <meta name="description" content={`Contacta al equipo de ${BRAND}. Escríbenos por email o agenda una demo para tu colegio.`} />
+  <meta name="twitter:title" content={t('contact.meta.title')} />
+  <meta name="twitter:description" content={t('contact.meta.og_description')} />
+  <meta name="description" content={t('contact.meta.description')} />
   <link rel="canonical" href="https://ethoz.cl/contact" />
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Contacto"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
   <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
   <a
-    href="#contact-main"
+    href="#main-content"
     class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
   >
     {t('nav.skip_to_content')}
@@ -113,7 +112,7 @@
   <NavBar />
 
   <!-- Content -->
-  <div id="contact-main" class="mx-auto flex-1 w-full max-w-7xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
+  <main id="main-content" class="mx-auto flex-1 w-full max-w-7xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
 
     <!-- HEADING — editorial -->
     <div class="mb-12">
@@ -271,7 +270,7 @@
           {/if}
         </Button>
         {#if errorMessage}
-          <div class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-destructive" role="alert">
+          <div class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-error-text" role="alert">
             <p>{errorMessage}</p>
             {#if recaptchaFailed}
               <a
@@ -283,6 +282,10 @@
             {/if}
           </div>
         {/if}
+        <p class="mt-2 text-center text-mockup-xs text-muted-foreground">
+          {t('demo.privacy_notice')}
+          <a href="/privacy" class="underline underline-offset-2 hover:text-foreground">{t('demo.privacy_link')}</a>
+        </p>
 
       </form>
       {/if}
@@ -298,7 +301,7 @@
         {t('contact.cta.link')}
       </a>
     </div>
-  </div>
+  </main>
 
   <Footer />
-</main>
+</div>

@@ -40,8 +40,17 @@
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Para Directores","item":"https://ethoz.cl/para-directores"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+
+  <main id="main-content">
 
   <!-- Hero -->
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
@@ -83,7 +92,7 @@
         </div>
 
         <!-- Morning KPI panel mockup -->
-        <div class="w-full rounded-xl border border-border bg-card shadow-card-hover">
+        <div class="w-full rounded-xl border border-border bg-card shadow-card-hover" aria-hidden="true">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -193,7 +202,7 @@
         </div>
 
         <!-- Observation form mockup -->
-        <div class="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
+        <div class="rounded-xl border border-border bg-card shadow-sm overflow-hidden" aria-hidden="true">
           <div class="border-b border-border px-4 py-3 flex items-center gap-2">
             <FileText class="size-4 text-primary" />
             <span class="text-sm font-semibold text-foreground">{t('audience.directores.form_title')}</span>
@@ -263,7 +272,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <!-- Trend chart mockup -->
-        <div class="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
+        <div class="rounded-xl border border-border bg-card shadow-sm overflow-hidden" aria-hidden="true">
           <div class="border-b border-border px-4 py-3 flex items-center gap-2">
             <BarChart3 class="size-4 text-primary" />
             <span class="text-sm font-semibold text-foreground">{t('audience.directores.chart_header')}</span>
@@ -371,7 +380,7 @@
         </div>
 
         <!-- Emergency protocol mockup -->
-        <div class="rounded-xl border border-border bg-card shadow-sm overflow-hidden">
+        <div class="rounded-xl border border-border bg-card shadow-sm overflow-hidden" aria-hidden="true">
           <div class="border-b border-border px-4 py-3 flex items-center gap-2">
             <ShieldCheck class="size-4 text-destructive" />
             <span class="text-sm font-semibold text-foreground">{t('audience.directores.emergency_header')}</span>
@@ -458,6 +467,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <Footer />
-</main>
+</div>

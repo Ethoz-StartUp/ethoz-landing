@@ -27,8 +27,16 @@
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Protocolos de Emergencia"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+  <main id="main-content" class="flex-1">
 
   <!-- Hero -->
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
@@ -62,7 +70,7 @@
         </div>
 
         <!-- Emergency activation mockup -->
-        <div class="w-full rounded-xl border border-border bg-card shadow-card-hover">
+        <div aria-hidden="true" class="w-full rounded-xl border border-border bg-card shadow-card-hover">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -267,7 +275,7 @@
           </ul>
         </div>
         <!-- Notification mockup -->
-        <div class="mx-auto max-w-xs w-full">
+        <div aria-hidden="true" class="mx-auto max-w-xs w-full">
           <div class="rounded-xl border border-border bg-card shadow-card-hover overflow-hidden">
             <!-- Phone top bar -->
             <div class="bg-muted/50 px-4 py-2 flex items-center justify-between">
@@ -281,7 +289,7 @@
                   <Siren class="size-3.5 shrink-0 text-destructive" />
                   <span class="text-mockup-sm font-bold text-destructive">{t('featurePage.emergency.notif_alert_title')}</span>
                 </div>
-                <p class="text-mockup-xs text-foreground font-medium">Colegio Alemán de Concepción</p>
+                <p class="text-mockup-xs text-foreground font-medium">{t('featurePage.emergency.mockup_window_label')}</p>
                 <p class="text-mockup-xs text-muted-foreground">{t('featurePage.emergency.notif_alert_body')}</p>
                 <p class="text-mockup-2xs text-muted-foreground mt-1">{t('featurePage.emergency.notif_alert_time')}</p>
               </div>
@@ -305,7 +313,7 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-4 sm:grid-cols-3">
         <StatCard
-          value="9.4"
+          value="9,5"
           valueClass="text-destructive"
           label={t('featurePage.emergency.stat_1_label')}
           description={t('featurePage.emergency.stat_1_desc')}
@@ -317,7 +325,7 @@
           description={t('featurePage.emergency.stat_2_desc')}
         />
         <StatCard
-          value="20.000"
+          value="100%"
           valueClass="text-warning-foreground"
           label={t('featurePage.emergency.stat_3_label')}
           description={t('featurePage.emergency.stat_3_desc')}
@@ -355,5 +363,6 @@
     </div>
   </section>
 
+  </main>
   <Footer />
-</main>
+</div>

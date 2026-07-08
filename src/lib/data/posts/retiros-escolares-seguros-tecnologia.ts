@@ -13,10 +13,10 @@ export const post: BlogPost = {
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">
 <p style="font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); margin-bottom: 0.5rem;">TL;DR</p>
-<p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Un sistema de retiros basado en papel no puede alertar al portero sobre una orden de alejamiento en tiempo real. La validación digital cruzada garantiza que ningún alumno sea entregado a una persona no autorizada, reduciendo la responsabilidad civil del sostenedor.</p>
+<p style="font-size: 0.875rem; line-height: 1.75; margin: 0;">Un sistema de retiros basado en papel no puede alertar al portero sobre una orden de alejamiento en tiempo real. La validación digital cruzada está diseñada para impedir que un alumno sea entregado a una persona no autorizada, reduciendo drásticamente la exposición del sostenedor.</p>
 </div>
 <h2>El problema que nadie quiere admitir</h2>
-<p>Una madre obtiene una medida cautelar contra el padre de su hijo. Se la notifica al sostenedor, quien la envía por correo al director. El director la reenvía a la inspectora. La inspectora la anota en el cuaderno de la sala de profesores. El lunes por la tarde, el padre llega a la portería y el asistente de turno —que no vio el cuaderno— entrega al niño sin dudar.</p>
+<p>Una madre obtiene una medida cautelar contra el padre de su hijo. Se la notifica al sostenedor, quien la envía por correo al director. El director la reenvía a la inspectora. La inspectora la anota en el cuaderno de la sala de profesores. El lunes por la tarde, el padre llega a la portería y el asistente de turno, que no vio el cuaderno, entrega al niño sin dudar.</p>
 <p>Este no es un caso hipotético. Es la secuencia más común de falla en la cadena de custodia escolar en Chile. Y cuando ocurre, la responsabilidad civil recae directamente sobre el sostenedor.</p>
 <p>El problema no es la mala fe del asistente. Es que <strong>la información crítica no viaja al punto donde se toman las decisiones</strong>: la portería, en tiempo real, en el momento exacto del retiro.</p>
 
@@ -45,7 +45,7 @@ export const post: BlogPost = {
 <p>Si cualquiera de esas capas genera un conflicto, el sistema no solo alerta al asistente: bloquea visualmente la acción y escala la decisión a un inspector o directivo. <strong>El asistente de portería nunca toma una decisión de alto riesgo solo.</strong></p>
 
 <h2>El flag <em>has_restraining_order</em>: sencillo, crítico, inexistente en la mayoría de los sistemas</h2>
-<p>En la ficha digital de cada estudiante existe —o debería existir— un campo booleano que indica si hay una restricción judicial activa que afecte el retiro. Su sola existencia transforma el flujo:</p>
+<p>En la ficha digital de cada estudiante existe, o debería existir, un campo booleano que indica si hay una restricción judicial activa que afecte el retiro. Su sola existencia transforma el flujo:</p>
 <ul>
 	<li>Al activarse, genera una alerta push inmediata al inspector de piso, al orientador y a la dirección.</li>
 	<li>La tarjeta del estudiante se marca visualmente en la interfaz de portería. Sin texto ambiguo: bloqueo visual explícito.</li>

@@ -50,13 +50,21 @@
   {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Productos","item":"https://ethoz.cl/productos"},{"@type":"ListItem","position":3,"name":"Control de Acceso por Roles"}]})}</script>`}
 </svelte:head>
 
-<main class="flex min-h-dvh flex-col bg-background">
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
   <NavBar />
+  <main id="main-content" class="flex-1">
 
   <!-- Hero -->
   <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <a href="/#features" class="-mt-3 mb-5 inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
+      <a href="/productos" class="-mt-3 mb-5 inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
         {t('featurePage.accessControl.back_link')}
       </a>
@@ -85,10 +93,18 @@
               {t('featurePage.accessControl.hero_bullet3')}
             </li>
           </ul>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <Button size="lg" href="/demo">
+              {t('featurePage.accessControl.hero_cta_primary')} <ArrowRight class="size-4" />
+            </Button>
+            <Button size="lg" variant="outline" href="/productos">
+              {t('featurePage.accessControl.hero_cta_secondary')}
+            </Button>
+          </div>
         </div>
 
         <!-- Permission matrix mockup -->
-        <div class="w-full rounded-xl border border-border bg-card shadow-card-hover overflow-hidden">
+        <div aria-hidden="true" class="w-full rounded-xl border border-border bg-card shadow-card-hover overflow-hidden">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -267,7 +283,7 @@
           <ArrowRight class="size-4" />
         </a>
         <a
-          href="/#features"
+          href="/productos"
           class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
         >
           {t('featurePage.accessControl.cta_secondary')}
@@ -276,5 +292,6 @@
     </div>
   </section>
 
+  </main>
   <Footer />
-</main>
+</div>
