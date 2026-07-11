@@ -3,7 +3,9 @@
   import { slide } from 'svelte/transition';
   import { setConsent, hasDecided } from '$lib/stores/consent.svelte';
   import { Button } from '$lib/components/ui/button';
-  import { t } from '$lib/i18n/index.svelte';
+  import { ensureLegacyEs, t } from '$lib/i18n/index.svelte';
+
+  const OPEN_CONSENT_PREFERENCES_EVENT = 'ethoz:open-consent-preferences';
 
   type ConsentSheetProps = {
     open?: boolean;
@@ -21,6 +23,12 @@
   // look interactive before Svelte has attached its event listeners.
   onMount(() => {
     hydrated = true;
+    const handleOpenPreferences = () => void openSheet();
+    window.addEventListener(OPEN_CONSENT_PREFERENCES_EVENT, handleOpenPreferences);
+
+    return () => {
+      window.removeEventListener(OPEN_CONSENT_PREFERENCES_EVENT, handleOpenPreferences);
+    };
   });
 
   function announceSaved() {
@@ -44,6 +52,9 @@
     if (sheetLoading) return;
     sheetLoading = true;
     try {
+      // The home route ships a compact Spanish dictionary. Load the complete
+      // dictionary only when this secondary control is requested.
+      await ensureLegacyEs();
       ConsentSheet ??= (await import('./ConsentSheet.svelte')).default;
       sheetOpen = true;
     } finally {

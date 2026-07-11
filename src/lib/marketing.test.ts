@@ -5,6 +5,7 @@ import {
   maskEmail,
   saveLead,
 } from './marketing';
+import { setConsent } from '$lib/stores/consent.svelte';
 
 const baseLead = {
   school_name: 'Colegio Test',
@@ -16,6 +17,8 @@ const baseLead = {
 
 beforeEach(() => {
   localStorage.clear();
+  sessionStorage.clear();
+  setConsent({ analytics: false, marketing: false });
 });
 
 describe('maskEmail', () => {
@@ -120,6 +123,8 @@ describe('saveLead', () => {
     const body = JSON.parse(fetchMock.mock.calls[0][1].body as string);
     expect(body.kind).toBe('lead');
     expect(body.recaptcha_token).toBe('tok');
+    expect(body).not.toHaveProperty('visitor_id');
+    expect(body).not.toHaveProperty('utm_source');
   });
 
   it('returns recaptcha_unavailable without a token', async () => {
@@ -143,5 +148,26 @@ describe('saveLead', () => {
     const body = JSON.parse(fetchMock.mock.calls[0][1].body as string);
     expect(body.kind).toBe('resource');
     expect(body.resource_slug).toBe('guia-ley-21719');
+  });
+
+  it('includes visitor ID only with analytics consent', async () => {
+    setConsent({ analytics: true, marketing: false });
+    fetchMock.mockResolvedValue(new Response('{"ok":true}', { status: 201 }));
+    await saveLead(baseLead, 'tok');
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body as string);
+    expect(body.visitor_id).toMatch(/^[0-9a-f-]{36}$/i);
+  });
+
+  it('includes attribution only with marketing consent', async () => {
+    setConsent({ analytics: false, marketing: true });
+    localStorage.setItem(
+      'ethoz_attribution_first',
+      JSON.stringify({ utm_source: 'linkedin', first_touch_at: '2026-01-01T00:00:00.000Z' })
+    );
+    fetchMock.mockResolvedValue(new Response('{"ok":true}', { status: 201 }));
+    await saveLead(baseLead, 'tok');
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body as string);
+    expect(body.utm_source).toBe('linkedin');
+    expect(body).not.toHaveProperty('visitor_id');
   });
 });

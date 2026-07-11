@@ -1,29 +1,54 @@
 <script lang="ts">
+  import { Cookie } from '@lucide/svelte';
+  import { Button } from '$lib/components/ui/button';
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
-  import { BRAND } from '$lib/brand';
   import { trackEvent } from '$lib/utils/analytics';
   import { t } from '$lib/i18n/index.svelte';
+
+  const OPEN_CONSENT_PREFERENCES_EVENT = 'ethoz:open-consent-preferences';
+
+  function openConsentPreferences() {
+    window.dispatchEvent(new CustomEvent(OPEN_CONSENT_PREFERENCES_EVENT));
+  }
 
   $effect(() => { trackEvent('privacy_viewed'); });
 </script>
 
 <svelte:head>
-  <title>Política de Privacidad · {BRAND}</title>
-  <meta name="description" content={`Política de privacidad de ${BRAND}. Información sobre el tratamiento de datos personales conforme a la Ley 21.719.`} />
+  <title>{t('privacy.meta.title')}</title>
+  <meta name="description" content={t('privacy.meta.description')} />
   <meta property="og:url" content="https://ethoz.cl/privacidad" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Política de Privacidad · ${BRAND}`} />
-  <meta property="og:description" content={`Política de privacidad de ${BRAND}. Información sobre el tratamiento de datos personales conforme a la Ley 21.719.`} />
+  <meta property="og:title" content={t('privacy.meta.og_title')} />
+  <meta property="og:description" content={t('privacy.meta.description')} />
+  <meta property="og:image" content="https://ethoz.cl/images/og-default.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Política de Privacidad · ${BRAND}`} />
-  <meta name="twitter:description" content={`Política de privacidad de ${BRAND}. Información sobre el tratamiento de datos personales conforme a la Ley 21.719.`} />
+  <meta name="twitter:title" content={t('privacy.meta.og_title')} />
+  <meta name="twitter:description" content={t('privacy.meta.description')} />
+  <meta name="twitter:image" content="https://ethoz.cl/images/og-default.png" />
   <link rel="canonical" href="https://ethoz.cl/privacidad" />
-  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Política de Privacidad"}]})}</script>`}
+  {@html `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: t('privacy.breadcrumb.home'),
+        item: 'https://ethoz.cl/'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: t('privacy.breadcrumb.current'),
+        item: 'https://ethoz.cl/privacidad'
+      }
+    ]
+  })}</script>`}
 </svelte:head>
 
 <div class="flex min-h-dvh flex-col bg-background">
-  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
   <a
     href="#main-content"
     class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
@@ -33,103 +58,192 @@
   <NavBar />
 
   <main id="main-content" class="flex-1">
-  <div class="mx-auto flex-1 max-w-7xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
-
-    <h1 class="text-balance text-3xl text-foreground sm:text-4xl">Política de Privacidad</h1>
-    <p class="mt-2 text-sm text-muted-foreground">Última actualización: abril 2026</p>
-
-    <div class="mt-10 space-y-8 text-sm leading-relaxed text-muted-foreground">
-
-      <section>
-        <h2 class="text-lg font-semibold text-foreground">1. Responsable del tratamiento</h2>
-        <p class="mt-2">
-          {BRAND} SpA, RUT 78.394.522-3, con domicilio en Santiago de Chile, constituida el 6 de abril de 2026, es responsable del tratamiento de los datos personales recopilados a través de la plataforma ethoz.cl y sus servicios asociados.
+    <article class="mx-auto max-w-7xl px-4 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8">
+      <div class="max-w-4xl">
+      <header class="max-w-3xl">
+        <p class="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-primary">
+          {t('privacy.eyebrow')}
         </p>
-      </section>
-
-      <section>
-        <h2 class="text-lg font-semibold text-foreground">2. Datos que recopilamos</h2>
-        <p class="mt-2">Recopilamos exclusivamente la información necesaria para prestar nuestro servicio:</p>
-        <ul class="mt-3 list-disc space-y-1.5 pl-5">
-          <li><strong class="text-foreground">Datos de contacto:</strong> nombre, correo electrónico, teléfono y cargo del usuario administrador.</li>
-          <li><strong class="text-foreground">Datos del establecimiento:</strong> nombre, RBD, dirección y matrícula del colegio.</li>
-          <li><strong class="text-foreground">Datos de uso:</strong> información técnica sobre cómo se utiliza la plataforma para mejorar el servicio.</li>
-        </ul>
-        <p class="mt-3">
-          {BRAND} <strong class="text-foreground">no recopila datos personales de alumnos ni apoderados</strong> a través de este sitio web. Los datos de alumnos son gestionados exclusivamente por el establecimiento educacional dentro de la plataforma, bajo la responsabilidad del colegio como responsable del tratamiento.
+        <h1 class="mt-3 text-balance text-3xl font-bold text-foreground sm:text-4xl">
+          {t('privacy.title')}
+        </h1>
+        <p class="mt-3 text-sm text-muted-foreground">{t('privacy.updated')}</p>
+        <p class="mt-6 text-pretty text-base leading-relaxed text-muted-foreground">
+          {t('privacy.intro')}
         </p>
-      </section>
+      </header>
 
-      <section>
-        <h2 class="text-lg font-semibold text-foreground">3. Finalidad del tratamiento</h2>
-        <p class="mt-2">Sus datos son utilizados para:</p>
-        <ul class="mt-3 list-disc space-y-1.5 pl-5">
-          <li>Gestionar su cuenta y prestar el servicio contratado.</li>
-          <li>Comunicar actualizaciones, novedades y soporte técnico.</li>
-          <li>Mejorar la plataforma mediante análisis de uso agregado y anonimizado.</li>
-          <li>Cumplir con obligaciones legales y regulatorias.</li>
-        </ul>
-      </section>
+      <div class="mt-12 divide-y divide-hairline border-y border-hairline">
+        <section class="py-8" aria-labelledby="privacy-scope">
+          <h2 id="privacy-scope" class="text-xl font-bold text-foreground">
+            {t('privacy.scope.title')}
+          </h2>
+          <div class="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+            <p>{t('privacy.scope.controller')}</p>
+            <p>{t('privacy.scope.boundary')}</p>
+          </div>
+        </section>
 
-      <section>
-        <h2 class="text-lg font-semibold text-foreground">4. Base legal</h2>
-        <p class="mt-2">
-          El tratamiento de sus datos se realiza conforme a la <strong class="text-foreground">Ley 21.719 de Protección de Datos Personales</strong> de Chile, sobre las siguientes bases de legitimación:
-        </p>
-        <ul class="mt-3 list-disc space-y-1.5 pl-5">
-          <li><strong class="text-foreground">Ejecución contractual:</strong> para prestar el servicio acordado.</li>
-          <li><strong class="text-foreground">Consentimiento informado:</strong> para comunicaciones comerciales.</li>
-          <li><strong class="text-foreground">Interés legítimo:</strong> para mejorar la seguridad y calidad del servicio.</li>
-        </ul>
-      </section>
+        <section class="py-8" aria-labelledby="privacy-data">
+          <h2 id="privacy-data" class="text-xl font-bold text-foreground">
+            {t('privacy.data.title')}
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed text-muted-foreground">{t('privacy.data.intro')}</p>
+          <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
+            <li>
+              <strong class="text-foreground">{t('privacy.data.contact_label')}</strong>
+              {t('privacy.data.contact_body')}
+            </li>
+            <li>
+              <strong class="text-foreground">{t('privacy.data.school_label')}</strong>
+              {t('privacy.data.school_body')}
+            </li>
+            <li>
+              <strong class="text-foreground">{t('privacy.data.technical_label')}</strong>
+              {t('privacy.data.technical_body')}
+            </li>
+            <li>
+              <strong class="text-foreground">{t('privacy.data.preferences_label')}</strong>
+              {t('privacy.data.preferences_body')}
+            </li>
+          </ul>
+          <p class="mt-4 rounded-lg border border-hairline bg-surface-soft p-4 text-sm leading-relaxed text-foreground">
+            {t('privacy.data.student_notice')}
+          </p>
+        </section>
 
-      <section>
-        <h2 class="text-lg font-semibold text-foreground">5. Sus derechos (ARCO+P)</h2>
-        <p class="mt-2">
-          Conforme a la Ley 21.719, usted tiene derecho a:
-        </p>
-        <ul class="mt-3 list-disc space-y-1.5 pl-5">
-          <li><strong class="text-foreground">Acceso:</strong> conocer qué datos personales tenemos sobre usted.</li>
-          <li><strong class="text-foreground">Rectificación:</strong> solicitar la corrección de datos inexactos.</li>
-          <li><strong class="text-foreground">Cancelación:</strong> solicitar la eliminación de sus datos.</li>
-          <li><strong class="text-foreground">Oposición:</strong> oponerse al tratamiento de sus datos.</li>
-          <li><strong class="text-foreground">Portabilidad:</strong> recibir sus datos en formato estructurado.</li>
-        </ul>
-        <p class="mt-3">
-          Para ejercer cualquiera de estos derechos, escriba a <a href="mailto:privacidad@ethoz.cl" class="font-medium text-primary underline underline-offset-2 hover:text-primary-pressed">privacidad@ethoz.cl</a>. Responderemos en un plazo máximo de 15 días hábiles.
-        </p>
-      </section>
+        <section class="py-8" aria-labelledby="privacy-purposes">
+          <h2 id="privacy-purposes" class="text-xl font-bold text-foreground">
+            {t('privacy.purposes.title')}
+          </h2>
+          <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
+            <li>{t('privacy.purposes.forms')}</li>
+            <li>{t('privacy.purposes.operation')}</li>
+            <li>{t('privacy.purposes.analytics')}</li>
+            <li>{t('privacy.purposes.marketing')}</li>
+          </ul>
+        </section>
 
-      <section>
-        <h2 class="text-lg font-semibold text-foreground">6. Seguridad de los datos</h2>
-        <p class="mt-2">
-          Implementamos medidas técnicas y organizativas para proteger sus datos, incluyendo cifrado en tránsito y en reposo, control de acceso basado en roles (RBAC), aislamiento de datos por establecimiento (Row-Level Security) y registro de auditoría completo.
-        </p>
-      </section>
+        <section class="py-8" aria-labelledby="privacy-technologies">
+          <h2 id="privacy-technologies" class="text-xl font-bold text-foreground">
+            {t('privacy.technologies.title')}
+          </h2>
+          <div class="mt-5 space-y-6">
+            <div>
+              <h3 class="text-base font-semibold text-foreground">{t('privacy.technologies.essential_title')}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {t('privacy.technologies.essential_body')}
+              </p>
+              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {t('privacy.technologies.recaptcha_body')}
+              </p>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold text-foreground">{t('privacy.technologies.analytics_title')}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {t('privacy.technologies.analytics_body')}
+              </p>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold text-foreground">{t('privacy.technologies.marketing_title')}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {t('privacy.technologies.marketing_body')}
+              </p>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold text-foreground">{t('privacy.technologies.scheduling_title')}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {t('privacy.technologies.scheduling_body')}
+              </p>
+            </div>
+          </div>
+        </section>
 
-      <section>
-        <h2 class="text-lg font-semibold text-foreground">7. Transferencia de datos</h2>
-        <p class="mt-2">
-          No vendemos, compartimos ni transferimos sus datos personales a terceros con fines comerciales. Los datos pueden ser procesados por proveedores de infraestructura tecnológica que actúan como encargados del tratamiento, sujetos a acuerdos de confidencialidad y protección de datos equivalentes.
-        </p>
-      </section>
+        <section class="py-8" aria-labelledby="privacy-storage">
+          <h2 id="privacy-storage" class="text-xl font-bold text-foreground">
+            {t('privacy.storage.title')}
+          </h2>
+          <div class="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+            <p>{t('privacy.storage.local')}</p>
+            <p>{t('privacy.storage.cookies')}</p>
+            <p>{t('privacy.storage.retention')}</p>
+          </div>
+        </section>
 
-      <section>
-        <h2 class="text-lg font-semibold text-foreground">8. Retención de datos</h2>
-        <p class="mt-2">
-          Conservamos sus datos durante la vigencia de la relación contractual y por el período adicional que exija la legislación aplicable. Una vez finalizada la relación, los datos serán eliminados de forma segura.
-        </p>
-      </section>
+        <section class="py-8" aria-labelledby="privacy-providers">
+          <h2 id="privacy-providers" class="text-xl font-bold text-foreground">
+            {t('privacy.providers.title')}
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed text-muted-foreground">{t('privacy.providers.intro')}</p>
+          <ul class="mt-4 grid gap-2 text-sm sm:grid-cols-2">
+            <li>
+              <a class="font-medium text-primary underline-offset-4 hover:underline" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+                {t('privacy.providers.google')}
+              </a>
+            </li>
+            <li>
+              <a class="font-medium text-primary underline-offset-4 hover:underline" href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener noreferrer">
+                {t('privacy.providers.microsoft')}
+              </a>
+            </li>
+            <li>
+              <a class="font-medium text-primary underline-offset-4 hover:underline" href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">
+                {t('privacy.providers.sentry')}
+              </a>
+            </li>
+            <li>
+              <a class="font-medium text-primary underline-offset-4 hover:underline" href="https://cal.com/privacy" target="_blank" rel="noopener noreferrer">
+                {t('privacy.providers.cal')}
+              </a>
+            </li>
+          </ul>
+          <p class="mt-4 text-sm leading-relaxed text-muted-foreground">{t('privacy.providers.international')}</p>
+        </section>
 
-      <section>
-        <h2 class="text-lg font-semibold text-foreground">9. Contacto</h2>
-        <p class="mt-2">
-          Para consultas sobre esta política o el tratamiento de sus datos personales, contacte a nuestro equipo de privacidad en <a href="mailto:privacidad@ethoz.cl" class="font-medium text-primary underline underline-offset-2 hover:text-primary-pressed">privacidad@ethoz.cl</a>.
-        </p>
-      </section>
+        <section class="py-8" aria-labelledby="privacy-preferences">
+          <h2 id="privacy-preferences" class="text-xl font-bold text-foreground">
+            {t('privacy.preferences.title')}
+          </h2>
+          <div class="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+            <p>{t('privacy.preferences.body')}</p>
+            <p>{t('privacy.preferences.effect')}</p>
+          </div>
+          <Button variant="outline" class="mt-5" onclick={openConsentPreferences} aria-haspopup="dialog">
+            <Cookie class="size-4" aria-hidden="true" />
+            {t('privacy.preferences.open')}
+          </Button>
+        </section>
 
-    </div>
-  </div>
+        <section class="py-8" aria-labelledby="privacy-rights">
+          <h2 id="privacy-rights" class="text-xl font-bold text-foreground">
+            {t('privacy.rights.title')}
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed text-muted-foreground">{t('privacy.rights.body')}</p>
+          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
+            {t('privacy.rights.contact_prefix')}
+            <a
+              href={`mailto:${t('privacy.contact.email')}`}
+              class="font-medium text-primary underline underline-offset-4 hover:text-primary-pressed"
+            >{t('privacy.contact.email')}</a>.
+          </p>
+        </section>
+
+        <section class="py-8" aria-labelledby="privacy-security">
+          <h2 id="privacy-security" class="text-xl font-bold text-foreground">
+            {t('privacy.security.title')}
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed text-muted-foreground">{t('privacy.security.body')}</p>
+        </section>
+
+        <section class="py-8" aria-labelledby="privacy-changes">
+          <h2 id="privacy-changes" class="text-xl font-bold text-foreground">
+            {t('privacy.changes.title')}
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed text-muted-foreground">{t('privacy.changes.body')}</p>
+        </section>
+      </div>
+      </div>
+    </article>
   </main>
 
   <Footer />

@@ -1,4 +1,5 @@
 import { browser } from '$app/environment';
+import { getConsent } from '$lib/stores/consent.svelte';
 
 const FIRST_KEY = 'ethoz_attribution_first';
 const LAST_KEY = 'ethoz_attribution_last';
@@ -63,9 +64,9 @@ function parseReferrer(): string | undefined {
   const ref = document.referrer;
   if (!ref) return undefined;
   try {
-    const refHost = new URL(ref).hostname;
-    if (refHost === window.location.hostname) return undefined;
-    return ref;
+    const refUrl = new URL(ref);
+    if (refUrl.hostname === window.location.hostname) return undefined;
+    return `${refUrl.origin}${refUrl.pathname}`;
   } catch {
     return undefined;
   }
@@ -73,6 +74,10 @@ function parseReferrer(): string | undefined {
 
 export function captureAttribution(): void {
   if (!browser) return;
+  if (!getConsent().marketing) {
+    clearAttribution();
+    return;
+  }
   const now = new Date().toISOString();
   const fromUrl = parseUrl();
   const ref = parseReferrer();
@@ -90,6 +95,10 @@ export function captureAttribution(): void {
 
 export function readAttribution(): Attribution {
   if (!browser) return {};
+  if (!getConsent().marketing) {
+    clearAttribution();
+    return {};
+  }
   const first = readJson<Attribution>(localStorage, FIRST_KEY) ?? {};
   const last = readJson<Attribution>(sessionStorage, LAST_KEY) ?? {};
   const out: Attribution = {};
@@ -103,4 +112,40 @@ export function readAttribution(): Attribution {
   out.first_touch_at = first.first_touch_at;
   out.last_touch_at = last.last_touch_at;
   return Object.fromEntries(Object.entries(out).filter(([, v]) => v !== undefined)) as Attribution;
+}
+
+export function clearAttribution(): void {
+  if (!browser) return;
+  for (const storage of [localStorage, sessionStorage]) {
+    try {
+      storage.removeItem(FIRST_KEY);
+      storage.removeItem(LAST_KEY);
+    } catch {
+      // Storage can be unavailable; no attribution will be read in that case.
+    }
+  }
+}
+
+/**
+ * Remove campaign and click identifiers before an analytics-only page view can
+ * copy the current URL. The navigation stays on the same document and retains
+ * unrelated query parameters and the hash.
+ */
+export function stripAttributionFromUrl(): void {
+  if (!browser) return;
+  try {
+    const url = new URL(window.location.href);
+    let changed = false;
+    for (const key of UTM_KEYS) {
+      if (url.searchParams.has(key)) {
+        url.searchParams.delete(key);
+        changed = true;
+      }
+    }
+    if (!changed) return;
+    const next = `${url.pathname}${url.search}${url.hash}`;
+    history.replaceState(history.state, '', next);
+  } catch {
+    // A synthetic or locked-down location must not block the page.
+  }
 }

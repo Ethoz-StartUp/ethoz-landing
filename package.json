@@ -14,6 +14,7 @@
 		"test:unit:watch": "vitest",
 		"test:e2e": "playwright test",
 		"test:ci": "npm run lint && npm run lint:i18n && npm run check && npm run audit:security && npm run test:unit && playwright test",
+		"smoke:production": "node scripts/smoke-production.mjs",
 		"audit:security": "node scripts/audit-security.mjs",
 		"lint": "eslint src --max-warnings=50 && bash scripts/lint-all.sh",
 		"lint:i18n": "node scripts/check-i18n.js",

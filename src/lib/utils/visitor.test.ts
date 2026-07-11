@@ -1,8 +1,10 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { getVisitorId, identifyGA4, identifyClarity } from './visitor';
+import { setConsent } from '$lib/stores/consent.svelte';
+import { clearVisitorId, getVisitorId, identifyGA4, identifyClarity } from './visitor';
 
 beforeEach(() => {
   localStorage.clear();
+  setConsent({ analytics: true, marketing: false });
   // Reset window globals
   (window as any).dataLayer = undefined;
   (window as any).clarity = undefined;
@@ -30,6 +32,13 @@ describe('getVisitorId', () => {
     localStorage.setItem('ethoz_vid', existing);
     expect(getVisitorId()).toBe(existing);
   });
+
+  it('does not create an ID and removes a legacy ID without analytics consent', () => {
+    localStorage.setItem('ethoz_vid', 'legacy-id');
+    setConsent({ analytics: false, marketing: false });
+    expect(getVisitorId()).toBe('');
+    expect(localStorage.getItem('ethoz_vid')).toBeNull();
+  });
 });
 
 describe('identifyGA4', () => {
@@ -47,6 +56,13 @@ describe('identifyGA4', () => {
   it('does nothing when vid is empty', () => {
     (window as any).dataLayer = [];
     identifyGA4('');
+    expect((window as any).dataLayer).toHaveLength(0);
+  });
+
+  it('does nothing after analytics consent is revoked', () => {
+    (window as any).dataLayer = [];
+    setConsent({ analytics: false, marketing: false });
+    identifyGA4('test-vid');
     expect((window as any).dataLayer).toHaveLength(0);
   });
 });
@@ -68,5 +84,20 @@ describe('identifyClarity', () => {
     (window as any).clarity = mockClarity;
     identifyClarity('');
     expect(mockClarity).not.toHaveBeenCalled();
+  });
+});
+
+describe('clearVisitorId', () => {
+  it('removes storage and clears tracker identity state', () => {
+    localStorage.setItem('ethoz_vid', 'test-vid');
+    (window as any).dataLayer = [];
+    (window as any).gtag = vi.fn();
+    clearVisitorId();
+    expect(localStorage.getItem('ethoz_vid')).toBeNull();
+    expect((window as any).dataLayer).toContainEqual({ user_id: null, ethoz_visitor_id: null });
+    expect((window as any).gtag).toHaveBeenCalledWith('set', {
+      user_id: null,
+      ethoz_visitor_id: null,
+    });
   });
 });

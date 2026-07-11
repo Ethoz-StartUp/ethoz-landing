@@ -8,9 +8,40 @@
 		<script>
 		  document.documentElement.dataset.theme = 'light';
 		</script>
-		<!-- dataLayer stub (GTM loader runs after consent from +layout.svelte) -->
+		<!-- Consent Mode must run synchronously, before GTM or any measurement command. -->
 		<script>
 		  window.dataLayer = window.dataLayer || [];
+		  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+		  window.gtag('consent', 'default', {
+		    analytics_storage: 'denied',
+		    ad_storage: 'denied',
+		    ad_user_data: 'denied',
+		    ad_personalization: 'denied',
+		    wait_for_update: 500
+		  });
+
+		  // Restore an explicit prior choice before hydration. Defaults above remain
+		  // privacy-safe when storage is unavailable, malformed, or undecided.
+		  try {
+		    var savedConsent = JSON.parse(localStorage.getItem('ethoz_consent_v1') || 'null');
+		    var internalVisitor = localStorage.getItem('ethoz_internal') === '1';
+		    if (!internalVisitor && savedConsent && typeof savedConsent.updatedAt === 'number') {
+		      window.gtag('consent', 'update', {
+		        analytics_storage: savedConsent.analytics === true ? 'granted' : 'denied',
+		        ad_storage: savedConsent.marketing === true ? 'granted' : 'denied',
+		        ad_user_data: savedConsent.marketing === true ? 'granted' : 'denied',
+		        ad_personalization: savedConsent.marketing === true ? 'granted' : 'denied'
+		      });
+		    }
+		  } catch (_) {
+		    // Storage can be unavailable in private browsing; denied remains active.
+		  }
+		  try {
+		    // Events collected before consent were part of a legacy implementation.
+		    sessionStorage.removeItem('ethoz_pending_events');
+		  } catch (_) {
+		    // Session storage can be unavailable independently of local storage.
+		  }
 		</script>
 		<!-- First-party API preconnect. Trackers load only after consent. -->
 		<link rel="preconnect" href="https://app.ethoz.cl" crossorigin />

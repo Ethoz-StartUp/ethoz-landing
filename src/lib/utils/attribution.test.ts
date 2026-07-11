@@ -19,10 +19,12 @@ function mockReferrer(ref: string) {
 }
 
 describe('attribution', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
+    vi.resetModules();
     localStorage.clear();
     sessionStorage.clear();
-    vi.resetModules();
+    const { setConsent } = await import('$lib/stores/consent.svelte');
+    setConsent({ analytics: false, marketing: true });
   });
 
   it('captureAttribution parses UTMs from the URL and persists to both storages', async () => {
@@ -62,7 +64,7 @@ describe('attribution', () => {
 
     const a = readAttribution();
     expect(a.utm_source).toBe('google'); // first-touch wins
-    expect(a.referrer).toBe('https://google.com/'); // first-touch wins
+    expect(a.referrer).toBe('https://google.com/'); // first-touch wins, query-free
     expect(a.landing_page).toBe('/contacto'); // last-touch wins
   });
 
@@ -99,5 +101,30 @@ describe('attribution', () => {
     } finally {
       Storage.prototype.setItem = orig;
     }
+  });
+
+  it('does not capture or retain attribution without marketing consent', async () => {
+    localStorage.setItem('ethoz_attribution_first', JSON.stringify({ utm_source: 'legacy' }));
+    sessionStorage.setItem('ethoz_attribution_last', JSON.stringify({ utm_source: 'legacy' }));
+    const { setConsent } = await import('$lib/stores/consent.svelte');
+    setConsent({ analytics: true, marketing: false });
+    mockLocation('https://ethoz.cl/?utm_source=linkedin');
+
+    const { captureAttribution, readAttribution } = await import('./attribution');
+    captureAttribution();
+
+    expect(readAttribution()).toEqual({});
+    expect(localStorage.getItem('ethoz_attribution_first')).toBeNull();
+    expect(sessionStorage.getItem('ethoz_attribution_last')).toBeNull();
+  });
+
+  it('strips campaign identifiers from the visible URL without removing unrelated params', async () => {
+    mockLocation('https://ethoz.cl/demo?utm_source=linkedin&gclid=abc&school=2454#form');
+    const replaceState = vi.spyOn(history, 'replaceState').mockImplementation(() => {});
+    const { stripAttributionFromUrl } = await import('./attribution');
+
+    stripAttributionFromUrl();
+
+    expect(replaceState).toHaveBeenCalledWith(history.state, '', '/demo?school=2454#form');
   });
 });

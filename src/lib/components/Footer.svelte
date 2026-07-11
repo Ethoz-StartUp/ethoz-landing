@@ -1,6 +1,12 @@
 <script lang="ts">
   import { t, toggleLocale, getLocale } from '$lib/i18n/index.svelte';
-  import { Globe } from '@lucide/svelte';
+  import { Cookie, Globe } from '@lucide/svelte';
+
+  const OPEN_CONSENT_PREFERENCES_EVENT = 'ethoz:open-consent-preferences';
+
+  function openConsentPreferences() {
+    window.dispatchEvent(new CustomEvent(OPEN_CONSENT_PREFERENCES_EVENT));
+  }
 
   const social = [
     {
@@ -121,14 +127,25 @@
   <div class="border-t border-surface-dark-elevated">
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-3 sm:flex-row sm:px-6 lg:px-8">
       <p class="text-xs text-on-dark-soft">{t('footer.rights')} · {t('footer.tagline')}</p>
-      <button
-        type="button"
-        onclick={toggleLocale}
-        class="inline-flex min-h-11 items-center gap-1.5 rounded-md px-3 py-2 text-xs text-on-dark-soft transition-colors hover:bg-surface-dark-elevated hover:text-on-dark"
-      >
-        <Globe class="size-3" />
-        {getLocale() === 'es' ? t('lang.en') : t('lang.es')}
-      </button>
+      <div class="flex items-center gap-1">
+        <button
+          type="button"
+          aria-haspopup="dialog"
+          onclick={openConsentPreferences}
+          class="inline-flex min-h-11 items-center gap-1.5 rounded-md px-3 py-2 text-xs text-on-dark-soft transition-colors hover:bg-surface-dark-elevated hover:text-on-dark"
+        >
+          <Cookie class="size-3.5" aria-hidden="true" />
+          {t('footer.cookies')}
+        </button>
+        <button
+          type="button"
+          onclick={toggleLocale}
+          class="inline-flex min-h-11 items-center gap-1.5 rounded-md px-3 py-2 text-xs text-on-dark-soft transition-colors hover:bg-surface-dark-elevated hover:text-on-dark"
+        >
+          <Globe class="size-3" aria-hidden="true" />
+          {getLocale() === 'es' ? t('lang.en') : t('lang.es')}
+        </button>
+      </div>
     </div>
   </div>
 </footer>

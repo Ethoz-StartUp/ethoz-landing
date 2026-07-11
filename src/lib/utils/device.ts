@@ -12,10 +12,28 @@ export interface DeviceMetadata {
   timezone: string;
 }
 
-export function getDeviceMetadata(): DeviceMetadata | null {
+type DeviceMetadataOptions = {
+  includeMarketingAttribution?: boolean;
+};
+
+function withoutQueryOrHash(value: string): string {
+  try {
+    const url = new URL(value);
+    return `${url.origin}${url.pathname}`;
+  } catch {
+    return '';
+  }
+}
+
+export function getDeviceMetadata(options: DeviceMetadataOptions = {}): DeviceMetadata | null {
   if (!browser) return null;
 
   const ua = navigator.userAgent;
+  const includeMarketingAttribution = options.includeMarketingAttribution === true;
+  const referrer = includeMarketingAttribution
+    ? (withoutQueryOrHash(document.referrer) || 'directo')
+    : 'withheld';
+  const url = withoutQueryOrHash(window.location.href);
 
   return {
     device: getDeviceType(ua),
@@ -23,8 +41,8 @@ export function getDeviceMetadata(): DeviceMetadata | null {
     browser: getBrowser(ua),
     screen: `${screen.width}x${screen.height}`,
     language: navigator.language,
-    referrer: document.referrer || 'directo',
-    url: window.location.href,
+    referrer,
+    url,
     timestamp: new Date().toISOString(),
     timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
   };

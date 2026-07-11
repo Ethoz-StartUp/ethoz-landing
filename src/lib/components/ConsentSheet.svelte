@@ -7,9 +7,17 @@
 
   let { open = $bindable(false), onsaved }: { open?: boolean; onsaved?: () => void } = $props();
 
-  const current = getConsent();
-  let analytics = $state(current.analytics);
-  let marketing = $state(current.marketing);
+  let analytics = $state(false);
+  let marketing = $state(false);
+
+  // Refresh from the consent store every time the sheet opens. This keeps the
+  // controls accurate when preferences were changed during an earlier visit.
+  $effect(() => {
+    if (!open) return;
+    const current = getConsent();
+    analytics = current.analytics;
+    marketing = current.marketing;
+  });
 
   function save() {
     setConsent({ analytics, marketing });

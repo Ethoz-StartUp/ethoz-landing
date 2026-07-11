@@ -5,6 +5,7 @@ import { getDeviceMetadata } from '$lib/utils/device';
 import { readAttribution } from '$lib/utils/attribution';
 import { log } from '$lib/utils/logger';
 import { addBreadcrumb, captureException } from '$lib/sentry';
+import { getConsent } from '$lib/stores/consent.svelte';
 
 export function maskEmail(email: string): string {
   const [user, domain] = email.split('@');
@@ -124,15 +125,16 @@ export async function saveLead(lead: Lead, recaptchaToken?: string | null): Prom
 
   const test = isInternal() || isTestEmail(lead.contact_email);
   const notes = test ? '[TEST] Internal team' : lead.notes;
+  const consent = getConsent();
 
   const payload = {
     kind: 'lead',
     ...lead,
-    ...readAttribution(),
+    ...(consent.marketing ? readAttribution() : {}),
     status: lead.status ?? 'new',
     notes,
-    visitor_id: getVisitorId() || undefined,
-    metadata: getDeviceMetadata(),
+    visitor_id: consent.analytics ? (getVisitorId() || undefined) : undefined,
+    metadata: getDeviceMetadata({ includeMarketingAttribution: consent.marketing }),
     recaptcha_token: recaptchaToken,
   };
 
@@ -161,14 +163,15 @@ export async function captureResourceRequest(
   email: string,
   resourceSlug: string
 ): Promise<{ ok: boolean; error?: string }> {
+  const consent = getConsent();
   const payload = {
     kind: 'resource',
     contact_email: email,
     resource_slug: resourceSlug,
     contact_source: `resource:${resourceSlug}`,
-    ...readAttribution(),
-    visitor_id: getVisitorId() || undefined,
-    metadata: getDeviceMetadata(),
+    ...(consent.marketing ? readAttribution() : {}),
+    visitor_id: consent.analytics ? (getVisitorId() || undefined) : undefined,
+    metadata: getDeviceMetadata({ includeMarketingAttribution: consent.marketing }),
   };
 
   const result = await postMarketingPayload(payload, 'marketing-resource');

@@ -49,22 +49,27 @@ test.describe('Smoke — pages load', () => {
 // ── Smoke test: GTM and analytics ──
 
 test.describe('Smoke — GTM & analytics', () => {
-	test('GTM loads dynamically after consent accept', async ({ page }) => {
+	test('remote trackers stay disabled on localhost after consent accept', async ({ page }) => {
 		await acceptConsentInit(page);
+		const remoteRequests: string[] = [];
+		page.on('request', (request) => {
+			const url = request.url();
+			if (url.includes('googletagmanager.com/gtm.js') || url.includes('clarity.ms/tag')) {
+				remoteRequests.push(url);
+			}
+		});
 		await page.goto('/');
-		// With consent pre-seeded, layout effect triggers loadGtm which appends
-		// a <script src="https://www.googletagmanager.com/gtm.js?id=GTM-WX6ZCXLZ">.
-		await expect
-			.poll(
-				async () =>
-					await page.evaluate(() =>
-						Array.from(document.querySelectorAll('script')).some((s) =>
-							(s.getAttribute('src') ?? '').includes('googletagmanager.com/gtm.js?id=GTM-WX6ZCXLZ')
-						)
-					),
-				{ timeout: 5000 }
+		await page.waitForTimeout(1000);
+		expect(remoteRequests).toHaveLength(0);
+		expect(
+			await page.evaluate(() =>
+				Array.from(document.querySelectorAll('script')).some((script) =>
+					/\/\/(?:www\.)?googletagmanager\.com\/gtm\.js|\/\/www\.clarity\.ms\/tag\//.test(
+						script.getAttribute('src') ?? ''
+					)
+				)
 			)
-			.toBe(true);
+		).toBe(false);
 	});
 
 	test('dataLayer exists and receives events', async ({ page }) => {

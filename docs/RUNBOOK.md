@@ -10,8 +10,8 @@ Check:
 
 - `/`
 - `/demo`
-- `/contact`
-- `/schedule`
+- `/contacto`
+- `/agendar`
 - `/seguridad-datos`
 
 ## Validation
@@ -23,6 +23,13 @@ npm run check
 npm run audit:security
 npm run test:unit
 npm run build
+```
+
+Production HTTP smoke (read-only; does not execute JavaScript, accept analytics
+consent, or submit forms):
+
+```bash
+npm run smoke:production
 ```
 
 ## Lead Funnel
@@ -56,10 +63,41 @@ npm run build
 firebase deploy --only hosting
 ```
 
-The GitHub workflow `.github/workflows/deploy.yml` is manual and builds with:
+The GitHub workflow `.github/workflows/deploy.yml` runs the quality gates on
+pull requests and pushes to `main`. Production deploys remain manual and are
+accepted only when dispatched from `main`.
+
+Before deploying, the workflow runs lint, i18n validation, Svelte/TypeScript
+checks, the static security audit, unit tests, and one production build. The
+validated `build/` artifact is then deployed without rebuilding. After Firebase
+returns successfully, the workflow runs the production HTTP smoke.
+
+The production build uses:
 
 - `PUBLIC_MARKETING_API_URL=https://app.ethoz.cl`
 - public Cal.com, Clarity, reCAPTCHA site key, app URL, and Sentry values.
+
+## Post-deploy Smoke
+
+`scripts/smoke-production.mjs` verifies:
+
+- Key pages return HTML with the expected canonical URL.
+- `robots.txt` and `sitemap.xml` are reachable and reference the canonical site.
+- Migrated English slugs return permanent redirects and preserve query params.
+- `www.ethoz.cl` redirects to the apex domain over valid TLS.
+- HSTS, CSP, frame, MIME-sniffing, referrer, and permissions headers are present.
+
+The check sends only `GET` and `HEAD` requests. It never calls the marketing API,
+loads browser trackers, stores consent, or creates a lead. To test another
+Firebase Hosting URL while retaining production canonicals:
+
+```bash
+SMOKE_BASE_URL=https://example.web.app npm run smoke:production
+```
+
+If the post-deploy smoke fails, inspect the failed assertion and Firebase deploy
+output before retrying. Re-deploy the last known-good commit if production pages,
+redirects, TLS, or security headers are unavailable.
 
 Firebase Web App display name in project `gestion-estudiantil-dev`:
 

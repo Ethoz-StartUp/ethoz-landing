@@ -184,53 +184,43 @@ test.describe('Consent — reject flow', () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 3. Consent — accept flow + buffer flush
+// 3. Consent — accept flow without pre-consent replay
 // ─────────────────────────────────────────────────────────────────────────────
 
 test.describe('Consent — accept flow', () => {
-	test('buffered events flush to dataLayer after consent is granted', async ({ page }) => {
+	test('pre-consent events are dropped and only later interactions are measured', async ({ page }) => {
 		await page.goto('/');
 		await page.waitForLoadState('networkidle');
 
-			// Dismiss hero modal if it opened.
-			// Trigger a tracked event pre-consent: click the concise video CTA
-			// which calls trackEvent('hero_cta_clicked', { cta: 'watch_video', location: 'hero' })
-			// and trackEvent('pitch_opened'). Both should buffer in sessionStorage, not dataLayer.
-			const videoBtn = page
-				.locator('button')
-				.filter({ hasText: /ver video|watch video/i })
-				.first();
+		// Trigger a tracked interaction before any choice. Privacy-strict mode
+		// drops it instead of persisting it for a later replay.
+		const videoBtn = page
+			.locator('button')
+			.filter({ hasText: /ver video|watch video/i })
+			.first();
 		await expect(videoBtn).toBeVisible();
 		await videoBtn.click();
 		await page.waitForTimeout(300);
 
-		const bufferedBefore = await page.evaluate(() =>
-			sessionStorage.getItem('ethoz_pending_events')
-		);
-		expect(bufferedBefore).not.toBeNull();
-		const parsed = JSON.parse(bufferedBefore!);
-		expect(parsed.length).toBeGreaterThanOrEqual(1);
-		expect(parsed.some((e: any) => e.event === 'hero_cta_clicked')).toBe(true);
+		expect(await page.evaluate(() => sessionStorage.getItem('ethoz_pending_events'))).toBeNull();
+		expect(
+			await page.evaluate(() =>
+				((window as any).dataLayer ?? []).some((entry: any) => entry?.event === 'hero_cta_clicked')
+			)
+		).toBe(false);
 
-		const dlLenBefore = await page.evaluate(() => (window as any).dataLayer?.length ?? 0);
-
-		// Close the pitch modal if open, then accept all.
+		// Close the pitch modal, grant consent, and perform a new interaction.
 		await page.keyboard.press('Escape');
 		await page.waitForTimeout(200);
 		await page.getByRole('button', { name: 'Aceptar todo' }).click();
-		await page.waitForTimeout(1500);
+		await page.waitForTimeout(300);
+		await videoBtn.click();
+		await page.waitForTimeout(300);
 
-		const dlLenAfter = await page.evaluate(() => (window as any).dataLayer?.length ?? 0);
-		expect(dlLenAfter).toBeGreaterThan(dlLenBefore);
-
-		const flushed = await page.evaluate(() =>
+		const measured = await page.evaluate(() =>
 			((window as any).dataLayer ?? []).some((e: any) => e.event === 'hero_cta_clicked')
 		);
-		expect(flushed).toBe(true);
-
-		const bufferedAfter = await page.evaluate(() =>
-			sessionStorage.getItem('ethoz_pending_events')
-		);
-		expect(bufferedAfter).toBeNull();
+		expect(measured).toBe(true);
+		expect(await page.evaluate(() => sessionStorage.getItem('ethoz_pending_events'))).toBeNull();
 	});
 });

@@ -40,18 +40,35 @@ describe('getDeviceMetadata', () => {
   });
 
   it('uses "directo" when document.referrer is empty', () => {
-    const meta = getDeviceMetadata();
+    const meta = getDeviceMetadata({ includeMarketingAttribution: true });
     expect(meta?.referrer).toBe('directo');
   });
 
-  it('uses document.referrer when present', () => {
+  it('uses a query-free document.referrer only with marketing attribution', () => {
     Object.defineProperty(document, 'referrer', {
       writable: true,
       configurable: true,
-      value: 'https://google.com',
+      value: 'https://google.com/search?utm_source=test',
     });
+    const meta = getDeviceMetadata({ includeMarketingAttribution: true });
+    expect(meta?.referrer).toBe('https://google.com/search');
+  });
+
+  it('withholds referrer and query parameters without marketing consent', () => {
+    Object.defineProperty(window, 'location', {
+      writable: true,
+      configurable: true,
+      value: { href: 'https://ethoz.cl/demo?utm_source=test&email=user@example.com' },
+    });
+    Object.defineProperty(document, 'referrer', {
+      writable: true,
+      configurable: true,
+      value: 'https://google.com/search?q=ethoz',
+    });
+
     const meta = getDeviceMetadata();
-    expect(meta?.referrer).toBe('https://google.com');
+    expect(meta?.referrer).toBe('withheld');
+    expect(meta?.url).toBe('https://ethoz.cl/demo');
   });
 });
 

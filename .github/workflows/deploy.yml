@@ -1,21 +1,58 @@
 name: Deploy Ethoz Landing to Firebase
+
 on:
-  workflow_dispatch: # Manual trigger only — click "Run workflow" on GitHub
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
 
 jobs:
-  deploy:
+  quality:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-      - run: npm ci
+      - name: Require main for a production deployment
+        if: github.event_name == 'workflow_dispatch' && github.ref != 'refs/heads/main'
+        run: |
+          echo "Production deployments must be dispatched from the main branch."
+          exit 1
 
-      - name: Build
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Lint source and design rules
+        run: npm run lint
+
+      - name: Validate translations
+        run: npm run lint:i18n
+
+      - name: Check Svelte and TypeScript
+        run: npm run check
+
+      - name: Run static security audit
+        run: npm run audit:security
+
+      - name: Run unit tests
+        run: npm run test:unit
+
+      - name: Build production artifact
         run: npm run build
         env:
           PUBLIC_CAL_API_KEY: ${{ secrets.PUBLIC_CAL_API_KEY }}
@@ -25,9 +62,92 @@ jobs:
           PUBLIC_APP_URL: https://app.ethoz.cl/login
           PUBLIC_MARKETING_API_URL: https://app.ethoz.cl
 
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Archive production artifact
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: firebase-hosting-build-${{ github.sha }}
+          path: build
+          if-no-files-found: error
+          retention-days: 1
+
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Build application for browser tests
+        run: npm run build
+        env:
+          PUBLIC_CAL_API_KEY: ${{ secrets.PUBLIC_CAL_API_KEY }}
+          PUBLIC_CLARITY_PROJECT_ID: ${{ secrets.PUBLIC_CLARITY_PROJECT_ID }}
+          PUBLIC_RECAPTCHA_SITE_KEY: ${{ secrets.PUBLIC_RECAPTCHA_SITE_KEY }}
+          PUBLIC_SENTRY_DSN: ${{ secrets.PUBLIC_SENTRY_DSN }}
+          PUBLIC_APP_URL: https://app.ethoz.cl/login
+          PUBLIC_MARKETING_API_URL: https://app.ethoz.cl
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium webkit
+
+      - name: Run end-to-end browser tests
+        run: npm run test:e2e -- --reporter=line,html
+        env:
+          PLAYWRIGHT_HTML_OPEN: never
+
+      - name: Upload Playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ github.sha }}
+          path: playwright-report
+          if-no-files-found: ignore
+          retention-days: 7
+
+  deploy:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    needs:
+      - quality
+      - e2e
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: production
+      url: https://ethoz.cl
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Download validated production artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: firebase-hosting-build-${{ github.sha }}
+          path: build
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           projectId: gestion-estudiantil-dev
           channelId: live
+
+      - name: Verify production after deploy
+        run: npm run smoke:production
+        env:
+          SMOKE_BASE_URL: https://ethoz.cl
