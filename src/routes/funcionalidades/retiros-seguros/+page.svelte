@@ -42,7 +42,7 @@
   <main id="main-content" class="flex-1">
 
   <!-- Hero -->
-  <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
+  <section class="bg-secondary pt-24 pb-8 sm:pt-28 sm:pb-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href="/#features" class="-mt-3 mb-5 inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
@@ -51,7 +51,7 @@
       <div class="mt-6 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="lg:pt-6">
           <h1 class="text-balance text-foreground">
-            <span class="whitespace-nowrap"><Bell class="mr-3 inline size-6 align-middle text-primary" aria-hidden="true" />{t('features.pickup.title').split(' ')[0]}</span>
+            <span class="whitespace-nowrap"><Bell class="mr-3 inline size-10 lg:size-12 align-middle text-primary-active" aria-hidden="true" />{t('features.pickup.title').split(' ')[0]}</span>
             {t('features.pickup.title').split(' ').slice(1).join(' ')}
           </h1>
           <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
@@ -94,7 +94,7 @@
         </div>
 
         <!-- Mockup: verification screen -->
-        <div class="w-full rounded-xl border border-border bg-card shadow-card-hover">
+        <div class="w-full rounded-xl border border-border bg-card shadow-card-dark-hover">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -112,12 +112,12 @@
                 </div>
               </div>
               <div class="flex gap-3">
-                <img src="/images/people/apoderado-madre.webp" alt={t('featurePage.safePickups.mockup.authorized_photo_alt')} class="size-14 rounded-full object-cover ring-2 ring-success/30" loading="lazy" decoding="async" />
+                <div class="size-14 rounded-full bg-success/10 flex items-center justify-center text-sm font-semibold text-success ring-2 ring-success/30" aria-hidden="true">AE</div>
                 <div class="flex-1">
-                  <p class="text-sm font-semibold text-foreground">María Sepúlveda Contreras</p>
+                  <p class="text-sm font-semibold text-foreground">Apoderado de ejemplo</p>
                   <p class="text-mockup-sm text-muted-foreground">RUT 12.345.678-9 · {t('featurePage.safePickups.mockup.relation_mother')}</p>
                   <div class="mt-2 grid grid-cols-2 gap-x-3 gap-y-1">
-                    <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_student_f')}</span> Valentina Rojas</p>
+                    <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_student_f')}</span> Alumna de ejemplo</p>
                     <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_grade')}</span> 7° Básico B</p>
                     <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_pickups_6m')}</span> 12</p>
                     <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.safePickups.mockup.label_last')}</span> {t('featurePage.safePickups.mockup.value_yesterday_1530')}</p>
@@ -138,7 +138,7 @@
                   <Ban class="size-6 text-destructive" />
                 </div>
                 <div class="flex-1">
-                  <p class="text-sm font-semibold text-foreground">Ricardo González Vidal</p>
+                  <p class="text-sm font-semibold text-foreground">Apoderado de ejemplo</p>
                   <p class="text-mockup-sm text-muted-foreground">RUT 9.876.543-2 · {t('featurePage.safePickups.mockup.relation_father')}</p>
                   <div class="mt-2 rounded-lg bg-destructive/5 border border-destructive/20 px-2 py-1.5">
                     <p class="text-mockup-xs font-semibold text-destructive">{t('featurePage.safePickups.mockup.blocked_reason')}</p>
@@ -187,7 +187,7 @@
   />
 
   <!-- How it works: 3 steps -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="mb-2 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('featurePage.safePickups.howItWorks.eyebrow')}</p>
       <h2 class="mb-2 text-xl text-foreground sm:text-2xl">{t('featurePage.safePickups.howItWorks.title')}</h2>
@@ -195,17 +195,17 @@
         {t('featurePage.safePickups.howItWorks.intro')}
       </p>
       <div class="grid gap-6 sm:grid-cols-3">
-        <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">01</span>
           <p class="mt-3 text-sm font-semibold text-foreground">{t('featurePage.safePickups.howItWorks.step1_title')}</p>
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.safePickups.howItWorks.step1_body')}</p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">02</span>
           <p class="mt-3 text-sm font-semibold text-foreground">{t('featurePage.safePickups.howItWorks.step2_title')}</p>
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.safePickups.howItWorks.step2_body')}</p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">03</span>
           <p class="mt-3 text-sm font-semibold text-foreground">{t('featurePage.safePickups.howItWorks.step3_title')}</p>
           <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{t('featurePage.safePickups.howItWorks.step3_body')}</p>
@@ -215,11 +215,11 @@
   </section>
 
   <!-- Detail cards -->
-  <section class="bg-secondary py-12 sm:py-14">
+  <section class="bg-secondary py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <ShieldCheck class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.safePickups.detail.card1_title')}</h2>
@@ -229,7 +229,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <Ban class="size-5 shrink-0 text-destructive" />
             <h2 class="text-base text-foreground">{t('featurePage.safePickups.detail.card2_title')}</h2>
@@ -239,7 +239,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <BellRing class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.safePickups.detail.card3_title')}</h2>
@@ -254,7 +254,7 @@
   </section>
 
   <!-- Stats bar -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 sm:grid-cols-3 text-center">
         <div>
@@ -274,32 +274,32 @@
   </section>
 
   <!-- Final CTA — dark navy editorial close -->
-  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="pickup-cta">
+  <section class="bg-secondary py-20 text-foreground sm:py-24" aria-labelledby="pickup-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('featurePage.safePickups.finalCta.eyebrow')}</p>
-      <h2 id="pickup-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
+      <span class="mx-auto block h-px w-12 bg-foreground/60" aria-hidden="true"></span>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-foreground/85">{t('featurePage.safePickups.finalCta.eyebrow')}</p>
+      <h2 id="pickup-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-foreground sm:text-4xl">
         {t('featurePage.safePickups.finalCta.title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
         {t('featurePage.safePickups.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-8 text-sm font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('featurePage.safePickups.finalCta.primary')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/#features"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-foreground/20 bg-transparent px-8 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('featurePage.safePickups.finalCta.secondary')}
         </a>
       </div>
-      <p class="mt-8 text-xs text-background/80">
+      <p class="mt-8 text-xs text-foreground/80">
         {t('featurePage.safePickups.finalCta.footnote')}
       </p>
     </div>

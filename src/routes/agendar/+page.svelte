@@ -114,8 +114,8 @@
     Cal('ui', {
       theme: 'light',
       styles: { branding: {
-        // lint-ok: Cal.com embed SDK expects hex literal; keep in sync with the 8020 sky accent (--brand-accent)
-        brandColor: '#0495FE'
+        // lint-ok: Cal.com embed SDK expects hex literal; keep in sync with --primary (#F97316)
+        brandColor: '#F97316'
       } },
       hideEventTypeDetails: false,
       hideBranding: true,

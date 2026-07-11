@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # lint-shadow-2xl.sh
-# Bans shadow-xl / shadow-2xl on .svelte files (non-admin). Cards use shadow-card / shadow-card-hover only.
-# Anti-pattern memory #16. Cal aesthetic uses subtle drop shadows, not heavy ones.
+# Blocks shadow-xl / shadow-2xl on .svelte files (non-admin). Launch UI uses
+# intentional glows (shadow-glow-amber) and subtle card shadows (shadow-card-dark).
 
 set -euo pipefail
 
@@ -19,7 +19,7 @@ HITS=$(grep -rEn "$PATTERN" \
 
 if [ -n "$HITS" ]; then
   echo ""
-  echo "❌ shadow-xl / shadow-2xl detected. Use shadow-card / shadow-card-hover / shadow-mockup."
+  echo "❌ shadow-xl / shadow-2xl detected. Use shadow-card-dark / shadow-card-dark-hover / shadow-glow-amber / shadow-mockup."
   echo ""
   echo "$HITS"
   echo ""

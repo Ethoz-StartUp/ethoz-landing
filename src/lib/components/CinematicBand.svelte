@@ -37,7 +37,7 @@
   });
 </script>
 
-<section class="relative w-full overflow-hidden bg-surface-dark" aria-label={label}>
+<section class="relative w-full overflow-hidden bg-background" aria-label={label}>
   <video
     bind:this={videoEl}
     class="block aspect-video max-h-[82vh] w-full object-cover"

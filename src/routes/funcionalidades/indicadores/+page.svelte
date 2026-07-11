@@ -39,7 +39,7 @@
   <main id="main-content" class="flex-1">
 
   <!-- Hero -->
-  <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
+  <section class="bg-secondary pt-24 pb-8 sm:pt-28 sm:pb-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href="/productos" class="-mt-3 mb-5 inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
@@ -47,8 +47,8 @@
       </a>
       <div class="mt-6 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <div class="flex items-center gap-3">
-            <BarChart3 class="size-6 shrink-0 text-primary" />
+          <div class="flex items-center gap-4">
+            <BarChart3 class="size-10 lg:size-12 shrink-0 text-primary-active" />
             <h1 class="text-balance text-foreground">
               {t('featurePage.analytics.hero_title')}
             </h1>
@@ -72,7 +72,7 @@
         </div>
 
         <!-- KPI Cards mockup -->
-        <div aria-hidden="true" class="w-full rounded-xl border border-border bg-card shadow-card-hover">
+        <div aria-hidden="true" class="w-full rounded-xl border border-border bg-card shadow-card-dark-hover">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -141,7 +141,7 @@
   />
 
   <!-- Charts section -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('featurePage.analytics.charts_eyebrow')}</p>
@@ -217,11 +217,11 @@
               <span class="text-center">{t('featurePage.analytics.risk_table_col_risk')}</span>
             </div>
             {#each [
-              { name: 'Matías González H.', curso: '8°A', obs: 14, riskKey: 'featurePage.analytics.risk_level_high' as const, riskColor: 'bg-destructive/10 text-destructive' },
-              { name: 'Sofía Carrasco M.', curso: '7°B', obs: 11, riskKey: 'featurePage.analytics.risk_level_high' as const, riskColor: 'bg-destructive/10 text-destructive' },
-              { name: 'Diego Fuentes P.', curso: '6°A', obs: 8, riskKey: 'featurePage.analytics.risk_level_medium' as const, riskColor: 'bg-warning/10 text-warning-foreground' },
-              { name: 'Catalina Vega R.', curso: '5°B', obs: 6, riskKey: 'featurePage.analytics.risk_level_medium' as const, riskColor: 'bg-warning/10 text-warning-foreground' },
-              { name: 'Joaquín Soto N.', curso: '8°B', obs: 4, riskKey: 'featurePage.analytics.risk_level_low' as const, riskColor: 'bg-success/10 text-success' },
+              { name: 'Alumno de ejemplo', curso: '8°A', obs: 14, riskKey: 'featurePage.analytics.risk_level_high' as const, riskColor: 'bg-destructive/10 text-destructive' },
+              { name: 'Alumna de ejemplo', curso: '7°B', obs: 11, riskKey: 'featurePage.analytics.risk_level_high' as const, riskColor: 'bg-destructive/10 text-destructive' },
+              { name: 'Alumno de ejemplo', curso: '6°A', obs: 8, riskKey: 'featurePage.analytics.risk_level_medium' as const, riskColor: 'bg-warning/10 text-warning-foreground' },
+              { name: 'Alumna de ejemplo', curso: '5°B', obs: 6, riskKey: 'featurePage.analytics.risk_level_medium' as const, riskColor: 'bg-warning/10 text-warning-foreground' },
+              { name: 'Alumno de ejemplo', curso: '8°B', obs: 4, riskKey: 'featurePage.analytics.risk_level_low' as const, riskColor: 'bg-success/10 text-success' },
             ] as row}
               <div class="grid grid-cols-[1fr_auto_auto] gap-2 items-center rounded-lg px-1 py-1.5 hover:bg-muted transition-colors">
                 <div>
@@ -240,49 +240,49 @@
   </section>
 
   <!-- Features grid -->
-  <section class="bg-secondary py-12 sm:py-14">
+  <section class="bg-secondary py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <h2 class="text-2xl text-foreground sm:text-3xl">{t('featurePage.analytics.features_title')}</h2>
         <p class="mt-3 text-base text-muted-foreground">{t('featurePage.analytics.features_subtitle')}</p>
       </div>
       <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <TrendingUp class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">{t('featurePage.analytics.feature_trends_title')}</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('featurePage.analytics.feature_trends_body')}</p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <Users class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">{t('featurePage.analytics.feature_segmentation_title')}</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('featurePage.analytics.feature_segmentation_body')}</p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <BarChart3 class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">{t('featurePage.analytics.feature_multisite_title')}</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('featurePage.analytics.feature_multisite_body')}</p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <ShieldAlert class="size-5 shrink-0 text-destructive" />
             <h3 class="text-base font-semibold text-foreground">{t('featurePage.analytics.feature_compliance_title')}</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('featurePage.analytics.feature_compliance_body')}</p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <ClipboardList class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">{t('featurePage.analytics.feature_export_title')}</h3>
           </div>
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{t('featurePage.analytics.feature_export_body')}</p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <Filter class="size-5 shrink-0 text-primary" />
             <h3 class="text-base font-semibold text-foreground">{t('featurePage.analytics.feature_thresholds_title')}</h3>
@@ -294,7 +294,7 @@
   </section>
 
   <!-- Por qué importa -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 sm:grid-cols-3">
         <StatCard
@@ -320,27 +320,27 @@
   </section>
 
   <!-- Final CTA — dark navy editorial close -->
-  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="analytics-cta">
+  <section class="bg-secondary py-20 text-foreground sm:py-24" aria-labelledby="analytics-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('featurePage.analytics.finalCta.eyebrow')}</p>
-      <h2 id="analytics-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
+      <span class="mx-auto block h-px w-12 bg-foreground/60" aria-hidden="true"></span>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-foreground/85">{t('featurePage.analytics.finalCta.eyebrow')}</p>
+      <h2 id="analytics-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-foreground sm:text-4xl">
         {t('featurePage.analytics.finalCta.title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
         {t('featurePage.analytics.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-8 text-sm font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('featurePage.analytics.finalCta_btn_demo')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/productos"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-foreground/20 bg-transparent px-8 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('featurePage.analytics.finalCta_btn_modules')}
         </a>

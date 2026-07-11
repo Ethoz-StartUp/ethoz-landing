@@ -24,7 +24,7 @@ for (const viewport of [
 
 		test('operational mockup remains visible with the full student name', async ({ page }) => {
 			await expect(page.getByText('Ethoz · Demo operacional', { exact: true })).toBeVisible();
-			const studentName = page.getByText('Diego Fernández', { exact: true }).first();
+			const studentName = page.getByText('Alumno de ejemplo', { exact: true }).first();
 			await expect(studentName).toBeVisible();
 			expect(
 				await studentName.evaluate((element) => ({
@@ -32,7 +32,7 @@ for (const viewport of [
 					textOverflow: getComputedStyle(element).textOverflow,
 					overflows: element.scrollWidth > element.clientWidth + 1
 				}))
-			).toEqual({ text: 'Diego Fernández', textOverflow: 'clip', overflows: false });
+			).toEqual({ text: 'Alumno de ejemplo', textOverflow: 'clip', overflows: false });
 		});
 
 		test('fast scrolling never makes reveal sections transparent', async ({ page }) => {

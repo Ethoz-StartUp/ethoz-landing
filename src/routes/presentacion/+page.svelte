@@ -1284,7 +1284,7 @@
 
   .ctrl-btn:hover {
     color: var(--foreground);
-    background: var(--surface-soft);
+    background: var(--surface-elevated);
   }
 
   .ctrl-btn:disabled {

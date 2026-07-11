@@ -39,8 +39,8 @@
 
   <main id="main-content" class="flex-1">
 
-  <div class="mx-auto flex-1 max-w-7xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
-    <!-- Editorial header — McK pattern: eyebrow · meta · short rule · DM Sans display h1 · subtitle -->
+  <div class="mx-auto flex-1 max-w-7xl px-4 pt-24 pb-8 sm:pt-28 sm:pb-10 sm:px-6 lg:px-8">
+    <!-- Editorial header — Launch UI pattern: eyebrow · meta · short rule · Inter display h1 · subtitle -->
     <header class="mb-12 max-w-3xl sm:mb-16">
       <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">Publicaciones</span>
@@ -61,7 +61,7 @@
       {#each data.posts as post, i}
         <a
           href="/blog/{post.slug}"
-          class="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 shadow-card hover:shadow-card-hover hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px]"
+          class="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 shadow-card-dark hover:shadow-card-dark-hover hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px]"
         >
           <!-- Cover image -->
           {#if post.coverImage}
@@ -73,6 +73,8 @@
                 height="900"
                 class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading={i === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 fetchpriority={i === 0 ? 'high' : 'auto'}
               />
             </div>

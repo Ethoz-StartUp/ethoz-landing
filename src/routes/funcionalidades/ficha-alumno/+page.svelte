@@ -60,7 +60,7 @@
   <main id="main-content" class="flex-1">
 
   <!-- Hero -->
-  <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
+  <section class="bg-secondary pt-24 pb-8 sm:pt-28 sm:pb-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href="/#features" class="-mt-3 mb-5 inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
@@ -68,8 +68,8 @@
       </a>
       <div class="mt-6 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="lg:pt-6">
-          <div class="flex items-center gap-3">
-            <ClipboardList class="size-6 shrink-0 text-primary" />
+          <div class="flex items-center gap-4">
+            <ClipboardList class="size-10 lg:size-12 shrink-0 text-primary-active" />
             <h1 class="text-balance text-foreground">
               {t('features.record.title')}
             </h1>
@@ -94,10 +94,10 @@
         </div>
 
         <!-- Interactive mockup: Ficha 360° -->
-        <div class="w-full rounded-xl border border-border bg-card shadow-card-hover">
+        <div class="w-full rounded-xl border border-border bg-card shadow-card-dark-hover">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
-            <div class="size-2.5 rounded-full bg-warning/60"></div>
+            <div class="size-2.5 rounded-full bg-primary/60"></div>
             <div class="size-2.5 rounded-full bg-success/60"></div>
             <span class="ml-2 text-mockup-sm font-medium text-muted-foreground">{t('featurePage.studentProfile.mockup_window_title')}</span>
           </div>
@@ -105,15 +105,15 @@
             <!-- Student header -->
             <div class="flex gap-4">
               <div class="flex flex-col items-center gap-2">
-                <img src="/images/students/girl-12.webp" alt={t('featurePage.studentProfile.mockup_avatar_alt')} class="size-14 rounded-full object-cover ring-2 ring-primary/20" loading="lazy" decoding="async" />
+                <div class="size-14 rounded-full bg-primary/10 flex items-center justify-center text-sm font-semibold text-primary-active ring-2 ring-primary/20" aria-hidden="true">AE</div>
                 <span class="inline-flex items-center gap-1 rounded-full bg-success/10 px-2 py-0.5 text-mockup-xs font-medium text-success">{t('featurePage.studentProfile.mockup_no_alerts')}</span>
               </div>
               <div class="flex-1 min-w-0">
-                <p class="text-sm font-semibold text-foreground">Valentina Rojas Sepúlveda</p>
+                <p class="text-sm font-semibold text-foreground">Alumna de ejemplo</p>
                 <p class="text-mockup-sm text-muted-foreground">{t('featurePage.studentProfile.mockup_grade')} · RUT 23.456.789-0</p>
-                <p class="text-mockup-xs text-muted-foreground mt-0.5">{t('featurePage.studentProfile.mockup_school')} · Ñuñoa · RBD 9234</p>
+                <p class="text-mockup-xs text-muted-foreground mt-0.5">{t('featurePage.studentProfile.mockup_school')} · Ejemplo · RBD 9234</p>
                 <div class="mt-2 grid grid-cols-2 gap-x-4 gap-y-1">
-                  <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.studentProfile.mockup_guardian_label')}</span> María Sepúlveda</p>
+                  <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.studentProfile.mockup_guardian_label')}</span> Apoderado de ejemplo</p>
                   <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.studentProfile.mockup_phone_label')}</span> +56 9 8765 4321</p>
                   <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.studentProfile.mockup_enrolled_label')}</span> {t('featurePage.studentProfile.mockup_enrolled_value')}</p>
                   <p class="text-mockup-xs text-muted-foreground"><span class="font-medium text-foreground">{t('featurePage.studentProfile.mockup_pie_label')}</span> {t('featurePage.studentProfile.mockup_pie_value')}</p>
@@ -274,7 +274,7 @@
   />
 
   <!-- Timeline section -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="mb-2 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('featurePage.studentProfile.timeline_eyebrow')}</p>
       <h2 class="mb-2 text-xl text-foreground sm:text-2xl">{t('featurePage.studentProfile.timeline_title')}</h2>
@@ -321,11 +321,11 @@
   </section>
 
   <!-- Detail cards -->
-  <section class="bg-secondary py-12 sm:py-14">
+  <section class="bg-secondary py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <History class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.studentProfile.card1_title')}</h2>
@@ -335,7 +335,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <Lock class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.studentProfile.card2_title')}</h2>
@@ -345,7 +345,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <BadgeCheck class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.studentProfile.card3_title')}</h2>
@@ -360,7 +360,7 @@
   </section>
 
   <!-- Alert mini list section -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <div>
@@ -414,27 +414,27 @@
   </section>
 
   <!-- Final CTA — dark navy editorial close -->
-  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="profile-cta">
+  <section class="bg-secondary py-20 text-foreground sm:py-24" aria-labelledby="profile-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('featurePage.studentProfile.finalCta.eyebrow')}</p>
-      <h2 id="profile-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
+      <span class="mx-auto block h-px w-12 bg-foreground/60" aria-hidden="true"></span>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-foreground/85">{t('featurePage.studentProfile.finalCta.eyebrow')}</p>
+      <h2 id="profile-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-foreground sm:text-4xl">
         {t('featurePage.studentProfile.finalCta.title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
         {t('featurePage.studentProfile.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-8 text-sm font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('featurePage.studentProfile.cta_primary')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/#features"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-foreground/20 bg-transparent px-8 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('featurePage.studentProfile.cta_secondary')}
         </a>

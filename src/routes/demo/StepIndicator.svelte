@@ -32,7 +32,7 @@
             <a
               href="/demo"
               onclick={onBeforeBack}
-              class="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md px-2 text-foreground transition-colors hover:bg-accent-tint hover:text-primary-active sm:px-3"
+              class="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md px-2 text-foreground transition-colors hover:bg-primary/10 hover:text-primary-active sm:px-3"
             >
               <span
                 aria-hidden="true"

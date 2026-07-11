@@ -74,7 +74,7 @@
       <!-- 1. Equipo de respuesta -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">1</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">1</span>
           {t('resBreachResponse.s1_title')}
         </h2>
         <div class="overflow-x-auto rounded-xl border border-border">
@@ -101,7 +101,7 @@
       <!-- 2. Clasificación -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">2</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">2</span>
           {t('resBreachResponse.s2_title')}
         </h2>
         <div class="space-y-3">
@@ -121,7 +121,7 @@
           </div>
           <div class="rounded-xl border border-destructive/20 bg-destructive/10   p-4">
             <div class="flex items-center gap-2 mb-2">
-              <span class="rounded-full bg-destructive px-2.5 py-0.5 text-mockup-sm font-bold text-white">{t('resBreachResponse.s2_level_critical')}</span>
+              <span class="rounded-full bg-destructive px-2.5 py-0.5 text-mockup-sm font-bold text-destructive-foreground">{t('resBreachResponse.s2_level_critical')}</span>
               <span class="text-xs text-muted-foreground">{t('resBreachResponse.s2_critical_obligation')}</span>
             </div>
             <p class="text-sm text-muted-foreground">{t('resBreachResponse.s2_critical_desc')}</p>
@@ -132,7 +132,7 @@
       <!-- 3. Procedimiento 72 horas -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">3</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">3</span>
           {t('resBreachResponse.s3_title')}
         </h2>
         <div class="space-y-3">
@@ -161,7 +161,7 @@
       <!-- 4. Evaluación de impacto -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">4</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">4</span>
           {t('resBreachResponse.s4_title')}
         </h2>
         <p class="text-muted-foreground mb-3">{t('resBreachResponse.s4_intro')}</p>
@@ -189,7 +189,7 @@
       <!-- 5. Comunicación a afectados -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">5</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">5</span>
           {t('resBreachResponse.s5_title')}
         </h2>
         <p class="text-muted-foreground mb-3">{t('resBreachResponse.s5_intro')}</p>
@@ -206,7 +206,7 @@
       <!-- 6. Documentación -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">6</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">6</span>
           {t('resBreachResponse.s6_title')}
         </h2>
         <p class="text-muted-foreground mb-3">{t('resBreachResponse.s6_intro')}</p>
@@ -226,7 +226,7 @@
       <!-- 7. Plantilla de reporte -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">7</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">7</span>
           {t('resBreachResponse.s7_title')}
         </h2>
         <div class="rounded-xl border-2 border-dashed border-border bg-muted/20 p-6 space-y-4 text-sm text-muted-foreground">

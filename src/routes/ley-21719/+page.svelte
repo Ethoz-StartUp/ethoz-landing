@@ -341,7 +341,7 @@
           </p>
           <div class="mt-8 grid gap-4 sm:grid-cols-2">
             {#each rights as right}
-              <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+              <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
                 <div class="flex items-baseline gap-3">
                   <span class="font-heading text-2xl leading-none text-primary group-hover:text-foreground">{right.letter}</span>
                   <h3 class="text-base font-semibold text-foreground">{t(right.nameKey)}</h3>
@@ -467,7 +467,7 @@
               { titleKey: 'ley21719.s9_f3_title' as const, descKey: 'ley21719.s9_f3_desc' as const, link: '/cumplimiento' },
               { titleKey: 'ley21719.s9_f4_title' as const, descKey: 'ley21719.s9_f4_desc' as const, link: '/integraciones' },
             ] as item}
-              <a href={item.link} class="group block rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+              <a href={item.link} class="group block rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
                 <h3 class="font-semibold text-foreground">{t(item.titleKey)}</h3>
                 <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t(item.descKey)}</p>
                 <span class="mt-4 inline-flex items-center gap-1 border-b border-primary pb-0.5 text-sm font-semibold text-primary group-hover:border-b-2">
@@ -503,29 +503,29 @@
   <!-- ══════════════════════════════════════
        FINAL CTA — dark navy editorial closing
        ══════════════════════════════════════ -->
-  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-law">
+  <section class="bg-secondary py-20 text-foreground sm:py-24" aria-labelledby="final-cta-law">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('ley21719.cta_eyebrow')}</p>
-      <h2 id="final-cta-law" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl lg:text-5xl">
+      <span class="mx-auto block h-px w-12 bg-foreground/60" aria-hidden="true"></span>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-foreground/85">{t('ley21719.cta_eyebrow')}</p>
+      <h2 id="final-cta-law" class="mt-5 font-heading text-3xl leading-[1.15] text-foreground sm:text-4xl lg:text-5xl">
         {t('ley21719.cta_title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
         {t('ley21719.cta_body')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
-          class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-background px-10 text-base font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-10 text-base font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('ley21719.cta_primary')}
           <ArrowRight class="size-5" />
         </a>
         <a
           href="/glosario"
-          class="group inline-flex min-h-11 items-center gap-1 text-sm font-medium text-background/80 transition-colors hover:text-background"
+          class="group inline-flex min-h-11 items-center gap-1 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground"
         >
-          <span class="border-b border-background/60 pb-0.5 transition-colors group-hover:border-background">{t('ley21719.cta_secondary')}</span>
+          <span class="border-b border-foreground/60 pb-0.5 transition-colors group-hover:border-foreground">{t('ley21719.cta_secondary')}</span>
         </a>
       </div>
     </div>

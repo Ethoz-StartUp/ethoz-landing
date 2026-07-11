@@ -5,14 +5,11 @@
 # Font history on this codebase:
 #   - Playfair Display / Newsreader (medical-blue + Stripe Press eras) — retired
 #   - Cal Sans (Cal.com clone era)                                     — retired
-#   - DM Sans (8020 design system, current)                            — canonical
+#   - DM Sans (8020 design system)                                     — retired
+#   - Inter Variable (Launch UI v2)                                    — canonical
 #
-# --font-heading is now DM Sans (8020 §08). Display headings come from the global
-# h1-h6 selector or the `font-heading` class. DM Sans is a true variable font
-# (weights 100-900 + real italics) so weight/italic utilities are SAFE — there is
-# no synthesis problem to lint against (that check was Cal-Sans-specific, removed).
-#
-# Source of truth: 8020IQ Brand Guide v1.1, src/app.css token block.
+# --font-sans and --font-heading are now Inter Variable. Use the font-sans or
+# font-heading class; display weight is controlled by font-weight utilities.
 
 set -euo pipefail
 
@@ -21,7 +18,7 @@ cd "$(dirname "$0")/.."
 WARN_MODE="${WARN_MODE:-0}"
 
 # Retired font-family names. Word-boundary anchored to avoid false hits.
-PATTERN='Newsreader|Cal Sans|CalSans|cal-sans|Playfair'
+PATTERN='Newsreader|Cal Sans|CalSans|cal-sans|Playfair|DM Sans|DMSans|dm-sans|JetBrains Mono|JetBrainsMono|jetbrains-mono'
 
 HITS=$(grep -rEn "$PATTERN" \
   src/ \
@@ -35,11 +32,11 @@ HITS=$(grep -rEn "$PATTERN" \
 if [ -n "$HITS" ]; then
   echo ""
   if [ "$WARN_MODE" = "1" ]; then
-    echo "⚠  Retired display-font reference found (Newsreader / Cal Sans / Playfair):"
+    echo "⚠  Retired font reference found (Newsreader / Cal Sans / DM Sans / JetBrains Mono / Playfair):"
   else
-    echo "❌ Retired display-font reference found (Newsreader / Cal Sans / Playfair):"
+    echo "❌ Retired font reference found (Newsreader / Cal Sans / DM Sans / JetBrains Mono / Playfair):"
   fi
-  echo "   --font-heading is now DM Sans (8020 §08). Use h1/h2/h3 or the font-heading class."
+  echo "   --font-sans and --font-heading are now Inter Variable (Launch UI v2)."
   echo ""
   echo "$HITS"
   echo ""
@@ -51,4 +48,4 @@ if [ -n "$HITS" ]; then
   fi
 fi
 
-echo "✓ Stale-fonts lint: no retired display-font references"
+echo "✓ Stale-fonts lint: no retired font references"

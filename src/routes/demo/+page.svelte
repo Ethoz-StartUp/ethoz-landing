@@ -331,7 +331,7 @@
       {/if}
 
       <!-- Network / corporation branch — quiet link, subordinate to the search flow -->
-      <div class="rounded-xl border border-hairline bg-card p-5 text-center">
+      <div class="rounded-xl border border-border bg-card p-5 text-center">
         <p class="text-sm text-muted-foreground">{t('demo.network_prompt')}</p>
         <a
           href="/contacto"

@@ -13,19 +13,19 @@
   $effect(() => { trackEvent('audience_page_viewed', { audience: 'sostenedores' }); });
 
   const colegios = [
-    { nombre: 'Colegio San Patricio', rbd: '9234', alumnos: 842, alertas: 2, incidentes: 3, cumplimiento: 94 },
-    { nombre: 'Liceo Santa María', rbd: '11045', alumnos: 1204, alertas: 0, incidentes: 1, cumplimiento: 98 },
-    { nombre: 'Escuela La Esperanza', rbd: '7821', alumnos: 468, alertas: 5, incidentes: 7, cumplimiento: 71 },
-    { nombre: 'Colegio Los Andes', rbd: '14302', alumnos: 931, alertas: 1, incidentes: 2, cumplimiento: 96 },
-    { nombre: 'Instituto Bicentenario', rbd: '8890', alumnos: 1573, alertas: 3, incidentes: 4, cumplimiento: 88 },
+    { nombre: 'Colegio de ejemplo A', rbd: '9234', alumnos: 842, alertas: 2, incidentes: 3, cumplimiento: 94 },
+    { nombre: 'Liceo de ejemplo B', rbd: '11045', alumnos: 1204, alertas: 0, incidentes: 1, cumplimiento: 98 },
+    { nombre: 'Escuela de ejemplo C', rbd: '7821', alumnos: 468, alertas: 5, incidentes: 7, cumplimiento: 71 },
+    { nombre: 'Colegio de ejemplo D', rbd: '14302', alumnos: 931, alertas: 1, incidentes: 2, cumplimiento: 96 },
+    { nombre: 'Instituto de ejemplo E', rbd: '8890', alumnos: 1573, alertas: 3, incidentes: 4, cumplimiento: 88 },
   ];
 
   const auditLog = [
-    { hora: '09:14', colegio: 'Esc. La Esperanza', accion: 'audience.sostenedores.auditlog_accion1' as const, usuario: 'audience.sostenedores.auditlog_usuario1' as const, nivel: 'critical' },
-    { hora: '08:52', colegio: 'Col. San Patricio', accion: 'audience.sostenedores.auditlog_accion2' as const, usuario: 'audience.sostenedores.auditlog_usuario2' as const, nivel: 'info' },
-    { hora: '08:31', colegio: 'Lic. Santa María', accion: 'audience.sostenedores.auditlog_accion3' as const, usuario: 'audience.sostenedores.auditlog_usuario3' as const, nivel: 'info' },
-    { hora: '07:58', colegio: 'Inst. Bicentenario', accion: 'audience.sostenedores.auditlog_accion4' as const, usuario: 'audience.sostenedores.auditlog_usuario4' as const, nivel: 'warning' },
-    { hora: '07:44', colegio: 'Col. Los Andes', accion: 'audience.sostenedores.auditlog_accion5' as const, usuario: 'audience.sostenedores.auditlog_usuario5' as const, nivel: 'info' },
+    { hora: '09:14', colegio: 'Esc. ejemplo C', accion: 'audience.sostenedores.auditlog_accion1' as const, usuario: 'audience.sostenedores.auditlog_usuario1' as const, nivel: 'critical' },
+    { hora: '08:52', colegio: 'Col. ejemplo A', accion: 'audience.sostenedores.auditlog_accion2' as const, usuario: 'audience.sostenedores.auditlog_usuario2' as const, nivel: 'info' },
+    { hora: '08:31', colegio: 'Lic. ejemplo B', accion: 'audience.sostenedores.auditlog_accion3' as const, usuario: 'audience.sostenedores.auditlog_usuario3' as const, nivel: 'info' },
+    { hora: '07:58', colegio: 'Inst. ejemplo E', accion: 'audience.sostenedores.auditlog_accion4' as const, usuario: 'audience.sostenedores.auditlog_usuario4' as const, nivel: 'warning' },
+    { hora: '07:44', colegio: 'Col. ejemplo D', accion: 'audience.sostenedores.auditlog_accion5' as const, usuario: 'audience.sostenedores.auditlog_usuario5' as const, nivel: 'info' },
   ];
 </script>
 
@@ -56,7 +56,7 @@
   <main id="main-content">
 
   <!-- Hero -->
-  <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
+  <section class="bg-secondary pt-24 pb-8 sm:pt-28 sm:pb-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="lg:pt-6">
@@ -95,7 +95,7 @@
         </div>
 
         <!-- Dashboard multi-colegio mockup -->
-        <div class="w-full rounded-xl border border-border bg-card shadow-card-hover" aria-hidden="true">
+        <div class="w-full rounded-xl border border-border bg-card shadow-card-dark-hover" aria-hidden="true">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -155,7 +155,7 @@
   </section>
 
   <!-- Editorial anchor — sostenedor voice -->
-  <section class="py-12 sm:py-14" aria-labelledby="sostenedor-editorial">
+  <section class="py-10 sm:py-12" aria-labelledby="sostenedor-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="sostenedor-editorial" class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('audience.sostenedores.editorial.eyebrow')}</p>
@@ -169,7 +169,7 @@
   </section>
 
   <!-- El problema del sostenedor en 2026 -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-2">
         <AlertTriangle class="size-5 shrink-0 text-destructive" />
@@ -179,7 +179,7 @@
         {t('audience.sostenedores.problem_intro')}
       </p>
       <div class="grid gap-6 sm:grid-cols-2">
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <Scale class="size-5 shrink-0 text-destructive" />
             <h3 class="font-heading text-base text-foreground">{t('audience.sostenedores.problem_card1_title')}</h3>
@@ -188,7 +188,7 @@
             {t('audience.sostenedores.problem_card1_body_p1')} <strong class="text-foreground">{t('audience.sostenedores.problem_card1_body_strong1')}</strong>{t('audience.sostenedores.problem_card1_body_p2')} <strong class="text-foreground">{t('audience.sostenedores.problem_card1_body_strong2')}</strong>{t('audience.sostenedores.problem_card1_body_p3')}
           </p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <TrendingDown class="size-5 shrink-0 text-warning-foreground" />
             <h3 class="font-heading text-base text-foreground">{t('audience.sostenedores.problem_card2_title')}</h3>
@@ -197,7 +197,7 @@
             {t('audience.sostenedores.problem_card2_body')}
           </p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <BarChart3 class="size-5 shrink-0 text-primary" />
             <h3 class="font-heading text-base text-foreground">{t('audience.sostenedores.problem_card3_title')}</h3>
@@ -206,7 +206,7 @@
             {t('audience.sostenedores.problem_card3_body')}
           </p>
         </div>
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5 mb-3">
             <FileSearch class="size-5 shrink-0 text-primary" />
             <h3 class="font-heading text-base text-foreground">{t('audience.sostenedores.problem_card4_title')}</h3>
@@ -220,7 +220,7 @@
   </section>
 
   <!-- Exposición legal por N colegios -->
-  <section class="bg-secondary py-12 sm:py-14">
+  <section class="bg-secondary py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-center">
         <div>
@@ -294,7 +294,7 @@
   </section>
 
   <!-- Auditoría centralizada -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <div>
@@ -359,7 +359,7 @@
   </section>
 
   <!-- TAM callout + stats -->
-  <section class="bg-secondary py-12 sm:py-14">
+  <section class="bg-secondary py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="rounded-xl border border-border bg-card p-8 text-center shadow-sm">
         <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{t('audience.sostenedores.tam_eyebrow')}</p>
@@ -382,32 +382,32 @@
   </section>
 
   <!-- Final CTA — dark navy editorial close -->
-  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="sostenedor-cta">
+  <section class="bg-secondary py-20 text-foreground sm:py-24" aria-labelledby="sostenedor-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('audience.sostenedores.finalCta.eyebrow')}</p>
-      <h2 id="sostenedor-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
+      <span class="mx-auto block h-px w-12 bg-foreground/60" aria-hidden="true"></span>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-foreground/85">{t('audience.sostenedores.finalCta.eyebrow')}</p>
+      <h2 id="sostenedor-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-foreground sm:text-4xl">
         {t('audience.sostenedores.finalCta.title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
         {t('audience.sostenedores.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-8 text-sm font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('audience.sostenedores.finalCta_button_primary')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/#features"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-foreground/20 bg-transparent px-8 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('audience.sostenedores.finalCta_button_secondary')}
         </a>
       </div>
-      <p class="mt-8 text-xs text-background/80">
+      <p class="mt-8 text-xs text-foreground/80">
         {t('audience.sostenedores.finalCta.footnote')}
       </p>
     </div>

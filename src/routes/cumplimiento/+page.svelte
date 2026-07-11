@@ -136,7 +136,7 @@
         href="https://www.bcn.cl/leychile/navegar?idNorma=1209272"
         target="_blank"
         rel="noopener noreferrer"
-        class="group flex items-start gap-4 rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover"
+        class="group flex items-start gap-4 rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover"
       >
         <Scale class="size-5 shrink-0 text-primary" />
         <div class="min-w-0 flex-1">
@@ -158,7 +158,7 @@
   <!-- ══════════════════════════════════════
        COMPLIANCE TIMELINE
        ══════════════════════════════════════ -->
-  <section class="py-12 sm:py-14 bg-background">
+  <section class="py-10 sm:py-12 bg-background">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">
@@ -230,7 +230,7 @@
   <!-- ══════════════════════════════════════
        VISUAL: RBAC + PICKUPS
        ══════════════════════════════════════ -->
-  <section class="py-12 sm:py-14 bg-secondary">
+  <section class="py-10 sm:py-12 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- RBAC -->
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -244,7 +244,7 @@
           </p>
         </div>
         <div class="flex justify-center">
-          <div class="w-full max-w-xs overflow-hidden rounded-2xl border border-hairline bg-card shadow-card">
+          <div class="w-full max-w-xs overflow-hidden rounded-2xl border border-border bg-card shadow-card-dark">
             <img src="/images/pages/compliance-rbac.webp" alt={t('compliance_page.rbac.alt')} class="w-full" loading="lazy" />
           </div>
         </div>
@@ -253,7 +253,7 @@
       <!-- Pickups -->
       <div class="mt-20 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
-          <div class="w-full max-w-xs overflow-hidden rounded-2xl border border-hairline bg-card shadow-card">
+          <div class="w-full max-w-xs overflow-hidden rounded-2xl border border-border bg-card shadow-card-dark">
             <img src="/images/pages/compliance-pickups.webp" alt={t('compliance_page.pickups.alt')} class="w-full" loading="lazy" />
           </div>
         </div>
@@ -273,7 +273,7 @@
   <!-- ══════════════════════════════════════
        6 COMPLIANCE PILLARS
        ══════════════════════════════════════ -->
-  <section class="py-12 sm:py-14 bg-background">
+  <section class="py-10 sm:py-12 bg-background">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">
@@ -290,7 +290,7 @@
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {#each pillars as pillar, i}
           {@const Icon = pillar.icon}
-          <div class="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+          <div class="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
             <span class="font-heading text-2xl leading-none text-primary tabular-nums" data-numeric>0{i + 1}</span>
             <div class="mt-4 flex items-center gap-2.5">
               <Icon class="size-4 shrink-0 text-primary" />
@@ -307,7 +307,7 @@
   <!-- ══════════════════════════════════════
        VISUAL: AUDIT TRAIL
        ══════════════════════════════════════ -->
-  <section class="py-12 sm:py-14 bg-secondary">
+  <section class="py-10 sm:py-12 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
@@ -320,7 +320,7 @@
           </p>
         </div>
         <div class="flex justify-center">
-          <div class="w-full max-w-xs overflow-hidden rounded-2xl border border-hairline bg-card shadow-card">
+          <div class="w-full max-w-xs overflow-hidden rounded-2xl border border-border bg-card shadow-card-dark">
             <img src="/images/pages/compliance-audit.webp" alt={t('compliance_page.audit.alt')} width="800" height="800" class="h-auto w-full" loading="lazy" />
           </div>
         </div>
@@ -331,7 +331,7 @@
   <!-- ══════════════════════════════════════
        ARCHITECTURE OVERVIEW
        ══════════════════════════════════════ -->
-  <section class="py-12 sm:py-14 bg-background">
+  <section class="py-10 sm:py-12 bg-background">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">
@@ -366,7 +366,7 @@
   <!-- ══════════════════════════════════════
        CERTIFICATIONS / STANDARDS
        ══════════════════════════════════════ -->
-  <section class="py-12 sm:py-14 bg-secondary">
+  <section class="py-10 sm:py-12 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 text-center">
         <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">
@@ -412,27 +412,27 @@
   <!-- ══════════════════════════════════════
        FINAL CTA — dark navy editorial closing
        ══════════════════════════════════════ -->
-  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-compliance">
+  <section class="bg-secondary py-20 text-foreground sm:py-24" aria-labelledby="final-cta-compliance">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('compliance_page.cta.overline')}</p>
-      <h2 id="final-cta-compliance" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
+      <span class="mx-auto block h-px w-12 bg-foreground/60" aria-hidden="true"></span>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-foreground/85">{t('compliance_page.cta.overline')}</p>
+      <h2 id="final-cta-compliance" class="mt-5 font-heading text-3xl leading-[1.15] text-foreground sm:text-4xl">
         {t('compliance_page.cta.title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
         {t('compliance_page.cta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
-          class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-background px-10 text-base font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-10 text-base font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('compliance_page.cta.primary')}
           <ArrowRight class="size-5" />
         </a>
         <a
           href="/"
-          class="inline-flex items-center gap-1 border-b border-background/60 pb-0.5 text-sm font-medium text-background/80 transition-colors hover:border-background hover:text-background"
+          class="inline-flex items-center gap-1 border-b border-foreground/60 pb-0.5 text-sm font-medium text-foreground/80 transition-colors hover:border-foreground hover:text-foreground"
         >
           {t('compliance_page.cta.secondary')}
         </a>

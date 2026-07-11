@@ -59,7 +59,7 @@
   <main id="main-content" class="flex-1">
 
   <!-- Hero -->
-  <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
+  <section class="bg-secondary pt-24 pb-8 sm:pt-28 sm:pb-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href="/#features" class="-mt-3 mb-5 inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
@@ -67,8 +67,8 @@
       </a>
       <div class="mt-6 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="lg:pt-4">
-          <div class="flex items-center gap-3">
-            <Shield class="size-6 shrink-0 text-primary" />
+          <div class="flex items-center gap-4">
+            <Shield class="size-10 lg:size-12 shrink-0 text-primary-active" />
             <h1 class="text-balance text-foreground">
               {t('features.privacy.title')}
             </h1>
@@ -103,7 +103,7 @@
         </div>
 
         <!-- Compliance dashboard mockup -->
-        <div aria-hidden="true" class="w-full rounded-xl border border-border bg-card shadow-card-hover">
+        <div aria-hidden="true" class="w-full rounded-xl border border-border bg-card shadow-card-dark-hover">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -164,7 +164,7 @@
   />
 
   <!-- Data inventory section -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <p class="mb-2 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('featurePage.privacyCompliance.inventory.eyebrow')}</p>
       <h2 class="mb-2 text-xl text-foreground sm:text-2xl">{t('featurePage.privacyCompliance.inventory.heading')}</h2>
@@ -210,7 +210,7 @@
   </section>
 
   <!-- ARCO+P rights section -->
-  <section class="bg-secondary py-12 sm:py-14">
+  <section class="bg-secondary py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 class="mb-2 text-xl text-foreground sm:text-2xl">{t('featurePage.privacyCompliance.arco.heading')}</h2>
       <p class="mb-8 text-sm leading-relaxed text-muted-foreground max-w-2xl">
@@ -224,7 +224,7 @@
           { letter: 'O', rightKey: 'featurePage.privacyCompliance.arco.right_opposition' as const, descKey: 'featurePage.privacyCompliance.arco.desc_opposition' as const },
           { letter: 'P', rightKey: 'featurePage.privacyCompliance.arco.right_portability' as const, descKey: 'featurePage.privacyCompliance.arco.desc_portability' as const },
         ] as item}
-          <div class="group rounded-xl border border-border bg-card p-4 text-center transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+          <div class="group rounded-xl border border-border bg-card p-4 text-center transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
             <span class="font-heading block text-4xl tabular-nums leading-none text-primary transition-colors group-hover:text-foreground">{item.letter}</span>
             <p class="mt-3 text-sm font-semibold text-foreground">{t(item.rightKey)}</p>
             <p class="mt-1 text-mockup-sm leading-relaxed text-muted-foreground">{t(item.descKey)}</p>
@@ -235,11 +235,11 @@
   </section>
 
   <!-- Detail cards -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <Building2 class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.privacyCompliance.cards.isolation_title')}</h2>
@@ -249,7 +249,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <KeyRound class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.privacyCompliance.cards.encryption_title')}</h2>
@@ -259,7 +259,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <Users class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.privacyCompliance.cards.consent_title')}</h2>
@@ -274,32 +274,32 @@
   </section>
 
   <!-- Final CTA — dark navy editorial close with deadline footnote -->
-  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="privacy-cta">
+  <section class="bg-secondary py-20 text-foreground sm:py-24" aria-labelledby="privacy-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('featurePage.privacyCompliance.finalCta.eyebrow')}</p>
-      <h2 id="privacy-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
+      <span class="mx-auto block h-px w-12 bg-foreground/60" aria-hidden="true"></span>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-foreground/85">{t('featurePage.privacyCompliance.finalCta.eyebrow')}</p>
+      <h2 id="privacy-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-foreground sm:text-4xl">
         {t('featurePage.privacyCompliance.finalCta.title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
         {t('featurePage.privacyCompliance.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-8 text-sm font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('featurePage.privacyCompliance.finalCta.cta_primary')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/ley-21719"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-foreground/20 bg-transparent px-8 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('featurePage.privacyCompliance.finalCta.cta_secondary')}
         </a>
       </div>
-      <p class="mt-8 text-xs text-background/80">
+      <p class="mt-8 text-xs text-foreground/80">
         {t('featurePage.privacyCompliance.finalCta.footnote')}
       </p>
     </div>

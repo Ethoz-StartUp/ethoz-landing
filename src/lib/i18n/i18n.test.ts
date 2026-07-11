@@ -21,6 +21,7 @@ const homePrefixes = new Set([
   'feedbackModal',
   'feedbackOverlay',
   'pitchModal',
+  'features',
 ]);
 
 describe('i18n key parity', () => {

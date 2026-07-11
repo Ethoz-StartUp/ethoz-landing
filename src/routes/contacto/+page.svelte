@@ -111,7 +111,7 @@
   <NavBar />
 
   <!-- Content -->
-  <main id="main-content" class="mx-auto flex-1 w-full max-w-7xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
+  <main id="main-content" class="mx-auto flex-1 w-full max-w-7xl px-4 pt-20 pb-8 sm:pt-24 sm:pb-10 sm:px-6 lg:px-8">
 
     <!-- HEADING — editorial -->
     <div class="mb-12">
@@ -135,7 +135,7 @@
       <div class="grid gap-4 sm:grid-cols-2">
         <a
           href={CONTACT.email.link}
-          class="group flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover"
+          class="group flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover"
         >
           <div class="flex items-center gap-2.5">
             <Mail class="size-4 shrink-0 text-primary" />
@@ -149,7 +149,7 @@
 
         <a
           href="/demo"
-          class="group flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover"
+          class="group flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover"
         >
           <div class="flex items-center gap-2.5">
             <CalendarDays class="size-4 shrink-0 text-primary" />
@@ -165,7 +165,7 @@
           href="https://www.linkedin.com/company/ethozcl/"
           target="_blank"
           rel="noopener noreferrer"
-          class="group flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover"
+          class="group flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover"
         >
           <div class="flex items-center gap-2.5">
             <ExternalLink class="size-4 shrink-0 text-primary" />

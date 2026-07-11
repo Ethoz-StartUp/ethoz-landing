@@ -212,7 +212,7 @@
       {#each sections as section, si}
         <div>
           <div class="mb-4 flex items-center gap-3">
-            <span class="flex size-7 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">{si + 1}</span>
+            <span class="flex size-7 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">{si + 1}</span>
             <h2 class="text-lg font-semibold text-foreground">{t(section.title)}</h2>
             <span class="ml-auto text-xs text-muted-foreground">{section.items.length} {t('resComplianceChecklist.items_label')}</span>
           </div>

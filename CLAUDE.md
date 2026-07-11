@@ -5,7 +5,7 @@ Ethoz (ethoz.cl) is a school protection platform for Chilean K-12 schools. This 
 
 **Not a school management system** — complements existing ERPs (Napsis, Syscol, Lirmi) by adding security, compliance, and student data protection.
 
-> **Design system: 8020 (sky-blue vertical).** `main` runs the 8020IQ Brand Guide v1.1 system: cream `#FAF8F5` + charcoal `#18181B` spine, sky-blue accent (`--primary #0B72C4` accessible / `--accent-bright #0495FE` swatch), DM Sans display + Inter body + JetBrains Mono data, mono-caps eyebrows, 16/12/10/pill radii, soft warm shadows. Full spec: `.impeccable.md`. Tokens: `src/app.css`. (Prior Cal.com + Stripe Press aesthetics are retired.)
+> **Design system: Launch UI v2 dark-first.** `main` runs the Launch UI aesthetic: near-black canvas `#0A0A0A`, elevated cards `#171717`, amber accent (`--primary #F97316`), light-gradient primary CTA (`from-white to-zinc-200` with dark text), Inter Variable for all typography, mono-caps eyebrows, dark-only mode. Full spec: `.impeccable.md`. Tokens: `src/app.css`. (Prior 8020 cream/sky-blue, Cal.com, and Stripe Press aesthetics are retired.)
 
 ## Architecture
 
@@ -30,24 +30,25 @@ docs/                 — Documentation index (5 sections + knowledge base + con
 - **NEVER** use `firebase deploy --only hosting:ethoz` alone — ethoz.cl is served by `gestion-estudiantil-dev`, NOT `ethoz`
 - After deploy, verify: `curl -sI "https://ethoz.cl/" | grep cache-control` → must show `max-age=0`
 - All text via `t()` i18n function — NEVER hardcode strings in templates
-- URLs in English (`/features/safe-pickups`), content in ES/EN
+- Canonical public URLs in Spanish (`/funcionalidades/retiros-seguros`, `/como-contratar`, `/agendar`), using descriptive kebab-case slugs. English legacy slugs are redirect-only and must point directly to the final Spanish URL with a permanent 301.
 - Svelte 5 runes API (`$state`, `$derived`, `$effect`) — no legacy reactive syntax
 - Blog posts: export `BlogPost` from `src/lib/data/posts/*.ts` — auto-discovered, no manual registration
 
 ### Design (see .impeccable.md for full spec)
-- Light mode first (charcoal dark used for footer + impact bands). **8020 aesthetic** (2026-06 migration from Cal.com): cream canvas `#FAF8F5` + warm-white cards `#F5F3EF` + charcoal `#18181B` + sky-blue accent.
-- **Sky-blue accent policy:** `--primary #0B72C4` is the accessible sky for TEXT, links, eyebrows, and primary buttons (white label 4.98:1 AA). The bright swatch `--accent-bright`/`--brand-accent #0495FE` is for NON-text only (fills, large display numerals, icons, the logo). On primary tints (`bg-primary/5..20`) use `text-primary-active`/`text-primary-pressed`, never bare `text-primary` (lint-tint-contrast.sh enforces).
-- **DM Sans** (`@fontsource-variable/dm-sans`) for h1/h2/h3 + `font-heading` class (display weights 700/800). **Inter** for body, buttons, nav, captions. **JetBrains Mono** for `[data-numeric]` and mono-caps eyebrows.
-- **Eyebrows** are mono-caps: `font-mono font-semibold uppercase tracking-[0.1em]` in sky (lint-eyebrow-tracking.sh enforces).
-- NEVER hardcode colors — use design tokens (`bg-primary`, `bg-card`, `text-muted-foreground`, `text-on-dark`, `text-accent-bright`, etc.). Use `// lint-ok` for legitimate exceptions (third-party SDK config, raw HTML strings).
-- **NO em-dashes or en-dashes in copy** (8020 rule). Use commas, periods, or `a`/`to` for ranges. The `·` middot is the inline label separator.
+- **Dark mode only.** `data-theme="dark"` is set on `html`; `mode-watcher` and any theme toggle have been removed. The entire site lives on a near-black canvas `#0A0A0A`.
+- **Launch UI v2 aesthetic:** elevated charcoal cards `#171717`, amber accent `#F97316`, light-gradient primary CTA (`from-white to-zinc-200` with dark text `#09090B`).
+- **Amber accent policy:** `--primary #F97316` is the workhorse accent for TEXT, links, eyebrows, and icons. Primary CTA buttons use the light gradient (`bg-gradient-to-b from-cta-gradient-from to-cta-gradient-to text-cta-text`). On primary tints (`bg-primary/5..20`) use `text-primary-active`, never bare `text-primary` (lint-tint-contrast.sh enforces).
+- **Inter Variable** (`@fontsource-variable/inter`) for ALL typography — h1/h2/h3 via `font-heading`, body/UI via `--font-sans`. DM Sans, JetBrains Mono, Cal Sans, Playfair, and Newsreader have been removed (lint-stale-fonts.sh enforces).
+- **Eyebrows** are mono-caps: `font-mono font-semibold uppercase tracking-[0.1em]` in amber (lint-eyebrow-tracking.sh enforces).
+- NEVER hardcode colors — use design tokens (`bg-primary`, `bg-card`, `text-muted-foreground`, `text-text-tertiary`, `border-border`, etc.). Use `// lint-ok` for legitimate exceptions (third-party SDK config, raw HTML strings).
+- **NO em-dashes or en-dashes in copy**. Use commas, periods, or `a`/`to` for ranges. The `·` middot is the inline label separator.
 - Icons + titles ALWAYS inline (same row), never stacked. No icon-in-colored-box wrappers (`scripts/lint-icon-box-wrapper.sh` enforces).
-- Card pattern: `rounded-xl border border-hairline bg-card` (8020 §10 radii: `rounded-md`=12 buttons, `rounded-lg`=10 inputs, `rounded-xl`=16 cards, `rounded-2xl`=20 hero mockup).
-- Flat on purpose. Soft warm shadows only (`shadow-card`, `shadow-card-hover`, `shadow-mockup`, `shadow-popover` — 8020 §10). `shadow-glow-primary` neutralized. `shadow-glow-destructive` retained (safety-critical). Textures: `bg-grid-fine` / `bg-dots-fine` (32px, under hero/sections only).
-- One primary action per screen. Sky is the action color, treat it as a precision cut, not a wash. Pastel badges (`bg-badge-orange/pink/violet/emerald`) are metadata-only, NEVER on CTAs (`scripts/lint-pastel-on-cta.sh` enforces).
-- Footer + dark CTA bands are the dark surfaces (`bg-surface-dark` = `#18181B`). Light text via `text-on-dark` / `text-on-dark-soft`. Accent on dark uses the lighter sky `#38A8FF`.
-- Contrast targets: AAA 7:1 normal / AA 4.5:1 where the brand accent requires it. Body `#1C1C1E` on cream = 16:1 (AAA). Logo: evolved interseccion/shield (two overlapping rounded layers, charcoal + sky) + DM Sans wordmark with accent `z`.
-- 8020 tone: confidently engineered, operator-grade, generous whitespace, fact-forward, single primary action per band.
+- Card pattern: `rounded-xl border border-foreground/10 bg-card shadow-card-dark` (`rounded-md`=12 buttons, `rounded-lg`=10 inputs, `rounded-xl`=16 cards, `rounded-2xl`=20 hero mockup).
+- Dark, purposeful shadows (`shadow-card-dark`, `shadow-card-dark-hover`, `shadow-mockup`, `shadow-popover`). `shadow-glow-amber` is reserved for the hero mockup only. `shadow-xl`/`shadow-2xl` are banned.
+- One primary action per screen. Amber is the action color, treat it as a precision cut, not a wash.
+- Footer is dark (`bg-background border-t border-foreground/5`) with muted-foreground links; no separate "charcoal" footer surface.
+- Contrast targets: AA minimum, AAA where feasible. Body `#FAFAFA` on `#0A0A0A` exceeds AAA. Logo: evolved interseccion/shield mark + Inter wordmark with amber accent `z`.
+- Launch UI tone: premium, calm under pressure, operator-grade, generous negative space, fact-forward, single primary action per band.
 
 ### Content
 - Spanish chileno profesional (no slang, no extreme modismos)

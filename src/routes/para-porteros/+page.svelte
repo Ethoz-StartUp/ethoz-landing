@@ -41,7 +41,7 @@
   <main id="main-content">
 
   <!-- Hero -->
-  <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
+  <section class="bg-secondary pt-24 pb-8 sm:pt-28 sm:pb-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="lg:pt-6">
@@ -100,7 +100,7 @@
         </div>
 
         <!-- Portería screen mockup -->
-        <div class="w-full rounded-xl border border-border bg-card shadow-card-hover" aria-hidden="true">
+        <div class="w-full rounded-xl border border-border bg-card shadow-card-dark-hover" aria-hidden="true">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -197,7 +197,7 @@
   </section>
 
   <!-- Editorial anchor — portero voice -->
-  <section class="py-12 sm:py-14" aria-labelledby="portero-editorial">
+  <section class="py-10 sm:py-12" aria-labelledby="portero-editorial">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <span class="mx-auto block h-px w-12 bg-foreground" aria-hidden="true"></span>
       <p id="portero-editorial" class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('audience.porteros.editorial.eyebrow')}</p>
@@ -211,7 +211,7 @@
   </section>
 
   <!-- El retiro de las 14:30 — escenario real -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-center gap-3 mb-2">
         <Clock class="size-5 shrink-0 text-primary" />
@@ -241,7 +241,7 @@
             tiempo: '4 seg'
           },
         ] as step}
-          <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+          <div class="group rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
             <div class="mb-3 flex items-center gap-3">
               <span class="flex size-7 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary-active">{step.num}</span>
               <p class="text-sm font-semibold text-foreground">{t(step.tituloKey)}</p>
@@ -259,7 +259,7 @@
   </section>
 
   <!-- Solo lo que el portero necesita -->
-  <section class="bg-secondary py-12 sm:py-14">
+  <section class="bg-secondary py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <div>
@@ -326,7 +326,7 @@
   </section>
 
   <!-- Entrenamiento + offline -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2">
         <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
@@ -377,7 +377,7 @@
   </section>
 
   <!-- Stats -->
-  <section class="bg-secondary py-12 sm:py-14">
+  <section class="bg-secondary py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 sm:grid-cols-3 text-center">
         <div>
@@ -397,27 +397,27 @@
   </section>
 
   <!-- Final CTA — dark navy editorial close -->
-  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="portero-cta">
+  <section class="bg-secondary py-20 text-foreground sm:py-24" aria-labelledby="portero-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('audience.porteros.finalCta.eyebrow')}</p>
-      <h2 id="portero-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
+      <span class="mx-auto block h-px w-12 bg-foreground/60" aria-hidden="true"></span>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-foreground/85">{t('audience.porteros.finalCta.eyebrow')}</p>
+      <h2 id="portero-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-foreground sm:text-4xl">
         {t('audience.porteros.finalCta.title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
         {t('audience.porteros.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-8 text-sm font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('audience.porteros.finalCta_primary')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/#features"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-foreground/20 bg-transparent px-8 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('audience.porteros.finalCta_secondary')}
         </a>

@@ -19,7 +19,7 @@
     </span>
   </div>
   <div class="absolute inset-0 flex items-center justify-center">
-    <span class="flex size-16 items-center justify-center rounded-full border border-primary/20 bg-card text-primary shadow-card">
+    <span class="flex size-16 items-center justify-center rounded-full border border-primary/20 bg-card text-primary shadow-card-dark">
       <ShieldCheck class="size-7" />
     </span>
   </div>
@@ -33,11 +33,11 @@
     height: 2.5rem;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--hairline);
+    border: 1px solid var(--border);
     border-radius: var(--radius-full);
     background: var(--card);
     color: var(--primary);
-    box-shadow: 0 1px 2px color-mix(in srgb, var(--ink) 8%, transparent);
+    box-shadow: 0 1px 2px color-mix(in srgb, var(--foreground) 8%, transparent);
     animation: role-highlight 8s var(--ease-standard) infinite;
   }
 
@@ -55,14 +55,14 @@
 
   @keyframes role-highlight {
     0%, 18%, 100% {
-      border-color: var(--hairline);
+      border-color: var(--border);
       background: var(--card);
-      box-shadow: 0 1px 2px color-mix(in srgb, var(--ink) 8%, transparent);
+      box-shadow: 0 1px 2px color-mix(in srgb, var(--foreground) 8%, transparent);
     }
     6%, 12% {
       border-color: var(--primary);
-      background: var(--accent-tint);
-      box-shadow: 0 0 0 5px var(--accent-tint);
+      background: var(color-mix(in srgb, var(--primary) 10%, transparent));
+      box-shadow: 0 0 0 5px var(color-mix(in srgb, var(--primary) 10%, transparent));
     }
   }
 

@@ -4,12 +4,14 @@
   import { Menu, X, ChevronDown, Shield, Search, ClipboardList, Bell, Fingerprint } from '@lucide/svelte';
   import { env } from '$env/dynamic/public';
   import { tick } from 'svelte';
+  import { slide } from 'svelte/transition';
   import { page } from '$app/state';
 
   let mobileOpen = $state(false);
+  let mobileProductsOpen = $state(false);
   let productsOpen = $state(false);
   let productsTimeout: ReturnType<typeof setTimeout>;
-  let scrolled = $state(false);
+  let _scrolled = $state(false);
   let ribbonVisible = $state(true);
   let navHeight = $state(0);
   let mobileMenu = $state<HTMLElement | null>(null);
@@ -31,9 +33,6 @@
     };
   });
 
-  // Keep the legal ribbon available near the top and while scrolling up, but
-  // yield its vertical space while scrolling down. The fixed header is outside
-  // document flow, so this does not move page content or create layout shift.
   $effect(() => {
     if (typeof window === 'undefined') return;
     let lastScrollY = Math.max(window.scrollY, 0);
@@ -41,7 +40,7 @@
 
     const updateHeader = () => {
       const currentScrollY = Math.max(window.scrollY, 0);
-      scrolled = currentScrollY > 4;
+      _scrolled = currentScrollY > 4;
 
       if (!mobileOpen) {
         if (currentScrollY <= 24) {
@@ -69,8 +68,6 @@
     };
   });
 
-  // A menu opened on mobile must not keep the page locked if the viewport is
-  // resized past the desktop breakpoint.
   $effect(() => {
     if (typeof window === 'undefined') return;
     const desktopViewport = window.matchMedia('(min-width: 48rem)');
@@ -129,8 +126,6 @@
 
   function handleProductsTriggerClick(event: MouseEvent) {
     clearTimeout(productsTimeout);
-    // Pointer hover has already opened the disclosure. Keyboard activation
-    // retains native button toggle behaviour.
     productsOpen = event.detail === 0 ? !productsOpen : true;
   }
 
@@ -158,6 +153,7 @@
 
   function closeMobileMenu(restoreFocus = true) {
     mobileOpen = false;
+    mobileProductsOpen = false;
     if (restoreFocus && typeof window !== 'undefined') {
       window.requestAnimationFrame(() => mobileToggle?.focus());
     }
@@ -197,7 +193,6 @@
     }
   }
 
-  // Escape closes whichever disclosure is open (dropdown + mobile menu).
   function handleWindowKeydown(e: KeyboardEvent) {
     if (e.key !== 'Escape') return;
     if (mobileOpen) {
@@ -217,11 +212,8 @@
 
 <nav
   bind:clientHeight={navHeight}
-  class="fixed top-0 right-0 left-0 isolate z-[100] border-b border-border bg-background shadow-sm transition-colors duration-150 {scrolled ? 'md:bg-background/90 md:backdrop-blur-lg' : ''}"
+  class="fixed top-0 right-0 left-0 isolate z-[100] border-b border-foreground/5 bg-background/80 backdrop-blur-xl transition-colors duration-150"
 >
-  <!-- Top ribbon — Ley 21.719 urgency. Part of the fixed chrome so it
-       doesn't get covered by the nav. Hidden on the /admin area.
-       No CTA here — the NavBar below already has "Agendar Demo". -->
   {#if !page.url.pathname.startsWith('/admin')}
     <div
       class="grid transition-[grid-template-rows,opacity] duration-200 {ribbonVisible ? 'grid-rows-[1fr] opacity-100' : 'pointer-events-none grid-rows-[0fr] opacity-0'}"
@@ -229,16 +221,15 @@
       inert={!ribbonVisible}
     >
       <div class="min-h-0 overflow-hidden">
-        <div class="border-b border-hairline bg-surface-soft text-foreground">
-          <div class="mx-auto flex max-w-7xl items-center justify-center px-4 py-1.5 text-xs sm:px-6 lg:px-8">
-            <!-- Below sm: only the dot + "Ley 21.719" show. Full detail on sm+. -->
-            <a href="/ley-21719" class="group flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-center">
-              <span aria-hidden="true" class="inline-flex size-1.5 shrink-0 rounded-full bg-destructive"></span>
+        <div class="border-b border-foreground/5 bg-background">
+          <div class="mx-auto flex max-w-7xl items-center justify-center px-4 py-1 text-xs sm:px-6 lg:px-8">
+            <a href="/ley-21719" class="group flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 text-center">
+              <span aria-hidden="true" class="inline-flex size-1.5 shrink-0 rounded-full bg-primary"></span>
               <span class="text-xs font-semibold uppercase text-primary group-hover:underline group-hover:underline-offset-4">{t('nav.ribbon_law_label')}</span>
-              <span class="hidden text-border sm:inline" aria-hidden="true">·</span>
+              <span class="hidden text-foreground/10 sm:inline" aria-hidden="true">·</span>
               <span class="hidden text-muted-foreground sm:inline">{t('nav.ribbon_full_enforcement')}</span>
-              <span class="hidden text-border sm:inline" aria-hidden="true">·</span>
-              <span class="hidden text-muted-foreground sm:inline">{t('nav.ribbon_fines_prefix')} <span class="font-semibold text-foreground">{t('nav.ribbon_fines_value')}</span></span>
+              <span class="hidden text-foreground/10 sm:inline" aria-hidden="true">·</span>
+              <span class="hidden text-muted-foreground sm:inline">{t('nav.ribbon_fines_prefix')} <span class="font-semibold text-foreground/80">{t('nav.ribbon_fines_value')}</span></span>
             </a>
           </div>
         </div>
@@ -252,28 +243,25 @@
           <rect x="2" y="7" width="18" height="22" rx="5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-foreground"/>
           <rect x="12" y="3" width="18" height="22" rx="5" fill="none" stroke="currentColor" stroke-width="2.2" class="text-primary"/>
         </svg>
-        <span class="font-heading text-xl font-extrabold tracking-normal"><span class="text-foreground">Etho</span><span class="text-primary">z</span></span>
+        <span class="font-heading text-xl font-bold tracking-normal"><span class="text-foreground">Etho</span><span class="text-primary">z</span></span>
       </a>
     </div>
 
     <!-- Desktop nav -->
-    <div class="hidden items-center gap-0.5 md:flex">
-      <!-- Links before dropdown (¿Qué es?) -->
+    <div class="hidden items-center gap-1 md:flex">
       {#each navLinksBefore as link (link.href)}
         <a
           href={link.href}
           aria-current={isActive(link.href) ? 'page' : undefined}
           class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isActive(link.href)
-              ? 'bg-primary/5 text-primary-active'
-              : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
+              ? 'bg-foreground/5 text-foreground'
+              : 'text-muted-foreground hover:bg-foreground/5 hover:text-foreground'}"
         >
           {t(link.key)}
         </a>
       {/each}
 
-      <!-- Productos dropdown (APG disclosure-of-links pattern: aria-expanded
-           trigger + plain list of links; no menu roles) -->
       <div
         bind:this={productsContainer}
         class="relative"
@@ -287,8 +275,6 @@
         }}
         onkeydown={handleProductsKeydown}
       >
-        <!-- Native disclosure button: Enter/Space toggles, ArrowDown opens and
-             moves focus into the links, Escape closes and restores focus. -->
         <button
           bind:this={productsTrigger}
           type="button"
@@ -296,8 +282,8 @@
           aria-controls="products-menu"
           class="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isProductActive()
-              ? 'bg-primary/5 text-primary-active'
-              : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
+              ? 'bg-foreground/5 text-foreground'
+              : 'text-muted-foreground hover:bg-foreground/5 hover:text-foreground'}"
           onclick={handleProductsTriggerClick}
           onkeydown={handleProductsTriggerKeydown}
         >
@@ -309,7 +295,7 @@
           <div
             bind:this={productsMenu}
             id="products-menu"
-            class="absolute left-1/2 top-full mt-2 w-[420px] -translate-x-1/2 rounded-xl border border-border bg-card p-3 shadow-popover"
+            class="absolute left-1/2 top-full mt-2 w-[420px] -translate-x-1/2 rounded-xl border border-foreground/10 bg-card p-3 shadow-popover"
             role="presentation"
             onmouseenter={openProducts}
             onmouseleave={closeProducts}
@@ -319,7 +305,7 @@
                 {@const Icon = product.icon}
                 <a
                   href={product.href}
-                  class="flex items-start gap-2.5 rounded-lg px-3 py-2.5 transition-colors hover:bg-muted"
+                  class="flex items-start gap-2.5 rounded-lg px-3 py-2.5 transition-colors hover:bg-foreground/5"
                   onclick={() => (productsOpen = false)}
                 >
                   <Icon class="mt-0.5 size-4 shrink-0 text-primary" />
@@ -332,7 +318,7 @@
             </div>
             <a
               href="/productos"
-              class="mt-2 block border-t border-border pt-2 text-center text-xs font-medium text-primary transition-colors hover:text-primary"
+              class="mt-2 block border-t border-foreground/10 pt-2 text-center text-xs font-medium text-primary transition-colors hover:text-primary-hover"
               onclick={() => (productsOpen = false)}
             >
               {t('nav.all_products')}
@@ -341,15 +327,14 @@
         {/if}
       </div>
 
-      <!-- Links after dropdown -->
       {#each navLinksAfter as link (link.href)}
         <a
           href={link.href}
           aria-current={isActive(link.href) ? 'page' : undefined}
           class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isActive(link.href)
-              ? 'bg-primary/5 text-primary-active'
-              : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
+              ? 'bg-foreground/5 text-foreground'
+              : 'text-muted-foreground hover:bg-foreground/5 hover:text-foreground'}"
         >
           {t(link.key)}
         </a>
@@ -361,7 +346,7 @@
     <div class="flex items-center justify-end gap-2">
       <a
         href={env.PUBLIC_APP_URL ?? 'https://app.ethoz.cl/login'}
-        class="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:inline-flex"
+        class="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground md:inline-flex"
       >
         {t('nav.login')}
       </a>
@@ -372,7 +357,7 @@
       <button
         bind:this={mobileToggle}
         type="button"
-        class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
+        class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg border border-foreground/10 p-2.5 text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground md:hidden"
         onclick={toggleMobileMenu}
         aria-label={mobileOpen ? t('nav.close_menu') : t('nav.open_menu')}
         aria-expanded={mobileOpen}
@@ -389,9 +374,6 @@
 
   <!-- Mobile menu -->
   {#if mobileOpen}
-    <!-- A solid viewport overlay prevents page glows and the sticky CTA from
-         bleeding through. It is immediate rather than opacity-animated so the
-         underlying page is never briefly exposed. -->
     <div
       bind:this={mobileMenu}
       id="mobile-menu"
@@ -399,19 +381,19 @@
       tabindex="-1"
       aria-modal="true"
       aria-label={t('nav.menu_label')}
-      class="fixed inset-x-0 bottom-0 z-10 overflow-y-auto overscroll-contain border-t border-border bg-background px-4 pb-5 pt-3 shadow-popover md:hidden"
+      class="fixed inset-x-0 bottom-0 z-10 overflow-y-auto overscroll-contain border-t border-foreground/10 bg-background px-4 pb-6 pt-4 shadow-popover md:hidden"
       style:top={`${navHeight}px`}
+      style:height={`calc(100dvh - ${navHeight}px)`}
       onkeydown={handleMobileMenuKeydown}
     >
-      <div class="flex flex-col gap-0.5">
-        <!-- ¿Qué es? -->
+      <div class="flex flex-col gap-1 font-heading">
         {#each navLinksBefore as link (link.href)}
           <a
             href={link.href}
-            class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
+            class="rounded-lg px-3 py-3 text-base font-semibold tracking-tight transition-colors
               {isActive(link.href)
-                ? 'bg-primary/5 text-primary-active'
-                : 'text-foreground hover:bg-muted'}"
+                ? 'bg-foreground/5 text-primary'
+                : 'text-foreground/90 hover:bg-foreground/5'}"
             aria-current={isActive(link.href) ? 'page' : undefined}
             onclick={() => closeMobileMenu(false)}
           >
@@ -419,67 +401,70 @@
           </a>
         {/each}
 
-        <!-- Productos -->
-        <a
-          href="/productos"
-          class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
-            {isActive('/productos') || isProductActive()
-              ? 'bg-primary/5 text-primary-active'
-              : 'text-foreground hover:bg-muted'}"
-          aria-current={isActive('/productos') ? 'page' : undefined}
-          onclick={() => closeMobileMenu(false)}
-        >
-          {t('nav.features')}
-        </a>
+        <div class="flex flex-col">
+          <button
+            type="button"
+            aria-expanded={mobileProductsOpen}
+            class="flex items-center justify-between rounded-lg px-3 py-3 text-base font-semibold tracking-tight transition-colors
+              {isProductActive()
+                ? 'bg-foreground/5 text-primary'
+                : 'text-foreground/90 hover:bg-foreground/5'}"
+            onclick={() => (mobileProductsOpen = !mobileProductsOpen)}
+          >
+            {t('nav.features')}
+            <ChevronDown class="size-4 transition-transform {mobileProductsOpen ? 'rotate-180' : ''}" aria-hidden="true" />
+          </button>
 
-        <!-- Integraciones -->
-        <a
-          href="/integraciones"
-          class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
-            {isActive('/integraciones')
-              ? 'bg-primary/5 text-primary-active'
-              : 'text-foreground hover:bg-muted'}"
-          aria-current={isActive('/integraciones') ? 'page' : undefined}
-          onclick={() => closeMobileMenu(false)}
-        >
-          {t('nav.integrations')}
-        </a>
+          {#if mobileProductsOpen}
+            <div class="flex flex-col gap-0.5 pb-2 pl-3 pr-1 pt-1" transition:slide={{ duration: 200 }}>
+              {#each products as product (product.href)}
+                {@const Icon = product.icon}
+                <a
+                  href={product.href}
+                  class="flex items-start gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-foreground/5"
+                  onclick={() => closeMobileMenu(false)}
+                >
+                  <Icon class="mt-0.5 size-4 shrink-0 text-primary" />
+                  <div>
+                    <p class="text-sm font-semibold text-foreground">{t(product.name)}</p>
+                    <p class="text-xs text-muted-foreground">{t(product.desc)}</p>
+                  </div>
+                </a>
+              {/each}
+              <a
+                href="/productos"
+                class="mt-1 block rounded-lg px-3 py-2.5 text-center text-sm font-semibold text-primary transition-colors hover:bg-foreground/5"
+                onclick={() => closeMobileMenu(false)}
+              >
+                {t('nav.all_products')}
+              </a>
+            </div>
+          {/if}
+        </div>
 
-        <!-- Blog -->
-        <a
-          href="/blog"
-          class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
-            {isActive('/blog')
-              ? 'bg-primary/5 text-primary-active'
-              : 'text-foreground hover:bg-muted'}"
-          aria-current={isActive('/blog') ? 'page' : undefined}
-          onclick={() => closeMobileMenu(false)}
-        >
-          {t('nav.blog')}
-        </a>
-
-        <!-- Contacto -->
-        <a
-          href="/contacto"
-          class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
-            {isActive('/contacto')
-              ? 'bg-primary/5 text-primary-active'
-              : 'text-foreground hover:bg-muted'}"
-          aria-current={isActive('/contacto') ? 'page' : undefined}
-          onclick={() => closeMobileMenu(false)}
-        >
-          {t('nav.contact')}
-        </a>
+        {#each navLinksAfter as link (link.href)}
+          <a
+            href={link.href}
+            class="rounded-lg px-3 py-3 text-base font-semibold tracking-tight transition-colors
+              {isActive(link.href)
+                ? 'bg-foreground/5 text-primary'
+                : 'text-foreground/90 hover:bg-foreground/5'}"
+            aria-current={isActive(link.href) ? 'page' : undefined}
+            onclick={() => closeMobileMenu(false)}
+          >
+            {t(link.key)}
+          </a>
+        {/each}
       </div>
-      <div class="mt-4 flex flex-col gap-3 border-t border-border pt-4">
+      <div class="mt-5 flex flex-col gap-3 border-t border-foreground/10 pt-5">
         <a
           href={env.PUBLIC_APP_URL ?? 'https://app.ethoz.cl/login'}
-          class="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+          class="rounded-lg px-3 py-2.5 text-center text-base font-semibold tracking-tight text-foreground/90 transition-colors hover:bg-foreground/5"
           onclick={() => closeMobileMenu(false)}
         >
           {t('nav.login')}
         </a>
-        <Button size="default" href="/demo" class="w-full justify-center" onclick={() => closeMobileMenu(false)}>
+        <Button size="default" href="/demo" class="w-full justify-center font-heading text-base font-semibold tracking-tight" onclick={() => closeMobileMenu(false)}>
           {t('nav.cta')}
         </Button>
       </div>
