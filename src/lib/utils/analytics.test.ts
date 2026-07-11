@@ -1,17 +1,8 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 
-const { isProductionTrackingHostMock } = vi.hoisted(() => ({
-  isProductionTrackingHostMock: vi.fn(() => false),
-}));
-
-vi.mock('$lib/trackers/gtm', () => ({
-  isProductionTrackingHost: isProductionTrackingHostMock,
-}));
-
 describe('trackEvent', () => {
   beforeEach(async () => {
     vi.resetModules();
-    isProductionTrackingHostMock.mockReturnValue(false);
     localStorage.clear();
     sessionStorage.clear();
     (window as any).dataLayer = [];
@@ -34,26 +25,14 @@ describe('trackEvent', () => {
     expect((window as any).gtag).not.toHaveBeenCalled();
   });
 
-  it('pushes a diagnostic event and a direct gtag event when analytics is granted', async () => {
+  it('pushes one GTM custom event when analytics is granted', async () => {
     const { setConsent } = await import('$lib/stores/consent.svelte');
     setConsent({ analytics: true, marketing: false });
     const { trackEvent } = await import('./analytics');
     trackEvent('demo_booked', { source: 'home' });
     expect((window as any).dataLayer).toHaveLength(1);
     expect((window as any).dataLayer[0]).toMatchObject({ event: 'demo_booked', source: 'home' });
-    expect((window as any).gtag).toHaveBeenCalledWith('event', 'demo_booked', { source: 'home' });
-  });
-
-  it('uses only the canonical gtag command on production hosts', async () => {
-    isProductionTrackingHostMock.mockReturnValue(true);
-    const { setConsent } = await import('$lib/stores/consent.svelte');
-    setConsent({ analytics: true, marketing: false });
-    const { trackEvent } = await import('./analytics');
-    trackEvent('demo_booked', { source: 'home' });
-
-    expect((window as any).dataLayer).toHaveLength(0);
-    expect((window as any).gtag).toHaveBeenCalledTimes(1);
-    expect((window as any).gtag).toHaveBeenCalledWith('event', 'demo_booked', { source: 'home' });
+    expect((window as any).gtag).not.toHaveBeenCalled();
   });
 
   it('scrubs PII before sending', async () => {
@@ -64,7 +43,7 @@ describe('trackEvent', () => {
     const pushed = (window as any).dataLayer[0];
     expect(pushed).not.toHaveProperty('email');
     expect(pushed.source).toBe('x');
-    expect((window as any).gtag).toHaveBeenCalledWith('event', 'contact_submit', { source: 'x' });
+    expect((window as any).gtag).not.toHaveBeenCalled();
   });
 
   it('never replays a legacy buffer after consent is granted', async () => {
