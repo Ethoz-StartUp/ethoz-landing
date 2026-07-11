@@ -373,7 +373,7 @@
           <ArrowRight class="size-4" />
         </Button>
         <a
-          href="/compliance"
+          href="/cumplimiento"
           class="inline-flex min-h-11 items-center text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
           {t('comparativa.cta_secondary')}

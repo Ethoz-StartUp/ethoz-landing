@@ -11,19 +11,149 @@
       ],
       "redirects": [
         {
-          "source": "/en",
-          "destination": "/",
+          "source": "/resources/breach-response-plan{,/**}",
+          "destination": "/recursos/plan-respuesta-brechas",
           "type": 301
         },
         {
-          "source": "/en/**",
+          "source": "/resources/compliance-checklist{,/**}",
+          "destination": "/recursos/checklist-cumplimiento",
+          "type": 301
+        },
+        {
+          "source": "/resources/data-inventory{,/**}",
+          "destination": "/recursos/inventario-datos",
+          "type": 301
+        },
+        {
+          "source": "/resources/pickup-protocol{,/**}",
+          "destination": "/recursos/protocolo-retiros",
+          "type": 301
+        },
+        {
+          "source": "/resources/privacy-notice{,/**}",
+          "destination": "/recursos/aviso-privacidad",
+          "type": 301
+        },
+        {
+          "source": "/resources/roles-permissions-guide{,/**}",
+          "destination": "/recursos/guia-roles-permisos",
+          "type": 301
+        },
+        {
+          "source": "/resources{,/**}",
+          "destination": "/recursos",
+          "type": 301
+        },
+        {
+          "source": "/features/student-profile{,/**}",
+          "destination": "/funcionalidades/ficha-alumno",
+          "type": 301
+        },
+        {
+          "source": "/features/safe-pickups{,/**}",
+          "destination": "/funcionalidades/retiros-seguros",
+          "type": 301
+        },
+        {
+          "source": "/features/access-control{,/**}",
+          "destination": "/funcionalidades/acceso-por-rol",
+          "type": 301
+        },
+        {
+          "source": "/features/smart-search{,/**}",
+          "destination": "/funcionalidades/busqueda-contextual",
+          "type": 301
+        },
+        {
+          "source": "/features/privacy-compliance{,/**}",
+          "destination": "/funcionalidades/privacidad-datos",
+          "type": 301
+        },
+        {
+          "source": "/features/alerts{,/**}",
+          "destination": "/funcionalidades/alertas",
+          "type": 301
+        },
+        {
+          "source": "/features/analytics{,/**}",
+          "destination": "/funcionalidades/indicadores",
+          "type": 301
+        },
+        {
+          "source": "/features/emergency{,/**}",
+          "destination": "/funcionalidades/emergencias",
+          "type": 301
+        },
+        {
+          "source": "/features/attendance{,/**}",
+          "destination": "/funcionalidades/asistencia",
+          "type": 301
+        },
+        {
+          "source": "/about{,/**}",
+          "destination": "/nosotros",
+          "type": 301
+        },
+        {
+          "source": "/contact{,/**}",
+          "destination": "/contacto",
+          "type": 301
+        },
+        {
+          "source": "/integrations{,/**}",
+          "destination": "/integraciones",
+          "type": 301
+        },
+        {
+          "source": "/get-started{,/**}",
+          "destination": "/como-contratar",
+          "type": 301
+        },
+        {
+          "source": "/compliance{,/**}",
+          "destination": "/cumplimiento",
+          "type": 301
+        },
+        {
+          "source": "/roi-calculator{,/**}",
+          "destination": "/calculadora-roi",
+          "type": 301
+        },
+        {
+          "source": "/privacy{,/**}",
+          "destination": "/privacidad",
+          "type": 301
+        },
+        {
+          "source": "/terms{,/**}",
+          "destination": "/terminos",
+          "type": 301
+        },
+        {
+          "source": "/schedule{,/**}",
+          "destination": "/agendar",
+          "type": 301
+        },
+        {
+          "source": "/pitch{,/**}",
+          "destination": "/presentacion",
+          "type": 301
+        },
+        {
+          "source": "/suggestions{,/**}",
+          "destination": "/sugerencias",
+          "type": 301
+        },
+        {
+          "source": "/en{,/**}",
           "destination": "/",
           "type": 301
         }
       ],
       "rewrites": [
         {
-          "source": "/suggestions",
+          "source": "/sugerencias",
           "destination": "/200.html"
         },
         {
@@ -66,7 +196,7 @@
           ]
         },
         {
-          "source": "/schedule",
+          "source": "/agendar",
           "headers": [
             {
               "key": "X-Robots-Tag",
@@ -75,7 +205,7 @@
           ]
         },
         {
-          "source": "/pitch",
+          "source": "/presentacion",
           "headers": [
             {
               "key": "X-Robots-Tag",
@@ -84,7 +214,7 @@
           ]
         },
         {
-          "source": "/suggestions",
+          "source": "/sugerencias",
           "headers": [
             {
               "key": "X-Robots-Tag",
@@ -143,19 +273,149 @@
       ],
       "redirects": [
         {
-          "source": "/en",
-          "destination": "/",
+          "source": "/resources/breach-response-plan{,/**}",
+          "destination": "/recursos/plan-respuesta-brechas",
           "type": 301
         },
         {
-          "source": "/en/**",
+          "source": "/resources/compliance-checklist{,/**}",
+          "destination": "/recursos/checklist-cumplimiento",
+          "type": 301
+        },
+        {
+          "source": "/resources/data-inventory{,/**}",
+          "destination": "/recursos/inventario-datos",
+          "type": 301
+        },
+        {
+          "source": "/resources/pickup-protocol{,/**}",
+          "destination": "/recursos/protocolo-retiros",
+          "type": 301
+        },
+        {
+          "source": "/resources/privacy-notice{,/**}",
+          "destination": "/recursos/aviso-privacidad",
+          "type": 301
+        },
+        {
+          "source": "/resources/roles-permissions-guide{,/**}",
+          "destination": "/recursos/guia-roles-permisos",
+          "type": 301
+        },
+        {
+          "source": "/resources{,/**}",
+          "destination": "/recursos",
+          "type": 301
+        },
+        {
+          "source": "/features/student-profile{,/**}",
+          "destination": "/funcionalidades/ficha-alumno",
+          "type": 301
+        },
+        {
+          "source": "/features/safe-pickups{,/**}",
+          "destination": "/funcionalidades/retiros-seguros",
+          "type": 301
+        },
+        {
+          "source": "/features/access-control{,/**}",
+          "destination": "/funcionalidades/acceso-por-rol",
+          "type": 301
+        },
+        {
+          "source": "/features/smart-search{,/**}",
+          "destination": "/funcionalidades/busqueda-contextual",
+          "type": 301
+        },
+        {
+          "source": "/features/privacy-compliance{,/**}",
+          "destination": "/funcionalidades/privacidad-datos",
+          "type": 301
+        },
+        {
+          "source": "/features/alerts{,/**}",
+          "destination": "/funcionalidades/alertas",
+          "type": 301
+        },
+        {
+          "source": "/features/analytics{,/**}",
+          "destination": "/funcionalidades/indicadores",
+          "type": 301
+        },
+        {
+          "source": "/features/emergency{,/**}",
+          "destination": "/funcionalidades/emergencias",
+          "type": 301
+        },
+        {
+          "source": "/features/attendance{,/**}",
+          "destination": "/funcionalidades/asistencia",
+          "type": 301
+        },
+        {
+          "source": "/about{,/**}",
+          "destination": "/nosotros",
+          "type": 301
+        },
+        {
+          "source": "/contact{,/**}",
+          "destination": "/contacto",
+          "type": 301
+        },
+        {
+          "source": "/integrations{,/**}",
+          "destination": "/integraciones",
+          "type": 301
+        },
+        {
+          "source": "/get-started{,/**}",
+          "destination": "/como-contratar",
+          "type": 301
+        },
+        {
+          "source": "/compliance{,/**}",
+          "destination": "/cumplimiento",
+          "type": 301
+        },
+        {
+          "source": "/roi-calculator{,/**}",
+          "destination": "/calculadora-roi",
+          "type": 301
+        },
+        {
+          "source": "/privacy{,/**}",
+          "destination": "/privacidad",
+          "type": 301
+        },
+        {
+          "source": "/terms{,/**}",
+          "destination": "/terminos",
+          "type": 301
+        },
+        {
+          "source": "/schedule{,/**}",
+          "destination": "/agendar",
+          "type": 301
+        },
+        {
+          "source": "/pitch{,/**}",
+          "destination": "/presentacion",
+          "type": 301
+        },
+        {
+          "source": "/suggestions{,/**}",
+          "destination": "/sugerencias",
+          "type": 301
+        },
+        {
+          "source": "/en{,/**}",
           "destination": "/",
           "type": 301
         }
       ],
       "rewrites": [
         {
-          "source": "/suggestions",
+          "source": "/sugerencias",
           "destination": "/200.html"
         },
         {
@@ -198,7 +458,7 @@
           ]
         },
         {
-          "source": "/schedule",
+          "source": "/agendar",
           "headers": [
             {
               "key": "X-Robots-Tag",
@@ -207,7 +467,7 @@
           ]
         },
         {
-          "source": "/pitch",
+          "source": "/presentacion",
           "headers": [
             {
               "key": "X-Robots-Tag",
@@ -216,7 +476,7 @@
           ]
         },
         {
-          "source": "/suggestions",
+          "source": "/sugerencias",
           "headers": [
             {
               "key": "X-Robots-Tag",

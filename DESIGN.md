@@ -86,7 +86,7 @@ rules:
   - On primary tints (bg-primary/5..20) use text-primary-active/pressed, never bare text-primary (lint-tint-contrast.sh).
   - No em/en-dashes in copy; middot (·) is the inline label separator.
   - One primary action per band; sky is a precision cut, not a wash.
-  - All copy via t() i18n (es/en); URLs in English.
+  - All copy via t() i18n (es/en); canonical public URLs use descriptive Spanish kebab-case slugs. Legacy English slugs exist only as direct 301 redirects.
   - Contrast: AAA 7:1 body, AA 4.5:1 minimum where the accent requires it.
   - 44px minimum touch targets on mobile.
 ---

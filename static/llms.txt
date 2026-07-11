@@ -59,20 +59,20 @@ La Ley 21.719 de Protección de Datos Personales de Chile entra en vigencia en d
 
 - Comparativa con competidores: https://ethoz.cl/comparativa
 - Proyecciones de impacto: https://ethoz.cl/proyecciones
-- Calculadora ROI: https://ethoz.cl/roi-calculator
-- Integraciones: https://ethoz.cl/integrations
+- Calculadora ROI: https://ethoz.cl/calculadora-roi
+- Integraciones: https://ethoz.cl/integraciones
 
 ## Funcionalidades
 
-- Perfil integral del alumno: https://ethoz.cl/features/student-profile
-- Retiros escolares seguros: https://ethoz.cl/features/safe-pickups
-- Control de acceso por roles: https://ethoz.cl/features/access-control
-- Búsqueda inteligente: https://ethoz.cl/features/smart-search
-- Registro de convivencia: https://ethoz.cl/features/privacy-compliance
-- Alertas críticas: https://ethoz.cl/features/alerts
-- Analytics: https://ethoz.cl/features/analytics
-- Protocolos de emergencia: https://ethoz.cl/features/emergency
-- Asistencia y libro digital: https://ethoz.cl/features/attendance
+- Perfil integral del alumno: https://ethoz.cl/funcionalidades/ficha-alumno
+- Retiros escolares seguros: https://ethoz.cl/funcionalidades/retiros-seguros
+- Control de acceso por roles: https://ethoz.cl/funcionalidades/acceso-por-rol
+- Búsqueda inteligente: https://ethoz.cl/funcionalidades/busqueda-contextual
+- Registro de convivencia: https://ethoz.cl/funcionalidades/privacidad-datos
+- Alertas críticas: https://ethoz.cl/funcionalidades/alertas
+- Indicadores: https://ethoz.cl/funcionalidades/indicadores
+- Protocolos de emergencia: https://ethoz.cl/funcionalidades/emergencias
+- Asistencia y libro digital: https://ethoz.cl/funcionalidades/asistencia
 
 ## Para audiencias específicas
 
@@ -86,7 +86,7 @@ La Ley 21.719 de Protección de Datos Personales de Chile entra en vigencia en d
 - Circular N°30: https://ethoz.cl/circular-30
 - Glosario: https://ethoz.cl/glosario
 - Seguridad de datos: https://ethoz.cl/seguridad-datos
-- Recursos gratuitos (plantillas descargables): https://ethoz.cl/resources
+- Recursos gratuitos (plantillas descargables): https://ethoz.cl/recursos
 
 ## Artículos del blog
 

@@ -367,7 +367,7 @@ export const en = {
   'contact.cta.link': 'Go to demo →',
   'contact.recaptcha': 'Protected by Google reCAPTCHA.',
 
-  // About page (simple keys used by /about route)
+  // About page (simple keys used by /nosotros route)
   'about.title': 'Built in Chile, for Chilean schools',
   'about.intro': '{brand} was born from a concrete need: Chilean schools manage critical student information with tools that don\'t meet current regulations. We built the platform that closes that gap.',
   'about.mission_title': 'Our mission',

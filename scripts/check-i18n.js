@@ -14,10 +14,10 @@ import { readFileSync, readdirSync } from 'fs';
 import { join, relative } from 'path';
 
 const ROOT = process.argv[2] || 'src';
-const IGNORE_DIRS = ['components/ui', 'node_modules', '.svelte-kit', 'routes/admin', 'routes/pitch'];
+const IGNORE_DIRS = ['components/ui', 'node_modules', '.svelte-kit', 'routes/admin', 'routes/presentacion'];
 const IGNORE_FILES = ['+error.svelte', '+page.server.ts', '+page.ts', '+layout.server.ts'];
 // Pages with intentionally Spanish-only long-form content (legal, SEO articles)
-const IGNORE_PATHS = ['privacy/', 'terms/', 'suggestions/', 'blog/'];
+const IGNORE_PATHS = ['privacidad/', 'terminos/', 'sugerencias/', 'blog/'];
 
 // Strings that are OK to hardcode
 const ALLOWED = new Set([

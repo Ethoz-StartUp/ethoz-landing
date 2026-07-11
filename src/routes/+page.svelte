@@ -179,7 +179,7 @@
     descKey: TranslationKey;
   }> = [
     {
-      href: '/features/student-profile',
+      href: '/funcionalidades/ficha-alumno',
       icon: ClipboardList,
       titleKey: 'home.feature.record.title',
       descKey: 'home.feature.record.desc',
@@ -191,13 +191,13 @@
       descKey: 'home.feature.summary.desc',
     },
     {
-      href: '/features/access-control',
+      href: '/funcionalidades/acceso-por-rol',
       icon: Shield,
       titleKey: 'home.feature.access.title',
       descKey: 'home.feature.access.desc',
     },
     {
-      href: '/features/smart-search',
+      href: '/funcionalidades/busqueda-contextual',
       icon: Eye,
       titleKey: 'home.feature.search.title',
       descKey: 'home.feature.search.desc',
@@ -248,7 +248,7 @@
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "sales",
-        "url": "https://ethoz.cl/contact"
+        "url": "https://ethoz.cl/contacto"
       }
     },
     {
@@ -273,7 +273,7 @@
         "@type": "AggregateOffer",
         "priceCurrency": "CLP",
         "availability": "https://schema.org/OnlineOnly",
-        "url": "https://ethoz.cl/get-started"
+        "url": "https://ethoz.cl/como-contratar"
       }
     },
     {
@@ -911,9 +911,9 @@
         {/each}
       </div>
 
-      <!-- Inline contact link — no /faq page yet, route to /contact for unanswered questions -->
+      <!-- Inline contact link — no /faq page yet, route to /contacto for unanswered questions -->
       <div class="mt-6 text-center">
-        <a href="/contact" class="inline-flex items-center gap-1 text-sm font-medium text-foreground underline-offset-4 hover:text-body hover:underline">
+        <a href="/contacto" class="inline-flex items-center gap-1 text-sm font-medium text-foreground underline-offset-4 hover:text-body hover:underline">
           {t('faq.contact_link')}
           <ArrowRight class="size-3.5" />
         </a>

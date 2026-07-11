@@ -57,13 +57,13 @@ describe('attribution', () => {
     const { captureAttribution, readAttribution } = await import('./attribution');
     captureAttribution();
 
-    mockLocation('https://ethoz.cl/contact?utm_source=linkedin');
+    mockLocation('https://ethoz.cl/contacto?utm_source=linkedin');
     captureAttribution();
 
     const a = readAttribution();
     expect(a.utm_source).toBe('google'); // first-touch wins
     expect(a.referrer).toBe('https://google.com/'); // first-touch wins
-    expect(a.landing_page).toBe('/contact'); // last-touch wins
+    expect(a.landing_page).toBe('/contacto'); // last-touch wins
   });
 
   it('returns empty object when URL has no UTMs and referrer is empty', async () => {

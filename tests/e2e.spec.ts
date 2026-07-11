@@ -109,30 +109,30 @@ test.describe('Pages — load with 200 and visible heading', () => {
 	const routes = [
 		'/',
 		'/demo',
-		'/about',
-		'/contact',
-		'/get-started',
+		'/nosotros',
+		'/contacto',
+		'/como-contratar',
 		'/productos',
-		'/compliance',
+		'/cumplimiento',
 		'/blog',
-		'/schedule',
-		'/features/student-profile',
-		'/features/safe-pickups',
-		'/features/access-control',
-		'/features/smart-search',
-		'/features/privacy-compliance',
-		'/integrations',
-		'/privacy',
-		'/terms',
-		'/pitch',
+		'/agendar',
+		'/funcionalidades/ficha-alumno',
+		'/funcionalidades/retiros-seguros',
+		'/funcionalidades/acceso-por-rol',
+		'/funcionalidades/busqueda-contextual',
+		'/funcionalidades/privacidad-datos',
+		'/integraciones',
+		'/privacidad',
+		'/terminos',
+		'/presentacion',
 	];
 
 	for (const route of routes) {
 		test(`${route} returns 200 and has a heading`, async ({ page }) => {
 			const response = await page.goto(route);
 			expect(response?.status()).toBe(200);
-			// Pitch page uses fixed overlay, not a normal h1/h2
-			if (route === '/pitch') {
+			// Presentation page uses fixed overlay, not a normal h1/h2
+			if (route === '/presentacion') {
 				await expect(page.locator('.pitch-container, [role="application"]')).toBeVisible();
 			} else {
 				await expect(page.locator('h1, h2').first()).toBeVisible();
@@ -147,21 +147,21 @@ test.describe('Pages — load with 200 and visible heading', () => {
 
 test.describe('Navigation — desktop NavBar', () => {
 	test('logo links to homepage', async ({ page }) => {
-		await page.goto('/about');
+		await page.goto('/nosotros');
 		await page.locator('nav a[href="/"]').first().click();
 		await expect(page).toHaveURL('/');
 	});
 
-	test('About link navigates to /about', async ({ page }) => {
+	test('About link navigates to /nosotros', async ({ page }) => {
 		await page.goto('/');
 		await page.locator('nav').getByRole('link', { name: /qué es|sobre|about/i }).first().click();
-		await expect(page).toHaveURL('/about');
+		await expect(page).toHaveURL('/nosotros');
 	});
 
-	test('Pricing link navigates to /get-started', async ({ page }) => {
+	test('Pricing link navigates to /como-contratar', async ({ page }) => {
 		await page.goto('/');
 		await page.locator('nav').getByRole('link', { name: /contratar|precio|pricing/i }).first().click();
-		await expect(page).toHaveURL('/get-started');
+		await expect(page).toHaveURL('/como-contratar');
 	});
 
 	test('Blog link navigates to /blog', async ({ page }) => {
@@ -170,10 +170,10 @@ test.describe('Navigation — desktop NavBar', () => {
 		await expect(page).toHaveURL('/blog');
 	});
 
-	test('Contact link navigates to /contact', async ({ page }) => {
+	test('Contact link navigates to /contacto', async ({ page }) => {
 		await page.goto('/');
 		await page.locator('nav').getByRole('link', { name: /contact/i }).first().click();
-		await expect(page).toHaveURL('/contact');
+		await expect(page).toHaveURL('/contacto');
 	});
 
 	test('Nav CTA button links to /demo', async ({ page }) => {
@@ -205,7 +205,7 @@ test.describe('Navigation — desktop NavBar', () => {
 			name: /perfil integral del alumno|complete student profile/i
 		});
 		await firstFeatureLink.click();
-		await expect(page).toHaveURL('/features/student-profile');
+		await expect(page).toHaveURL('/funcionalidades/ficha-alumno');
 	});
 });
 
@@ -253,16 +253,16 @@ test.describe('Navigation — mobile hamburger', () => {
 });
 
 test.describe('Navigation — Footer links', () => {
-	test('footer integrations link navigates to /integrations', async ({ page }) => {
+	test('footer integrations link navigates to /integraciones', async ({ page }) => {
 		await page.goto('/');
-		const link = page.locator('footer a[href="/integrations"]').first();
+		const link = page.locator('footer a[href="/integraciones"]').first();
 		await link.scrollIntoViewIfNeeded();
 		await expect(link).toBeVisible();
 	});
 
-	test('footer pricing link navigates to /get-started', async ({ page }) => {
+	test('footer pricing link navigates to /como-contratar', async ({ page }) => {
 		await page.goto('/');
-		const link = page.locator('footer a[href="/get-started"]').first();
+		const link = page.locator('footer a[href="/como-contratar"]').first();
 		await link.scrollIntoViewIfNeeded();
 		await expect(link).toBeVisible();
 	});
@@ -274,30 +274,30 @@ test.describe('Navigation — Footer links', () => {
 		await expect(link).toBeVisible();
 	});
 
-	test('footer about link navigates to /about', async ({ page }) => {
+	test('footer about link navigates to /nosotros', async ({ page }) => {
 		await page.goto('/');
-		const link = page.locator('footer a[href="/about"]').first();
+		const link = page.locator('footer a[href="/nosotros"]').first();
 		await link.scrollIntoViewIfNeeded();
 		await expect(link).toBeVisible();
 	});
 
-	test('footer privacy link navigates to /privacy', async ({ page }) => {
+	test('footer privacy link navigates to /privacidad', async ({ page }) => {
 		await page.goto('/');
-		const link = page.locator('footer a[href="/privacy"]').first();
+		const link = page.locator('footer a[href="/privacidad"]').first();
 		await link.scrollIntoViewIfNeeded();
 		await expect(link).toBeVisible();
 	});
 
-	test('footer terms link navigates to /terms', async ({ page }) => {
+	test('footer terms link navigates to /terminos', async ({ page }) => {
 		await page.goto('/');
-		const link = page.locator('footer a[href="/terms"]').first();
+		const link = page.locator('footer a[href="/terminos"]').first();
 		await link.scrollIntoViewIfNeeded();
 		await expect(link).toBeVisible();
 	});
 });
 
 test.describe('Navigation — CTA buttons', () => {
-	const ctaPages = ['/', '/about', '/get-started', '/compliance'];
+	const ctaPages = ['/', '/nosotros', '/como-contratar', '/cumplimiento'];
 	for (const route of ctaPages) {
 		test(`"Solicita tu demo" CTA on ${route} links to /demo`, async ({ page }) => {
 			await page.goto(route);
@@ -338,7 +338,7 @@ test.describe('Runtime errors — no uncaught exceptions', () => {
 	test('contact page has no JS errors', async ({ page }) => {
 		const errors: string[] = [];
 		page.on('pageerror', (err) => errors.push(err.message));
-		await page.goto('/contact');
+		await page.goto('/contacto');
 		await expect(page.locator('h1, h2').first()).toBeVisible();
 		await page.waitForTimeout(1000);
 		expect(errors).toEqual([]);
@@ -474,20 +474,20 @@ test.describe.serial('Demo funnel — step 2: contact form', () => {
 
 test.describe('Contact form', () => {
 	test('all fields are present', async ({ page }) => {
-		await page.goto('/contact');
+		await page.goto('/contacto');
 		await expect(page.locator('#contact-name')).toBeVisible();
 		await expect(page.locator('#contact-email')).toBeVisible();
 		await expect(page.locator('#contact-message')).toBeVisible();
 	});
 
 	test('submit button is disabled when form is empty', async ({ page }) => {
-		await page.goto('/contact');
+		await page.goto('/contacto');
 		const submitBtn = page.locator('button[type="submit"]').first();
 		await expect(submitBtn).toBeDisabled();
 	});
 
 	test('submit button becomes enabled when all fields are filled', async ({ page }) => {
-		await page.goto('/contact');
+		await page.goto('/contacto');
 		await page.locator('#contact-name').fill('Juan Pérez');
 		await page.locator('#contact-email').fill('juan@test.cl');
 		await page.locator('#contact-message').fill('Mensaje de prueba');
@@ -496,7 +496,7 @@ test.describe('Contact form', () => {
 	});
 
 	test('form has marketing integration markers', async ({ page }) => {
-		await page.goto('/contact');
+		await page.goto('/contacto');
 		const html = await page.content();
 		expect(html).toContain('contact-name');
 		expect(html).toContain('contact-email');
@@ -516,7 +516,7 @@ test.describe('Tracking — GTM dataLayer', () => {
 	});
 
 	test('dataLayer exists on every main page', async ({ page }) => {
-		const pages = ['/', '/about', '/get-started', '/compliance', '/productos', '/blog', '/contact'];
+		const pages = ['/', '/nosotros', '/como-contratar', '/cumplimiento', '/productos', '/blog', '/contacto'];
 		for (const route of pages) {
 			await page.goto(route);
 			const has = await page.evaluate(() => Array.isArray((window as any).dataLayer));
@@ -524,15 +524,15 @@ test.describe('Tracking — GTM dataLayer', () => {
 		}
 	});
 
-	test('pricing_page_viewed fires on /get-started', async ({ page }) => {
+	test('pricing_page_viewed fires on /como-contratar', async ({ page }) => {
 		await acceptConsentInit(page);
-		await page.goto('/get-started');
+		await page.goto('/como-contratar');
 		await expectDataLayerEvent(page, 'pricing_page_viewed');
 	});
 
-	test('about_page_viewed fires on /about', async ({ page }) => {
+	test('about_page_viewed fires on /nosotros', async ({ page }) => {
 		await acceptConsentInit(page);
-		await page.goto('/about');
+		await page.goto('/nosotros');
 		await expectDataLayerEvent(page, 'about_page_viewed');
 	});
 
@@ -542,18 +542,18 @@ test.describe('Tracking — GTM dataLayer', () => {
 		await expectDataLayerEvent(page, 'products_page_viewed');
 	});
 
-	test('compliance_page_viewed fires on /compliance', async ({ page }) => {
+	test('compliance_page_viewed fires on /cumplimiento', async ({ page }) => {
 		await acceptConsentInit(page);
-		await page.goto('/compliance');
+		await page.goto('/cumplimiento');
 		await expectDataLayerEvent(page, 'compliance_page_viewed');
 	});
 
 	const featurePages = [
-		{ route: '/features/student-profile', feature: 'student-profile' },
-		{ route: '/features/safe-pickups', feature: 'safe-pickups' },
-		{ route: '/features/access-control', feature: 'access-control' },
-		{ route: '/features/smart-search', feature: 'smart-search' },
-		{ route: '/features/privacy-compliance', feature: 'privacy-compliance' },
+		{ route: '/funcionalidades/ficha-alumno', feature: 'student-profile' },
+		{ route: '/funcionalidades/retiros-seguros', feature: 'safe-pickups' },
+		{ route: '/funcionalidades/acceso-por-rol', feature: 'access-control' },
+		{ route: '/funcionalidades/busqueda-contextual', feature: 'smart-search' },
+		{ route: '/funcionalidades/privacidad-datos', feature: 'privacy-compliance' },
 	];
 
 	for (const { route, feature } of featurePages) {
@@ -604,7 +604,7 @@ test.describe('Tracking — internal flag suppresses events', () => {
 		const flag = await page.evaluate(() => localStorage.getItem('ethoz_internal'));
 		expect(flag).toBe('1');
 
-		await page.goto('/get-started');
+		await page.goto('/como-contratar');
 		const events = await page.evaluate(() =>
 			((window as any).dataLayer ?? []).filter((e: any) => e.event === 'pricing_page_viewed')
 		);
@@ -632,20 +632,20 @@ test.describe('SEO — titles, canonical, og:title', () => {
 	const seoRoutes = [
 		'/',
 		'/demo',
-		'/about',
-		'/contact',
-		'/get-started',
+		'/nosotros',
+		'/contacto',
+		'/como-contratar',
 		'/productos',
-		'/compliance',
+		'/cumplimiento',
 		'/blog',
-		'/integrations',
-		'/features/student-profile',
-		'/features/safe-pickups',
-		'/features/access-control',
-		'/features/smart-search',
-		'/features/privacy-compliance',
-		'/privacy',
-		'/terms',
+		'/integraciones',
+		'/funcionalidades/ficha-alumno',
+		'/funcionalidades/retiros-seguros',
+		'/funcionalidades/acceso-por-rol',
+		'/funcionalidades/busqueda-contextual',
+		'/funcionalidades/privacidad-datos',
+		'/privacidad',
+		'/terminos',
 	];
 
 	for (const route of seoRoutes) {
@@ -656,8 +656,8 @@ test.describe('SEO — titles, canonical, og:title', () => {
 		});
 	}
 
-	// Most pages have og:title or canonical; /get-started only has a title tag (FAQPage JSON-LD instead)
-	const routesWithOgOrCanonical = seoRoutes.filter(r => r !== '/get-started');
+	// Most pages have og:title or canonical; /como-contratar only has a title tag (FAQPage JSON-LD instead)
+	const routesWithOgOrCanonical = seoRoutes.filter(r => r !== '/como-contratar');
 	for (const route of routesWithOgOrCanonical) {
 		test(`${route} has og:title or canonical`, async ({ page }) => {
 			await page.goto(route);
@@ -668,8 +668,8 @@ test.describe('SEO — titles, canonical, og:title', () => {
 		});
 	}
 
-	test('/get-started has a title (FAQPage JSON-LD page, no og:title)', async ({ page }) => {
-		await page.goto('/get-started');
+	test('/como-contratar has a title (FAQPage JSON-LD page, no og:title)', async ({ page }) => {
+		await page.goto('/como-contratar');
 		const title = await page.title();
 		expect(title.length).toBeGreaterThan(0);
 		// It does have JSON-LD structured data
@@ -702,7 +702,7 @@ test.describe('SEO — structured data and sitemap', () => {
 // ─────────────────────────────────────────────────────────────────────────────
 
 test.describe('Layout — footer at or below viewport bottom', () => {
-	const shortPages = ['/contact', '/about', '/privacy'];
+	const shortPages = ['/contacto', '/nosotros', '/privacidad'];
 
 	for (const route of shortPages) {
 		test(`footer is at or below viewport bottom on ${route}`, async ({ page }) => {
@@ -724,24 +724,24 @@ test.describe('Layout — footer at or below viewport bottom', () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 8. Pitch page
+// 8. Presentation page
 // ─────────────────────────────────────────────────────────────────────────────
 
-test.describe('Pitch page', () => {
+test.describe('Presentation page', () => {
 	test('loads with start overlay visible', async ({ page }) => {
-		await page.goto('/pitch');
+		await page.goto('/presentacion');
 		const overlay = page.locator('.start-overlay');
 		await expect(overlay).toBeVisible({ timeout: 5000 });
 	});
 
 	test('Play button exists in start overlay', async ({ page }) => {
-		await page.goto('/pitch');
+		await page.goto('/presentacion');
 		const playBtn = page.locator('.start-button');
 		await expect(playBtn).toBeVisible({ timeout: 5000 });
 	});
 
 	test('prev/next/play/pause/mute controls exist', async ({ page }) => {
-		await page.goto('/pitch');
+		await page.goto('/presentacion');
 		// Controls bar is always visible when not playing
 		await expect(page.locator('button[aria-label="Slide anterior"]')).toBeVisible({ timeout: 5000 });
 		await expect(page.locator('button[aria-label="Siguiente slide"]')).toBeVisible();
@@ -750,13 +750,13 @@ test.describe('Pitch page', () => {
 	});
 
 	test('subtitle toggle button exists', async ({ page }) => {
-		await page.goto('/pitch');
+		await page.goto('/presentacion');
 		const subtitleBtn = page.locator('button[aria-label*="subtítulo"], button[aria-label*="Mostrar subtítulos"], button[aria-label*="Ocultar subtítulos"]');
 		await expect(subtitleBtn).toBeVisible({ timeout: 5000 });
 	});
 
 	test('subtitle toggle hides/shows subtitle bar', async ({ page }) => {
-		await page.goto('/pitch');
+		await page.goto('/presentacion');
 		// Subtitles start visible
 		const subtitleBar = page.locator('.subtitle-bar');
 		await expect(subtitleBar).toBeVisible({ timeout: 5000 });
@@ -782,7 +782,7 @@ test.describe('Pitch page', () => {
 	});
 
 	test('slide dots are visible', async ({ page }) => {
-		await page.goto('/pitch');
+		await page.goto('/presentacion');
 		const dots = page.locator('.slide-dots button.dot');
 		await expect(dots.first()).toBeVisible({ timeout: 5000 });
 		expect(await dots.count()).toBeGreaterThanOrEqual(10);
@@ -869,16 +869,16 @@ test.describe('Responsive — mobile (375×812)', () => {
 		expect(overflow).toBe(false);
 	});
 
-	test('/about content does not overflow horizontally', async ({ page }) => {
-		await page.goto('/about');
+	test('/nosotros content does not overflow horizontally', async ({ page }) => {
+		await page.goto('/nosotros');
 		const overflow = await page.evaluate(() => {
 			return document.documentElement.scrollWidth > window.innerWidth;
 		});
 		expect(overflow).toBe(false);
 	});
 
-	test('/compliance content does not overflow horizontally', async ({ page }) => {
-		await page.goto('/compliance');
+	test('/cumplimiento content does not overflow horizontally', async ({ page }) => {
+		await page.goto('/cumplimiento');
 		const overflow = await page.evaluate(() => {
 			return document.documentElement.scrollWidth > window.innerWidth;
 		});
@@ -915,8 +915,8 @@ test.describe('Responsive — mobile (375×812)', () => {
 		await expect(results.first()).toBeVisible({ timeout: 5000 });
 	});
 
-	test('/pitch controls are visible on mobile', async ({ page }) => {
-		await page.goto('/pitch');
+	test('/presentacion controls are visible on mobile', async ({ page }) => {
+		await page.goto('/presentacion');
 		const controls = page.locator('.controls-bar');
 		await expect(controls).toBeVisible({ timeout: 5000 });
 	});
@@ -943,14 +943,14 @@ test.describe('Responsive — mobile (375×812)', () => {
 
 test.describe('Integrations page', () => {
 	test('loads with hero section', async ({ page }) => {
-		const response = await page.goto('/integrations');
+		const response = await page.goto('/integraciones');
 		expect(response?.status()).toBe(200);
 		await expect(page.locator('h1')).toBeVisible();
 		await expect(page.locator('h1')).toContainText('conecta');
 	});
 
 	test('shows compatible systems table', async ({ page }) => {
-		await page.goto('/integrations');
+		await page.goto('/integraciones');
 		const systems = ['Napsis', 'Syscol', 'SchoolTrack', 'SIGE', 'Excel'];
 		for (const name of systems) {
 			await expect(page.locator(`text=${name}`).first()).toBeVisible();
@@ -958,34 +958,34 @@ test.describe('Integrations page', () => {
 	});
 
 	test('has availability status badges', async ({ page }) => {
-		await page.goto('/integrations');
+		await page.goto('/integraciones');
 		const disponible = page.locator('text=Disponible');
 		expect(await disponible.count()).toBeGreaterThanOrEqual(3);
 	});
 
 	test('has CTA linking to /demo', async ({ page }) => {
-		await page.goto('/integrations');
+		await page.goto('/integraciones');
 		const cta = page.locator('a[href="/demo"]').first();
 		await cta.scrollIntoViewIfNeeded();
 		await expect(cta).toBeVisible();
 	});
 
 	test('has breadcrumb JSON-LD', async ({ page }) => {
-		await page.goto('/integrations');
+		await page.goto('/integraciones');
 		const html = await page.content();
 		expect(html).toContain('BreadcrumbList');
 	});
 
 	test('fires integrations_page_viewed tracking event', async ({ page }) => {
 		await acceptConsentInit(page);
-		await page.goto('/integrations');
+		await page.goto('/integraciones');
 		await expectDataLayerEvent(page, 'integrations_page_viewed');
 	});
 
 	test('has no JS errors', async ({ page }) => {
 		const errors: string[] = [];
 		page.on('pageerror', (err) => errors.push(err.message));
-		await page.goto('/integrations');
+		await page.goto('/integraciones');
 		await page.waitForTimeout(1000);
 		expect(errors).toEqual([]);
 	});
@@ -996,7 +996,7 @@ test.describe('Integrations page', () => {
 // ─────────────────────────────────────────────────────────────────────────────
 
 test.describe('Demo funnel — happy path (stubbed)', () => {
-	test('fills form and navigates to /schedule on success', async ({ page }) => {
+	test('fills form and navigates to /agendar on success', async ({ page }) => {
 		// Stub grecaptcha so it resolves immediately without network
 		await page.addInitScript(() => {
 			Object.defineProperty(window, 'grecaptcha', {
@@ -1035,8 +1035,8 @@ test.describe('Demo funnel — happy path (stubbed)', () => {
 		// Submit
 		await page.locator('button[type="submit"]').click();
 
-		// Should navigate to /schedule
-		await expect(page).toHaveURL('/schedule', { timeout: 10_000 });
+		// Should navigate to /agendar
+		await expect(page).toHaveURL('/agendar', { timeout: 10_000 });
 	});
 });
 
@@ -1075,7 +1075,7 @@ test.describe('Footer — social links', () => {
 
 	test('footer has Integraciones link', async ({ page }) => {
 		await page.goto('/');
-		const link = page.locator('footer a[href="/integrations"]');
+		const link = page.locator('footer a[href="/integraciones"]');
 		await page.locator('footer').scrollIntoViewIfNeeded();
 		await expect(link).toBeVisible();
 	});
@@ -1150,7 +1150,7 @@ test.describe('Navbar — products dropdown', () => {
 	test('Integraciones is a top-level nav link', async ({ page }) => {
 		await page.goto('/');
 		// Should be a direct link, not inside the dropdown
-		const navLink = page.locator('nav a[href="/integrations"]').first();
+		const navLink = page.locator('nav a[href="/integraciones"]').first();
 		await expect(navLink).toBeVisible();
 	});
 });

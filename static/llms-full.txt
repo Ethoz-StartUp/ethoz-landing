@@ -35,39 +35,39 @@ Los colegios chilenos enfrentan tres problemas simultáneos:
 ## Funcionalidades principales
 
 ### Perfil integral del alumno
-URL: https://ethoz.cl/features/student-profile
+URL: https://ethoz.cl/funcionalidades/ficha-alumno
 Historial académico, conductual y de salud que persiste entre años escolares. Elimina el "reinicio de marzo" donde se pierde información crítica al cambiar de año. Los datos viajan con el alumno desde prekínder hasta 4° medio.
 
 ### Retiros escolares seguros
-URL: https://ethoz.cl/features/safe-pickups
+URL: https://ethoz.cl/funcionalidades/retiros-seguros
 Verificación digital de personas autorizadas para retirar alumnos en portería. Elimina el riesgo de entregas no autorizadas. El portero escanea QR o busca por RUT y ve foto + estado de autorización en tiempo real.
 
 ### Control de acceso por roles (RBAC)
-URL: https://ethoz.cl/features/access-control
+URL: https://ethoz.cl/funcionalidades/acceso-por-rol
 Cada cargo del establecimiento accede solo a la información que necesita. El portero ve foto y alertas; el director ve indicadores agregados; el orientador ve fichas de derivación. Cumple con el principio de minimización de datos de la Ley 21.719.
 
 ### Búsqueda inteligente
-URL: https://ethoz.cl/features/smart-search
+URL: https://ethoz.cl/funcionalidades/busqueda-contextual
 Localización instantánea de cualquier alumno por nombre, curso o RUT. Resultados en menos de 200ms incluso en colegios con 2.000+ alumnos.
 
 ### Registro de convivencia y cumplimiento
-URL: https://ethoz.cl/features/privacy-compliance
+URL: https://ethoz.cl/funcionalidades/privacidad-datos
 Registro digital de incidentes de convivencia con trazabilidad completa. Gestión de consentimientos informados y derechos ARCO+P conforme a la Ley 21.719.
 
 ### Alertas críticas
-URL: https://ethoz.cl/features/alerts
+URL: https://ethoz.cl/funcionalidades/alertas
 Notificaciones en tiempo real ante eventos de riesgo: inasistencia reiterada, incidentes de convivencia, intentos de retiro no autorizado. Los equipos directivos reciben alertas antes de que los problemas escalen.
 
 ### Analytics y reportería
-URL: https://ethoz.cl/features/analytics
+URL: https://ethoz.cl/funcionalidades/indicadores
 Dashboards con indicadores de asistencia, convivencia y rendimiento por curso, nivel y sede. Para sostenedores multi-sede: vista consolidada de toda la red con drill-down por establecimiento.
 
 ### Protocolos de emergencia
-URL: https://ethoz.cl/features/emergency
+URL: https://ethoz.cl/funcionalidades/emergencias
 Activación de protocolos de evacuación, lockdown y emergencias médicas con registro automático de acciones y tiempos. Cumple con requisitos del Plan de Gestión de Riesgos del Mineduc.
 
 ### Asistencia y libro digital
-URL: https://ethoz.cl/features/attendance
+URL: https://ethoz.cl/funcionalidades/asistencia
 Libro de clases digital con firma mediante Clave Única, conforme a la Circular N°30 de la Superintendencia de Educación. Trazabilidad completa de modificaciones con registro de quién, cuándo y por qué.
 
 ---
@@ -76,8 +76,8 @@ Libro de clases digital con firma mediante Clave Única, conforme a la Circular 
 
 - Comparativa con competidores: https://ethoz.cl/comparativa
 - Proyecciones de impacto: https://ethoz.cl/proyecciones
-- Calculadora ROI: https://ethoz.cl/roi-calculator
-- Integraciones: https://ethoz.cl/integrations
+- Calculadora ROI: https://ethoz.cl/calculadora-roi
+- Integraciones: https://ethoz.cl/integraciones
 
 ---
 
@@ -103,7 +103,7 @@ El portero es la primera línea de seguridad. Ethoz les da una interfaz simple: 
 - Circular N°30: https://ethoz.cl/circular-30
 - Glosario de protección de datos: https://ethoz.cl/glosario
 - Seguridad de datos: https://ethoz.cl/seguridad-datos
-- Recursos gratuitos (plantillas descargables): https://ethoz.cl/resources
+- Recursos gratuitos (plantillas descargables): https://ethoz.cl/recursos
 
 ---
 

@@ -334,7 +334,7 @@
       <div class="rounded-xl border border-hairline bg-card p-5 text-center">
         <p class="text-sm text-muted-foreground">{t('demo.network_prompt')}</p>
         <a
-          href="/contact"
+          href="/contacto"
           class="mt-1.5 inline-flex items-center gap-1 text-sm font-semibold text-foreground underline-offset-4 hover:text-body hover:underline"
         >
           {t('demo.network_cta')}

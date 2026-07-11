@@ -263,7 +263,7 @@
         {t('proyecciones.cta_subtitle')}
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href="/roi-calculator">
+        <Button size="xl" href="/calculadora-roi">
           {t('proyecciones.cta_primary')}
           <ArrowRight class="size-4" />
         </Button>

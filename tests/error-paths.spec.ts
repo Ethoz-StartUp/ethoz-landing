@@ -23,7 +23,7 @@ test.describe('Contact form — marketing submission failure', () => {
 			route.fulfill({ status: 403, body: 'Forbidden' })
 		);
 
-		await page.goto('/contact');
+		await page.goto('/contacto');
 		await dismissCookies(page);
 
 		// Fill in all required fields
@@ -44,7 +44,7 @@ test.describe('Contact form — marketing submission failure', () => {
 			route.fulfill({ status: 403, body: 'Forbidden' })
 		);
 
-		await page.goto('/contact');
+		await page.goto('/contacto');
 		await dismissCookies(page);
 
 		await page.fill('#contact-name', 'Test Usuario');
@@ -66,7 +66,7 @@ test.describe('Contact form — marketing submission failure', () => {
 			route.fulfill({ status: 403, body: 'Forbidden' })
 		);
 
-		await page.goto('/contact');
+		await page.goto('/contacto');
 		await dismissCookies(page);
 
 		await page.fill('#contact-name', 'Test Usuario');
@@ -95,7 +95,7 @@ test.describe('Contact form — marketing submission failure', () => {
 			});
 		});
 
-		await page.goto('/contact');
+		await page.goto('/contacto');
 		await dismissCookies(page);
 
 		await page.fill('#contact-name', 'Test Usuario');
@@ -156,7 +156,7 @@ test.describe('Schedule page — Cal.com embed failure', () => {
 		// Block the Cal.com embed script so onerror fires on the <script> element
 		await page.route('**/embed/embed.js', (route) => route.abort());
 
-		await page.goto('/schedule');
+		await page.goto('/agendar');
 
 		// The fallback link appears when calError becomes true.
 		// Give it up to 15s to account for the 10s timeout fallback timer in the component.
@@ -170,7 +170,7 @@ test.describe('Schedule page — Cal.com embed failure', () => {
 
 		await page.route('**/embed/embed.js', (route) => route.abort());
 
-		await page.goto('/schedule');
+		await page.goto('/agendar');
 
 		// Wait for fallback to appear, then verify no unhandled errors occurred
 		await expect(page.locator('a[href="https://cal.com/ethoz/demo"]')).toBeVisible({
@@ -183,7 +183,7 @@ test.describe('Schedule page — Cal.com embed failure', () => {
 	test('still shows page heading and layout when Cal.com is blocked', async ({ page }) => {
 		await page.route('**/embed/embed.js', (route) => route.abort());
 
-		await page.goto('/schedule');
+		await page.goto('/agendar');
 
 		// Nav and heading should be immediately visible regardless of embed state
 		await expect(page.locator('h1')).toBeVisible({ timeout: 5000 });

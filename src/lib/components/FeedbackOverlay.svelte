@@ -268,7 +268,7 @@
             <div class="flex items-center justify-between rounded-lg bg-muted/50 px-3 py-2 text-xs text-muted-foreground">
               <span>{feedbackStore.items.length} {t('feedbackOverlay.stats_item')}{feedbackStore.items.length !== 1 ? 's' : ''} {t('feedbackOverlay.stats_saved')}{feedbackStore.items.length !== 1 ? 's' : ''}</span>
               <a
-                href="/suggestions"
+                href="/sugerencias"
                 class="flex items-center gap-1 font-medium text-primary hover:underline"
               >
                 {t('feedbackOverlay.view_all')} <ExternalLink class="size-3" />

@@ -15,7 +15,7 @@
       icon: Users,
       nameKey: 'productos.product_student_profile_name' as const,
       descKey: 'productos.product_student_profile_desc' as const,
-      href: '/features/student-profile',
+      href: '/funcionalidades/ficha-alumno',
       color: 'bg-primary/10 text-primary-active',
       highlightKeys: ['productos.product_student_profile_h1', 'productos.product_student_profile_h2', 'productos.product_student_profile_h3', 'productos.product_student_profile_h4'] as const,
     },
@@ -24,7 +24,7 @@
       icon: MapPin,
       nameKey: 'productos.product_safe_pickups_name' as const,
       descKey: 'productos.product_safe_pickups_desc' as const,
-      href: '/features/safe-pickups',
+      href: '/funcionalidades/retiros-seguros',
       color: 'bg-destructive/10 text-destructive',
       highlightKeys: ['productos.product_safe_pickups_h1', 'productos.product_safe_pickups_h2', 'productos.product_safe_pickups_h3', 'productos.product_safe_pickups_h4'] as const,
     },
@@ -33,7 +33,7 @@
       icon: Shield,
       nameKey: 'productos.product_access_control_name' as const,
       descKey: 'productos.product_access_control_desc' as const,
-      href: '/features/access-control',
+      href: '/funcionalidades/acceso-por-rol',
       color: 'bg-warning/15 text-warning-foreground',
       highlightKeys: ['productos.product_access_control_h1', 'productos.product_access_control_h2', 'productos.product_access_control_h3', 'productos.product_access_control_h4'] as const,
     },
@@ -42,7 +42,7 @@
       icon: Search,
       nameKey: 'productos.product_smart_search_name' as const,
       descKey: 'productos.product_smart_search_desc' as const,
-      href: '/features/smart-search',
+      href: '/funcionalidades/busqueda-contextual',
       color: 'bg-primary/10 text-primary-active',
       highlightKeys: ['productos.product_smart_search_h1', 'productos.product_smart_search_h2', 'productos.product_smart_search_h3', 'productos.product_smart_search_h4'] as const,
     },
@@ -51,7 +51,7 @@
       icon: ClipboardList,
       nameKey: 'productos.product_coexistence_name' as const,
       descKey: 'productos.product_coexistence_desc' as const,
-      href: '/features/student-profile',
+      href: '/funcionalidades/ficha-alumno',
       color: 'bg-success/10 text-success',
       highlightKeys: ['productos.product_coexistence_h1', 'productos.product_coexistence_h2', 'productos.product_coexistence_h3', 'productos.product_coexistence_h4'] as const,
     },
@@ -60,7 +60,7 @@
       icon: Eye,
       nameKey: 'productos.product_digital_logbook_name' as const,
       descKey: 'productos.product_digital_logbook_desc' as const,
-      href: '/integrations',
+      href: '/integraciones',
       color: 'bg-primary/10 text-primary-active',
       highlightKeys: ['productos.product_digital_logbook_h1', 'productos.product_digital_logbook_h2', 'productos.product_digital_logbook_h3', 'productos.product_digital_logbook_h4'] as const,
     },
@@ -69,7 +69,7 @@
       icon: ShieldAlert,
       nameKey: 'productos.product_critical_alerts_name' as const,
       descKey: 'productos.product_critical_alerts_desc' as const,
-      href: '/features/alerts',
+      href: '/funcionalidades/alertas',
       color: 'bg-destructive/10 text-destructive',
       highlightKeys: ['productos.product_critical_alerts_h1', 'productos.product_critical_alerts_h2', 'productos.product_critical_alerts_h3', 'productos.product_critical_alerts_h4'] as const,
     },
@@ -78,7 +78,7 @@
       icon: BarChart3,
       nameKey: 'productos.product_analytics_name' as const,
       descKey: 'productos.product_analytics_desc' as const,
-      href: '/features/analytics',
+      href: '/funcionalidades/indicadores',
       color: 'bg-primary/10 text-primary-active',
       highlightKeys: ['productos.product_analytics_h1', 'productos.product_analytics_h2', 'productos.product_analytics_h3', 'productos.product_analytics_h4'] as const,
     },
@@ -87,7 +87,7 @@
       icon: Siren,
       nameKey: 'productos.product_emergency_name' as const,
       descKey: 'productos.product_emergency_desc' as const,
-      href: '/features/emergency',
+      href: '/funcionalidades/emergencias',
       color: 'bg-destructive/10 text-destructive',
       highlightKeys: ['productos.product_emergency_h1', 'productos.product_emergency_h2', 'productos.product_emergency_h3', 'productos.product_emergency_h4'] as const,
     },
@@ -96,7 +96,7 @@
       icon: CalendarCheck,
       nameKey: 'productos.product_attendance_name' as const,
       descKey: 'productos.product_attendance_desc' as const,
-      href: '/features/attendance',
+      href: '/funcionalidades/asistencia',
       color: 'bg-success/10 text-success',
       highlightKeys: ['productos.product_attendance_h1', 'productos.product_attendance_h2', 'productos.product_attendance_h3', 'productos.product_attendance_h4'] as const,
     },
@@ -131,7 +131,7 @@
   <!-- Hero -->
   <section class="pt-28 pb-12 sm:pt-32 sm:pb-16 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <!-- Editorial eyebrow — Cal-flavored, mirrors the /get-started pattern -->
+      <!-- Editorial eyebrow — Cal-flavored, mirrors the /como-contratar pattern -->
       <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
         <span class="text-primary">{t('productos.hero_eyebrow_catalog')}</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>

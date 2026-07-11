@@ -191,7 +191,7 @@ export const es = {
   'contact.cta.link': 'Ir a la demo →',
   'contact.recaptcha': 'Protegido por reCAPTCHA de Google.',
 
-  // About page (simple keys used by /about route)
+  // About page (simple keys used by /nosotros route)
   'about.title': 'Construido en Chile, para colegios chilenos',
   'about.intro': '{brand} nace de una necesidad concreta: los colegios chilenos manejan información crítica de sus alumnos con herramientas que no cumplen con la normativa vigente. Creamos la plataforma que cierra esa brecha.',
   'about.mission_title': 'Nuestra misión',

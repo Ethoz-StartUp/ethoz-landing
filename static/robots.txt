@@ -2,6 +2,9 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /admin/
+
+# Las rutas publicas con noindex se mantienen rastreables para que los bots
+# puedan leer la metaetiqueta o el encabezado X-Robots-Tag correspondiente.
 Sitemap: https://ethoz.cl/sitemap.xml
 
 # AI Agents

@@ -464,8 +464,8 @@
             {#each [
               { titleKey: 'ley21719.s9_f1_title' as const, descKey: 'ley21719.s9_f1_desc' as const, link: '/seguridad-datos' },
               { titleKey: 'ley21719.s9_f2_title' as const, descKey: 'ley21719.s9_f2_desc' as const, link: '/seguridad-datos' },
-              { titleKey: 'ley21719.s9_f3_title' as const, descKey: 'ley21719.s9_f3_desc' as const, link: '/compliance' },
-              { titleKey: 'ley21719.s9_f4_title' as const, descKey: 'ley21719.s9_f4_desc' as const, link: '/integrations' },
+              { titleKey: 'ley21719.s9_f3_title' as const, descKey: 'ley21719.s9_f3_desc' as const, link: '/cumplimiento' },
+              { titleKey: 'ley21719.s9_f4_title' as const, descKey: 'ley21719.s9_f4_desc' as const, link: '/integraciones' },
             ] as item}
               <a href={item.link} class="group block rounded-xl border border-border bg-card p-5 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
                 <h3 class="font-semibold text-foreground">{t(item.titleKey)}</h3>
@@ -541,7 +541,7 @@
           { href: '/seguridad-datos', labelKey: 'ley21719.related_2' as const },
           { href: '/comparativa', labelKey: 'ley21719.related_3' as const },
           { href: '/glosario', labelKey: 'ley21719.related_4' as const },
-          { href: '/compliance', labelKey: 'ley21719.related_5' as const },
+          { href: '/cumplimiento', labelKey: 'ley21719.related_5' as const },
         ] as item}
           <a href={item.href} class="border border-border bg-card px-4 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted/40 hover:border-foreground hover:text-foreground rounded-md">
             {t(item.labelKey)}

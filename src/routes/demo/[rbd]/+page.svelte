@@ -258,7 +258,7 @@
         }));
       }
 
-      goto('/schedule');
+      goto('/agendar');
     } finally {
       submitting = false;
     }
@@ -577,7 +577,7 @@
               {/if}
               <p class="mt-2 text-center text-mockup-xs text-muted-foreground">
                 {t('demo.privacy_notice')}
-                <a href="/privacy" class="underline underline-offset-2 hover:text-foreground">{t('demo.privacy_link')}</a>
+                <a href="/privacidad" class="underline underline-offset-2 hover:text-foreground">{t('demo.privacy_link')}</a>
               </p>
               <p class="mt-2 text-center text-mockup-xs text-muted-foreground">
                 {t('demo.recaptcha_notice')}
@@ -594,6 +594,6 @@
   <footer class="border-t border-border bg-background py-4 text-center text-mockup-sm text-muted-foreground">
     &copy; {new Date().getFullYear()} {BRAND}
     <span aria-hidden="true" class="mx-1">·</span>
-    <a href="/privacy" class="underline underline-offset-2 hover:text-foreground">{t('demo.privacy_link')}</a>
+    <a href="/privacidad" class="underline underline-offset-2 hover:text-foreground">{t('demo.privacy_link')}</a>
   </footer>
 </div>

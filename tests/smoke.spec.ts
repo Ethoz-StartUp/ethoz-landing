@@ -40,7 +40,7 @@ test.describe('Smoke — pages load', () => {
 	});
 
 	test('compliance page loads', async ({ page }) => {
-		await page.goto('/compliance');
+		await page.goto('/cumplimiento');
 		await expect(page).toHaveTitle(/Ethoz/);
 		await expect(page.locator('h1, h2').first()).toBeVisible();
 	});
@@ -169,7 +169,7 @@ test.describe('Smoke — tracking coverage', () => {
 		const flag = await page.evaluate(() => localStorage.getItem('ethoz_internal'));
 		expect(flag).toBe('1');
 		// Navigate to a tracked page — event should NOT fire even with consent true
-		await page.goto('/get-started');
+		await page.goto('/como-contratar');
 		const events = await page.evaluate(() => {
 			return (window as any).dataLayer
 				?.filter((e: any) => e.event === 'pricing_page_viewed') ?? [];
@@ -181,7 +181,7 @@ test.describe('Smoke — tracking coverage', () => {
 
 	test('pricing page fires tracking event', async ({ page }) => {
 		await acceptConsentInit(page);
-		await page.goto('/get-started');
+		await page.goto('/como-contratar');
 		await page.waitForTimeout(1000);
 		const events = await page.evaluate(() => {
 			return (window as any).dataLayer
@@ -192,7 +192,7 @@ test.describe('Smoke — tracking coverage', () => {
 
 	test('feature pages fire tracking events', async ({ page }) => {
 		await acceptConsentInit(page);
-		await page.goto('/features/student-profile');
+		await page.goto('/funcionalidades/ficha-alumno');
 		await expect
 			.poll(
 				async () =>

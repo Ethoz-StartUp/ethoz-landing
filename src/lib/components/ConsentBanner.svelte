@@ -65,7 +65,7 @@
     <div class="mx-auto flex max-w-7xl flex-col gap-2.5 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:py-4">
       <p class="text-xs leading-snug text-muted-foreground sm:flex-1 sm:text-sm sm:leading-normal">
         {t('consentBanner.description')}
-        <a href="/privacy" class="font-medium text-foreground underline underline-offset-2 hover:text-primary">{t('consentBanner.privacy_link')}</a>.
+        <a href="/privacidad" class="font-medium text-foreground underline underline-offset-2 hover:text-primary">{t('consentBanner.privacy_link')}</a>.
       </p>
       <div class="flex shrink-0 flex-wrap gap-2">
         <Button size="lg" variant="ghost" onclick={openSheet} disabled={sheetLoading} aria-busy={sheetLoading}>{t('consentBanner.cta_customize')}</Button>

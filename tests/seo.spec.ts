@@ -17,11 +17,11 @@ async function getMetaContent(page: any, selector: string): Promise<string> {
 
 const SEO_PAGES = [
 	'/',
-	'/pitch',
-	'/contact',
-	'/compliance',
+	'/presentacion',
+	'/contacto',
+	'/cumplimiento',
 	'/productos',
-	'/get-started',
+	'/como-contratar',
 	'/blog'
 ] as const;
 
@@ -201,22 +201,22 @@ test.describe('SEO — sitemap.xml', () => {
 		expect(body, 'sitemap.xml must contain <urlset').toContain('<urlset');
 	});
 
-	test('sitemap.xml excludes noindexed pages (/pitch, /schedule)', async ({ page }) => {
+	test('sitemap.xml excludes noindexed pages (/presentacion, /agendar)', async ({ page }) => {
 		const response = await page.goto('/sitemap.xml');
 		const body = await response!.text();
-		expect(body, 'sitemap.xml must not contain /pitch (noindex)').not.toContain(
-			'https://ethoz.cl/pitch'
+		expect(body, 'sitemap.xml must not contain /presentacion (noindex)').not.toContain(
+			'https://ethoz.cl/presentacion'
 		);
-		expect(body, 'sitemap.xml must not contain /schedule (funnel end-state)').not.toContain(
-			'https://ethoz.cl/schedule'
+		expect(body, 'sitemap.xml must not contain /agendar (funnel end-state)').not.toContain(
+			'https://ethoz.cl/agendar'
 		);
 	});
 
-	test('sitemap.xml does not contain /suggestions (noindex internal tool)', async ({ page }) => {
+	test('sitemap.xml does not contain /sugerencias (noindex internal tool)', async ({ page }) => {
 		const response = await page.goto('/sitemap.xml');
 		const body = await response!.text();
-		expect(body, 'sitemap.xml must not expose /suggestions URL (flipped to noindex)').not.toContain(
-			'https://ethoz.cl/suggestions'
+		expect(body, 'sitemap.xml must not expose /sugerencias URL (noindex)').not.toContain(
+			'https://ethoz.cl/sugerencias'
 		);
 	});
 
@@ -232,12 +232,12 @@ test.describe('SEO — sitemap.xml', () => {
 		const response = await page.goto('/sitemap.xml');
 		const body = await response!.text();
 		const expectedPaths = [
-			'/resources/breach-response-plan',
-			'/resources/compliance-checklist',
-			'/resources/data-inventory',
-			'/resources/pickup-protocol',
-			'/resources/privacy-notice',
-			'/resources/roles-permissions-guide',
+			'/recursos/plan-respuesta-brechas',
+			'/recursos/checklist-cumplimiento',
+			'/recursos/inventario-datos',
+			'/recursos/protocolo-retiros',
+			'/recursos/aviso-privacidad',
+			'/recursos/guia-roles-permisos',
 			'/blog/agobio-docente-tecnologia-solucion',
 			'/blog/ciberacoso-escolar-chile-estadisticas',
 			'/blog/desercion-escolar-chile-prevencion',
@@ -256,7 +256,9 @@ test.describe('SEO — sitemap.xml', () => {
 });
 
 test.describe('SEO — noindex funnel and internal pages', () => {
-	for (const route of ['/pitch', '/suggestions', '/schedule', '/demo/1001']) {
+	// /sugerencias redirects to / outside feedback mode, so its crawler directive is enforced
+	// by Firebase's X-Robots-Tag and covered in firebase-config.test.ts.
+	for (const route of ['/presentacion', '/agendar', '/demo/1001']) {
 		test(`${route} has one unambiguous noindex directive`, async ({ page }) => {
 			await page.goto(route);
 			const robots = page.locator('meta[name="robots"]');

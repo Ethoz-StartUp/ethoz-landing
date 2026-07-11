@@ -1,0 +1,125 @@
+<script lang="ts">
+  import Footer from '$lib/components/Footer.svelte';
+  import NavBar from '$lib/components/NavBar.svelte';
+  import { BRAND } from '$lib/brand';
+  import { trackEvent } from '$lib/utils/analytics';
+  import { t } from '$lib/i18n/index.svelte';
+
+  $effect(() => { trackEvent('terms_viewed'); });
+</script>
+
+<svelte:head>
+  <title>Términos de Uso · {BRAND}</title>
+  <meta name="description" content={`Términos de uso de ${BRAND}. Condiciones de uso de la plataforma de protección escolar.`} />
+  <meta property="og:url" content="https://ethoz.cl/terminos" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={`Términos de Uso · ${BRAND}`} />
+  <meta property="og:description" content={`Términos de uso de ${BRAND}. Condiciones de uso de la plataforma de protección escolar.`} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={`Términos de Uso · ${BRAND}`} />
+  <meta name="twitter:description" content={`Términos de uso de ${BRAND}. Condiciones de uso de la plataforma de protección escolar.`} />
+  <link rel="canonical" href="https://ethoz.cl/terminos" />
+  {@html `<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://ethoz.cl/"},{"@type":"ListItem","position":2,"name":"Términos de Servicio"}]})}</script>`}
+</svelte:head>
+
+<div class="flex min-h-dvh flex-col bg-background">
+  <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+  >
+    {t('nav.skip_to_content')}
+  </a>
+  <NavBar />
+
+  <main id="main-content" class="flex-1">
+
+  <div class="mx-auto flex-1 max-w-7xl px-4 pt-24 pb-10 sm:pt-28 sm:pb-12 sm:px-6 lg:px-8">
+
+    <h1 class="text-balance text-3xl text-foreground sm:text-4xl">Términos de Uso</h1>
+    <p class="mt-2 text-sm text-muted-foreground">Última actualización: abril 2026</p>
+
+    <div class="mt-10 space-y-8 text-sm leading-relaxed text-muted-foreground">
+
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">1. Aceptación de los términos</h2>
+        <p class="mt-2">
+          Al acceder y utilizar la plataforma {BRAND}, operada por {BRAND} SpA (RUT 78.394.522-3, constituida el 6 de abril de 2026, con domicilio en Santiago de Chile), usted acepta estos términos de uso en su totalidad. Si no está de acuerdo con alguna de estas condiciones, no debe utilizar el servicio.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">2. Descripción del servicio</h2>
+        <p class="mt-2">
+          {BRAND} es una plataforma de protección escolar y cumplimiento normativo para establecimientos educacionales en Chile. Proporciona herramientas de seguimiento de alumnos, control de acceso, gestión de retiros escolares y cumplimiento con la Ley 21.719 de Protección de Datos Personales.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">3. Acceso y credenciales</h2>
+        <p class="mt-2">
+          El acceso a {BRAND} se otorga exclusivamente a administradores autorizados del establecimiento educacional contratante. Usted es responsable de mantener la confidencialidad de sus credenciales de acceso y de todas las actividades realizadas bajo su cuenta.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">4. Uso permitido</h2>
+        <p class="mt-2">Usted se compromete a utilizar {BRAND} exclusivamente para:</p>
+        <ul class="mt-3 list-disc space-y-1.5 pl-5">
+          <li>La gestión legítima de datos escolares del establecimiento contratante.</li>
+          <li>El cumplimiento de obligaciones normativas y legales aplicables.</li>
+          <li>La protección de la seguridad y bienestar de los alumnos.</li>
+        </ul>
+        <p class="mt-3">
+          Queda prohibido el uso de la plataforma para cualquier finalidad ilegal, la extracción masiva de datos, o el acceso a información de establecimientos distintos al propio.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">5. Propiedad intelectual</h2>
+        <p class="mt-2">
+          Todo el contenido, marcas registradas, código y software de {BRAND} son propiedad exclusiva de {BRAND} SpA y están protegidos por la legislación chilena e internacional de propiedad intelectual. No está permitida su reproducción sin consentimiento previo por escrito.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">6. Disponibilidad del servicio</h2>
+        <p class="mt-2">
+          {BRAND} se esfuerza por mantener la plataforma disponible de forma continua. Sin embargo, pueden existir interrupciones programadas por mantenimiento o actualizaciones, las cuales serán comunicadas con anticipación razonable.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">7. Limitación de responsabilidad</h2>
+        <p class="mt-2">
+          {BRAND} no será responsable por daños indirectos, incidentales o consecuentes derivados del uso del servicio. La responsabilidad total de {BRAND} se limita al monto pagado por el establecimiento en los últimos 12 meses.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">8. Modificaciones</h2>
+        <p class="mt-2">
+          {BRAND} se reserva el derecho de modificar estos términos en cualquier momento. Las modificaciones serán comunicadas a los usuarios registrados y entrarán en vigencia 30 días después de su publicación.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">9. Legislación aplicable</h2>
+        <p class="mt-2">
+          Estos términos se rigen por las leyes de la República de Chile. Cualquier controversia será sometida a los tribunales ordinarios de justicia de Santiago de Chile.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-lg font-semibold text-foreground">10. Contacto</h2>
+        <p class="mt-2">
+          Para consultas sobre estos términos, escriba a <a href="mailto:legal@ethoz.cl" class="font-medium text-primary underline underline-offset-2 hover:text-primary-pressed">legal@ethoz.cl</a>.
+        </p>
+      </section>
+
+    </div>
+  </div>
+  </main>
+
+  <Footer />
+</div>

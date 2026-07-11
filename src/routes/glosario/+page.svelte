@@ -248,7 +248,7 @@
           { href: '/circular-30', label: 'glosario.related_circular30' as const },
           { href: '/seguridad-datos', label: 'glosario.related_seguridad_datos' as const },
           { href: '/comparativa', label: 'glosario.related_comparativa' as const },
-          { href: '/compliance', label: 'glosario.related_compliance' as const },
+          { href: '/cumplimiento', label: 'glosario.related_compliance' as const },
         ] as item}
           <a href={item.href} class="border border-border bg-card px-4 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-muted/40 hover:border-foreground hover:text-foreground rounded-md">
             {t(item.label)}

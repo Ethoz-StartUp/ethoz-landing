@@ -82,21 +82,21 @@
   });
 
   const products = [
-    { icon: ClipboardList, name: 'nav.product_student_profile_name' as const, href: '/features/student-profile', desc: 'nav.product_student_profile_desc' as const },
-    { icon: Bell, name: 'nav.product_safe_pickups_name' as const, href: '/features/safe-pickups', desc: 'nav.product_safe_pickups_desc' as const },
-    { icon: Fingerprint, name: 'nav.product_access_control_name' as const, href: '/features/access-control', desc: 'nav.product_access_control_desc' as const },
-    { icon: Search, name: 'nav.product_smart_search_name' as const, href: '/features/smart-search', desc: 'nav.product_smart_search_desc' as const },
-    { icon: Shield, name: 'nav.product_privacy_compliance_name' as const, href: '/features/privacy-compliance', desc: 'nav.product_privacy_compliance_desc' as const },
+    { icon: ClipboardList, name: 'nav.product_student_profile_name' as const, href: '/funcionalidades/ficha-alumno', desc: 'nav.product_student_profile_desc' as const },
+    { icon: Bell, name: 'nav.product_safe_pickups_name' as const, href: '/funcionalidades/retiros-seguros', desc: 'nav.product_safe_pickups_desc' as const },
+    { icon: Fingerprint, name: 'nav.product_access_control_name' as const, href: '/funcionalidades/acceso-por-rol', desc: 'nav.product_access_control_desc' as const },
+    { icon: Search, name: 'nav.product_smart_search_name' as const, href: '/funcionalidades/busqueda-contextual', desc: 'nav.product_smart_search_desc' as const },
+    { icon: Shield, name: 'nav.product_privacy_compliance_name' as const, href: '/funcionalidades/privacidad-datos', desc: 'nav.product_privacy_compliance_desc' as const },
   ];
 
   const navLinksBefore = [
-    { key: 'nav.about' as const, href: '/about' },
-    { key: 'nav.pricing' as const, href: '/get-started' },
+    { key: 'nav.about' as const, href: '/nosotros' },
+    { key: 'nav.pricing' as const, href: '/como-contratar' },
   ];
   const navLinksAfter = [
-    { key: 'nav.integrations' as const, href: '/integrations' },
+    { key: 'nav.integrations' as const, href: '/integraciones' },
     { key: 'nav.blog' as const, href: '/blog' },
-    { key: 'nav.contact' as const, href: '/contact' },
+    { key: 'nav.contact' as const, href: '/contacto' },
   ];
 
   function isActive(href: string): boolean {
@@ -107,7 +107,7 @@
 
   function isProductActive(): boolean {
     const path = page.url.pathname;
-    return path.startsWith('/features') || path === '/compliance' || path === '/productos';
+    return path.startsWith('/funcionalidades') || path === '/cumplimiento' || path === '/productos';
   }
 
   function openProducts() {
@@ -434,12 +434,12 @@
 
         <!-- Integraciones -->
         <a
-          href="/integrations"
+          href="/integraciones"
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
-            {isActive('/integrations')
+            {isActive('/integraciones')
               ? 'bg-primary/5 text-primary-active'
               : 'text-foreground hover:bg-muted'}"
-          aria-current={isActive('/integrations') ? 'page' : undefined}
+          aria-current={isActive('/integraciones') ? 'page' : undefined}
           onclick={() => closeMobileMenu(false)}
         >
           {t('nav.integrations')}
@@ -460,12 +460,12 @@
 
         <!-- Contacto -->
         <a
-          href="/contact"
+          href="/contacto"
           class="rounded-lg px-3 py-3 text-sm font-medium transition-colors
-            {isActive('/contact')
+            {isActive('/contacto')
               ? 'bg-primary/5 text-primary-active'
               : 'text-foreground hover:bg-muted'}"
-          aria-current={isActive('/contact') ? 'page' : undefined}
+          aria-current={isActive('/contacto') ? 'page' : undefined}
           onclick={() => closeMobileMenu(false)}
         >
           {t('nav.contact')}

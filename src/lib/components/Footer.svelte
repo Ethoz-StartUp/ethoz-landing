@@ -70,11 +70,11 @@
         <h3 class="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-on-dark">{t('footer.product')}</h3>
         <ul class="mt-3 flex flex-col gap-2">
           <li><a href="/productos" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.features')}</a></li>
-          <li><a href="/integrations" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.integrations')}</a></li>
+          <li><a href="/integraciones" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.integrations')}</a></li>
           <li><a href="/comparativa" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.comparison')}</a></li>
-          <li><a href="/roi-calculator" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.roi')}</a></li>
+          <li><a href="/calculadora-roi" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.roi')}</a></li>
           <li><a href="/proyecciones" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.projections')}</a></li>
-          <li><a href="/get-started" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.pricing')}</a></li>
+          <li><a href="/como-contratar" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.pricing')}</a></li>
         </ul>
       </div>
 
@@ -84,9 +84,9 @@
         <ul class="mt-3 flex flex-col gap-2">
           <li><a href="/ley-21719" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.law')}</a></li>
           <li><a href="/circular-30" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.circular')}</a></li>
-          <li><a href="/compliance" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.compliance')}</a></li>
+          <li><a href="/cumplimiento" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.compliance')}</a></li>
           <li><a href="/glosario" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.glossary')}</a></li>
-          <li><a href="/resources" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.downloads')}</a></li>
+          <li><a href="/recursos" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.downloads')}</a></li>
           <li><a href="/seguridad-datos" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.security')}</a></li>
         </ul>
       </div>
@@ -95,9 +95,9 @@
       <div>
         <h3 class="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-on-dark">{t('footer.company')}</h3>
         <ul class="mt-3 flex flex-col gap-2">
-          <li><a href="/about" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.about')}</a></li>
+          <li><a href="/nosotros" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.about')}</a></li>
           <li><a href="/blog" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.blog')}</a></li>
-          <li><a href="/contact" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.contact')}</a></li>
+          <li><a href="/contacto" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.contact')}</a></li>
           <li><a href="/demo" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('nav.cta')}</a></li>
         </ul>
       </div>
@@ -109,8 +109,8 @@
           <li><a href="/para-sostenedores" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.operators')}</a></li>
           <li><a href="/para-directores" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.directors')}</a></li>
           <li><a href="/para-porteros" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.porters')}</a></li>
-          <li class="mt-2 border-t border-surface-dark-elevated pt-3"><a href="/privacy" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.privacy')}</a></li>
-          <li><a href="/terms" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.terms')}</a></li>
+          <li class="mt-2 border-t border-surface-dark-elevated pt-3"><a href="/privacidad" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.privacy')}</a></li>
+          <li><a href="/terminos" class="text-sm text-on-dark-soft transition-colors hover:text-on-dark">{t('footer.terms')}</a></li>
         </ul>
       </div>
 
