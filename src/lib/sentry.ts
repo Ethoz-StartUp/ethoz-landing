@@ -1,8 +1,18 @@
 import { browser } from '$app/environment';
 import { env } from '$env/dynamic/public';
-import { getConsent } from '$lib/stores/consent.svelte';
 
-let initialized = false;
+type SentryClient = typeof import('$lib/sentry-client');
+
+export type SentryBreadcrumb = {
+  category?: string;
+  message?: string;
+  level?: 'fatal' | 'error' | 'warning' | 'log' | 'info' | 'debug';
+  data?: Record<string, unknown>;
+};
+
+let client: SentryClient | null = null;
+let initialization: Promise<SentryClient | null> | null = null;
+let disabledLogged = false;
 
 const EXTENSION_SCHEMES = [
   'chrome-extension://',
@@ -14,65 +24,48 @@ const EXTENSION_SCHEMES = [
 
 function isExtensionError(event: any): boolean {
   const frames: any[] =
-    event?.exception?.values?.flatMap((v: any) => v?.stacktrace?.frames ?? []) ?? [];
+    event?.exception?.values?.flatMap((value: any) => value?.stacktrace?.frames ?? []) ?? [];
   const innermost = frames[frames.length - 1];
   const file: string = innermost?.filename || innermost?.abs_path || event?.culprit || '';
-  if (EXTENSION_SCHEMES.some((s) => file.startsWith(s))) return true;
-  // Safari masks extension scripts behind this scheme — never actionable for us.
+  if (EXTENSION_SCHEMES.some((scheme) => file.startsWith(scheme))) return true;
   return file.startsWith('webkit-masked-url://');
 }
 
 function scrubFromSentry(event: any): any {
-  // Strip request body + form breadcrumbs (may contain PII)
   if (event?.request?.data) delete event.request.data;
   if (Array.isArray(event?.breadcrumbs)) {
-    event.breadcrumbs = event.breadcrumbs.map((b: any) => {
-      if (b?.category === 'ui.input') {
-        return { ...b, message: '[redacted]', data: undefined };
+    event.breadcrumbs = event.breadcrumbs.map((breadcrumb: any) => {
+      if (breadcrumb?.category === 'ui.input') {
+        return { ...breadcrumb, message: '[redacted]', data: undefined };
       }
-      return b;
+      return breadcrumb;
     });
   }
   return event;
 }
 
-export async function initSentry(): Promise<void> {
-  if (!browser || initialized) return;
+async function initializeClient(): Promise<SentryClient | null> {
+  if (!browser) return null;
+  if (client) return client;
 
   const dsn = env.PUBLIC_SENTRY_DSN;
   if (!dsn) {
-    console.info('[Sentry] No DSN configured — error monitoring disabled');
-    return;
+    if (!disabledLogged) {
+      disabledLogged = true;
+      console.info('[Sentry] No DSN configured, error monitoring disabled');
+    }
+    return null;
   }
 
   try {
-    const Sentry = await import('@sentry/browser');
-    const replayAllowed = getConsent().analytics === true;
+    // This small facade uses named imports so Rollup can discard tracing,
+    // replay and the rest of Sentry's unused public export surface.
+    const Sentry = await import('$lib/sentry-client');
     Sentry.init({
       dsn,
       environment: window.location.hostname === 'ethoz.cl' ? 'production' : 'development',
-      tracesSampleRate: 0.1,
-      replaysSessionSampleRate: 0,
-      replaysOnErrorSampleRate: replayAllowed ? 0.5 : 0,
-      // Replay is registered only with analytics consent, so its rrweb
-      // instrumentation never even initializes for non-consenting visitors.
-      // NOTE on bundle weight: the rrweb code itself cannot be split out of
-      // this chunk today. Vite wraps every dynamic import('@sentry/browser')
-      // (marketing.ts, demo/[rbd], contact, schedule) in its preload helper,
-      // which hides the namespace from Rollup, so the full export surface
-      // (including the replay re-export) is always retained. Splitting it
-      // requires converting those call sites to named imports first;
-      // Sentry.lazyLoadIntegration is no help either: it fetches from the
-      // Sentry CDN, which our CSP script-src blocks.
-      integrations: replayAllowed
-        ? [
-            Sentry.replayIntegration({
-              maskAllText: true,
-              maskAllInputs: true,
-              blockAllMedia: true,
-            }),
-          ]
-        : [],
+      sendDefaultPii: false,
+      maxBreadcrumbs: 30,
       beforeSend(event) {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('ethoz_internal') === '1') return null;
         const ua = (event.request?.headers?.['User-Agent'] as string | undefined) ?? '';
@@ -83,9 +76,31 @@ export async function initSentry(): Promise<void> {
         return scrubFromSentry(event);
       },
     });
-    initialized = true;
-    console.info('[Sentry] ✔ Error monitoring active (replay=' + (replayAllowed ? 'on' : 'off') + ')');
-  } catch (err) {
-    console.warn('[Sentry] Failed to initialize:', err);
+    client = Sentry;
+    console.info('[Sentry] Error monitoring active');
+    return client;
+  } catch (error) {
+    console.warn('[Sentry] Failed to initialize:', error);
+    return null;
   }
+}
+
+export async function initSentry(): Promise<void> {
+  if (!browser || client) return;
+  initialization ??= initializeClient();
+  await initialization;
+}
+
+export function captureException(error: unknown, context?: Record<string, unknown>): void {
+  if (!browser) return;
+  initialization ??= initializeClient();
+  void initialization.then((Sentry) => {
+    Sentry?.captureException(error, { extra: context });
+  });
+}
+
+export function addBreadcrumb(breadcrumb: SentryBreadcrumb): void {
+  // Breadcrumbs should never trigger a large monitoring download while a
+  // visitor is submitting a form. They are useful only once idle init ran.
+  client?.addBreadcrumb(breadcrumb);
 }

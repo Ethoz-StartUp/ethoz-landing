@@ -151,12 +151,15 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content={t('resRolesGuide.og_title')} />
   <meta property="og:description" content={t('resRolesGuide.og_description')} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={t('resRolesGuide.og_title')} />
+  <meta name="twitter:description" content={t('resRolesGuide.og_description')} />
   <link rel="canonical" href="https://ethoz.cl/resources/roles-permissions-guide" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": "Guía de Roles y Permisos para Colegios",
-    "description": "Matriz de permisos recomendada para establecimientos educacionales chilenos conforme a la Ley 21.719.",
+    "name": t('resRolesGuide.og_title'),
+    "description": t('resRolesGuide.meta_description'),
     "url": "https://ethoz.cl/resources/roles-permissions-guide",
     "publisher": { "@type": "Organization", "name": BRAND, "url": "https://ethoz.cl" }
   })}</script>`}

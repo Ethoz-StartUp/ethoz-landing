@@ -4,8 +4,11 @@
   import Footer from '$lib/components/Footer.svelte';
   import NavBar from '$lib/components/NavBar.svelte';
   import SectionDark from '$lib/components/cal/SectionDark.svelte';
+  import AuditLogMockup from '$lib/components/home/AuditLogMockup.svelte';
+  import ComplianceBadgeRow from '$lib/components/home/ComplianceBadgeRow.svelte';
+  import RoleOrbit from '$lib/components/home/RoleOrbit.svelte';
+  import RoleStack from '$lib/components/home/RoleStack.svelte';
   import { t, type TranslationKey } from '$lib/i18n/index.svelte';
-  import { goto } from '$app/navigation';
   import { trackEvent } from '$lib/utils/analytics';
   import { slide } from 'svelte/transition';
   import type { Component } from 'svelte';
@@ -171,26 +174,31 @@
 
   const featureCards: Array<{
     href: string;
+    icon: typeof Shield;
     titleKey: TranslationKey;
     descKey: TranslationKey;
   }> = [
     {
       href: '/features/student-profile',
+      icon: ClipboardList,
       titleKey: 'home.feature.record.title',
       descKey: 'home.feature.record.desc',
     },
     {
       href: '/demo',
+      icon: MessageSquare,
       titleKey: 'home.feature.summary.title',
       descKey: 'home.feature.summary.desc',
     },
     {
       href: '/features/access-control',
+      icon: Shield,
       titleKey: 'home.feature.access.title',
       descKey: 'home.feature.access.desc',
     },
     {
       href: '/features/smart-search',
+      icon: Eye,
       titleKey: 'home.feature.search.title',
       descKey: 'home.feature.search.desc',
     },
@@ -283,7 +291,7 @@
 <div class="flex min-h-dvh flex-col bg-background">
   <!-- Skip link — visible on focus, WCAG 2.4.1 Bypass Blocks -->
   <a
-    href="#hero-cta"
+    href="#main-content"
     class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
   >
     {t('nav.skip_to_content')}
@@ -291,14 +299,14 @@
 
   <NavBar />
 
-  <main id="main-content" class="flex flex-1 flex-col">
+  <main id="main-content" class="flex flex-1 flex-col" tabindex="-1">
 
   <!-- ═══════════════════════════════════════════
        SECTION 2: HERO — editorial
        ═══════════════════════════════════════════ -->
   <section class="relative isolate overflow-hidden bg-background pt-24 sm:pt-28">
     <div class="pointer-events-none absolute inset-0 bg-grid-fine opacity-70 [mask-image:linear-gradient(to_bottom,#000_0%,transparent_78%)]" aria-hidden="true"></div>
-    <div class="pointer-events-none absolute right-0 top-28 h-80 w-80 rounded-full bg-accent-tint blur-3xl" aria-hidden="true"></div>
+    <div class="hero-ambient-glow pointer-events-none absolute right-0 top-28 h-80 w-80 rounded-full" aria-hidden="true"></div>
 
     <div class="relative mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-12 lg:grid-cols-[minmax(0,5.2fr)_minmax(0,6.8fr)] lg:items-start lg:gap-12 lg:px-8 lg:py-14">
       <div class="flex flex-col items-center text-center sm:items-start sm:text-left">
@@ -319,9 +327,9 @@
           <Button
             id="hero-cta"
             size="xl"
-            onclick={async () => {
+            href="/demo"
+            onclick={() => {
               trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'hero' });
-              await goto('/demo');
             }}
             class="w-full justify-center sm:w-auto"
           >
@@ -334,44 +342,11 @@
           </Button>
         </div>
 
-        <!-- Decorative compact mockup — duplicated fake-UI, hidden from AT -->
-        <div class="animate-fade-in-up animate-delay-400 mt-8 hidden w-full max-w-sm rounded-xl border border-hairline bg-card p-4 text-left shadow-card sm:block lg:hidden" aria-hidden="true">
-          <div class="flex items-center gap-3">
-            <img
-              src={activeStudent.photo}
-              alt={t(activeStudent.nameKey)}
-              width="48"
-              height="48"
-              class="size-12 rounded-full object-cover ring-2 ring-background"
-              loading="eager"
-              decoding="async"
-            />
-            <div class="min-w-0 flex-1">
-              <p class="truncate text-sm font-semibold text-foreground">{t('hero.panel.chrome_title')}</p>
-              <p class="truncate text-xs text-muted-foreground">{t('hero.panel.compact_status')}</p>
-            </div>
-            <Shield class="size-5 shrink-0 text-primary" />
-          </div>
-          <div class="mt-4 grid grid-cols-3 divide-x divide-border border-t border-border pt-4">
-            <div class="pr-3 text-center">
-              <p class="text-sm font-semibold text-foreground">{t('hero.panel.fact1_value')}</p>
-              <p class="mt-1 text-xs text-muted-foreground">{t('hero.panel.fact1_label')}</p>
-            </div>
-            <div class="px-3 text-center">
-              <p class="text-sm font-semibold text-foreground">{t('hero.panel.fact2_value')}</p>
-              <p class="mt-1 text-xs text-muted-foreground">{t('hero.panel.fact2_label')}</p>
-            </div>
-            <div class="pl-3 text-center">
-              <p class="text-sm font-semibold text-foreground">{t('hero.panel.fact3_value')}</p>
-              <p class="mt-1 text-xs text-muted-foreground">{t('hero.panel.fact3_label')}</p>
-            </div>
-          </div>
-        </div>
       </div>
 
-      <div class="animate-fade-in-up animate-delay-400 hidden w-full lg:block">
+      <div class="animate-fade-in-up animate-delay-400 mt-2 w-full sm:mt-6 lg:mt-0">
         <div
-          class="relative mx-auto w-full max-w-2xl"
+          class="relative mx-auto w-full max-w-2xl pb-5 pt-6 sm:pb-8 sm:pt-8"
           role="region"
           aria-roledescription={t('home.carousel_roledescription')}
           aria-label={t('home.carousel_label')}
@@ -380,9 +355,20 @@
           onfocusin={() => (carouselPaused = true)}
           onfocusout={() => (carouselPaused = false)}
         >
-          <div class="pointer-events-none absolute inset-0 rounded-full bg-accent-tint blur-3xl" aria-hidden="true"></div>
+          <div class="hero-ambient-glow pointer-events-none absolute inset-6 rounded-full" aria-hidden="true"></div>
 
-          <div class="relative overflow-hidden rounded-2xl border border-hairline bg-card shadow-mockup">
+          <!-- Supporting product states sit behind the main window. They remain
+               decorative so the carousel keeps one concise accessibility region. -->
+          <div class="hero-depth-card absolute left-2 top-0 z-0 flex max-w-52 -rotate-3 items-center gap-2 rounded-xl border border-destructive/20 bg-card px-3 py-2.5 shadow-card sm:left-0 sm:max-w-xs" aria-hidden="true">
+            <AlertTriangle class="size-4 shrink-0 text-destructive" />
+            <span class="text-xs font-semibold text-foreground">{t('hero.student1.alert')}</span>
+          </div>
+          <div class="hero-depth-card absolute bottom-1 right-1 z-0 flex max-w-56 rotate-2 items-center gap-2 rounded-xl border border-primary/20 bg-card px-3 py-2.5 shadow-card sm:right-0 sm:max-w-xs" aria-hidden="true">
+            <Shield class="size-4 shrink-0 text-primary" />
+            <span class="text-xs font-semibold text-foreground">{t('hero.panel.step3_title')}</span>
+          </div>
+
+          <div class="relative z-10 mx-1 overflow-hidden rounded-2xl border border-hairline bg-card shadow-mockup sm:mx-5">
             <div class="flex items-center justify-between gap-4 border-b border-border bg-surface-soft px-4 py-3">
               <div class="flex items-center gap-2" aria-hidden="true">
                 <span class="size-2.5 rounded-full bg-destructive"></span>
@@ -412,27 +398,27 @@
               <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
                 <div>
                   {#key currentStudent}
-                    <div class="carousel-fade flex items-center gap-3 border-b border-border pb-4">
+                    <div class="carousel-fade grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-3 gap-y-2 border-b border-border pb-4">
                       <img
                         src={activeStudent.photo}
                         alt={t(activeStudent.nameKey)}
                         width="56"
                         height="56"
-                        class="size-14 rounded-full object-cover ring-2 ring-background"
+                        class="row-span-2 size-14 rounded-full object-cover ring-2 ring-background"
                         loading="eager"
                         decoding="async"
                       />
                       <div class="min-w-0 flex-1">
-                        <p class="truncate text-base font-semibold text-foreground">{t(activeStudent.nameKey)}</p>
+                        <p class="text-base font-semibold leading-snug text-foreground">{t(activeStudent.nameKey)}</p>
                         <p class="text-sm text-muted-foreground">{t(activeStudent.gradeKey)}</p>
                       </div>
                       {#if activeStudent.hasAlert}
-                        <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-destructive/10 px-2.5 py-1 text-xs font-semibold text-foreground">
+                        <span class="col-start-2 inline-flex items-center gap-1.5 justify-self-start rounded-full bg-destructive/10 px-2.5 py-1 text-xs font-semibold text-foreground">
                           <AlertTriangle class="size-3.5 text-destructive" />
                           {activeStudent.alertKey ? t(activeStudent.alertKey) : ''}
                         </span>
                       {:else}
-                        <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-success/10 px-2.5 py-1 text-xs font-semibold text-foreground">
+                        <span class="col-start-2 inline-flex items-center gap-1.5 justify-self-start rounded-full bg-success/10 px-2.5 py-1 text-xs font-semibold text-foreground">
                           <Check class="size-3.5 text-success" />
                           {t('hero.no_alerts')}
                         </span>
@@ -464,7 +450,7 @@
                     {#each heroStudents as student, i}
                       <button
                         onclick={() => { currentStudent = i; }}
-                        class="flex min-h-[40px] min-w-[40px] items-center justify-center"
+                        class="flex size-11 items-center justify-center"
                         aria-label={`${t('home.carousel_dot_label')} ${t(student.nameKey)}`}
                         aria-current={currentStudent === i ? 'true' : undefined}
                       >
@@ -475,7 +461,7 @@
                 </div>
 
                 <!-- Static fake-UI step rows — decorative, hidden from AT -->
-                <div class="divide-y divide-border border-y border-border" aria-hidden="true">
+                <div class="hidden divide-y divide-border border-y border-border sm:block" aria-hidden="true">
                   {#each [
                     { icon: UserCheck, title: 'hero.panel.step1_title', desc: 'hero.panel.step1_desc', status: 'hero.panel.step1_status' },
                     { icon: FileCheck, title: 'hero.panel.step2_title', desc: 'hero.panel.step2_desc', status: 'hero.panel.step2_status' },
@@ -524,32 +510,9 @@
        not a badge row.
        ═══════════════════════════════════════════ -->
   <section class="reveal border-y border-border bg-background py-6" aria-label={t('home.trust_section_label')}>
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="text-center text-xs font-semibold uppercase text-muted-foreground">
-        {t('trust.attribution')}
-      </p>
-      <dl class="mt-5 grid grid-cols-2 gap-y-5 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-border">
-        <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-xs font-semibold uppercase text-foreground">{t('trust.label.data')}</dt>
-          <dd class="mt-2 text-balance text-sm font-medium leading-snug text-foreground">{t('trust.servers')}</dd>
-        </div>
-        <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-xs font-semibold uppercase text-foreground">{t('trust.label.encryption')}</dt>
-          <dd class="mt-2 text-balance text-sm font-medium leading-snug text-foreground">{t('trust.encryption')}</dd>
-        </div>
-        <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-xs font-semibold uppercase text-foreground">{t('trust.label.integration')}</dt>
-          <dd class="mt-2 text-balance text-sm font-medium leading-snug text-foreground">{t('trust.integration')}</dd>
-        </div>
-        <div class="flex flex-col items-center px-4 text-center lg:px-6">
-          <span class="mb-2 block h-px w-6 bg-foreground" aria-hidden="true"></span>
-          <dt class="text-xs font-semibold uppercase text-foreground">{t('trust.label.compliance')}</dt>
-          <dd class="mt-2 text-balance text-sm font-medium leading-snug text-foreground">{t('trust.compliance')}</dd>
-        </div>
-      </dl>
+    <div class="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 lg:grid-cols-[auto_minmax(0,1fr)] lg:items-center lg:gap-8 lg:px-8">
+      <RoleStack />
+      <ComplianceBadgeRow />
     </div>
   </section>
 
@@ -597,8 +560,21 @@
           </p>
         </div>
       </dl>
-      <p class="mt-4 text-center text-xs text-muted-foreground">
-        {t('editorial.source')}
+      <p class="mt-4 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-xs text-muted-foreground">
+        <span>{t('editorial.source_intro')}</span>
+        <a
+          href="https://bibliotecadigital.mineduc.cl/handle/20.500.12365/21939"
+          class="font-medium text-foreground underline decoration-hairline underline-offset-4 hover:text-primary-active hover:decoration-current"
+        >
+          {t('editorial.source_mineduc')}
+        </a>
+        <span aria-hidden="true">·</span>
+        <a
+          href="https://www.bcn.cl/leychile/navegar?idNorma=1209272"
+          class="font-medium text-foreground underline decoration-hairline underline-offset-4 hover:text-primary-active hover:decoration-current"
+        >
+          {t('editorial.source_law')}
+        </a>
       </p>
     </div>
   </section>
@@ -606,7 +582,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 4: PROBLEM
        ═══════════════════════════════════════════ -->
-  <section class="reveal scroll-mt-28 py-10 sm:py-12 lg:py-14" id="problem">
+  <section class="reveal scroll-mt-28 bg-dots-fine py-10 sm:py-12 lg:py-14" id="problem">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <p class="eyebrow mb-4">{t('home.problem_meta')}</p>
@@ -662,13 +638,47 @@
         </p>
       </div>
 
-      <div class="mx-auto mt-8 grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {#each featureCards as feat (feat.href)}
-          <a href={feat.href} class="group flex flex-col rounded-xl border border-hairline bg-card p-6 shadow-card transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-[1px] hover:border-foreground/25 hover:shadow-card-hover sm:min-h-[220px]">
-            <h3 class="font-heading text-xl leading-tight text-foreground">{t(feat.titleKey)}</h3>
-            <p class="mt-2 flex-1 text-sm leading-relaxed text-body">{t(feat.descKey)}</p>
-            <span class="mt-5 inline-flex items-center gap-1 self-start border-b border-foreground pb-0.5 text-sm font-semibold text-foreground transition-all group-hover:gap-1.5 group-hover:border-b-2">
-              {t('home.feature.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
+      <div class="mx-auto mt-8 grid max-w-6xl gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.65fr)]">
+        {#each featureCards as feat, index (feat.href)}
+          {@const FeatureIcon = feat.icon}
+          <a
+            href={feat.href}
+            class="group flex flex-col rounded-xl border border-hairline bg-card p-6 shadow-card transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-px hover:border-foreground/25 hover:shadow-card-hover focus-visible:-translate-y-px focus-visible:shadow-card-hover {index === 0 ? 'lg:row-span-3 sm:p-8' : ''}"
+          >
+            <div class="flex items-center gap-3">
+              <FeatureIcon class="size-5 shrink-0 text-primary" />
+              <h3 class="font-heading text-xl leading-tight text-foreground {index === 0 ? 'sm:text-2xl' : ''}">
+                {t(feat.titleKey)}
+              </h3>
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-body {index === 0 ? 'max-w-xl sm:text-base' : 'flex-1'}">
+              {t(feat.descKey)}
+            </p>
+
+            {#if index === 0}
+              <div class="mt-8 grid items-center gap-6 md:grid-cols-[minmax(0,1fr)_auto]">
+                <div aria-label={t('home.feature.timeline_label')}>
+                  <div class="relative flex items-start justify-between">
+                    <span class="absolute left-4 right-4 top-2 h-px bg-border" aria-hidden="true"></span>
+                    {#each [
+                      ['home.feature.timeline_year1', 'home.feature.timeline_event1'],
+                      ['home.feature.timeline_year2', 'home.feature.timeline_event2'],
+                      ['home.feature.timeline_year3', 'home.feature.timeline_event3'],
+                    ] as point, pointIndex}
+                      <div class="relative z-10 flex w-20 flex-col items-center text-center">
+                        <span class="timeline-dot size-4 rounded-full border-4 border-card bg-primary" style={`--timeline-index:${pointIndex}`} aria-hidden="true"></span>
+                        <span data-numeric class="mt-3 text-xs font-semibold text-foreground">{t(point[0] as TranslationKey)}</span>
+                        <span class="mt-1 text-xs leading-tight text-muted-foreground">{t(point[1] as TranslationKey)}</span>
+                      </div>
+                    {/each}
+                  </div>
+                </div>
+                <RoleOrbit />
+              </div>
+            {/if}
+
+            <span class="mt-6 inline-flex items-center gap-1 self-start border-b border-foreground pb-0.5 text-sm font-semibold text-foreground transition-all group-hover:gap-1.5 group-hover:border-b-2 group-focus-visible:gap-1.5">
+              {t('home.feature.learn_more')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5" />
             </span>
           </a>
         {/each}
@@ -682,7 +692,7 @@
        Link-cards, not CTAs: they route each audience to its persona page
        without competing with the primary action.
        ═══════════════════════════════════════════ -->
-  <section class="reveal scroll-mt-28 py-10 sm:py-12 lg:py-14" id="forwho" aria-labelledby="forwho-heading">
+  <section class="reveal scroll-mt-28 bg-dots-fine py-10 sm:py-12 lg:py-14" id="forwho" aria-labelledby="forwho-heading">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <p class="eyebrow mb-4">{t('home.forwho.eyebrow')}</p>
@@ -694,21 +704,21 @@
         </p>
       </div>
 
-      <div class="mx-auto mt-8 grid max-w-5xl gap-6 sm:grid-cols-3">
+      <div class="mx-auto mt-10 grid max-w-5xl gap-8 sm:grid-cols-3 lg:gap-12">
         {#each [
           { href: '/para-sostenedores', icon: Building2, title: 'home.forwho.card_sostenedores_title', desc: 'home.forwho.card_sostenedores_desc' },
           { href: '/para-directores', icon: ClipboardList, title: 'home.forwho.card_directores_title', desc: 'home.forwho.card_directores_desc' },
           { href: '/para-porteros', icon: DoorOpen, title: 'home.forwho.card_porteros_title', desc: 'home.forwho.card_porteros_desc' },
         ] as card (card.href)}
           {@const CardIcon = card.icon}
-          <a href={card.href} class="group flex flex-col rounded-xl border border-hairline bg-card p-6 shadow-card transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-[1px] hover:border-foreground/25 hover:shadow-card-hover">
+          <a href={card.href} class="group flex flex-col rounded-lg p-4 transition-[transform,background-color] duration-[160ms] hover:-translate-y-px hover:bg-card focus-visible:-translate-y-px focus-visible:bg-card">
             <div class="flex items-center gap-3">
               <CardIcon class="size-5 shrink-0 text-primary" />
               <h3 class="font-heading text-xl leading-tight text-foreground">{t(card.title as TranslationKey)}</h3>
             </div>
             <p class="mt-2 flex-1 text-sm leading-relaxed text-body">{t(card.desc as TranslationKey)}</p>
-            <span class="mt-5 inline-flex items-center gap-1 self-start text-sm font-semibold text-foreground transition-all group-hover:gap-1.5">
-              {t('home.forwho.card_link_label')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5" />
+            <span class="mt-5 inline-flex items-center gap-1 self-start text-sm font-semibold text-foreground underline decoration-hairline underline-offset-4 transition-all group-hover:gap-1.5 group-hover:decoration-foreground group-focus-visible:gap-1.5">
+              {t('home.forwho.card_link_label')} <ChevronRight class="size-3.5 transition-transform group-hover:translate-x-0.5 group-focus-visible:translate-x-0.5" />
             </span>
           </a>
         {/each}
@@ -729,54 +739,55 @@
       </p>
     </div>
 
-    <!-- Countdown — dramatic editorial treatment -->
-    <div class="mx-auto mt-8 max-w-3xl">
-      <p class="mb-6 flex items-center justify-center gap-2.5 text-center text-xs font-semibold uppercase text-muted-foreground">
-        <span class="relative flex size-2">
-          <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
-          <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
-        </span>
-        {t('compliance.countdown.label')}
-      </p>
-      <!-- Visually hidden live region announces the countdown to screen readers without flooding on every minute tick -->
-      <p class="sr-only" aria-live="polite" aria-atomic="true">
-        {t('home.countdown_live_prefix')} {countdownDays} {t('home.countdown_live_days')} {countdownHours} {t('home.countdown_live_hours')} {countdownMinutes} {t('home.countdown_live_suffix')}
-      </p>
-      <div
-        class="mx-auto max-w-xs"
-        role="group"
-        aria-hidden="true"
-      >
-        <div class="group relative rounded-xl border border-hairline bg-card p-5 text-center shadow-card transition-colors hover:border-foreground sm:p-6" aria-hidden="true">
-          <div class="pointer-events-none absolute inset-x-4 top-0 h-[2px] bg-foreground"></div>
-          <span data-numeric class="block text-6xl font-semibold leading-none tracking-normal text-foreground sm:text-8xl">
-            {countdownDays}
+    <div class="mx-auto mt-10 grid max-w-6xl items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-12">
+      <div>
+        <p class="mb-6 flex items-center gap-2.5 text-xs font-semibold uppercase text-muted-foreground">
+          <span class="relative flex size-2">
+            <span class="absolute inline-flex size-full animate-ping rounded-full bg-destructive opacity-70"></span>
+            <span class="relative inline-flex size-2 rounded-full bg-destructive"></span>
           </span>
-          <span class="mt-3 block text-xs font-semibold uppercase text-muted-foreground">
-            {t(countdownDays === 1 ? 'compliance.countdown.day' : 'compliance.countdown.days')}
-          </span>
+          {t('compliance.countdown.label')}
+        </p>
+        <p class="sr-only" aria-live="polite" aria-atomic="true">
+          {t('home.countdown_live_prefix')} {countdownDays} {t('home.countdown_live_days')} {countdownHours} {t('home.countdown_live_hours')} {countdownMinutes} {t('home.countdown_live_suffix')}
+        </p>
+        <div class="grid grid-cols-3 gap-2 sm:gap-3" role="group" aria-hidden="true">
+          {#each [
+            { value: countdownDays, singular: 'compliance.countdown.day', plural: 'compliance.countdown.days' },
+            { value: countdownHours, singular: 'compliance.countdown.hour', plural: 'compliance.countdown.hours' },
+            { value: countdownMinutes, singular: 'compliance.countdown.minute', plural: 'compliance.countdown.minutes' },
+          ] as unit}
+            <div class="relative rounded-xl border border-hairline bg-card px-2 py-5 text-center shadow-card sm:p-5">
+              <div class="pointer-events-none absolute inset-x-3 top-0 h-0.5 bg-foreground"></div>
+              <span data-numeric class="block text-3xl font-semibold leading-none tracking-normal text-foreground sm:text-5xl">
+                {unit.value}
+              </span>
+              <span class="mt-3 block text-xs font-semibold uppercase text-muted-foreground">
+                {t((unit.value === 1 ? unit.singular : unit.plural) as TranslationKey)}
+              </span>
+            </div>
+          {/each}
+        </div>
+
+        <div class="mt-7 grid gap-4">
+          {#each ['compliance.item1', 'compliance.item2', 'compliance.item3'] as item}
+            <div class="flex items-start gap-3">
+              <Check class="mt-0.5 size-5 shrink-0 text-primary" />
+              <span class="text-sm leading-relaxed text-muted-foreground">{t(item as TranslationKey)}</span>
+            </div>
+          {/each}
         </div>
       </div>
+
+      <AuditLogMockup />
     </div>
 
-    <!-- Compliance items — before the CTA so the checklist reads as the band's
-         argument and the button closes it (mobile order matches desktop). -->
-    <div class="mx-auto mt-8 grid max-w-3xl gap-x-8 gap-y-4 sm:grid-cols-2">
-      {#each ['compliance.item1', 'compliance.item2', 'compliance.item3'] as item}
-        <div class="flex items-start gap-3">
-          <Check class="mt-0.5 size-5 shrink-0 text-primary" />
-          <span class="text-sm leading-relaxed text-muted-foreground">{t(item as TranslationKey)}</span>
-        </div>
-      {/each}
-    </div>
-
-    <!-- CTA closes the band — standard Cal primary on the light band -->
     <div class="mt-8 text-center">
       <Button
         size="xl"
-        onclick={async () => {
+        href="/demo"
+        onclick={() => {
           trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'compliance_countdown' });
-          await goto('/demo');
         }}
       >
         {t('hero.cta.primary')}
@@ -788,7 +799,7 @@
   <!-- ═══════════════════════════════════════════
        SECTION 8: HOW IT WORKS — visual progression with icons + connector
        ═══════════════════════════════════════════ -->
-  <section class="reveal scroll-mt-28 py-10 sm:py-12 lg:py-14" id="how">
+  <section class="reveal scroll-mt-28 bg-dots-fine py-10 sm:py-12 lg:py-14" id="how">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <p class="eyebrow mb-4">{t('home.how_meta')}</p>
@@ -839,11 +850,10 @@
         <div class="mt-10 text-center">
           <Button
             size="lg"
-            onclick={async () => {
+            href="/demo"
+            onclick={() => {
               trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'how_it_works' });
-              await goto('/demo');
             }}
-            class=""
           >
             {t('hero.cta.primary')}
             <ArrowRight class="size-4" />
@@ -876,11 +886,13 @@
               aria-controls={`faq-panel-${i}`}
             >
               <span class="pr-8 text-sm font-semibold text-foreground">{t(`faq.q${n}` as TranslationKey)}</span>
-              {#if openFaq === i}
-                <Minus class="size-4 shrink-0 text-muted-foreground" />
-              {:else}
-                <Plus class="size-4 shrink-0 text-muted-foreground" />
-              {/if}
+              <span class="-mr-3 flex size-11 shrink-0 items-center justify-center rounded-full text-muted-foreground" aria-hidden="true">
+                {#if openFaq === i}
+                  <Minus class="size-4" />
+                {:else}
+                  <Plus class="size-4" />
+                {/if}
+              </span>
             </button>
             {#if openFaq === i}
               <div
@@ -920,10 +932,8 @@
        Pacing: navy → deeper-navy footer closes the editorial dark passage. -->
   <SectionDark variant="cta" id="cta" aria-labelledby="final-cta-heading">
     <div class="text-center">
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs font-semibold uppercase text-on-dark-soft">
-        <span class="text-on-dark">{t('cta.urgency_eyebrow')}</span>
-        <span aria-hidden="true" class="text-on-dark-soft/40">·</span>
-        <span><span data-numeric class="font-semibold text-on-dark">{countdownDays}</span> {t('home.cta_days_suffix')}</span>
+      <p class="text-xs font-semibold uppercase text-on-dark-soft">
+        {t('cta.urgency_eyebrow')}
       </p>
       <h2 id="final-cta-heading" class="mt-5 text-balance text-on-dark">
         {t('cta.title')}
@@ -956,9 +966,9 @@
     <div class="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-background px-4 pb-[max(env(safe-area-inset-bottom,0px),1rem)] pt-3 md:hidden">
       <Button
         size="xl"
-        onclick={async () => {
+        href="/demo"
+        onclick={() => {
           trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'sticky' });
-          await goto('/demo');
         }}
         class="w-full"
       >
@@ -974,6 +984,38 @@
 {/if}
 
 <style>
+  .hero-ambient-glow {
+    background: radial-gradient(
+      circle,
+      color-mix(in oklch, var(--primary) 24%, transparent) 0%,
+      transparent 72%
+    );
+    filter: blur(5rem);
+    opacity: 0.65;
+  }
+
+  .hero-depth-card {
+    transform-origin: center;
+  }
+
+  .timeline-dot {
+    animation: timeline-highlight 4.8s var(--ease-standard) infinite;
+    animation-delay: calc(var(--timeline-index) * 800ms);
+  }
+
+  @keyframes timeline-highlight {
+    0%, 65%, 100% {
+      background: var(--hairline);
+      box-shadow: 0 0 0 0 transparent;
+      transform: scale(1);
+    }
+    12%, 36% {
+      background: var(--primary);
+      box-shadow: 0 0 0 5px var(--accent-tint);
+      transform: scale(1.12);
+    }
+  }
+
   /* Starts at 35% opacity so the swap never flashes an empty card. */
   .carousel-fade {
     animation: fadeIn 0.25s ease-out;
@@ -982,5 +1024,12 @@
   @keyframes fadeIn {
     from { opacity: 0.35; transform: translateY(2px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-dot {
+      animation: none;
+      background: var(--primary);
+    }
   }
 </style>

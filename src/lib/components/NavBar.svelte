@@ -3,35 +3,82 @@
   import { t } from '$lib/i18n/index.svelte';
   import { Menu, X, ChevronDown, Shield, Search, ClipboardList, Bell, Fingerprint } from '@lucide/svelte';
   import { env } from '$env/dynamic/public';
-  import { slide, fade } from 'svelte/transition';
+  import { tick } from 'svelte';
   import { page } from '$app/state';
 
   let mobileOpen = $state(false);
   let productsOpen = $state(false);
   let productsTimeout: ReturnType<typeof setTimeout>;
   let scrolled = $state(false);
+  let ribbonVisible = $state(true);
+  let navHeight = $state(0);
+  let mobileMenu = $state<HTMLElement | null>(null);
+  let mobileToggle = $state<HTMLButtonElement | null>(null);
+  let productsContainer = $state<HTMLElement | null>(null);
+  let productsTrigger = $state<HTMLButtonElement | null>(null);
+  let productsMenu = $state<HTMLElement | null>(null);
 
   $effect(() => {
     if (typeof document !== 'undefined') {
       document.body.classList.toggle('overflow-hidden', mobileOpen);
+      document.documentElement.classList.toggle('overflow-hidden', mobileOpen);
     }
     return () => {
       if (typeof document !== 'undefined') {
         document.body.classList.remove('overflow-hidden');
+        document.documentElement.classList.remove('overflow-hidden');
       }
     };
   });
 
-  // Conditional NavBar blur — only composite backdrop-filter when actually
-  // scrolled. Saves a permanent GPU layer on low-end Android (median Chilean
-  // K-12 device). At rest, the bar is fully opaque so 80% bg looks correct
-  // only when scrolled and there's content behind it to blur.
+  // Keep the legal ribbon available near the top and while scrolling up, but
+  // yield its vertical space while scrolling down. The fixed header is outside
+  // document flow, so this does not move page content or create layout shift.
   $effect(() => {
     if (typeof window === 'undefined') return;
-    const onScroll = () => { scrolled = window.scrollY > 4; };
-    onScroll();
+    let lastScrollY = Math.max(window.scrollY, 0);
+    let scrollFrame = 0;
+
+    const updateHeader = () => {
+      const currentScrollY = Math.max(window.scrollY, 0);
+      scrolled = currentScrollY > 4;
+
+      if (!mobileOpen) {
+        if (currentScrollY <= 24) {
+          ribbonVisible = true;
+        } else if (currentScrollY > lastScrollY + 2 && currentScrollY > 96) {
+          ribbonVisible = false;
+        } else if (currentScrollY < lastScrollY - 2) {
+          ribbonVisible = true;
+        }
+      }
+
+      lastScrollY = currentScrollY;
+      scrollFrame = 0;
+    };
+
+    const onScroll = () => {
+      if (!scrollFrame) scrollFrame = window.requestAnimationFrame(updateHeader);
+    };
+
+    updateHeader();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (scrollFrame) window.cancelAnimationFrame(scrollFrame);
+    };
+  });
+
+  // A menu opened on mobile must not keep the page locked if the viewport is
+  // resized past the desktop breakpoint.
+  $effect(() => {
+    if (typeof window === 'undefined') return;
+    const desktopViewport = window.matchMedia('(min-width: 48rem)');
+    const closeAtDesktop = () => {
+      if (desktopViewport.matches && mobileOpen) closeMobileMenu(false);
+    };
+    desktopViewport.addEventListener('change', closeAtDesktop);
+    return () => desktopViewport.removeEventListener('change', closeAtDesktop);
   });
 
   const products = [
@@ -69,36 +116,132 @@
   }
 
   function closeProducts() {
-    productsTimeout = setTimeout(() => { productsOpen = false; }, 150);
+    productsTimeout = setTimeout(() => {
+      if (!productsContainer?.contains(document.activeElement)) productsOpen = false;
+    }, 150);
+  }
+
+  async function focusFirstProduct() {
+    productsOpen = true;
+    await tick();
+    productsMenu?.querySelector<HTMLAnchorElement>('a[href]')?.focus();
+  }
+
+  function handleProductsTriggerClick(event: MouseEvent) {
+    clearTimeout(productsTimeout);
+    // Pointer hover has already opened the disclosure. Keyboard activation
+    // retains native button toggle behaviour.
+    productsOpen = event.detail === 0 ? !productsOpen : true;
+  }
+
+  function handleProductsTriggerKeydown(event: KeyboardEvent) {
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      void focusFirstProduct();
+    }
+  }
+
+  function handleProductsKeydown(event: KeyboardEvent) {
+    if (event.key !== 'Escape') return;
+    event.preventDefault();
+    event.stopPropagation();
+    productsOpen = false;
+    productsTrigger?.focus();
+  }
+
+  async function openMobileMenu() {
+    productsOpen = false;
+    mobileOpen = true;
+    await tick();
+    mobileMenu?.querySelector<HTMLAnchorElement>('a[href]')?.focus();
+  }
+
+  function closeMobileMenu(restoreFocus = true) {
+    mobileOpen = false;
+    if (restoreFocus && typeof window !== 'undefined') {
+      window.requestAnimationFrame(() => mobileToggle?.focus());
+    }
+  }
+
+  function toggleMobileMenu() {
+    if (mobileOpen) closeMobileMenu();
+    else void openMobileMenu();
+  }
+
+  function handleMobileMenuKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      event.stopPropagation();
+      closeMobileMenu();
+      return;
+    }
+
+    if (event.key !== 'Tab' || !mobileMenu) return;
+    const focusable = Array.from(
+      mobileMenu.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    );
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = document.activeElement;
+
+    if (event.shiftKey && (active === first || !mobileMenu.contains(active))) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && active === last) {
+      event.preventDefault();
+      first.focus();
+    }
   }
 
   // Escape closes whichever disclosure is open (dropdown + mobile menu).
   function handleWindowKeydown(e: KeyboardEvent) {
     if (e.key !== 'Escape') return;
-    if (productsOpen) productsOpen = false;
-    if (mobileOpen) mobileOpen = false;
+    if (mobileOpen) {
+      e.preventDefault();
+      closeMobileMenu();
+      return;
+    }
+    if (productsOpen) {
+      e.preventDefault();
+      productsOpen = false;
+      productsTrigger?.focus();
+    }
   }
 </script>
 
 <svelte:window onkeydown={handleWindowKeydown} />
 
-<nav class="fixed top-0 right-0 left-0 z-50 border-b border-border shadow-sm transition-colors duration-150 {scrolled ? 'bg-background/80 backdrop-blur-lg' : 'bg-background'}">
+<nav
+  bind:clientHeight={navHeight}
+  class="fixed top-0 right-0 left-0 isolate z-[100] border-b border-border bg-background shadow-sm transition-colors duration-150 {scrolled ? 'md:bg-background/90 md:backdrop-blur-lg' : ''}"
+>
   <!-- Top ribbon — Ley 21.719 urgency. Part of the fixed chrome so it
        doesn't get covered by the nav. Hidden on the /admin area.
        No CTA here — the NavBar below already has "Agendar Demo". -->
   {#if !page.url.pathname.startsWith('/admin')}
-    <div class="border-b border-hairline bg-surface-soft text-foreground">
-      <div class="mx-auto flex max-w-7xl items-center justify-center px-4 py-1.5 text-xs sm:px-6 lg:px-8">
-        <!-- Below sm: only the dot + "Ley 21.719" show (single line ≈29px) so the
-             fixed chrome stays shorter than the hero's pt-28. Full detail on sm+. -->
-        <a href="/ley-21719" class="group flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-center">
-          <span aria-hidden="true" class="inline-flex size-1.5 shrink-0 rounded-full bg-destructive"></span>
-          <span class="text-xs font-semibold uppercase text-primary group-hover:underline group-hover:underline-offset-4">Ley 21.719</span>
-          <span class="hidden text-border sm:inline" aria-hidden="true">·</span>
-          <span class="hidden text-muted-foreground sm:inline">{t('nav.ribbon_full_enforcement')}</span>
-          <span class="hidden text-border sm:inline" aria-hidden="true">·</span>
-          <span class="hidden text-muted-foreground sm:inline">{t('nav.ribbon_fines_prefix')} <span class="font-semibold text-foreground">20.000 UTM</span></span>
-        </a>
+    <div
+      class="grid transition-[grid-template-rows,opacity] duration-200 {ribbonVisible ? 'grid-rows-[1fr] opacity-100' : 'pointer-events-none grid-rows-[0fr] opacity-0'}"
+      aria-hidden={!ribbonVisible}
+      inert={!ribbonVisible}
+    >
+      <div class="min-h-0 overflow-hidden">
+        <div class="border-b border-hairline bg-surface-soft text-foreground">
+          <div class="mx-auto flex max-w-7xl items-center justify-center px-4 py-1.5 text-xs sm:px-6 lg:px-8">
+            <!-- Below sm: only the dot + "Ley 21.719" show. Full detail on sm+. -->
+            <a href="/ley-21719" class="group flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-center">
+              <span aria-hidden="true" class="inline-flex size-1.5 shrink-0 rounded-full bg-destructive"></span>
+              <span class="text-xs font-semibold uppercase text-primary group-hover:underline group-hover:underline-offset-4">{t('nav.ribbon_law_label')}</span>
+              <span class="hidden text-border sm:inline" aria-hidden="true">·</span>
+              <span class="hidden text-muted-foreground sm:inline">{t('nav.ribbon_full_enforcement')}</span>
+              <span class="hidden text-border sm:inline" aria-hidden="true">·</span>
+              <span class="hidden text-muted-foreground sm:inline">{t('nav.ribbon_fines_prefix')} <span class="font-semibold text-foreground">{t('nav.ribbon_fines_value')}</span></span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   {/if}
@@ -119,6 +262,7 @@
       {#each navLinksBefore as link (link.href)}
         <a
           href={link.href}
+          aria-current={isActive(link.href) ? 'page' : undefined}
           class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isActive(link.href)
               ? 'bg-primary/5 text-primary-active'
@@ -131,37 +275,39 @@
       <!-- Productos dropdown (APG disclosure-of-links pattern: aria-expanded
            trigger + plain list of links; no menu roles) -->
       <div
+        bind:this={productsContainer}
         class="relative"
         role="presentation"
         onmouseenter={openProducts}
         onmouseleave={closeProducts}
+        onfocusin={() => clearTimeout(productsTimeout)}
         onfocusout={(e) => {
           const container = e.currentTarget as HTMLElement;
           if (!container.contains(e.relatedTarget as Node | null)) productsOpen = false;
         }}
+        onkeydown={handleProductsKeydown}
       >
-        <!-- Click → navigates to /productos (full catalog page).
-             Hover → opens dropdown via the parent onmouseenter handler.
-             Keyboard ArrowDown → opens dropdown without navigating. -->
-        <a
-          href="/productos"
+        <!-- Native disclosure button: Enter/Space toggles, ArrowDown opens and
+             moves focus into the links, Escape closes and restores focus. -->
+        <button
+          bind:this={productsTrigger}
+          type="button"
           aria-expanded={productsOpen}
           aria-controls="products-menu"
           class="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isProductActive()
               ? 'bg-primary/5 text-primary-active'
               : 'text-muted-foreground hover:bg-muted hover:text-foreground'}"
-          onkeydown={(e) => {
-            if (e.key === 'Escape' && productsOpen) { productsOpen = false; (e.currentTarget as HTMLAnchorElement).focus(); }
-            if (e.key === 'ArrowDown' && !productsOpen) { e.preventDefault(); productsOpen = true; }
-          }}
+          onclick={handleProductsTriggerClick}
+          onkeydown={handleProductsTriggerKeydown}
         >
           {t('nav.features')}
           <ChevronDown class="size-3.5 transition-transform {productsOpen ? 'rotate-180' : ''}" aria-hidden="true" />
-        </a>
+        </button>
 
         {#if productsOpen}
           <div
+            bind:this={productsMenu}
             id="products-menu"
             class="absolute left-1/2 top-full mt-2 w-[420px] -translate-x-1/2 rounded-xl border border-border bg-card p-3 shadow-popover"
             role="presentation"
@@ -199,6 +345,7 @@
       {#each navLinksAfter as link (link.href)}
         <a
           href={link.href}
+          aria-current={isActive(link.href) ? 'page' : undefined}
           class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
             {isActive(link.href)
               ? 'bg-primary/5 text-primary-active'
@@ -223,9 +370,10 @@
       </Button>
 
       <button
+        bind:this={mobileToggle}
         type="button"
         class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
-        onclick={() => (mobileOpen = !mobileOpen)}
+        onclick={toggleMobileMenu}
         aria-label={mobileOpen ? t('nav.close_menu') : t('nav.open_menu')}
         aria-expanded={mobileOpen}
         aria-controls="mobile-menu"
@@ -241,10 +389,20 @@
 
   <!-- Mobile menu -->
   {#if mobileOpen}
-    <!-- Disclosure content (aria-expanded lives on the toggle button). Scrollable
-         so short viewports can still reach the CTA at the bottom. -->
-    <div id="mobile-menu" transition:slide={{ duration: 200 }} class="relative z-50 max-h-[calc(100dvh-7rem)] overflow-y-auto border-t border-border bg-background px-4 pb-5 pt-3 md:hidden"
-      aria-label={t('nav.menu_label')}>
+    <!-- A solid viewport overlay prevents page glows and the sticky CTA from
+         bleeding through. It is immediate rather than opacity-animated so the
+         underlying page is never briefly exposed. -->
+    <div
+      bind:this={mobileMenu}
+      id="mobile-menu"
+      role="dialog"
+      tabindex="-1"
+      aria-modal="true"
+      aria-label={t('nav.menu_label')}
+      class="fixed inset-x-0 bottom-0 z-10 overflow-y-auto overscroll-contain border-t border-border bg-background px-4 pb-5 pt-3 shadow-popover md:hidden"
+      style:top={`${navHeight}px`}
+      onkeydown={handleMobileMenuKeydown}
+    >
       <div class="flex flex-col gap-0.5">
         <!-- ¿Qué es? -->
         {#each navLinksBefore as link (link.href)}
@@ -254,7 +412,8 @@
               {isActive(link.href)
                 ? 'bg-primary/5 text-primary-active'
                 : 'text-foreground hover:bg-muted'}"
-            onclick={() => (mobileOpen = false)}
+            aria-current={isActive(link.href) ? 'page' : undefined}
+            onclick={() => closeMobileMenu(false)}
           >
             {t(link.key)}
           </a>
@@ -267,7 +426,8 @@
             {isActive('/productos') || isProductActive()
               ? 'bg-primary/5 text-primary-active'
               : 'text-foreground hover:bg-muted'}"
-          onclick={() => (mobileOpen = false)}
+          aria-current={isActive('/productos') ? 'page' : undefined}
+          onclick={() => closeMobileMenu(false)}
         >
           {t('nav.features')}
         </a>
@@ -279,7 +439,8 @@
             {isActive('/integrations')
               ? 'bg-primary/5 text-primary-active'
               : 'text-foreground hover:bg-muted'}"
-          onclick={() => (mobileOpen = false)}
+          aria-current={isActive('/integrations') ? 'page' : undefined}
+          onclick={() => closeMobileMenu(false)}
         >
           {t('nav.integrations')}
         </a>
@@ -291,7 +452,8 @@
             {isActive('/blog')
               ? 'bg-primary/5 text-primary-active'
               : 'text-foreground hover:bg-muted'}"
-          onclick={() => (mobileOpen = false)}
+          aria-current={isActive('/blog') ? 'page' : undefined}
+          onclick={() => closeMobileMenu(false)}
         >
           {t('nav.blog')}
         </a>
@@ -303,7 +465,8 @@
             {isActive('/contact')
               ? 'bg-primary/5 text-primary-active'
               : 'text-foreground hover:bg-muted'}"
-          onclick={() => (mobileOpen = false)}
+          aria-current={isActive('/contact') ? 'page' : undefined}
+          onclick={() => closeMobileMenu(false)}
         >
           {t('nav.contact')}
         </a>
@@ -312,24 +475,14 @@
         <a
           href={env.PUBLIC_APP_URL ?? 'https://app.ethoz.cl/login'}
           class="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-          onclick={() => (mobileOpen = false)}
+          onclick={() => closeMobileMenu(false)}
         >
           {t('nav.login')}
         </a>
-        <Button size="default" href="/demo" class="w-full justify-center" onclick={() => (mobileOpen = false)}>
+        <Button size="default" href="/demo" class="w-full justify-center" onclick={() => closeMobileMenu(false)}>
           {t('nav.cta')}
         </Button>
       </div>
     </div>
   {/if}
 </nav>
-
-<!-- Backdrop — click-away region (not an interactive control, per a11y guidance) -->
-{#if mobileOpen}
-  <div
-    class="fixed inset-x-0 top-16 bottom-0 z-[45] bg-foreground/30 backdrop-blur-md md:hidden"
-    aria-hidden="true"
-    onclick={() => (mobileOpen = false)}
-    transition:fade={{ duration: 200 }}
-  ></div>
-{/if}

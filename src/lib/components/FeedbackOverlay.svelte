@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { fly } from 'svelte/transition';
   import { feedbackStore } from '$lib/stores/feedback.svelte';
   import FeedbackModal from '$lib/components/FeedbackModal.svelte';
   import { t } from '$lib/i18n/index.svelte';
@@ -226,7 +227,7 @@
     {#if panelOpen}
       <div
         class="mb-1 w-72 rounded-2xl border border-border bg-card shadow-popover"
-        style="animation: slideUp 0.2s cubic-bezier(0.4,0,0.2,1);"
+        in:fly={{ y: 12, duration: 200 }}
       >
         <!-- Panel header -->
         <div class="flex items-center justify-between rounded-t-2xl border-b border-border bg-primary px-4 py-3">
@@ -305,16 +306,3 @@
 
 <!-- Modal rendered at root level -->
 <FeedbackModal />
-
-<style>
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>

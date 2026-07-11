@@ -7,11 +7,13 @@
   import { Button } from '$lib/components/ui/button';
   import { Badge } from '$lib/components/ui/badge';
   import { t } from '$lib/i18n/index.svelte';
+  import { captureException } from '$lib/sentry';
   import { schoolStore } from '$lib/stores/schools.svelte';
   import { trackEvent } from '$lib/utils/analytics';
   import { saveLead } from '$lib/marketing';
   import { executeRecaptcha, getRecaptchaScriptUrl } from '$lib/utils/recaptcha';
-  import { untrack } from 'svelte';
+  import { tick, untrack } from 'svelte';
+  import StepIndicator from '../StepIndicator.svelte';
   import {
     Building,
     MapPin,
@@ -38,20 +40,28 @@
   let submitting = $state(false);
   let formRestored = $state(false);
   let errorMessage = $state('');
+  let errorElement = $state<HTMLParagraphElement | null>(null);
 
   let mapContainer = $state<HTMLDivElement | null>(null);
   let mapInstance: any = null;
   let mapFailed = $state(false);
-  let recaptchaFailed = $state(false);
+
+  const selectedSchoolIsReady = $derived(
+    isManual || schoolStore.selectedSchool?.rbd === rbd
+  );
 
   function captureError(err: unknown, context?: Record<string, unknown>) {
     if (!browser) return;
-    import('@sentry/browser')
-      .then((Sentry) => Sentry.captureException(err, { extra: context }))
-      .catch(() => {});
+    captureException(err, context);
   }
 
   // ── Load school by RBD (skip if manual) ──
+  $effect(() => {
+    if (!isManual && (!Number.isInteger(rbd) || rbd <= 0)) {
+      goto('/demo', { replaceState: true });
+    }
+  });
+
   $effect(() => {
     if (!isManual) untrack(() => schoolStore.load());
   });
@@ -79,6 +89,7 @@
         contactEmail = data.email ?? '';
         contactPhone = data.phone ?? '';
         contactSource = data.source ?? '';
+        if (!manualSchoolName) manualSchoolName = data.schoolName ?? '';
       } catch {}
     }
     formRestored = true;
@@ -92,7 +103,8 @@
       role: contactRole,
       email: contactEmail,
       phone: contactPhone,
-      source: contactSource
+      source: contactSource,
+      schoolName: manualSchoolName
     };
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   });
@@ -168,13 +180,35 @@
     return labels[depType] ?? '';
   }
 
+  function persistForm(): void {
+    if (!browser) return;
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify({
+      name: contactName,
+      role: contactRole,
+      email: contactEmail,
+      phone: contactPhone,
+      source: contactSource,
+      schoolName: manualSchoolName
+    }));
+  }
+
+  function handleChangeSchool(): void {
+    persistForm();
+    schoolStore.clearSelection();
+  }
+
+  async function showFormError(message: string): Promise<void> {
+    errorMessage = message;
+    await tick();
+    errorElement?.focus();
+  }
+
   // ── Submit ──
   async function handleSubmit(e: Event) {
     e.preventDefault();
     if (submitting) return; // double-submit guard
     submitting = true;
     errorMessage = '';
-    recaptchaFailed = false;
 
     try {
       let recaptchaToken: string | null = null;
@@ -182,9 +216,7 @@
         recaptchaToken = await executeRecaptcha('submit_demo');
       } catch (err) {
         captureError(err, { fn: 'demo.executeRecaptcha' });
-        recaptchaFailed = true;
-        errorMessage = t('demo.error.recaptcha_failed');
-        submitting = false;
+        await showFormError(t('demo.error.recaptcha_failed'));
         return;
       }
       const school = isManual ? null : schoolStore.selectedSchool;
@@ -199,15 +231,14 @@
         contact_email: contactEmail,
         contact_phone: contactPhone || undefined,
         contact_source: contactSource || undefined,
-        notes: isManual ? 'Entrada manual, colegio no encontrado en directorio' : undefined,
+        notes: isManual ? t('demo.manual.lead_note') : undefined,
         status: 'new',
       }, recaptchaToken);
 
       if (!result.ok) {
         console.error('[Demo] Lead save failed:', result.error);
         captureError(new Error(result.error ?? 'Lead save failed'), { fn: 'demo.saveLead' });
-        errorMessage = t('demo.error.save_failed');
-        submitting = false;
+        await showFormError(t('demo.error.save_failed'));
         return;
       }
 
@@ -237,10 +268,14 @@
 <svelte:head>
   <title>{t('meta.demo_rbd_title')}</title>
   <meta name="description" content={t('meta.demo_rbd_description')} />
+  <meta name="robots" content="noindex, nofollow" />
   <meta property="og:url" content="https://ethoz.cl/demo" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content={t('meta.demo_rbd_title')} />
   <meta property="og:description" content={t('meta.demo_rbd_description')} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={t('meta.demo_rbd_title')} />
+  <meta name="twitter:description" content={t('meta.demo_rbd_description')} />
   <link rel="canonical" href="https://ethoz.cl/demo" />
 </svelte:head>
 
@@ -256,30 +291,23 @@
 
   <main id="main-content" class="flex flex-1 flex-col">
 
-  <!-- Step indicator -->
-  <nav aria-label={t('demo.progress.aria_label')} class="border-b border-border bg-background py-4">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <ol class="mx-auto flex max-w-2xl items-center justify-center gap-3">
-      {#each [{ labelKey: 'demo.steps.search' as const, n: 1 }, { labelKey: 'demo.steps.contact' as const, n: 2 }, { labelKey: 'demo.steps.schedule' as const, n: 3 }] as s}
-        <li class="flex items-center gap-2" aria-current={2 === s.n ? 'step' : undefined}>
-          <span class="flex size-7 items-center justify-center rounded-full text-xs font-bold {2 >= s.n ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}" aria-hidden="true">
-            {s.n}
-          </span>
-          <span class="hidden text-xs font-medium sm:block {2 >= s.n ? 'text-foreground' : 'text-muted-foreground'}">
-            <span class="sr-only">{t('demo.step.prefix')} {s.n}{2 > s.n ? ` ${t('demo.step.completed')}` : 2 === s.n ? ` ${t('demo.step.current')}` : ''}: </span>{t(s.labelKey)}
-          {#if s.n < 3}
-            <span aria-hidden="true" class="ml-1 h-px w-8 {2 > s.n ? 'bg-primary' : 'bg-border'}"></span>
-          {/if}
-          </span>
-        </li>
-      {/each}
-    </ol>
-    </div>
-  </nav>
+  <StepIndicator currentStep={2} onBeforeBack={handleChangeSchool} />
 
   <!-- Content -->
   <div id="demo-form-main" class="mx-auto flex-1 max-w-7xl px-4 py-12 sm:py-16">
-    {#if !isManual && (schoolStore.loading || !schoolStore.selectedSchool)}
+    {#if !isManual && schoolStore.loadError}
+      <div class="mx-auto max-w-xl rounded-xl border border-border bg-background px-5 py-8 text-center" role="alert">
+        <Building aria-hidden="true" class="mx-auto mb-3 size-7 text-muted-foreground" />
+        <p class="text-sm font-semibold text-foreground">{t('prospecting.schools_load_error')}</p>
+        <a
+          href="/demo/0?manual=1"
+          class="mt-4 inline-flex min-h-11 items-center gap-1.5 rounded-md bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-hover"
+        >
+          {t('demo.manual')}
+          <ChevronRight aria-hidden="true" class="size-4" />
+        </a>
+      </div>
+    {:else if !selectedSchoolIsReady}
       <div class="flex flex-col items-center gap-3 py-16" role="status" aria-live="polite">
         <Loader2 class="size-8 animate-spin text-primary" aria-hidden="true" />
         <p class="text-sm text-muted-foreground">{t('demo.search.loading')}</p>
@@ -295,8 +323,12 @@
           <p class="mx-auto mt-3 max-w-md text-xs leading-relaxed text-muted-foreground">
             {t('demo.step2.description')}
           </p>
-          <a href="/demo" class="mt-3 inline-flex items-center gap-1 text-sm text-primary transition-colors hover:text-primary">
-            <ChevronLeft class="size-4" />
+          <a
+            href="/demo"
+            onclick={handleChangeSchool}
+            class="mt-3 inline-flex min-h-11 items-center gap-1 rounded-md px-2 text-sm text-primary-active transition-colors hover:bg-accent-tint hover:text-primary-active"
+          >
+            <ChevronLeft aria-hidden="true" class="size-4" />
             {t('demo.step2.change')}
           </a>
         </div>
@@ -314,10 +346,11 @@
                 <div class="space-y-3">
                   <div class="space-y-1.5">
                     <label for="manual-school" class="block text-sm font-medium text-foreground">
-                      {t('demo.manual.school_name_label')} <span class="text-destructive">*</span>
+                      {t('demo.manual.school_name_label')} <span aria-hidden="true" class="text-destructive">*</span>
                     </label>
                     <input
                       id="manual-school"
+                      form="demo-contact-form"
                       type="text"
                       required
                       bind:value={manualSchoolName}
@@ -419,10 +452,10 @@
 
           <!-- Right: contact form -->
           <div>
-            <form onsubmit={handleSubmit} class="space-y-4" aria-busy={submitting}>
+            <form id="demo-contact-form" onsubmit={handleSubmit} class="space-y-4" aria-busy={submitting}>
               <div class="space-y-1.5">
                 <label for="contact-name" class="block text-sm font-medium text-foreground">
-                  {t('demo.form.name')} <span class="text-destructive">*</span>
+                  {t('demo.form.name')} <span aria-hidden="true" class="text-destructive">*</span>
                 </label>
                 <input
                   id="contact-name"
@@ -439,7 +472,7 @@
 
               <div class="space-y-1.5">
                 <label for="contact-role" class="block text-sm font-medium text-foreground">
-                  {t('demo.form.role')} <span class="text-destructive">*</span>
+                  {t('demo.form.role')} <span aria-hidden="true" class="text-destructive">*</span>
                 </label>
                 <div class="relative">
                   <select
@@ -454,6 +487,11 @@
                     <option value="inspector">{t('demo.form.role.inspector')}</option>
                     <option value="utp">{t('demo.form.role.utp')}</option>
                     <option value="sostenedor">{t('demo.form.role.sostenedor')}</option>
+                    <option value="docente">{t('roles.teacher.title')}</option>
+                    <option value="orientador">{t('roles.counselor.title')}</option>
+                    <option value="porteria">{t('roles.porter.title')}</option>
+                    <option value="apoderado">{t('home.roles.apoderado.title')}</option>
+                    <option value="administrador">{t('roles.admin.title')}</option>
                     <option value="other">{t('demo.form.role.other')}</option>
                   </select>
                   <ChevronDown class="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -462,7 +500,7 @@
 
               <div class="space-y-1.5">
                 <label for="contact-email" class="block text-sm font-medium text-foreground">
-                  {t('demo.form.email')} <span class="text-destructive">*</span>
+                  {t('demo.form.email')} <span aria-hidden="true" class="text-destructive">*</span>
                 </label>
                 <input
                   id="contact-email"
@@ -485,7 +523,7 @@
                   type="tel"
                   inputmode="tel"
                   bind:value={contactPhone}
-                  placeholder="+56 9 1234 5678"
+                  placeholder={t('demo.form.phone.placeholder')}
                   autocomplete="tel"
                   enterkeyhint="next"
                   class="w-full rounded-lg border border-border bg-background px-4 py-3 text-base text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
@@ -528,7 +566,14 @@
                 {/if}
               </Button>
               {#if errorMessage}
-                <p class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-error-text" role="alert">{errorMessage}</p>
+                <p
+                  bind:this={errorElement}
+                  class="mt-2 rounded-lg bg-destructive/10 px-4 py-2.5 text-center text-sm text-error-text"
+                  role="alert"
+                  tabindex="-1"
+                >
+                  {errorMessage}
+                </p>
               {/if}
               <p class="mt-2 text-center text-mockup-xs text-muted-foreground">
                 {t('demo.privacy_notice')}

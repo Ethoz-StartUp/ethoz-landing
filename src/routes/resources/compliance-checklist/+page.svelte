@@ -148,12 +148,15 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content={t('resComplianceChecklist.og_title')} />
   <meta property="og:description" content={t('resComplianceChecklist.og_description')} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={t('resComplianceChecklist.og_title')} />
+  <meta name="twitter:description" content={t('resComplianceChecklist.og_description')} />
   <link rel="canonical" href="https://ethoz.cl/resources/compliance-checklist" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": "Checklist de Cumplimiento Ley 21.719",
-    "description": "20 ítems para verificar el cumplimiento de la Ley 21.719 en establecimientos educacionales chilenos.",
+    "name": t('resComplianceChecklist.og_title'),
+    "description": t('resComplianceChecklist.meta_description'),
     "url": "https://ethoz.cl/resources/compliance-checklist",
     "publisher": { "@type": "Organization", "name": BRAND, "url": "https://ethoz.cl" }
   })}</script>`}

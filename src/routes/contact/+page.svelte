@@ -9,6 +9,7 @@
   import { trackEvent } from '$lib/utils/analytics';
   import { executeRecaptcha, getRecaptchaScriptUrl } from '$lib/utils/recaptcha';
   import { browser } from '$app/environment';
+  import { captureException } from '$lib/sentry';
 
   // ── State ──
   let name = $state('');
@@ -21,9 +22,7 @@
 
   function captureError(err: unknown, context?: Record<string, unknown>) {
     if (!browser) return;
-    import('@sentry/browser')
-      .then((Sentry) => Sentry.captureException(err, { extra: context }))
-      .catch(() => {});
+    captureException(err, context);
   }
 
   const mailtoFallback = `mailto:${CONTACT.email.address}?subject=${encodeURIComponent('Contacto desde ethoz.cl')}`;

@@ -115,6 +115,11 @@ test.describe('Contact form — marketing submission failure', () => {
 // ─────────────────────────────────────────────────────────────────────────────
 
 test.describe('Demo page — schools data load failure', () => {
+	test('invalid non-numeric RBD returns to school search', async ({ page }) => {
+		await page.goto('/demo/not-a-valid-rbd');
+		await expect(page).toHaveURL('/demo');
+	});
+
 	test('does not crash when schools.json fetch is aborted', async ({ page }) => {
 		const jsErrors: string[] = [];
 		page.on('pageerror', (err) => jsErrors.push(err.message));

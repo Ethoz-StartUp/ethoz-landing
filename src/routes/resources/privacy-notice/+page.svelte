@@ -23,12 +23,15 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content={t('resPrivacyNotice.og_title')} />
   <meta property="og:description" content={t('resPrivacyNotice.og_description')} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={t('resPrivacyNotice.og_title')} />
+  <meta name="twitter:description" content={t('resPrivacyNotice.og_description')} />
   <link rel="canonical" href="https://ethoz.cl/resources/privacy-notice" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "LegalDocument",
-    "name": "Modelo de Aviso de Privacidad Escolar",
-    "description": "Plantilla de aviso de privacidad conforme al Art. 14 de la Ley 21.719.",
+    "name": t('resPrivacyNotice.og_title'),
+    "description": t('resPrivacyNotice.meta_description'),
     "url": "https://ethoz.cl/resources/privacy-notice",
     "publisher": { "@type": "Organization", "name": BRAND, "url": "https://ethoz.cl" }
   })}</script>`}

@@ -1,4 +1,4 @@
-import { test, expect, type Page } from '@playwright/test';
+import { test, expect, type Locator, type Page } from '@playwright/test';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helpers
@@ -69,6 +69,36 @@ async function selectFirstDemoSchool(page: Page) {
 	await expect(firstResult).toBeVisible({ timeout: 5000 });
 	await firstResult.click();
 	await page.waitForURL(/\/demo\/\d+/, { timeout: 5000 });
+}
+
+function primaryNavigation(page: Page): Locator {
+	return page.getByRole('navigation').first();
+}
+
+function productsDisclosure(page: Page): Locator {
+	return primaryNavigation(page).getByRole('button', { name: /productos|products/i });
+}
+
+async function readyProductsDisclosure(page: Page): Promise<Locator> {
+	await page.waitForLoadState('networkidle');
+	return productsDisclosure(page);
+}
+
+function mobileMenuToggle(page: Page): Locator {
+	return primaryNavigation(page).getByRole('button', {
+		name: /abrir menú|open menu|cerrar menú|close menu/i
+	});
+}
+
+async function openMobileNavigation(page: Page): Promise<{ menu: Locator; toggle: Locator }> {
+	await page.waitForLoadState('networkidle');
+	const toggle = mobileMenuToggle(page);
+	await toggle.click();
+	await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+
+	const menu = page.getByRole('dialog', { name: /menú principal|main menu/i });
+	await expect(menu).toBeVisible();
+	return { menu, toggle };
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -155,26 +185,27 @@ test.describe('Navigation — desktop NavBar', () => {
 
 	test('Productos dropdown opens on hover and shows product links', async ({ page }) => {
 		await page.goto('/');
-		const dropdownTrigger = page.locator('nav a[href="/productos"][aria-haspopup="true"]');
+		const dropdownTrigger = await readyProductsDisclosure(page);
 		await dropdownTrigger.hover();
-		await page.waitForTimeout(300);
-		const dropdown = page.locator('[role="menu"]').first();
-		await expect(dropdown).toBeVisible({ timeout: 3000 });
-		const items = dropdown.locator('a[href^="/features"], a[href="/integrations"]');
-		expect(await items.count()).toBeGreaterThanOrEqual(5);
+		await expect(dropdownTrigger).toHaveAttribute('aria-expanded', 'true');
+
+		const dropdown = page.locator('#products-menu');
+		await expect(dropdown).toBeVisible();
+		await expect(dropdown.getByRole('link')).toHaveCount(6);
 	});
 
 	test('Productos dropdown items navigate correctly', async ({ page }) => {
 		await page.goto('/');
-		const dropdownTrigger = page.locator('nav a[href="/productos"][aria-haspopup="true"]');
+		const dropdownTrigger = await readyProductsDisclosure(page);
 		await dropdownTrigger.hover();
-		const dropdown = page.locator('nav .absolute').first();
-		await expect(dropdown).toBeVisible({ timeout: 2000 });
-		// Click first feature link
-		const firstFeatureLink = dropdown.locator('a[href^="/features"]').first();
-		const href = await firstFeatureLink.getAttribute('href');
+		const dropdown = page.locator('#products-menu');
+		await expect(dropdown).toBeVisible();
+
+		const firstFeatureLink = dropdown.getByRole('link', {
+			name: /perfil integral del alumno|complete student profile/i
+		});
 		await firstFeatureLink.click();
-		await expect(page).toHaveURL(href!);
+		await expect(page).toHaveURL('/features/student-profile');
 	});
 });
 
@@ -183,46 +214,41 @@ test.describe('Navigation — mobile hamburger', () => {
 
 	test('hamburger button is visible on mobile', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
+		const hamburger = mobileMenuToggle(page);
 		await expect(hamburger).toBeVisible();
 	});
 
 	test('hamburger opens mobile menu', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
-		await hamburger.click();
-		// Mobile menu should be visible
-		await expect(page.locator('nav .md\\:hidden + div, nav [class*="border-t"][class*="bg-background"]').last()).toBeVisible({ timeout: 2000 });
+		const { menu } = await openMobileNavigation(page);
+		await expect(menu).toHaveAttribute('aria-modal', 'true');
+		await expect(menu).toHaveCSS('position', 'fixed');
 	});
 
 	test('mobile menu has all nav links', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
-		await hamburger.click();
-		await page.waitForTimeout(300);
-		// Check for at least 8 links in mobile menu (6 products + 4 nav)
-		const mobileMenu = page.locator('nav').last();
-		const links = mobileMenu.locator('a');
-		expect(await links.count()).toBeGreaterThanOrEqual(8);
+		const { menu } = await openMobileNavigation(page);
+		await expect(menu.getByRole('link')).toHaveCount(8);
 	});
 
 	test('mobile menu closes when link is clicked', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
-		await hamburger.click();
-		await page.waitForTimeout(300);
-		// Click Blog link in mobile menu
-		const blogLink = page.locator('nav a[href="/blog"]').last();
+		const { menu } = await openMobileNavigation(page);
+		const blogLink = menu.getByRole('link', { name: 'Blog', exact: true });
 		await blogLink.click();
 		await expect(page).toHaveURL('/blog');
+		await expect(menu).toHaveCount(0);
 	});
 
-	test('hamburger shows X icon when open', async ({ page }) => {
+	test('Escape closes the menu and restores focus to its toggle', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
-		await hamburger.click();
-		// aria-expanded should be true
-		await expect(hamburger).toHaveAttribute('aria-expanded', 'true');
+		const { menu, toggle } = await openMobileNavigation(page);
+		await expect(menu.getByRole('link').first()).toBeFocused();
+
+		await page.keyboard.press('Escape');
+		await expect(menu).toHaveCount(0);
+		await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+		await expect(toggle).toBeFocused();
 	});
 });
 
@@ -824,7 +850,7 @@ test.describe('Responsive — mobile (375×812)', () => {
 
 	test('hamburger menu appears on homepage', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
+		const hamburger = mobileMenuToggle(page);
 		await expect(hamburger).toBeVisible();
 	});
 
@@ -897,26 +923,17 @@ test.describe('Responsive — mobile (375×812)', () => {
 
 	test('mobile hamburger menu shows Integraciones link', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
-		await expect(hamburger).toBeVisible();
-		await hamburger.click();
-		// Wait for slide transition
-		await page.waitForTimeout(500);
-		// On mobile, after menu opens, Integraciones link should be visible
-		await expect(page.getByRole('link', { name: 'Integraciones' }).first()).toBeVisible({ timeout: 5000 });
+		const { menu } = await openMobileNavigation(page);
+		await expect(menu.getByRole('link', { name: /integraciones|integrations/i })).toBeVisible();
 	});
 
 	test('mobile menu links close menu on click', async ({ page }) => {
 		await page.goto('/');
-		const hamburger = page.locator('button[aria-controls="mobile-menu"]');
-		await expect(hamburger).toBeVisible();
-		await hamburger.click();
-		await page.waitForTimeout(500);
-		// Click a link visible in the mobile menu
-		const blogLink = page.getByRole('link', { name: 'Blog' }).first();
-		await expect(blogLink).toBeVisible({ timeout: 5000 });
+		const { menu } = await openMobileNavigation(page);
+		const blogLink = menu.getByRole('link', { name: 'Blog', exact: true });
 		await blogLink.click();
-		await expect(page).toHaveURL('/blog', { timeout: 5000 });
+		await expect(page).toHaveURL('/blog');
+		await expect(menu).toHaveCount(0);
 	});
 });
 
@@ -1075,7 +1092,9 @@ test.describe('Demo — manual school entry', () => {
 		await expect(input).toBeVisible({ timeout: 10000 });
 		await input.fill('Mi Colegio Inventado');
 		await page.waitForTimeout(500);
-		const manualLink = page.locator('text=No encuentras tu colegio');
+		const manualLink = page.getByRole('link', {
+			name: /completar manualmente|fill in manually|no encuentras tu colegio|can't find your school/i
+		});
 		await expect(manualLink).toBeVisible({ timeout: 5000 });
 	});
 
@@ -1085,7 +1104,9 @@ test.describe('Demo — manual school entry', () => {
 		await expect(input).toBeVisible({ timeout: 10000 });
 		await input.fill('Colegio Test');
 		await page.waitForTimeout(500);
-		const manualLink = page.locator('text=No encuentras tu colegio');
+		const manualLink = page.getByRole('link', {
+			name: /completar manualmente|fill in manually|no encuentras tu colegio|can't find your school/i
+		});
 		await expect(manualLink).toBeVisible({ timeout: 5000 });
 		await manualLink.click();
 		await expect(page).toHaveURL(/\/demo\/0\?manual=1/);
@@ -1099,19 +1120,31 @@ test.describe('Demo — manual school entry', () => {
 test.describe('Navbar — products dropdown', () => {
 	test('Productos dropdown trigger exists (disclosure pattern)', async ({ page }) => {
 		await page.goto('/');
-		const btn = page.locator('nav a[href="/productos"][aria-controls="products-menu"]');
+		const btn = await readyProductsDisclosure(page);
 		await expect(btn).toBeVisible();
+		await expect(btn).toHaveAttribute('aria-controls', 'products-menu');
+		await expect(btn).toHaveAttribute('aria-expanded', 'false');
 	});
 
-	test('dropdown opens on hover and shows product links', async ({ page }) => {
+	test('dropdown supports Enter, Tab and Escape', async ({ page }) => {
 		await page.goto('/');
-		const btn = page.locator('nav a[href="/productos"][aria-controls="products-menu"]');
-		await btn.hover();
-		await page.waitForTimeout(300);
+		const btn = await readyProductsDisclosure(page);
+		await btn.focus();
+		await page.keyboard.press('Enter');
+		await expect(btn).toHaveAttribute('aria-expanded', 'true');
+
 		const dropdown = page.locator('#products-menu');
-		await expect(dropdown).toBeVisible({ timeout: 3000 });
-		await expect(dropdown.locator('a[href="/features/student-profile"]')).toBeVisible();
-		await expect(dropdown.locator('a[href="/features/safe-pickups"]')).toBeVisible();
+		await expect(dropdown).toBeVisible();
+		const firstProduct = dropdown.getByRole('link', {
+			name: /perfil integral del alumno|complete student profile/i
+		});
+
+		await page.keyboard.press('Tab');
+		await expect(firstProduct).toBeFocused();
+		await page.keyboard.press('Escape');
+		await expect(dropdown).toHaveCount(0);
+		await expect(btn).toHaveAttribute('aria-expanded', 'false');
+		await expect(btn).toBeFocused();
 	});
 
 	test('Integraciones is a top-level nav link', async ({ page }) => {

@@ -120,14 +120,14 @@
   <!-- Bottom bar — slightly elevated dark surface for subtle separation -->
   <div class="border-t border-surface-dark-elevated">
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-3 sm:flex-row sm:px-6 lg:px-8">
-      <p class="text-xs text-on-dark-soft">{t('footer.rights')} · Hecho con ♥ en Chile</p>
+      <p class="text-xs text-on-dark-soft">{t('footer.rights')} · {t('footer.tagline')}</p>
       <button
         type="button"
         onclick={toggleLocale}
-        class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-on-dark-soft transition-colors hover:bg-surface-dark-elevated hover:text-on-dark"
+        class="inline-flex min-h-11 items-center gap-1.5 rounded-md px-3 py-2 text-xs text-on-dark-soft transition-colors hover:bg-surface-dark-elevated hover:text-on-dark"
       >
         <Globe class="size-3" />
-        {getLocale() === 'es' ? 'English' : 'Español'}
+        {getLocale() === 'es' ? t('lang.en') : t('lang.es')}
       </button>
     </div>
   </div>

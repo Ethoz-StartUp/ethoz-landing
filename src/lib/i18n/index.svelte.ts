@@ -1,24 +1,47 @@
-import { es } from './translations/es';
+import { esHome } from './translations/es-home';
 import { BRAND, LEGAL_NAME, DOMAIN } from '../brand';
 
-type TranslationKey = keyof typeof es;
+// Keep the complete dictionary as the compile-time schema without pulling it
+// into the home bundle at runtime.
+type TranslationKey = keyof typeof import('./translations/es').es;
 type Locale = 'es' | 'en';
+type Dictionary = Readonly<Partial<Record<TranslationKey, string>>>;
+type FullDictionary = Readonly<Record<TranslationKey, string>>;
 
-// es ships eagerly (default locale, used for SSR/prerender). en (~260 KB min)
-// loads on demand the first time the visitor switches language and is cached
-// here for the rest of the session, keeping it out of the critical bundle.
-const translations: Partial<Record<Locale, Record<string, string>>> = { es };
+// The default route only needs its own copy plus shared chrome. Legacy routes
+// promote this cache to the complete ES dictionary before they render. EN
+// remains lazy and is cached after the first language switch.
+const translations: Partial<Record<Locale, Dictionary>> = { es: esHome };
+let fullEs: FullDictionary | undefined;
+let fullEsPromise: Promise<FullDictionary> | undefined;
 
 // Safe only with adapter-static (single render pass). Move locale to context/store before enabling SSR — module-level $state leaks across concurrent server requests.
 let locale = $state<Locale>('es');
 
 export function t(key: TranslationKey): string {
-  const dict = translations[locale] ?? es;
-  const raw = dict[key] ?? key;
+  const spanishFallback: Dictionary = fullEs ?? esHome;
+  const dict: Dictionary = translations[locale] ?? spanishFallback;
+  const raw = dict[key] ?? spanishFallback[key] ?? key;
   // Interpolate brand tokens so all copy stays rebrandable from $lib/brand.
   return raw.includes('{')
     ? raw.replace(/\{brand\}/g, BRAND).replace(/\{legal\}/g, LEGAL_NAME).replace(/\{domain\}/g, DOMAIN)
     : raw;
+}
+
+/** Load the complete Spanish dictionary before rendering a non-home route. */
+export async function ensureLegacyEs(): Promise<void> {
+  if (fullEs) return;
+
+  fullEsPromise ??= import('./translations/es').then(({ es }) => es);
+
+  try {
+    fullEs = await fullEsPromise;
+    translations.es = fullEs;
+  } catch (error) {
+    // A transient chunk failure must remain retryable on the next navigation.
+    fullEsPromise = undefined;
+    throw error;
+  }
 }
 
 export async function setLocale(newLocale: Locale): Promise<void> {

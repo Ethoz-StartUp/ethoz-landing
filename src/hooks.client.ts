@@ -1,9 +1,3 @@
-import { initSentry } from '$lib/sentry';
-import * as Sentry from '@sentry/browser';
-
-// Initialize Sentry
-initSentry();
-
 // SvelteKit client error handler
 export function handleError({ error, event }: { error: unknown; event: any }) {
   const err = error instanceof Error ? error : new Error(String(error));
@@ -13,14 +7,10 @@ export function handleError({ error, event }: { error: unknown; event: any }) {
     stack: err.stack,
   });
 
-  // Send to Sentry if initialized
-  try {
-    Sentry.captureException(err, {
-      extra: { url: event?.url?.pathname },
-    });
-  } catch {
-    // Sentry not initialized — that's fine
-  }
+  // An actual client error is the one path allowed to bypass idle loading.
+  void import('$lib/sentry')
+    .then(({ captureException }) => captureException(err, { url: event?.url?.pathname }))
+    .catch(() => {});
 
   return {
     message: 'Ha ocurrido un error inesperado.',

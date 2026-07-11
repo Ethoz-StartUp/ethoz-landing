@@ -77,7 +77,7 @@ test.describe('Analytics — hero CTA trackEvent calls', () => {
 		expect(watchVideo.length).toBeGreaterThanOrEqual(1);
 	});
 
-	test('Book Demo hero button fires hero_cta_clicked with cta:book_demo location:hero', async ({
+	test('Book Demo hero link fires hero_cta_clicked with cta:book_demo location:hero', async ({
 		page
 	}) => {
 		await acceptConsent(page);
@@ -85,17 +85,13 @@ test.describe('Analytics — hero CTA trackEvent calls', () => {
 		await page.waitForLoadState('networkidle');
 		await patchDataLayer(page);
 
-		// Button is now a plain <button> (no href) using goto() — find by text
-		const bookDemoBtn = page
-			.locator('main button')
-			.filter({ hasText: /agendar demo|book a demo/i })
-			.first();
-		await expect(bookDemoBtn).toBeVisible();
+		const bookDemoLink = page.locator('main a#hero-cta[href="/demo"]');
+		await expect(bookDemoLink).toBeVisible();
 
 		// Intercept the SvelteKit navigation so the test stays on the page
 		await page.route('**/demo**', (route) => route.abort());
 
-		await bookDemoBtn.click();
+		await bookDemoLink.click();
 		await page.waitForTimeout(500);
 
 		const events = await getCaptured(page, 'hero_cta_clicked');
@@ -130,14 +126,13 @@ test.describe('Analytics — hero CTA trackEvent calls', () => {
 		await page.evaluate(() => window.scrollTo(0, 500));
 		await page.waitForTimeout(300);
 
-		// Button is now a plain <button> (no href) using goto()
-		const stickyBtn = page.locator('.fixed.bottom-0 button').first();
-		await expect(stickyBtn).toBeVisible({ timeout: 5000 });
+		const stickyLink = page.locator('.fixed.bottom-0 a[href="/demo"]').first();
+		await expect(stickyLink).toBeVisible({ timeout: 5000 });
 
 		// Intercept the SvelteKit navigation so the test stays on the page
 		await page.route('**/demo**', (route) => route.abort());
 
-		await stickyBtn.click();
+		await stickyLink.click();
 		await page.waitForTimeout(500);
 
 		const events = await getCaptured(page, 'hero_cta_clicked');

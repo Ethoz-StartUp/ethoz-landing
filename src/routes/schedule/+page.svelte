@@ -8,6 +8,7 @@
   import { browser } from '$app/environment';
   import { trackEvent } from '$lib/utils/analytics';
   import { onMount, untrack } from 'svelte';
+  import { captureException } from '$lib/sentry';
 
   // Read from sessionStorage (preferred) or fall back to URL params for backwards compat
   let scheduleData = $state<Record<string, string>>({});
@@ -50,9 +51,7 @@
 
   function captureError(err: unknown, context?: Record<string, unknown>) {
     if (!browser) return;
-    import('@sentry/browser')
-      .then((Sentry) => Sentry.captureException(err, { extra: context }))
-      .catch(() => {});
+    captureException(err, context);
   }
 
   // Load Cal.com embed script and render inline
@@ -161,6 +160,7 @@
 <svelte:head>
   <title>{t('meta.schedule_title')}</title>
   <meta name="description" content={t('meta.schedule_description')} />
+  <meta name="robots" content="noindex, nofollow" />
   <meta property="og:url" content="https://ethoz.cl/schedule" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content={t('meta.schedule_title')} />

@@ -6,7 +6,8 @@
       "ignore": [
         "firebase.json",
         "**/.*",
-        "**/node_modules/**"
+        "**/node_modules/**",
+        "logos/preview.html"
       ],
       "redirects": [
         {
@@ -22,7 +23,11 @@
       ],
       "rewrites": [
         {
-          "source": "**",
+          "source": "/suggestions",
+          "destination": "/200.html"
+        },
+        {
+          "source": "/demo/**",
           "destination": "/200.html"
         }
       ],
@@ -56,7 +61,52 @@
             },
             {
               "key": "Content-Security-Policy",
-              "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.cal.com https://*.cal.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://www.clarity.ms https://*.clarity.ms https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.basemaps.cartocdn.com; connect-src 'self' https://app.ethoz.cl https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://www.clarity.ms https://*.clarity.ms https://www.google-analytics.com https://api.cal.com https://app.cal.com https://*.cal.com https://*.basemaps.cartocdn.com https://api.ipify.org; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://app.cal.com; font-src 'self' data:; frame-src https://app.cal.com https://*.cal.com https://www.google.com; worker-src 'self' blob:; report-uri https://o4511169804500992.ingest.us.sentry.io/api/4511169807843328/security/?sentry_key=47b75aa781e8cd28829b3031cc1ed042"
+              "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.cal.com https://*.cal.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://www.clarity.ms https://*.clarity.ms https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.basemaps.cartocdn.com; connect-src 'self' https://app.ethoz.cl https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://www.clarity.ms https://*.clarity.ms https://www.google-analytics.com https://api.cal.com https://app.cal.com https://*.cal.com https://*.basemaps.cartocdn.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://app.cal.com; font-src 'self' data:; frame-src https://app.cal.com https://*.cal.com https://www.google.com; worker-src 'self' blob:; report-uri https://o4511169804500992.ingest.us.sentry.io/api/4511169807843328/security/?sentry_key=47b75aa781e8cd28829b3031cc1ed042"
+            }
+          ]
+        },
+        {
+          "source": "/schedule",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
+          ]
+        },
+        {
+          "source": "/pitch",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
+          ]
+        },
+        {
+          "source": "/suggestions",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
+          ]
+        },
+        {
+          "source": "/demo/**",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
+          ]
+        },
+        {
+          "source": "/logos/preview{,.html}",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
             }
           ]
         },
@@ -79,7 +129,8 @@
           ]
         }
       ],
-      "cleanUrls": true
+      "cleanUrls": true,
+      "trailingSlash": false
     },
     {
       "site": "gestion-estudiantil-dev",
@@ -87,7 +138,8 @@
       "ignore": [
         "firebase.json",
         "**/.*",
-        "**/node_modules/**"
+        "**/node_modules/**",
+        "logos/preview.html"
       ],
       "redirects": [
         {
@@ -103,7 +155,11 @@
       ],
       "rewrites": [
         {
-          "source": "**",
+          "source": "/suggestions",
+          "destination": "/200.html"
+        },
+        {
+          "source": "/demo/**",
           "destination": "/200.html"
         }
       ],
@@ -137,7 +193,52 @@
             },
             {
               "key": "Content-Security-Policy",
-              "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.cal.com https://*.cal.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://www.clarity.ms https://*.clarity.ms https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.basemaps.cartocdn.com; connect-src 'self' https://app.ethoz.cl https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://www.clarity.ms https://*.clarity.ms https://www.google-analytics.com https://api.cal.com https://app.cal.com https://*.cal.com https://*.basemaps.cartocdn.com https://api.ipify.org; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://app.cal.com; font-src 'self' data:; frame-src https://app.cal.com https://*.cal.com https://www.google.com; worker-src 'self' blob:; report-uri https://o4511169804500992.ingest.us.sentry.io/api/4511169807843328/security/?sentry_key=47b75aa781e8cd28829b3031cc1ed042"
+              "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://app.cal.com https://*.cal.com https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com https://www.clarity.ms https://*.clarity.ms https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.basemaps.cartocdn.com; connect-src 'self' https://app.ethoz.cl https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://www.clarity.ms https://*.clarity.ms https://www.google-analytics.com https://api.cal.com https://app.cal.com https://*.cal.com https://*.basemaps.cartocdn.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://app.cal.com; font-src 'self' data:; frame-src https://app.cal.com https://*.cal.com https://www.google.com; worker-src 'self' blob:; report-uri https://o4511169804500992.ingest.us.sentry.io/api/4511169807843328/security/?sentry_key=47b75aa781e8cd28829b3031cc1ed042"
+            }
+          ]
+        },
+        {
+          "source": "/schedule",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
+          ]
+        },
+        {
+          "source": "/pitch",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
+          ]
+        },
+        {
+          "source": "/suggestions",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
+          ]
+        },
+        {
+          "source": "/demo/**",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
+          ]
+        },
+        {
+          "source": "/logos/preview{,.html}",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
             }
           ]
         },
@@ -160,7 +261,8 @@
           ]
         }
       ],
-      "cleanUrls": true
+      "cleanUrls": true,
+      "trailingSlash": false
     }
   ]
 }

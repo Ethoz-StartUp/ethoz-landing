@@ -4,6 +4,7 @@ import { getVisitorId } from '$lib/utils/visitor';
 import { getDeviceMetadata } from '$lib/utils/device';
 import { readAttribution } from '$lib/utils/attribution';
 import { log } from '$lib/utils/logger';
+import { addBreadcrumb, captureException } from '$lib/sentry';
 
 export function maskEmail(email: string): string {
   const [user, domain] = email.split('@');
@@ -12,9 +13,7 @@ export function maskEmail(email: string): string {
 }
 
 function captureError(err: unknown, context?: Record<string, unknown>): void {
-  import('@sentry/browser').then(Sentry => {
-    Sentry.captureException(err, { extra: context });
-  }).catch(() => {});
+  captureException(err, context);
 }
 
 export async function fetchWithRetryAndTimeout(
@@ -32,14 +31,12 @@ export async function fetchWithRetryAndTimeout(
     const timer = setTimeout(() => controller.abort(), timeoutMs);
 
     try {
-      import('@sentry/browser').then(Sentry => {
-        Sentry.addBreadcrumb({
-          category: 'fetch',
-          message: `${context} attempt ${attempt + 1}/${retries + 1}`,
-          level: 'info',
-          data: { url, attempt: attempt + 1 }
-        });
-      }).catch(() => {});
+      addBreadcrumb({
+        category: 'fetch',
+        message: `${context} attempt ${attempt + 1}/${retries + 1}`,
+        level: 'info',
+        data: { url, attempt: attempt + 1 }
+      });
 
       const res = await fetch(url, { ...init, signal: controller.signal });
       clearTimeout(timer);
@@ -49,14 +46,12 @@ export async function fetchWithRetryAndTimeout(
       lastError = err;
       const elapsed = Date.now() - started;
 
-      import('@sentry/browser').then(Sentry => {
-        Sentry.addBreadcrumb({
-          category: 'fetch',
-          message: `${context} attempt ${attempt + 1} failed`,
-          level: 'warning',
-          data: { url, attempt: attempt + 1, elapsed_ms: elapsed, error: String(err) }
-        });
-      }).catch(() => {});
+      addBreadcrumb({
+        category: 'fetch',
+        message: `${context} attempt ${attempt + 1} failed`,
+        level: 'warning',
+        data: { url, attempt: attempt + 1, elapsed_ms: elapsed, error: String(err) }
+      });
 
       if (attempt < retries) {
         const backoffMs = 500 * Math.pow(2, attempt);

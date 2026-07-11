@@ -83,12 +83,15 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content={t('resDataInventory.og_title')} />
   <meta property="og:description" content={t('resDataInventory.og_description')} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={t('resDataInventory.og_title')} />
+  <meta name="twitter:description" content={t('resDataInventory.og_description')} />
   <link rel="canonical" href="https://ethoz.cl/resources/data-inventory" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Dataset",
-    "name": "Inventario de Datos Personales para Colegios",
-    "description": "Plantilla de inventario de datos personales conforme a la Ley 21.719.",
+    "name": t('resDataInventory.og_title'),
+    "description": t('resDataInventory.meta_description'),
     "url": "https://ethoz.cl/resources/data-inventory",
     "publisher": { "@type": "Organization", "name": BRAND, "url": "https://ethoz.cl" }
   })}</script>`}

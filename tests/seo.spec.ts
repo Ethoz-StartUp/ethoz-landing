@@ -227,4 +227,41 @@ test.describe('SEO — sitemap.xml', () => {
 			'ethoz.cl/admin'
 		);
 	});
+
+	test('sitemap.xml contains every public resource and current blog post', async ({ page }) => {
+		const response = await page.goto('/sitemap.xml');
+		const body = await response!.text();
+		const expectedPaths = [
+			'/resources/breach-response-plan',
+			'/resources/compliance-checklist',
+			'/resources/data-inventory',
+			'/resources/pickup-protocol',
+			'/resources/privacy-notice',
+			'/resources/roles-permissions-guide',
+			'/blog/agobio-docente-tecnologia-solucion',
+			'/blog/ciberacoso-escolar-chile-estadisticas',
+			'/blog/desercion-escolar-chile-prevencion',
+			'/blog/ficha-360-perfil-integral-alumno',
+			'/blog/ley-21663-ciberseguridad-colegios',
+			'/blog/violencia-escolar-estadisticas-2025',
+			'/blog/whatsapp-datos-sensibles-colegios'
+		];
+
+		for (const path of expectedPaths) {
+			expect(body, `sitemap.xml must contain ${path}`).toContain(`https://ethoz.cl${path}`);
+		}
+
+		expect(body.match(/<loc>/g)?.length, 'sitemap must list all 58 canonical public URLs').toBe(58);
+	});
+});
+
+test.describe('SEO — noindex funnel and internal pages', () => {
+	for (const route of ['/pitch', '/suggestions', '/schedule', '/demo/1001']) {
+		test(`${route} has one unambiguous noindex directive`, async ({ page }) => {
+			await page.goto(route);
+			const robots = page.locator('meta[name="robots"]');
+			await expect(robots).toHaveCount(1);
+			await expect(robots).toHaveAttribute('content', /noindex/);
+		});
+	}
 });

@@ -14,6 +14,9 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content={t('resPickupProtocol.og_title')} />
   <meta property="og:description" content={t('resPickupProtocol.og_description')} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={t('resPickupProtocol.og_title')} />
+  <meta name="twitter:description" content={t('resPickupProtocol.og_description')} />
   <link rel="canonical" href="https://ethoz.cl/resources/pickup-protocol" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
