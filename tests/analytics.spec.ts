@@ -171,15 +171,23 @@ test.describe('Consent — reject flow', () => {
 
 	test('trackEvent calls do not touch dataLayer pre-consent', async ({ page }) => {
 		await page.goto('/');
-		const dlBefore = await page.evaluate(() => (window as any).dataLayer?.length ?? 0);
-		// Fire a tracked CTA click via trial click (hover/focus without navigating).
-		const cta = page.getByRole('link', { name: /Agendar demo/i }).first();
-		if (await cta.count()) {
-			await cta.click({ trial: true });
-		}
+		const countTrackedEvents = () => page.evaluate(() =>
+			((window as any).dataLayer ?? []).filter((entry: any) =>
+				entry?.event === 'hero_cta_clicked'
+				|| (entry?.[0] === 'event' && entry?.[1] === 'hero_cta_clicked')
+			).length
+		);
+		const eventsBefore = await countTrackedEvents();
+
+		// Use a real tracked interaction that does not navigate away. Consent
+		// commands may legitimately enter dataLayer during hydration, so assert
+		// specifically on measurement events rather than total queue length.
+		const videoButton = page.locator('button').filter({ hasText: /ver video|watch video/i }).first();
+		await expect(videoButton).toBeVisible();
+		await videoButton.click();
 		await page.waitForTimeout(500);
-		const dlAfter = await page.evaluate(() => (window as any).dataLayer?.length ?? 0);
-		expect(dlAfter).toBe(dlBefore);
+		const eventsAfter = await countTrackedEvents();
+		expect(eventsAfter).toBe(eventsBefore);
 	});
 });
 
