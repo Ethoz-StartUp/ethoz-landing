@@ -192,14 +192,14 @@
   <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <!-- Header -->
     <div class="mb-12 border-b border-border pb-10">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground print:hidden">
+      <p class="page-eyebrow print:hidden">
         <span class="text-primary">{t('resComplianceChecklist.eyebrow_template')}</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>Ley 21.719</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('resComplianceChecklist.eyebrow_count')}</span>
       </p>
-      <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
+      <span class="page-title-rule print:hidden" aria-hidden="true"></span>
       <h1 class="page-title">{t('resComplianceChecklist.hero_title')}</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
         {t('resComplianceChecklist.hero_intro_pre')} <strong class="text-foreground">{t('resComplianceChecklist.hero_intro_date')}</strong>{t('resComplianceChecklist.hero_intro_post')}

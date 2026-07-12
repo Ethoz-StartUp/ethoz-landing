@@ -176,7 +176,7 @@
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <!-- Eyebrow metadata line -->
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+      <p class="page-eyebrow">
         <span class="text-primary">{t('ley21719.hero_eyebrow_doc')}</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('ley21719.hero_eyebrow_updated')}</span>
@@ -185,7 +185,7 @@
       </p>
 
       <!-- Short 48px rule -->
-      <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <span class="page-title-rule" aria-hidden="true"></span>
 
       <!-- Editorial italic statement -->
       <h1 class="page-title">

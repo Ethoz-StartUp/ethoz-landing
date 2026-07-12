@@ -42,12 +42,12 @@
   <div class="mx-auto flex-1 max-w-7xl px-4 pt-24 pb-8 sm:pt-28 sm:pb-10 sm:px-6 lg:px-8">
     <!-- Editorial header — Launch UI pattern: eyebrow · meta · short rule · Inter display h1 · subtitle -->
     <header class="mb-12 max-w-3xl sm:mb-16">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+      <p class="page-eyebrow">
         <span class="text-primary">Publicaciones</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>Protección de datos, seguridad y cumplimiento</span>
       </p>
-      <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <span class="page-title-rule" aria-hidden="true"></span>
       <h1 class="page-title">
         {t('blog.title')}
       </h1>

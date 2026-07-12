@@ -234,9 +234,10 @@
       </div>
     {/if}
 
-    <!-- Heading -->
+  <!-- Heading -->
     <div class="mb-8 text-center">
-      <p class="mb-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('demo.step3.eyebrow')}</p>
+      <p class="page-eyebrow">{t('demo.step3.eyebrow')}</p>
+      <span class="page-title-rule" aria-hidden="true"></span>
       <h1 class="page-title">
         {t('agendar.title')}
       </h1>

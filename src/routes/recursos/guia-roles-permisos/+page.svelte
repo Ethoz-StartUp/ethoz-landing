@@ -193,14 +193,14 @@
 
   <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <div class="mb-12 border-b border-border pb-10">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground print:hidden">
+      <p class="page-eyebrow print:hidden">
         <span class="text-primary">{t('resRolesGuide.eyebrow_category')}</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('resRolesGuide.eyebrow_law')}</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('resRolesGuide.eyebrow_roles')}</span>
       </p>
-      <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
+      <span class="page-title-rule print:hidden" aria-hidden="true"></span>
       <h1 class="page-title">{t('resRolesGuide.hero_title')}</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">{t('resRolesGuide.hero_subtitle')}</p>
       <p class="mt-4 text-xs text-muted-foreground">{t('resRolesGuide.byline')}</p>

@@ -246,6 +246,27 @@ body {
   text-wrap: balance;
 }
 
+.page-eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-mockup-sm);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.page-title-rule {
+  display: block;
+  margin-top: 1.5rem;
+  height: 1px;
+  width: 3rem;
+  background-color: var(--foreground);
+}
+
 p, li {
   text-wrap: pretty;
 }

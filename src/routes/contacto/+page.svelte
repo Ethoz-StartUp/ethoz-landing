@@ -115,12 +115,12 @@
 
     <!-- HEADING — editorial -->
     <div class="mb-12">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+      <p class="page-eyebrow">
         <span class="text-primary">{t('contact.eyebrow_institutional')}</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('contact.eyebrow_response_hours')}</span>
       </p>
-      <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <span class="page-title-rule" aria-hidden="true"></span>
       <h1 class="page-title">
         {t('contact.heading')}
       </h1>

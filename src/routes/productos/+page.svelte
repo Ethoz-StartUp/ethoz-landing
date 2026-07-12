@@ -131,11 +131,12 @@
   <!-- Hero -->
   <section class="pt-24 pb-5 sm:pt-28 sm:pb-6 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <p class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+      <p class="page-eyebrow justify-center">
         <span class="text-primary">{t('productos.hero_eyebrow_catalog')}</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span class="hidden sm:inline">{t('productos.hero_eyebrow_count')}</span>
       </p>
+      <span class="page-title-rule" aria-hidden="true"></span>
       <h1 class="page-title">
         {t('productos.hero_title')}
       </h1>

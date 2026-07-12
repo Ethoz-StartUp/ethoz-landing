@@ -316,7 +316,8 @@
       {@const school = isManual ? null : schoolStore.selectedSchool}
       <div class="space-y-8">
         <div class="text-center">
-          <p class="mb-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('demo.step2.eyebrow')}</p>
+          <p class="page-eyebrow">{t('demo.step2.eyebrow')}</p>
+          <span class="page-title-rule" aria-hidden="true"></span>
           <h1 class="page-title">
             {t('demo.step2.title')}
           </h1>
