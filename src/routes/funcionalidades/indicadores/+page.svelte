@@ -49,7 +49,7 @@
         <div>
           <div class="flex items-center gap-4">
             <BarChart3 class="size-10 lg:size-12 shrink-0 text-primary-active" />
-            <h1 class="text-balance text-foreground">
+            <h1 class="page-title">
               {t('featurePage.analytics.hero_title')}
             </h1>
           </div>

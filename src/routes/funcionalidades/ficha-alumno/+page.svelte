@@ -70,7 +70,7 @@
         <div class="lg:pt-6">
           <div class="flex items-center gap-4">
             <ClipboardList class="size-10 lg:size-12 shrink-0 text-primary-active" />
-            <h1 class="text-balance text-foreground">
+            <h1 class="page-title">
               {t('features.record.title')}
             </h1>
           </div>

@@ -47,7 +47,7 @@
       </a>
       <div class="mt-6 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <h1 class="text-balance text-foreground">
+          <h1 class="page-title">
             <span class="whitespace-nowrap"><Siren class="mr-3 inline size-10 lg:size-12 align-middle text-destructive" aria-hidden="true" />{t('featurePage.emergency.hero_title').split(' ')[0]}</span>
             {t('featurePage.emergency.hero_title').split(' ').slice(1).join(' ')}
           </h1>

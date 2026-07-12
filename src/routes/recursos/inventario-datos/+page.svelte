@@ -133,7 +133,7 @@
         <span>{t('resDataInventory.eyebrow_count')}</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">{t('resDataInventory.hero_title')}</h1>
+      <h1 class="page-title">{t('resDataInventory.hero_title')}</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">{t('resDataInventory.hero_subtitle')}</p>
       <p class="mt-4 text-xs text-muted-foreground">{t('resDataInventory.version_line')}</p>
     </div>

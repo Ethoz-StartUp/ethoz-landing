@@ -317,7 +317,7 @@
       <div class="space-y-8">
         <div class="text-center">
           <p class="mb-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('demo.step2.eyebrow')}</p>
-          <h1 class="text-2xl text-foreground">
+          <h1 class="page-title">
             {t('demo.step2.title')}
           </h1>
           <p class="mx-auto mt-3 max-w-md text-xs leading-relaxed text-muted-foreground">

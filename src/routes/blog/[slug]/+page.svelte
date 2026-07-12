@@ -81,7 +81,7 @@
         {/each}
       </div>
 
-      <h1 class="font-heading text-balance text-3xl text-foreground sm:text-4xl lg:text-5xl">
+      <h1 class="page-title">
         {post.title}
       </h1>
 

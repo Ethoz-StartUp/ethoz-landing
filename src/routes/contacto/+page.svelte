@@ -121,7 +121,7 @@
         <span>{t('contact.eyebrow_response_hours')}</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
+      <h1 class="page-title">
         {t('contact.heading')}
       </h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">

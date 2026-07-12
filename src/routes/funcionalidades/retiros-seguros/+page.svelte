@@ -50,7 +50,7 @@
       </a>
       <div class="mt-6 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="lg:pt-6">
-          <h1 class="text-balance text-foreground">
+          <h1 class="page-title">
             <span class="whitespace-nowrap"><Bell class="mr-3 inline size-10 lg:size-12 align-middle text-primary-active" aria-hidden="true" />{t('features.pickup.title').split(' ')[0]}</span>
             {t('features.pickup.title').split(' ').slice(1).join(' ')}
           </h1>

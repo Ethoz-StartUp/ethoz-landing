@@ -48,7 +48,7 @@
         <span>Protección de datos, seguridad y cumplimiento</span>
       </p>
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
+      <h1 class="page-title">
         {t('blog.title')}
       </h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">

@@ -63,7 +63,7 @@
           </div>
           <div class="flex items-start gap-3">
             <Compass class="mt-1 size-7 shrink-0 text-primary" />
-            <h1 class="text-balance text-foreground">
+            <h1 class="page-title">
               {t('audience.directores.hero_title')}
             </h1>
           </div>

@@ -154,7 +154,7 @@
     <div class="space-y-6">
       <div class="text-center">
         <p class="mb-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('demo.step1.eyebrow')}</p>
-        <h1 class="text-2xl text-foreground">
+        <h1 class="page-title">
           {t('demo.step1.title')}
         </h1>
         <p class="mt-2 text-sm text-muted-foreground">

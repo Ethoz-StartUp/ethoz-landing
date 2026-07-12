@@ -136,7 +136,7 @@
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span class="hidden sm:inline">{t('productos.hero_eyebrow_count')}</span>
       </p>
-      <h1 class="mt-3 text-balance text-foreground">
+      <h1 class="page-title">
         {t('productos.hero_title')}
       </h1>
       <p class="mt-3 text-base leading-relaxed text-muted-foreground sm:text-lg">

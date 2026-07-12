@@ -237,6 +237,15 @@ body {
   h6 { font-size: var(--fs-title-md); line-height: 1.4; letter-spacing: 0; }
 }
 
+.page-title {
+  margin-top: 1.5rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
 p, li {
   text-wrap: pretty;
 }

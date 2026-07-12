@@ -58,7 +58,7 @@
         <div>
           <div class="flex items-center gap-4">
             <ShieldAlert class="size-10 lg:size-12 shrink-0 text-destructive" />
-            <h1 class="text-balance text-foreground">
+            <h1 class="page-title">
               {t('featurePage.alerts.hero_title')}
             </h1>
           </div>

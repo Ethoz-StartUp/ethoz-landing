@@ -201,7 +201,7 @@
         <span>{t('resRolesGuide.eyebrow_roles')}</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">{t('resRolesGuide.hero_title')}</h1>
+      <h1 class="page-title">{t('resRolesGuide.hero_title')}</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">{t('resRolesGuide.hero_subtitle')}</p>
       <p class="mt-4 text-xs text-muted-foreground">{t('resRolesGuide.byline')}</p>
     </div>

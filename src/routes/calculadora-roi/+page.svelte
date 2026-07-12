@@ -132,7 +132,7 @@
         <Calculator class="size-3.5" />
         {t('roiCalculator.hero_eyebrow')}
       </div>
-      <h1 class="text-foreground">
+      <h1 class="page-title">
         {t('roiCalculator.hero_title')}
       </h1>
       <p class="mt-3 text-lg font-semibold text-primary">{t('roiCalculator.hero_subtitle')}</p>

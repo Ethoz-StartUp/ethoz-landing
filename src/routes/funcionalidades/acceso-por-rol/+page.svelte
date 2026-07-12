@@ -72,7 +72,7 @@
         <div class="lg:pt-4">
           <div class="flex items-center gap-4">
             <Fingerprint class="size-10 lg:size-12 shrink-0 text-primary-active" />
-            <h1 class="text-balance text-foreground">
+            <h1 class="page-title">
               {t('features.rbac.title')}
             </h1>
           </div>

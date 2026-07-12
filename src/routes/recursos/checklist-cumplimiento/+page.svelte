@@ -200,7 +200,7 @@
         <span>{t('resComplianceChecklist.eyebrow_count')}</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">{t('resComplianceChecklist.hero_title')}</h1>
+      <h1 class="page-title">{t('resComplianceChecklist.hero_title')}</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">
         {t('resComplianceChecklist.hero_intro_pre')} <strong class="text-foreground">{t('resComplianceChecklist.hero_intro_date')}</strong>{t('resComplianceChecklist.hero_intro_post')}
       </p>

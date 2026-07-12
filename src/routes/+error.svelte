@@ -17,7 +17,7 @@
 
   <section class="flex flex-1 flex-col items-center justify-center px-4 py-20 text-center">
     <p class="text-8xl font-bold tracking-tighter text-primary">{page.status}</p>
-    <h1 class="mt-4 text-2xl text-foreground sm:text-3xl">
+    <h1 class="page-title text-center">
       Página no encontrada
     </h1>
     <p class="mt-3 max-w-md text-base text-muted-foreground">

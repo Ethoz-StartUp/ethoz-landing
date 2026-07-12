@@ -124,7 +124,7 @@
         <Scale class="size-3.5" />
         {t('comparativa.hero_eyebrow')}
       </div>
-      <h1 class="text-foreground">
+      <h1 class="page-title">
         {t('comparativa.hero_title')}
       </h1>
       <p class="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl">

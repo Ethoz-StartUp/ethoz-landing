@@ -73,7 +73,7 @@
         <span>{t('resPrivacyNotice.eyebrow_sections')}</span>
       </p>
       <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">{t('resPrivacyNotice.page_title')}</h1>
+      <h1 class="page-title">{t('resPrivacyNotice.page_title')}</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">{t('resPrivacyNotice.intro_before_brackets')} <span class="font-medium text-primary">{t('resPrivacyNotice.intro_brackets')}</span> {t('resPrivacyNotice.intro_after_brackets')}</p>
       <p class="mt-4 text-xs text-muted-foreground">{t('resPrivacyNotice.attribution')}</p>
     </div>

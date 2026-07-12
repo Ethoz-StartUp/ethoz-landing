@@ -64,7 +64,7 @@
         <p class="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-primary">
           {t('privacy.eyebrow')}
         </p>
-        <h1 class="mt-3 text-balance text-3xl font-bold text-foreground sm:text-4xl">
+        <h1 class="page-title">
           {t('privacy.title')}
         </h1>
         <p class="mt-3 text-sm text-muted-foreground">{t('privacy.updated')}</p>

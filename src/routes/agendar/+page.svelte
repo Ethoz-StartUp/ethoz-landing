@@ -237,7 +237,7 @@
     <!-- Heading -->
     <div class="mb-8 text-center">
       <p class="mb-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('demo.step3.eyebrow')}</p>
-      <h1 class="text-2xl text-foreground sm:text-3xl">
+      <h1 class="page-title">
         {t('agendar.title')}
       </h1>
       <p class="mt-2 text-sm text-muted-foreground">

@@ -144,7 +144,7 @@
 
       <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
 
-      <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
+      <h1 class="page-title">
         {t('glosario.hero_title')}
       </h1>
 

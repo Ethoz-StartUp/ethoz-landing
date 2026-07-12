@@ -117,7 +117,7 @@
         <TrendingDown class="size-3.5" />
         {t('proyecciones.hero_eyebrow')}
       </div>
-      <h1 class="text-foreground">
+      <h1 class="page-title">
         {t('proyecciones.hero_title')}
       </h1>
       <p class="mt-3 text-xl font-semibold text-primary">{t('proyecciones.hero_subtitle')}</p>

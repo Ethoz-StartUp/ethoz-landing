@@ -36,7 +36,7 @@
 
   <div class="mx-auto flex-1 max-w-7xl px-4 pt-20 pb-8 sm:pt-24 sm:pb-10 sm:px-6 lg:px-8">
 
-    <h1 class="text-balance text-3xl text-foreground sm:text-4xl">Términos de Uso</h1>
+    <h1 class="page-title">Términos de Uso</h1>
     <p class="mt-2 text-sm text-muted-foreground">Última actualización: abril 2026</p>
 
     <div class="mt-10 space-y-8 text-sm leading-relaxed text-muted-foreground">
