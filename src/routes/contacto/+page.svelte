@@ -116,9 +116,11 @@
     <!-- HEADING — editorial -->
     <div class="mb-12">
       <p class="page-eyebrow">
-        <span class="text-primary">{t('contact.eyebrow_institutional')}</span>
-        <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
-        <span>{t('contact.eyebrow_response_hours')}</span>
+        <span class="inline-flex items-center gap-1.5 text-primary">
+          {t('contact.eyebrow_institutional')}
+          <span aria-hidden="true" class="text-border">·</span>
+        </span>
+        <span class="tracking-normal">{t('contact.eyebrow_response_hours')}</span>
       </p>
       <span class="page-title-rule" aria-hidden="true"></span>
       <h1 class="page-title">

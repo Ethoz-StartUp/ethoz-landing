@@ -70,7 +70,7 @@
 
   $effect(() => {
     if (typeof window === 'undefined') return;
-    const desktopViewport = window.matchMedia('(min-width: 48rem)');
+    const desktopViewport = window.matchMedia('(min-width: 64rem)');
     const closeAtDesktop = () => {
       if (desktopViewport.matches && mobileOpen) closeMobileMenu(false);
     };
@@ -248,12 +248,12 @@
     </div>
 
     <!-- Desktop nav -->
-    <div class="hidden items-center gap-1 md:flex">
+    <div class="hidden items-center gap-1 text-[0.75rem] lg:flex xl:gap-1.5 xl:text-sm">
       {#each navLinksBefore as link (link.href)}
         <a
           href={link.href}
           aria-current={isActive(link.href) ? 'page' : undefined}
-          class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
+          class="whitespace-nowrap rounded-lg px-1.5 py-1.5 font-medium transition-colors
             {isActive(link.href)
               ? 'bg-foreground/5 text-foreground'
               : 'text-muted-foreground hover:bg-foreground/5 hover:text-foreground'}"
@@ -280,7 +280,7 @@
           type="button"
           aria-expanded={productsOpen}
           aria-controls="products-menu"
-          class="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors
+          class="whitespace-nowrap flex items-center gap-1 rounded-lg px-1.5 py-1.5 font-medium transition-colors
             {isProductActive()
               ? 'bg-foreground/5 text-foreground'
               : 'text-muted-foreground hover:bg-foreground/5 hover:text-foreground'}"
@@ -331,7 +331,7 @@
         <a
           href={link.href}
           aria-current={isActive(link.href) ? 'page' : undefined}
-          class="rounded-lg px-3 py-2 text-sm font-medium transition-colors
+          class="whitespace-nowrap rounded-lg px-1.5 py-1.5 font-medium transition-colors
             {isActive(link.href)
               ? 'bg-foreground/5 text-foreground'
               : 'text-muted-foreground hover:bg-foreground/5 hover:text-foreground'}"
@@ -340,24 +340,24 @@
         </a>
       {/each}
     </div>
-    <div class="md:hidden"></div>
+    <div class="lg:hidden"></div>
 
     <!-- Actions -->
     <div class="flex items-center justify-end gap-2">
       <a
         href={env.PUBLIC_APP_URL ?? 'https://app.ethoz.cl/login'}
-        class="hidden rounded-lg px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground md:inline-flex"
+        class="hidden rounded-lg px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground lg:inline-flex"
       >
         {t('nav.login')}
       </a>
-      <Button size="sm" href="/demo" class="hidden md:inline-flex">
+      <Button size="sm" href="/demo" class="hidden h-8 px-2.5 text-xs lg:inline-flex">
         {t('nav.cta')}
       </Button>
 
       <button
         bind:this={mobileToggle}
         type="button"
-        class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg border border-foreground/10 p-2.5 text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground md:hidden"
+        class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg border border-foreground/10 p-2.5 text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground lg:hidden"
         onclick={toggleMobileMenu}
         aria-label={mobileOpen ? t('nav.close_menu') : t('nav.open_menu')}
         aria-expanded={mobileOpen}
@@ -381,7 +381,7 @@
       tabindex="-1"
       aria-modal="true"
       aria-label={t('nav.menu_label')}
-      class="fixed inset-x-0 bottom-0 z-10 overflow-y-auto overscroll-contain border-t border-foreground/10 bg-background px-4 pb-6 pt-4 shadow-popover md:hidden"
+      class="fixed inset-x-0 bottom-0 z-10 overflow-y-auto overscroll-contain border-t border-foreground/10 bg-background px-4 pb-6 pt-4 shadow-popover lg:hidden"
       style:top={`${navHeight}px`}
       style:height={`calc(100dvh - ${navHeight}px)`}
       onkeydown={handleMobileMenuKeydown}

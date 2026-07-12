@@ -804,7 +804,7 @@ export const es = {
 
   // ── i18n sweep: contact-page ──
   'contact.eyebrow_institutional': 'Contacto institucional',
-  'contact.eyebrow_response_hours': 'Horario de respuesta · L a V · 9:00 a 18:00 CLT',
+  'contact.eyebrow_response_hours': 'Horario de respuesta · L-V · 9:00 a 18:00 CLT',
   'contact.channels_label': 'Canales directos',
   'contact.email.cta': 'Escribir correo',
   'contact.demo.subtext': 'Sesión de 30 minutos con un especialista',
