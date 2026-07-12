@@ -252,7 +252,7 @@
             <span>{t('hero.pilot_badge')}</span>
           </div>
 
-          <h1 class="animate-fade-in-up animate-delay-100 w-full max-w-[16ch] text-balance text-foreground">
+          <h1 class="animate-fade-in-up animate-delay-100 w-full max-w-[16ch] text-balance font-semibold text-foreground">
             {t('hero.title')}
           </h1>
 

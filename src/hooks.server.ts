@@ -1,10 +1,9 @@
 import type { Handle } from '@sveltejs/kit';
 
 // Extend SvelteKit's default preload set (js + css) with fonts so the
-// prerendered HTML emits <link rel="preload" as="font"> for the three
-// above-the-fold woff2 files (Inter Variable declared in
-// app.css). Without this the browser only discovers them after downloading
-// and parsing the CSS, causing a visible late swap on the hero.
+// prerendered HTML emits <link rel="preload"> for above-the-fold fonts.
+// Without this, font discovery can happen only after CSS parse, causing a
+// visible late swap on the hero.
 export const handle: Handle = ({ event, resolve }) =>
 	resolve(event, {
 		preload: ({ type }) => type === 'font' || type === 'css' || type === 'js'
