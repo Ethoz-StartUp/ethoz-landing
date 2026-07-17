@@ -176,11 +176,11 @@ test.describe('Navigation — desktop NavBar', () => {
 		await expect(page).toHaveURL('/contacto');
 	});
 
-	test('Nav CTA button links to /demo', async ({ page }) => {
+	test('Nav CTA button links to /auditoria', async ({ page }) => {
 		await page.goto('/');
-		// The nav CTA button (desktop)
-		const ctaBtn = page.locator('nav').getByRole('link', { name: /solicita|demo/i }).first();
-		await expect(ctaBtn).toHaveAttribute('href', '/demo');
+		// The nav CTA button (desktop) carries the primary offer sitewide
+		const ctaBtn = page.locator('nav').getByRole('link', { name: /auditar|auditor/i }).first();
+		await expect(ctaBtn).toHaveAttribute('href', '/auditoria');
 	});
 
 	test('Productos dropdown opens on hover and shows product links', async ({ page }) => {
@@ -191,7 +191,7 @@ test.describe('Navigation — desktop NavBar', () => {
 
 		const dropdown = page.locator('#products-menu');
 		await expect(dropdown).toBeVisible();
-		await expect(dropdown.getByRole('link')).toHaveCount(6);
+		await expect(dropdown.getByRole('link')).toHaveCount(7);
 	});
 
 	test('Productos dropdown items navigate correctly', async ({ page }) => {
@@ -232,9 +232,9 @@ test.describe('Navigation — mobile hamburger', () => {
 		await expect(menu.getByRole('link')).toHaveCount(7);
 		await expect(menu.getByRole('button', { name: 'Productos' })).toBeVisible();
 
-		// Expanding Productos reveals the 5 product links + "see all" link
+		// Expanding Productos reveals the 6 product links + "see all" link
 		await menu.getByRole('button', { name: 'Productos' }).click();
-		await expect(menu.getByRole('link')).toHaveCount(13);
+		await expect(menu.getByRole('link')).toHaveCount(14);
 	});
 
 	test('mobile menu closes when link is clicked', async ({ page }) => {
@@ -1142,7 +1142,7 @@ test.describe('Navbar — products dropdown', () => {
 		const dropdown = page.locator('#products-menu');
 		await expect(dropdown).toBeVisible();
 		const firstProduct = dropdown.getByRole('link', {
-			name: /perfil integral del alumno|complete student profile/i
+			name: /actas y descargos|ai records/i
 		});
 
 		await page.keyboard.press('Tab');

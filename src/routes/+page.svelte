@@ -107,7 +107,7 @@
       descKey: 'home.feature.protocolos.desc',
     },
     {
-      href: '/demo',
+      href: '/funcionalidades/actas-y-descargos',
       icon: FileCheck,
       titleKey: 'home.feature.actas.title',
       descKey: 'home.feature.actas.desc',

@@ -5,7 +5,7 @@ Ethoz (ethoz.cl) is a school protection platform for Chilean K-12 schools. This 
 
 **Not a school management system** — complements existing ERPs (Napsis, Syscol, Lirmi) by adding security, compliance, and student data protection.
 
-> **Design system: Launch UI v2 dark-first.** `main` runs the Launch UI aesthetic: near-black canvas `#0A0A0A`, elevated cards `#171717`, amber accent (`--primary #F97316`), light-gradient primary CTA (`from-white to-zinc-200` with dark text), Inter Variable for all typography, mono-caps eyebrows, dark-only mode. Full spec: `.impeccable.md`. Tokens: `src/app.css`. (Prior 8020 cream/sky-blue, Cal.com, and Stripe Press aesthetics are retired.)
+> **Design system: Launch UI light warm professional.** `main` runs the Launch UI light aesthetic: warm off-white canvas `#FAFAF9`, white cards `#FFFFFF`, institutional blue accent (`--primary #2563EB`), blue primary CTA, Inter Variable for all typography, light mode only. Full spec: `.impeccable.md`. Tokens: `src/app.css`. (Prior dark-only Launch UI, 8020 cream/sky-blue, Cal.com, and Stripe Press aesthetics are retired.)
 
 ## Architecture
 
@@ -34,20 +34,20 @@ docs/                 — Documentation index (5 sections + knowledge base + con
 - Svelte 5 runes API (`$state`, `$derived`, `$effect`) — no legacy reactive syntax
 - Blog posts: export `BlogPost` from `src/lib/data/posts/*.ts` — auto-discovered, no manual registration
 
-### Design (see .impeccable.md for full spec)
-- **Dark mode only.** `data-theme="dark"` is set on `html`; `mode-watcher` and any theme toggle have been removed. The entire site lives on a near-black canvas `#0A0A0A`.
-- **Launch UI v2 aesthetic:** elevated charcoal cards `#171717`, amber accent `#F97316`, light-gradient primary CTA (`from-white to-zinc-200` with dark text `#09090B`).
-- **Amber accent policy:** `--primary #F97316` is the workhorse accent for TEXT, links, eyebrows, and icons. Primary CTA buttons use the light gradient (`bg-gradient-to-b from-cta-gradient-from to-cta-gradient-to text-cta-text`). On primary tints (`bg-primary/5..20`) use `text-primary-active`, never bare `text-primary` (lint-tint-contrast.sh enforces).
+### Design (see .impeccable.md for full spec — it is the source of truth if this summary drifts)
+- **Light mode only.** `color-scheme: light` is set on `html`; `mode-watcher` and any theme toggle have been removed. The entire site lives on a warm off-white canvas `#FAFAF9`.
+- **Launch UI light aesthetic:** white cards `#FFFFFF`, warm-gray hairlines, institutional blue accent `#2563EB`, blue primary CTA buttons.
+- **Blue accent policy:** `--primary #2563EB` is the only accent, for TEXT, links, eyebrows, icons, and primary CTAs. On primary tints (`bg-primary/5..20`) use `text-primary-active`, never bare `text-primary` (lint-tint-contrast.sh enforces).
 - **Inter Variable** (`@fontsource-variable/inter`) for ALL typography — h1/h2/h3 via `font-heading`, body/UI via `--font-sans`. DM Sans, JetBrains Mono, Cal Sans, Playfair, and Newsreader have been removed (lint-stale-fonts.sh enforces).
-- **Eyebrows** are mono-caps: `font-mono font-semibold uppercase tracking-[0.1em]` in amber (lint-eyebrow-tracking.sh enforces).
+- **Eyebrows** are mono-caps: `font-mono font-semibold uppercase tracking-[0.1em]` in blue (lint-eyebrow-tracking.sh enforces).
 - NEVER hardcode colors — use design tokens (`bg-primary`, `bg-card`, `text-muted-foreground`, `text-text-tertiary`, `border-border`, etc.). Use `// lint-ok` for legitimate exceptions (third-party SDK config, raw HTML strings).
 - **NO em-dashes or en-dashes in copy**. Use commas, periods, or `a`/`to` for ranges. The `·` middot is the inline label separator.
 - Icons + titles ALWAYS inline (same row), never stacked. No icon-in-colored-box wrappers (`scripts/lint-icon-box-wrapper.sh` enforces).
 - Card pattern: `rounded-xl border border-foreground/10 bg-card shadow-card-dark` (`rounded-md`=12 buttons, `rounded-lg`=10 inputs, `rounded-xl`=16 cards, `rounded-2xl`=20 hero mockup).
-- Dark, purposeful shadows (`shadow-card-dark`, `shadow-card-dark-hover`, `shadow-mockup`, `shadow-popover`). `shadow-glow-amber` is reserved for the hero mockup only. `shadow-xl`/`shadow-2xl` are banned.
-- One primary action per screen. Amber is the action color, treat it as a precision cut, not a wash.
-- Footer is dark (`bg-background border-t border-foreground/5`) with muted-foreground links; no separate "charcoal" footer surface.
-- Contrast targets: AA minimum, AAA where feasible. Body `#FAFAFA` on `#0A0A0A` exceeds AAA. Logo: evolved interseccion/shield mark + Inter wordmark with amber accent `z`.
+- Subtle, purposeful shadows (`shadow-card-dark`, `shadow-card-dark-hover`, `shadow-mockup`, `shadow-popover` — utility names kept from the prior system). The blue `--primary-glow` tint is reserved for hero/section ambience only. `shadow-xl`/`shadow-2xl` are banned.
+- One primary action per screen. Blue is the action color, treat it as a precision cut, not a wash.
+- Footer is light (`bg-background border-t border-foreground/5`) with muted-foreground links; no separate "charcoal" footer surface.
+- Contrast targets: AA minimum, AAA where feasible. Body `#1C1917` on `#FAFAF9` exceeds AAA. Logo: evolved interseccion/shield mark + Inter wordmark with blue accent `z`.
 - Launch UI tone: premium, calm under pressure, operator-grade, generous negative space, fact-forward, single primary action per band.
 
 ### Content

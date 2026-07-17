@@ -8,7 +8,8 @@
   import {
     Check, Plus, Minus, ArrowRight,
     Users, Shield, Eye, Search, ClipboardList, BarChart3,
-    Lock, FileText, MapPin, Bell
+    Lock, FileText, MapPin, Bell,
+    CalendarClock, FileSpreadsheet
   } from '@lucide/svelte';
 
   let openFaq = $state<number | null>(null);
@@ -144,7 +145,43 @@
           </Button>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/step-1-demo.webp" alt={t('getstarted.step1.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl" loading="lazy" />
+          <!-- Product visualization: booking a demo slot (fictional data) -->
+          <div class="w-full max-w-sm" role="img" aria-label={t('getstarted.step1.alt')}>
+            <div class="overflow-hidden rounded-2xl border border-foreground/10 bg-card shadow-mockup" aria-hidden="true">
+              <div class="flex items-center justify-between gap-4 border-b border-foreground/10 px-4 py-2.5">
+                <div class="flex items-center gap-2">
+                  <span class="size-2 rounded-full bg-destructive"></span>
+                  <span class="size-2 rounded-full bg-primary"></span>
+                  <span class="size-2 rounded-full bg-success"></span>
+                </div>
+                <p class="truncate text-xs font-medium text-muted-foreground">{t('getstarted.viz1.chrome')}</p>
+                <span class="rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-mockup-xs font-semibold text-primary-active">{t('home.demo_data_badge_short')}</span>
+              </div>
+              <div class="p-4">
+                <p class="text-mockup-xs font-semibold uppercase tracking-wider text-primary">{t('getstarted.viz1.kicker')}</p>
+                <p class="mt-0.5 font-heading text-base font-medium text-foreground">{t('getstarted.viz1.title')}</p>
+                <div class="mt-3 space-y-1.5">
+                  <div class="flex items-center justify-between rounded-lg border border-foreground/10 bg-background px-3 py-2">
+                    <span class="text-xs font-medium text-foreground/80">{t('getstarted.viz1.slot1')}</span>
+                  </div>
+                  <div class="flex items-center justify-between rounded-lg border border-primary/40 bg-primary/5 px-3 py-2">
+                    <span class="text-xs font-semibold text-foreground">{t('getstarted.viz1.slot2')}</span>
+                    <span class="rounded-full bg-primary/10 px-2 py-0.5 text-mockup-xs font-semibold text-primary-active">{t('getstarted.viz1.selected')}</span>
+                  </div>
+                  <div class="flex items-center justify-between rounded-lg border border-foreground/10 bg-background px-3 py-2">
+                    <span class="text-xs font-medium text-foreground/80">{t('getstarted.viz1.slot3')}</span>
+                  </div>
+                </div>
+                <div class="mt-3 flex items-start gap-2.5 rounded-lg bg-foreground/[0.03] p-2.5">
+                  <CalendarClock class="mt-0.5 size-4 shrink-0 text-primary" />
+                  <div class="min-w-0">
+                    <p class="text-xs font-medium text-foreground/80">{t('getstarted.viz1.confirm')}</p>
+                    <p class="text-mockup-xs text-text-tertiary">{t('getstarted.viz1.confirm_meta')}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -155,7 +192,39 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
-          <img src="/images/pages/step-2-configure.webp" alt={t('getstarted.step2.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl" loading="lazy" />
+          <!-- Product visualization: module configuration with toggles (fictional data) -->
+          <div class="w-full max-w-sm" role="img" aria-label={t('getstarted.step2.alt')}>
+            <div class="overflow-hidden rounded-2xl border border-foreground/10 bg-card shadow-mockup" aria-hidden="true">
+              <div class="flex items-center justify-between gap-4 border-b border-foreground/10 px-4 py-2.5">
+                <div class="flex items-center gap-2">
+                  <span class="size-2 rounded-full bg-destructive"></span>
+                  <span class="size-2 rounded-full bg-primary"></span>
+                  <span class="size-2 rounded-full bg-success"></span>
+                </div>
+                <p class="truncate text-xs font-medium text-muted-foreground">{t('getstarted.viz2.chrome')}</p>
+                <span class="rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-mockup-xs font-semibold text-primary-active">{t('home.demo_data_badge_short')}</span>
+              </div>
+              <div class="p-4">
+                <p class="text-mockup-xs font-semibold uppercase tracking-wider text-primary">{t('getstarted.viz2.kicker')}</p>
+                <p class="mt-0.5 font-heading text-base font-medium text-foreground">{t('getstarted.viz2.title')}</p>
+                <div class="mt-3 space-y-1.5">
+                  {#each modules.slice(0, 5) as mod, i (mod.nameKey)}
+                    {@const ModIcon = mod.icon}
+                    {@const isOn = i < 3}
+                    <div class="flex items-center gap-2.5 rounded-lg border border-foreground/10 bg-background px-3 py-2">
+                      <ModIcon class="size-3.5 shrink-0 {isOn ? 'text-primary' : 'text-text-tertiary'}" />
+                      <span class="min-w-0 flex-1 truncate text-xs font-medium {isOn ? 'text-foreground' : 'text-muted-foreground'}">{t(mod.nameKey)}</span>
+                      <span class="sr-only">{isOn ? t('getstarted.viz2.state_on') : t('getstarted.viz2.state_off')}</span>
+                      <span class="relative inline-flex h-4 w-7 shrink-0 items-center rounded-full {isOn ? 'bg-primary' : 'bg-foreground/15'}">
+                        <span class="absolute size-3 rounded-full bg-card {isOn ? 'left-3.5' : 'left-0.5'}"></span>
+                      </span>
+                    </div>
+                  {/each}
+                </div>
+                <p class="mt-3 border-t border-foreground/10 pt-3 text-mockup-xs text-text-tertiary">{t('getstarted.viz2.footer')}</p>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="order-1 lg:order-2">
           <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('getstarted.step2.overline')}</p>
@@ -201,7 +270,48 @@
           </ul>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/step-3-migrate.webp" alt={t('getstarted.step3.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl" loading="lazy" />
+          <!-- Product visualization: data migration progress (fictional data) -->
+          <div class="w-full max-w-sm" role="img" aria-label={t('getstarted.step3.alt')}>
+            <div class="overflow-hidden rounded-2xl border border-foreground/10 bg-card shadow-mockup" aria-hidden="true">
+              <div class="flex items-center justify-between gap-4 border-b border-foreground/10 px-4 py-2.5">
+                <div class="flex items-center gap-2">
+                  <span class="size-2 rounded-full bg-destructive"></span>
+                  <span class="size-2 rounded-full bg-primary"></span>
+                  <span class="size-2 rounded-full bg-success"></span>
+                </div>
+                <p class="truncate text-xs font-medium text-muted-foreground">{t('getstarted.viz3.chrome')}</p>
+                <span class="rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-mockup-xs font-semibold text-primary-active">{t('home.demo_data_badge_short')}</span>
+              </div>
+              <div class="p-4">
+                <p class="text-mockup-xs font-semibold uppercase tracking-wider text-primary">{t('getstarted.viz3.kicker')}</p>
+                <p class="mt-0.5 font-heading text-base font-medium text-foreground">{t('getstarted.viz3.title')}</p>
+                <div class="mt-3 space-y-1.5">
+                  {#each [
+                    { icon: FileSpreadsheet, name: 'getstarted.viz3.file1', meta: 'getstarted.viz3.file1_meta' },
+                    { icon: FileSpreadsheet, name: 'getstarted.viz3.file2', meta: 'getstarted.viz3.file2_meta' },
+                    { icon: FileText, name: 'getstarted.viz3.file3', meta: 'getstarted.viz3.file3_meta' },
+                  ] as file (file.name)}
+                    {@const FileIcon = file.icon}
+                    <div class="flex items-center gap-2.5 rounded-lg border border-foreground/10 bg-background px-3 py-2">
+                      <FileIcon class="size-4 shrink-0 text-primary" />
+                      <div class="min-w-0 flex-1">
+                        <p class="truncate font-mono text-mockup-xs font-medium text-foreground">{t(file.name as TranslationKey)}</p>
+                        <p class="truncate text-mockup-xs text-text-tertiary">{t(file.meta as TranslationKey)}</p>
+                      </div>
+                      <Check class="size-3.5 shrink-0 text-success" />
+                    </div>
+                  {/each}
+                </div>
+                <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-foreground/10">
+                  <div class="h-full w-full rounded-full bg-success"></div>
+                </div>
+                <p class="mt-2 flex items-center gap-1.5 text-mockup-xs font-medium text-foreground/80">
+                  <Check class="size-3 text-success" />
+                  {t('getstarted.viz3.done')}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -212,7 +322,44 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
-          <img src="/images/pages/step-4-live.webp" alt={t('getstarted.step4.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl" loading="lazy" />
+          <!-- Product visualization: school live on day one (fictional data) -->
+          <div class="w-full max-w-sm" role="img" aria-label={t('getstarted.step4.alt')}>
+            <div class="overflow-hidden rounded-2xl border border-foreground/10 bg-card shadow-mockup" aria-hidden="true">
+              <div class="flex items-center justify-between gap-4 border-b border-foreground/10 px-4 py-2.5">
+                <div class="flex items-center gap-2">
+                  <span class="size-2 rounded-full bg-destructive"></span>
+                  <span class="size-2 rounded-full bg-primary"></span>
+                  <span class="size-2 rounded-full bg-success"></span>
+                </div>
+                <p class="truncate text-xs font-medium text-muted-foreground">{t('getstarted.viz4.chrome')}</p>
+                <span class="rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-mockup-xs font-semibold text-primary-active">{t('home.demo_data_badge_short')}</span>
+              </div>
+              <div class="p-4">
+                <p class="text-mockup-xs font-semibold uppercase tracking-wider text-primary">{t('getstarted.viz4.kicker')}</p>
+                <div class="mt-0.5 flex items-center gap-2">
+                  <span class="relative flex size-2">
+                    <span class="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-70"></span>
+                    <span class="relative inline-flex size-2 rounded-full bg-success"></span>
+                  </span>
+                  <p class="font-heading text-base font-medium text-foreground">{t('getstarted.viz4.title')}</p>
+                </div>
+                <div class="mt-3 space-y-1.5">
+                  {#each [
+                    { icon: MapPin, text: 'getstarted.viz4.row1', meta: 'getstarted.viz4.row1_meta' },
+                    { icon: ClipboardList, text: 'getstarted.viz4.row2', meta: 'getstarted.viz4.row2_meta' },
+                    { icon: Lock, text: 'getstarted.viz4.row3', meta: 'getstarted.viz4.row3_meta' },
+                  ] as row (row.text)}
+                    {@const RowIcon = row.icon}
+                    <div class="flex items-center gap-2.5 rounded-lg bg-foreground/[0.03] px-3 py-2.5">
+                      <RowIcon class="size-4 shrink-0 text-primary" />
+                      <p class="min-w-0 flex-1 truncate text-xs font-medium text-foreground/80">{t(row.text as TranslationKey)}</p>
+                      <span class="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 text-mockup-xs font-semibold text-primary-active">{t(row.meta as TranslationKey)}</span>
+                    </div>
+                  {/each}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="order-1 lg:order-2">
           <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('getstarted.step4.overline')}</p>

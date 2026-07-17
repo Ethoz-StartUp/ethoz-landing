@@ -73,6 +73,7 @@
       <div>
         <h3 class="text-xs font-semibold uppercase tracking-wider text-foreground">{t('footer.product')}</h3>
         <ul class="mt-3 flex flex-col gap-2">
+          <li><a href="/auditoria" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.audit')}</a></li>
           <li><a href="/productos" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.features')}</a></li>
           <li><a href="/integraciones" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.integrations')}</a></li>
           <li><a href="/comparativa" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.comparison')}</a></li>
@@ -102,7 +103,7 @@
           <li><a href="/nosotros" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.about')}</a></li>
           <li><a href="/blog" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.blog')}</a></li>
           <li><a href="/contacto" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.contact')}</a></li>
-          <li><a href="/demo" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('nav.cta')}</a></li>
+          <li><a href="/demo" class="text-sm text-muted-foreground transition-colors hover:text-foreground">{t('footer.demo')}</a></li>
         </ul>
       </div>
 

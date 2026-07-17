@@ -18,6 +18,7 @@ const staticPaths = [
 	'/contacto',
 	'/demo',
 	'/funcionalidades/acceso-por-rol',
+	'/funcionalidades/actas-y-descargos',
 	'/funcionalidades/alertas',
 	'/funcionalidades/indicadores',
 	'/funcionalidades/asistencia',
