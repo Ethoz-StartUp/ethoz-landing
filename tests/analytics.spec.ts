@@ -49,48 +49,49 @@ async function acceptConsent(page: Page) {
 	});
 }
 
+/**
+ * Cancel SvelteKit client-side navigation while letting bubble-phase onclick
+ * handlers (trackEvent) fire. SvelteKit bails out when defaultPrevented is set.
+ */
+async function blockNavigation(page: Page) {
+	await page.evaluate(() => {
+		addEventListener('click', (event) => event.preventDefault(), true);
+	});
+}
+
 test.describe('Analytics — hero CTA trackEvent calls', () => {
-	test('Watch Video hero button fires hero_cta_clicked with cta:watch_video location:hero', async ({
+	test('Request Audit hero link fires hero_cta_clicked with cta:request_audit location:hero', async ({
 		page
 	}) => {
 		await acceptConsent(page);
 		await page.goto('/');
 		await page.waitForLoadState('networkidle');
 		await patchDataLayer(page);
+		await blockNavigation(page);
 
-			// The hero keeps the CTA concise in the landing copy.
-			// It opens PitchModal and fires hero_cta_clicked + pitch_opened
-			const videoBtn = page
-				.locator('button')
-				.filter({ hasText: /ver video|watch video/i })
-				.first();
-		await expect(videoBtn).toBeVisible();
-		await videoBtn.click();
+		const auditLink = page.locator('main a#hero-cta[href="/auditoria"]');
+		await expect(auditLink).toBeVisible();
+		await auditLink.click();
 		await page.waitForTimeout(500);
 
 		const events = await getCaptured(page, 'hero_cta_clicked');
-		const watchVideo = events.filter(
-			(e: any) => e.cta === 'watch_video' && e.location === 'hero'
+		const requestAudit = events.filter(
+			(e: any) => e.cta === 'request_audit' && e.location === 'hero'
 		);
-		// FLAG: if this fails, hero_cta_clicked is not firing before pitch_opened —
-		// meaning trackEvent call is being skipped or event name is wrong in the build
-		expect(watchVideo.length).toBeGreaterThanOrEqual(1);
+		expect(requestAudit.length).toBeGreaterThanOrEqual(1);
 	});
 
-	test('Book Demo hero link fires hero_cta_clicked with cta:book_demo location:hero', async ({
+	test('View Demo hero link fires hero_cta_clicked with cta:book_demo location:hero', async ({
 		page
 	}) => {
 		await acceptConsent(page);
 		await page.goto('/');
 		await page.waitForLoadState('networkidle');
 		await patchDataLayer(page);
+		await blockNavigation(page);
 
-		const bookDemoLink = page.locator('main a#hero-cta[href="/demo"]');
+		const bookDemoLink = page.locator('main a[href="/demo"]').first();
 		await expect(bookDemoLink).toBeVisible();
-
-		// Intercept the SvelteKit navigation so the test stays on the page
-		await page.route('**/demo**', (route) => route.abort());
-
 		await bookDemoLink.click();
 		await page.waitForTimeout(500);
 
@@ -101,7 +102,7 @@ test.describe('Analytics — hero CTA trackEvent calls', () => {
 		expect(bookDemo.length).toBeGreaterThanOrEqual(1);
 	});
 
-	test('Sticky CTA fires hero_cta_clicked with cta:book_demo location:sticky', async ({
+	test('Sticky CTA fires hero_cta_clicked with cta:request_audit location:sticky', async ({
 		page
 	}) => {
 		// Use mobile viewport so sticky CTA renders (md:hidden = hidden on ≥768px)
@@ -126,18 +127,16 @@ test.describe('Analytics — hero CTA trackEvent calls', () => {
 		await page.evaluate(() => window.scrollTo(0, 500));
 		await page.waitForTimeout(300);
 
-		const stickyLink = page.locator('.fixed.bottom-0 a[href="/demo"]').first();
+		const stickyLink = page.locator('.fixed.bottom-0 a[href="/auditoria"]').first();
 		await expect(stickyLink).toBeVisible({ timeout: 5000 });
 
-		// Intercept the SvelteKit navigation so the test stays on the page
-		await page.route('**/demo**', (route) => route.abort());
-
+		await blockNavigation(page);
 		await stickyLink.click();
 		await page.waitForTimeout(500);
 
 		const events = await getCaptured(page, 'hero_cta_clicked');
 		const stickyEvents = events.filter(
-			(e: any) => e.cta === 'book_demo' && e.location === 'sticky'
+			(e: any) => e.cta === 'request_audit' && e.location === 'sticky'
 		);
 		expect(stickyEvents.length).toBeGreaterThanOrEqual(1);
 	});
@@ -179,12 +178,13 @@ test.describe('Consent — reject flow', () => {
 		);
 		const eventsBefore = await countTrackedEvents();
 
-		// Use a real tracked interaction that does not navigate away. Consent
+		// Use a real tracked interaction with navigation cancelled. Consent
 		// commands may legitimately enter dataLayer during hydration, so assert
 		// specifically on measurement events rather than total queue length.
-		const videoButton = page.locator('button').filter({ hasText: /ver video|watch video/i }).first();
-		await expect(videoButton).toBeVisible();
-		await videoButton.click();
+		await blockNavigation(page);
+		const heroCta = page.locator('main a#hero-cta');
+		await expect(heroCta).toBeVisible();
+		await heroCta.click();
 		await page.waitForTimeout(500);
 		const eventsAfter = await countTrackedEvents();
 		expect(eventsAfter).toBe(eventsBefore);
@@ -202,12 +202,10 @@ test.describe('Consent — accept flow', () => {
 
 		// Trigger a tracked interaction before any choice. Privacy-strict mode
 		// drops it instead of persisting it for a later replay.
-		const videoBtn = page
-			.locator('button')
-			.filter({ hasText: /ver video|watch video/i })
-			.first();
-		await expect(videoBtn).toBeVisible();
-		await videoBtn.click();
+		await blockNavigation(page);
+		const heroCta = page.locator('main a#hero-cta');
+		await expect(heroCta).toBeVisible();
+		await heroCta.click();
 		await page.waitForTimeout(300);
 
 		expect(await page.evaluate(() => sessionStorage.getItem('ethoz_pending_events'))).toBeNull();
@@ -217,12 +215,10 @@ test.describe('Consent — accept flow', () => {
 			)
 		).toBe(false);
 
-		// Close the pitch modal, grant consent, and perform a new interaction.
-		await page.keyboard.press('Escape');
-		await page.waitForTimeout(200);
+		// Grant consent and perform a new interaction.
 		await page.getByRole('button', { name: 'Aceptar todo' }).click();
 		await page.waitForTimeout(300);
-		await videoBtn.click();
+		await heroCta.click();
 		await page.waitForTimeout(300);
 
 		const measured = await page.evaluate(() =>

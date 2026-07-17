@@ -8,39 +8,35 @@
   import ComplianceBadgeRow from '$lib/components/home/ComplianceBadgeRow.svelte';
   import RoleOrbit from '$lib/components/home/RoleOrbit.svelte';
   import RoleStack from '$lib/components/home/RoleStack.svelte';
-  import { t, type TranslationKey } from '$lib/i18n/index.svelte';
+  import { CLAIMS, type Claim } from '$lib/data/claims';
+  import { getLocale, t, type TranslationKey } from '$lib/i18n/index.svelte';
   import { trackEvent } from '$lib/utils/analytics';
   import { slide } from 'svelte/transition';
-  import type { Component } from 'svelte';
   import {
     Shield,
     FileCheck,
+    FileText,
     ArrowRight,
     Building2,
+    CalendarClock,
     Check,
     ChevronRight,
     ClipboardList,
-    DoorOpen,
+    History,
     UserCheck,
     AlertTriangle,
     Eye,
     MessageSquare,
     Plus,
-    Minus,
-    Play
+    Minus
   } from '@lucide/svelte';
 
   // ── Reactive state ──
   let showStickyCta = $state(false);
-  let showPitch = $state(false);
-  let PitchModal = $state<Component<{ onclose: () => void }> | null>(null);
 
-  async function openPitch() {
-    if (!PitchModal) {
-      PitchModal = (await import('$lib/components/PitchModal.svelte')).default;
-    }
-    showPitch = true;
-  }
+  // Claims render per-locale display values (single source of truth: claims.ts).
+  const claimValue = (claim: Claim) => (getLocale() === 'en' ? (claim.valueEn ?? claim.value) : claim.value);
+  const claimDetail = (claim: Claim) => (getLocale() === 'en' ? (claim.detailEn ?? claim.detail) : claim.detail);
 
   // ── FAQ accordion state ──
   let openFaq = $state<number | null>(null);
@@ -172,6 +168,8 @@
     return () => observer.disconnect();
   });
 
+  // 5 pivot features (PIVOTE-PLAN L0.3). Until the L2 feature pages ship, each
+  // card routes to the closest existing page for its promise.
   const featureCards: Array<{
     href: string;
     icon: typeof Shield;
@@ -180,27 +178,33 @@
   }> = [
     {
       href: '/funcionalidades/ficha-alumno',
-      icon: ClipboardList,
-      titleKey: 'home.feature.record.title',
-      descKey: 'home.feature.record.desc',
+      icon: FileText,
+      titleKey: 'home.feature.expediente.title',
+      descKey: 'home.feature.expediente.desc',
+    },
+    {
+      href: '/funcionalidades/alertas',
+      icon: CalendarClock,
+      titleKey: 'home.feature.protocolos.title',
+      descKey: 'home.feature.protocolos.desc',
     },
     {
       href: '/demo',
-      icon: MessageSquare,
-      titleKey: 'home.feature.summary.title',
-      descKey: 'home.feature.summary.desc',
+      icon: FileCheck,
+      titleKey: 'home.feature.actas.title',
+      descKey: 'home.feature.actas.desc',
     },
     {
-      href: '/funcionalidades/acceso-por-rol',
-      icon: Shield,
-      titleKey: 'home.feature.access.title',
-      descKey: 'home.feature.access.desc',
+      href: '/funcionalidades/ficha-alumno',
+      icon: History,
+      titleKey: 'home.feature.continuidad.title',
+      descKey: 'home.feature.continuidad.desc',
     },
     {
-      href: '/funcionalidades/busqueda-contextual',
-      icon: Eye,
-      titleKey: 'home.feature.search.title',
-      descKey: 'home.feature.search.desc',
+      href: '/para-sostenedores',
+      icon: Building2,
+      titleKey: 'home.feature.panel.title',
+      descKey: 'home.feature.panel.desc',
     },
   ];
 </script>
@@ -279,7 +283,7 @@
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [1,2,11,3,15,4,12].map(n => ({
+      "mainEntity": [17,18,19,20,21,22].map(n => ({
         "@type": "Question",
         "name": t(`faq.q${n}` as TranslationKey),
         "acceptedAnswer": { "@type": "Answer", "text": t(`faq.a${n}` as TranslationKey) }
@@ -327,20 +331,24 @@
           <Button
             id="hero-cta"
             size="xl"
-            href="/demo"
+            href="/auditoria"
             onclick={() => {
-              trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'hero' });
+              trackEvent('hero_cta_clicked', { cta: 'request_audit', location: 'hero' });
             }}
             class="w-full justify-center sm:w-auto"
           >
             {t('hero.cta.primary')}
             <ArrowRight class="size-5" />
           </Button>
-          <Button variant="outline" size="xl" onclick={() => { trackEvent('hero_cta_clicked', { cta: 'watch_video', location: 'hero' }); void openPitch(); }} class="w-full justify-center sm:w-auto">
-            <Play class="size-5" />
-            {t('hero.video_short')}
+          <Button variant="outline" size="xl" href="/demo" onclick={() => { trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'hero' }); }} class="w-full justify-center sm:w-auto">
+            {t('hero.cta.demo')}
+            <ChevronRight class="size-5" />
           </Button>
         </div>
+
+        <p class="animate-fade-in-up animate-delay-400 mt-3 text-xs font-medium text-muted-foreground">
+          {t('hero.cta.microcopy')}
+        </p>
 
       </div>
 
@@ -463,9 +471,9 @@
                 <!-- Static fake-UI step rows — decorative, hidden from AT -->
                 <div class="hidden divide-y divide-border border-y border-border sm:block" aria-hidden="true">
                   {#each [
-                    { icon: UserCheck, title: 'hero.panel.step1_title', desc: 'hero.panel.step1_desc', status: 'hero.panel.step1_status' },
-                    { icon: FileCheck, title: 'hero.panel.step2_title', desc: 'hero.panel.step2_desc', status: 'hero.panel.step2_status' },
-                    { icon: Shield, title: 'hero.panel.step3_title', desc: 'hero.panel.step3_desc', status: 'hero.panel.step3_status' },
+                    { icon: AlertTriangle, title: 'hero.panel.step1_title', desc: 'hero.panel.step1_desc', status: 'hero.panel.step1_status' },
+                    { icon: CalendarClock, title: 'hero.panel.step2_title', desc: 'hero.panel.step2_desc', status: 'hero.panel.step2_status' },
+                    { icon: FileCheck, title: 'hero.panel.step3_title', desc: 'hero.panel.step3_desc', status: 'hero.panel.step3_status' },
                   ] as row}
                     {@const RowIcon = row.icon}
                     <div class="grid gap-3 py-4 sm:grid-cols-[auto_minmax(0,1fr)]">
@@ -597,14 +605,16 @@
       <div class="mx-auto mt-8 grid max-w-5xl gap-4 lg:grid-cols-[minmax(0,4fr)_minmax(0,6fr)] lg:items-start lg:gap-6">
         <div class="rounded-xl border border-hairline bg-card p-7 shadow-card sm:p-8">
           <p class="text-xs font-semibold uppercase text-muted-foreground">{t('problem.snapshot.label')}</p>
-          <h3 class="mt-5 font-heading text-3xl font-semibold leading-tight text-foreground sm:text-4xl">{t('problem.snapshot.title')}</h3>
+          <p data-numeric class="mt-5 font-mono text-4xl font-semibold leading-none text-foreground sm:text-5xl">{claimValue(CLAIMS.courtRuling)}</p>
+          <p class="mt-2 text-xs text-muted-foreground">{claimDetail(CLAIMS.courtRuling)}</p>
+          <h3 class="mt-5 font-heading text-2xl font-semibold leading-tight text-foreground sm:text-3xl">{t('problem.snapshot.title')}</h3>
           <p class="mt-4 text-base leading-relaxed text-body">{t('problem.snapshot.desc')}</p>
         </div>
         <div class="divide-y divide-border rounded-xl border border-hairline bg-card shadow-card">
           {#each [
-            { icon: AlertTriangle, title: 'problem.card1.title', desc: 'problem.card1.desc' },
-            { icon: Shield, title: 'problem.card2.title', desc: 'problem.card2.desc' },
-            { icon: FileCheck, title: 'problem.card3.title', desc: 'problem.card3.desc' },
+            { icon: AlertTriangle, title: 'problem.card1.title', desc: 'problem.card1.desc', claim: CLAIMS.complaints2025 },
+            { icon: ClipboardList, title: 'problem.card2.title', desc: 'problem.card2.desc', claim: CLAIMS.directorsSurveyConvivencia },
+            { icon: CalendarClock, title: 'problem.card3.title', desc: 'problem.card3.desc', claim: undefined },
           ] as item}
             {@const Icon = item.icon}
             <div class="grid gap-4 p-5 sm:grid-cols-[auto_minmax(0,1fr)] sm:p-6">
@@ -614,12 +624,27 @@
               </div>
               <div>
                 <h3 class="hidden font-heading text-lg leading-tight text-foreground sm:block">{t(item.title as TranslationKey)}</h3>
+                {#if item.claim}
+                  <p class="mt-2 flex flex-wrap items-baseline gap-x-2">
+                    <span data-numeric class="font-mono text-2xl font-semibold leading-none text-foreground">{claimValue(item.claim)}</span>
+                    {#if claimDetail(item.claim)}
+                      <span class="text-xs text-muted-foreground">{claimDetail(item.claim)}</span>
+                    {/if}
+                  </p>
+                {/if}
                 <p class="mt-2 text-sm leading-relaxed text-body">{t(item.desc as TranslationKey)}</p>
               </div>
             </div>
           {/each}
         </div>
       </div>
+
+      <p class="mx-auto mt-4 max-w-5xl text-center text-xs text-muted-foreground">
+        {t('editorial.source_intro')}
+        {CLAIMS.complaints2025.source} ·
+        {CLAIMS.directorsSurveyConvivencia.source} ·
+        {CLAIMS.courtRuling.source}
+      </p>
     </div>
   </section>
 
@@ -639,11 +664,11 @@
       </div>
 
       <div class="mx-auto mt-8 grid max-w-6xl gap-4 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.65fr)]">
-        {#each featureCards as feat, index (feat.href)}
+        {#each featureCards as feat, index (feat.titleKey)}
           {@const FeatureIcon = feat.icon}
           <a
             href={feat.href}
-            class="group flex flex-col rounded-xl border border-hairline bg-card p-6 shadow-card transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-px hover:border-foreground/25 hover:shadow-card-hover focus-visible:-translate-y-px focus-visible:shadow-card-hover {index === 0 ? 'lg:row-span-3 sm:p-8' : ''}"
+            class="group flex flex-col rounded-xl border border-hairline bg-card p-6 shadow-card transition-[transform,box-shadow,border-color] duration-[160ms] hover:-translate-y-px hover:border-foreground/25 hover:shadow-card-hover focus-visible:-translate-y-px focus-visible:shadow-card-hover {index === 0 ? 'lg:row-span-4 sm:p-8' : ''}"
           >
             <div class="flex items-center gap-3">
               <FeatureIcon class="size-5 shrink-0 text-primary" />
@@ -706,9 +731,9 @@
 
       <div class="mx-auto mt-10 grid max-w-5xl gap-8 sm:grid-cols-3 lg:gap-12">
         {#each [
-          { href: '/para-sostenedores', icon: Building2, title: 'home.forwho.card_sostenedores_title', desc: 'home.forwho.card_sostenedores_desc' },
+          { href: '/demo', icon: UserCheck, title: 'home.forwho.card_encargado_title', desc: 'home.forwho.card_encargado_desc' },
           { href: '/para-directores', icon: ClipboardList, title: 'home.forwho.card_directores_title', desc: 'home.forwho.card_directores_desc' },
-          { href: '/para-porteros', icon: DoorOpen, title: 'home.forwho.card_porteros_title', desc: 'home.forwho.card_porteros_desc' },
+          { href: '/para-sostenedores', icon: Building2, title: 'home.forwho.card_sostenedores_title', desc: 'home.forwho.card_sostenedores_desc' },
         ] as card (card.href)}
           {@const CardIcon = card.icon}
           <a href={card.href} class="group flex flex-col rounded-lg p-4 transition-[transform,background-color] duration-[160ms] hover:-translate-y-px hover:bg-card focus-visible:-translate-y-px focus-visible:bg-card">
@@ -785,9 +810,9 @@
     <div class="mt-8 text-center">
       <Button
         size="xl"
-        href="/demo"
+        href="/auditoria"
         onclick={() => {
-          trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'compliance_countdown' });
+          trackEvent('hero_cta_clicked', { cta: 'request_audit', location: 'compliance_countdown' });
         }}
       >
         {t('hero.cta.primary')}
@@ -850,9 +875,9 @@
         <div class="mt-10 text-center">
           <Button
             size="lg"
-            href="/demo"
+            href="/auditoria"
             onclick={() => {
-              trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'how_it_works' });
+              trackEvent('hero_cta_clicked', { cta: 'request_audit', location: 'how_it_works' });
             }}
           >
             {t('hero.cta.primary')}
@@ -876,7 +901,7 @@
       </div>
 
       <div class="mt-8 divide-y divide-border rounded-xl border border-border bg-card shadow-card">
-        {#each [1, 2, 3, 15, 4, 12] as n, i}
+        {#each [17, 18, 19, 20, 21, 22] as n, i}
           <div>
             <button
               id={`faq-trigger-${i}`}
@@ -944,14 +969,17 @@
       <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
         <Button
           size="xl"
-          href="/demo"
+          href="/auditoria"
           class="bg-on-dark text-surface-dark hover:bg-on-dark/90"
-          onclick={() => trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'final_cta' })}
+          onclick={() => trackEvent('hero_cta_clicked', { cta: 'request_audit', location: 'final_cta' })}
         >
           {t('cta.primary')}
           <ArrowRight class="size-5" />
         </Button>
       </div>
+      <p class="mt-4 text-xs font-medium text-on-dark-soft">
+        {t('cta.microcopy')}
+      </p>
     </div>
   </SectionDark>
 
@@ -966,9 +994,9 @@
     <div class="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-background px-4 pb-[max(env(safe-area-inset-bottom,0px),1rem)] pt-3 md:hidden">
       <Button
         size="xl"
-        href="/demo"
+        href="/auditoria"
         onclick={() => {
-          trackEvent('hero_cta_clicked', { cta: 'book_demo', location: 'sticky' });
+          trackEvent('hero_cta_clicked', { cta: 'request_audit', location: 'sticky' });
         }}
         class="w-full"
       >
@@ -978,10 +1006,6 @@
     </div>
   {/if}
 </div>
-
-{#if showPitch && PitchModal}
-  <PitchModal onclose={() => showPitch = false} />
-{/if}
 
 <style>
   .hero-ambient-glow {
