@@ -60,12 +60,18 @@ for (const viewport of [
 	});
 }
 
-test('home demo CTAs use real links', async ({ page }) => {
+test('home CTAs use real links', async ({ page }) => {
 	await seedEssentialConsent(page);
 	await page.goto('/');
+	// Primary action of the pivot: the Protocol Audit offer.
+	const auditLinks = page.locator('main a[href="/auditoria"]');
+	expect(await auditLinks.count()).toBeGreaterThanOrEqual(4);
+	// The demo remains reachable as the secondary path.
 	const demoLinks = page.locator('main a[href="/demo"]');
-	expect(await demoLinks.count()).toBeGreaterThanOrEqual(5);
-	await expect(page.locator('main button').filter({ hasText: /Agendar demo/i })).toHaveCount(0);
+	expect(await demoLinks.count()).toBeGreaterThanOrEqual(2);
+	await expect(
+		page.locator('main button').filter({ hasText: /Agendar demo|Auditar mis protocolos/i })
+	).toHaveCount(0);
 });
 
 test('essential cookie consent is stored on the first visible click', async ({ page }) => {
