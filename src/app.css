@@ -1,13 +1,15 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
 
 /*
  * ──────────────────────────────────────────
  * Ethoz Landing — Launch UI light warm professional aesthetic
  *
- * Light-first system: warm off-white canvas, clean white cards, amber accent,
- * solid amber primary CTA, Apple-like system typography throughout. Designed for
- * conservative institutional buyers (school directors, sostenedores) who
- * value trust, clarity, and credibility over dark-mode tech flashiness.
+ * Light-first system: warm off-white canvas, clean white cards, institutional
+ * blue accent, blue primary CTA, Inter Variable typography throughout (system
+ * mono for eyebrows and numerals). Designed for conservative institutional
+ * buyers (school directors, sostenedores) who value trust, clarity, and
+ * credibility over dark-mode tech flashiness.
  *
  * Hard rules:
  *  - NO hardcoded hex/rgb/hsl in component files. Always reference a token.
@@ -65,9 +67,9 @@
   --color-primary-glow-strong: var(--primary-glow-strong);
 
   /* ─── Typography ─── */
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: var(--font-sans);
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: var(--font-sans);
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, "Liberation Mono", monospace;
 
   /* ─── Product-mockup micro type ─── */
   --text-mockup-3xs: 8px;
@@ -224,14 +226,15 @@ body {
 @layer base {
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-primary);
     text-wrap: balance;
+    font-feature-settings: "liga" 1, "calt" 1;
   }
 
-  h1 { font-size: var(--fs-display-xl); line-height: 1.05; letter-spacing: var(--tracking-display-xl); font-weight: 500; }
-  h2 { font-size: var(--fs-display-lg); line-height: 1.1; letter-spacing: var(--tracking-display-lg); }
-  h3 { font-size: var(--fs-display-md); line-height: 1.15; letter-spacing: var(--tracking-display-md); }
+  h1 { font-size: var(--fs-display-xl); line-height: 1.08; letter-spacing: var(--tracking-display-xl); font-weight: 600; }
+  h2 { font-size: var(--fs-display-lg); line-height: 1.15; letter-spacing: var(--tracking-display-lg); }
+  h3 { font-size: var(--fs-display-md); line-height: 1.2; letter-spacing: var(--tracking-display-md); }
   h4 { font-size: var(--fs-display-sm); line-height: 1.2; letter-spacing: var(--tracking-display-sm); }
   h5 { font-size: var(--fs-title-lg); line-height: 1.3; letter-spacing: 0; }
   h6 { font-size: var(--fs-title-md); line-height: 1.4; letter-spacing: 0; }
