@@ -40,6 +40,11 @@
   const commune = $derived(scheduleData.commune ?? '');
   const region = $derived(scheduleData.region ?? '');
 
+  // Audit-intent variant: /auditoria CTAs land here with ?tipo=auditoria so the
+  // page speaks to the offer the visitor clicked, not only the demo funnel.
+  // browser guard: searchParams cannot be read during prerendering.
+  const isAudit = $derived(browser && page.url.searchParams.get('tipo') === 'auditoria');
+
   let calContainer = $state<HTMLDivElement | null>(null);
   let calLoaded = $state(false);
   let embedRendered = $state(false);
@@ -114,8 +119,8 @@
     Cal('ui', {
       theme: 'light',
       styles: { branding: {
-        // lint-ok: Cal.com embed SDK expects hex literal; keep in sync with --primary (#F97316)
-        brandColor: '#F97316'
+        // lint-ok: Cal.com embed SDK expects hex literal; keep in sync with --primary (#2563EB)
+        brandColor: '#2563EB'
       } },
       hideEventTypeDetails: false,
       hideBranding: true,
@@ -135,7 +140,7 @@
     Cal('on', {
       action: 'bookingSuccessful',
       callback: () => {
-        trackEvent('demo_booked', { school: prefill.school });
+        trackEvent('demo_booked', { school: prefill.school, tipo: isAudit ? 'auditoria' : 'demo' });
         // Lead status is handled by backend integrations; the public landing no longer writes directly to the database.
       }
     });
@@ -153,7 +158,7 @@
   });
 
   onMount(() => {
-    trackEvent('agendar_page_viewed', { school: schoolName });
+    trackEvent('agendar_page_viewed', { school: schoolName, tipo: isAudit ? 'auditoria' : 'demo' });
   });
 </script>
 
@@ -185,7 +190,8 @@
   <main id="main-content" class="flex flex-1 flex-col">
 
   <div id="schedule-main" class="mx-auto w-full max-w-7xl flex-1 px-4 py-12 pt-24 sm:py-16 sm:pt-28">
-    <!-- Step indicator -->
+    <!-- Step indicator — demo funnel only; audit visitors arrive directly from /auditoria -->
+    {#if !isAudit}
     <nav aria-label={t('agendar.steps_nav_aria')} class="mb-8">
       <ol class="mx-auto flex max-w-lg items-center justify-center gap-3">
         {#each [{ labelKey: 'agendar.step_find_school' as const, n: 1 }, { labelKey: 'agendar.step_complete_data' as const, n: 2 }, { labelKey: 'agendar.step_schedule_demo' as const, n: 3 }] as s}
@@ -203,6 +209,7 @@
         {/each}
       </ol>
     </nav>
+    {/if}
 
     <!-- Success banner -->
     {#if schoolName || contactName || contactEmail}
@@ -236,16 +243,16 @@
 
   <!-- Heading -->
     <div class="mb-8 text-center">
-      <p class="page-eyebrow">{t('demo.step3.eyebrow')}</p>
+      <p class="page-eyebrow">{isAudit ? t('agendar.eyebrow_audit') : t('demo.step3.eyebrow')}</p>
       <span class="page-title-rule" aria-hidden="true"></span>
       <h1 class="page-title">
-        {t('agendar.title')}
+        {isAudit ? t('agendar.title_audit') : t('agendar.title')}
       </h1>
       <p class="mt-2 text-sm text-muted-foreground">
-        {t('agendar.subtitle')}
+        {isAudit ? t('agendar.subtitle_audit') : t('agendar.subtitle')}
       </p>
       <p class="mx-auto mt-4 max-w-lg text-xs leading-relaxed text-muted-foreground">
-        {t('demo.step3.description')}
+        {isAudit ? t('agendar.description_audit') : t('demo.step3.description')}
       </p>
     </div>
 

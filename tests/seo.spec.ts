@@ -251,7 +251,7 @@ test.describe('SEO — sitemap.xml', () => {
 			expect(body, `sitemap.xml must contain ${path}`).toContain(`https://ethoz.cl${path}`);
 		}
 
-		expect(body.match(/<loc>/g)?.length, 'sitemap must list all 58 canonical public URLs').toBe(58);
+		expect(body.match(/<loc>/g)?.length, 'sitemap must list all 59 canonical public URLs').toBe(59);
 	});
 });
 

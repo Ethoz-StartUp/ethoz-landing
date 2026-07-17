@@ -96,7 +96,7 @@
         <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <Button
             size="xl"
-            href="/agendar"
+            href="/agendar?tipo=auditoria"
             onclick={() => trackEvent('audit_cta_clicked', { location: 'hero' })}
             class="w-full justify-center sm:w-auto"
           >
@@ -219,7 +219,7 @@
         <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <Button
             size="xl"
-            href="/agendar"
+            href="/agendar?tipo=auditoria"
             onclick={() => trackEvent('audit_cta_clicked', { location: 'final_cta' })}
           >
             {t('auditoria.cta_primary')}

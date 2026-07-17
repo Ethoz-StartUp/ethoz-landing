@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Button } from '$lib/components/ui/button';
   import { t } from '$lib/i18n/index.svelte';
-  import { Menu, X, ChevronDown, Shield, Search, ClipboardList, Bell, Fingerprint } from '@lucide/svelte';
+  import { Menu, X, ChevronDown, Shield, Search, ClipboardList, Bell, Fingerprint, Sparkles } from '@lucide/svelte';
   import { env } from '$env/dynamic/public';
   import { tick } from 'svelte';
   import { slide } from 'svelte/transition';
@@ -79,6 +79,7 @@
   });
 
   const products = [
+    { icon: Sparkles, name: 'nav.product_actas_name' as const, href: '/funcionalidades/actas-y-descargos', desc: 'nav.product_actas_desc' as const },
     { icon: ClipboardList, name: 'nav.product_student_profile_name' as const, href: '/funcionalidades/ficha-alumno', desc: 'nav.product_student_profile_desc' as const },
     { icon: Bell, name: 'nav.product_safe_pickups_name' as const, href: '/funcionalidades/retiros-seguros', desc: 'nav.product_safe_pickups_desc' as const },
     { icon: Fingerprint, name: 'nav.product_access_control_name' as const, href: '/funcionalidades/acceso-por-rol', desc: 'nav.product_access_control_desc' as const },
@@ -350,7 +351,7 @@
       >
         {t('nav.login')}
       </a>
-      <Button size="sm" href="/demo" class="hidden h-8 px-2.5 text-xs lg:inline-flex">
+      <Button size="sm" href="/auditoria" class="hidden h-8 px-2.5 text-xs lg:inline-flex">
         {t('nav.cta')}
       </Button>
 
@@ -464,7 +465,7 @@
         >
           {t('nav.login')}
         </a>
-        <Button size="default" href="/demo" class="w-full justify-center font-heading text-base font-semibold tracking-tight" onclick={() => closeMobileMenu(false)}>
+        <Button size="default" href="/auditoria" class="w-full justify-center font-heading text-base font-semibold tracking-tight" onclick={() => closeMobileMenu(false)}>
           {t('nav.cta')}
         </Button>
       </div>
