@@ -330,21 +330,18 @@
       <div class="mx-auto mt-8 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="mx-auto max-w-5xl">
         <dl class="grid grid-cols-1 divide-y divide-foreground/10 rounded-2xl border border-foreground/10 bg-card sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-          <div class="px-5 py-4 text-center sm:px-6 sm:py-5">
-            <dt class="sr-only">{t('editorial.stat1_label')}</dt>
-            <dd data-numeric class="font-heading text-2xl font-medium text-foreground sm:text-3xl lg:text-4xl">{t('editorial.stat1_number')}</dd>
-            <p class="mt-1.5 text-xs font-semibold uppercase tracking-wider text-text-tertiary">{t('editorial.stat1_label')}</p>
-          </div>
-          <div class="px-5 py-4 text-center sm:px-6 sm:py-5">
-            <dt class="sr-only">{t('editorial.stat2_label')}</dt>
-            <dd data-numeric class="font-heading text-2xl font-medium text-foreground sm:text-3xl lg:text-4xl">{t('editorial.stat2_number')}</dd>
-            <p class="mt-1.5 text-xs font-semibold uppercase tracking-wider text-text-tertiary">{t('editorial.stat2_label')}</p>
-          </div>
-          <div class="px-5 py-4 text-center sm:px-6 sm:py-5">
-            <dt class="sr-only">{t('editorial.stat3_label')}</dt>
-            <dd data-numeric class="font-heading text-2xl font-medium text-foreground sm:text-3xl lg:text-4xl">{t('editorial.stat3_number')}</dd>
-            <p class="mt-1.5 text-xs font-semibold uppercase tracking-wider text-text-tertiary">{t('editorial.stat3_label')}</p>
-          </div>
+          {#each [
+            { number: 'editorial.stat1_number', label: 'editorial.stat1_label' },
+            { number: 'editorial.stat2_number', label: 'editorial.stat2_label' },
+            { number: 'editorial.stat3_number', label: 'editorial.stat3_label' },
+          ] as stat (stat.number)}
+            <!-- flex-col-reverse: DOM keeps dt before dd (valid dl semantics),
+                 the number still renders on top. One label only — no sr-only twin. -->
+            <div class="flex flex-col-reverse px-5 py-4 text-center sm:px-6 sm:py-5">
+              <dt class="mt-1.5 text-xs font-semibold uppercase tracking-wider text-text-tertiary">{t(stat.label as TranslationKey)}</dt>
+              <dd data-numeric class="font-heading text-2xl font-medium text-foreground sm:text-3xl lg:text-4xl">{t(stat.number as TranslationKey)}</dd>
+            </div>
+          {/each}
         </dl>
         <p class="mt-4 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-xs text-text-tertiary">
           <span>{t('editorial.source_intro')}</span>
@@ -366,35 +363,48 @@
         </div>
 
         <div class="mx-auto mt-6 sm:mt-8 grid max-w-5xl gap-5 lg:grid-cols-[minmax(0,4fr)_minmax(0,6fr)] lg:items-start">
-          <div class="rounded-2xl border border-foreground/10 bg-card p-5 shadow-card-dark sm:p-6">
-            <p class="text-xs font-semibold uppercase tracking-wider text-text-tertiary">{t('problem.snapshot.label')}</p>
-            <p data-numeric class="mt-4 font-heading text-4xl font-medium leading-none text-foreground sm:text-5xl">{claimValue(CLAIMS.courtRuling)}</p>
-            <p class="mt-2 text-xs text-text-tertiary">{claimDetail(CLAIMS.courtRuling)}</p>
-            <h3 class="mt-4 font-heading text-2xl font-medium leading-tight text-foreground">{t('problem.snapshot.title')}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">{t('problem.snapshot.desc')}</p>
+          <!-- The ruling — exhibit card -->
+          <div class="overflow-hidden rounded-2xl border border-destructive/20 bg-card shadow-card-dark">
+            <div class="flex items-center justify-between gap-3 border-b border-destructive/15 bg-destructive/5 px-5 py-2.5">
+              <p class="truncate text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('problem.snapshot.label')}</p>
+              <span class="shrink-0 rounded-full bg-destructive/10 px-2.5 py-0.5 text-mockup-xs font-semibold text-destructive">{t('problem.snapshot.tag')}</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <p data-numeric class="font-heading text-4xl font-medium leading-none text-destructive sm:text-5xl">{claimValue(CLAIMS.courtRuling)}</p>
+              <p class="mt-2 text-xs text-text-tertiary">{claimDetail(CLAIMS.courtRuling)}</p>
+              <h3 class="mt-4 font-heading text-2xl font-medium leading-tight text-foreground">{t('problem.snapshot.title')}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">{t('problem.snapshot.desc')}</p>
+            </div>
           </div>
-          <div class="divide-y divide-foreground/10 rounded-2xl border border-foreground/10 bg-card shadow-card-dark">
-            {#each problemRows as item (item.title)}
-              {@const Icon = item.icon}
-              <div class="grid gap-3 p-4 sm:grid-cols-[auto_minmax(0,1fr)] sm:p-5">
-                <div class="flex items-center gap-3 sm:items-start">
-                  <Icon class="size-5 shrink-0 text-primary" />
-                  <h3 class="font-heading text-base leading-tight text-foreground sm:hidden">{t(item.title as TranslationKey)}</h3>
+
+          <!-- The national picture — audit-report card -->
+          <div class="overflow-hidden rounded-2xl border border-foreground/10 bg-card shadow-card-dark">
+            <div class="flex items-center justify-between gap-3 border-b border-foreground/10 bg-surface-soft px-5 py-2.5">
+              <p class="truncate text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('problem.report_title')}</p>
+              <span class="shrink-0 rounded-full bg-primary/10 px-2.5 py-0.5 text-mockup-xs font-semibold text-primary-active">{t('problem.report_badge')}</span>
+            </div>
+            <div class="divide-y divide-foreground/10">
+              {#each problemRows as item (item.title)}
+                {@const Icon = item.icon}
+                <div class="p-4 sm:p-5">
+                  <div class="flex items-start justify-between gap-3">
+                    <div class="flex min-w-0 items-center gap-3">
+                      <Icon class="size-5 shrink-0 text-primary" />
+                      <h3 class="font-heading text-base leading-tight text-foreground">{t(item.title as TranslationKey)}</h3>
+                    </div>
+                    <span class="mt-0.5 shrink-0 rounded-full px-2.5 py-0.5 text-mockup-xs font-semibold {item.claim ? 'bg-warning/15 text-warning-foreground' : 'bg-foreground/5 text-foreground/70'}">
+                      {item.claim ? claimDetail(item.claim) : t('problem.card3.tag')}
+                    </span>
+                  </div>
+                  <div class="mt-2 sm:pl-8">
+                    {#if item.claim}
+                      <p data-numeric class="font-heading text-2xl font-medium leading-none text-foreground">{claimValue(item.claim)}</p>
+                    {/if}
+                    <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t(item.desc as TranslationKey)}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 class="hidden font-heading text-base leading-tight text-foreground sm:block">{t(item.title as TranslationKey)}</h3>
-                  {#if item.claim}
-                    <p class="mt-1.5 flex flex-wrap items-baseline gap-x-2">
-                      <span data-numeric class="font-heading text-2xl font-medium leading-none text-foreground">{claimValue(item.claim)}</span>
-                      {#if claimDetail(item.claim)}
-                        <span class="text-xs text-text-tertiary">{claimDetail(item.claim)}</span>
-                      {/if}
-                    </p>
-                  {/if}
-                  <p class="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t(item.desc as TranslationKey)}</p>
-                </div>
-              </div>
-            {/each}
+              {/each}
+            </div>
           </div>
         </div>
 
