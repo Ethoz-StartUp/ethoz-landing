@@ -12,19 +12,19 @@
   $effect(() => { trackEvent('feature_page_viewed', { feature: 'attendance' }); });
 
   const students = [
-    { name: 'Valentina Rojas', days: ['P', 'P', 'P', 'P', 'P'] },
-    { name: 'Matías González', days: ['P', 'A', 'P', 'P', 'T'] },
-    { name: 'Sofía Carrasco', days: ['P', 'P', 'J', 'P', 'P'] },
-    { name: 'Diego Fuentes', days: ['A', 'P', 'P', 'P', 'P'] },
-    { name: 'Catalina Vega', days: ['P', 'P', 'P', 'T', 'P'] },
-    { name: 'Joaquín Soto', days: ['P', 'P', 'P', 'P', 'A'] },
-    { name: 'Isidora Muñoz', days: ['J', 'P', 'P', 'P', 'P'] },
-    { name: 'Sebastián Pino', days: ['P', 'P', 'A', 'A', 'P'] },
-    { name: 'Javiera Torres', days: ['P', 'P', 'P', 'P', 'P'] },
-    { name: 'Felipe Herrera', days: ['P', 'T', 'P', 'P', 'P'] },
-    { name: 'Constanza Díaz', days: ['P', 'P', 'P', 'P', 'J'] },
-    { name: 'Rodrigo Vargas', days: ['A', 'A', 'P', 'P', 'P'] },
-    { name: 'Antonia Reyes', days: ['P', 'P', 'P', 'P', 'P'] },
+    { name: 'Alumna de ejemplo', days: ['P', 'P', 'P', 'P', 'P'] },
+    { name: 'Alumno de ejemplo', days: ['P', 'A', 'P', 'P', 'T'] },
+    { name: 'Alumna de ejemplo', days: ['P', 'P', 'J', 'P', 'P'] },
+    { name: 'Alumno de ejemplo', days: ['A', 'P', 'P', 'P', 'P'] },
+    { name: 'Alumna de ejemplo', days: ['P', 'P', 'P', 'T', 'P'] },
+    { name: 'Alumno de ejemplo', days: ['P', 'P', 'P', 'P', 'A'] },
+    { name: 'Alumna de ejemplo', days: ['J', 'P', 'P', 'P', 'P'] },
+    { name: 'Alumno de ejemplo', days: ['P', 'P', 'A', 'A', 'P'] },
+    { name: 'Alumna de ejemplo', days: ['P', 'P', 'P', 'P', 'P'] },
+    { name: 'Alumno de ejemplo', days: ['P', 'T', 'P', 'P', 'P'] },
+    { name: 'Alumna de ejemplo', days: ['P', 'P', 'P', 'P', 'J'] },
+    { name: 'Alumno de ejemplo', days: ['A', 'A', 'P', 'P', 'P'] },
+    { name: 'Alumna de ejemplo', days: ['P', 'P', 'P', 'P', 'P'] },
   ];
 
   function dayColor(d: string) {
@@ -62,7 +62,7 @@
   <main id="main-content" class="flex-1">
 
   <!-- Hero -->
-  <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
+  <section class="bg-secondary pt-24 pb-8 sm:pt-28 sm:pb-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href="/productos" class="-mt-3 mb-5 inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
@@ -70,9 +70,9 @@
       </a>
       <div class="mt-6 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <div class="flex items-center gap-3">
-            <CalendarCheck class="size-6 shrink-0 text-primary" />
-            <h1 class="text-balance text-foreground">
+          <div class="flex items-center gap-4">
+            <CalendarCheck class="size-10 lg:size-12 shrink-0 text-primary-active" />
+            <h1 class="page-title">
               {t('featurePage.attendance.hero_title')}
             </h1>
           </div>
@@ -95,7 +95,7 @@
         </div>
 
         <!-- Attendance grid mockup -->
-        <div aria-hidden="true" class="w-full rounded-xl border border-border bg-card shadow-card-hover">
+        <div aria-hidden="true" class="w-full rounded-xl border border-border bg-card shadow-card-dark-hover">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -155,7 +155,7 @@
   />
 
   <!-- Features -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
         <div>
@@ -207,9 +207,9 @@
             <p class="text-mockup-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">{t('featurePage.attendance.mockup_justify_heading')}</p>
             <!-- Student info -->
             <div class="flex items-center gap-3 rounded-lg bg-muted/30 p-3 mb-3">
-              <div class="size-8 rounded-full bg-primary/20 flex items-center justify-center text-mockup-sm font-bold text-primary-active">SR</div>
+              <div class="size-8 rounded-full bg-primary/20 flex items-center justify-center text-mockup-sm font-bold text-primary-active">AE</div>
               <div>
-                <p class="text-xs font-semibold text-foreground">Sebastián Pino Rojas</p>
+                <p class="text-xs font-semibold text-foreground">Alumno de ejemplo</p>
                 <p class="text-mockup-xs text-muted-foreground">7°B · Ausente: 9 y 10 abr 2026</p>
               </div>
             </div>
@@ -225,8 +225,8 @@
             <div class="rounded-lg border border-border bg-muted/20 px-3 py-2 mb-3 flex items-center gap-2">
               <FileText class="size-4 shrink-0 text-muted-foreground" />
               <div class="flex-1 min-w-0">
-                <p class="text-mockup-xs font-medium text-foreground truncate">certificado_dr_varela_09abr.pdf</p>
-                <p class="text-mockup-2xs text-muted-foreground">CESFAM Ñuñoa · Dr. R. Varela · 247 KB</p>
+                <p class="text-mockup-xs font-medium text-foreground truncate">certificado_medico_09abr.pdf</p>
+                <p class="text-mockup-2xs text-muted-foreground">CESFAM de ejemplo · Médico de ejemplo · 247 KB</p>
               </div>
               <CheckCircle2 class="size-3.5 shrink-0 text-success" />
             </div>
@@ -235,7 +235,7 @@
               <CheckCircle2 class="size-3.5 shrink-0 text-success" />
               <div>
                 <p class="text-mockup-sm font-semibold text-success">{t('featurePage.attendance.mockup_status_approved')}</p>
-                <p class="text-mockup-2xs text-muted-foreground">Inspector J. Contreras · 10 abr 2026, 08:30</p>
+                <p class="text-mockup-2xs text-muted-foreground">Inspector de ejemplo · 10 abr 2026, 08:30</p>
               </div>
             </div>
           </div>
@@ -245,7 +245,7 @@
   </section>
 
   <!-- Absence risk section -->
-  <section class="bg-secondary py-12 sm:py-14">
+  <section class="bg-secondary py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <h2 class="text-2xl text-foreground sm:text-3xl">{t('featurePage.attendance.flow_section_title')}</h2>
@@ -271,7 +271,7 @@
   </section>
 
   <!-- Por qué importa -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-4 sm:grid-cols-3">
         <StatCard
@@ -297,27 +297,27 @@
   </section>
 
   <!-- Final CTA — dark navy editorial close -->
-  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="attendance-cta">
+  <section class="bg-secondary py-20 text-foreground sm:py-24" aria-labelledby="attendance-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('featurePage.attendance.finalCta.eyebrow')}</p>
-      <h2 id="attendance-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
+      <span class="mx-auto block h-px w-12 bg-foreground/60" aria-hidden="true"></span>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-foreground/85">{t('featurePage.attendance.finalCta.eyebrow')}</p>
+      <h2 id="attendance-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-foreground sm:text-4xl">
         {t('featurePage.attendance.finalCta.title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
         {t('featurePage.attendance.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-8 text-sm font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('featurePage.attendance.finalCta_button_demo')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/productos"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-foreground/20 bg-transparent px-8 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('featurePage.attendance.finalCta_button_modules')}
         </a>

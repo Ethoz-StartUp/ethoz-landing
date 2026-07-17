@@ -228,7 +228,13 @@ test.describe('Navigation — mobile hamburger', () => {
 	test('mobile menu has all nav links', async ({ page }) => {
 		await page.goto('/');
 		const { menu } = await openMobileNavigation(page);
-		await expect(menu.getByRole('link')).toHaveCount(8);
+		// Main nav links + auth/demo CTAs (Productos is now a collapsible button on mobile)
+		await expect(menu.getByRole('link')).toHaveCount(7);
+		await expect(menu.getByRole('button', { name: 'Productos' })).toBeVisible();
+
+		// Expanding Productos reveals the 5 product links + "see all" link
+		await menu.getByRole('button', { name: 'Productos' }).click();
+		await expect(menu.getByRole('link')).toHaveCount(13);
 	});
 
 	test('mobile menu closes when link is clicked', async ({ page }) => {

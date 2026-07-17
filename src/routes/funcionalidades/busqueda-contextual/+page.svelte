@@ -20,8 +20,8 @@
       labelKey: 'featurePage.smartSearch.example_compound_label' as const,
       noteKey: 'featurePage.smartSearch.example_compound_note' as const,
       results: [
-        { name: 'María José Pérez Soto', grade: '2° Medio A', teacher: 'Prof. Vargas', alert: null },
-        { name: 'María José Contreras', grade: '5° Básico B', teacher: 'Prof. Fuentes', alert: '1 alerta' },
+        { name: 'Alumna de ejemplo', grade: '2° Medio A', teacher: 'Docente de ejemplo', alert: null },
+        { name: 'Alumna de ejemplo', grade: '5° Básico B', teacher: 'Docente de ejemplo', alert: '1 alerta' },
       ]
     },
     {
@@ -29,9 +29,9 @@
       labelKey: 'featurePage.smartSearch.example_typo_label' as const,
       noteKey: 'featurePage.smartSearch.example_typo_note' as const,
       results: [
-        { name: 'Matías González Pérez', grade: '8° Básico A', teacher: 'Prof. Herrera', alert: '2 alertas' },
-        { name: 'Fernanda González Rojas', grade: '1° Medio C', teacher: 'Prof. Díaz', alert: null },
-        { name: 'Tomás González Vidal', grade: 'Pre-kinder', teacher: 'Tía Morales', alert: null },
+        { name: 'Alumno de ejemplo', grade: '8° Básico A', teacher: 'Prof. de ejemplo', alert: '2 alertas' },
+        { name: 'Alumna de ejemplo', grade: '1° Medio C', teacher: 'Prof. de ejemplo', alert: null },
+        { name: 'Alumno de ejemplo', grade: 'Pre-kinder', teacher: 'Educadora de ejemplo', alert: null },
       ]
     },
     {
@@ -39,9 +39,9 @@
       labelKey: 'featurePage.smartSearch.example_course_label' as const,
       noteKey: 'featurePage.smartSearch.example_course_note' as const,
       results: [
-        { name: 'Valentina Rojas Sepúlveda', grade: '7° Básico B', teacher: 'Prof. González', alert: null },
-        { name: 'Benjamín Torres Muñoz', grade: '7° Básico B', teacher: 'Prof. González', alert: null },
-        { name: 'Isidora Castro Lagos', grade: '7° Básico B', teacher: 'Prof. González', alert: '1 alerta' },
+        { name: 'Alumna de ejemplo', grade: '7° Básico B', teacher: 'Prof. de ejemplo', alert: null },
+        { name: 'Alumno de ejemplo', grade: '7° Básico B', teacher: 'Prof. de ejemplo', alert: null },
+        { name: 'Alumna de ejemplo', grade: '7° Básico B', teacher: 'Prof. de ejemplo', alert: '1 alerta' },
       ]
     },
   ];
@@ -76,7 +76,7 @@
   <main id="main-content" class="flex-1">
 
   <!-- Hero -->
-  <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
+  <section class="bg-secondary pt-24 pb-8 sm:pt-28 sm:pb-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href="/#features" class="-mt-3 mb-5 inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
         <ArrowLeft class="size-3.5" />
@@ -84,9 +84,9 @@
       </a>
       <div class="mt-6 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="lg:pt-4">
-          <div class="flex items-center gap-3">
-            <Search class="size-6 shrink-0 text-primary" />
-            <h1 class="text-balance text-foreground">
+          <div class="flex items-center gap-4">
+            <Search class="size-10 lg:size-12 shrink-0 text-primary-active" />
+            <h1 class="page-title">
               {t('features.search.title')}
             </h1>
           </div>
@@ -128,7 +128,7 @@
         </div>
 
         <!-- Search mockup -->
-        <div class="w-full rounded-xl border border-border bg-card shadow-card-hover">
+        <div class="w-full rounded-xl border border-border bg-card shadow-card-dark-hover">
           <div class="flex items-center gap-2 border-b border-border px-4 py-2.5">
             <div class="size-2.5 rounded-full bg-destructive/60"></div>
             <div class="size-2.5 rounded-full bg-warning/60"></div>
@@ -184,7 +184,7 @@
   />
 
   <!-- Dashboard mockup section -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-10 lg:grid-cols-2 items-start">
         <div>
@@ -222,10 +222,10 @@
           </div>
           <div class="divide-y divide-border">
             {#each [
-              { name: 'Matías González Pérez', grade: '8° Básico A', alerts: ['featurePage.smartSearch.alert_pickup_restriction', 'featurePage.smartSearch.alert_medical'] as const, urgent: true },
-              { name: 'Isidora Castro Lagos', grade: '7° Básico B', alerts: ['featurePage.smartSearch.alert_tardies_month'] as const, urgent: false },
-              { name: 'Sebastián Muñoz Vera', grade: '1° Medio C', alerts: ['featurePage.smartSearch.alert_conduct_pending'] as const, urgent: false },
-              { name: 'Valentín Araya Torres', grade: '3° Medio A', alerts: ['featurePage.smartSearch.alert_observation_active'] as const, urgent: false },
+              { name: 'Alumno de ejemplo', grade: '8° Básico A', alerts: ['featurePage.smartSearch.alert_pickup_restriction', 'featurePage.smartSearch.alert_medical'] as const, urgent: true },
+              { name: 'Alumna de ejemplo', grade: '7° Básico B', alerts: ['featurePage.smartSearch.alert_tardies_month'] as const, urgent: false },
+              { name: 'Alumno de ejemplo', grade: '1° Medio C', alerts: ['featurePage.smartSearch.alert_conduct_pending'] as const, urgent: false },
+              { name: 'Alumno de ejemplo', grade: '3° Medio A', alerts: ['featurePage.smartSearch.alert_observation_active'] as const, urgent: false },
             ] as row}
               <div class="flex items-center gap-3 px-4 py-2.5">
                 <div class="size-7 rounded-full bg-muted flex items-center justify-center shrink-0">
@@ -254,11 +254,11 @@
   </section>
 
   <!-- Detail cards -->
-  <section class="bg-secondary py-12 sm:py-14">
+  <section class="bg-secondary py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <Zap class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.smartSearch.card_typo_title')}</h2>
@@ -268,7 +268,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <LayoutDashboard class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.smartSearch.card_dashboard_title')}</h2>
@@ -278,7 +278,7 @@
           </p>
         </div>
 
-        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center gap-2.5">
             <Filter class="size-5 shrink-0 text-primary" />
             <h2 class="text-base text-foreground">{t('featurePage.smartSearch.card_filters_title')}</h2>
@@ -293,27 +293,27 @@
   </section>
 
   <!-- Final CTA — dark navy editorial close -->
-  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="search-cta">
+  <section class="bg-secondary py-20 text-foreground sm:py-24" aria-labelledby="search-cta">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('featurePage.smartSearch.finalCta.eyebrow')}</p>
-      <h2 id="search-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-background sm:text-4xl">
+      <span class="mx-auto block h-px w-12 bg-foreground/60" aria-hidden="true"></span>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-foreground/85">{t('featurePage.smartSearch.finalCta.eyebrow')}</p>
+      <h2 id="search-cta" class="mt-5 font-heading text-3xl leading-[1.1] text-foreground sm:text-4xl">
         {t('featurePage.smartSearch.finalCta.title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
         {t('featurePage.smartSearch.finalCta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-background px-8 text-sm font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-8 text-sm font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('featurePage.smartSearch.cta_demo')}
           <ArrowRight class="size-4" />
         </a>
         <a
           href="/#features"
-          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-background/70 bg-transparent px-8 text-sm font-semibold text-background transition-colors hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-foreground/20 bg-transparent px-8 text-sm font-semibold text-foreground transition-colors hover:bg-foreground hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('featurePage.smartSearch.cta_all_features')}
         </a>

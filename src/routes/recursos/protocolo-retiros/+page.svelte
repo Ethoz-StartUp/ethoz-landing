@@ -57,15 +57,15 @@
   <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <!-- Header -->
     <div class="mb-12 border-b border-border pb-10">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground print:hidden">
+      <p class="page-eyebrow print:hidden">
         <span class="text-primary">{t('resPickupProtocol.eyebrow_category')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('resPickupProtocol.eyebrow_steps')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('resPickupProtocol.eyebrow_legal')}</span>
       </p>
-      <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">{t('resPickupProtocol.hero_title')}</h1>
+      <span class="page-title-rule print:hidden" aria-hidden="true"></span>
+      <h1 class="page-title">{t('resPickupProtocol.hero_title')}</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">{t('resPickupProtocol.hero_subtitle')}</p>
       <p class="mt-4 text-xs text-muted-foreground">{t('resPickupProtocol.version_line')}</p>
     </div>
@@ -75,7 +75,7 @@
       <!-- 1. Objetivo -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">1</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">1</span>
           {t('resPickupProtocol.s1_title')}
         </h2>
         <p class="text-muted-foreground">
@@ -86,7 +86,7 @@
       <!-- 2. Alcance -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">2</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">2</span>
           {t('resPickupProtocol.s2_title')}
         </h2>
         <p class="text-muted-foreground mb-2">{t('resPickupProtocol.s2_intro')}</p>
@@ -101,7 +101,7 @@
       <!-- 3. Responsables -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">3</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">3</span>
           {t('resPickupProtocol.s3_title')}
         </h2>
         <div class="overflow-x-auto rounded-lg border border-border">
@@ -141,7 +141,7 @@
       <!-- 4. Procedimiento -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">4</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">4</span>
           {t('resPickupProtocol.s4_title')}
         </h2>
         <div class="space-y-4">
@@ -169,7 +169,7 @@
       <!-- 5. Casos especiales -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-4 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">5</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">5</span>
           {t('resPickupProtocol.s5_title')}
         </h2>
         <div class="space-y-4">
@@ -195,7 +195,7 @@
       <!-- 6. Registro y trazabilidad -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">6</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">6</span>
           {t('resPickupProtocol.s6_title')}
         </h2>
         <p class="text-muted-foreground mb-3">{t('resPickupProtocol.s6_intro')}</p>
@@ -216,7 +216,7 @@
       <!-- 7. Revisión anual -->
       <section>
         <h2 class="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
-          <span class="flex size-6 items-center justify-center rounded-full bg-foreground text-background text-xs font-bold">7</span>
+          <span class="flex size-6 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-bold">7</span>
           {t('resPickupProtocol.s7_title')}
         </h2>
         <p class="text-muted-foreground mb-3">{t('resPickupProtocol.s7_intro')}</p>

@@ -80,13 +80,13 @@
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
      <div class="max-w-3xl">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+      <p class="page-eyebrow">
         <span class="text-primary">{t('getstarted.hero.eyebrow')}</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('getstarted.hero.eyebrow_meta')}</span>
       </p>
-      <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
+      <span class="page-title-rule" aria-hidden="true"></span>
+      <h1 class="page-title">
         {t('getstarted.hero.title')}
       </h1>
       <p class="mt-8 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -127,7 +127,7 @@
   </section>
 
   <!-- ═══ STEP 1: Conoce la plataforma ═══ -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
@@ -144,18 +144,18 @@
           </Button>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/step-1-demo.webp" alt={t('getstarted.step1.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/step-1-demo.webp" alt={t('getstarted.step1.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl" loading="lazy" />
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══ STEP 2: Elige tus módulos ═══ -->
-  <section class="py-12 sm:py-14 bg-secondary">
+  <section class="py-10 sm:py-12 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
-          <img src="/images/pages/step-2-configure.webp" alt={t('getstarted.step2.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/step-2-configure.webp" alt={t('getstarted.step2.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl" loading="lazy" />
         </div>
         <div class="order-1 lg:order-2">
           <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('getstarted.step2.overline')}</p>
@@ -180,7 +180,7 @@
   </section>
 
   <!-- ═══ STEP 3: Migración ═══ -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
@@ -201,18 +201,18 @@
           </ul>
         </div>
         <div class="flex justify-center">
-          <img src="/images/pages/step-3-migrate.webp" alt={t('getstarted.step3.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/step-3-migrate.webp" alt={t('getstarted.step3.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl" loading="lazy" />
         </div>
       </div>
     </div>
   </section>
 
   <!-- ═══ STEP 4: En vivo ═══ -->
-  <section class="py-12 sm:py-14 bg-secondary">
+  <section class="py-10 sm:py-12 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div class="order-2 flex justify-center lg:order-1">
-          <img src="/images/pages/step-4-live.webp" alt={t('getstarted.step4.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl mix-blend-multiply" loading="lazy" />
+          <img src="/images/pages/step-4-live.webp" alt={t('getstarted.step4.alt')} width="800" height="800" class="w-full max-w-sm rounded-xl" loading="lazy" />
         </div>
         <div class="order-1 lg:order-2">
           <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('getstarted.step4.overline')}</p>
@@ -228,7 +228,7 @@
   </section>
 
   <!-- ═══ FAQ ═══ -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h2 class="text-balance text-center text-2xl text-foreground sm:text-3xl">
         {t('pricing.faq.title')}
@@ -262,20 +262,20 @@
   </section>
 
   <!-- ═══ FINAL CTA — dark navy ═══ -->
-  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-getstarted">
+  <section class="bg-secondary py-20 text-foreground sm:py-24" aria-labelledby="final-cta-getstarted">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('getstarted.final_cta.overline')}</p>
-      <h2 id="final-cta-getstarted" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
+      <span class="mx-auto block h-px w-12 bg-foreground/60" aria-hidden="true"></span>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-foreground/85">{t('getstarted.final_cta.overline')}</p>
+      <h2 id="final-cta-getstarted" class="mt-5 font-heading text-3xl leading-[1.15] text-foreground sm:text-4xl">
         {t('pricing.cta.title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
         {t('pricing.cta.subtitle')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
-          class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-background px-10 text-base font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-10 text-base font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('pricing.cta.primary')}
           <ArrowRight class="size-5" />

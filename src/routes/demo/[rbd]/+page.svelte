@@ -144,8 +144,8 @@
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png').addTo(mapInstance);
         const pinIcon = L.divIcon({
           className: 'ethoz-map-pin',
-          // lint-ok: Leaflet div-icon API requires hex literal in raw HTML string; keep in sync with the 8020 sky accent (#0495FE)
-          html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 32" width="28" height="36" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12c0 8.4 12 20 12 20s12-11.6 12-20C24 5.4 18.6 0 12 0z" fill="#0495FE"/><circle cx="12" cy="12" r="4.5" fill="#FFFFFF"/></svg>',
+          // lint-ok: Leaflet div-icon API requires hex literal in raw HTML string; keep in sync with --primary (#F97316)
+          html: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 32" width="28" height="36" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12c0 8.4 12 20 12 20s12-11.6 12-20C24 5.4 18.6 0 12 0z" fill="#F97316"/><circle cx="12" cy="12" r="4.5" fill="#FFFFFF"/></svg>',
           iconSize: [28, 36],
           iconAnchor: [14, 36],
         });
@@ -316,8 +316,9 @@
       {@const school = isManual ? null : schoolStore.selectedSchool}
       <div class="space-y-8">
         <div class="text-center">
-          <p class="mb-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('demo.step2.eyebrow')}</p>
-          <h1 class="text-2xl text-foreground">
+          <p class="page-eyebrow">{t('demo.step2.eyebrow')}</p>
+          <span class="page-title-rule" aria-hidden="true"></span>
+          <h1 class="page-title">
             {t('demo.step2.title')}
           </h1>
           <p class="mx-auto mt-3 max-w-md text-xs leading-relaxed text-muted-foreground">
@@ -326,7 +327,7 @@
           <a
             href="/demo"
             onclick={handleChangeSchool}
-            class="mt-3 inline-flex min-h-11 items-center gap-1 rounded-md px-2 text-sm text-primary-active transition-colors hover:bg-accent-tint hover:text-primary-active"
+            class="mt-3 inline-flex min-h-11 items-center gap-1 rounded-md px-2 text-sm text-primary-active transition-colors hover:bg-primary/10 hover:text-primary-active"
           >
             <ChevronLeft aria-hidden="true" class="size-4" />
             {t('demo.step2.change')}

@@ -153,8 +153,9 @@
   <div id="demo-search-main" class="mx-auto flex w-full max-w-xl flex-1 flex-col justify-center px-4 py-12 sm:py-16">
     <div class="space-y-6">
       <div class="text-center">
-        <p class="mb-3 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('demo.step1.eyebrow')}</p>
-        <h1 class="text-2xl text-foreground">
+        <p class="page-eyebrow">{t('demo.step1.eyebrow')}</p>
+        <span class="page-title-rule" aria-hidden="true"></span>
+        <h1 class="page-title">
           {t('demo.step1.title')}
         </h1>
         <p class="mt-2 text-sm text-muted-foreground">
@@ -331,7 +332,7 @@
       {/if}
 
       <!-- Network / corporation branch — quiet link, subordinate to the search flow -->
-      <div class="rounded-xl border border-hairline bg-card p-5 text-center">
+      <div class="rounded-xl border border-border bg-card p-5 text-center">
         <p class="text-sm text-muted-foreground">{t('demo.network_prompt')}</p>
         <a
           href="/contacto"

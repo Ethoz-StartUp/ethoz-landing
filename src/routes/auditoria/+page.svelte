@@ -1,7 +1,6 @@
 <script lang="ts">
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
-  import SectionDark from '$lib/components/cal/SectionDark.svelte';
   import { Button } from '$lib/components/ui/button';
   import { AUDIT_PRICE_DISPLAY, AUDIT_PRICE_DISPLAY_EN, AUDIT_PRICE_IS_PLACEHOLDER } from '$lib/data/claims';
   import { getLocale, t } from '$lib/i18n/index.svelte';
@@ -62,33 +61,33 @@
   <!-- Skip link — WCAG 2.4.1 Bypass Blocks -->
   <a
     href="#main-content"
-    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:border focus:border-foreground focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-foreground"
   >
     {t('nav.skip_to_content')}
   </a>
   <NavBar />
 
-  <main id="main-content">
+  <main id="main-content" class="flex flex-1 flex-col">
 
   <!-- ═══ Hero — the offer, its price frame, and one action ═══ -->
-  <section class="relative isolate overflow-hidden bg-background pt-24 sm:pt-28">
-    <div class="pointer-events-none absolute inset-0 bg-grid-fine opacity-70 [mask-image:linear-gradient(to_bottom,#000_0%,transparent_78%)]" aria-hidden="true"></div>
+  <section class="relative isolate overflow-hidden bg-background pt-24 sm:pt-28 lg:pt-32">
+    <div class="pointer-events-none absolute right-0 top-0 h-[420px] w-[420px] -translate-y-1/4 translate-x-1/4 rounded-full bg-primary/10 blur-[90px]" aria-hidden="true"></div>
 
-    <div class="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+    <div class="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
         <p class="eyebrow">{t('auditoria.eyebrow')}</p>
-        <h1 class="mt-4 text-balance text-foreground">{t('auditoria.title')}</h1>
-        <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-body">
+        <h1 class="page-title mt-4 text-balance">{t('auditoria.title')}</h1>
+        <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           {t('auditoria.subtitle')}
         </p>
 
         {#if AUDIT_PRICE_IS_PLACEHOLDER}
           <p class="mx-auto mt-8 max-w-md text-sm text-muted-foreground">{t('auditoria.price_tbd')}</p>
         {:else}
-          <div class="mx-auto mt-8 inline-flex flex-col items-center gap-2 rounded-xl border border-hairline bg-card px-8 py-5 shadow-card">
-            <p class="text-xs font-semibold uppercase text-muted-foreground">{t('auditoria.price_label')}</p>
-            <p data-numeric class="font-mono text-2xl font-semibold text-foreground sm:text-3xl">{priceDisplay}</p>
-            <p class="text-xs text-muted-foreground">{t('auditoria.price_note')}</p>
+          <div class="mx-auto mt-8 inline-flex flex-col items-center gap-2 rounded-2xl border border-foreground/10 bg-card px-8 py-5 shadow-card-dark">
+            <p class="text-xs font-semibold uppercase tracking-wider text-text-tertiary">{t('auditoria.price_label')}</p>
+            <p data-numeric class="font-heading text-2xl font-medium text-foreground sm:text-3xl">{priceDisplay}</p>
+            <p class="text-xs text-text-tertiary">{t('auditoria.price_note')}</p>
           </div>
         {/if}
 
@@ -115,7 +114,7 @@
   </section>
 
   <!-- ═══ What it includes — 4 deliverables ═══ -->
-  <section class="bg-secondary py-10 sm:py-12 lg:py-14" aria-labelledby="includes-heading">
+  <section class="section-editorial bg-card" aria-labelledby="includes-heading">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <p class="eyebrow mb-4">{t('auditoria.includes_eyebrow')}</p>
@@ -123,15 +122,15 @@
         <p class="mt-4 text-lg text-muted-foreground">{t('auditoria.includes_subtitle')}</p>
       </div>
 
-      <div class="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2">
+      <div class="mx-auto mt-6 sm:mt-8 grid max-w-5xl gap-3 sm:grid-cols-2">
         {#each includes as item (item.title)}
           {@const ItemIcon = item.icon}
-          <div class="rounded-xl border border-hairline bg-card p-6 shadow-card">
+          <div class="rounded-2xl border border-foreground/10 bg-background p-5 shadow-card-dark">
             <div class="flex items-center gap-3">
               <ItemIcon class="size-5 shrink-0 text-primary" />
-              <h3 class="font-heading text-xl leading-tight text-foreground">{t(item.title)}</h3>
+              <h3 class="font-heading text-lg leading-tight text-foreground">{t(item.title)}</h3>
             </div>
-            <p class="mt-3 text-sm leading-relaxed text-body">{t(item.desc)}</p>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t(item.desc)}</p>
           </div>
         {/each}
       </div>
@@ -139,22 +138,22 @@
   </section>
 
   <!-- ═══ Sample deliverable — mock report, fictional data ═══ -->
-  <section class="bg-dots-fine py-10 sm:py-12 lg:py-14" aria-labelledby="sample-heading">
+  <section class="section-editorial bg-background" aria-labelledby="sample-heading">
     <div class="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8">
       <div>
         <p class="eyebrow mb-4">{t('auditoria.sample_eyebrow')}</p>
         <h2 id="sample-heading" class="text-balance text-foreground">{t('auditoria.sample_title')}</h2>
-        <p class="mt-4 text-lg leading-relaxed text-body">{t('auditoria.sample_desc')}</p>
+        <p class="mt-4 text-lg leading-relaxed text-muted-foreground">{t('auditoria.sample_desc')}</p>
       </div>
 
-      <div class="overflow-hidden rounded-2xl border border-hairline bg-card shadow-mockup" aria-label={t('auditoria.mock_title')}>
-        <div class="flex items-center justify-between gap-4 border-b border-border bg-surface-soft px-4 py-3">
+      <div class="overflow-hidden rounded-2xl border border-foreground/10 bg-card shadow-mockup" aria-label={t('auditoria.mock_title')}>
+        <div class="flex items-center justify-between gap-4 border-b border-foreground/10 bg-surface-soft px-4 py-3">
           <p class="truncate text-sm font-semibold text-foreground">{t('auditoria.mock_title')}</p>
-          <span class="shrink-0 rounded-full border border-primary/20 bg-accent-tint px-2.5 py-1 text-xs font-semibold text-primary-active">
+          <span class="shrink-0 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary-active">
             {t('auditoria.mock_badge')}
           </span>
         </div>
-        <div class="divide-y divide-border">
+        <div class="divide-y divide-foreground/10">
           {#each mockRows as row (row.text)}
             <div class="flex items-start justify-between gap-4 px-4 py-3.5">
               <div class="flex items-start gap-3">
@@ -172,22 +171,22 @@
   </section>
 
   <!-- ═══ How it runs — 2 weeks, 3 milestones ═══ -->
-  <section class="py-10 sm:py-12 lg:py-14" aria-labelledby="timeline-heading">
+  <section class="section-editorial bg-background" aria-labelledby="timeline-heading">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <p class="eyebrow mb-4">{t('auditoria.timeline_eyebrow')}</p>
         <h2 id="timeline-heading" class="text-balance text-foreground">{t('auditoria.timeline_title')}</h2>
       </div>
 
-      <ol class="mx-auto mt-10 grid max-w-5xl gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border">
+      <ol class="mx-auto mt-8 grid max-w-5xl gap-6 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-foreground/10">
         {#each steps as step, i (step.title)}
-          <li class="px-0 sm:px-8">
-            <div class="flex items-baseline gap-4">
-              <span data-numeric class="text-4xl font-semibold leading-none text-foreground">0{i + 1}</span>
-              <span class="text-xs font-semibold uppercase text-muted-foreground">{t(step.label)}</span>
+          <li class="px-0 sm:px-6">
+            <div class="flex items-baseline gap-3">
+              <span data-numeric class="text-3xl font-medium leading-none text-foreground/30">0{i + 1}</span>
+              <span class="text-xs font-semibold uppercase tracking-wider text-text-tertiary">{t(step.label)}</span>
             </div>
-            <h3 class="mt-5 font-heading text-xl leading-tight text-foreground">{t(step.title)}</h3>
-            <p class="mt-3 text-sm leading-relaxed text-body">{t(step.desc)}</p>
+            <h3 class="mt-4 font-heading text-lg leading-tight text-foreground">{t(step.title)}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t(step.desc)}</p>
           </li>
         {/each}
       </ol>
@@ -195,7 +194,7 @@
   </section>
 
   <!-- ═══ Who it is for ═══ -->
-  <section class="border-y border-border bg-secondary py-10 sm:py-12" aria-labelledby="who-heading">
+  <section class="border-y border-foreground/5 bg-card py-8 sm:py-10" aria-labelledby="who-heading">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto grid max-w-5xl items-start gap-6 lg:grid-cols-[auto_minmax(0,1fr)] lg:gap-10">
         <div class="flex items-center gap-3">
@@ -203,36 +202,36 @@
           <p class="eyebrow">{t('auditoria.who_eyebrow')}</p>
         </div>
         <div>
-          <h2 id="who-heading" class="font-heading text-2xl leading-tight text-foreground sm:text-3xl">{t('auditoria.who_title')}</h2>
-          <p class="mt-3 max-w-2xl text-base leading-relaxed text-body">{t('auditoria.who_desc')}</p>
+          <h2 id="who-heading" class="font-heading text-2xl font-medium leading-tight text-foreground sm:text-3xl">{t('auditoria.who_title')}</h2>
+          <p class="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">{t('auditoria.who_desc')}</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ Closing CTA — dark band ═══ -->
-  <SectionDark variant="cta" id="cta" aria-labelledby="audit-cta-heading">
-    <div class="text-center">
-      <h2 id="audit-cta-heading" class="text-balance text-on-dark">{t('auditoria.final_title')}</h2>
-      <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-on-dark-soft">{t('auditoria.final_desc')}</p>
-      <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-        <Button
-          size="xl"
-          href="/agendar"
-          class="bg-on-dark text-surface-dark hover:bg-on-dark/90"
-          onclick={() => trackEvent('audit_cta_clicked', { location: 'final_cta' })}
-        >
-          {t('auditoria.cta_primary')}
-          <ArrowRight class="size-5" />
-        </Button>
+  <!-- ═══ Closing CTA ═══ -->
+  <section class="relative isolate overflow-hidden bg-background py-10 md:py-12" id="cta" aria-labelledby="audit-cta-heading">
+    <div class="pointer-events-none absolute inset-0 bg-primary/5 blur-[80px]" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-4xl text-center">
+        <h2 id="audit-cta-heading" class="text-balance text-foreground">{t('auditoria.final_title')}</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">{t('auditoria.final_desc')}</p>
+        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+          <Button
+            size="xl"
+            href="/agendar"
+            onclick={() => trackEvent('audit_cta_clicked', { location: 'final_cta' })}
+          >
+            {t('auditoria.cta_primary')}
+            <ArrowRight class="size-5" />
+          </Button>
+        </div>
+        <p class="mt-4 text-xs font-medium text-muted-foreground">{t('auditoria.cta_microcopy')}</p>
       </div>
-      <p class="mt-4 text-xs font-medium text-on-dark-soft">{t('auditoria.cta_microcopy')}</p>
     </div>
-  </SectionDark>
+  </section>
 
   </main>
 
-  <div class="bg-surface-dark">
-    <Footer />
-  </div>
+  <Footer />
 </div>

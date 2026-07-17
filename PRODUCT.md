@@ -21,22 +21,22 @@ Confidently engineered, operator-grade, fact-forward. Non-technical tone: a scho
 ## Anti-references
 
 - **Generic AI slop** — the #1 enemy. No cookie-cutter layouts, stock photography, identical card grids repeated 4+ times, template-with-logo-swapped feel.
-- Mid-page dark/inverted sections. The ONLY dark surfaces are the closing-CTA band + charcoal footer, stacked at page end (intentional sitewide pattern — never flag as defect).
-- Technical jargon in user-facing copy ("pgcrypto", "RLS" — /compliance only).
-- Data-dense dashboard feel (no Grafana vibes), cartoon edtech illustrations, gradients and glows (flat with soft warm shadows; glow reserved for the destructive safety signature).
-- Em/en-dashes in copy (8020 rule): commas, periods, or `a`/`to` ranges; `·` middot is the inline label separator.
+- Light sections or cream canvas. The entire site is dark (`#0A0A0A`); no cream, no warm-white cards, no mid-page light bands.
+- Technical jargon in user-facing copy ("pgcrypto", "RLS" — /cumplimiento and /seguridad-datos only).
+- Data-dense dashboard feel (no Grafana vibes), cartoon edtech illustrations, heavy gradients and glows (subtle amber glow reserved for the hero mockup only).
+- Em/en-dashes in copy (Launch UI rule): commas, periods, or `a`/`to` ranges; `·` middot is the inline label separator.
 
 ## Design Principles
 
 1. **Trust is the product.** Every band must read as institutional competence; nothing gimmicky, nothing broken.
-2. **One primary action per screen.** Sky blue is a precision cut, not a wash.
-3. **Fact-forward.** Real numbers (schools, fines, deadlines) beat adjectives. Numerals in JetBrains Mono.
+2. **One primary action per screen.** Amber is a precision cut, not a wash.
+3. **Fact-forward.** Real numbers (schools, fines, deadlines) beat adjectives.
 4. **Complement, never replace.** Positioning against ERPs is additive; copy that implies replacement is a defect.
 5. **Accessibility as foundation.** AAA 7:1 targets for body text; AA 4.5:1 minimum where the brand accent requires it; bilingual-first via `t()`.
 
 ## Accessibility & Inclusion
 
-WCAG AAA contrast targets for body text (charcoal `#1C1C1E` on cream = 16:1); AA 4.5:1 minimum for accent-colored text (`#0B72C4` on cream = 4.98:1 with white labels). Reduced-motion alternatives required for all animation. 44px minimum touch targets on mobile. All text through the `t()` i18n function (es/en). Enforced by 13 design lint scripts + `npm run audit:security`.
+WCAG AA minimum, AAA where feasible (foreground `#FAFAFA` on `#0A0A0A` exceeds AAA). Reduced-motion alternatives required for all animation. 44px minimum touch targets on mobile. All text through the `t()` i18n function (es/en). Enforced by design lint scripts + `npm run audit:security`.
 
 ## Design system source of truth
 

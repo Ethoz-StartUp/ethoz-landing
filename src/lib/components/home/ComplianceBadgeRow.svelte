@@ -36,7 +36,7 @@
 >
   {#each badges as badge (badge.label)}
     {@const BadgeIcon = badge.icon}
-    <li class="flex min-h-14 items-center gap-3 rounded-lg border border-hairline bg-card px-3 py-2.5">
+    <li class="flex min-h-14 items-center gap-3 rounded-lg border border-border bg-card px-3 py-2.5">
       <BadgeIcon class="size-4 shrink-0 text-primary" aria-hidden="true" />
       <div class="min-w-0 flex-1">
         <p class="text-xs font-semibold leading-tight text-foreground">{t(badge.label)}</p>

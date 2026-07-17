@@ -136,15 +136,15 @@
   <!-- HERO — editorial -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+      <p class="page-eyebrow">
         <span class="text-primary">{t('resources.free_badge')}</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{resources.length} {t('resources.hero_count_suffix')}</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('resources.hero_format')}</span>
       </p>
-      <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
-      <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
+      <span class="page-title-rule" aria-hidden="true"></span>
+      <h1 class="page-title">
         {t('resources.hero.title')}
       </h1>
       <p class="mt-8 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -157,7 +157,7 @@
   <section class="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8 sm:pb-24">
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {#each resources as resource, i}
-        <div class="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card hover:shadow-card-hover">
+        <div class="group flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-[160ms] hover:border-foreground hover:bg-muted/40 hover:-translate-y-[1px] shadow-card-dark hover:shadow-card-dark-hover">
           <div class="flex items-center justify-between">
             <span class="font-heading text-2xl leading-none text-primary tabular-nums group-hover:text-foreground" data-numeric>{(i + 1).toString().padStart(2, '0')}</span>
             <resource.icon class="size-4 shrink-0 text-primary" />
@@ -205,20 +205,20 @@
   </section>
 
   <!-- FINAL CTA — dark navy -->
-  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-resources">
+  <section class="bg-secondary py-20 text-foreground sm:py-24" aria-labelledby="final-cta-resources">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('resources.cta_eyebrow')}</p>
-      <h2 id="final-cta-resources" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
+      <span class="mx-auto block h-px w-12 bg-foreground/60" aria-hidden="true"></span>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-foreground/85">{t('resources.cta_eyebrow')}</p>
+      <h2 id="final-cta-resources" class="mt-5 font-heading text-3xl leading-[1.15] text-foreground sm:text-4xl">
         {t('resources.cta_title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
         {t('resources.cta_desc')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
-          class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-background px-10 text-base font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-10 text-base font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('resources.request_demo')}
           <ArrowRight class="size-5" />

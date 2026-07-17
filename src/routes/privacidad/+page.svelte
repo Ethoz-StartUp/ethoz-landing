@@ -64,7 +64,7 @@
         <p class="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-primary">
           {t('privacy.eyebrow')}
         </p>
-        <h1 class="mt-3 text-balance text-3xl font-bold text-foreground sm:text-4xl">
+        <h1 class="page-title">
           {t('privacy.title')}
         </h1>
         <p class="mt-3 text-sm text-muted-foreground">{t('privacy.updated')}</p>
@@ -73,7 +73,7 @@
         </p>
       </header>
 
-      <div class="mt-12 divide-y divide-hairline border-y border-hairline">
+      <div class="mt-12 divide-y divide-hairline border-y border-border">
         <section class="py-8" aria-labelledby="privacy-scope">
           <h2 id="privacy-scope" class="text-xl font-bold text-foreground">
             {t('privacy.scope.title')}
@@ -107,7 +107,7 @@
               {t('privacy.data.preferences_body')}
             </li>
           </ul>
-          <p class="mt-4 rounded-lg border border-hairline bg-surface-soft p-4 text-sm leading-relaxed text-foreground">
+          <p class="mt-4 rounded-lg border border-border bg-surface-elevated p-4 text-sm leading-relaxed text-foreground">
             {t('privacy.data.student_notice')}
           </p>
         </section>

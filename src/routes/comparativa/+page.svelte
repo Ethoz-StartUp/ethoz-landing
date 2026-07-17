@@ -118,13 +118,13 @@
   <!-- ══════════════════════════════════════
        HERO
        ══════════════════════════════════════ -->
-  <section class="pt-24 pb-10 sm:pt-28 sm:pb-12 bg-secondary">
+  <section class="pt-20 pb-8 sm:pt-24 sm:pb-10 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary shadow-sm">
         <Scale class="size-3.5" />
         {t('comparativa.hero_eyebrow')}
       </div>
-      <h1 class="text-foreground">
+      <h1 class="page-title">
         {t('comparativa.hero_title')}
       </h1>
       <p class="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl">
@@ -276,7 +276,7 @@
   <!-- ══════════════════════════════════════
        POSITIONING CARDS
        ══════════════════════════════════════ -->
-  <section class="py-12 sm:py-14 bg-secondary">
+  <section class="py-10 sm:py-12 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('comparativa.positioning_eyebrow')}</p>
@@ -331,7 +331,7 @@
   <!-- ══════════════════════════════════════
        RISK CALLOUT
        ══════════════════════════════════════ -->
-  <section class="py-12 sm:py-14 bg-background">
+  <section class="py-10 sm:py-12 bg-background">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="rounded-xl border border-border bg-card p-8 shadow-sm">
         <div class="grid gap-8 sm:grid-cols-3 text-center">
@@ -358,7 +358,7 @@
   <!-- ══════════════════════════════════════
        CTA
        ══════════════════════════════════════ -->
-  <section class="py-12 sm:py-14 bg-secondary">
+  <section class="py-10 sm:py-12 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <Lock class="mx-auto size-10 text-primary mb-4" />
       <h2 class="text-3xl text-foreground sm:text-4xl">

@@ -100,7 +100,7 @@
   <!-- HERO -->
   <section class="pt-24 pb-12 sm:pt-28 sm:pb-16">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+      <p class="page-eyebrow">
         <span class="text-primary">{t('seguridadDatos.hero_eyebrow_doc')}</span>
         <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
         <span>{t('seguridadDatos.hero_eyebrow_topic')}</span>
@@ -108,9 +108,9 @@
         <span>{t('seguridadDatos.hero_eyebrow_reading_time')}</span>
       </p>
 
-      <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
+      <span class="page-title-rule" aria-hidden="true"></span>
 
-      <h1 class="mt-6 font-heading leading-[1.15] text-foreground">
+      <h1 class="page-title">
         {t('seguridadDatos.hero_title')}
       </h1>
 
@@ -405,26 +405,26 @@
   </div>
 
   <!-- FINAL CTA -->
-  <section class="bg-foreground py-20 text-background sm:py-24" aria-labelledby="final-cta-sec">
+  <section class="bg-secondary py-20 text-foreground sm:py-24" aria-labelledby="final-cta-sec">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <span class="mx-auto block h-px w-12 bg-background/60" aria-hidden="true"></span>
-      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-background/85">{t('seguridadDatos.cta_eyebrow')}</p>
-      <h2 id="final-cta-sec" class="mt-5 font-heading text-3xl leading-[1.15] text-background sm:text-4xl">
+      <span class="mx-auto block h-px w-12 bg-foreground/60" aria-hidden="true"></span>
+      <p class="mt-6 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-foreground/85">{t('seguridadDatos.cta_eyebrow')}</p>
+      <h2 id="final-cta-sec" class="mt-5 font-heading text-3xl leading-[1.15] text-foreground sm:text-4xl">
         {t('seguridadDatos.cta_title')}
       </h2>
-      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-background/80">
+      <p class="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80">
         {t('seguridadDatos.cta_body')}
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href="/demo"
-          class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-background px-10 text-base font-semibold text-foreground transition-colors hover:bg-background/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-background focus-visible:ring-offset-2 focus-visible:ring-offset-foreground"
+          class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-10 text-base font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('seguridadDatos.cta_primary')}
           <ArrowRight class="size-5" />
         </a>
-        <a href="/ley-21719" class="group inline-flex min-h-11 items-center gap-1 text-sm font-medium text-background/80 transition-colors hover:text-background">
-          <span class="border-b border-background/60 pb-0.5 transition-colors group-hover:border-background">{t('seguridadDatos.cta_secondary')}</span>
+        <a href="/ley-21719" class="group inline-flex min-h-11 items-center gap-1 text-sm font-medium text-foreground/80 transition-colors hover:text-foreground">
+          <span class="border-b border-foreground/60 pb-0.5 transition-colors group-hover:border-foreground">{t('seguridadDatos.cta_secondary')}</span>
         </a>
       </div>
     </div>

@@ -562,7 +562,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    font-family: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     cursor: default;
     z-index: 9999;
@@ -1284,7 +1284,7 @@
 
   .ctrl-btn:hover {
     color: var(--foreground);
-    background: var(--surface-soft);
+    background: var(--surface-elevated);
   }
 
   .ctrl-btn:disabled {

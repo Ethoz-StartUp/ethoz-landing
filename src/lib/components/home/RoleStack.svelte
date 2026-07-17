@@ -16,7 +16,7 @@
     {#each roles as role (role.label)}
       {@const RoleIcon = role.icon}
       <li
-        class="relative flex size-11 items-center justify-center rounded-full border-2 border-background bg-card text-primary shadow-card"
+        class="relative flex size-11 items-center justify-center rounded-full border-2 border-background bg-card text-primary shadow-card-dark"
       >
         <RoleIcon class="size-4" aria-hidden="true" />
         <span class="sr-only">{t(role.label)}</span>

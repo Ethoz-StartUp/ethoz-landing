@@ -166,6 +166,12 @@
       "source": "pbakaus/impeccable",
       "sourceType": "github",
       "computedHash": "0259de15644a89550cfd6a936a8e1866dcb35d20ccc96197614459233a9bcdb3"
+    },
+    "ui-audit": {
+      "source": "tommygeoco/ui-audit",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "cf53de4598949aa0ee85a843a5bc29b017cf2785f1211c851dbf5226ea51bacd"
     }
   }
 }

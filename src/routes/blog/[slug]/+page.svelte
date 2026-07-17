@@ -72,7 +72,7 @@
   <main id="main-content" class="flex-1">
 
   <!-- Article -->
-  <article class="mx-auto flex-1 max-w-7xl px-4 pt-28 pb-12 sm:pt-32 sm:pb-16">
+  <article class="mx-auto flex-1 max-w-7xl px-4 pt-28 pb-10 sm:pt-32 sm:pb-12">
     <!-- Header -->
     <header class="mb-10">
       <div class="mb-5 flex flex-wrap gap-2">
@@ -81,7 +81,7 @@
         {/each}
       </div>
 
-      <h1 class="font-heading text-balance text-3xl text-foreground sm:text-4xl lg:text-5xl">
+      <h1 class="page-title">
         {post.title}
       </h1>
 

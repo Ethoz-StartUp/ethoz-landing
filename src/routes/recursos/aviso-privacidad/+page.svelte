@@ -65,15 +65,15 @@
 
   <div class="mx-auto max-w-7xl px-4 py-10 sm:py-14">
     <div class="mb-12 border-b border-border pb-10">
-      <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground print:hidden">
+      <p class="page-eyebrow print:hidden">
         <span class="text-primary">{t('resPrivacyNotice.eyebrow_category')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('resPrivacyNotice.eyebrow_article')}</span>
         <span aria-hidden="true" class="text-border">·</span>
         <span>{t('resPrivacyNotice.eyebrow_sections')}</span>
       </p>
-      <span class="mt-5 block h-px w-12 bg-foreground print:hidden" aria-hidden="true"></span>
-      <h1 class="mt-5 font-heading leading-[1.15] text-foreground">{t('resPrivacyNotice.page_title')}</h1>
+      <span class="page-title-rule print:hidden" aria-hidden="true"></span>
+      <h1 class="page-title">{t('resPrivacyNotice.page_title')}</h1>
       <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground">{t('resPrivacyNotice.intro_before_brackets')} <span class="font-medium text-primary">{t('resPrivacyNotice.intro_brackets')}</span> {t('resPrivacyNotice.intro_after_brackets')}</p>
       <p class="mt-4 text-xs text-muted-foreground">{t('resPrivacyNotice.attribution')}</p>
     </div>

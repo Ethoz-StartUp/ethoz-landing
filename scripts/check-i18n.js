@@ -128,7 +128,7 @@ for (const f of files) {
 // mock demo data (sample student/teacher names, grades, timestamps), technical identifiers
 // (TLS 1.3, RLS Postgres, product names), units/numbers, and regex false-positives on inline
 // JS expressions. Real UI copy is fully extracted to t(). Gated in test:ci to block regression.
-const BASELINE = 52;
+const BASELINE = 50;
 
 console.log(`\n  Found: ${totalIssues} hardcoded string(s) in ${filesWithIssues} file(s) (baseline: ${BASELINE})`);
 console.log(`  Scanned ${files.length} .svelte files\n`);

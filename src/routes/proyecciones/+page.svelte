@@ -111,13 +111,13 @@
   <!-- ══════════════════════════════════════
        HERO
        ══════════════════════════════════════ -->
-  <section class="pt-24 pb-10 sm:pt-28 sm:pb-12 bg-secondary">
+  <section class="pt-20 pb-8 sm:pt-24 sm:pb-10 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary shadow-sm">
         <TrendingDown class="size-3.5" />
         {t('proyecciones.hero_eyebrow')}
       </div>
-      <h1 class="text-foreground">
+      <h1 class="page-title">
         {t('proyecciones.hero_title')}
       </h1>
       <p class="mt-3 text-xl font-semibold text-primary">{t('proyecciones.hero_subtitle')}</p>
@@ -147,7 +147,7 @@
   <!-- ══════════════════════════════════════
        PROJECTION CARDS
        ══════════════════════════════════════ -->
-  <section class="py-12 sm:py-14 bg-background">
+  <section class="py-10 sm:py-12 bg-background">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-12 text-center">
         <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('proyecciones.metrics_eyebrow')}</p>
@@ -197,7 +197,7 @@
   <!-- ══════════════════════════════════════
        SCENARIO TABLE
        ══════════════════════════════════════ -->
-  <section class="py-12 sm:py-14 bg-secondary">
+  <section class="py-10 sm:py-12 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mb-10 text-center">
         <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('proyecciones.scenario_eyebrow')}</p>
@@ -254,7 +254,7 @@
   <!-- ══════════════════════════════════════
        CTA
        ══════════════════════════════════════ -->
-  <section class="py-12 sm:py-14 bg-secondary">
+  <section class="py-10 sm:py-12 bg-secondary">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <h2 class="text-3xl text-foreground sm:text-4xl">
         {t('proyecciones.cta_title')}

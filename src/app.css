@@ -1,349 +1,172 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Inter Variable";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url("../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: "DM Sans Variable";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 1000;
-  src: url("../node_modules/@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: "JetBrains Mono Variable";
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 800;
-  src: url("../node_modules/@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2") format("woff2-variations");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
 /*
  * ──────────────────────────────────────────
- * Ethoz Landing — 8020 design system (sky-blue vertical)
+ * Ethoz Landing — Launch UI light warm professional aesthetic
  *
- * Source of truth: 8020IQ Brand Guide v1.1 (June 2026).
- * Spine: Cream #FAF8F5 + Charcoal #18181B. Accent: Sky Blue #0495FE.
- * Type: DM Sans (display) / Inter (body, UI) / JetBrains Mono (data, eyebrows).
+ * Light-first system: warm off-white canvas, clean white cards, amber accent,
+ * solid amber primary CTA, Apple-like system typography throughout. Designed for
+ * conservative institutional buyers (school directors, sostenedores) who
+ * value trust, clarity, and credibility over dark-mode tech flashiness.
  *
- * Accent contrast policy:
- *  - --primary (#0B72C4) is the accessible sky used for TEXT, links, eyebrows,
- *    primary buttons (white label = 4.98:1 AA). The "workhorse" accent token.
- *  - --accent-bright (#0495FE) is the exact brand swatch, reserved for
- *    NON-text uses: fills, progress bars, large display accent words, icons,
- *    the logo, dark-mode accent. (3:1 large/UI is sufficient there.)
- *  - Primary body text is #1C1C1E (AAA 16:1 on cream). Secondary #636366 (AA).
- *
- * Hard rules (lint-enforced):
+ * Hard rules:
  *  - NO hardcoded hex/rgb/hsl in component files. Always reference a token.
- *  - NO hardcoded font-family. Use --font-sans / --font-heading / --font-mono.
+ *  - NO hardcoded font-family. Use --font-sans / --font-heading.
  *  - NO arbitrary radii or spacing. Use the radius / spacing scale.
- *  - NO em-dashes or en-dashes in copy (8020 rule). Use commas / "to" ranges.
- *
- * Radius (8020 §10): 16 cards, 12 buttons, 10 inputs, pill for chips.
- * Shadow (8020 §10): soft + warm, never hard gray-blue.
- *
- * Theme switching:
- *  - Cream-first. Charcoal dark mode for impact bands + premium surfaces.
- *  - Override: <html data-theme="light"> or <html data-theme="dark">.
  * ──────────────────────────────────────────
  */
 
 @theme inline {
-  /* ─── Colors — 8020 tokens ─── */
-  --color-canvas: var(--canvas);
-  --color-bg-default: var(--bg-default);
-  --color-bg-emphasis: var(--bg-emphasis);
-  --color-bg-subtle: var(--bg-subtle);
-  --color-bg-muted: var(--bg-muted);
-  --color-bg-inverted: var(--bg-inverted);
-
-  --color-surface-soft: var(--surface-soft);
-  --color-surface-card: var(--surface-card);
-  --color-surface-card-cal: var(--surface-card);
-  --color-surface-strong: var(--surface-strong);
-  --color-surface-dark: var(--surface-dark);
-  --color-surface-dark-elevated: var(--surface-dark-elevated);
-
-  --color-ink: var(--ink);
-  --color-body: var(--body);
-  --color-muted-text: var(--muted-text);
-  --color-muted-soft: var(--muted-soft);
-  --color-on-primary: var(--on-primary);
-  --color-on-dark: var(--on-dark);
-  --color-on-dark-soft: var(--on-dark-soft);
-
-  --color-hairline: var(--hairline);
-  --color-hairline-soft: var(--hairline-soft);
-
+  /* ─── Colors — Launch UI light warm tokens ─── */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
   --color-primary-active: var(--primary-active);
-  --color-primary-disabled: var(--primary-disabled);
-  --color-brand-accent: var(--brand-accent);
-  --color-accent-bright: var(--accent-bright);
-  --color-accent-tint: var(--accent-tint);
-
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-body: var(--foreground);
+  --color-ink: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-error: var(--error);
 
-  --color-badge-orange: var(--badge-orange);
-  --color-badge-pink: var(--badge-pink);
-  --color-badge-violet: var(--badge-violet);
-  --color-badge-emerald: var(--badge-emerald);
+  /* Launch UI specific */
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-card: var(--surface-card);
+  --color-surface-card-hover: var(--surface-card-hover);
+  --color-surface-dark: var(--foreground);
+  --color-surface-border: var(--surface-border);
+  --color-surface-border-strong: var(--surface-border-strong);
+  --color-surface-soft: var(--surface-elevated);
+  --color-hairline: var(--surface-border);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-cta-gradient-from: var(--cta-gradient-from);
+  --color-cta-gradient-to: var(--cta-gradient-to);
+  --color-cta-text: var(--cta-text);
+  --color-primary-glow: var(--primary-glow);
+  --color-primary-glow-strong: var(--primary-glow-strong);
 
-  /* ─── shadcn / legacy aliases (mapped to 8020 tokens) ─── */
-  --color-background: var(--bg-default);
-  --color-foreground: var(--ink);
-  --color-card: var(--card);
-  --color-card-foreground: var(--ink);
-  --color-popover: var(--card);
-  --color-popover-foreground: var(--ink);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--ink);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--ink);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-row-hover: var(--row-hover);
-  --color-overlay: var(--overlay);
-  --color-skeleton: var(--skeleton);
-  --color-titanium: var(--titanium);
-  --color-titanium-foreground: var(--titanium-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-danger: var(--danger);
-  --color-danger-foreground: var(--danger-foreground);
-  --color-warning-foreground: var(--warning-foreground);
-  --color-warning-text: var(--warning-text);
-  --color-error-text: var(--error-text);
-  --color-success-foreground: var(--success-foreground);
-  --color-info: var(--info);
-  --color-info-foreground: var(--info-foreground);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary-ink: var(--primary-ink);
-  --color-primary-hover: var(--primary-hover);
-  --color-primary-pressed: var(--primary-pressed);
+  /* ─── Typography ─── */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-sans);
 
-  /* ─── Legacy bridge aliases (legacy — being retired) ─── */
-  --color-canvas-elevated: var(--canvas-elevated);
-  --color-canvas-strong: var(--canvas-strong);
-  --color-ink-soft: var(--ink-soft);
-  --color-hairline-warm: var(--hairline-warm);
-  --color-hairline-warm-soft: var(--hairline-warm-soft);
-  --color-section-navy: var(--section-navy);
-  --color-on-navy: var(--on-navy);
-  --color-on-navy-soft: var(--on-navy-soft);
-  --color-on-navy-mustard: var(--on-navy-mustard);
-  --color-accent-mustard: var(--accent-mustard);
-  --color-accent-mustard-ink: var(--accent-mustard-ink);
-
-  /* ─── Sidebar (admin) ─── */
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-
-  /* ─── Platform brand (external identities — do not retoken) ─── */
-  --color-brand-linkedin: #0A66C2;
-  --color-brand-facebook: #1877F2;
-  --color-brand-instagram: #E1306C;
-  --color-brand-youtube: #FF0000;
-
-  /* ─── Typography (8020 §08) ─── */
-  --font-sans: "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "DM Sans Variable", "DM Sans", "Inter Variable", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
-
-  /* ─── Product-mockup micro type ───
-     Sub-12px sizes used ONLY inside decorative product-UI mockups embedded in marketing
-     cards (miniature app chrome — labels, table cells, badges). Tokenized so the miniature
-     scale stays consistent and lint-arbitrary-text-px.sh can block raw text-[Npx] drift.
-     NOT for real body copy (would fail WCAG minimum readable size). */
+  /* ─── Product-mockup micro type ─── */
   --text-mockup-3xs: 8px;
   --text-mockup-2xs: 9px;
   --text-mockup-xs: 10px;
   --text-mockup-sm: 11px;
 
-  /* ─── Radii — 8020 §10: 16 cards, 12 buttons, 10 inputs, pill chips.
-     Mapped to existing utility usage: rounded-md=buttons(12), rounded-lg=inputs/medium(10),
-     rounded-xl=cards(16), rounded-2xl=hero(20). ─── */
+  /* ─── Radii ─── */
   --radius-xs: 4px;
   --radius-sm: 6px;
-  --radius-md: 12px;   /* buttons (button.svelte base = rounded-md) */
-  --radius-lg: 10px;   /* inputs + medium elements (input.svelte = rounded-lg) */
-  --radius-xl: 16px;   /* cards (rounded-xl) */
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
   --radius-pill: 9999px;
   --radius-full: 9999px;
-  /* shadcn aliases */
-  --radius-2xl: 20px;  /* hero mockup card */
-  --radius-3xl: 24px;
-
-  /* ─── Spacing (DESIGN.md.spacing — 4px base) ─── */
-  --spacing-cal-xxs: 4px;
-  --spacing-cal-xs: 8px;
-  --spacing-cal-sm: 12px;
-  --spacing-cal-md: 16px;
-  --spacing-cal-lg: 24px;
-  --spacing-cal-xl: 32px;
-  --spacing-cal-xxl: 48px;
-  --spacing-cal-section: 96px;
 }
 
 /* ─────────────────────────────────────────
- * LIGHT MODE — 8020 cream spine
+ * LIGHT THEME — Launch UI warm professional
  * ───────────────────────────────────────── */
 :root,
 [data-theme="light"] {
-  /* Canvas + surfaces — cream spine (8020 §06) */
-  --canvas: #faf8f5;            /* Cream — master background */
-  --bg-default: #faf8f5;        /* Cream */
-  --bg-emphasis: #e8e4de;       /* Border / quiet emphasis fill */
-  --bg-subtle: #f5f3ef;         /* Warm white */
-  --bg-muted: #f5f3ef;          /* Warm white */
-  --bg-inverted: #18181b;       /* Charcoal */
-  --surface-soft: #f5f3ef;      /* Warm white — alternating rows, soft panels */
-  --surface-card: #f5f3ef;      /* Warm white — card backgrounds on cream */
-  --surface-strong: #ddd7ce;    /* Border strong */
-  --surface-dark: #18181b;      /* Charcoal — footer, dark CTA bands */
-  --surface-dark-elevated: #2c2c2e; /* Titanium — raised on charcoal */
-  --card: #f5f3ef;              /* Warm white (never pure white on cream, 8020 §07) */
+  /* Canvas + surfaces */
+  --background: #fafaf9;
+  --foreground: #1c1917;
+  --card: #ffffff;
+  --card-foreground: #1c1917;
+  --popover: #ffffff;
+  --popover-foreground: #1c1917;
 
-  /* Text — iOS warm grays (8020 §06b) */
-  --ink: #1c1c1e;              /* Text primary — AAA 16:1 on cream */
-  --body: #1c1c1e;            /* Body = primary readable copy (8020 §06b) */
-  --muted-text: #636366;     /* Text secondary — labels, captions, footnotes (AA on cream) */
-  --muted-soft: #8e8e93;     /* Text tertiary — hint, disabled, deep footer */
-  --on-primary: #ffffff;     /* White on sky-blue primary (4.98:1 AA) */
-  --on-dark: #faf8f5;        /* Warm white on charcoal */
-  --on-dark-soft: rgba(255, 255, 255, 0.62); /* Secondary text on charcoal */
+  /* Institutional blue accent */
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+  --primary-hover: #1d4ed8;
+  --primary-active: #1e40af;
+
+  /* Secondary / muted */
+  --secondary: #f5f5f4;
+  --secondary-foreground: #44403c;
+  --muted: #f5f5f4;
+  --muted-foreground: #78716c;
+  --accent: #f5f5f4;
+  --accent-foreground: #44403c;
 
   /* Borders */
-  --hairline: #e8e4de;       /* Standard separator (8020 §06b) */
-  --hairline-soft: #efebe4;  /* Lighter divider */
-
-  /* Primary = accessible sky blue (text/buttons/links). Brand swatch #0495FE in --accent-bright. */
-  --primary: #0b72c4;        /* Sky blue, deepened for AA text/buttons (white = 4.98:1) */
-  --primary-active: #095c9e;
-  --primary-disabled: #cfe4f4;
-  --primary-foreground: #ffffff;
-  --primary-ink: #0b72c4;
-  --primary-hover: #095c9e;
-  --primary-pressed: #074b82;
-  --brand-accent: #0495fe;   /* Exact 8020 sky-blue swatch */
-  --accent-bright: #0495fe;  /* Non-text uses: fills, progress, large display, icons, logo */
-  --accent-tint: rgba(4, 149, 254, 0.10); /* Sky pill / chip background */
+  --border: #e7e5e4;
+  --input: #e7e5e4;
+  --ring: #2563eb;
 
   /* Semantic */
-  --success: #10b981;        /* Emerald (8020 success) */
-  --warning: #f59e0b;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --success: #16a34a;
+  --warning: #d97706;
   --error: #ef4444;
-  --error-text: #b91c1c;     /* Red deepened for TEXT on cream (~6.1:1); fills/dots keep --error */
-  --warning-text: #b45309;   /* Amber deepened for TEXT on cream (~4.7:1); fills/dots keep --warning */
 
-  /* Pastel badges (metadata only — never CTAs) */
-  --badge-orange: #fb923c;
-  --badge-pink: #ec4899;
-  --badge-violet: #8b5cf6;
-  --badge-emerald: #34d399;
+  /* Launch UI specific */
+  --surface: #fafaf9;
+  --surface-elevated: #ffffff;
+  --surface-soft: var(--surface-elevated);
+  --surface-card: #ffffff;
+  --surface-card-hover: #f5f5f4;
+  --surface-border: #e7e5e4;
+  --surface-border-strong: #d6d3d1;
+  --text-primary: #1c1917;
+  --text-secondary: #78716c;
+  --text-tertiary: #a8a29e;
+  --warning-text: #b45309;
+  --muted-soft: #a8a29e;
+  --overlay: rgba(0, 0, 0, 0.5);
+  --cta-gradient-from: #2563eb;
+  --cta-gradient-to: #1d4ed8;
+  --cta-text: #ffffff;
+  --primary-glow: rgba(37, 99, 235, 0.08);
+  --primary-glow-strong: rgba(37, 99, 235, 0.15);
 
-  --overlay: rgba(24, 24, 27, 0.60);
-
-  /* shadcn aliases */
-  --background: var(--bg-default);
-  --foreground: var(--ink);
-  --card-foreground: var(--ink);
-  --popover: var(--card);
-  --popover-foreground: var(--ink);
-  --muted: var(--surface-soft);
-  --muted-foreground: var(--muted-text);
-  --secondary: var(--surface-soft);
-  --secondary-foreground: var(--ink);
-  --accent: var(--surface-soft);
-  --accent-foreground: var(--ink);
-  --border: var(--hairline);
-  --input: var(--hairline);
-  --ring: var(--primary);
-  --row-hover: var(--surface-soft);
-  --skeleton: var(--bg-subtle);
-
-  --titanium: var(--surface-dark);
-  --titanium-foreground: var(--on-dark);
-  --destructive: var(--error);
-  --destructive-foreground: var(--on-primary);
-  --danger: var(--error);
-  --danger-foreground: var(--on-primary);
-  --warning-foreground: var(--ink);
-  --success-foreground: var(--on-primary);
-  --info: var(--primary);
-  --info-foreground: var(--on-primary);
-
-  --sidebar: var(--surface-soft);
-  --sidebar-foreground: var(--ink);
-  --sidebar-accent: var(--surface-card);
-  --sidebar-accent-foreground: var(--ink);
-  --sidebar-border: var(--hairline);
-  --sidebar-ring: var(--primary);
-  --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: var(--on-primary);
-
-  /* Legacy bridge aliases (legacy — being retired component-by-component) */
-  --canvas-elevated: var(--surface-soft);
-  --canvas-strong: var(--surface-card);
-  --ink-soft: var(--body);
-  --hairline-warm: var(--hairline);
-  --hairline-warm-soft: var(--hairline-soft);
-  --section-navy: var(--surface-dark);
-  --on-navy: var(--on-dark);
-  --on-navy-soft: var(--on-dark-soft);
-  --on-navy-mustard: var(--badge-orange);
-  --accent-mustard: var(--badge-orange);
-  --accent-mustard-ink: var(--ink);
-
-  /* Typography scale. Fixed per breakpoint, no viewport-width font scaling. */
-  --fs-display-xl: 44px;
-  --fs-display-lg: 36px;
-  --fs-display-md: 28px;
-  --fs-display-sm: 24px;
-  --fs-title-lg: 22px;
-  --fs-title-md: 18px;
-  --fs-title-sm: 16px;
+  /* Typography scale */
+  --fs-display-xl: 32px;
+  --fs-display-lg: 26px;
+  --fs-display-md: 22px;
+  --fs-display-sm: 18px;
+  --fs-title-lg: 20px;
+  --fs-title-md: 17px;
+  --fs-title-sm: 15px;
   --fs-body: 16px;
   --fs-body-sm: 14px;
   --fs-caption: 13px;
   --fs-button: 14px;
   --fs-nav-link: 14px;
-  /* legacy aliases */
-  --fs-display-1: var(--fs-display-xl);
-  --fs-display-2: var(--fs-display-lg);
-  --fs-h1: var(--fs-display-md);
-  --fs-h2: var(--fs-display-sm);
-  --fs-lead: var(--fs-title-lg);
-  --fs-eyebrow: var(--fs-caption);
 
-  /* Tracking stays neutral for legibility across Spanish copy and mobile. */
-  --tracking-display-xl: 0;
-  --tracking-display-lg: 0;
-  --tracking-display-md: 0;
-  --tracking-display-sm: 0;
-  --tracking-eyebrow: 0;
-  --tracking-caps: 0;
+  /* Tracking */
+  --tracking-display-xl: -0.02em;
+  --tracking-display-lg: -0.02em;
+  --tracking-display-md: -0.01em;
+  --tracking-display-sm: -0.01em;
+  --tracking-eyebrow: 0.05em;
+  --tracking-caps: 0.05em;
 
   /* Motion */
   --ease-standard: cubic-bezier(0.2, 0, 0.2, 1);
@@ -356,131 +179,20 @@
 
 @media (min-width: 640px) {
   :root {
-    --fs-display-xl: 56px;
-    --fs-display-lg: 44px;
-    --fs-display-md: 32px;
-    --fs-display-sm: 26px;
+    --fs-display-xl: 48px;
+    --fs-display-lg: 38px;
+    --fs-display-md: 28px;
+    --fs-display-sm: 24px;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --fs-display-xl: 64px;
+    --fs-display-xl: 60px;
     --fs-display-lg: 48px;
-    --fs-display-md: 36px;
-    --fs-display-sm: 28px;
+    --fs-display-md: 32px;
+    --fs-display-sm: 26px;
   }
-}
-
-/* ─────────────────────────────────────────
- * DARK MODE — 8020 charcoal + titanium ramp
- * Source: github.com/calcom/cal.com packages/config/theme/tokens.css (HSLA → hex)
- * ───────────────────────────────────────── */
-[data-theme="dark"] {
-  /* Canvas + surfaces — charcoal + titanium ramp (8020 §06b) */
-  --canvas: #18181b;            /* Charcoal — dark floor */
-  --bg-default: #18181b;
-  --bg-emphasis: #3a3a3c;       /* Titanium mid */
-  --bg-subtle: #2c2c2e;         /* Titanium */
-  --bg-muted: #2c2c2e;          /* Titanium */
-  --bg-inverted: #faf8f5;
-  --surface-soft: #2c2c2e;      /* Titanium — card / panel */
-  --surface-card: #2c2c2e;      /* Titanium */
-  --surface-strong: #48484a;    /* Titanium light — strongest edge */
-  --surface-dark: #18181b;
-  --surface-dark-elevated: #2c2c2e;
-  --card: #2c2c2e;              /* Titanium card on charcoal */
-
-  /* Text */
-  --ink: #faf8f5;              /* Warm white */
-  --body: #e4e4e7;
-  --muted-text: rgba(255, 255, 255, 0.62); /* Secondary on charcoal */
-  --muted-soft: rgba(255, 255, 255, 0.40);
-  --on-primary: #06243b;       /* Dark ink on light-sky button */
-  --on-dark: #faf8f5;
-  --on-dark-soft: rgba(255, 255, 255, 0.62);
-
-  /* Borders */
-  --hairline: #48484a;         /* Titanium light */
-  --hairline-soft: rgba(255, 255, 255, 0.08); /* White 8% */
-
-  /* Primary = lighter sky on charcoal (8020: use lighter accent variant in dark) */
-  --primary: #38a8ff;
-  --primary-active: #5bb8ff;
-  --primary-disabled: #2c4a5e;
-  --primary-foreground: #06243b;
-  --primary-ink: #38a8ff;
-  --primary-hover: #5bb8ff;
-  --primary-pressed: #1f8fe6;
-  --brand-accent: #38a8ff;
-  --accent-bright: #38a8ff;    /* Sky pops harder on charcoal */
-  --accent-tint: rgba(56, 168, 255, 0.14);
-
-  /* Semantic (lifted lightness for dark contrast) */
-  --success: #34d399;
-  --warning: #fbbf24;
-  --error: #f87171;
-  --error-text: var(--error);     /* lifted red is already text-safe on charcoal */
-  --warning-text: var(--warning); /* lifted amber is already text-safe on charcoal */
-
-  /* Pastel badges hold value */
-  --badge-orange: #fb923c;
-  --badge-pink: #ec4899;
-  --badge-violet: #a78bfa;
-  --badge-emerald: #34d399;
-
-  --overlay: rgba(0, 0, 0, 0.75);
-
-  /* shadcn aliases (dark) */
-  --background: var(--bg-default);
-  --foreground: var(--ink);
-  --card-foreground: var(--ink);
-  --popover: var(--card);
-  --popover-foreground: var(--ink);
-  --muted: var(--surface-soft);
-  --muted-foreground: var(--muted-text);
-  --secondary: var(--surface-soft);
-  --secondary-foreground: var(--ink);
-  --accent: var(--surface-soft);
-  --accent-foreground: var(--ink);
-  --border: var(--hairline);
-  --input: var(--hairline);
-  --ring: var(--primary);
-  --row-hover: var(--surface-soft);
-  --skeleton: var(--bg-subtle);
-
-  --titanium: var(--surface-dark);
-  --titanium-foreground: var(--on-dark);
-  --destructive: var(--error);
-  --destructive-foreground: var(--on-primary);
-  --danger: var(--error);
-  --danger-foreground: var(--on-primary);
-  --warning-foreground: var(--ink);
-  --success-foreground: var(--ink);
-  --info: var(--primary);
-  --info-foreground: var(--on-primary);
-
-  --sidebar: var(--surface-soft);
-  --sidebar-foreground: var(--ink);
-  --sidebar-accent: var(--surface-card);
-  --sidebar-accent-foreground: var(--ink);
-  --sidebar-border: var(--hairline);
-  --sidebar-ring: var(--primary);
-  --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: var(--on-primary);
-
-  /* Legacy bridge aliases (dark) */
-  --canvas-elevated: var(--surface-soft);
-  --canvas-strong: var(--surface-card);
-  --ink-soft: var(--body);
-  --hairline-warm: var(--hairline);
-  --hairline-warm-soft: var(--hairline-soft);
-  --section-navy: var(--surface-dark);
-  --on-navy: var(--on-dark);
-  --on-navy-soft: var(--on-dark-soft);
-  --on-navy-mustard: var(--badge-orange);
-  --accent-mustard: var(--badge-orange);
-  --accent-mustard-ink: var(--badge-orange);
 }
 
 /* ─────────────────────────────────────────
@@ -494,40 +206,65 @@ html {
   overscroll-behavior-y: contain;
   overflow-x: hidden;
   color-scheme: light;
+  background-color: var(--background);
 }
-
-[data-theme="light"] { color-scheme: light; }
-[data-theme="dark"] { color-scheme: dark; }
 
 body {
   font-family: var(--font-sans);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--bg-default);
-  color: var(--body);
+  background-color: var(--background);
+  color: var(--foreground);
   font-size: var(--fs-body);
-  line-height: 1.5;
+  line-height: 1.6;
   letter-spacing: 0;
 }
 
-/* DM Sans display headlines — weight 700 to 800 (8020 §08), confident not decorative.
-   IN @layer base so Tailwind utility classes (text-xs, text-on-dark, etc.) can override per element.
-   (Unlayered element rules beat @layer utilities and would silently kill those overrides.) */
 @layer base {
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight: 700;
-    color: var(--ink);
+    font-weight: 500;
+    color: var(--text-primary);
     text-wrap: balance;
   }
 
-  h1 { font-size: var(--fs-display-xl); line-height: 1.05; letter-spacing: var(--tracking-display-xl); font-weight: 800; }
-  h2 { font-size: var(--fs-display-lg); line-height: 1.10; letter-spacing: var(--tracking-display-lg); }
+  h1 { font-size: var(--fs-display-xl); line-height: 1.05; letter-spacing: var(--tracking-display-xl); font-weight: 500; }
+  h2 { font-size: var(--fs-display-lg); line-height: 1.1; letter-spacing: var(--tracking-display-lg); }
   h3 { font-size: var(--fs-display-md); line-height: 1.15; letter-spacing: var(--tracking-display-md); }
-  h4 { font-size: var(--fs-display-sm); line-height: 1.20; letter-spacing: var(--tracking-display-sm); }
-  h5 { font-size: var(--fs-title-lg); line-height: 1.30; letter-spacing: 0; font-family: var(--font-sans); }
-  h6 { font-size: var(--fs-title-md); line-height: 1.40; letter-spacing: 0; font-family: var(--font-sans); }
+  h4 { font-size: var(--fs-display-sm); line-height: 1.2; letter-spacing: var(--tracking-display-sm); }
+  h5 { font-size: var(--fs-title-lg); line-height: 1.3; letter-spacing: 0; }
+  h6 { font-size: var(--fs-title-md); line-height: 1.4; letter-spacing: 0; }
+}
+
+.page-title {
+  margin-top: 1.5rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.page-eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-mockup-sm);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.page-title-rule {
+  display: block;
+  margin-top: 1.5rem;
+  height: 1px;
+  width: 3rem;
+  background-color: var(--foreground);
 }
 
 p, li {
@@ -535,13 +272,13 @@ p, li {
 }
 
 [data-numeric], .font-numeric {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-variant-numeric: tabular-nums;
 }
 
 /* Eyebrow — mono-caps marker above headlines. */
 .eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
   font-weight: 600;
   letter-spacing: var(--tracking-eyebrow);
@@ -550,7 +287,7 @@ p, li {
 }
 
 .label-mono {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: var(--fs-caption);
   font-weight: 600;
   letter-spacing: var(--tracking-eyebrow);
@@ -563,47 +300,20 @@ blockquote.pull-quote,
 .pull-quote {
   font-family: var(--font-heading);
   font-size: var(--fs-display-sm);
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.3;
   letter-spacing: 0;
-  color: var(--ink);
+  color: var(--text-primary);
   border-left: 2px solid var(--primary);
   padding-left: 24px;
   margin: 24px 0;
 }
 
-/* Section rule (legacy McKinsey signature — kept as utility) */
-.mck-rule {
-  height: 1px;
-  background: var(--ink);
-  width: 48px;
-  margin: 16px 0;
-  border: 0;
-}
-
-.mck-rule--wide {
-  width: 100%;
-  background: var(--hairline);
-}
-
-.mck-line-pattern {
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--ink) 0 2px,
-    transparent 2px 10px
-  );
-}
-
 .text-balance { text-wrap: balance; }
 
 ::selection {
-  background-color: rgba(4, 149, 254, 0.18);
-  color: var(--ink);
-}
-
-[data-theme="dark"] ::selection {
-  background-color: rgba(56, 168, 255, 0.30);
-  color: var(--ink);
+  background-color: rgba(37, 99, 235, 0.2);
+  color: var(--text-primary);
 }
 
 /* ─────────────────────────────────────────
@@ -662,7 +372,7 @@ button[role="checkbox"] {
 }
 
 /* ─────────────────────────────────────────
- * Animations — fades only. No bounces / overshoot / springs.
+ * Animations
  * ───────────────────────────────────────── */
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(12px); }
@@ -686,11 +396,6 @@ button[role="checkbox"] {
   }
 }
 
-/* Content sections are deliberately visible by default. The previous
-   view-timeline animation held entire sections at opacity: 0 before their
-   animation range, which produced blank reserved-height gaps during fast
-   scrolling and keyboard focus jumps. Keep `.reveal` as a compatibility hook,
-   but never use it to gate content visibility. */
 .reveal {
   opacity: 1;
   transform: none;
@@ -721,94 +426,41 @@ button[role="checkbox"] {
 }
 
 /* ─────────────────────────────────────────
- * Shadows — 8020 soft warm elevation. No heavy shadows / neumorphism.
+ * Shadows / Glows — Launch UI light warm
  * ───────────────────────────────────────── */
-
 @utility shadow-glow-primary {
-  box-shadow: none;
+  box-shadow: 0 0 80px rgba(37, 99, 235, 0.08), 0 0 120px rgba(37, 99, 235, 0.05);
 }
 
-@utility shadow-glow-primary-hover {
-  box-shadow: none;
+@utility shadow-glow-primary-top {
+  box-shadow: 0 -40px 80px -20px rgba(37, 99, 235, 0.12);
 }
 
-/* Shadows — 8020 §10: soft + warm, never hard gray-blue.
-   Warm-tinted (rgba 28,22,12) so cards lift off the cream spine without a cold gray cast. */
-@utility shadow-card {
-  box-shadow: 0 1px 2px rgba(28, 22, 12, 0.05), 0 4px 12px rgba(28, 22, 12, 0.06);
+@utility shadow-card-dark {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-@utility shadow-card-hover {
-  box-shadow: 0 6px 16px rgba(28, 22, 12, 0.08), 0 16px 40px rgba(28, 22, 12, 0.08);
-}
-
-/* Primary button hairline drop — same warm rgba(28,22,12) family as shadow-card. */
-@utility shadow-btn-primary {
-  box-shadow: 0 1px 0 0 rgba(28, 22, 12, 0.08);
-}
-
-@utility shadow-btn-primary-hover {
-  box-shadow: 0 2px 0 0 rgba(28, 22, 12, 0.12);
-}
-
-@utility ring-card {
-  box-shadow: inset 0 0 0 1px var(--border);
+@utility shadow-card-dark-hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 @utility shadow-popover {
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15);
 }
 
 @utility shadow-mockup {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 12px 32px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
 @utility bg-overlay {
-  background-color: var(--overlay);
-}
-
-@utility shadow-glow-destructive {
-  box-shadow: 0 0 40px color-mix(in oklch, var(--destructive) 60%, transparent);
-}
-
-@utility bg-grid-pattern {
-  background-image:
-    linear-gradient(to right, transparent 1px, transparent 1px),
-    linear-gradient(to bottom, transparent 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-/* ─── Texture library (8020 §09): 32px grid or 32px dots, never both.
-   Sits under content at <8% contrast, orients rather than decorates. ─── */
-@utility bg-grid-fine {
-  background-image:
-    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-@utility bg-grid-fine-dark {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-@utility bg-dots-fine {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-@utility bg-dots-fine-dark {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 @utility pb-safe {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* Section padding — compact editorial rhythm per 8020 spacing scale */
+/* Section padding — Launch UI tight professional rhythm */
 @utility section-editorial {
-  padding-block: clamp(48px, 6vw, 64px);
+  padding-block: clamp(28px, 3.5vw, 44px);
 }

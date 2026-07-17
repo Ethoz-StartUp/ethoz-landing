@@ -36,16 +36,16 @@
   <main id="main-content">
 
   <!-- Hero -->
-  <section class="bg-secondary pt-24 pb-10 sm:pt-28 sm:pb-12">
+  <section class="bg-secondary pt-24 pb-8 sm:pt-28 sm:pb-10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl">
-        <p class="flex flex-wrap items-center gap-x-3 gap-y-1 text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">
+        <p class="page-eyebrow">
           <span class="text-primary">{t('integrations.eyebrow')}</span>
           <span aria-hidden="true" class="hidden text-border sm:inline">·</span>
           <span>Napsis · Syscol · SchoolTrack · Lirmi</span>
         </p>
-        <span class="mt-6 block h-px w-12 bg-foreground" aria-hidden="true"></span>
-        <h1 class="mt-6 font-heading text-[2rem] leading-[1.15] text-foreground sm:text-[2.5rem] lg:text-[3rem]">
+        <span class="page-title-rule" aria-hidden="true"></span>
+        <h1 class="page-title">
           {t('integrations.hero_title')}
         </h1>
         <p class="mt-6 max-w-[68ch] text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -56,7 +56,7 @@
   </section>
 
   <!-- Option 1: Integration -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
@@ -115,7 +115,7 @@
   </section>
 
   <!-- Option 2: All-in-one -->
-  <section class="bg-secondary py-12 sm:py-14">
+  <section class="bg-secondary py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
         <!-- Visual: basic module -->
@@ -181,7 +181,7 @@
   </section>
 
   <!-- Migration -->
-  <section class="py-12 sm:py-14">
+  <section class="py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <div class="flex items-center justify-center gap-3">
         <Upload class="size-5 text-primary" />
@@ -217,7 +217,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="bg-secondary py-12 sm:py-14">
+  <section class="bg-secondary py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
       <h2 class="text-2xl text-foreground sm:text-3xl">{t('integrations.cta_title')}</h2>
       <p class="mt-4 text-base leading-relaxed text-muted-foreground">
