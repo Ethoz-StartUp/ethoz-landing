@@ -2,24 +2,28 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
-  import { t } from '$lib/i18n/index.svelte';
+  import { getLocale, t } from '$lib/i18n/index.svelte';
+  import { CLAIMS, type Claim } from '$lib/data/claims';
   import { trackEvent } from '$lib/utils/analytics';
   import {
     TrendingDown,
     Clock,
-    ShieldCheck,
-    Users,
+    Gavel,
+    FileSearch,
+    Scale,
     ChevronDown,
     ChevronUp,
     ArrowRight,
     Info,
-    BarChart2,
   } from '@lucide/svelte';
   import { BRAND } from '$lib/brand';
 
   $effect(() => {
     trackEvent('page_viewed', { page: 'proyecciones' });
   });
+
+  // Claims render per-locale display values (single source of truth: claims.ts).
+  const claimValue = (claim: Claim) => (getLocale() === 'en' ? (claim.valueEn ?? claim.value) : claim.value);
 
   // ── Expandable methodology state ──
   let expandedCards = $state<Record<number, boolean>>({});
@@ -28,63 +32,61 @@
     expandedCards[i] = !expandedCards[i];
   }
 
-  // ── Projection cards ──
+  // ── Projection cards (PIVOTE-PLAN L5: declared assumptions + claims figures) ──
   const projections = [
     {
-      icon: ShieldCheck,
-      stat: '100%',
-      label: 'proyecciones.card_authorized_pickups_label' as const,
-      context: 'proyecciones.card_authorized_pickups_context' as const,
-      methodology: 'proyecciones.card_authorized_pickups_methodology' as const,
-    },
-    {
       icon: Clock,
-      stat: '<3 seg',
-      label: 'proyecciones.card_verification_time_label' as const,
-      context: 'proyecciones.card_verification_time_context' as const,
-      methodology: 'proyecciones.card_verification_time_methodology' as const,
+      stat: '180 h/año',
+      label: 'proyecciones.card_hours_label' as const,
+      context: 'proyecciones.card_hours_context' as const,
+      methodology: 'proyecciones.card_hours_methodology' as const,
     },
     {
-      icon: BarChart2,
-      stat: 'Hasta 20.000 UTM',
-      label: 'proyecciones.card_fines_savings_label' as const,
-      context: 'proyecciones.card_fines_savings_context' as const,
-      methodology: 'proyecciones.card_fines_savings_methodology' as const,
+      icon: FileSearch,
+      stat: '72 h/año',
+      label: 'proyecciones.card_evidence_label' as const,
+      context: 'proyecciones.card_evidence_context' as const,
+      methodology: 'proyecciones.card_evidence_methodology' as const,
     },
     {
-      icon: Users,
-      stat: '~12 h/semana',
-      label: 'proyecciones.card_recovered_hours_label' as const,
-      context: 'proyecciones.card_recovered_hours_context' as const,
-      methodology: 'proyecciones.card_recovered_hours_methodology' as const,
+      icon: Gavel,
+      stat: claimValue(CLAIMS.courtRuling),
+      label: 'proyecciones.card_ruling_label' as const,
+      context: 'proyecciones.card_ruling_context' as const,
+      methodology: 'proyecciones.card_ruling_methodology' as const,
+      source: CLAIMS.courtRuling.source,
+    },
+    {
+      icon: Scale,
+      stat: claimValue(CLAIMS.lawFinesCap),
+      label: 'proyecciones.card_fines_label' as const,
+      context: 'proyecciones.card_fines_context' as const,
+      methodology: 'proyecciones.card_fines_methodology' as const,
+      source: CLAIMS.lawFinesCap.source,
     },
   ];
 
-  // ── Scenario table for 800-student school ──
+  // ── Scenario table: reference school (30 h/mes paperwork, 12 complaints/year) ──
   const scenario = {
-    students: 800,
-    dailyPickups: 40,
-    inspectors: 2,
     rows: [
-      { metric: 'proyecciones.row_daily_pickups_metric' as const, before: 'proyecciones.row_daily_pickups_before' as const, after: 'proyecciones.row_daily_pickups_after' as const, savings: 'proyecciones.row_daily_pickups_savings' as const },
-      { metric: 'proyecciones.row_inspector_hours_metric' as const, before: 'proyecciones.row_inspector_hours_before' as const, after: 'proyecciones.row_inspector_hours_after' as const, savings: 'proyecciones.row_inspector_hours_savings' as const },
-      { metric: 'proyecciones.row_incident_doc_metric' as const, before: 'proyecciones.row_incident_doc_before' as const, after: 'proyecciones.row_incident_doc_after' as const, savings: 'proyecciones.row_incident_doc_savings' as const },
-      { metric: 'proyecciones.row_law_exposure_metric' as const, before: 'proyecciones.row_law_exposure_before' as const, after: 'proyecciones.row_law_exposure_after' as const, savings: 'proyecciones.row_law_exposure_savings' as const },
-      { metric: 'proyecciones.row_manual_cost_metric' as const, before: 'proyecciones.row_manual_cost_before' as const, after: 'proyecciones.row_manual_cost_after' as const, savings: 'proyecciones.row_manual_cost_savings' as const },
+      { metric: 'proyecciones.row_paperwork_metric' as const, before: 'proyecciones.row_paperwork_before' as const, after: 'proyecciones.row_paperwork_after' as const, savings: 'proyecciones.row_paperwork_savings' as const },
+      { metric: 'proyecciones.row_evidence_metric' as const, before: 'proyecciones.row_evidence_before' as const, after: 'proyecciones.row_evidence_after' as const, savings: 'proyecciones.row_evidence_savings' as const },
+      { metric: 'proyecciones.row_cost_metric' as const, before: 'proyecciones.row_cost_before' as const, after: 'proyecciones.row_cost_after' as const, savings: 'proyecciones.row_cost_savings' as const },
+      { metric: 'proyecciones.row_proof_metric' as const, before: 'proyecciones.row_proof_before' as const, after: 'proyecciones.row_proof_after' as const, savings: 'proyecciones.row_proof_savings' as const },
     ],
   };
 </script>
 
 <svelte:head>
   <title>{t('proyecciones.head_title_prefix')} {BRAND} {t('proyecciones.head_title_suffix')}</title>
-  <meta name="description" content={`Proyecciones modeladas del impacto de ${BRAND} en colegios chilenos: retiros seguros, tiempo de verificación, ahorro en multas Ley 21.719 y horas recuperadas para inspectores.`} />
+  <meta name="description" content={t('proyecciones.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/proyecciones" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Proyecciones de impacto · ${BRAND}`} />
-  <meta property="og:description" content={`Proyecciones modeladas del impacto de ${BRAND}: retiros, compliance Ley 21.719 y eficiencia operacional.`} />
+  <meta property="og:title" content={t('proyecciones.og_title')} />
+  <meta property="og:description" content={t('proyecciones.og_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Proyecciones de impacto · ${BRAND}`} />
-  <meta name="twitter:description" content={`Proyecciones modeladas del impacto de ${BRAND} en colegios chilenos.`} />
+  <meta name="twitter:title" content={t('proyecciones.og_title')} />
+  <meta name="twitter:description" content={t('proyecciones.og_description')} />
   <link rel="canonical" href="https://ethoz.cl/proyecciones" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
@@ -165,9 +167,12 @@
                 <Icon class="size-5 shrink-0 text-primary" />
                 <p class="text-sm font-semibold text-muted-foreground uppercase tracking-wide">{t('proyecciones.card_kicker')}</p>
               </div>
-              <p class="text-4xl font-heading text-foreground">{proj.stat}</p>
+              <p class="text-4xl font-heading text-foreground" data-numeric>{proj.stat}</p>
               <p class="mt-2 text-base font-semibold text-foreground">{t(proj.label)}</p>
               <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{t(proj.context)}</p>
+              {#if proj.source}
+                <p class="mt-2 text-xs text-text-tertiary">{proj.source}</p>
+              {/if}
             </div>
             <!-- Expandable methodology -->
             <div class="border-t border-border">
@@ -263,12 +268,12 @@
         {t('proyecciones.cta_subtitle')}
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href="/calculadora-roi">
+        <Button size="xl" href="/auditoria">
           {t('proyecciones.cta_primary')}
           <ArrowRight class="size-4" />
         </Button>
         <a
-          href="/demo"
+          href="/calculadora-roi"
           class="inline-flex min-h-11 items-center text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
           {t('proyecciones.cta_secondary')}

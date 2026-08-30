@@ -2,7 +2,8 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
-  import { t } from '$lib/i18n/index.svelte';
+  import { t, getLocale } from '$lib/i18n/index.svelte';
+  import { CLAIMS, type Claim } from '$lib/data/claims';
   import {
     Building2, ArrowRight, ShieldAlert, BarChart3, BadgeCheck,
     AlertTriangle, FileSearch, TrendingDown, Scale, CheckCircle, XCircle,
@@ -11,6 +12,16 @@
   import { trackEvent } from '$lib/utils/analytics';
 
   $effect(() => { trackEvent('audience_page_viewed', { audience: 'sostenedores' }); });
+
+  // Claims render per-locale display values (single source of truth: claims.ts).
+  const claimValue = (claim: Claim) => (getLocale() === 'en' ? (claim.valueEn ?? claim.value) : claim.value);
+
+  // TAM band: only figures from claims.ts, with visible sources (PIVOTE-PLAN L5).
+  const tamStats = [
+    { claim: CLAIMS.multiSchoolOperators, label: 'audience.sostenedores.tam_stat1_label' as const },
+    { claim: CLAIMS.schoolsInChile, label: 'audience.sostenedores.tam_stat2_label' as const },
+    { claim: CLAIMS.sostenedoresInChile, label: 'audience.sostenedores.tam_stat3_label' as const },
+  ];
 
   const colegios = [
     { nombre: 'Colegio de ejemplo A', rbd: '9234', alumnos: 842, alertas: 2, incidentes: 3, cumplimiento: 94 },
@@ -364,18 +375,12 @@
       <div class="rounded-xl border border-border bg-card p-8 text-center shadow-sm">
         <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-4">{t('audience.sostenedores.tam_eyebrow')}</p>
         <div class="grid gap-8 sm:grid-cols-3">
-          <div>
-            <p data-numeric class="font-heading text-4xl text-foreground">402</p>
-            <p class="mt-1 text-sm text-muted-foreground">{t('audience.sostenedores.tam_stat1_label')}</p>
-          </div>
-          <div>
-            <p data-numeric class="font-heading text-4xl text-foreground">12.038</p>
-            <p class="mt-1 text-sm text-muted-foreground">{t('audience.sostenedores.tam_stat2_label')}</p>
-          </div>
-          <div>
-            <p data-numeric class="font-heading text-4xl text-foreground">5.777</p>
-            <p class="mt-1 text-sm text-muted-foreground">{t('audience.sostenedores.tam_stat3_label')}</p>
-          </div>
+          {#each tamStats as stat (stat.label)}
+            <div>
+              <p data-numeric class="font-heading text-4xl text-foreground">{claimValue(stat.claim)}</p>
+              <p class="mt-1 text-sm text-muted-foreground">{t(stat.label)}</p>
+            </div>
+          {/each}
         </div>
       </div>
     </div>

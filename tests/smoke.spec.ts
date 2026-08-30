@@ -272,9 +272,12 @@ test.describe('Smoke — SEO', () => {
 
 	test('all new blog posts are accessible', async ({ page }) => {
 		const newPosts = [
-			'/blog/ninguna-plataforma-cumple-ley-21719',
-			'/blog/gestion-escolar-vs-proteccion-escolar',
-			'/blog/roadmap-ethoz-2026'
+			'/blog/descargos-superintendencia-educacion-guia',
+			'/blog/protocolo-bullying-plazos-colegio',
+			'/blog/condena-sostenedor-45-millones-convivencia',
+			'/blog/reglamento-interno-protocolo-ejecutable',
+			'/blog/ley-21719-colegios-checklist-datos-estudiantes',
+			'/blog/encargado-convivencia-escolar-horas-papeleo'
 		];
 		for (const url of newPosts) {
 			const response = await page.goto(url);

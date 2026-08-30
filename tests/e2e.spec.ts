@@ -121,6 +121,9 @@ test.describe('Pages — load with 200 and visible heading', () => {
 		'/funcionalidades/acceso-por-rol',
 		'/funcionalidades/busqueda-contextual',
 		'/funcionalidades/privacidad-datos',
+		'/funcionalidades/expediente-legal',
+		'/funcionalidades/protocolos-y-plazos',
+		'/funcionalidades/panel-sostenedor',
 		'/integraciones',
 		'/privacidad',
 		'/terminos',
@@ -191,7 +194,8 @@ test.describe('Navigation — desktop NavBar', () => {
 
 		const dropdown = page.locator('#products-menu');
 		await expect(dropdown).toBeVisible();
-		await expect(dropdown.getByRole('link')).toHaveCount(7);
+		// 9 pivot-ordered products + "see all products" link (PIVOTE-PLAN L2)
+		await expect(dropdown.getByRole('link')).toHaveCount(10);
 	});
 
 	test('Productos dropdown items navigate correctly', async ({ page }) => {
@@ -232,9 +236,9 @@ test.describe('Navigation — mobile hamburger', () => {
 		await expect(menu.getByRole('link')).toHaveCount(7);
 		await expect(menu.getByRole('button', { name: 'Productos' })).toBeVisible();
 
-		// Expanding Productos reveals the 6 product links + "see all" link
+		// Expanding Productos reveals the 9 product links + "see all" link
 		await menu.getByRole('button', { name: 'Productos' }).click();
-		await expect(menu.getByRole('link')).toHaveCount(14);
+		await expect(menu.getByRole('link')).toHaveCount(17);
 	});
 
 	test('mobile menu closes when link is clicked', async ({ page }) => {
@@ -560,6 +564,9 @@ test.describe('Tracking — GTM dataLayer', () => {
 		{ route: '/funcionalidades/acceso-por-rol', feature: 'access-control' },
 		{ route: '/funcionalidades/busqueda-contextual', feature: 'smart-search' },
 		{ route: '/funcionalidades/privacidad-datos', feature: 'privacy-compliance' },
+		{ route: '/funcionalidades/expediente-legal', feature: 'expediente-legal' },
+		{ route: '/funcionalidades/protocolos-y-plazos', feature: 'protocolos-plazos' },
+		{ route: '/funcionalidades/panel-sostenedor', feature: 'panel-sostenedor' },
 	];
 
 	for (const { route, feature } of featurePages) {
@@ -650,6 +657,9 @@ test.describe('SEO — titles, canonical, og:title', () => {
 		'/funcionalidades/acceso-por-rol',
 		'/funcionalidades/busqueda-contextual',
 		'/funcionalidades/privacidad-datos',
+		'/funcionalidades/expediente-legal',
+		'/funcionalidades/protocolos-y-plazos',
+		'/funcionalidades/panel-sostenedor',
 		'/privacidad',
 		'/terminos',
 	];
@@ -1142,7 +1152,7 @@ test.describe('Navbar — products dropdown', () => {
 		const dropdown = page.locator('#products-menu');
 		await expect(dropdown).toBeVisible();
 		const firstProduct = dropdown.getByRole('link', {
-			name: /actas y descargos|ai records/i
+			name: /expediente del caso|case file/i
 		});
 
 		await page.keyboard.press('Tab');

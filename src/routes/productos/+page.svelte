@@ -83,15 +83,6 @@
       highlightKeys: ['productos.product_analytics_h1', 'productos.product_analytics_h2', 'productos.product_analytics_h3', 'productos.product_analytics_h4'] as const,
     },
     {
-      id: 'emergency',
-      icon: Siren,
-      nameKey: 'productos.product_emergency_name' as const,
-      descKey: 'productos.product_emergency_desc' as const,
-      href: '/funcionalidades/emergencias',
-      color: 'bg-destructive/10 text-destructive',
-      highlightKeys: ['productos.product_emergency_h1', 'productos.product_emergency_h2', 'productos.product_emergency_h3', 'productos.product_emergency_h4'] as const,
-    },
-    {
       id: 'attendance',
       icon: CalendarCheck,
       nameKey: 'productos.product_attendance_name' as const,
@@ -99,6 +90,16 @@
       href: '/funcionalidades/asistencia',
       color: 'bg-success/10 text-success',
       highlightKeys: ['productos.product_attendance_h1', 'productos.product_attendance_h2', 'productos.product_attendance_h3', 'productos.product_attendance_h4'] as const,
+    },
+    {
+      // PIVOTE-PLAN L2: emergencies is demoted in navigation but the page stays.
+      id: 'emergency',
+      icon: Siren,
+      nameKey: 'productos.product_emergency_name' as const,
+      descKey: 'productos.product_emergency_desc' as const,
+      href: '/funcionalidades/emergencias',
+      color: 'bg-destructive/10 text-destructive',
+      highlightKeys: ['productos.product_emergency_h1', 'productos.product_emergency_h2', 'productos.product_emergency_h3', 'productos.product_emergency_h4'] as const,
     },
   ];
 </script>

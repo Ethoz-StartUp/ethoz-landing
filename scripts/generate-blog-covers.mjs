@@ -77,6 +77,30 @@ const images = [
     filename: 'whatsapp-datos-sensibles-colegios.webp',
     topic: 'riesgo de WhatsApp en colegios, datos sensibles filtrándose, alerta de privacidad — representado por formas que se escapan de un contenedor, flujo no controlado, vulnerabilidad',
   },
+  {
+    filename: 'descargos-superintendencia-educacion-guia.webp',
+    topic: 'descargo formal ante la Superintendencia de Educación, documentos oficiales con plazos — representado por documentos geométricos ordenados con sellos y líneas de tiempo, formalidad institucional',
+  },
+  {
+    filename: 'protocolo-bullying-plazos-colegio.webp',
+    topic: 'protocolo escolar con plazos en días hábiles, secuencia de pasos con vencimientos — representado por pasos geométricos ascendentes con marcadores de calendario, orden procesal',
+  },
+  {
+    filename: 'condena-sostenedor-45-millones-convivencia.webp',
+    topic: 'condena judicial a un sostenedor escolar, fallo de responsabilidad civil — representado por una balanza geométrica sobria y documentos, gravedad institucional, sin símbolos literales de justicia',
+  },
+  {
+    filename: 'reglamento-interno-protocolo-ejecutable.webp',
+    topic: 'reglamento escolar que se convierte en sistema ejecutable, de papel a digital — representado por una hoja geométrica que se transforma en bloques ordenados conectados, transición de caos a estructura',
+  },
+  {
+    filename: 'ley-21719-colegios-checklist-datos-estudiantes.webp',
+    topic: 'checklist de protección de datos de estudiantes, cumplimiento normativo — representado por una lista geométrica con marcas de verificación y un escudo sutil, orden y protección',
+  },
+  {
+    filename: 'encargado-convivencia-escolar-horas-papeleo.webp',
+    topic: 'recuperar horas de trabajo administrativo, del papeleo al foco humano — representado por pilas de papel geométricas que se reducen a pocas formas limpias con espacio libre, alivio y claridad',
+  },
 ];
 
 async function generateImage(topic) {

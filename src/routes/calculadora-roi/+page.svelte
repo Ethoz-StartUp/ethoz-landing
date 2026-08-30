@@ -2,15 +2,15 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
-  import { BRAND } from '$lib/brand';
-  import { t } from '$lib/i18n/index.svelte';
+  import { getLocale, t } from '$lib/i18n/index.svelte';
+  import { CLAIMS, type Claim } from '$lib/data/claims';
   import { trackEvent } from '$lib/utils/analytics';
   import {
     Calculator,
-    ShieldAlert,
     Clock,
     Banknote,
-    AlertTriangle,
+    FileSearch,
+    Gavel,
     ArrowRight,
     Info,
   } from '@lucide/svelte';
@@ -19,39 +19,25 @@
     trackEvent('page_viewed', { page: 'roi-calculator' });
   });
 
-  // ── Inputs ──
-  let students = $state(800);
-  let sedes = $state(1);
-  let dailyPickups = $state(40);
-  let hasSensitiveData = $state(false);
+  // Claims render per-locale display values (single source of truth: claims.ts).
+  const claimValue = (claim: Claim) => (getLocale() === 'en' ? (claim.valueEn ?? claim.value) : claim.value);
+  const claimDetail = (claim: Claim) => (getLocale() === 'en' ? (claim.detailEn ?? claim.detail) : claim.detail);
 
-  // ── Constants ──
-  const UTM_CLP = 67000; // CLP per UTM (2025 reference)
-  const MAX_UTM = 20000;
+  // ── Inputs (PIVOTE-PLAN L3: horas del Encargado + denuncias/año) ──
+  let hoursMonth = $state(30);
+  let complaintsYear = $state(12);
+
+  // ── Declared assumptions (mirrored in the methodology note) ──
+  const PAPERWORK_REDUCTION = 0.5;
   const HOURLY_RATE_CLP = 15000;
-  const WEEKS_PER_YEAR = 40;
-  const MANUAL_MINUTES_PER_PICKUP = 2;
+  const EVIDENCE_HOURS_PER_COMPLAINT = 6;
+  const HOURS_MIN = 5;
+  const HOURS_MAX = 100;
 
-  // ── Derived outputs ──
-  // Max fine exposure: base is up to 20,000 UTM, multiplied by sedes factor for multi-school operators
-  let maxFineUTM = $derived(Math.min(MAX_UTM, 2000 + Math.floor(students / 50) * 200 + sedes * 500));
-  let maxFineCLP = $derived(maxFineUTM * UTM_CLP);
-
-  // Weekly hours on manual verification
-  let weeklyHours = $derived(
-    Math.round(((dailyPickups * MANUAL_MINUTES_PER_PICKUP * 5) / 60) * 10) / 10
-  );
-
-  // Annual operational cost (hours × rate × weeks)
-  let annualOpCost = $derived(Math.round(weeklyHours * HOURLY_RATE_CLP * WEEKS_PER_YEAR));
-
-  // Sensitive data multiplier: if they handle clinical/judicial data, exposure is higher
-  let sensitiveMultiplier = $derived(hasSensitiveData ? 1.5 : 1.0);
-
-  // Total value at risk: fine exposure (modeled fraction) + operational cost
-  let valueAtRisk = $derived(
-    Math.round((maxFineCLP * 0.15 * sensitiveMultiplier) + annualOpCost)
-  );
+  // ── Derived outputs: horas ahorradas + riesgo documentado ──
+  let hoursSavedYear = $derived(Math.round(hoursMonth * 12 * PAPERWORK_REDUCTION));
+  let hoursSavedCost = $derived(hoursSavedYear * HOURLY_RATE_CLP);
+  let evidenceHoursAvoided = $derived(complaintsYear * EVIDENCE_HOURS_PER_COMPLAINT);
 
   // Format helpers
   function formatCLP(value: number): string {
@@ -61,19 +47,10 @@
     return `$${value.toLocaleString('es-CL')} CLP`;
   }
 
-  function formatUTM(value: number): string {
-    return `${value.toLocaleString('es-CL')} UTM`;
-  }
-
-  // Demo URL with prefilled params
-  let demoUrl = $derived(
-    `/demo?students=${students}&sedes=${sedes}&pickups=${dailyPickups}&sensitive=${hasSensitiveData}`
-  );
-
   // ── Debounced screen-reader announcement of computed results ──
   let resultsAnnouncement = $state('');
   $effect(() => {
-    const summary = `${t('roiCalculator.results_announced')} ${t('roiCalculator.result_fine_label')}: ${formatUTM(maxFineUTM)} (≈ ${formatCLP(maxFineCLP)}). ${t('roiCalculator.result_hours_label')}: ${weeklyHours} h. ${t('roiCalculator.result_cost_label')}: ${formatCLP(annualOpCost)}. ${t('roiCalculator.result_total_label')}: ${formatCLP(valueAtRisk)}.`;
+    const summary = `${t('roiCalculator.results_announced')} ${t('roiCalculator.result_hours_saved_label')}: ${hoursSavedYear} h. ${t('roiCalculator.result_hours_cost_label')}: ${formatCLP(hoursSavedCost)}. ${t('roiCalculator.result_evidence_label')}: ${evidenceHoursAvoided} h.`;
     const timer = setTimeout(() => {
       resultsAnnouncement = summary;
     }, 500);
@@ -85,28 +62,28 @@
   function handleCTAClick() {
     if (!roiTracked) {
       roiTracked = true;
-      trackEvent('roi_calc_used', { students });
+      trackEvent('roi_calc_used', { hours_month: hoursMonth, complaints_year: complaintsYear });
     }
   }
 </script>
 
 <svelte:head>
-  <title>Calculadora de ROI · {BRAND} | Calcula tu exposición al riesgo Ley 21.719</title>
-  <meta name="description" content={`Calcula en 30 segundos tu exposición real al riesgo de la Ley 21.719 y el costo operacional actual de verificación manual en tu colegio. Herramienta gratuita de ${BRAND}.`} />
+  <title>{t('roiCalculator.meta_title')}</title>
+  <meta name="description" content={t('roiCalculator.meta_description')} />
   <meta property="og:url" content="https://ethoz.cl/calculadora-roi" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content={`Calculadora de ROI · ${BRAND}`} />
-  <meta property="og:description" content="Calcula tu exposición al riesgo Ley 21.719 y costo operacional actual en tu colegio." />
+  <meta property="og:title" content={t('roiCalculator.meta_title')} />
+  <meta property="og:description" content={t('roiCalculator.meta_description')} />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`Calculadora de ROI · ${BRAND}`} />
-  <meta name="twitter:description" content="Calcula en 30 segundos tu exposición al riesgo Ley 21.719." />
+  <meta name="twitter:title" content={t('roiCalculator.meta_title')} />
+  <meta name="twitter:description" content={t('roiCalculator.meta_description')} />
   <link rel="canonical" href="https://ethoz.cl/calculadora-roi" />
   {@html `<script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://ethoz.cl/" },
-      { "@type": "ListItem", "position": 2, "name": "Calculadora de ROI" }
+      { "@type": "ListItem", "position": 2, "name": "Calculadora de papeleo" }
     ]
   })}</script>`}
 </svelte:head>
@@ -136,7 +113,7 @@
         {t('roiCalculator.hero_title')}
       </h1>
       <p class="mt-3 text-lg font-semibold text-primary">{t('roiCalculator.hero_subtitle')}</p>
-      <p class="mt-5 text-lg leading-relaxed text-muted-foreground sm:text-xl">
+      <p class="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
         {t('roiCalculator.hero_lead')}
       </p>
     </div>
@@ -153,89 +130,56 @@
         <div>
           <h2 class="text-xl text-foreground mb-6">{t('roiCalculator.inputs_heading')}</h2>
 
-          <!-- Número de alumnos -->
+          <!-- Horas al mes del Encargado de Convivencia -->
           <div class="mb-8">
             <div class="mb-2 flex items-center justify-between">
-              <label for="students-slider" class="text-sm font-semibold text-foreground">
-                {t('roiCalculator.input_students_label')}
+              <label for="hours-slider" class="text-sm font-semibold text-foreground">
+                {t('roiCalculator.input_hours_label')}
               </label>
-              <span class="text-sm font-bold text-primary">{students.toLocaleString('es-CL')}</span>
+              <span class="text-sm font-bold text-primary">{hoursMonth} h</span>
             </div>
             <div class="py-2">
               <input
-                id="students-slider"
+                id="hours-slider"
                 type="range"
-                min="100"
-                max="5000"
-                step="50"
-                bind:value={students}
-                class="roi-slider w-full"
-              />
-            </div>
-            <div class="mt-1.5 flex justify-between text-xs text-muted-foreground">
-              <span>100</span>
-              <span>5.000</span>
-            </div>
-          </div>
-
-          <!-- Número de sedes -->
-          <div class="mb-8">
-            <label for="sedes-input" class="mb-2 flex items-center justify-between">
-              <span class="text-sm font-semibold text-foreground">{t('roiCalculator.input_sedes_label')}</span>
-              <span class="text-sm font-bold text-primary">{sedes}</span>
-            </label>
-            <input
-              id="sedes-input"
-              type="number"
-              min="1"
-              max="50"
-              bind:value={sedes}
-              class="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-              placeholder={t('roiCalculator.input_sedes_placeholder')}
-            />
-            <p class="mt-1 text-xs text-muted-foreground">{t('roiCalculator.input_sedes_help')}</p>
-          </div>
-
-          <!-- Retiros diarios -->
-          <div class="mb-8">
-            <div class="mb-2 flex items-center justify-between">
-              <label for="pickups-slider" class="text-sm font-semibold text-foreground">
-                {t('roiCalculator.input_pickups_label')}
-              </label>
-              <span class="text-sm font-bold text-primary">{dailyPickups}</span>
-            </div>
-            <div class="py-2">
-              <input
-                id="pickups-slider"
-                type="range"
-                min="10"
-                max="500"
+                min={HOURS_MIN}
+                max={HOURS_MAX}
                 step="5"
-                bind:value={dailyPickups}
+                bind:value={hoursMonth}
                 class="roi-slider w-full"
               />
             </div>
             <div class="mt-1.5 flex justify-between text-xs text-muted-foreground">
-              <span>10</span>
-              <span>500</span>
+              <span>{HOURS_MIN} h</span>
+              <span>{HOURS_MAX} h</span>
             </div>
+            <p class="mt-1 text-xs text-muted-foreground">{t('roiCalculator.input_hours_help')}</p>
           </div>
 
-          <!-- Datos sensibles -->
-          <div class="rounded-xl border border-border bg-card p-4">
-            <label class="flex items-start gap-3 cursor-pointer">
+          <!-- Denuncias de convivencia al año -->
+          <div class="mb-8">
+            <div class="mb-2 flex items-center justify-between">
+              <label for="complaints-slider" class="text-sm font-semibold text-foreground">
+                {t('roiCalculator.input_complaints_label')}
+              </label>
+              <span class="text-sm font-bold text-primary">{complaintsYear}</span>
+            </div>
+            <div class="py-2">
               <input
-                type="checkbox"
-                bind:checked={hasSensitiveData}
-                class="mt-0.5 size-4 rounded border-border accent-primary cursor-pointer"
+                id="complaints-slider"
+                type="range"
+                min="1"
+                max="60"
+                step="1"
+                bind:value={complaintsYear}
+                class="roi-slider w-full"
               />
-              <div>
-                <p class="text-sm font-semibold text-foreground">{t('roiCalculator.input_sensitive_label')}</p>
-                <p class="mt-0.5 text-xs leading-relaxed text-muted-foreground">
-                  {t('roiCalculator.input_sensitive_help')}
-                </p>
-              </div>
-            </label>
+            </div>
+            <div class="mt-1.5 flex justify-between text-xs text-muted-foreground">
+              <span>1</span>
+              <span>60</span>
+            </div>
+            <p class="mt-1 text-xs text-muted-foreground">{t('roiCalculator.input_complaints_help')}</p>
           </div>
         </div>
 
@@ -246,66 +190,63 @@
           <!-- Debounced live region for assistive tech -->
           <div class="sr-only" aria-live="polite">{resultsAnnouncement}</div>
 
-          <!-- Fine exposure -->
-          <div class="mb-4 rounded-xl border border-border bg-card p-5 shadow-sm">
-            <div class="mb-2 flex items-center gap-2">
-              <ShieldAlert class="size-5 shrink-0 text-destructive" />
-              <p class="text-sm font-semibold text-foreground">{t('roiCalculator.result_fine_label')}</p>
-            </div>
-            <p class="text-3xl font-heading text-foreground">{formatUTM(maxFineUTM)}</p>
-            <p class="mt-0.5 text-sm text-muted-foreground">≈ {formatCLP(maxFineCLP)}</p>
-            <p class="mt-2 text-xs font-medium text-foreground">
-              {t('roiCalculator.legal_ceiling_note')}
-            </p>
-            <p class="mt-2 text-xs text-muted-foreground">
-              {t('roiCalculator.result_fine_note')}
-            </p>
-            {#if hasSensitiveData}
-              <p class="mt-2 text-xs font-semibold text-error-text">
-                {t('roiCalculator.result_fine_multiplier')}
-              </p>
-            {/if}
-          </div>
-
-          <!-- Operational hours -->
+          <!-- Hours saved -->
           <div class="mb-4 rounded-xl border border-border bg-card p-5 shadow-sm">
             <div class="mb-2 flex items-center gap-2">
               <Clock class="size-5 shrink-0 text-primary" />
-              <p class="text-sm font-semibold text-foreground">{t('roiCalculator.result_hours_label')}</p>
+              <p class="text-sm font-semibold text-foreground">{t('roiCalculator.result_hours_saved_label')}</p>
             </div>
-            <p class="text-3xl font-heading text-foreground">{weeklyHours} h</p>
+            <p data-numeric class="text-3xl font-heading text-foreground">{hoursSavedYear} h</p>
             <p class="mt-0.5 text-sm text-muted-foreground">
-              {dailyPickups} {t('roiCalculator.result_hours_formula')}
+              {hoursMonth} {t('roiCalculator.result_hours_saved_formula')}
             </p>
             <p class="mt-2 text-xs text-muted-foreground">
-              {t('roiCalculator.result_hours_note')}
+              {t('roiCalculator.result_hours_saved_note')}
             </p>
           </div>
 
-          <!-- Operational cost -->
+          <!-- Cost equivalent -->
           <div class="mb-4 rounded-xl border border-border bg-card p-5 shadow-sm">
             <div class="mb-2 flex items-center gap-2">
               <Banknote class="size-5 shrink-0 text-primary" />
-              <p class="text-sm font-semibold text-foreground">{t('roiCalculator.result_cost_label')}</p>
+              <p class="text-sm font-semibold text-foreground">{t('roiCalculator.result_hours_cost_label')}</p>
             </div>
-            <p class="text-3xl font-heading text-foreground">{formatCLP(annualOpCost)}</p>
+            <p data-numeric class="text-3xl font-heading text-foreground">{formatCLP(hoursSavedCost)}</p>
             <p class="mt-0.5 text-sm text-muted-foreground">
-              {weeklyHours} {t('roiCalculator.result_cost_formula')}
-            </p>
-            <p class="mt-2 text-xs text-muted-foreground">
-              {t('roiCalculator.result_cost_note')}
+              {hoursSavedYear} {t('roiCalculator.result_hours_cost_formula')}
             </p>
           </div>
 
-          <!-- Total value at risk -->
-          <div class="rounded-xl border border-primary/30 bg-primary/5 p-5 shadow-sm">
+          <!-- Evidence hours avoided -->
+          <div class="mb-4 rounded-xl border border-border bg-card p-5 shadow-sm">
             <div class="mb-2 flex items-center gap-2">
-              <AlertTriangle class="size-5 shrink-0 text-primary" />
-              <p class="text-sm font-bold text-foreground">{t('roiCalculator.result_total_label')}</p>
+              <FileSearch class="size-5 shrink-0 text-primary" />
+              <p class="text-sm font-semibold text-foreground">{t('roiCalculator.result_evidence_label')}</p>
             </div>
-            <p class="text-4xl font-heading text-primary">{formatCLP(valueAtRisk)}</p>
+            <p data-numeric class="text-3xl font-heading text-foreground">{evidenceHoursAvoided} h</p>
+            <p class="mt-0.5 text-sm text-muted-foreground">
+              {complaintsYear} {t('roiCalculator.result_evidence_formula')}
+            </p>
+            <p class="mt-2 text-xs text-muted-foreground">
+              {t('roiCalculator.result_evidence_note')}
+            </p>
+          </div>
+
+          <!-- Documented risk: the real ruling as reference (figure from claims.ts) -->
+          <div class="rounded-xl border border-destructive/20 bg-destructive/5 p-5 shadow-sm">
+            <div class="mb-2 flex items-center gap-2">
+              <Gavel class="size-5 shrink-0 text-destructive" />
+              <p class="text-sm font-bold text-foreground">{t('roiCalculator.result_ruling_label')}</p>
+            </div>
+            <p data-numeric class="text-4xl font-heading text-destructive">{claimValue(CLAIMS.courtRuling)}</p>
             <p class="mt-1 text-xs text-muted-foreground">
-              {t('roiCalculator.result_total_note')}
+              {claimDetail(CLAIMS.courtRuling)} · {CLAIMS.courtRuling.source}
+            </p>
+            <p class="mt-2 text-xs text-muted-foreground">
+              {t('roiCalculator.result_ruling_note')}
+            </p>
+            <p class="mt-2 text-xs font-semibold text-foreground">
+              {complaintsYear} {t('roiCalculator.result_cases_suffix')}
             </p>
           </div>
         </div>
@@ -315,7 +256,7 @@
       <div class="mt-10 flex items-start gap-3 rounded-xl border border-border bg-secondary p-5">
         <Info class="size-4 shrink-0 text-muted-foreground mt-0.5" />
         <p class="text-xs leading-relaxed text-muted-foreground">
-          <strong class="text-foreground">{t('roiCalculator.methodology_label')}</strong> {t('roiCalculator.methodology_body')} {t('roiCalculator.utm_note')}
+          <strong class="text-foreground">{t('roiCalculator.methodology_label')}</strong> {t('roiCalculator.methodology_body')}
         </p>
       </div>
     </div>
@@ -334,20 +275,17 @@
         {t('roiCalculator.cta_body')}
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href={demoUrl} onclick={handleCTAClick}>
+        <Button size="xl" href="/auditoria" onclick={handleCTAClick}>
           {t('roiCalculator.cta_primary')}
           <ArrowRight class="size-4" />
         </Button>
         <a
-          href="/proyecciones"
+          href="/demo"
           class="inline-flex min-h-11 items-center text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
         >
           {t('roiCalculator.cta_secondary')}
         </a>
       </div>
-      <p class="mt-6 text-xs text-muted-foreground">
-        {t('roiCalculator.cta_footnote')}
-      </p>
     </div>
   </section>
   </main>

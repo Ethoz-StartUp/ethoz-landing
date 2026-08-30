@@ -7,7 +7,7 @@
   import { Button } from '$lib/components/ui/button';
   import {
     Bell, ArrowRight, ArrowLeft, ShieldCheck, Ban, BellRing,
-    UserCheck, AlertTriangle, Clock, CheckCircle, XCircle, MapPin, BadgeCheck
+    UserCheck, AlertTriangle, Clock, CheckCircle, XCircle, MapPin, BadgeCheck, FileText
   } from '@lucide/svelte';
   import { trackEvent } from '$lib/utils/analytics';
 
@@ -253,22 +253,28 @@
     </div>
   </section>
 
-  <!-- Stats bar -->
-  <section class="py-10 sm:py-12">
+  <!-- Expediente band — pickups as evidence in the case file (PIVOTE-PLAN L2 reframe) -->
+  <section class="py-10 sm:py-12" aria-labelledby="pickup-expediente">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="grid gap-8 sm:grid-cols-3 text-center">
-        <div>
-          <p class="text-4xl font-heading text-foreground">0</p>
-          <p class="mt-1 text-sm text-muted-foreground">{t('featurePage.safePickups.stats.stat1_label')}</p>
+      <div class="mx-auto max-w-3xl">
+        <div class="text-center">
+          <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-primary">{t('featurePage.safePickups.expediente.eyebrow')}</p>
+          <h2 id="pickup-expediente" class="mt-2 text-balance text-2xl text-foreground sm:text-3xl">{t('featurePage.safePickups.expediente.title')}</h2>
         </div>
-        <div>
-          <p class="text-4xl font-heading text-foreground">&lt;3s</p>
-          <p class="mt-1 text-sm text-muted-foreground">{t('featurePage.safePickups.stats.stat2_label')}</p>
-        </div>
-        <div>
-          <p class="text-4xl font-heading text-foreground">100%</p>
-          <p class="mt-1 text-sm text-muted-foreground">{t('featurePage.safePickups.stats.stat3_label')}</p>
-        </div>
+        <ul class="mt-8 grid gap-3">
+          <li class="flex items-start gap-3 rounded-xl border border-foreground/10 bg-card p-4 shadow-card-dark">
+            <FileText class="mt-0.5 size-4 shrink-0 text-primary" />
+            <span class="text-sm leading-relaxed text-muted-foreground">{t('featurePage.safePickups.expediente.item1')}</span>
+          </li>
+          <li class="flex items-start gap-3 rounded-xl border border-foreground/10 bg-card p-4 shadow-card-dark">
+            <Ban class="mt-0.5 size-4 shrink-0 text-destructive" />
+            <span class="text-sm leading-relaxed text-muted-foreground">{t('featurePage.safePickups.expediente.item2')}</span>
+          </li>
+          <li class="flex items-start gap-3 rounded-xl border border-foreground/10 bg-card p-4 shadow-card-dark">
+            <BadgeCheck class="mt-0.5 size-4 shrink-0 text-primary" />
+            <span class="text-sm leading-relaxed text-muted-foreground">{t('featurePage.safePickups.expediente.item3')}</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>

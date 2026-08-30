@@ -1,6 +1,13 @@
 <script lang="ts">
   import { t } from '$lib/i18n/index.svelte';
-  import { Shield, UserCheck, AlertTriangle, Bell, FileCheck } from '@lucide/svelte';
+  import { Shield, AlertTriangle, FileText, ListChecks, FileCheck } from '@lucide/svelte';
+
+  // Panel body: the 3 protocol steps of PIVOTE-PLAN L0.1 (denuncia -> protocolo -> descargo).
+  const steps = [
+    { icon: FileText, titleKey: 'hero.panel.step1_title', descKey: 'hero.panel.step1_desc', statusKey: 'hero.panel.step1_status' },
+    { icon: ListChecks, titleKey: 'hero.panel.step2_title', descKey: 'hero.panel.step2_desc', statusKey: 'hero.panel.step2_status' },
+    { icon: FileCheck, titleKey: 'hero.panel.step3_title', descKey: 'hero.panel.step3_desc', statusKey: 'hero.panel.step3_status' },
+  ] as const;
 </script>
 
 <div class="relative mx-auto w-full max-w-xl">
@@ -35,45 +42,22 @@
         </div>
       </div>
 
-      <!-- Student row -->
-      <div class="mt-4 flex items-center gap-3 rounded-xl border border-foreground/10 bg-background p-2.5">
-        <div class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary-active">
-          <UserCheck class="size-5" />
-        </div>
-        <div class="min-w-0 flex-1">
-          <p class="text-sm font-medium text-foreground">{t('hero.student1.name')}</p>
-          <p class="text-xs text-muted-foreground">{t('hero.student1.grade')}</p>
-        </div>
-        <span class="inline-flex items-center gap-1 rounded-full bg-destructive/10 px-2 py-0.5 text-mockup-xs font-semibold text-destructive">
-          <AlertTriangle class="size-3" />
-          {t('hero.student1.alert')}
-        </span>
-      </div>
-
-      <!-- Timeline -->
-      <div class="mt-3 space-y-1.5">
-        <div class="flex items-start gap-3 rounded-lg bg-foreground/[0.03] p-2">
-          <AlertTriangle class="mt-0.5 size-4 shrink-0 text-destructive" />
-          <div class="min-w-0">
-            <p class="text-xs font-medium text-foreground/80">{t('hero.student1.timeline1.text')}</p>
-            <p class="text-mockup-xs text-text-tertiary">{t('hero.student1.timeline1.meta')}</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3 rounded-lg bg-foreground/[0.03] p-2.5">
-          <Bell class="mt-0.5 size-4 shrink-0 text-primary" />
-          <div class="min-w-0">
-            <p class="text-xs font-medium text-foreground/80">{t('hero.student1.timeline2.text')}</p>
-            <p class="text-mockup-xs text-text-tertiary">{t('hero.student1.timeline2.meta')}</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3 rounded-lg bg-foreground/[0.03] p-2.5">
-          <FileCheck class="mt-0.5 size-4 shrink-0 text-primary" />
-          <div class="min-w-0">
-            <p class="text-xs font-medium text-foreground/80">{t('hero.student1.timeline3.text')}</p>
-            <p class="text-mockup-xs text-text-tertiary">{t('hero.student1.timeline3.meta')}</p>
-          </div>
-        </div>
-      </div>
+      <!-- Protocol steps -->
+      <ol class="mt-4 space-y-1.5">
+        {#each steps as step (step.titleKey)}
+          {@const StepIcon = step.icon}
+          <li class="flex items-start gap-3 rounded-lg bg-foreground/[0.03] p-2.5">
+            <StepIcon class="mt-0.5 size-4 shrink-0 text-primary" />
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center justify-between gap-2">
+                <p class="text-xs font-medium text-foreground/80">{t(step.titleKey)}</p>
+                <span class="shrink-0 rounded-full bg-foreground/5 px-2 py-0.5 text-mockup-xs font-semibold text-foreground/70">{t(step.statusKey)}</span>
+              </div>
+              <p class="mt-0.5 text-mockup-xs text-text-tertiary">{t(step.descKey)}</p>
+            </div>
+          </li>
+        {/each}
+      </ol>
 
       <!-- Stats -->
       <div class="mt-4 grid grid-cols-3 divide-x divide-foreground/10 border-t border-foreground/10 pt-3">

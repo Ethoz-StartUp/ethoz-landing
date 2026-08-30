@@ -2,10 +2,10 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
-  import { Badge } from '$lib/components/ui/badge';
   import { BRAND } from '$lib/brand';
-  import { t } from '$lib/i18n/index.svelte';
+  import { getLocale, t } from '$lib/i18n/index.svelte';
   import type { TranslationKey } from '$lib/i18n/index.svelte';
+  import { CLAIMS, type Claim } from '$lib/data/claims';
   import { trackEvent } from '$lib/utils/analytics';
   import {
     ShieldCheck,
@@ -16,7 +16,7 @@
     Scale,
     Lock,
     Database,
-    Link,
+    Upload,
     AlertTriangle,
   } from '@lucide/svelte';
 
@@ -24,16 +24,17 @@
     trackEvent('page_viewed', { page: 'comparativa' });
   });
 
-  // ── Table data ──
+  // Claims render per-locale display values (single source of truth: claims.ts).
+  const claimValue = (claim: Claim) => (getLocale() === 'en' ? (claim.valueEn ?? claim.value) : claim.value);
+  const claimDetail = (claim: Claim) => (getLocale() === 'en' ? (claim.detailEn ?? claim.detail) : claim.detail);
+
+  // ── Table data (PIVOTE-PLAN L3: Registrar vs Ejecutar) ──
   type CellValue = 'yes' | 'no' | 'varies' | 'unknown';
 
   interface Row {
     label: TranslationKey;
-    ethoz: CellValue;
-    napsis: CellValue;
-    syscol: CellValue;
-    lirmi: CellValue;
-    schooltrack: CellValue;
+    /** One value per entry in `columns`, same order. */
+    values: CellValue[];
   }
 
   interface Category {
@@ -41,45 +42,33 @@
     rows: Row[];
   }
 
+  // Column order: competitors first (they record, well), Ethoz last (its own column).
+  const columns = ['Napsis', 'Lirmi', 'Colegium', BRAND];
+
   const categories: Category[] = [
     {
-      label: 'comparativa.cat_security',
+      label: 'comparativa.cat_register',
       rows: [
-        { label: 'comparativa.row_encryption_at_rest', ethoz: 'yes', napsis: 'unknown', syscol: 'unknown', lirmi: 'unknown', schooltrack: 'unknown' },
-        { label: 'comparativa.row_rls_by_role', ethoz: 'yes', napsis: 'unknown', syscol: 'unknown', lirmi: 'unknown', schooltrack: 'unknown' },
-        { label: 'comparativa.row_native_audit_log', ethoz: 'yes', napsis: 'unknown', syscol: 'unknown', lirmi: 'unknown', schooltrack: 'unknown' },
-        { label: 'comparativa.row_law_21719', ethoz: 'yes', napsis: 'unknown', syscol: 'unknown', lirmi: 'varies', schooltrack: 'unknown' },
-        { label: 'comparativa.row_circular_30', ethoz: 'yes', napsis: 'varies', syscol: 'no', lirmi: 'yes', schooltrack: 'varies' },
+        { label: 'comparativa.row_academic_admin', values: ['yes', 'yes', 'yes', 'no'] },
+        { label: 'comparativa.row_case_records', values: ['yes', 'yes', 'yes', 'yes'] },
       ],
     },
     {
-      label: 'comparativa.cat_operational_protection',
+      label: 'comparativa.cat_execute',
       rows: [
-        { label: 'comparativa.row_verified_pickups', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'varies' },
-        { label: 'comparativa.row_court_order_block', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'no' },
-        { label: 'comparativa.row_realtime_role_alerts', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'varies' },
-        { label: 'comparativa.row_digital_emergency_protocol', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'no' },
-      ],
-    },
-    {
-      label: 'comparativa.cat_student_data',
-      rows: [
-        { label: 'comparativa.row_unified_longitudinal_profile', ethoz: 'yes', napsis: 'varies', syscol: 'no', lirmi: 'varies', schooltrack: 'varies' },
-        { label: 'comparativa.row_confidentiality_observations', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
-        { label: 'comparativa.row_no_annual_reset_history', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
-      ],
-    },
-    {
-      label: 'comparativa.cat_integrations',
-      rows: [
-        { label: 'comparativa.row_connects_existing_classbook', ethoz: 'yes', napsis: 'varies', syscol: 'no', lirmi: 'no', schooltrack: 'varies' },
-        { label: 'comparativa.row_open_api', ethoz: 'yes', napsis: 'no', syscol: 'no', lirmi: 'no', schooltrack: 'unknown' },
-        { label: 'comparativa.row_compliant_export', ethoz: 'yes', napsis: 'varies', syscol: 'varies', lirmi: 'varies', schooltrack: 'unknown' },
+        { label: 'comparativa.row_protocol_execution', values: ['no', 'no', 'no', 'yes'] },
+        { label: 'comparativa.row_case_file', values: ['no', 'no', 'no', 'yes'] },
+        { label: 'comparativa.row_ai_drafts', values: ['no', 'no', 'no', 'yes'] },
+        { label: 'comparativa.row_operator_panel', values: ['no', 'no', 'no', 'yes'] },
       ],
     },
   ];
 
-  const columns = [BRAND, 'Napsis', 'Syscol', 'Lirmi', 'SchoolTrack'];
+  const riskStats = [
+    { claim: CLAIMS.complaints2025, label: 'comparativa.risk_complaints_label' as const },
+    { claim: CLAIMS.courtRuling, label: 'comparativa.risk_ruling_label' as const },
+    { claim: CLAIMS.lawFinesCap, label: 'comparativa.risk_fine_label' as const },
+  ];
 </script>
 
 <svelte:head>
@@ -127,8 +116,8 @@
       <h1 class="page-title">
         {t('comparativa.hero_title')}
       </h1>
-      <p class="mt-6 text-lg leading-relaxed text-muted-foreground sm:text-xl">
-        {t('comparativa.hero_lede_part1')} <strong class="text-foreground">{t('comparativa.hero_lede_emphasis')}</strong>{t('comparativa.hero_lede_part2')}
+      <p class="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+        {t('comparativa.hero_lede')}
       </p>
       <p class="mt-4 text-sm text-muted-foreground">
         {t('comparativa.hero_subnote')}
@@ -183,9 +172,10 @@
                 {t('comparativa.table_col_feature')}
               </th>
               {#each columns as col, i}
-                <th scope="col" class="px-2 py-3 text-center text-xs font-bold uppercase tracking-wide sm:px-4 {i === 0 ? 'text-primary-active bg-primary/5 border-x border-primary/20' : 'text-muted-foreground'}">
+                {@const isEthoz = i === columns.length - 1}
+                <th scope="col" class="px-2 py-3 text-center text-xs font-bold uppercase tracking-wide sm:px-4 {isEthoz ? 'text-primary-active bg-primary/5 border-x border-primary/20' : 'text-muted-foreground'}">
                   {col}
-                  {#if i === 0}
+                  {#if isEthoz}
                     <span class="ml-1.5 inline-flex items-center rounded-full bg-primary px-1.5 py-0.5 text-mockup-2xs font-bold text-primary-foreground">★</span>
                   {/if}
                 </th>
@@ -193,7 +183,7 @@
             </tr>
           </thead>
           <tbody>
-            {#each categories as cat, catIdx}
+            {#each categories as cat}
               <!-- Category header row -->
               <tr class="border-b border-border bg-secondary">
                 <td colspan={columns.length + 1} class="px-2 py-2.5 text-xs font-bold uppercase tracking-wider text-muted-foreground sm:px-4">
@@ -206,64 +196,20 @@
                   <th scope="row" class="px-2 py-3 text-left text-sm text-foreground font-medium sm:px-4">
                     {t(row.label)}
                   </th>
-                  <!-- Ethoz -->
-                  <td class="px-2 py-3 text-center bg-primary/5 border-x border-primary/20 sm:px-4">
-                    {#if row.ethoz === 'yes'}
-                      <CheckCircle class="mx-auto size-5 text-primary" role="img" aria-label={t('comparativa.legend_included')} />
-                    {:else if row.ethoz === 'no'}
-                      <XCircle class="mx-auto size-5 text-destructive" role="img" aria-label={t('comparativa.legend_not_included')} />
-                    {:else}
-                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
-                    {/if}
-                  </td>
-                  <!-- Napsis -->
-                  <td class="px-2 py-3 text-center sm:px-4">
-                    {#if row.napsis === 'yes'}
-                      <CheckCircle class="mx-auto size-5 text-primary" role="img" aria-label={t('comparativa.legend_included')} />
-                    {:else if row.napsis === 'no'}
-                      <XCircle class="mx-auto size-5 text-destructive" role="img" aria-label={t('comparativa.legend_not_included')} />
-                    {:else if row.napsis === 'varies'}
-                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
-                    {:else}
-                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_unknown')}</span>
-                    {/if}
-                  </td>
-                  <!-- Syscol -->
-                  <td class="px-2 py-3 text-center sm:px-4">
-                    {#if row.syscol === 'yes'}
-                      <CheckCircle class="mx-auto size-5 text-primary" role="img" aria-label={t('comparativa.legend_included')} />
-                    {:else if row.syscol === 'no'}
-                      <XCircle class="mx-auto size-5 text-destructive" role="img" aria-label={t('comparativa.legend_not_included')} />
-                    {:else if row.syscol === 'varies'}
-                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
-                    {:else}
-                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_unknown')}</span>
-                    {/if}
-                  </td>
-                  <!-- Lirmi -->
-                  <td class="px-2 py-3 text-center sm:px-4">
-                    {#if row.lirmi === 'yes'}
-                      <CheckCircle class="mx-auto size-5 text-primary" role="img" aria-label={t('comparativa.legend_included')} />
-                    {:else if row.lirmi === 'no'}
-                      <XCircle class="mx-auto size-5 text-destructive" role="img" aria-label={t('comparativa.legend_not_included')} />
-                    {:else if row.lirmi === 'varies'}
-                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
-                    {:else}
-                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_unknown')}</span>
-                    {/if}
-                  </td>
-                  <!-- SchoolTrack -->
-                  <td class="px-2 py-3 text-center sm:px-4">
-                    {#if row.schooltrack === 'yes'}
-                      <CheckCircle class="mx-auto size-5 text-primary" role="img" aria-label={t('comparativa.legend_included')} />
-                    {:else if row.schooltrack === 'no'}
-                      <XCircle class="mx-auto size-5 text-destructive" role="img" aria-label={t('comparativa.legend_not_included')} />
-                    {:else if row.schooltrack === 'varies'}
-                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
-                    {:else}
-                      <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_unknown')}</span>
-                    {/if}
-                  </td>
+                  {#each row.values as cell, i}
+                    {@const isEthoz = i === columns.length - 1}
+                    <td class="px-2 py-3 text-center sm:px-4 {isEthoz ? 'bg-primary/5 border-x border-primary/20' : ''}">
+                      {#if cell === 'yes'}
+                        <CheckCircle class="mx-auto size-5 text-primary" role="img" aria-label={t('comparativa.legend_included')} />
+                      {:else if cell === 'no'}
+                        <XCircle class="mx-auto size-5 text-destructive" role="img" aria-label={t('comparativa.legend_not_included')} />
+                      {:else if cell === 'varies'}
+                        <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_varies')}</span>
+                      {:else}
+                        <span class="text-xs text-muted-foreground">○ {t('comparativa.cell_unknown')}</span>
+                      {/if}
+                    </td>
+                  {/each}
                 </tr>
               {/each}
             {/each}
@@ -315,42 +261,37 @@
 
         <div class="rounded-xl border border-border bg-card p-6 shadow-sm">
           <div class="mb-3 flex items-center gap-2.5">
-            <Link class="size-5 shrink-0 text-primary" />
+            <Upload class="size-5 shrink-0 text-primary" />
             <h3 class="text-base text-foreground">{t('comparativa.card_together_title')}</h3>
           </div>
           <p class="text-sm text-muted-foreground leading-relaxed">
             {t('comparativa.card_together_body')}
           </p>
-          <p class="mt-3 text-xs font-semibold text-muted-foreground uppercase tracking-wide">{t('comparativa.card_together_api_label')}</p>
-          <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.card_together_api_body')}</p>
+          <p class="mt-3 text-xs font-semibold text-muted-foreground uppercase tracking-wide">{t('comparativa.card_together_import_label')}</p>
+          <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.card_together_import_body')}</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ══════════════════════════════════════
-       RISK CALLOUT
+       RISK CALLOUT — figures only from claims.ts
        ══════════════════════════════════════ -->
   <section class="py-10 sm:py-12 bg-background">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="rounded-xl border border-border bg-card p-8 shadow-sm">
         <div class="grid gap-8 sm:grid-cols-3 text-center">
-          <div>
-            <p class="text-3xl font-heading text-foreground">20.000 UTM</p>
-            <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.risk_fine_label')}</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">más de $1.300 millones</p>
-          </div>
-          <div>
-            <p class="text-3xl font-heading text-foreground">{t('comparativa.risk_date_value')}</p>
-            <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.risk_date_label')}</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">{t('comparativa.risk_date_note')}</p>
-          </div>
-          <div>
-            <p class="text-3xl font-heading text-foreground">12.038</p>
-            <p class="mt-1 text-sm text-muted-foreground">{t('comparativa.risk_schools_label')}</p>
-            <p class="mt-0.5 text-xs text-muted-foreground">{t('comparativa.risk_schools_note')}</p>
-          </div>
+          {#each riskStats as stat (stat.label)}
+            <div>
+              <p data-numeric class="text-3xl font-heading text-foreground">{claimValue(stat.claim)}</p>
+              <p class="mt-1 text-sm text-muted-foreground">{t(stat.label)}</p>
+              <p class="mt-0.5 text-xs text-muted-foreground">{claimDetail(stat.claim) ?? stat.claim.source}</p>
+            </div>
+          {/each}
         </div>
+        <p class="mt-6 text-center text-xs text-text-tertiary">
+          {CLAIMS.complaints2025.source} · {CLAIMS.courtRuling.source} · {CLAIMS.lawFinesCap.source}
+        </p>
       </div>
     </div>
   </section>
@@ -368,7 +309,7 @@
         {t('comparativa.cta_lede')}
       </p>
       <div class="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <Button size="xl" href="/demo">
+        <Button size="xl" href="/auditoria">
           {t('comparativa.cta_primary')}
           <ArrowRight class="size-4" />
         </Button>

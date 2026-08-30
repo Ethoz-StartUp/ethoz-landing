@@ -43,7 +43,19 @@
   // Audit-intent variant: /auditoria CTAs land here with ?tipo=auditoria so the
   // page speaks to the offer the visitor clicked, not only the demo funnel.
   // browser guard: searchParams cannot be read during prerendering.
-  const isAudit = $derived(browser && page.url.searchParams.get('tipo') === 'auditoria');
+  const urlIntent = $derived(browser ? page.url.searchParams.get('tipo') : null);
+  // PIVOTE-PLAN L3.5: without an explicit param the visitor picks the intent
+  // (Auditoría recomendada vs Demo). The calendar loads regardless (same Cal
+  // link), the choice only re-frames copy and tracking.
+  let chosenIntent = $state<'audit' | 'demo'>('demo');
+  const showChooser = $derived(urlIntent === null);
+  const isAudit = $derived(urlIntent === 'auditoria' || (urlIntent === null && chosenIntent === 'audit'));
+
+  function selectIntent(intent: 'audit' | 'demo') {
+    if (chosenIntent === intent) return;
+    chosenIntent = intent;
+    trackEvent('agendar_intent_selected', { intent });
+  }
 
   let calContainer = $state<HTMLDivElement | null>(null);
   let calLoaded = $state(false);
@@ -255,6 +267,38 @@
         {isAudit ? t('agendar.description_audit') : t('demo.step3.description')}
       </p>
     </div>
+
+    <!-- Intent chooser: only when the visitor did not arrive with an explicit tipo param -->
+    {#if showChooser}
+      <div class="mx-auto mb-8 max-w-2xl" role="group" aria-label={t('agendar.choose_label')}>
+        <p class="mb-3 text-center text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('agendar.choose_label')}</p>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <button
+            type="button"
+            onclick={() => selectIntent('audit')}
+            aria-pressed={isAudit}
+            class="rounded-xl border p-4 text-left transition-all duration-200 {isAudit ? 'border-primary/40 bg-primary/5 shadow-card-dark' : 'border-border bg-card hover:border-foreground/20'}"
+          >
+            <span class="flex items-center justify-between gap-2">
+              <span class="text-sm font-semibold text-foreground">{t('agendar.choose_audit_title')}</span>
+              <span class="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 text-mockup-xs font-semibold text-primary-active">{t('agendar.choose_audit_badge')}</span>
+            </span>
+            <span class="mt-1 block text-xs leading-relaxed text-muted-foreground">{t('agendar.choose_audit_desc')}</span>
+          </button>
+          <button
+            type="button"
+            onclick={() => selectIntent('demo')}
+            aria-pressed={!isAudit}
+            class="rounded-xl border p-4 text-left transition-all duration-200 {!isAudit ? 'border-primary/40 bg-primary/5 shadow-card-dark' : 'border-border bg-card hover:border-foreground/20'}"
+          >
+            <span class="flex items-center justify-between gap-2">
+              <span class="text-sm font-semibold text-foreground">{t('agendar.choose_demo_title')}</span>
+            </span>
+            <span class="mt-1 block text-xs leading-relaxed text-muted-foreground">{t('agendar.choose_demo_desc')}</span>
+          </button>
+        </div>
+      </div>
+    {/if}
 
     <!-- Cal.com inline embed — auto-resizes, no double scroll -->
     <section aria-label={t('agendar.calendar_section_aria')} class="overflow-hidden rounded-xl border border-border bg-background shadow-sm">

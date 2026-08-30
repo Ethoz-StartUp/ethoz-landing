@@ -2,7 +2,8 @@
   import NavBar from '$lib/components/NavBar.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { Button } from '$lib/components/ui/button';
-  import { t, type TranslationKey } from '$lib/i18n/index.svelte';
+  import { t, getLocale, type TranslationKey } from '$lib/i18n/index.svelte';
+  import { CLAIMS, type Claim } from '$lib/data/claims';
   import {
     Compass, ArrowRight, BadgeCheck, AlertTriangle, Clock,
     CheckCircle, Users, Activity, BarChart3, MessageSquare,
@@ -11,6 +12,16 @@
   import { trackEvent } from '$lib/utils/analytics';
 
   $effect(() => { trackEvent('audience_page_viewed', { audience: 'directores' }); });
+
+  // Claims render per-locale display values (single source of truth: claims.ts).
+  const claimValue = (claim: Claim) => (getLocale() === 'en' ? (claim.valueEn ?? claim.value) : claim.value);
+
+  // Stats band: only figures from claims.ts, with visible sources (PIVOTE-PLAN L5).
+  const statsBand = [
+    { claim: CLAIMS.complaintsShare, caption: 'audience.directores.stat1_caption' as const },
+    { claim: CLAIMS.complaints2025, caption: 'audience.directores.stat2_caption' as const },
+    { claim: CLAIMS.courtRuling, caption: 'audience.directores.stat3_caption' as const },
+  ];
 
   const convivenciaMeses: { mesKey: TranslationKey; valor: number; cursoKey: TranslationKey | ''; alerta?: boolean }[] = [
     { mesKey: 'audience.directores.chart_month_aug', valor: 4, cursoKey: '' },
@@ -423,18 +434,13 @@
   <section class="bg-secondary py-10 sm:py-12">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid gap-8 sm:grid-cols-3 text-center">
-        <div>
-          <p class="text-4xl font-heading text-foreground">70,8%</p>
-          <p class="mt-1 text-sm text-muted-foreground">{t('audience.directores.stat1_caption')}</p>
-        </div>
-        <div>
-          <p class="text-4xl font-heading text-foreground">&lt;5 min</p>
-          <p class="mt-1 text-sm text-muted-foreground">{t('audience.directores.stat2_caption')}</p>
-        </div>
-        <div>
-          <p class="text-4xl font-heading text-foreground">100%</p>
-          <p class="mt-1 text-sm text-muted-foreground">{t('audience.directores.stat3_caption')}</p>
-        </div>
+        {#each statsBand as stat (stat.caption)}
+          <div>
+            <p data-numeric class="text-4xl font-heading text-foreground">{claimValue(stat.claim)}</p>
+            <p class="mt-1 text-sm text-muted-foreground">{t(stat.caption)}</p>
+            <p class="mt-0.5 text-xs text-text-tertiary">{stat.claim.source}</p>
+          </div>
+        {/each}
       </div>
     </div>
   </section>

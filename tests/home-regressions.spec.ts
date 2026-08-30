@@ -22,17 +22,19 @@ for (const viewport of [
 			await page.goto('/');
 		});
 
-		test('operational mockup remains visible with the full student name', async ({ page }) => {
+		test('operational mockup remains visible with the protocol steps', async ({ page }) => {
 			await expect(page.getByText('Ethoz · Demo operacional', { exact: true })).toBeVisible();
-			const studentName = page.getByText('Alumno de ejemplo', { exact: true }).first();
-			await expect(studentName).toBeVisible();
-			expect(
-				await studentName.evaluate((element) => ({
-					text: element.textContent?.trim(),
-					textOverflow: getComputedStyle(element).textOverflow,
-					overflows: element.scrollWidth > element.clientWidth + 1
-				}))
-			).toEqual({ text: 'Alumno de ejemplo', textOverflow: 'clip', overflows: false });
+			for (const stepTitle of ['Denuncia registrada', 'Protocolo activado', 'Descargo borrador listo']) {
+				const step = page.getByText(stepTitle, { exact: true }).first();
+				await expect(step).toBeVisible();
+				expect(
+					await step.evaluate((element) => ({
+						text: element.textContent?.trim(),
+						textOverflow: getComputedStyle(element).textOverflow,
+						overflows: element.scrollWidth > element.clientWidth + 1
+					}))
+				).toEqual({ text: stepTitle, textOverflow: 'clip', overflows: false });
+			}
 		});
 
 		test('fast scrolling never makes reveal sections transparent', async ({ page }) => {

@@ -86,8 +86,8 @@
     return () => observer.disconnect();
   });
 
-  // 5 pivot features (PIVOTE-PLAN L0.3). Until the L2 feature pages ship, each
-  // card routes to the closest existing page for its promise.
+  // 5 pivot features (PIVOTE-PLAN L0.3). Cards route to the L2 feature pages;
+  // continuidad lives inside the expediente-legal page (history across years).
   const featureCards: Array<{
     href: string;
     icon: typeof FileCheck;
@@ -95,13 +95,13 @@
     descKey: TranslationKey;
   }> = [
     {
-      href: '/funcionalidades/ficha-alumno',
+      href: '/funcionalidades/expediente-legal',
       icon: FileText,
       titleKey: 'home.feature.expediente.title',
       descKey: 'home.feature.expediente.desc',
     },
     {
-      href: '/funcionalidades/alertas',
+      href: '/funcionalidades/protocolos-y-plazos',
       icon: CalendarClock,
       titleKey: 'home.feature.protocolos.title',
       descKey: 'home.feature.protocolos.desc',
@@ -113,13 +113,13 @@
       descKey: 'home.feature.actas.desc',
     },
     {
-      href: '/funcionalidades/ficha-alumno',
+      href: '/funcionalidades/expediente-legal',
       icon: History,
       titleKey: 'home.feature.continuidad.title',
       descKey: 'home.feature.continuidad.desc',
     },
     {
-      href: '/para-sostenedores',
+      href: '/funcionalidades/panel-sostenedor',
       icon: Building2,
       titleKey: 'home.feature.panel.title',
       descKey: 'home.feature.panel.desc',

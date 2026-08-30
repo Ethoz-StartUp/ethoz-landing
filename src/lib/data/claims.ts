@@ -91,6 +91,13 @@ export const CLAIMS = {
     sourceUrl: 'https://bibliotecadigital.mineduc.cl/handle/20.500.12365/21939',
     date: '2025-12-01',
   },
+  /** Sostenedores multi-colegio (Tier 1 de la venta) según el directorio Mineduc. */
+  multiSchoolOperators: {
+    value: '401',
+    source: 'Directorio de establecimientos Mineduc 2025, procesamiento Ethoz',
+    sourceUrl: 'https://bibliotecadigital.mineduc.cl/handle/20.500.12365/21939',
+    date: '2026-07-17',
+  },
 } as const satisfies Record<string, Claim>;
 
 /**

@@ -3,13 +3,13 @@ import { BRAND } from '$lib/brand';
 
 export const post: BlogPost = {
 	slug: 'desercion-escolar-chile-prevencion',
-	title: '10.000 estudiantes más abandonaron el sistema: cómo prevenir la deserción escolar',
+	title: '10.000 estudiantes más abandonaron el sistema: cómo detectar el riesgo a tiempo',
 	description:
-		'Chile tiene 10.000 estudiantes más desvinculados que en 2019. El 27% en LATAM no completa la secundaria. La inteligencia artificial y la ficha integral pueden anticipar el riesgo antes de que sea irreversible.',
+		'Chile tiene 10.000 estudiantes más desvinculados que en 2019. El 27% en LATAM no completa la secundaria. La ficha integral permite detectar las señales de riesgo antes de que la desvinculación sea irreversible.',
 	date: '2026-04-07',
 	author: `Equipo ${BRAND}`,
 	readTime: '9 min',
-	tags: ['Deserción Escolar', 'Alerta Temprana', 'Prevención'],
+	tags: ['Deserción Escolar', 'Alerta Temprana', 'Continuidad'],
 	coverImage: '/images/blog/desercion-escolar-chile-prevencion.webp',
 	content: `
 <div style="border-left: 3px solid var(--primary); padding-left: 1rem; margin-bottom: 2rem; background: var(--secondary); border-radius: 0.5rem; padding: 1.25rem;">

@@ -1,30 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <!-- 8020 dark hero card: charcoal spine, sky accent, DM Sans wordmark -->
-  <rect width="1200" height="630" fill="#18181B"/>
-  <!-- bottom accent rule -->
-  <rect x="0" y="626" width="1200" height="4" fill="#0495FE"/>
-  <!-- Logo mark, interseccion (warm-white back + sky front), rounded -->
-  <g transform="translate(536, 150)">
-    <rect x="0" y="20" width="80" height="96" rx="22" fill="none" stroke="#FAF8F5" stroke-width="5"/>
-    <rect x="48" y="0" width="80" height="96" rx="22" fill="none" stroke="#38A8FF" stroke-width="5"/>
-  </g>
-  <!-- Eyebrow, mono-ish caps -->
-  <text x="600" y="320" text-anchor="middle" font-family="'JetBrains Mono','SF Mono',ui-monospace,monospace" font-size="14" font-weight="600" fill="#38A8FF" letter-spacing="3.2">
-    ETHOZ · PROTECCION ESCOLAR
-  </text>
-  <!-- Brand wordmark, DM Sans 800 -->
-  <text x="600" y="406" text-anchor="middle" font-family="'DM Sans ExtraBold','DM Sans Variable','DM Sans',sans-serif" font-size="84" font-weight="800" letter-spacing="-3">
-    <tspan fill="#FAF8F5">Etho</tspan><tspan fill="#38A8FF">z</tspan>
-  </text>
-  <!-- Tagline -->
-  <text x="600" y="468" text-anchor="middle" font-family="'DM Sans','DM Sans Variable',Inter,system-ui,sans-serif" font-size="28" font-weight="500" fill="#E4E4E7">
-    Proteccion escolar inteligente
-  </text>
-  <!-- Compliance note + URL -->
-  <text x="600" y="530" text-anchor="middle" font-family="Inter,system-ui,-apple-system,sans-serif" font-size="17" fill="#A1A1AA" font-weight="400">
-    Cumple con la Ley 21.719 desde el primer dia
-  </text>
-  <text x="600" y="582" text-anchor="middle" font-family="'JetBrains Mono','SF Mono',ui-monospace,monospace" font-size="14" fill="#8E8E93" font-weight="600" letter-spacing="3">
-    ETHOZ.CL
-  </text>
+  <!-- Social card, Launch UI light aesthetic. Regenerate the served PNG with:
+       node scripts/generate-og-images.mjs (composites the brand PNG logo). -->
+  <rect width="1200" height="630" fill="#FAFAF9"/>
+  <rect x="70" y="70" width="1060" height="490" rx="28" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="2"/>
+  <circle cx="1050" cy="180" r="90" fill="#2563EB" fill-opacity="0.08"/>
+  <circle cx="150" cy="470" r="70" fill="#2563EB" fill-opacity="0.06"/>
+  <image href="/logos/png/ethoz-horizontal-light-1024.png" x="340" y="244" width="520" height="142"/>
+  <rect x="70" y="548" width="120" height="6" rx="3" fill="#2563EB"/>
 </svg>

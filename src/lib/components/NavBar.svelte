@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Button } from '$lib/components/ui/button';
   import { t } from '$lib/i18n/index.svelte';
-  import { Menu, X, ChevronDown, Shield, Search, ClipboardList, Bell, Fingerprint, Sparkles } from '@lucide/svelte';
+  import { Menu, X, ChevronDown, Shield, Search, ClipboardList, Bell, Fingerprint, Sparkles, FileText, CalendarClock, Building2 } from '@lucide/svelte';
   import { env } from '$env/dynamic/public';
   import { tick } from 'svelte';
   import { slide } from 'svelte/transition';
@@ -78,8 +78,12 @@
     return () => desktopViewport.removeEventListener('change', closeAtDesktop);
   });
 
+  // PIVOTE-PLAN L2: the 4 convivencia-execution features lead the menu.
   const products = [
+    { icon: FileText, name: 'nav.product_expediente_name' as const, href: '/funcionalidades/expediente-legal', desc: 'nav.product_expediente_desc' as const },
+    { icon: CalendarClock, name: 'nav.product_protocolos_name' as const, href: '/funcionalidades/protocolos-y-plazos', desc: 'nav.product_protocolos_desc' as const },
     { icon: Sparkles, name: 'nav.product_actas_name' as const, href: '/funcionalidades/actas-y-descargos', desc: 'nav.product_actas_desc' as const },
+    { icon: Building2, name: 'nav.product_panel_name' as const, href: '/funcionalidades/panel-sostenedor', desc: 'nav.product_panel_desc' as const },
     { icon: ClipboardList, name: 'nav.product_student_profile_name' as const, href: '/funcionalidades/ficha-alumno', desc: 'nav.product_student_profile_desc' as const },
     { icon: Bell, name: 'nav.product_safe_pickups_name' as const, href: '/funcionalidades/retiros-seguros', desc: 'nav.product_safe_pickups_desc' as const },
     { icon: Fingerprint, name: 'nav.product_access_control_name' as const, href: '/funcionalidades/acceso-por-rol', desc: 'nav.product_access_control_desc' as const },

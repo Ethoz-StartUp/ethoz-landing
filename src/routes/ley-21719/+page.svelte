@@ -139,7 +139,7 @@
       "headline": "Ley 21.719: Guía completa para colegios, qué es, multas y cómo cumplir",
       "description": "Ley 21.719 colegios Chile: qué exige, multas hasta 20.000 UTM, derechos ARCO+P, plazos dic 2026. Guía práctica para sostenedores y directivos.",
       "datePublished": "2026-04-07",
-      "dateModified": "2026-07-07",
+      "dateModified": "2026-07-17",
       "author": { "@type": "Organization", "name": BRAND },
       "publisher": { "@type": "Organization", "name": BRAND, "logo": { "@type": "ImageObject", "url": "https://ethoz.cl/favicon.svg" }},
       "url": "https://ethoz.cl/ley-21719",
@@ -274,6 +274,14 @@
             <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('ley21719.s1_keydate_label')}</p>
             <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
               {t('ley21719.s1_keydate_pre')}<strong class="text-foreground">{t('ley21719.s1_keydate_strong1')}</strong>{t('ley21719.s1_keydate_mid')}<strong class="text-foreground">{t('ley21719.s1_keydate_strong2')}</strong>{t('ley21719.s1_keydate_post')}<sup class="ml-0.5 text-primary">1</sup>
+            </p>
+          </aside>
+
+          <!-- Real regulatory state: honesty as the trust differentiator (PIVOTE-PLAN L3) -->
+          <aside class="mt-6 border-t border-border pt-6">
+            <p class="text-mockup-sm font-mono font-semibold uppercase tracking-[0.1em] text-muted-foreground">{t('ley21719.s1_state_label')}</p>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+              {t('ley21719.s1_state_body')}
             </p>
           </aside>
         </section>
@@ -449,7 +457,7 @@
             {/each}
           </ol>
           <p class="mt-6 text-sm text-muted-foreground">
-            {t('ley21719.s8_cta_pre')} <a href="/demo" class="border-b border-primary pb-0.5 font-semibold text-primary hover:border-b-2">{t('ley21719.s8_cta_link')}</a>.
+            {t('ley21719.s8_cta_pre')} <a href="/auditoria" class="border-b border-primary pb-0.5 font-semibold text-primary hover:border-b-2">{t('ley21719.s8_cta_link')}</a>.
           </p>
         </section>
 
@@ -515,7 +523,7 @@
       </p>
       <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
-          href="/demo"
+          href="/auditoria"
           class="inline-flex h-14 items-center justify-center gap-2 rounded-md bg-gradient-to-b from-primary to-primary-hover px-10 text-base font-semibold text-cta-text transition-colors hover:from-primary-hover hover:to-primary-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
           {t('ley21719.cta_primary')}

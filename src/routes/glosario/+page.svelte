@@ -75,7 +75,7 @@
       { term: 'UTP', def: 'Unidad Técnico-Pedagógica. Unidad responsable de la gestión curricular y pedagógica del establecimiento. Accede a datos académicos del libro de clases; bajo la Circular N°30 y la Ley 21.719, su acceso debe estar controlado y auditado.', tag: 'Educación' },
     ],
     V: [
-      { term: 'Verificación de identidad', def: 'Proceso de confirmar que una persona es quien dice ser. Bajo la Circular N°30, el estándar de referencia es la Clave Única del Estado. En portería, puede incluir validación de RUT, huella dactilar o reconocimiento facial.', link: '/circular-30', tag: 'Seguridad' },
+      { term: 'Verificación de identidad', def: 'Proceso de confirmar que una persona es quien dice ser. Bajo la Circular N°30, el estándar de referencia es la Clave Única del Estado. En portería, se valida el RUT contra el registro de personas autorizadas del estudiante.', link: '/circular-30', tag: 'Seguridad' },
     ],
   };
 

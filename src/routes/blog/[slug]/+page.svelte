@@ -137,7 +137,7 @@
       <p class="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
         {t('cta.subtitle')}
       </p>
-      <Button size="xl" href="/demo" class="mt-6">
+      <Button size="xl" href="/auditoria" class="mt-6">
         {t('cta.primary')}
         <ArrowRight class="size-4" />
       </Button>
